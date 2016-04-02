@@ -16,9 +16,3 @@ Replace the bracketed `[...]` placeholders with your own information.
 
 - Browser/version: [here]
 - uBlock Origin version: [here]
-
-##### Your filter lists
-
-[Example: "Default filter lists + FRA", or "Default filter lists minus uBlock -- Badware risks"]
-
-##### Your custom filters (if any)
