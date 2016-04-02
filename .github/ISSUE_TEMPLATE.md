@@ -1,4 +1,4 @@
-Replace the bracketed `[...]` placeholder with your own information.
+Replace the bracketed `[...]` placeholders with your own information.
 
 ### Describe the issue
 
