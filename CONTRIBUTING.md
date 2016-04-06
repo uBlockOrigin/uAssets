@@ -10,4 +10,9 @@ Old filters which are confirmed to still be required must be moved to the end of
 
 ##### Issue number association
 
-**All** added filters must be associated with a formal issue number. This way this documents why a filter was added, and how to verify whether an old filter is still needed.
+**All** added filters must be associated with a formal issue number, example:
+
+    ! https://github.com/uBlockOrigin/uAssets/issues/2
+    ||data.inertanceretinallaurel.com^
+
+This way this documents why a filter was added, and how to verify whether an old filter is still needed. The comment line preceding the filter(s) to solve a specific issue should be only a URL to the issue. The issue itself can contains all the details about how the issue was solved, and why it was solved this way, etc.
