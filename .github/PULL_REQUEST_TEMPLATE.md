@@ -12,7 +12,11 @@ Replace the bracketed [...] placeholders with your own information.
 
 [Screenshot(s) for difficult to describe visual issues are **mandatory**]
 
-### Your settings
+### Versions
 
 - Browser/version: [here]
 - uBlock Origin version: [here]
+
+### Settings
+
+- [List here all the changes you made to uBO's default settings]
