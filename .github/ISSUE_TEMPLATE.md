@@ -19,4 +19,4 @@ Replace the bracketed [...] placeholders with your own information.
 
 ### Settings
 
-- [List here all the differences with the default settings]
+- [List here all the changes you made to uBO's default settings]
