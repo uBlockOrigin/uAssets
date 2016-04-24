@@ -126,7 +126,8 @@ antiAdBlock.js application/javascript
 # to wholly block GA while minimizing risks of page breakage.
 # Test cases (need way more):
 # - https://github.com/chrisaljoudi/uBlock/issues/119
-
+# Reference API:
+# - https://developers.google.com/analytics/devguides/collection/gajs/
 google-analytics.com/ga.js application/javascript
 (function() {
 	var noopfn = function() {
@@ -150,16 +151,35 @@ google-analytics.com/ga.js application/javascript
 		}
 	};
 	//
-	var tracker = {
-		_getLinkerUrl: function(a) {
-				return a;
-		},
-		_initData: noopfn,
-		_setCustomVar: noopfn,
-		_trackEvent: noopfn,
-		_trackPageview: noopfn,
-		_visitCode: noopfn
-	};
+	var tracker = (function() {
+		var out = {};
+		var api = [
+			'_addIgnoredOrganic _addIgnoredRef _addItem _addOrganic',
+			'_addTrans _clearIgnoredOrganic _clearIgnoredRef _clearOrganic',
+			'_cookiePathCopy _deleteCustomVar _getName _setAccount',
+			'_getAccount _getClientInfo _getDetectFlash _getDetectTitle',
+			'_getLinkerUrl _getLocalGifPath _getServiceMode _getVersion',
+			'_getVisitorCustomVar _initData _link _linkByPost',
+			'_setAllowAnchor _setAllowHash _setAllowLinker _setCampContentKey',
+			'_setCampMediumKey _setCampNameKey _setCampNOKey _setCampSourceKey',
+			'_setCampTermKey _setCampaignCookieTimeout _setCampaignTrack _setClientInfo',
+			'_setCookiePath _setCookiePersistence _setCookieTimeout _setCustomVar',
+			'_setDetectFlash _setDetectTitle _setDomainName _setLocalGifPath',
+			'_setLocalRemoteServerMode _setLocalServerMode _setReferrerOverride _setRemoteServerMode',
+			'_setSampleRate _setSessionTimeout _setSiteSpeedSampleRate _setSessionCookieTimeout',
+			'_setVar _setVisitorCookieTimeout _trackEvent _trackPageLoadTime',
+			'_trackPageview _trackSocial _trackTiming _trackTrans',
+			'_visitCode'
+		].join(' ').split(/\s+/);
+		var i = api.length;
+		while ( i-- ) {
+			out[api[i]] = noopfn;
+		}
+		out._getLinkerUrl = function(a) {
+			return a;
+		};
+        return out;
+	})();
 	//
 	var Gat = function() {
 		;
@@ -466,17 +486,17 @@ pornhub-popup-defuser.js application/javascript
 pornhub-sanitizer.js application/javascript
 (function() {
 	var removeAdFrames = function(aa) {
-        var el;
-        for ( var i = 0; i < aa.length; i++ ) {
-            el = document.getElementById(aa[i]);
-            if ( el !== null ) {
-                el.parentNode.removeChild(el);
-            }
-        }
+		var el;
+		for ( var i = 0; i < aa.length; i++ ) {
+			el = document.getElementById(aa[i]);
+			if ( el !== null ) {
+				el.parentNode.removeChild(el);
+			}
+		}
 	};
 	Object.defineProperty(window, 'block_logic', {
 		get: function() { return removeAdFrames; },
-        set: function() {}
+		set: function() {}
 	});
 })();
 
