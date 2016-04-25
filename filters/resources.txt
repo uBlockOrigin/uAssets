@@ -986,7 +986,7 @@ rtlfr-defuser.js application/javascript
 })();
 
 
-# Experimental: Generic overlay defuser.
+# Experimental: Generic nuisance overlay buster.
 # if this works well and proves to be useful, this may end up as a stock tool
 # in uBO's popup panel.
 overlay-buster.js application/javascript
@@ -994,14 +994,11 @@ overlay-buster.js application/javascript
 	if ( window !== window.top ) {
 		return;
 	}
-	var shutdown = function() {
-		observer.disconnect();
-		observer = null;
-	};
-	var ttlTimer = setTimeout(shutdown, 15000);
-	var timer = null;
-	var domChanged = function(mutations) {
-		timer = null;
+    var tstart = Date.now();
+	var ttl = 15000;
+	var delay = 0;
+	var delayStep = 50;
+	var buster = function(mutations) {
 		var docEl = document.documentElement,
 			bodyEl = document.body,
 			vw = Math.min(docEl.clientWidth, window.innerWidth),
@@ -1010,35 +1007,27 @@ overlay-buster.js application/javascript
 			style, rect;
 		for (;;) {
 			if ( el === null || el.parentNode === null || el === bodyEl ) {
-				return;
+				break;
 			}
 			style = window.getComputedStyle(el);
 			if ( parseInt(style.zIndex, 10) >= 1000 && style.position === 'fixed' ) {
 				rect = el.getBoundingClientRect();
 				if ( rect.left <= 0 && rect.top <= 0 && rect.right >= vw && rect.bottom >= vh ) {
+					el.parentNode.removeChild(el);
+                    delayStep = 200;
 					break;
 				}
 			}
 			el = el.parentNode;
 		}
-		el.parentNode.removeChild(el);
-		if ( ttlTimer !== null ) {
-			clearTimeout(ttlTimer);
-			ttlTimer = setTimeout(shutdown, 15000);
+		if ( (Date.now() - tstart) < ttl ) {
+			delay += delayStep;
+			setTimeout(buster, delay);
 		}
 	};
-	var domChangedAsync = function(mutations) {
-		if ( timer === null ) {
-			timer = setTimeout(domChanged, 50);
-		}
-	};
-	var observer = new MutationObserver(domChangedAsync);
 	var domReady = function(ev) {
 		document.removeEventListener(ev.type, domReady);
-		observer.observe(document.body, {
-			childList: true,
-			subtree: true
-		});
+		setTimeout(buster, delay);
 	};
 	document.addEventListener('DOMContentLoaded', domReady);
 })();
