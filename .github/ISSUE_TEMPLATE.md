@@ -1,6 +1,6 @@
 Replace the bracketed [...] placeholders with your own information.
 
-### One or more specific URLs where the issue occurs
+### URL(s) where the issue occurs
 
 `[At least one URL for a web page where the clearly described issue occurs is **mandatory**. The backticks surrounding the URLs is important, it prevents the URL from being clickable. Warn with "NSFW" where applicable.]`
 
