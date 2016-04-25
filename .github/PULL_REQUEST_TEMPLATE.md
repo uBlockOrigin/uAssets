@@ -20,3 +20,7 @@ Replace the bracketed [...] placeholders with your own information.
 ### Settings
 
 - [List here all the changes you made to uBO's default settings]
+
+### Notes
+
+[Add here the result of whatever investgation work you have done: please investigate the issues you report -- this prevents burdening other volunteers. This is especially true for issues arising from settings which are very different from default ones.]
