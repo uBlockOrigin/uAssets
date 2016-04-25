@@ -178,7 +178,7 @@ google-analytics.com/ga.js application/javascript
 		out._getLinkerUrl = function(a) {
 			return a;
 		};
-        return out;
+		return out;
 	})();
 	//
 	var Gat = function() {
@@ -994,7 +994,7 @@ overlay-buster.js application/javascript
 	if ( window !== window.top ) {
 		return;
 	}
-    var tstart = Date.now();
+	var tstart;
 	var ttl = 15000;
 	var delay = 0;
 	var delayStep = 50;
@@ -1014,7 +1014,7 @@ overlay-buster.js application/javascript
 				rect = el.getBoundingClientRect();
 				if ( rect.left <= 0 && rect.top <= 0 && rect.right >= vw && rect.bottom >= vh ) {
 					el.parentNode.removeChild(el);
-                    delayStep = 200;
+					delayStep = 200;
 					break;
 				}
 			}
@@ -1027,6 +1027,7 @@ overlay-buster.js application/javascript
 	};
 	var domReady = function(ev) {
 		document.removeEventListener(ev.type, domReady);
+		tstart = Date.now();
 		setTimeout(buster, delay);
 	};
 	document.addEventListener('DOMContentLoaded', domReady);
