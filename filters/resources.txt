@@ -1052,3 +1052,44 @@ alert-buster.js application/javascript
 		console.info(a);
 	};
 })();
+
+
+# https://github.com/uBlockOrigin/uAssets/issues/36
+nr-unwrapper.js application/javascript
+(function(){
+	var wrapped = ' \
+		EventTarget.prototype.addEventListener \
+		EventTarget.prototype.removeEventListener \
+		XMLHttpRequest.prototype.open \
+		XMLHttpRequest.prototype.send \
+		addEventListener \
+		clearTimeout \
+		removeEventListener \
+		requestAnimationFrame \
+		setInterval \
+		setTimeout \
+		'.split(/\s+/);
+	var path, o, p, fn;
+	for ( var i = 0; i < wrapped.length; i++ ) {
+		path = wrapped[i].split('.');
+		p = '';
+		for ( var j = 0; j < path.length; j++ ) {
+			if ( path[j] === '' ) {
+				continue;
+			}
+			o = p !== '' ? o = o[p] : window;
+			p = path[j];
+		}
+		if ( p === '' ) {
+			continue;
+		}
+		fn = o[p];
+		if (
+			typeof fn === 'function' &&
+			fn.toString().indexOf('nrWrapper') !== -1 &&
+			typeof fn['nr@original'] === 'function'
+		) {
+			o[p] = fn['nr@original'];
+		}
+	}
+})();
