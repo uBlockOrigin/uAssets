@@ -10,7 +10,7 @@ echo "*** uBlock Origin: generating checksums.txt file..."
 
 truncate -s 0 ./checksums/ublock0.txt
 
-echo `md5sum ../ublock/assets/ublock/filter-lists.json | sed 's/\.\.\/ublock\///'` >> ./checksums/ublock0.txt
+echo `md5sum ../AdNauseam2/assets/ublock/filter-lists.json | sed 's/\.\.\/ublock\///'` >> ./checksums/ublock0.txt
 
 filters=(
     './filters/badware.txt'
