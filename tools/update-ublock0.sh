@@ -6,11 +6,11 @@
 # - you cloned the repo https://github.com/gorhill/uBlock
 # - the script is launched from ./uBlockOrigin/uAssets
 
-echo "*** uBlock Origin: generating checksums.txt file..."
+echo "*** AdNauseam: generating checksums.txt file..."
 
 truncate -s 0 ./checksums/ublock0.txt
 
-echo `md5sum ../AdNauseam/assets/ublock/filter-lists.json | sed 's/\.\.\/ublock\///'` >> ./checksums/ublock0.txt
+echo "`md5sum -q ../AdNauseam/assets/ublock/filter-lists.json` assets/ublock/filter-lists.json"  >> ./checksums/ublock0.txt
 
 filters=(
     './filters/badware.txt'
@@ -21,7 +21,8 @@ filters=(
     './filters/unbreak.txt'
 )
 for repoPath in "${filters[@]}"; do
-    echo `md5sum $repoPath | sed 's/\.\/filters/assets\/ublock/'` >> ./checksums/ublock0.txt
+    repoPath2=`echo $repoPath | sed 's/\.\/filters/assets\/ublock/'`
+    echo `md5sum -q $repoPath` $repoPath2 >> ./checksums/ublock0.txt
 done
 
 thirdparties=(
@@ -33,9 +34,9 @@ thirdparties=(
     './thirdparties/www.malwaredomainlist.com/hostslist/hosts.txt'
 )
 for repoPath in "${thirdparties[@]}"; do
-    echo `md5sum $repoPath | sed 's/\.\/thirdparties/assets\/thirdparties/'` >> ./checksums/ublock0.txt
+    repoPath2=`echo $repoPath | sed 's/\.\/thirdparties/assets\/thirdparties/'`
+    echo `md5sum -q $repoPath` $repoPath2 >> ./checksums/ublock0.txt
 done
 
-echo "*** uBlock Origin: checksums updated."
-
-git status
+echo "*** AdNauseam checksums updated."
+cat ./checksums/ublock0.txt
