@@ -635,6 +635,12 @@ bab-defuser.js application/javascript
 			return sto(a, b);
 		}
 	};
+	var eval = window.eval;
+	window.eval = function(a) {
+		if ( a.toString().indexOf('blockadblock') === -1 ) {
+			eval(a);
+		}
+	};
 })();
 
 
