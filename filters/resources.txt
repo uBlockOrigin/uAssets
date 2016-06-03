@@ -635,10 +635,19 @@ bab-defuser.js application/javascript
 			return sto(a, b);
 		}
 	};
-	var eval = window.eval;
+	var realEval = window.eval;
 	window.eval = function(a) {
 		if ( a.toString().indexOf('blockadblock') === -1 ) {
-			eval(a);
+			realEval(a);
+			return;
+		}
+		var el = document.body;
+		if ( el ) {
+			el.style.removeProperty('visibility');
+		}
+		el = document.getElementById('babasbmsgx');
+		if ( el ) {
+			el.style.setProperty('visibility', 'collapse');
 		}
 	};
 })();
@@ -994,7 +1003,7 @@ overlay-buster.js application/javascript
 		return;
 	}
 	var tstart;
-	var ttl = 15000;
+	var ttl = 30000;
 	var delay = 0;
 	var delayStep = 50;
 	var buster = function(mutations) {
@@ -1009,7 +1018,7 @@ overlay-buster.js application/javascript
 				break;
 			}
 			style = window.getComputedStyle(el);
-			if ( parseInt(style.zIndex, 10) >= 1000 && style.position === 'fixed' ) {
+			if ( parseInt(style.zIndex, 10) >= 1000 || style.position === 'fixed' ) {
 				rect = el.getBoundingClientRect();
 				if ( rect.left <= 0 && rect.top <= 0 && rect.right >= vw && rect.bottom >= vh ) {
 					el.parentNode.removeChild(el);
