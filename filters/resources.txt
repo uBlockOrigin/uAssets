@@ -1124,3 +1124,24 @@ r3z-defuser.js application/javascript
 		value: {}
 	});
 })();
+
+
+# https://github.com/uBlockOrigin/uAssets/issues/58
+gpt-defuser.js application/javascript
+(function() {
+	var noopfn = function() {
+		;
+	};
+	var props = [ 'resetGPT', 'setupGPT' ];
+	while ( props.length ) {
+		var prop = props.pop();
+		if ( typeof window[prop] === 'function' ) {
+			window[prop] = noopfn; 
+		} else {
+			Object.defineProperty(window, prop, {
+				get: function() { return noopfn; },
+				set: noopfn
+			});
+		}
+	}
+})();
