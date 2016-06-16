@@ -584,34 +584,17 @@ openload-defuser.js application/javascript
 	var noopfn = function() {
 		;
 	};
-	var excludes = {
-		'4': ['157','161','175'],
-		'5': ['144'],
-		'8': ['162']
-	};
 	var wjdmpGet = function() {
 		return wjdmp;
 	};
 	var wjdmpSet = function(a) {
 		wjdmp = function(r, o) {
-			var aa;
-			for ( var excl in excludes ) {
-				if ( excludes.hasOwnProperty(excl) === false ) {
-					continue;
-				}
-				if ( r.length !== 1 || r[0].toString() !== excl ) {
-					continue;
-				}
-				aa = excludes[excl];
-				for ( var k in o ) {
-					if ( !o.hasOwnProperty(k) || typeof o[k] !== 'function' ) {
-						continue;
-					}
-					if ( aa.length !== 0 && aa.indexOf(k.toString()) === -1 ) {
-						continue;
-					}
-					o[k] = noopfn;
-				}
+			var kk = Object.keys(o).sort(function(a, b) {
+				return parseInt(a) - parseInt(b);
+			});
+			var fn = o[kk[1]];
+			if ( typeof fn === 'function' && /adBreaks\.push/.test(fn.toString()) ) {
+				return;
 			}
 			a(r, o);
 		};
