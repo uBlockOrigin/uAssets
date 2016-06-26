@@ -1165,3 +1165,21 @@ aranzulla.it application/javascript
         value: { init: function() {} }
     });
 })();
+
+
+# Prevent web pages from using eval(), and report attempts in console.
+noeval.js application/javascript
+(function() {
+	window.eval = function(s) {
+        console.log('Document tried to eval... \n' + s);
+	}.bind(window);
+})();
+
+
+# Prevent web pages from using RTCPeerConnection(), and report attempts in console.
+nowebrtc.js application/javascript
+(function() {
+	window.RTCPeerConnection = function(cfg) {
+        console.log('Document tried to create an RTCPeerConnection: %o', cfg);
+	}.bind(window);
+})();
