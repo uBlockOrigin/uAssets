@@ -1192,3 +1192,16 @@ indiatoday.intoday.in.js application/javascript
 		value: function() {}
 	});
 })();
+
+
+# Prevent web pages from using eval(), and report attempts in console.
+videowood.tv.js application/javascript
+(function() {
+	var realeval = window.eval;
+	window.eval = function(s) {
+		realeval(s);
+		if ( window.config && window.config.adb_remind ) {
+			window.config.adb_remind = false;
+		}
+	}.bind(window);
+})();
