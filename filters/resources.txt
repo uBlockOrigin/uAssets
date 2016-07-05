@@ -1205,3 +1205,16 @@ videowood.tv.js application/javascript
 		}
 	}.bind(window);
 })();
+
+
+# https://github.com/gorhill/uBlock/issues/1340#issuecomment-230495317
+__$dc-defuser.js application/javascript
+(function() {
+	if ( Math.mt_random === undefined ) {
+		Object.defineProperty(Math, 'mt_random', {
+			value: function() { throw new TypeError(); }
+		});
+	} else {
+		Math.mt_random = function() { throw new TypeError(); };
+	}
+})();
