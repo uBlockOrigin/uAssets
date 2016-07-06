@@ -617,10 +617,10 @@ bab-defuser.js application/javascript
 		if ( typeof a !== 'string' || !re.test(a) ) {
 			return sto(a, b);
 		}
-	};
+	}.bind(window);
 	var realEval = window.eval;
 	window.eval = function(a) {
-		if ( a.toString().indexOf('blockadblock') === -1 ) {
+		if ( a.toString().search(/blockadblock|babasbmsgx|getItem\('babn'\)/) === -1 ) {
 			realEval(a);
 			return;
 		}
@@ -632,7 +632,7 @@ bab-defuser.js application/javascript
 		if ( el ) {
 			el.style.setProperty('visibility', 'collapse');
 		}
-	};
+	}.bind(window);
 })();
 
 
@@ -1212,9 +1212,9 @@ __$dc-defuser.js application/javascript
 (function() {
 	if ( Math.mt_random === undefined ) {
 		Object.defineProperty(Math, 'mt_random', {
-			value: function() { throw new TypeError(); }
+			value: function() { throw new TypeError(); }.bind()
 		});
 	} else {
-		Math.mt_random = function() { throw new TypeError(); };
+		Math.mt_random = function() { throw new TypeError(); }.bind();
 	}
 })();
