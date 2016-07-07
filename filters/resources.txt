@@ -102,9 +102,27 @@ fuckadblock.js-3.2.0 application/javascript
 		return this;
 	};
 	Fab.prototype.setOption = noopfn;
-	window.FuckAdBlock = window.BlockAdBlock = Fab;
-	//
-	window.fuckAdBlock = window.blockAdBlock = new Fab();
+	var fab = new Fab(),
+		getSetFab = {
+			get: function() { return Fab; },
+			set: function() {}
+		},
+		getsetfab = {
+			get: function() { return fab; },
+			set: function() {}
+		};
+	if ( window.FuckAdBlock ) { window.FuckAdBlock = Fab; }
+	else { Object.defineProperty(window, 'FuckAdBlock', getSetFab); }
+	if ( window.BlockAdBlock ) { window.BlockAdBlock = Fab; }
+	else { Object.defineProperty(window, 'BlockAdBlock', getSetFab); }
+	if ( window.SniffAdBlock ) { window.SniffAdBlock = Fab; }
+	else { Object.defineProperty(window, 'SniffAdBlock', getSetFab); }
+	if ( window.fuckAdBlock ) { window.fuckAdBlock = fab; }
+	else { Object.defineProperty(window, 'fuckAdBlock', getsetfab); }
+	if ( window.blockAdBlock ) { window.blockAdBlock = fab; }
+	else { Object.defineProperty(window, 'blockAdBlock', getsetfab); }
+	if ( window.sniffAdBlock ) { window.sniffAdBlock = fab; }
+	else { Object.defineProperty(window, 'sniffAdBlock', getsetfab); }
 })();
 
 
