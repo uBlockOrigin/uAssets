@@ -1236,3 +1236,19 @@ __$dc-defuser.js application/javascript
 		Math.mt_random = function() { throw new TypeError(); }.bind();
 	}
 })();
+
+
+# https://forums.lanik.us/viewtopic.php?f=62&t=31285
+timesofindia.indiatimes.com.js application/javascript
+(function() {
+	var dael = document.addEventListener.bind(document);
+	document.addEventListener = function(a, b, c) {
+		if ( a === 'error' ) {
+			var s = b.toString();
+			if ( s.indexOf('_0xa90dx8') !== -1 ) {
+				return;
+			}
+		}
+		return dael(a, b, c);
+	}.bind();
+})();
