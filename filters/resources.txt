@@ -1243,9 +1243,9 @@ timesofindia.indiatimes.com.js application/javascript
 (function() {
 	var dael = document.addEventListener.bind(document);
 	document.addEventListener = function(a, b, c) {
-		if ( a === 'error' ) {
+		if ( a === 'error' || a === 'scroll' ) {
 			var s = b.toString();
-			if ( s.indexOf('_0xa90dx8') !== -1 ) {
+			if ( /_0xa90dx8|_0x37f2x5/.test(s) ) {
 				return;
 			}
 		}
