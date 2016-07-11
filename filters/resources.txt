@@ -1197,9 +1197,18 @@ noeval.js application/javascript
 # Prevent web pages from using RTCPeerConnection(), and report attempts in console.
 nowebrtc.js application/javascript
 (function() {
-	window.RTCPeerConnection = function(cfg) {
+	var pc = function(cfg) {
 		console.log('Document tried to create an RTCPeerConnection: %o', cfg);
-	}.bind(window);
+	};
+	var noop = function() {
+		;
+	};
+	pc.prototype = {
+		createDataChannel: noop,
+		createOffer: noop,
+		setRemoteDescription: noop
+	};
+	window.RTCPeerConnection = pc.bind(window);
 })();
 
 
