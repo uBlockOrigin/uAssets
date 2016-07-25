@@ -1249,13 +1249,13 @@ __$dc-defuser.js application/javascript
 
 
 # https://forums.lanik.us/viewtopic.php?f=62&t=31285
-timesofindia.indiatimes.com.js application/javascript
+indiatimes.com.js application/javascript
 (function() {
 	var dael = document.addEventListener.bind(document);
 	document.addEventListener = function(a, b, c) {
 		if ( a === 'error' || a === 'scroll' ) {
 			var s = b.toString();
-			if ( /^\s*function\s+(_0x[0-9a-z]+).*?\1/.test(s) ) {
+			if ( /^\s*function\s+(_0x[0-9a-z]+|detected)(?:.|\n)*?\1/.test(s) ) {
 				return;
 			}
 		}
