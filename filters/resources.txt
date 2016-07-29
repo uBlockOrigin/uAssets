@@ -1285,11 +1285,26 @@ adf.ly.js application/javascript
 hindustantimes.com.js application/javascript
 window.canRun = true;
 
+
 # https://m.reddit.com/r/firefox/comments/4ucrvy/can_ublock_origin_disable_javascript_for_a/
 bhaskar.com.js application/javascript
 window.canABP = true;
+
 
 # https://adblockplus.org/forum/viewtopic.php?f=1&t=47754
 thesimsresource.com.js application/javascript
 window.gadsize = 1;
 window.iHaveLoadedAds = true;
+
+
+# https://github.com/uBlockOrigin/uAssets/issues/88
+golem.de.js application/javascript
+(function() {
+	var rael = window.addEventListener;
+	window.addEventListener = function(a, b, c) {
+		rael(a, b, c);
+		if ( /^\s*function\s*\(\)\s*{\s*window\.clearTimeout\(r\)\s*\}\s*$/.test(b.toString()) ) {
+			b();
+		}
+	}.bind(window);
+})();
