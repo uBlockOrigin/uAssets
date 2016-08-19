@@ -1325,3 +1325,22 @@ allmusic.com.js application/javascript
 	});
     window.tile_num = 0;
 })();
+
+
+# https://forums.lanik.us/viewtopic.php?f=62&t=32070
+xvideos.com.js application/javascript
+window.addEventListener('DOMContentLoaded', function() {
+    var xv = window.xv;
+    if ( !xv ) { return; }
+    var banners = xv.conf && xv.conf.ads && xv.conf.ads.banners;
+    if ( !banners ) { return; }
+    var banner, div;
+    while ( banners.length !== 0 ) {
+        var banner = banners[i];
+        if ( !banner ) { continue; }
+        while ( (div = document.getElementById(banner.div_id)) !== null ) {
+            div.parentNode.removeChild(div);
+        }
+        banners.shift();
+    }
+});
