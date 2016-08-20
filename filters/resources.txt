@@ -639,8 +639,7 @@ bab-defuser.js application/javascript
 	var realEval = window.eval;
 	window.eval = function(a) {
 		if ( a.toString().search(/blockadblock|babasbmsgx|getItem\('babn'\)/) === -1 ) {
-			realEval(a);
-			return;
+			return realEval(a);
 		}
 		var el = document.body;
 		if ( el ) {
@@ -1217,12 +1216,13 @@ indiatoday.intoday.in.js application/javascript
 # Prevent web pages from using eval(), and report attempts in console.
 videowood.tv.js application/javascript
 (function() {
-	var realeval = window.eval;
+	var realEval = window.eval;
 	window.eval = function(s) {
-		realeval(s);
+		var r = realEval(s);
 		if ( window.config && window.config.adb_remind ) {
 			window.config.adb_remind = false;
 		}
+        return r;
 	}.bind(window);
 })();
 
@@ -1260,15 +1260,16 @@ indiatimes.com.js application/javascript
 # https://forums.lanik.us/viewtopic.php?f=23&t=31545
 adf.ly.js application/javascript
 (function() {
-	var reval = window.eval;
+	var realEval = window.eval;
 	var noopfn = function(){
 		;
 	}.bind();
 	window.eval = function(s) {
-		reval(s);
+		var r = realEval(s);
 		if ( typeof window.abgo === 'function' ) {
 			window.abgo = noopfn;
 		}
+        return r;
 	}.bind(window);
 })();
 
