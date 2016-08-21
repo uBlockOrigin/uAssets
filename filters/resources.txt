@@ -586,11 +586,17 @@ wpredirect-defuser.js application/javascript
 
 
 # https://github.com/gorhill/uBlock/issues/1194
-openload-defuser.js application/javascript
+# https://github.com/uBlockOrigin/uAssets/issues/106
+openload.co.js application/javascript
 (function() {
-	Object.defineProperty(window, 'preserve', {
-		get: function() { return true; },
-		set: function() {}
+	Object.defineProperties(window, {
+        adblock2: { value: false },
+        OlPopup: { value: null },
+		preserve: {
+			get: function() { return true; },
+			set: function() {}
+		},
+        turnoff: { value: true }
 	});
 })();
 
@@ -1222,7 +1228,7 @@ videowood.tv.js application/javascript
 		if ( window.config && window.config.adb_remind ) {
 			window.config.adb_remind = false;
 		}
-        return r;
+		return r;
 	}.bind(window);
 })();
 
@@ -1269,7 +1275,7 @@ adf.ly.js application/javascript
 		if ( typeof window.abgo === 'function' ) {
 			window.abgo = noopfn;
 		}
-        return r;
+		return r;
 	}.bind(window);
 })();
 
@@ -1324,24 +1330,24 @@ allmusic.com.js application/javascript
 		'__cli': z,
 		'cmnUNT':  z
 	});
-    window.tile_num = 0;
+	window.tile_num = 0;
 })();
 
 
 # https://forums.lanik.us/viewtopic.php?f=62&t=32070
 xvideos.com.js application/javascript
 window.addEventListener('DOMContentLoaded', function() {
-    var xv = window.xv;
-    if ( !xv ) { return; }
-    var banners = xv.conf && xv.conf.ads && xv.conf.ads.banners;
-    if ( !banners ) { return; }
-    var banner, div;
-    while ( banners.length !== 0 ) {
-        banner = banners[0];
-        if ( !banner ) { continue; }
-        while ( (div = document.getElementById(banner.div_id)) !== null ) {
-            div.parentNode.removeChild(div);
-        }
-        banners.shift();
-    }
+	var xv = window.xv;
+	if ( !xv ) { return; }
+	var banners = xv.conf && xv.conf.ads && xv.conf.ads.banners;
+	if ( !banners ) { return; }
+	var banner, div;
+	while ( banners.length !== 0 ) {
+		banner = banners[0];
+		if ( !banner ) { continue; }
+		while ( (div = document.getElementById(banner.div_id)) !== null ) {
+			div.parentNode.removeChild(div);
+		}
+		banners.shift();
+	}
 });
