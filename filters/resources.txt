@@ -590,13 +590,13 @@ wpredirect-defuser.js application/javascript
 openload.co.js application/javascript
 (function() {
 	Object.defineProperties(window, {
-        adblock2: { value: false },
-        OlPopup: { value: null },
+		adblock2: { value: false },
+		OlPopup: { value: null },
 		preserve: {
 			get: function() { return true; },
 			set: function() {}
 		},
-        turnoff: { value: true }
+		turnoff: { value: true }
 	});
 })();
 
@@ -1361,3 +1361,18 @@ Object.defineProperty(window, '___p_p', { value: 1 });
 # https://forums.lanik.us/viewtopic.php?f=64&t=32278
 jpost.com.js application/javascript
 Object.defineProperty(window, 'upManager', { value: function() {} });
+
+
+# https://github.com/uBlockOrigin/uAssets/issues/108
+wetteronline.de.js application/javascript
+(function() {
+	var nopefn = function() { throw new TypeError('Nope'); };
+	Object.defineProperty(window, 'xq5UgyIZx', {
+		get: nopefn,
+		set: nopefn
+	});
+	window.WO = {};
+	Object.defineProperty(window.WO, 'doAbCheck', {
+		value: function() {}
+	});
+})();
