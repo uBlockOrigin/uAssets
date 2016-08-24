@@ -1336,21 +1336,30 @@ allmusic.com.js application/javascript
 
 # https://forums.lanik.us/viewtopic.php?f=62&t=32070
 xvideos.com.js application/javascript
-window.addEventListener('DOMContentLoaded', function() {
-	var xv = window.xv;
-	if ( !xv ) { return; }
-	var banners = xv.conf && xv.conf.ads && xv.conf.ads.banners;
-	if ( !banners ) { return; }
-	var banner, div;
-	while ( banners.length !== 0 ) {
-		banner = banners[0];
-		if ( !banner ) { continue; }
-		while ( (div = document.getElementById(banner.div_id)) !== null ) {
-			div.parentNode.removeChild(div);
+(function() {
+	var z = function() {
+		var xv = window.xv;
+		if ( !xv ) { return; }
+		var banners = xv.conf && xv.conf.ads && xv.conf.ads.banners;
+		if ( !banners ) { return; }
+		var banner, div;
+		while ( banners.length !== 0 ) {
+			banner = banners[0];
+			if ( !banner ) { continue; }
+			while ( (div = document.getElementById(banner.div_id)) !== null ) {
+				div.parentNode.removeChild(div);
+			}
+			banners.shift();
 		}
-		banners.shift();
-	}
-});
+	};
+	window.addEventListener('DOMContentLoaded', z);
+	var noopfn = function(){};
+	noopfn.config = noopfn;
+	Object.defineProperties(window, {
+		define: { value: noopfn },
+		require: { value: noopfn }
+	});
+})();
 
 
 # https://forums.lanik.us/viewtopic.php?f=62&t=31322&start=30
