@@ -1337,10 +1337,8 @@ allmusic.com.js application/javascript
 # https://forums.lanik.us/viewtopic.php?f=62&t=32070
 xvideos.com.js application/javascript
 (function() {
-	var z = function() {
-		var xv = window.xv;
-		if ( !xv ) { return; }
-		var banners = xv.conf && xv.conf.ads && xv.conf.ads.banners;
+	var z = function(ads) {
+		var banners = ads && ads.banners;
 		if ( !banners ) { return; }
 		var banner, div;
 		while ( banners.length !== 0 ) {
@@ -1352,12 +1350,22 @@ xvideos.com.js application/javascript
 			banners.shift();
 		}
 	};
-	window.addEventListener('DOMContentLoaded', z);
-	var noopfn = function(){};
-	noopfn.config = noopfn;
-	Object.defineProperties(window, {
-		define: { value: noopfn },
-		require: { value: noopfn }
+	window.addEventListener('DOMContentLoaded', function() {
+		var xv = window.xv;
+		z(xv && xv.conf && xv.conf.ads);
+	});
+	var dfn,
+		dfntrap = function(a, b, c) {
+			if ( a !== 'config/ads' ) { dfn(a, b, c); return; }
+			var ads = b;
+			while ( typeof ads === 'function' ) { ads = ads(); }
+			z(ads);
+			b = function() { return function() { return JSON.parse(JSON.stringify(ads)); }; };
+			dfn(a, ads, c);
+		};
+	Object.defineProperty(window, 'define', {
+		get: function() { return dfn ? dfntrap : undefined; },
+		set: function(a) { dfn = a; }
 	});
 })();
 
