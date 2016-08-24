@@ -1376,3 +1376,17 @@ wetteronline.de.js application/javascript
 		value: function() {}
 	});
 })();
+
+
+# https://github.com/uBlockOrigin/uAssets/issues/108
+trafictube.ro.js application/javascript
+(function() {
+	var z = window.setInterval.bind(window),
+		re = /\(new\s+w\)\.start\(\)/;
+	window.setInterval = function(a, b) {
+		if ( re.test(a.toString()) ) {
+			return 0;
+		}
+		return z(a, b);
+	}.bind(window);
+})();
