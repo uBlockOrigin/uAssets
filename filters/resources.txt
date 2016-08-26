@@ -642,26 +642,26 @@ bab-defuser.js application/javascript
 			return sto(a, b);
 		}
 	}.bind(window);
-    var signatures = [
-        ['blockadblock'],
-        ['babasbm'],
-        [/getItem\('babn'\)/],
-        ['getElementById','String.fromCharCode','ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789','charAt','DOMContentLoaded','addEventListener','doScroll','fromCharCode','sessionStorage','localStorage','Math.random']
-    ];
-    var check = function(s) {
-        var tokens, match, j, token;
-        for ( var i = 0; i < signatures.length; i++ ) {
-            tokens = signatures[i];
-            match = true;
-            for ( j = 0, pos = 0; j < tokens.length && match; j++ ) {
-                token = tokens[j]
-                pos = token instanceof RegExp ? s.search(token) : s.indexOf(token, pos);
-                if ( pos === -1 ) { match = false; }
-            }
-            if ( match ) { return true; }
-        }
-        return false;
-    };
+	var signatures = [
+		['blockadblock'],
+		['babasbm'],
+		[/getItem\('babn'\)/],
+		['getElementById','String.fromCharCode','ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789','charAt','DOMContentLoaded','addEventListener','doScroll','fromCharCode','sessionStorage','localStorage','Math.random']
+	];
+	var check = function(s) {
+		var tokens, match, j, token;
+		for ( var i = 0; i < signatures.length; i++ ) {
+			tokens = signatures[i];
+			match = true;
+			for ( j = 0, pos = 0; j < tokens.length && match; j++ ) {
+				token = tokens[j]
+				pos = token instanceof RegExp ? s.search(token) : s.indexOf(token, pos);
+				if ( pos === -1 ) { match = false; }
+			}
+			if ( match ) { return true; }
+		}
+		return false;
+	};
 	var realEval = window.eval;
 	window.eval = function(a) {
 		if ( !check(a) ) {
@@ -1427,3 +1427,12 @@ trafictube.ro.js application/javascript
 		return z(a, b);
 	}.bind(window);
 })();
+
+
+# https://github.com/uBlockOrigin/uAssets/issues/110
+smartadserver.com.js application/javascript
+Object.defineProperties(window, {
+	SmartAdObject: { value: function(){} },
+	SmartAdServerAjax: { value: function(){} },
+	smartAd: { value: { LoadAds: function() {}, Register: function() {} } }
+});
