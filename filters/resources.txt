@@ -48,19 +48,19 @@ hd-main.js application/javascript
 		;
 	};
 	var props = [
-        "$j","Ad","Bd","Cd","Dd","Ed","Fd","Gd","Hd","Id","Jd","Nj","Oc","Pc","Pe",
-        "Qc","Qe","Rc","Re","Ri","Sc","Tc","Uc","Vc","Wc","Wg","Xc","Xg","Yc","Yd",
-        "ad","ae","bd","bf","cd","dd","ed","ef","ek","fd","fg","fh","fk","gd","hd",
-        "ig","ij","jd","kd","ke","ld","md","mi","nd","od","oh","pd","pf","qd","rd",
-        "sd","td","ud","vd","wd","wg","xd","xh","yd","zd",
-        "$d","$e","$k","Ae","Af","Aj","Be","Ce","De","Ee","Ek","Eo","Ep","Fe","Fo",
-        "Ge","Gh","Hk","Ie","Ip","Je","Ke","Kk","Kq","Le","Lh","Lk","Me","Mm","Ne",
-        "Oe","Pe","Qe","Re","Rp","Se","Te","Ue","Ve","Vp","We","Xd","Xe","Yd","Ye",
-        "Zd","Ze","Zf","Zk","ae","af","al","be","bf","bg","ce","cp","df","di","ee",
-        "ef","fe","ff","gf","gm","he","hf","ie","je","jf","ke","kf","kl","le","lf",
-        "lk","mf","mg","mn","nf","oe","of","pe","pf","pg","qe","qf","re","rf","se",
-        "sf","te","tf","ti","ue","uf","ve","vf","we","wf","wg","wi","xe","ye","yf",
-        "yk","yl","ze","zf","zk"
+		"$j","Ad","Bd","Cd","Dd","Ed","Fd","Gd","Hd","Id","Jd","Nj","Oc","Pc","Pe",
+		"Qc","Qe","Rc","Re","Ri","Sc","Tc","Uc","Vc","Wc","Wg","Xc","Xg","Yc","Yd",
+		"ad","ae","bd","bf","cd","dd","ed","ef","ek","fd","fg","fh","fk","gd","hd",
+		"ig","ij","jd","kd","ke","ld","md","mi","nd","od","oh","pd","pf","qd","rd",
+		"sd","td","ud","vd","wd","wg","xd","xh","yd","zd",
+		"$d","$e","$k","Ae","Af","Aj","Be","Ce","De","Ee","Ek","Eo","Ep","Fe","Fo",
+		"Ge","Gh","Hk","Ie","Ip","Je","Ke","Kk","Kq","Le","Lh","Lk","Me","Mm","Ne",
+		"Oe","Pe","Qe","Re","Rp","Se","Te","Ue","Ve","Vp","We","Xd","Xe","Yd","Ye",
+		"Zd","Ze","Zf","Zk","ae","af","al","be","bf","bg","ce","cp","df","di","ee",
+		"ef","fe","ff","gf","gm","he","hf","ie","je","jf","ke","kf","kl","le","lf",
+		"lk","mf","mg","mn","nf","oe","of","pe","pf","pg","qe","qf","re","rf","se",
+		"sf","te","tf","ti","ue","uf","ve","vf","we","wf","wg","wi","xe","ye","yf",
+		"yk","yl","ze","zf","zk"
 	];
 	for (var i = 0; i < props.length; i++) {
 		l[props[i]] = noopfn;
@@ -1319,8 +1319,11 @@ window.canABP = true;
 
 # https://adblockplus.org/forum/viewtopic.php?f=1&t=47754
 thesimsresource.com.js application/javascript
-window.gadsize = 1;
-window.iHaveLoadedAds = true;
+Object.defineProperties(window, {
+	gadsize: { value: 1 },
+	iHaveLoadedAds: { value: true },
+	OX: { value: true }
+});
 
 
 # https://github.com/uBlockOrigin/uAssets/issues/88
@@ -1448,5 +1451,5 @@ Object.defineProperties(window, {
 # http://www.linuxtricks.fr/news/10-logiciels-libres/169-contourner-les-anti-bloqueurs-de-pub-la-revanche/
 lesechos.fr.js application/javascript
 Object.defineProperty(window, 'checkAdBlock', {
-    value: function(){}
+	value: function(){}
 });
