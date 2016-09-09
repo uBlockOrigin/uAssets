@@ -1458,3 +1458,25 @@ lesechos.fr.js application/javascript
 Object.defineProperty(window, 'checkAdBlock', {
 	value: function(){}
 });
+
+
+# https://forums.lanik.us/viewtopic.php?f=62&t=32636
+# https://forums.lanik.us/viewtopic.php?f=62&t=32703
+i10c-defuser.js application/javascript
+(function() {
+    var noopfn = function() {
+        return false;
+    };
+    var v = { CanRun: noopfn };
+    if ( window.I10C !== undefined ) {
+        window.I10C = v;
+    } else {
+        Object.defineProperty(window, 'I10C', { value: v });
+    }
+    v = { Init: noopfn };
+    if ( window.INSTART !== undefined ) {
+        window.INSTART = v;
+    } else {
+        Object.defineProperty(window, 'INSTART', { value: v });
+    }
+})();
