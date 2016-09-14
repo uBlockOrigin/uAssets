@@ -7,12 +7,6 @@
 # I will use data from benchmarks to decide what to add here.
 # https://github.com/gorhill/uBlock/wiki/%C2%B5Block-and-others:-Blocking-ads,-trackers,-malwares
 
-# https://www.eff.org/deeplinks/2014/07/white-house-website-includes-unique-non-cookie-tracker-despite-privacy-policy
-||addthis.com^$third-party,important
-# https://github.com/gorhill/uBlock/issues/1384
-||addthis.com/*/addthis_widget.js$script,redirect=addthis.com/addthis_widget.js
-##.addthis_toolbox
-
 # I think web sites can live without this
 # Commented out on 2014-10-03: I don't see it anymore in benchmarks. Will see.
 # Commenting it out allows me to enable this one out-of-the-box.
@@ -77,3 +71,21 @@
 
 # https://github.com/uBlockOrigin/uAssets/issues/7
 ||google-analytics.com/ga.js$script,redirect=google-analytics.com/ga.js
+
+# https://www.eff.org/deeplinks/2014/07/white-house-website-includes-unique-non-cookie-tracker-despite-privacy-policy
+||addthis.com^$third-party,important
+# https://github.com/gorhill/uBlock/issues/1384
+||addthis.com/*/addthis_widget.js$script,redirect=addthis.com/addthis_widget.js
+##.addthis_toolbox
+! https://github.com/uBlockOrigin/uAssets/issues/49
+free18.net,gadgetlove.com,nrc.gov,onbeing.org,rapgenius.com,tmz.com#@#.addthis_toolbox
+
+! Foil blocker-sniffer code on Condé Nast sites.
+architecturaldigest.com,arstechnica.com,bonappetit.com,brides.com,cntraveler.com,details.com,epicurious.com,gq.com,golfdigest.com,newyorker.com,pitchfork.com,self.com,teenvogue.com,thescene.com,vanityfair.com,vogue.com,wired.com,wmagazine.com##script:inject(fuckadblock.js-3.2.0)
+
+! Examples of what is fixed by even an unfilled dummy API:
+! https://twitter.com/kenn_butler/status/709163241021317120
+! https://adblockplus.org/forum/viewtopic.php?f=10&t=48183
+! https://forums.lanik.us/viewtopic.php?f=64&t=32161
+! https://forums.lanik.us/viewtopic.php?f=64&t=30670
+||googletagmanager.com/gtm.js$script,redirect=googletagmanager.com/gtm.js

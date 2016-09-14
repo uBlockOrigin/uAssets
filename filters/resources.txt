@@ -19,6 +19,11 @@ iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAC0lEQVQI12NgQAcAABIAAe+JVKQAAAAA
 SUVORK5CYII=
 
 
+3x2-transparent.png image/png;base64
+iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAYAAACddGYaAAAAC0lEQVQI12NgwAUAABoAASRETuUAAAAA
+SUVORK5CYII=
+
+
 32x32-transparent.png image/png;base64
 iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAGklEQVRYw+3BAQEAAACCIP+vbkhAAQAA
 AO8GECAAAZf3V9cAAAAASUVORK5CYII=
@@ -42,23 +47,30 @@ noopframe text/html
 
 
 hd-main.js application/javascript
-var L = (function(){
+(function(){
 	var l = {};
 	var noopfn = function() {
 		;
 	};
 	var props = [
-		"pf", "ed", "Qe", "fd", "xh", "Uc", "ef", "zd", "Ad", "Qc", "Ri", "Wc",
-		"Vc", "Xc", "Wg", "rd", "qd", "sd", "Pe", "Id", "Hd", "Jd", "fg", "Fd",
-		"Ed", "Gd", "ek", "Cd", "Bd", "Dd", "Nj", "Sc", "Rc", "Tc", "wg", "xd",
-		"wd", "yd", "fh", "ld", "md", "nd", "Re", "cd", "Pc", "ke", "Yc", "Xg",
-		"jd", "kd", "oh", "ad", "bd", "mi", "gd", "hd", "ae", "dd", "fk", "ij",
-		"ud", "td", "vd", "ig", "od", "pd", "Yd", "$j", "Oc", "bf"
+		"$j","Ad","Bd","Cd","Dd","Ed","Fd","Gd","Hd","Id","Jd","Nj","Oc","Pc","Pe",
+		"Qc","Qe","Rc","Re","Ri","Sc","Tc","Uc","Vc","Wc","Wg","Xc","Xg","Yc","Yd",
+		"ad","ae","bd","bf","cd","dd","ed","ef","ek","fd","fg","fh","fk","gd","hd",
+		"ig","ij","jd","kd","ke","ld","md","mi","nd","od","oh","pd","pf","qd","rd",
+		"sd","td","ud","vd","wd","wg","xd","xh","yd","zd",
+		"$d","$e","$k","Ae","Af","Aj","Be","Ce","De","Ee","Ek","Eo","Ep","Fe","Fo",
+		"Ge","Gh","Hk","Ie","Ip","Je","Ke","Kk","Kq","Le","Lh","Lk","Me","Mm","Ne",
+		"Oe","Pe","Qe","Re","Rp","Se","Te","Ue","Ve","Vp","We","Xd","Xe","Yd","Ye",
+		"Zd","Ze","Zf","Zk","ae","af","al","be","bf","bg","ce","cp","df","di","ee",
+		"ef","fe","ff","gf","gm","he","hf","ie","je","jf","ke","kf","kl","le","lf",
+		"lk","mf","mg","mn","nf","oe","of","pe","pf","pg","qe","qf","re","rf","se",
+		"sf","te","tf","ti","ue","uf","ve","vf","we","wf","wg","wi","xe","ye","yf",
+		"yk","yl","ze","zf","zk"
 	];
 	for (var i = 0; i < props.length; i++) {
 		l[props[i]] = noopfn;
 	}
-	return l;
+	window.L = window.J = l;
 })();
 
 
@@ -102,9 +114,27 @@ fuckadblock.js-3.2.0 application/javascript
 		return this;
 	};
 	Fab.prototype.setOption = noopfn;
-	window.FuckAdBlock = window.BlockAdBlock = Fab;
-	//
-	window.fuckAdBlock = window.blockAdBlock = new Fab();
+	var fab = new Fab(),
+		getSetFab = {
+			get: function() { return Fab; },
+			set: function() {}
+		},
+		getsetfab = {
+			get: function() { return fab; },
+			set: function() {}
+		};
+	if ( window.hasOwnProperty('FuckAdBlock') ) { window.FuckAdBlock = Fab; }
+	else { Object.defineProperty(window, 'FuckAdBlock', getSetFab); }
+	if ( window.hasOwnProperty('BlockAdBlock') ) { window.BlockAdBlock = Fab; }
+	else { Object.defineProperty(window, 'BlockAdBlock', getSetFab); }
+	if ( window.hasOwnProperty('SniffAdBlock') ) { window.SniffAdBlock = Fab; }
+	else { Object.defineProperty(window, 'SniffAdBlock', getSetFab); }
+	if ( window.hasOwnProperty('fuckAdBlock') ) { window.fuckAdBlock = fab; }
+	else { Object.defineProperty(window, 'fuckAdBlock', getsetfab); }
+	if ( window.hasOwnProperty('blockAdBlock') ) { window.blockAdBlock = fab; }
+	else { Object.defineProperty(window, 'blockAdBlock', getsetfab); }
+	if ( window.hasOwnProperty('sniffAdBlock') ) { window.sniffAdBlock = fab; }
+	else { Object.defineProperty(window, 'sniffAdBlock', getsetfab); }
 })();
 
 
@@ -400,7 +430,7 @@ googletagservices.com/gpt.js application/javascript
 })();
 
 # Obviously more work needs to be done, but at least for now it takes care of:
-# - https://twitter.com/kenn_butler/status/709163241021317120
+# See related filter in assets/ublock/privacy.txt
 googletagmanager.com/gtm.js application/javascript
 (function() {
 	var noopfn = function() {
@@ -442,7 +472,7 @@ yavli-defuser.js application/javascript
 		Object.defineProperty(window, '__lturl', nourl);
 	} catch (ex) {
 	}
-	var aa = 'kj kp pk uj ju gk hj jh kh hx xh xb xj xs xw xf dx oq oj oz'.split(/\s+/);
+	var aa = 'hx xh xb xj xs xw xf dx oq oj oz wy wj nr nw cw cv gy mr mz tq gb kx kr kt kv hc jz jb jd jx jj'.split(/\s+/);
 	var no = {
 		set: noopfn,
 		get: function() {
@@ -568,11 +598,17 @@ wpredirect-defuser.js application/javascript
 
 
 # https://github.com/gorhill/uBlock/issues/1194
-openload-defuser.js application/javascript
+# https://github.com/uBlockOrigin/uAssets/issues/106
+openload.co.js application/javascript
 (function() {
-	Object.defineProperty(window, 'preserve', {
-		get: function() { return true; },
-		set: function() {}
+	Object.defineProperties(window, {
+		adblock2: { value: false },
+		OlPopup: { value: null },
+		preserve: {
+			get: function() { return true; },
+			set: function() {}
+		},
+		turnoff: { value: true }
 	});
 })();
 
@@ -584,34 +620,17 @@ openload-defuser.js application/javascript
 	var noopfn = function() {
 		;
 	};
-	var excludes = {
-		'4': ['157','161','175'],
-		'5': ['144'],
-		'8': ['162']
-	};
 	var wjdmpGet = function() {
 		return wjdmp;
 	};
 	var wjdmpSet = function(a) {
 		wjdmp = function(r, o) {
-			var aa;
-			for ( var excl in excludes ) {
-				if ( excludes.hasOwnProperty(excl) === false ) {
-					continue;
-				}
-				if ( r.length !== 1 || r[0].toString() !== excl ) {
-					continue;
-				}
-				aa = excludes[excl];
-				for ( var k in o ) {
-					if ( !o.hasOwnProperty(k) || typeof o[k] !== 'function' ) {
-						continue;
-					}
-					if ( aa.length !== 0 && aa.indexOf(k.toString()) === -1 ) {
-						continue;
-					}
-					o[k] = noopfn;
-				}
+			var kk = Object.keys(o).sort(function(a, b) {
+				return parseInt(a) - parseInt(b);
+			});
+			var fn = o[kk[1]];
+			if ( typeof fn === 'function' && /adBreaks\.push/.test(fn.toString()) ) {
+				return;
 			}
 			a(r, o);
 		};
@@ -634,7 +653,41 @@ bab-defuser.js application/javascript
 		if ( typeof a !== 'string' || !re.test(a) ) {
 			return sto(a, b);
 		}
+	}.bind(window);
+	var signatures = [
+		['blockadblock'],
+		['babasbm'],
+		[/getItem\('babn'\)/],
+		['getElementById','String.fromCharCode','ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789','charAt','DOMContentLoaded','addEventListener','doScroll','fromCharCode','sessionStorage','localStorage','Math.random']
+	];
+	var check = function(s) {
+		var tokens, match, j, token;
+		for ( var i = 0; i < signatures.length; i++ ) {
+			tokens = signatures[i];
+			match = true;
+			for ( j = 0, pos = 0; j < tokens.length && match; j++ ) {
+				token = tokens[j]
+				pos = token instanceof RegExp ? s.search(token) : s.indexOf(token, pos);
+				if ( pos === -1 ) { match = false; }
+			}
+			if ( match ) { return true; }
+		}
+		return false;
 	};
+	var realEval = window.eval;
+	window.eval = function(a) {
+		if ( !check(a) ) {
+			return realEval(a);
+		}
+		var el = document.body;
+		if ( el ) {
+			el.style.removeProperty('visibility');
+		}
+		el = document.getElementById('babasbmsgx');
+		if ( el ) {
+			el.parentNode.removeChild(el);
+		}
+	}.bind(window);
 })();
 
 
@@ -988,7 +1041,7 @@ overlay-buster.js application/javascript
 		return;
 	}
 	var tstart;
-	var ttl = 15000;
+	var ttl = 30000;
 	var delay = 0;
 	var delayStep = 50;
 	var buster = function(mutations) {
@@ -996,6 +1049,7 @@ overlay-buster.js application/javascript
 			bodyEl = document.body,
 			vw = Math.min(docEl.clientWidth, window.innerWidth),
 			vh = Math.min(docEl.clientHeight, window.innerHeight),
+			tol = Math.min(vw, vh) * 0.05,
 			el = document.elementFromPoint(vw/2, vh/2),
 			style, rect;
 		for (;;) {
@@ -1003,27 +1057,36 @@ overlay-buster.js application/javascript
 				break;
 			}
 			style = window.getComputedStyle(el);
-			if ( parseInt(style.zIndex, 10) >= 1000 && style.position === 'fixed' ) {
+			if ( parseInt(style.zIndex, 10) >= 1000 || style.position === 'fixed' ) {
 				rect = el.getBoundingClientRect();
-				if ( rect.left <= 0 && rect.top <= 0 && rect.right >= vw && rect.bottom >= vh ) {
+				if ( rect.left <= tol && rect.top <= tol && (vw - rect.right) <= tol && (vh - rect.bottom) < tol ) {
 					el.parentNode.removeChild(el);
-					delayStep = 200;
-					break;
+					tstart = Date.now();
+					el = document.elementFromPoint(vw/2, vh/2);
+					bodyEl.style.setProperty('overflow', 'auto', 'important');
+					docEl.style.setProperty('overflow', 'auto', 'important');
+					continue;
 				}
 			}
 			el = el.parentNode;
 		}
 		if ( (Date.now() - tstart) < ttl ) {
-			delay += delayStep;
+			delay = Math.min(delay + delayStep, 1000);
 			setTimeout(buster, delay);
 		}
 	};
 	var domReady = function(ev) {
-		document.removeEventListener(ev.type, domReady);
+		if ( ev ) {
+			document.removeEventListener(ev.type, domReady);
+		}
 		tstart = Date.now();
 		setTimeout(buster, delay);
 	};
-	document.addEventListener('DOMContentLoaded', domReady);
+	if ( document.readyState === 'loading' ) {
+		document.addEventListener('DOMContentLoaded', domReady);
+	} else {
+		domReady();
+	}
 })();
 
 
@@ -1108,4 +1171,312 @@ r3z-defuser.js application/javascript
 	Object.defineProperty(r3z, 'pub', {
 		value: {}
 	});
+})();
+
+
+# https://github.com/uBlockOrigin/uAssets/issues/58
+gpt-defuser.js application/javascript
+(function() {
+	var noopfn = function() {
+		;
+	};
+	var props = [ 'resetGPT', 'resetAndLoadGPTRecovery', 'setupGPT', 'setupGPTuo' ];
+	while ( props.length ) {
+		var prop = props.pop();
+		if ( typeof window[prop] === 'function' ) {
+			window[prop] = noopfn; 
+		} else {
+			Object.defineProperty(window, prop, {
+				get: function() { return noopfn; },
+				set: noopfn
+			});
+		}
+	}
+})();
+
+
+# https://github.com/uBlockOrigin/uAssets/issues/66
+folha-de-sp.js application/javascript
+(function() {
+	if ( window.folha_ads !== undefined ) {
+		window.folha_ads = true;
+		return
+	}
+	Object.defineProperty(window, 'folha_ads', {
+		get: function() {
+			return true;
+		},
+		set: function() {
+			;
+		}
+	});
+})();
+
+
+# Prevent web pages from using eval(), and report attempts in console.
+noeval.js application/javascript
+(function() {
+	window.eval = function(s) {
+		console.log('Document tried to eval... \n' + s);
+	}.bind(window);
+})();
+
+
+# Prevent web pages from using RTCPeerConnection(), and report attempts in console.
+nowebrtc.js application/javascript
+(function() {
+	var pc = function(cfg) {
+		console.log('Document tried to create an RTCPeerConnection: %o', cfg);
+	};
+	var noop = function() {
+		;
+	};
+	pc.prototype = {
+		close: noop,
+		createDataChannel: noop,
+		createOffer: noop,
+		setRemoteDescription: noop
+	};
+	window.RTCPeerConnection = pc.bind(window);
+})();
+
+
+# https://adblockplus.org/forum/viewtopic.php?f=10&t=46010
+indiatoday.intoday.in.js application/javascript
+(function() {
+	Object.defineProperties(window, {
+		adBlock: { value: false },
+		checkAds: { value: function() {} }
+	});
+})();
+
+
+# Prevent web pages from using eval(), and report attempts in console.
+videowood.tv.js application/javascript
+(function() {
+	var realEval = window.eval;
+	window.eval = function(s) {
+		var r = realEval(s);
+		if ( window.config && window.config.adb_remind ) {
+			window.config.adb_remind = false;
+		}
+		return r;
+	}.bind(window);
+})();
+
+
+# https://github.com/gorhill/uBlock/issues/1340#issuecomment-230495317
+__$dc-defuser.js application/javascript
+(function() {
+	if ( Math.mt_random === undefined ) {
+		Object.defineProperty(Math, 'mt_random', {
+			value: function() { throw new TypeError(); }.bind()
+		});
+	} else {
+		Math.mt_random = function() { throw new TypeError(); }.bind();
+	}
+})();
+
+
+# https://forums.lanik.us/viewtopic.php?f=62&t=31285
+indiatimes.com.js application/javascript
+(function() {
+	var dael = document.addEventListener.bind(document),
+		evts = ['error', 'mousemove', 'scroll'];
+	document.addEventListener = function(a, b, c) {
+		if ( evts.indexOf(a) !== -1 ) {
+			var s = b.toString();
+			if ( /^\s*function\s+(\(?_0x[0-9a-z]+\)?|detected)(?:.|\n)*?\1/.test(s) ) {
+				return;
+			}
+		}
+		return dael(a, b, c);
+	}.bind();
+})();
+
+
+# https://forums.lanik.us/viewtopic.php?f=23&t=31545
+adf.ly.js application/javascript
+(function() {
+	var realEval = window.eval;
+	var noopfn = function(){
+		;
+	}.bind();
+	window.eval = function(s) {
+		var r = realEval(s);
+		if ( typeof window.abgo === 'function' ) {
+			window.abgo = noopfn;
+		}
+		return r;
+	}.bind(window);
+})();
+
+
+# https://m.reddit.com/r/firefox/comments/4ucrvy/can_ublock_origin_disable_javascript_for_a/
+hindustantimes.com.js application/javascript
+window.canRun = true;
+
+
+# https://m.reddit.com/r/firefox/comments/4ucrvy/can_ublock_origin_disable_javascript_for_a/
+bhaskar.com.js application/javascript
+window.canABP = true;
+
+
+# https://adblockplus.org/forum/viewtopic.php?f=1&t=47754
+thesimsresource.com.js application/javascript
+Object.defineProperties(window, {
+	gadsize: { value: 1 },
+	iHaveLoadedAds: { value: true },
+	OX: { value: true }
+});
+
+
+# https://github.com/uBlockOrigin/uAssets/issues/88
+golem.de.js application/javascript
+(function() {
+	var rael = window.addEventListener;
+	window.addEventListener = function(a, b, c) {
+		rael(a, b, c);
+		if ( /^\s*function\s*\(\)\s*{\s*window\.clearTimeout\(r\)\s*\}\s*$/.test(b.toString()) ) {
+			b();
+		}
+	}.bind(window);
+})();
+
+
+# https://www.reddit.com/r/firefox/comments/4wpd23/popads_just_announced_that_they_have_a_new_method/
+popads.net.js application/javascript
+(function() {
+	window.PopAds = function() {
+		;
+	};
+})();
+
+
+# https://adblockplus.org/forum/viewtopic.php?f=1&t=45634#p157317
+allmusic.com.js application/javascript
+(function() {
+	var z = {
+		value: function() {
+			;
+		}
+	};
+	Object.defineProperties(window, {
+		'__cli': z,
+		'cmnUNT':  z
+	});
+	window.tile_num = 0;
+})();
+
+
+# https://forums.lanik.us/viewtopic.php?f=62&t=32070
+xvideos.com.js application/javascript
+(function() {
+	var z = function(ads) {
+		var banners = ads && ads.banners;
+		if ( !banners ) { return; }
+		var banner, div;
+		while ( banners.length !== 0 ) {
+			banner = banners[0];
+			if ( !banner ) { continue; }
+			while ( (div = document.getElementById(banner.div_id)) !== null ) {
+				div.parentNode.removeChild(div);
+			}
+			banners.shift();
+		}
+	};
+	window.addEventListener('DOMContentLoaded', function() {
+		var xv = window.xv;
+		z(xv && xv.conf && xv.conf.ads);
+	});
+	var dfn,
+		dfntrap = function(a, b, c) {
+			if ( a !== 'config/ads' ) { dfn(a, b, c); return; }
+			var ads = b;
+			while ( typeof ads === 'function' ) { ads = ads(); }
+			z(ads);
+			b = function() { return function() { return JSON.parse(JSON.stringify(ads)); }; };
+			dfn(a, ads, c);
+		};
+	Object.defineProperty(window, 'define', {
+		get: function() { return dfn ? dfntrap : undefined; },
+		set: function(a) { dfn = a; }
+	});
+})();
+
+
+# https://forums.lanik.us/viewtopic.php?f=62&t=31322&start=30
+ndtv.com.js application/javascript
+Object.defineProperty(window, '___p_p', { value: 1 });
+
+
+# https://forums.lanik.us/viewtopic.php?f=64&t=32278
+jpost.com.js application/javascript
+Object.defineProperty(window, 'upManager', { value: function() {} });
+
+
+# https://github.com/uBlockOrigin/uAssets/issues/108
+wetteronline.de.js application/javascript
+(function() {
+	var nopefn = function() { throw new TypeError('Nope'); };
+	Object.defineProperty(window, 'xq5UgyIZx', {
+		get: nopefn,
+		set: nopefn
+	});
+	window.WO = {};
+	Object.defineProperty(window.WO, 'doAbCheck', {
+		value: function() {}
+	});
+})();
+
+
+# https://github.com/uBlockOrigin/uAssets/issues/108
+trafictube.ro.js application/javascript
+(function() {
+	var z = window.setInterval.bind(window),
+		re = /\(new\s+\w\)\.start\(\)/;
+	window.setInterval = function(a, b) {
+		if ( re.test(a.toString()) ) {
+			return 0;
+		}
+		return z(a, b);
+	}.bind(window);
+})();
+
+
+# https://github.com/uBlockOrigin/uAssets/issues/110
+smartadserver.com.js application/javascript
+Object.defineProperties(window, {
+	SmartAdObject: { value: function(){} },
+	SmartAdServerAjax: { value: function(){} },
+	smartAd: { value: { LoadAds: function() {}, Register: function() {} } }
+});
+
+
+# http://www.linuxtricks.fr/news/10-logiciels-libres/169-contourner-les-anti-bloqueurs-de-pub-la-revanche/
+lesechos.fr.js application/javascript
+Object.defineProperty(window, 'checkAdBlock', {
+	value: function(){}
+});
+
+
+# https://forums.lanik.us/viewtopic.php?f=62&t=32636
+# https://forums.lanik.us/viewtopic.php?f=62&t=32703
+i10c-defuser.js application/javascript
+(function() {
+	var noopfn = function() {
+		return false;
+	};
+	var v = { CanRun: noopfn };
+	if ( window.I10C !== undefined ) {
+		window.I10C = v;
+	} else {
+		Object.defineProperty(window, 'I10C', { value: v });
+	}
+	v = { Init: noopfn };
+	if ( window.INSTART !== undefined ) {
+		window.INSTART = v;
+	} else {
+		Object.defineProperty(window, 'INSTART', { value: v });
+	}
 })();
