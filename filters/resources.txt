@@ -177,7 +177,15 @@ google-analytics.com/ga.js application/javascript
 	Gaq.prototype._getPlugin = noopfn;
 	Gaq.prototype.push = function(a) {
 		if ( typeof a === 'function' ) {
-			a();
+			a(); return;
+		}
+		if ( Array.isArray(a) === false ) {
+			return;
+		}
+		// https://twitter.com/catovitch/status/776442930345218048
+		// https://developers.google.com/analytics/devguides/collection/gajs/methods/gaJSApiDomainDirectory#_gat.GA_Tracker_._link
+		if ( a[0] === '_link' && typeof a[1] === 'string' ) {
+			window.location.assign(a[1]);
 		}
 	};
 	//
