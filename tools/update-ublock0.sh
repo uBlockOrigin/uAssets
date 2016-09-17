@@ -32,6 +32,7 @@ thirdparties=(
     './thirdparties/pgl.yoyo.org/as/serverlist'
     './thirdparties/publicsuffix.org/list/effective_tld_names.dat'
     './thirdparties/www.malwaredomainlist.com/hostslist/hosts.txt'
+    './thirdparties/www.eff.org/files/effdntlist.txt'
 )
 for repoPath in "${thirdparties[@]}"; do
     repoPath2=`echo $repoPath | sed 's/\.\/thirdparties/assets\/thirdparties/'`
