@@ -701,10 +701,14 @@ bab-defuser.js application/javascript
 
 kissanime-defuser.js application/javascript
 (function() {
-	Object.defineProperty(window, 'isBlockAds2', {
-		get: function() { return false; },
-		set: function(a) {}
+	Object.defineProperties(window, {
+		DoDetect1: { value: function() {} },
+		DoDetect2: { value: function() {} },
+		isBlockAds2: { value: false }
 	});
+	window.onerror = function(msg, src, line, col, error) {
+		if ( /DoDetect\d?|isBlockAds\d/.test(msg) ) { return true; }
+	};
 })();
 
 
