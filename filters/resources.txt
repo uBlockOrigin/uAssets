@@ -562,35 +562,12 @@ forbes-defuser.js application/javascript
 	if ( window.location.pathname.lastIndexOf('/forbes/welcome/', 0) !== 0 ) {
 		return;
 	}
-	var noopfn = function() {
-		;
-	};
-	var odp = Object.defineProperty;
-	var wad, wadm, abc = function() {};
-	var abcp = abc.prototype;
-	abcp.addCheck =  abcp.check = abcp.initialize =
-	abcp.removeCheck = abcp.triggerAdBlockState = noopfn;
-	abcp.getAdBlockState = function() {
-		return false;
-	};
-	odp(window, 'WelcomeAd', {
-		get: function() { return wad; },
-		set: function(a) {
-			wad = a;
-			odp(a, 'Modules', {
-				get: function() { return wadm; },
-				set: function(a) {
-					wadm = a;
-					if ( a.AdBlockChecker ) {
-						a.AdBlockChecker = abc;
-					} else {
-						odp(a, 'AdBlockChecker', {
-							get: function() { return abc; },
-							set: function() {}
-						});
-					}
-				}
-			});
+	document.cookie = 'welcomeAd=true';
+	window.addEventListener('load', function() {
+		// https://developer.mozilla.org/en-US/docs/Web/API/Document/cookie#Example_2_Get_a_sample_cookie_named_test2
+		var toURL = document.cookie.replace(/(?:(?:^|.*;\s*)toURL\s*\=\s*([^;]*).*$)|^.*$/, "$1");
+		if ( toURL.lastIndexOf('http', 0) === 0 ) {
+			window.location.replace(toURL);
 		}
 	});
 })();
