@@ -65,9 +65,9 @@ google.*###sqh
 
 # http://www.wilderssecurity.com/threads/ublock-a-lean-and-fast-blocker.365273/page-25#post-2461804
 # Specific cosmetic filters for Youtube home page
-www.youtube.com##.masthead-ad-control
-www.youtube.com##.ad-div
-www.youtube.com##.pyv-afc-ads-container
+youtube.com##.masthead-ad-control
+youtube.com##.ad-div
+youtube.com##.pyv-afc-ads-container
 
 # https://github.com/chrisaljoudi/uBlock/issues/618
 deviantart.com##.dp-ad-chrome.dp-ad-visible
@@ -123,29 +123,21 @@ spiegel.de#@#.wrapad
 # Popunders
 
 # https://github.com/gorhill/uBlock/issues/991
-# New `popunder` filter option to explicitly block popunders.
-# Older version of uBO will discard this unknown filter option -- so it's safe
-# to add it here now.
 # https://github.com/gorhill/uBlock/issues/1094
-||slopeaota.com^$document,popunder,popup
-# https://github.com/gorhill/uBlock/issues/1173
-||exoclick.com^$popunder
+||slopeaota.com^$document,popup
 # https://github.com/gorhill/uBlock/issues/1053
 ||zinturax.com^$document,popunder,script
 # https://github.com/gorhill/uBlock/issues/995
-||trafficstars.com^$document,popunder
+||trafficstars.com^$document
 # https://forums.lanik.us/viewtopic.php?f=62&t=25212&start=15
-||branchroughlend.info^$popunder,popup
-||market-buster.com^$popunder,popup
-||clkfeed.com^$popunder,popup
+||branchroughlend.info^$popup
+||market-buster.com^$popup
 # https://github.com/gorhill/uBlock/issues/1177
-||clicksvenue.com^$popunder
-||globaltraffico.com^$popunder,popup
+||globaltraffico.com^$popup
 # https://github.com/gorhill/uBlock/issues/1208
 ||data.*.info^$document,popunder,popup
-||hilltopads.net^$popunder,popup
 # https://github.com/gorhill/uBlock/issues/1347
-||traffichunt.com^$document,popunder,popup
+||traffichunt.com^$document,popup
 ||trhnt.com^$document,popup
 ||trhunt.com^$document,popup
 
@@ -295,7 +287,7 @@ file-upload.net##iframe
 chip.de##script:inject(uAssets-17)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/2
-||data.*.com^$document,popup,domain=hqprn.com|pornsharing.com|tvil.me|viptube.com|vivatube.com
+||data.*.com^$document,popup,domain=befuck.com|hqprn.com|pornsharing.com|tvil.me|usersfiles.com|viptube.com|vivatube.com
 
 ! https://archive.rebeccablacktech.com/g/thread/S54040346#p54046766
 pornhub.com##script:inject(pornhub-sanitizer.js)
@@ -512,7 +504,7 @@ blogfolha.uol.com.br,economia.uol.com.br,educacao.uol.com.br,folha.uol.com.br##s
 ||jsuol.com.br^*detectadblock.js$script,domain=economia.uol.com.br
 
 ! https://forums.lanik.us/viewtopic.php?f=9&t=31927
-quora.com##body > div[id]:has(.signup_modal_content)
+quora.com##body > div[id]:has(.modal_signup_dialog)
 ! https://news.ycombinator.com/edit?id=12281229
 quora.com##body:style(overflow: auto !important)
 
@@ -727,7 +719,7 @@ parentherald.com##script:inject(noeval.js)
 ! https://github.com/uBlockOrigin/uAssets/issues/120
 ! https://forums.lanik.us/viewtopic.php?f=62&t=32184
 ! https://github.com/uBlockOrigin/uAssets/issues/123
-*$websocket,domain=24video.xxx|extratorrent.cc|filmix.net|free-torrent.org|free-torrents.org|free-torrent.pw|free-torrents.pw|gorillavid.in|hdrezka.me|kino-dom.org|kinotochka.net|mobipicker.com|natureworldnews.com|nnmclub.to|opensubtitles.org|parentherald.com|pornhub.com|putlocker9.com|redtube.com|redtube.com.br|rufilmtv.org|rustorka.com|seasonvar.ru|stream-tv-series.net|stream-tv2.to|tomshardware.com|the-watch-series.to|tube8.com|tube8.es|tube8.fr|xtube.com|youporn.com|youporngay.com
+*$websocket,domain=24video.xxx|boards2go.com|extratorrent.cc|filmix.net|free-torrent.org|free-torrents.org|free-torrent.pw|free-torrents.pw|gorillavid.in|hdrezka.me|kino-dom.org|kinotochka.net|mobipicker.com|natureworldnews.com|nnmclub.to|openload.co|opensubtitles.org|parentherald.com|pornhub.com|postimg.org|putlocker9.com|redtube.com|redtube.com.br|rufilmtv.org|rustorka.com|seasonvar.ru|stream-tv-series.net|stream-tv2.to|tomshardware.com|the-watch-series.to|tube8.com|tube8.es|tube8.fr|xtube.com|youporn.com|youporngay.com
 ||free-torrents.pw^$websocket
 
 ! https://forums.lanik.us/viewtopic.php?f=62&t=32401
@@ -760,7 +752,7 @@ openload.co#@##videooverlay
 ||ajax.cloudflare.com/cdn-cgi/nexp/dok3v=0489c402f5/cloudflare.min.js$script,domain=tugaflix.net
 
 ! https://github.com/uBlockOrigin/uAssets/issues/125
-@@||d3pkae9owd2lcf.cloudfront.net/mb105.gz.js$script,domain=hotslogs.com
+||d3pkae9owd2lcf.cloudfront.net/mb105.gz.js$script,redirect=d3pkae9owd2lcf.cloudfront.net/mb105.js,domain=hotslogs.com
 
 ! http://www.linuxtricks.fr/news/10-logiciels-libres/169-contourner-les-anti-bloqueurs-de-pub-la-revanche/
 lesechos.fr##script:inject(lesechos.fr.js)
@@ -860,3 +852,32 @@ cineforest.com##script:inject(bab-defuser.js)
 
 ! https://forums.lanik.us/viewtopic.php?f=62&t=33080
 twitter.com##.tweet[data-card2-type="promo_website"]
+
+! https://github.com/gorhill/uBlock/issues/2036
+bucksfreepress.co.uk###__nq__hh:style(visibility: collapse !important)
+
+! https://forums.lanik.us/viewtopic.php?f=62&t=33131
+lasprovincias.es##script:inject(ideal.es.js)
+
+! https://twitter.com/stephan_ssc/status/781569828058521604
+latribune.fr###geste_getoff
+latribune.fr##.modal-backdrop
+latribune.fr##.modal-open:style(overflow: auto !important)
+
+! https://github.com/gorhill/uBlock/issues/2039
+||go.*.com^$domain=kickass.cd
+||go.*.com^$popup,domain=kickass.cd
+
+! https://github.com/uBlockOrigin/uAssets/issues/154
+||usersfiles.com^$inline-script
+@@|https://usersfiles.com^|$inline-script
+@@||upload*.usersfiles.com^$inline-script
+
+! https://forums.lanik.us/viewtopic.php?f=62&t=31235
+planetsuzy.org##div[style]:has(:scope > script[src*="ads.exoclick.com/"])
+
+! https://github.com/reek/anti-adblock-killer/issues/1839
+minecrafthousedesign.com##script:inject(bab-defuser.js)
+
+! https://forums.lanik.us/viewtopic.php?f=62&t=33194
+/?*&callback=callback_json_adblade*$script
