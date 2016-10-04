@@ -19,6 +19,7 @@ filters=(
     './filters/privacy.txt'
     './filters/resources.txt'
     './filters/unbreak.txt'
+    './filters/adnauseam.txt'
 )
 for repoPath in "${filters[@]}"; do
     repoPath2=`echo $repoPath | sed 's/\.\/filters/assets\/ublock/'`
