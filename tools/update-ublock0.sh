@@ -1,12 +1,11 @@
 #!/usr/bin/env bash
 #
-# This script assumes...
-# - you have a linux environment
-# - you cloned the repo https://github.com/uBlockOrigin/uAssets
-# - you cloned the repo https://github.com/gorhill/uBlock
-# - the script is launched from ./uBlockOrigin/uAssets
+# This script assumes you are on Linux or OS X with bash 4.x installed
+# - you cloned the repo https://github.com/dhowe/uAssets
+# - you cloned the repo https://github.com/dhowe/AdNauseam
+# - the script is launched from ./dhowe/uAssets
 
-echo "*** AdNauseam: generating checksums.txt file..."
+echo "*** Generating checksums.txt file..."
 
 truncate -s 0 ./checksums/ublock0.txt
 
@@ -40,5 +39,5 @@ for repoPath in "${thirdparties[@]}"; do
     echo `md5sum -q $repoPath` $repoPath2 >> ./checksums/ublock0.txt
 done
 
-echo "*** AdNauseam checksums updated."
+echo "*** Checksums updated."
 cat ./checksums/ublock0.txt
