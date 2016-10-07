@@ -5,6 +5,14 @@
 # - you cloned the repo https://github.com/dhowe/AdNauseam
 # - the script is launched from ./dhowe/uAssets
 
+
+if [ -z "${BASH_VERSINFO}" ] || [ -z "${BASH_VERSINFO[0]}" ] || [ ${BASH_VERSINFO[0]} -lt 4 ]; 
+then 
+  echo "Fatal: script requires Bash version >= 4"; 
+  echo "You have ${BASH_VERSION}";
+  exit 1; 
+fi
+
 echo "*** Generating checksums.txt file..."
 
 truncate -s 0 ./checksums/ublock0.txt
