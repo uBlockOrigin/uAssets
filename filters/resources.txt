@@ -1343,8 +1343,8 @@ allmusic.com.js application/javascript
 	Object.defineProperties(window, {
 		'__cli': z,
 		'cmnUNT':  z,
-        '__da': z
-    });
+		'__da': z
+	});
 	window.tile_num = 0;
 })();
 
@@ -1502,4 +1502,18 @@ d3pkae9owd2lcf.cloudfront.net/mb105.js application/javascript
 		fillSlot: noopfn,
 		go: noopfn
 	};
+})();
+
+
+# https://www.reddit.com/r/uBlockOrigin/comments/55pu1e/lastfm_super_aggressive_adblock_warning_message/
+last.fm.js application/javascript
+(function() {
+	var st = window.setTimeout;
+	var z = function(a, b) {
+		if ( b === 2000 && a.name.indexOf('bound') !== -1 ) {
+			return;
+		}
+		return st(a, b);
+	}.bind(window);
+	Object.defineProperty(window, 'setTimeout', { value: z });
 })();
