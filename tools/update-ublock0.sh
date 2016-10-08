@@ -5,6 +5,7 @@
 # - you cloned the repo https://github.com/dhowe/AdNauseam
 # - the script is launched from ./dhowe/uAssets
 
+die() { echo "$@" 1>&2 ; exit 1; }
 
 if [ -z "${BASH_VERSINFO}" ] || [ -z "${BASH_VERSINFO[0]}" ] || [ ${BASH_VERSINFO[0]} -lt 4 ]; 
 then 
@@ -13,11 +14,16 @@ then
   exit 1; 
 fi
 
+hash md5 2>/dev/null || { echo >&2 "Fatal: script requires 'md5sum' but it's not installed.  Aborting."; exit 1; }
+hash truncate 2>/dev/null || { echo >&2 "Fatal: scrip requires 'truncate' but it's not installed.  Aborting."; exit 1; }
+
+# ok, we're ready with a proper bash, truncate, and md5sum
+
 echo "*** Generating checksums.txt file..."
 
-truncate -s 0 ./checksums/ublock0.txt
+truncate -s 0 ./checksums/ublock0.txt 
 
-echo "`md5sum -q ../AdNauseam/assets/ublock/filter-lists.json` assets/ublock/filter-lists.json"  >> ./checksums/ublock0.txt
+echo "`md5 -r ../AdNauseam/assets/ublock/filter-lists.json` assets/ublock/filter-lists.json"  >> ./checksums/ublock0.txt
 
 filters=(
     './filters/badware.txt'
@@ -30,7 +36,7 @@ filters=(
 )
 for repoPath in "${filters[@]}"; do
     repoPath2=`echo $repoPath | sed 's/\.\/filters/assets\/ublock/'`
-    echo `md5sum -q $repoPath` $repoPath2 >> ./checksums/ublock0.txt
+    echo `md5 -r $repoPath` $repoPath2 >> ./checksums/ublock0.txt
 done
 
 thirdparties=(
@@ -44,8 +50,9 @@ thirdparties=(
 )
 for repoPath in "${thirdparties[@]}"; do
     repoPath2=`echo $repoPath | sed 's/\.\/thirdparties/assets\/thirdparties/'`
-    echo `md5sum -q $repoPath` $repoPath2 >> ./checksums/ublock0.txt
+    echo `md5 -r $repoPath` $repoPath2 >> ./checksums/ublock0.txt
 done
 
 echo "*** Checksums updated."
 cat ./checksums/ublock0.txt
+

@@ -4,6 +4,13 @@
 
 TEMPFILE=/tmp/uAsset
 
+if [ -z "${BASH_VERSINFO}" ] || [ -z "${BASH_VERSINFO[0]}" ] || [ ${BASH_VERSINFO[0]} -lt 4 ];
+then
+  echo "Fatal: script requires Bash version >= 4";
+  echo "You have ${BASH_VERSION}";
+  exit 1;
+fi
+
 echo "*** uAssets: updating remote assets..."
 
 declare -A assets
