@@ -10,6 +10,8 @@ then
   echo "You have ${BASH_VERSION}";
   exit 1;
 fi
+hash wget 2>/dev/null || { echo >&2 "Fatal: script requires 'wget' but it's not installed.  Aborting."; exit 1; }
+hash cmp 2>/dev/null || { echo >&2 "Fatal: scrip requires 'cmp' but it's not installed.  Aborting."; exit 1; }
 
 echo "*** uAssets: updating remote assets..."
 
