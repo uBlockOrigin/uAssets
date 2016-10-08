@@ -643,19 +643,19 @@ bab-defuser.js application/javascript
 		['blockadblock'],
 		['babasbm'],
 		[/getItem\('babn'\)/],
-		['getElementById','String.fromCharCode','ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789','charAt','DOMContentLoaded','addEventListener','doScroll','fromCharCode','sessionStorage','localStorage','Math.random']
+		['getElementById','String.fromCharCode','ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789','charAt','DOMContentLoaded','AdBlock','addEventListener','doScroll','fromCharCode','<<2|r>>4','sessionStorage','clientWidth','localStorage','Math','random']
 	];
 	var check = function(s) {
-		var tokens, match, j, token;
+		var tokens, match, j, token, pos;
 		for ( var i = 0; i < signatures.length; i++ ) {
 			tokens = signatures[i];
-			match = true;
-			for ( j = 0, pos = 0; j < tokens.length && match; j++ ) {
-				token = tokens[j]
-				pos = token instanceof RegExp ? s.search(token) : s.indexOf(token, pos);
-				if ( pos === -1 ) { match = false; }
+			match = 0;
+			for ( j = 0, pos = 0; j < tokens.length; j++ ) {
+				token = tokens[j];
+				pos = token instanceof RegExp ? s.search(token) : s.indexOf(token);
+				if ( pos !== -1 ) { match += 1; }
 			}
-			if ( match ) { return true; }
+			if ( (match / tokens.length) >= 0.8 ) { return true; }
 		}
 		return false;
 	};
