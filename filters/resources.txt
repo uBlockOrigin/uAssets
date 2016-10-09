@@ -1517,3 +1517,12 @@ last.fm.js application/javascript
 	}.bind(window);
 	Object.defineProperty(window, 'setTimeout', { value: z });
 })();
+
+
+thefreedictionary.com.js application/javascript
+(function() {
+	Object.defineProperty(window, 'warn', { value: function(){} });
+	window.onerror = function(msg, src, line, col, error) {
+		if ( msg.indexOf('warn') !== -1 ) { return true; }
+	};
+})();
