@@ -643,19 +643,19 @@ bab-defuser.js application/javascript
 		['blockadblock'],
 		['babasbm'],
 		[/getItem\('babn'\)/],
-		['getElementById','String.fromCharCode','ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789','charAt','DOMContentLoaded','addEventListener','doScroll','fromCharCode','sessionStorage','localStorage','Math.random']
+		['getElementById','String.fromCharCode','ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789','charAt','DOMContentLoaded','AdBlock','addEventListener','doScroll','fromCharCode','<<2|r>>4','sessionStorage','clientWidth','localStorage','Math','random']
 	];
 	var check = function(s) {
-		var tokens, match, j, token;
+		var tokens, match, j, token, pos;
 		for ( var i = 0; i < signatures.length; i++ ) {
 			tokens = signatures[i];
-			match = true;
-			for ( j = 0, pos = 0; j < tokens.length && match; j++ ) {
-				token = tokens[j]
-				pos = token instanceof RegExp ? s.search(token) : s.indexOf(token, pos);
-				if ( pos === -1 ) { match = false; }
+			match = 0;
+			for ( j = 0, pos = 0; j < tokens.length; j++ ) {
+				token = tokens[j];
+				pos = token instanceof RegExp ? s.search(token) : s.indexOf(token);
+				if ( pos !== -1 ) { match += 1; }
 			}
-			if ( match ) { return true; }
+			if ( (match / tokens.length) >= 0.8 ) { return true; }
 		}
 		return false;
 	};
@@ -1343,8 +1343,8 @@ allmusic.com.js application/javascript
 	Object.defineProperties(window, {
 		'__cli': z,
 		'cmnUNT':  z,
-        '__da': z
-    });
+		'__da': z
+	});
 	window.tile_num = 0;
 })();
 
@@ -1501,5 +1501,28 @@ d3pkae9owd2lcf.cloudfront.net/mb105.js application/javascript
 		addSlot: noopfn,
 		fillSlot: noopfn,
 		go: noopfn
+	};
+})();
+
+
+# https://www.reddit.com/r/uBlockOrigin/comments/55pu1e/lastfm_super_aggressive_adblock_warning_message/
+last.fm.js application/javascript
+(function() {
+	var st = window.setTimeout;
+	var z = function(a, b) {
+		if ( b === 2000 && a.name.indexOf('bound') !== -1 ) {
+			return;
+		}
+		return st(a, b);
+	}.bind(window);
+	Object.defineProperty(window, 'setTimeout', { value: z });
+})();
+
+
+thefreedictionary.com.js application/javascript
+(function() {
+	Object.defineProperty(window, 'warn', { value: function(){} });
+	window.onerror = function(msg, src, line, col, error) {
+		if ( msg.indexOf('warn') !== -1 ) { return true; }
 	};
 })();
