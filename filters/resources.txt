@@ -1391,8 +1391,20 @@ Object.defineProperty(window, '___p_p', { value: 1 });
 
 
 # https://forums.lanik.us/viewtopic.php?f=64&t=32278
-jpost.com.js application/javascript
-Object.defineProperty(window, 'upManager', { value: function() {} });
+# https://www.reddit.com/r/chrome/comments/58eix6/ublock_origin_not_working_on_certain_sites/
+upmanager-defuser.js application/javascript
+(function() {
+	var onerror = window.onerror;
+	window.onerror = function(message, source, lineno, colno, error) {
+		if ( message.indexOf('upManager') !== -1 ) {
+			return true;
+		}
+		if ( onerror instanceof Function ) {
+			onerror.call(window, message, source, lineno, colno, error);
+		}
+	};
+	Object.defineProperty(window, 'upManager', { value: function() {} });
+})();
 
 
 # https://github.com/uBlockOrigin/uAssets/issues/108
