@@ -1391,8 +1391,20 @@ Object.defineProperty(window, '___p_p', { value: 1 });
 
 
 # https://forums.lanik.us/viewtopic.php?f=64&t=32278
-jpost.com.js application/javascript
-Object.defineProperty(window, 'upManager', { value: function() {} });
+# https://www.reddit.com/r/chrome/comments/58eix6/ublock_origin_not_working_on_certain_sites/
+upmanager-defuser.js application/javascript
+(function() {
+	var onerror = window.onerror;
+	window.onerror = function(message, source, lineno, colno, error) {
+		if ( message.indexOf('upManager') !== -1 ) {
+			return true;
+		}
+		if ( onerror instanceof Function ) {
+			onerror.call(window, message, source, lineno, colno, error);
+		}
+	};
+	Object.defineProperty(window, 'upManager', { value: function() {} });
+})();
 
 
 # https://github.com/uBlockOrigin/uAssets/issues/108
@@ -1541,4 +1553,18 @@ static.chartbeat.com/chartbeat.js application/javascript
 		activity: noopfn,
 		virtualPage: noopfn
 	};
+})();
+
+
+# https://discourse.mozilla-community.org/t/support-ublock-origin/6746/214
+lachainemeteo.com.js application/javascript
+Object.defineProperty(window, 'pliga', { value: { push: function(){} } });
+
+
+# https://twitter.com/gorhill/status/788113812578852864
+cdn.tt.omtrdc.net/cdn/target.js application/javascript
+(function() {
+	var at = window._AT || {};
+	at.targetJSLoaded = true;
+	window._AT = at;
 })();
