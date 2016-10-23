@@ -1335,17 +1335,19 @@ popads.net.js application/javascript
 # https://adblockplus.org/forum/viewtopic.php?f=1&t=45634#p157317
 allmusic.com.js application/javascript
 (function() {
-	var z = {
-		value: function() {
-			;
+	var magic = 'nvhlqscbvstjmbottbsp';
+	Object.defineProperties(window, {
+		__sa: { set: function() { throw magic; } },
+		cmnUNT: { value: function(){} },
+		tile_num: { value: 0 }
+	});
+	var oe = window.onerror;
+	window.onerror = function(msg, src, line, col, error) {
+		if ( msg.indexOf(magic) !== -1 ) { return true; }
+		if ( oe instanceof Function ) {
+			return oe.call(this, msg, src, line, col, error);
 		}
 	};
-	Object.defineProperties(window, {
-		'__cli': z,
-		'cmnUNT':  z,
-		'__da': z
-	});
-	window.tile_num = 0;
 })();
 
 
