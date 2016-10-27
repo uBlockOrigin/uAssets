@@ -47,6 +47,7 @@ thirdparties=(
     './thirdparties/publicsuffix.org/list/effective_tld_names.dat'
     './thirdparties/www.malwaredomainlist.com/hostslist/hosts.txt'
     './thirdparties/www.eff.org/files/effdntlist.txt'
+    './thirdparties/raw.githubusercontent.com/dhowe/Miscellaneous/master/testdntlist.txt' # tmp-remove
 )
 for repoPath in "${thirdparties[@]}"; do
     repoPath2=`echo $repoPath | sed 's/\.\/thirdparties/assets\/thirdparties/'`

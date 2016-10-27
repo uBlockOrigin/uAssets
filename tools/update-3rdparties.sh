@@ -24,6 +24,8 @@ assets=(
     ['thirdparties/publicsuffix.org/list/effective_tld_names.dat']='https://publicsuffix.org/list/effective_tld_names.dat'
     ['thirdparties/www.malwaredomainlist.com/hostslist/hosts.txt']='https://www.malwaredomainlist.com/hostslist/hosts.txt'
     ['thirdparties/www.eff.org/files/effdntlist.txt']='https://www.eff.org/files/effdntlist.txt'
+    # tmp-remove
+    ['thirdparties/raw.githubusercontent.com/dhowe/Miscellaneous/master/testdntlist.txt']='https://raw.githubusercontent.com/dhowe/Miscellaneous/master/testdntlist.txt'
 )
 
 for i in "${!assets[@]}"; do
