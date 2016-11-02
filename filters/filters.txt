@@ -486,6 +486,7 @@ dailycaller.com##[id^="outbrain_widget"]
 ! https://github.com/uBlockOrigin/uAssets/issues/70
 ! https://forums.lanik.us/viewtopic.php?p=99583#p99583
 ||aranzulla.it$inline-script
+aranzulla.it##body > div[id][class]:matches-css(position: fixed)
 
 ! https://forums.lanik.us/viewtopic.php?p=99593
 @@||financialexpress.com/*/ad*$script,first-party
@@ -594,6 +595,8 @@ eurogamer.net##html:style(cursor: default !important;)
 facebook.com###stream_pagelet div[id^="hyperfeed_story_id_"]:has(a.uiStreamSponsoredLink)
 ! "People You May Know": EasyList tries to block these, might as well block them fully
 facebook.com##:xpath(//div[@id="stream_pagelet"]//div[starts-with(@id,"hyperfeed_story_id_")][.//h6//span/text()="People You May Know"])
+! https://www.reddit.com/r/uBlockOrigin/comments/58o3k6/facebook_ads_solution/
+facebook.com##.ego_section:has(a.adsCategoryTitleLink)
 
 ! https://forums.lanik.us/viewtopic.php?f=62&t=32142
 ||ruiguozhi.cc^
@@ -690,8 +693,10 @@ dragoart.com###centercol_io > div[style]:has(script[src^="https://pagead2.google
 
 ! https://github.com/uBlockOrigin/uAssets/issues/104
 timesofindia.com##script:inject(indiatimes.com.js)
-m.timesofindia.com##.ad1
+m.timesofindia.com,m.photos.timesofindia.com##.ad1
 @@||imasdk.googleapis.com/js/sdkloader/ima3.js$script,domain=m.timesofindia.com
+! https://github.com/uBlockOrigin/uAssets/issues/176
+@@||m.photos.timesofindia.com^$generichide
 
 ! https://github.com/uBlockOrigin/uAssets/issues/104
 m.aajtak.in##body > #adbocker_alt.adblocker-page
@@ -722,7 +727,7 @@ parentherald.com##script:inject(noeval.js)
 ! https://github.com/uBlockOrigin/uAssets/issues/120
 ! https://forums.lanik.us/viewtopic.php?f=62&t=32184
 ! https://github.com/uBlockOrigin/uAssets/issues/123
-*$websocket,domain=1337x.to|24video.xxx|boards2go.com|dailycaller.com|destructoid.com|extratorrent.cc|filmix.net|free-torrent.org|free-torrents.org|free-torrent.pw|free-torrents.pw|gorillavid.in|hdrezka.me|kino-dom.org|kinotochka.net|mobipicker.com|natureworldnews.com|nnmclub.to|openload.co|opensubtitles.org|parentherald.com|pornhub.com|postimg.org|putlocker9.com|redtube.com|redtube.com.br|rufilmtv.org|rustorka.com|seasonvar.ru|stream-tv-series.net|stream-tv2.to|technobuffalo.com|thevideo.me|the-watch-series.to|tomshardware.com|tube8.com|tube8.es|tube8.fr|xtube.com|youporn.com|youporngay.com
+*$websocket,domain=1337x.to|24video.xxx|boards2go.com|dailycaller.com|destructoid.com|extratorrent.cc|filmix.net|free-torrent.org|free-torrents.org|free-torrent.pw|free-torrents.pw|gorillavid.in|gsmarena.com|hdrezka.me|kino-dom.org|kinotochka.net|mobipicker.com|natureworldnews.com|nnmclub.to|openload.co|opensubtitles.org|parentherald.com|pornhub.com|postimg.org|putlocker9.com|redtube.com|redtube.com.br|rufilmtv.org|rustorka.com|seasonvar.ru|stream-tv-series.net|stream-tv2.to|technobuffalo.com|thecountrycaller.com|thevideo.me|the-watch-series.to|tomshardware.com|tube8.com|tube8.es|tube8.fr|xtube.com|youporn.com|youporngay.com
 ||free-torrents.pw^$websocket
 
 ! https://forums.lanik.us/viewtopic.php?f=62&t=32401
@@ -965,3 +970,13 @@ kiplinger.com###wealthCreationModal
 @@||thenextweb.com/wp-content/advertisement.js$script,first-party
 thenextweb.com###canvas
 thenextweb.com##html > body.is-canvas.tnw-canvas--opened .main:style(animation: none !important; -webkit-animation: none !important;)
+
+! https://twitter.com/ossito2012/status/790275568600125440
+||webeatyouradblocker.com^$script,domain=gsmarena.com
+
+! https://github.com/uBlockOrigin/uAssets/issues/175
+||pleaseletmeadvertise.com^$important,domain=thecountrycaller.com
+
+! https://adblockplus.org/forum/viewtopic.php?f=1&t=49326
+||ditwrite.com^$document
+||go.trkgt.com^$document

@@ -317,7 +317,7 @@ googletagservices.com/gpt.js application/javascript
 	// https://developers.google.com/doubleclick-gpt/reference
 	var noopfn = function() {
 		;
-	};
+	}.bind();
 	var noopthisfn = function() {
 		return this;
 	};
@@ -480,7 +480,7 @@ yavli-defuser.js application/javascript
 		Object.defineProperty(window, '__lturl', nourl);
 	} catch (ex) {
 	}
-	var aa = 'hx xh xb xj xs xw xf dx oq oj oz wy wj nr nw cw cv gy mr mz tq gb kx kr kt kv hc jz jb jd jx jj'.split(/\s+/);
+	var aa = 'hx xh xb xj xs xw xf dx oq oj oz wy wj nr nw cw cv gy mr mz tq gb kx kr kt kv hc jz jb jd jx jj nz'.split(/\s+/);
 	var no = {
 		set: noopfn,
 		get: function() {
@@ -934,7 +934,7 @@ amazon-adsystem.com/aax2/amzn_ads.js application/javascript
 	var w = window;
 	var noopfn = function() {
 		;
-	};
+	}.bind();
 	var amznads = {
 		appendScriptTag: noopfn,
 		appendTargetingToAdServerUrl: noopfn,
@@ -1326,26 +1326,41 @@ golem.de.js application/javascript
 # https://www.reddit.com/r/firefox/comments/4wpd23/popads_just_announced_that_they_have_a_new_method/
 popads.net.js application/javascript
 (function() {
-	window.PopAds = function() {
-		;
-	};
+	var magic = String.fromCharCode(Date.now() % 26 + 97) +
+				Math.floor(Math.random() * 982451653 + 982451653).toString(36),
+		oe = window.onerror;
+	window.onerror = function(msg, src, line, col, error) {
+		if ( msg.indexOf(magic) !== -1 ) { return true; }
+		if ( oe instanceof Function ) {
+			return oe(msg, src, line, col, error);
+		}
+	}.bind();
+	var throwMagic = function() { throw magic; };
+	delete window.PopAds;
+	delete window.popns;
+	Object.defineProperties(window, {
+		PopAds: { set: throwMagic },
+		popns: { set: throwMagic }
+	});
 })();
 
 
 # https://adblockplus.org/forum/viewtopic.php?f=1&t=45634#p157317
 allmusic.com.js application/javascript
 (function() {
-	var z = {
-		value: function() {
-			;
+	var magic = 'nvhlqscbvstjmbottbsp';
+	Object.defineProperties(window, {
+		__sa: { set: function() { throw magic; } },
+		cmnUNT: { value: function(){} },
+		tile_num: { value: 0 }
+	});
+	var oe = window.onerror;
+	window.onerror = function(msg, src, line, col, error) {
+		if ( msg.indexOf(magic) !== -1 ) { return true; }
+		if ( oe instanceof Function ) {
+			return oe.call(this, msg, src, line, col, error);
 		}
 	};
-	Object.defineProperties(window, {
-		'__cli': z,
-		'cmnUNT':  z,
-		'__da': z
-	});
-	window.tile_num = 0;
 })();
 
 
@@ -1559,12 +1574,3 @@ static.chartbeat.com/chartbeat.js application/javascript
 # https://discourse.mozilla-community.org/t/support-ublock-origin/6746/214
 lachainemeteo.com.js application/javascript
 Object.defineProperty(window, 'pliga', { value: { push: function(){} } });
-
-
-# https://twitter.com/gorhill/status/788113812578852864
-cdn.tt.omtrdc.net/cdn/target.js application/javascript
-(function() {
-	var at = window._AT || {};
-	at.targetJSLoaded = true;
-	window._AT = at;
-})();
