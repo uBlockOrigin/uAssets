@@ -1576,3 +1576,31 @@ static.chartbeat.com/chartbeat.js application/javascript
 # https://discourse.mozilla-community.org/t/support-ublock-origin/6746/214
 lachainemeteo.com.js application/javascript
 Object.defineProperty(window, 'pliga', { value: { push: function(){} } });
+
+
+# https://github.com/gorhill/uBlock/issues/2132
+abort-on-property-write.js application/javascript
+(function() {
+	var magic = String.fromCharCode(Date.now() % 26 + 97) +
+				Math.floor(Math.random() * 982451653 + 982451653).toString(36);
+	var prop = '{{1}}',
+		owner = window,
+		pos;
+	for (;;) {
+		pos = prop.indexOf('.');
+		if ( pos === -1 ) { break; }
+		owner = owner[prop.slice(0, pos)];
+		prop = prop.slice(pos + 1);
+	}
+	delete owner[prop];
+	Object.defineProperty(owner, prop, {
+		set: function() { throw new ReferenceError(magic); }
+	});
+	var oe = window.onerror;
+	window.onerror = function(msg, src, line, col, error) {
+		if ( msg.indexOf(magic) !== -1 ) { return true; }
+		if ( oe instanceof Function ) {
+			return oe(msg, src, line, col, error);
+		}
+	}.bind();
+})();
