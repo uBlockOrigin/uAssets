@@ -1593,6 +1593,7 @@ abort-on-property-write.js application/javascript
 		pos = prop.indexOf('.');
 		if ( pos === -1 ) { break; }
 		owner = owner[prop.slice(0, pos)];
+		if ( instanceof owner !== Object ) { return; }
 		prop = prop.slice(pos + 1);
 	}
 	delete owner[prop];
@@ -1620,6 +1621,7 @@ abort-on-property-read.js application/javascript
 		pos = prop.indexOf('.');
 		if ( pos === -1 ) { break; }
 		owner = owner[prop.slice(0, pos)];
+		if ( instanceof owner !== Object ) { return; }
 		prop = prop.slice(pos + 1);
 	}
 	delete owner[prop];
