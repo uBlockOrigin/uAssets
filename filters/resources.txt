@@ -1206,8 +1206,9 @@ noeval.js application/javascript
 # Prevent web pages from using RTCPeerConnection(), and report attempts in console.
 nowebrtc.js application/javascript
 (function() {
+	var log = console.log.bind(console);
 	var pc = function(cfg) {
-		console.log('Document tried to create an RTCPeerConnection: %o', cfg);
+		log('Document tried to create an RTCPeerConnection: %o', cfg);
 	};
 	var noop = function() {
 		;
@@ -1592,11 +1593,40 @@ abort-on-property-write.js application/javascript
 		pos = prop.indexOf('.');
 		if ( pos === -1 ) { break; }
 		owner = owner[prop.slice(0, pos)];
+		if ( instanceof owner !== Object ) { return; }
 		prop = prop.slice(pos + 1);
 	}
 	delete owner[prop];
 	Object.defineProperty(owner, prop, {
 		set: function() { throw new ReferenceError(magic); }
+	});
+	var oe = window.onerror;
+	window.onerror = function(msg, src, line, col, error) {
+		if ( msg.indexOf(magic) !== -1 ) { return true; }
+		if ( oe instanceof Function ) {
+			return oe(msg, src, line, col, error);
+		}
+	}.bind();
+})();
+
+# https://github.com/gorhill/uBlock/issues/2132
+abort-on-property-read.js application/javascript
+(function() {
+	var magic = String.fromCharCode(Date.now() % 26 + 97) +
+				Math.floor(Math.random() * 982451653 + 982451653).toString(36);
+	var prop = '{{1}}',
+		owner = window,
+		pos;
+	for (;;) {
+		pos = prop.indexOf('.');
+		if ( pos === -1 ) { break; }
+		owner = owner[prop.slice(0, pos)];
+		if ( instanceof owner !== Object ) { return; }
+		prop = prop.slice(pos + 1);
+	}
+	delete owner[prop];
+	Object.defineProperty(owner, prop, {
+		get: function() { throw new ReferenceError(magic); }
 	});
 	var oe = window.onerror;
 	window.onerror = function(msg, src, line, col, error) {
