@@ -1698,3 +1698,18 @@ geektime.co.il.js application/javascript
 		set: function(){}
 	});
 })();
+
+
+# https://www.reddit.com/r/wow/comments/5exq2d/wowheadcom_sucking_bandwidth/
+wowhead.com.js application/javascript
+(function() {
+	var z = window.console,
+		y = z.log,
+		dummy;
+	window.console.log = function log(a) {
+		if ( a instanceof HTMLDivElement ) {
+			dummy = a.id != Date.now();
+		}
+		y.apply(z, arguments);
+	}.bind(z);
+})();
