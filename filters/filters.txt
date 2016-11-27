@@ -113,7 +113,7 @@ spiegel.de#@#.wrapad
 
 # https://github.com/gorhill/uBlock/issues/1044#issuecomment-163725136
 ||adswithsalt.com/*/ad-loading.pic$image,redirect=2x2-transparent.png
-||adternal.com/*/ad-loading.*$image,redirect=2x2-transparent.png
+||adternal.com/*/ad-loading.*$image,redirect=3x2-transparent.png
 ||de/*/ad_bomb/*$image,redirect=2x2-transparent.png
 ||tisoomitech.com/*/ad-image.png$image,redirect=2x2-transparent.png
 
@@ -351,7 +351,7 @@ ibtimes.co.uk###signin_popup
 deadline.com,tweaktown.com##script:inject(gpt-defuser.js)
 
 ! https://adblockplus.org/forum/viewtopic.php?f=1&t=45634#p157317
-allmusic.com##script:inject(allmusic.com.js)
+allmusic.com##script:inject(setTimeout-defuser.js, "whitelisted", 1500)
 ! https://adblockplus.org/forum/viewtopic.php?f=1&t=45634
 ||1rx.s3.amazonaws.com/advert.js$script,redirect=noopjs,domain=allmusic.com
 ||cdn.complexmedianetwork.com/js/cmnUNT.js$important,script,redirect=noopjs,domain=allmusic.com
@@ -402,6 +402,8 @@ livenewschat.eu##ins[id^="aswift_"]
 @@||videos2.cdn1122.com^$image,object,domain=gaytube.com|pornhub.com|redtube.com|redtube.it|tube8.com|tube8.es|tube8.fr|xtube.com|youjizz.com|youporn.com|youporngay.com
 ! https://github.com/uBlockOrigin/uAssets/issues/39
 ||comeadvertisewithus.com.*/ads.js$important,domain=pornhub.com|redtube.com.br|tube8.com|tube8.fr|xtube.com|youporn.com
+! https://twitter.com/471_ba/status/801463415382441988
+@@||static.pornhub.phncdn.com^$script,domain=pornhub.com
 
 ! https://github.com/uBlockOrigin/uAssets/issues/78
 *$popup,third-party,domain=nowvideo.ag|nowvideo.co|nowvideo.li|nowvideo.sx|nowvideo.to
@@ -761,7 +763,7 @@ openload.co#@##videooverlay
 ||ajax.cloudflare.com/cdn-cgi/nexp/dok3v=0489c402f5/cloudflare.min.js$script,domain=tugaflix.net
 
 ! https://github.com/uBlockOrigin/uAssets/issues/125
-||d3pkae9owd2lcf.cloudfront.net/mb105.gz.js$script,redirect=d3pkae9owd2lcf.cloudfront.net/mb105.js,domain=hotslogs.com|poe.trade
+||d3pkae9owd2lcf.cloudfront.net/mb105.gz.js$script,redirect=d3pkae9owd2lcf.cloudfront.net/mb105.js,domain=hotslogs.com|poe.trade|wowhead.com
 
 ! http://www.linuxtricks.fr/news/10-logiciels-libres/169-contourner-les-anti-bloqueurs-de-pub-la-revanche/
 lesechos.fr##script:inject(lesechos.fr.js)
@@ -996,3 +998,50 @@ xda-developers.com##script:inject(nowebrtc.js)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/191
 ||adscale.de^$image,redirect=1x1-transparent.gif,domain=dasolo.org
+
+! https://github.com/gorhill/uBlock/issues/2154
+mio.to##script:inject(setTimeout-defuser.js, e=d(), 1000)
+mio.to##script:inject(setInterval-defuser.js, e=d(), 5000)
+
+! https://github.com/uBlockOrigin/uAssets/issues/195
+techsupportpk.com##script:inject(bab-defuser.js)
+
+! https://github.com/gorhill/uBlock/issues/2163
+@@||cdn.vidyomani.com/c/p/showads.js$script,first-party
+
+! https://twitter.com/deHaller/status/799610859093983232
+||smartwall.swisspay.ch$xmlhttprequest,domain=letemps.ch
+
+! https://github.com/uBlockOrigin/uAssets/issues/197
+mindgamer.com##script:inject(bab-defuser.js)
+
+! https://github.com/uBlockOrigin/uAssets/issues/200
+criminalcasetools.com##script:inject(bab-defuser.js)
+
+! http://www.wilderssecurity.com/threads/ublock-a-lean-and-fast-blocker.365273/page-99#post-2632410
+imore.com##script:inject(setTimeout-defuser.js, checkBlocked, 100)
+
+! https://forums.lanik.us/viewtopic.php?f=62&t=33397
+*$websocket,domain=anime-joy.tv
+anime-joy.tv##script:inject(noeval.js)
+
+! https://github.com/gorhill/uBlock/issues/2172
+*$websocket,domain=vidtodo.com
+vidtodo.com##script:inject(nowebrtc.js)
+
+! https://forums.lanik.us/viewtopic.php?f=64&t=33940
+||revivestar.com^
+
+! https://github.com/uBlockOrigin/uAssets/issues/205
+ahzahg6ohb.com,ay8ou8ohth.com##script:inject(abort-on-property-read.js, adsShowPopup1)
+! Remove once 1.10.0 is released.
+@@||ay8ou8ohth.com/js/adpop.js$script,first-party
+
+! https://github.com/uBlockOrigin/uAssets/issues/207
+yairworkshop.com##script:inject(bab-defuser.js)
+
+! https://github.com/gorhill/uBlock/issues/2185
+lepoint.fr##script:inject(noeval.js)
+
+! https://adblockplus.org/forum/viewtopic.php?f=1&t=49891
+golem.de,tweaktown.com##script:inject(abort-on-property-write.js, _sp_)
