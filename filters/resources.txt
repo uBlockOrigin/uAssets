@@ -1518,12 +1518,12 @@ d3pkae9owd2lcf.cloudfront.net/mb105.js application/javascript
 	window.MonkeyBroker = window.MonkeyBroker || {
 		addAttribute: noopfn,
 		addSlot: noopfn,
-        defineSlot: noopfn,
+		defineSlot: noopfn,
 		fillSlot: noopfn,
 		go: noopfn,
-        inventoryConditionalPlacement: noopfn,
-        registerSizeCallback: noopfn,
-        registerSlotCallback: noopfn
+		inventoryConditionalPlacement: noopfn,
+		registerSizeCallback: noopfn,
+		registerSlotCallback: noopfn
 	};
 })();
 
@@ -1640,13 +1640,18 @@ abort-on-property-read.js application/javascript
 setTimeout-defuser.js application/javascript
 (function() {
 	var z = window.setTimeout,
-		delay = parseInt('{{2}}', 10),
-		needle = '{{1}}';
+		needle = '{{1}}',
+		delay = parseInt('{{2}}', 10);
+	if ( needle === '' ) {
+		needle = '.?';
+	} else if ( needle.slice(0,1) === '/' && needle.slice(-1) === '/' ) {
+		needle = needle.slice(1,-1);
+	} else {
+		needle = needle.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+	}
+	needle = new RegExp(needle);
 	window.setTimeout = function(a, b) {
-		if (
-			(isNaN(delay) || b == delay) &&
-			(needle === '' || a.toString().indexOf(needle) !== -1)
-		) {
+		if ( (isNaN(delay) || b == delay) && needle.test(a.toString()) ) {
 			return 0;
 		}
 		return z(a, b);
@@ -1690,17 +1695,6 @@ setInterval-logger.js application/javascript
 		log('uBO: setInterval("%s", %s)', a.toString(), b);
 		return z(a, b);
 	}.bind(window);
-})();
-
-
-# https://github.com/uBlockOrigin/uAssets/issues/206
-# Candidate for generic argument-fed scriplet
-geektime.co.il.js application/javascript
-(function() {
-	Object.defineProperty(window, 'sdKajfhg34cfF', {
-		get: function(){ return function(){}; },
-		set: function(){}
-	});
 })();
 
 
