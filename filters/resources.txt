@@ -1223,7 +1223,14 @@ nowebrtc.js application/javascript
 		createOffer: noop,
 		setRemoteDescription: noop
 	};
+	var z = window.RTCPeerConnection;
 	window.RTCPeerConnection = pc.bind(window);
+	z.prototype.createDataChannel = function(a, b) {
+		return {
+			close: function() {},
+			send: function() {}
+		};
+	}.bind(null);
 })();
 
 
