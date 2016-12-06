@@ -1619,11 +1619,11 @@ abort-on-property-read.js application/javascript
 	var abort = function() {
 		throw new ReferenceError(magic);
 	};
-	var chain = '{{1}}', owner = window, pos;
+	var chain = '{{1}}', owner = window, pos, desc;
 	var makeProxy = function(owner, chain) {
 		pos = chain.indexOf('.');
 		if ( pos === -1 ) {
-			var desc = Object.getOwnPropertyDescriptor(owner, chain);
+			desc = Object.getOwnPropertyDescriptor(owner, chain);
 			if ( !desc || desc.get !== abort ) {
 				Object.defineProperty(owner, chain, { get: abort });
 			}
@@ -1634,20 +1634,23 @@ abort-on-property-read.js application/javascript
 		chain = chain.slice(pos + 1); 
 		if ( v !== undefined ) {
 			makeProxy(v, chain);
-		} else {
-			delete owner[prop];
-			Object.defineProperty(owner, prop, {
-				get: function() {
-					return v;
-				},
-				set: function(a) {
-					v = a;
-					if ( a instanceof Object ) {
-						makeProxy(a, chain);
-					}
-				}
-			});
+			return;
 		}
+		desc = Object.getOwnPropertyDescriptor(owner, prop);
+		if ( desc && desc.set && desc.set.hasOwnProperty(magic) ) {
+			return;
+		}
+		var setter = function(a) {
+			v = a;
+			if ( a instanceof Object ) {
+				makeProxy(a, chain);
+			}
+		};
+		setter[magic] = undefined;
+		Object.defineProperty(owner, prop, {
+			get: function() { return v; },
+			set: setter
+		});
 	};
 	makeProxy(owner, chain);
 	var oe = window.onerror;
