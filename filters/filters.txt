@@ -92,10 +92,7 @@ washingtonpost.com##script:inject(wpredirect-defuser.js)
 # it in their respective filter lists
 arstechnica.com##script:contains(ars.READY.push)
 aussenwirtschaftslupe.de,autozeitung.de,brieffreunde.de,donnerwetter.de,fanfiktion.de,formel1.de,fremdwort.de,helles-koepfchen.de,inside-handy.de,motorsport-total.com,moviejones.de,news.de,rechtslupe.de,wintotal.de##script:contains(window.tisoomi)
-bild.de##script:contains(/^\s*de.bild.cmsKonfig/)
-bild.de##script:contains(Javascript)
 commentcamarche.net,foot01.com,journaldunet.com,metronews.fr##script:contains(/[Ll]igatus/)
-dayt.se##script:contains(adblock.php)
 jeux-porno.net##script:contains(/^\s*?var\s+?uniqueParam\s*?=/)
 getvids.de,podcast.de,sommerhaus.de,spielespielen24.de##script:contains(/^\s*function\s+gS/)
 jav4.me##script:contains(adblock.htm)
@@ -103,7 +100,6 @@ kino-dom.org##script:contains(my_abadiv)
 layer13.net##script:contains(adBlockDetected)
 linternaute.com##script:contains(/^\s*var\s+Asl=/)
 pornfun.com##script:contains(canRunAds)
-sueddeutsche.de##script:contains(BlockAdBlock)
 vg.no##script:contains(/^\s*?window\.__AB__/)
 voetbalzone.nl##script:contains(/^\s*?var\s+?init_ads/)
 
@@ -111,8 +107,9 @@ voetbalzone.nl##script:contains(/^\s*?var\s+?init_ads/)
 20min.ch#@#.wingadblock
 spiegel.de#@#.wrapad
 
-# https://github.com/gorhill/uBlock/issues/1044#issuecomment-163725136
-||adswithsalt.com/*/ad-loading.pic$image,redirect=2x2-transparent.png
+! https://github.com/gorhill/uBlock/issues/1044#issuecomment-163725136
+! https://github.com/uBlockOrigin/uAssets/issues/209
+||adswithsalt.com/*/ad-loading.pic$image,redirect=3x2-transparent.png
 ||adternal.com/*/ad-loading.*$image,redirect=3x2-transparent.png
 ||de/*/ad_bomb/*$image,redirect=2x2-transparent.png
 ||tisoomitech.com/*/ad-image.png$image,redirect=2x2-transparent.png
@@ -189,17 +186,6 @@ forbes.com##script:inject(forbes-defuser.js)
 ||s3.amazonaws.com/homad-global-configs.schneevonmorgen.com/hd-main.js$script,domain=chip.de|computerbild.de|cdnapi.kaltura.com|focus.de|spiegel.de|stern.de|sueddeutsche.de|t-online.de,redirect=hd-main.js
 ||svonm.com/hd-main.js$script,redirect=hd-main.js,domain=chip.de|cdnapi.kaltura.com
 stern.de##script:inject(bcplayer-defuser.js)
-
-# https://adblockplus.org/forum/viewtopic.php?f=2&t=40985
-# Proof of concept: no need to open ourselves to more 3rd-party scripts/frames in
-# order to prevent blocker bypass. The `important` filter option is used here
-# to override EasyList exception filters for this case: ideally exception filters
-# should be avoided as much as possible.
-||ads.ad-center.com/smart_ad/display?ref=*&smart_ad_id=$subdocument,domain=dayt.se,redirect=noopframe,important
-||ads.ad-center.com^$subdocument,domain=dayt.se,redirect=noopframe,important
-||aflrm.com^$subdocument,domain=dayt.se,redirect=noopframe,important
-||dayt.se^*fuckadblock.js$script,redirect=fuckadblock.js-3.2.0,important
-||imads.integral-marketing.com^$domain=dayt.se,important
 
 # https://github.com/gorhill/uBlock/issues/1078
 ||eurotransport.de/*/antiAdBlock.js$script,first-party,redirect=antiAdBlock.js
@@ -302,6 +288,7 @@ wired.com###around-the-web
 ||pagead2.googlesyndication.com/pagead/*/show_ads_impl.js$script,important,domain=wired.com
 ||pagead2.googlesyndication.com/pagead/show_ads.js$script,important,domain=wired.com
 ||wired.com/ams/page-ads.js$important,script
+wired.com##script:inject(setTimeout-defuser.js, Bait)
 
 ! https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/reviews/792454/
 vipleague.sx##script:inject(overlay-buster.js)
@@ -401,9 +388,16 @@ livenewschat.eu##ins[id^="aswift_"]
 @@||static.redtube.com^$domain=gaytube.com|pornhub.com|redtube.com|redtube.it|tube8.com|tube8.es|tube8.fr|xtube.com|youjizz.com|youporn.com|youporngay.com
 @@||videos2.cdn1122.com^$image,object,domain=gaytube.com|pornhub.com|redtube.com|redtube.it|tube8.com|tube8.es|tube8.fr|xtube.com|youjizz.com|youporn.com|youporngay.com
 ! https://github.com/uBlockOrigin/uAssets/issues/39
-||comeadvertisewithus.com.*/ads.js$important,domain=pornhub.com|redtube.com.br|tube8.com|tube8.fr|xtube.com|youporn.com
+||comeadvertisewithus.com.*/ads.js$important,domain=pornhub.com|redtube.com.br|tube8.com|tube8.es|tube8.fr|xtube.com|youporn.com|youporngay.com
+||traffichaus.com.*/ads.js$important,domain=pornhub.com|redtube.com.br|tube8.com|tube8.es|tube8.fr|xtube.com|youporn.com|youporngay.com
+||fotzenparty.eu^$important
+||192.168.*/images/$important,domain=pornhub.com|xtube.com
+pornhub.com,xtube.com,youporn.com##script:inject(abort-on-property-write.js, AdDelivery)
+pornhub.com##.sectionWrapper > div[class]:has(:scope > div > .ad-link)
 ! https://twitter.com/471_ba/status/801463415382441988
 @@||static.pornhub.phncdn.com^$script,domain=pornhub.com
+! https://github.com/easylist/easylist/issues/195
+@@||static.images-gaytube.com^$script,domain=gaytube.com
 
 ! https://github.com/uBlockOrigin/uAssets/issues/78
 *$popup,third-party,domain=nowvideo.ag|nowvideo.co|nowvideo.li|nowvideo.sx|nowvideo.to
@@ -479,8 +473,10 @@ bhaskar.com,divyabhaskar.co.in##script:inject(bhaskar.com.js)
 thesimsresource.com##script:inject(thesimsresource.com.js)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/88
-||hgcorigin.svonm.com/hd-main.js$script,domain=golem.de,redirect=hd-main.js
-golem.de##script:inject(golem.de.js)
+! https://github.com/uBlockOrigin/uAssets/issues/211
+! https://github.com/uBlockOrigin/uAssets/issues/223
+||svonm.com/hd-main.js$script,redirect=hd-main.js,domain=golem.de|t-online.de
+golem.de,t-online.de##script:inject(golem.de.js)
 
 ! https://adblockplus.org/forum/viewtopic.php?f=10&t=45273&start=15#p156427
 dailycaller.com##[id^="outbrain_widget"]
@@ -525,7 +521,7 @@ anigod.gryfindor.com#@#.ads-link
 motobanda.pl###mvideo:style(z-index: 1 !important;)
 
 ! https://www.reddit.com/r/firefox/comments/4wpd23/popads_just_announced_that_they_have_a_new_method/d69940z
-extratorrent.*##body > div[class]:matches-css(position: absolute;)
+extratorrent.*##body > div[class]:matches-css(position: absolute)
 
 ! https://github.com/gorhill/uBlock/issues/1879
 ||popads.net/pop.js$script,redirect=popads.net.js
@@ -565,7 +561,7 @@ indiatoday.in,intoday.in##.adblockcontainer:style(display: block !important)
 ||pagead2.googlesyndication.com^$script,important,domain=indiatoday.in|intoday.in
 
 ! https://forums.lanik.us/viewtopic.php?f=102&t=23934&start=30
-fastpic.ru##body > div:matches-css(position: absolute;)
+fastpic.ru##body > div:matches-css(position: absolute)
 fastpic.ru##body:style(cursor: default !important;)
 fastpic.ru##html:style(cursor: default !important;)
 
@@ -669,6 +665,7 @@ userscloud.com##script:inject(noeval.js)
 
 ! https://forums.lanik.us/viewtopic.php?f=64&t=32278
 jpost.com##script:inject(upmanager-defuser.js)
+jpost.com##script:inject(nowebrtc.js)
 ! https://www.reddit.com/r/chrome/comments/58eix6/ublock_origin_not_working_on_certain_sites/
 technobuffalo.com##script:inject(upmanager-defuser.js)
 
@@ -707,8 +704,9 @@ m.aajtak.in##body > .pubTime:style(display: block !important)
 m.aajtak.in##body > .secArticleImage:style(display: block !important)
 m.aajtak.in##body > .storyBody:style(display: block !important)
 
-! Remove ancestor div with random id as well
-tomshardware.com##.page-content-rightcol > .is-sticky > div[id]:has(a[href*="%26tag%3Dpurch_ramp_ab-20%26"])
+! As of 2016-12-02, found site uses WebRTC to deliver ads
+tomshardware.*##script:inject(abort-on-property-write.js, tmnramp)
+tomshardware.*##script:inject(nowebrtc.js)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/110
 finanzen.*##script:inject(uabinject-defuser.js)
@@ -783,7 +781,7 @@ gadgets.ndtv.com###ndtv-message-userss
 joyreactor.cc,reactor.cc###content:matches-css(font-size: 31px)
 
 ! https://adblockplus.org/forum/viewtopic.php?f=1&t=48346
-icefilms.info##body > div:matches-css(z-index: 999999;)
+icefilms.info##body > div:matches-css(z-index: 999999)
 
 ! https://github.com/reek/anti-adblock-killer/issues/2039
 @@||diep.io^$script,~third-party
@@ -805,7 +803,7 @@ sourceforge.net##script:inject(nowebrtc.js)
 ! https://forums.lanik.us/viewtopic.php?f=62&t=32636
 ! https://forums.lanik.us/viewtopic.php?f=62&t=32703
 ! https://forums.lanik.us/viewtopic.php?f=62&t=30159
-boston.com,photobucket.com,sporcle.com##script:inject(i10c-defuser.js)
+photobucket.com##script:inject(i10c-defuser.js)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/137
 ||tripadvisor.*/PricefinderPopunder$popunder,popup
@@ -824,7 +822,8 @@ animmex.*##script:inject(bab-defuser.js)
 ||cda-online.pl/wp-content/uploads/*.js$script
 
 ! https://www.reddit.com/r/uBlockOrigin/comments/52llxu/adchoices/
-||spt.dictionary.com/proxy$subdocument,first-party
+! https://github.com/uBlockOrigin/uAssets/issues/234
+dictionary.com,thesaurus.com##script:inject(abort-on-property-write.js, _sp_)
 
 ! https://forums.lanik.us/viewtopic.php?f=62&t=32886
 ||npttech.com/advertising.js$important,script,redirect=noopjs,domain=dallasnews.com
@@ -1045,3 +1044,42 @@ lepoint.fr##script:inject(noeval.js)
 
 ! https://adblockplus.org/forum/viewtopic.php?f=1&t=49891
 golem.de,tweaktown.com##script:inject(abort-on-property-write.js, _sp_)
+
+! https://github.com/uBlockOrigin/uAssets/issues/206
+geektime.co.il##script:inject(setTimeout-defuser.js, adObjects)
+
+! https://github.com/uBlockOrigin/uAssets/issues/210
+streamflix.org##script:inject(bab-defuser.js)
+
+! https://github.com/uBlockOrigin/uAssets/issues/179
+uploadocean.com##script:inject(bab-defuser.js)
+*$important,script,third-party,xmlhttprequest,domain=uploadocean.com
+
+! https://forums.lanik.us/viewtopic.php?f=62&t=34324
+carbuyer.co.uk##script:inject(abort-on-property-write.js, _sp_)
+
+! https://github.com/uBlockOrigin/uAssets/issues/216
+@@||hackintosh.zone/*ads$first-party,script
+hackintosh.zone##script:inject(bab-defuser.js)
+
+! As of 2016-12-04, spotted use on http://www.vox.com/
+! `0emn.com` belongs to Google Inc., created in October.
+! Appears to be Google ads related.
+||p.d.0emn.com^
+
+! https://github.com/uBlockOrigin/uAssets/issues/220
+bild.de##script:inject(abort-on-property-read.js, de.bild.cmsKonfig.a)
+
+! https://github.com/uBlockOrigin/uAssets/issues/174
+sueddeutsche.de##script:inject(abort-on-property-write.js, SZAdBlockDetection)
+
+! https://github.com/uBlockOrigin/uAssets/issues/224
+uploads.to##script:inject(bab-defuser.js)
+||uploads.to^$inline-script
+@@|https://uploads.to^|$inline-script
+
+! https://github.com/uBlockOrigin/uAssets/issues/225
+hackintosh.computer##script:inject(bab-defuser.js)
+
+! https://forums.warframe.com/topic/737248-adblock-now-banned-on-wikia-including-warframe-wiki/
+wikia.com##script:inject(abort-on-property-write.js, _sp_)

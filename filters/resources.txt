@@ -428,12 +428,14 @@ googletagservices.com/gpt.js application/javascript
 	gpt.content = function() { return contentService; };
 	gpt.defineOutOfPageSlot = function() { return new Slot(); };
 	gpt.defineSlot = function() { return new Slot(); };
+	gpt.destroySlots = noopfn;
 	gpt.disablePublisherConsole = noopfn;
 	gpt.display = noopfn;
 	gpt.enableServices = noopfn;
 	gpt.getVersion = noopstrfn;
 	gpt.pubads = function() { return pubAdsService; };
 	gpt.pubadsReady = true;
+	gpt.setAdIframeTitle = noopfn;
 	gpt.sizeMapping = function() { return new SizeMappingBuilder(); };
 	window.googletag = gpt;
 	while ( cmd.length !== 0 ) {
@@ -807,21 +809,6 @@ addthis.com/addthis_widget.js application/javascript
 		toolbox: noopfn,
 		update: noopfn
 	};
-})();
-
-
-# https://adblockplus.org/forum/viewtopic.php?f=2&t=43914#p147866
-# https://github.com/uBlockOrigin/uAssets/issues/186
-wired.com.js application/javascript
-(function() {
-	var ls = window.localStorage;
-	ls.removeItem('adBlocked');
-	ls.removeItem('total-visits');
-	ls.removeItem('usr_bkt_eva');
-	var ws = window.sessionStorage;
-	ws.removeItem('blockedViews');
-	ws.removeItem('session-visits');
-	ws.removeItem('usr_bkt_ses');
 })();
 
 
@@ -1223,7 +1210,14 @@ nowebrtc.js application/javascript
 		createOffer: noop,
 		setRemoteDescription: noop
 	};
+	var z = window.RTCPeerConnection;
 	window.RTCPeerConnection = pc.bind(window);
+	z.prototype.createDataChannel = function(a, b) {
+		return {
+			close: function() {},
+			send: function() {}
+		};
+	}.bind(null);
 })();
 
 
@@ -1518,12 +1512,12 @@ d3pkae9owd2lcf.cloudfront.net/mb105.js application/javascript
 	window.MonkeyBroker = window.MonkeyBroker || {
 		addAttribute: noopfn,
 		addSlot: noopfn,
-        defineSlot: noopfn,
+		defineSlot: noopfn,
 		fillSlot: noopfn,
 		go: noopfn,
-        inventoryConditionalPlacement: noopfn,
-        registerSizeCallback: noopfn,
-        registerSlotCallback: noopfn
+		inventoryConditionalPlacement: noopfn,
+		registerSizeCallback: noopfn,
+		registerSlotCallback: noopfn
 	};
 })();
 
@@ -1609,22 +1603,43 @@ abort-on-property-read.js application/javascript
 (function() {
 	var magic = String.fromCharCode(Date.now() % 26 + 97) +
 				Math.floor(Math.random() * 982451653 + 982451653).toString(36);
-	var prop = '{{1}}',
-		owner = window,
-		pos;
-	for (;;) {
-		pos = prop.indexOf('.');
-		if ( pos === -1 ) { break; }
-		owner = owner[prop.slice(0, pos)];
-		if ( owner instanceof Object === false ) { return; }
-		prop = prop.slice(pos + 1);
-	}
-	delete owner[prop];
-	Object.defineProperty(owner, prop, {
-		get: function() {
-			throw new ReferenceError(magic);
+	var abort = function() {
+		throw new ReferenceError(magic);
+	};
+	var chain = '{{1}}', owner = window, pos, desc;
+	var makeProxy = function(owner, chain) {
+		pos = chain.indexOf('.');
+		if ( pos === -1 ) {
+			desc = Object.getOwnPropertyDescriptor(owner, chain);
+			if ( !desc || desc.get !== abort ) {
+				Object.defineProperty(owner, chain, { get: abort });
+			}
+			return;
 		}
-	});
+		var prop = chain.slice(0, pos),
+			v = owner[prop];
+		chain = chain.slice(pos + 1); 
+		if ( v !== undefined ) {
+			makeProxy(v, chain);
+			return;
+		}
+		desc = Object.getOwnPropertyDescriptor(owner, prop);
+		if ( desc && desc.set && desc.set.hasOwnProperty(magic) ) {
+			return;
+		}
+		var setter = function(a) {
+			v = a;
+			if ( a instanceof Object ) {
+				makeProxy(a, chain);
+			}
+		};
+		setter[magic] = undefined;
+		Object.defineProperty(owner, prop, {
+			get: function() { return v; },
+			set: setter
+		});
+	};
+	makeProxy(owner, chain);
 	var oe = window.onerror;
 	window.onerror = function(msg, src, line, col, error) {
 		if ( msg.indexOf(magic) !== -1 ) {
@@ -1640,13 +1655,18 @@ abort-on-property-read.js application/javascript
 setTimeout-defuser.js application/javascript
 (function() {
 	var z = window.setTimeout,
-		delay = parseInt('{{2}}', 10),
-		needle = '{{1}}';
+		needle = '{{1}}',
+		delay = parseInt('{{2}}', 10);
+	if ( needle === '' ) {
+		needle = '.?';
+	} else if ( needle.slice(0,1) === '/' && needle.slice(-1) === '/' ) {
+		needle = needle.slice(1,-1);
+	} else {
+		needle = needle.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+	}
+	needle = new RegExp(needle);
 	window.setTimeout = function(a, b) {
-		if (
-			(isNaN(delay) || b == delay) &&
-			(needle === '' || a.toString().indexOf(needle) !== -1)
-		) {
+		if ( (isNaN(delay) || b == delay) && needle.test(a.toString()) ) {
 			return 0;
 		}
 		return z(a, b);
@@ -1693,17 +1713,6 @@ setInterval-logger.js application/javascript
 })();
 
 
-# https://github.com/uBlockOrigin/uAssets/issues/206
-# Candidate for generic argument-fed scriplet
-geektime.co.il.js application/javascript
-(function() {
-	Object.defineProperty(window, 'sdKajfhg34cfF', {
-		get: function(){ return function(){}; },
-		set: function(){}
-	});
-})();
-
-
 # https://www.reddit.com/r/wow/comments/5exq2d/wowheadcom_sucking_bandwidth/
 wowhead.com.js application/javascript
 (function() {
@@ -1711,7 +1720,7 @@ wowhead.com.js application/javascript
 		y = z.log,
 		dummy;
 	window.console.log = function log(a) {
-		if ( a instanceof HTMLDivElement ) {
+		if ( a instanceof HTMLElement ) {
 			dummy = a.id != Date.now();
 		}
 		y.apply(z, arguments);
