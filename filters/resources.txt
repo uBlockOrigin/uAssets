@@ -1605,7 +1605,7 @@ abort-on-property-read.js application/javascript
 		if ( pos === -1 ) {
 			desc = Object.getOwnPropertyDescriptor(owner, chain);
 			if ( !desc || desc.get !== abort ) {
-				Object.defineProperty(owner, chain, { get: abort });
+				Object.defineProperty(owner, chain, { get: abort, set: function(){} });
 			}
 			return;
 		}
