@@ -29,6 +29,9 @@ iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAGklEQVRYw+3BAQEAAACCIP+vbkhAAQAA
 AO8GECAAAZf3V9cAAAAASUVORK5CYII=
 
 
+nooptext text/plain
+
+
 noopcss text/css
 
 
@@ -692,16 +695,6 @@ kissanime-defuser.js application/javascript
 	window.onerror = function(msg, src, line, col, error) {
 		if ( /DoDetect\d?|isBlockAds\d/.test(msg) ) { return true; }
 	};
-})();
-
-
-# https://forums.lanik.us/viewtopic.php?f=64&t=22975&start=45#p77969
-kisscartoon-defuser.js application/javascript
-(function() {
-	Object.defineProperty(window, '_0x408a', {
-		get: function() { return []; },
-		set: function(a) {}
-	});
 })();
 
 
@@ -1612,7 +1605,7 @@ abort-on-property-read.js application/javascript
 		if ( pos === -1 ) {
 			desc = Object.getOwnPropertyDescriptor(owner, chain);
 			if ( !desc || desc.get !== abort ) {
-				Object.defineProperty(owner, chain, { get: abort });
+				Object.defineProperty(owner, chain, { get: abort, set: function(){} });
 			}
 			return;
 		}
