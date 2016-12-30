@@ -20,12 +20,10 @@ assets=(
     ['thirdparties/easylist-downloads.adblockplus.org/easylist.txt']='https://easylist.to/easylist/easylist.txt'
     ['thirdparties/easylist-downloads.adblockplus.org/easyprivacy.txt']='https://easylist.to/easylist/easyprivacy.txt'
     ['thirdparties/mirror1.malwaredomains.com/files/justdomains']='http://mirror1.malwaredomains.com/files/justdomains'
-    ['thirdparties/pgl.yoyo.org/as/serverlist']='https://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&showintro=1&startdate%5Bday%5D=&startdate%5Bmonth%5D=&startdate%5Byear%5D=&mimetype=plaintext'
+    #['thirdparties/pgl.yoyo.org/as/serverlist']='https://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&showintro=1&startdate%5Bday%5D=&startdate%5Bmonth%5D=&startdate%5Byear%5D=&mimetype=plaintext'
     ['thirdparties/publicsuffix.org/list/effective_tld_names.dat']='https://publicsuffix.org/list/effective_tld_names.dat'
     ['thirdparties/www.malwaredomainlist.com/hostslist/hosts.txt']='https://www.malwaredomainlist.com/hostslist/hosts.txt'
     ['thirdparties/www.eff.org/files/effdntlist.txt']='https://www.eff.org/files/effdntlist.txt'
-    # tmp-remove
-    ['thirdparties/raw.githubusercontent.com/dhowe/Miscellaneous/master/testdntlist.txt']='https://raw.githubusercontent.com/dhowe/Miscellaneous/master/testdntlist.txt'
 )
 
 for i in "${!assets[@]}"; do

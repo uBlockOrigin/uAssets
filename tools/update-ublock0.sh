@@ -43,7 +43,7 @@ thirdparties=(
     './thirdparties/easylist-downloads.adblockplus.org/easylist.txt'
     './thirdparties/easylist-downloads.adblockplus.org/easyprivacy.txt'
     './thirdparties/mirror1.malwaredomains.com/files/justdomains'
-    './thirdparties/pgl.yoyo.org/as/serverlist'
+    #'./thirdparties/pgl.yoyo.org/as/serverlist'
     './thirdparties/publicsuffix.org/list/effective_tld_names.dat'
     './thirdparties/www.malwaredomainlist.com/hostslist/hosts.txt'
     './thirdparties/www.eff.org/files/effdntlist.txt'
