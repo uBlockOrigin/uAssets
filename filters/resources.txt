@@ -1190,6 +1190,10 @@ noeval.js application/javascript
 # Prevent web pages from using RTCPeerConnection(), and report attempts in console.
 nowebrtc.js application/javascript
 (function() {
+	var rtcName = window.RTCPeerConnection ? 'RTCPeerConnection' : (
+		window.webkitRTCPeerConnection ? 'webkitRTCPeerConnection' : ''
+	);
+	if ( rtcName === '' ) { return; }
 	var log = console.log.bind(console);
 	var pc = function(cfg) {
 		log('Document tried to create an RTCPeerConnection: %o', cfg);
@@ -1203,8 +1207,8 @@ nowebrtc.js application/javascript
 		createOffer: noop,
 		setRemoteDescription: noop
 	};
-	var z = window.RTCPeerConnection;
-	window.RTCPeerConnection = pc.bind(window);
+	var z = window[rtcName];
+	window[rtcName] = pc.bind(window);
 	if ( z.prototype ) {
 		z.prototype.createDataChannel = function(a, b) {
 			return {
