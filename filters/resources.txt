@@ -1205,12 +1205,14 @@ nowebrtc.js application/javascript
 	};
 	var z = window.RTCPeerConnection;
 	window.RTCPeerConnection = pc.bind(window);
-	z.prototype.createDataChannel = function(a, b) {
-		return {
-			close: function() {},
-			send: function() {}
-		};
-	}.bind(null);
+	if ( z.prototype ) {
+		z.prototype.createDataChannel = function(a, b) {
+			return {
+				close: function() {},
+				send: function() {}
+			};
+		}.bind(null);
+	}
 })();
 
 
@@ -1324,7 +1326,7 @@ popads.net.js application/javascript
 				Math.floor(Math.random() * 982451653 + 982451653).toString(36),
 		oe = window.onerror;
 	window.onerror = function(msg, src, line, col, error) {
-		if ( msg.indexOf(magic) !== -1 ) { return true; }
+		if ( typeof msg === 'string' && msg.indexOf(magic) !== -1 ) { return true; }
 		if ( oe instanceof Function ) {
 			return oe(msg, src, line, col, error);
 		}
@@ -1385,12 +1387,12 @@ Object.defineProperty(window, '___p_p', { value: 1 });
 upmanager-defuser.js application/javascript
 (function() {
 	var onerror = window.onerror;
-	window.onerror = function(message, source, lineno, colno, error) {
-		if ( message.indexOf('upManager') !== -1 ) {
+	window.onerror = function(msg, source, lineno, colno, error) {
+		if ( typeof msg === 'string' && msg.indexOf('upManager') !== -1 ) {
 			return true;
 		}
 		if ( onerror instanceof Function ) {
-			onerror.call(window, message, source, lineno, colno, error);
+			onerror.call(window, msg, source, lineno, colno, error);
 		}
 	};
 	Object.defineProperty(window, 'upManager', { value: function() {} });
@@ -1533,7 +1535,7 @@ thefreedictionary.com.js application/javascript
 (function() {
 	window.warn = null;
 	window.onerror = function(msg, src, line, col, error) {
-		if ( msg.indexOf('warn') !== -1 ) { return true; }
+		if ( typeof msg === 'string' && msg.indexOf('warn') !== -1 ) { return true; }
 	};
 })();
 
@@ -1582,7 +1584,7 @@ abort-on-property-write.js application/javascript
 	});
 	var oe = window.onerror;
 	window.onerror = function(msg, src, line, col, error) {
-		if ( msg.indexOf(magic) !== -1 ) {
+		if ( typeof msg === 'string' && msg.indexOf(magic) !== -1 ) {
 			return true;
 		}
 		if ( oe instanceof Function ) {
@@ -1635,7 +1637,7 @@ abort-on-property-read.js application/javascript
 	makeProxy(owner, chain);
 	var oe = window.onerror;
 	window.onerror = function(msg, src, line, col, error) {
-		if ( msg.indexOf(magic) !== -1 ) {
+		if ( typeof msg === 'string' && msg.indexOf(magic) !== -1 ) {
 			return true;
 		}
 		if ( oe instanceof Function ) {
