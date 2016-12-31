@@ -1725,3 +1725,29 @@ wowhead.com.js application/javascript
 		y.apply(z, arguments);
 	}.bind(z);
 })();
+
+
+sharedWorked-defuser.js application/javascript
+(function() {
+	var needle = '{{1}}';
+	if ( needle === '' || needle === '{{1}}' ) {
+		needle = '.?';
+	} else if ( /^\/.+\/$/.test(needle) ) {
+		needle = needle.slice(1,-1);
+	} else {
+		needle = needle.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+	}
+	needle = new RegExp(needle);
+	var RealSharedWorker = window.SharedWorker;
+	var WrappedSharedWorker = function(a, b) {
+		if ( this instanceof WrappedSharedWorker === false ) {
+			return RealSharedWorker();
+		}
+		if ( needle.test(a) ) {
+			return new RealSharedWorker(window.URL.createObjectURL(new Blob([';'], {type:'text/javascript'})), b);
+		}
+		return new RealSharedWorker(a, b);
+	};
+	WrappedSharedWorker.prototype = RealSharedWorker.prototype;
+	window.SharedWorker = WrappedSharedWorker.bind(window);
+})();
