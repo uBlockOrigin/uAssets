@@ -1727,24 +1727,19 @@ wowhead.com.js application/javascript
 })();
 
 
-sharedWorked-defuser.js application/javascript
+sharedWorker-defuser.js application/javascript
 (function() {
+	if ( window.SharedWorker instanceof Function === false ) { return; }
 	var needle = '{{1}}';
-	if ( needle === '' || needle === '{{1}}' ) {
-		needle = '.?';
-	} else if ( /^\/.+\/$/.test(needle) ) {
-		needle = needle.slice(1,-1);
-	} else {
-		needle = needle.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-	}
+	if ( needle === '' || needle === '{{1}}' ) { needle = '.?'; }
+	else if ( /^\/.+\/$/.test(needle) ) { needle = needle.slice(1,-1); }
+	else { needle = needle.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
 	needle = new RegExp(needle);
 	var RealSharedWorker = window.SharedWorker;
 	var WrappedSharedWorker = function(a, b) {
-		if ( this instanceof WrappedSharedWorker === false ) {
-			return RealSharedWorker();
-		}
+		if ( this instanceof WrappedSharedWorker === false ) { return RealSharedWorker(); }
 		if ( needle.test(a) ) {
-			return new RealSharedWorker(window.URL.createObjectURL(new Blob([';'], {type:'text/javascript'})), b);
+			return new RealSharedWorker(window.URL.createObjectURL(new Blob([';'], {type:'text/javascript'})));
 		}
 		return new RealSharedWorker(a, b);
 	};
