@@ -1190,6 +1190,10 @@ noeval.js application/javascript
 # Prevent web pages from using RTCPeerConnection(), and report attempts in console.
 nowebrtc.js application/javascript
 (function() {
+	var rtcName = window.RTCPeerConnection ? 'RTCPeerConnection' : (
+		window.webkitRTCPeerConnection ? 'webkitRTCPeerConnection' : ''
+	);
+	if ( rtcName === '' ) { return; }
 	var log = console.log.bind(console);
 	var pc = function(cfg) {
 		log('Document tried to create an RTCPeerConnection: %o', cfg);
@@ -1203,14 +1207,16 @@ nowebrtc.js application/javascript
 		createOffer: noop,
 		setRemoteDescription: noop
 	};
-	var z = window.RTCPeerConnection;
-	window.RTCPeerConnection = pc.bind(window);
-	z.prototype.createDataChannel = function(a, b) {
-		return {
-			close: function() {},
-			send: function() {}
-		};
-	}.bind(null);
+	var z = window[rtcName];
+	window[rtcName] = pc.bind(window);
+	if ( z.prototype ) {
+		z.prototype.createDataChannel = function(a, b) {
+			return {
+				close: function() {},
+				send: function() {}
+			};
+		}.bind(null);
+	}
 })();
 
 
@@ -1324,7 +1330,7 @@ popads.net.js application/javascript
 				Math.floor(Math.random() * 982451653 + 982451653).toString(36),
 		oe = window.onerror;
 	window.onerror = function(msg, src, line, col, error) {
-		if ( msg.indexOf(magic) !== -1 ) { return true; }
+		if ( typeof msg === 'string' && msg.indexOf(magic) !== -1 ) { return true; }
 		if ( oe instanceof Function ) {
 			return oe(msg, src, line, col, error);
 		}
@@ -1385,12 +1391,12 @@ Object.defineProperty(window, '___p_p', { value: 1 });
 upmanager-defuser.js application/javascript
 (function() {
 	var onerror = window.onerror;
-	window.onerror = function(message, source, lineno, colno, error) {
-		if ( message.indexOf('upManager') !== -1 ) {
+	window.onerror = function(msg, source, lineno, colno, error) {
+		if ( typeof msg === 'string' && msg.indexOf('upManager') !== -1 ) {
 			return true;
 		}
 		if ( onerror instanceof Function ) {
-			onerror.call(window, message, source, lineno, colno, error);
+			onerror.call(window, msg, source, lineno, colno, error);
 		}
 	};
 	Object.defineProperty(window, 'upManager', { value: function() {} });
@@ -1533,7 +1539,7 @@ thefreedictionary.com.js application/javascript
 (function() {
 	window.warn = null;
 	window.onerror = function(msg, src, line, col, error) {
-		if ( msg.indexOf('warn') !== -1 ) { return true; }
+		if ( typeof msg === 'string' && msg.indexOf('warn') !== -1 ) { return true; }
 	};
 })();
 
@@ -1582,7 +1588,7 @@ abort-on-property-write.js application/javascript
 	});
 	var oe = window.onerror;
 	window.onerror = function(msg, src, line, col, error) {
-		if ( msg.indexOf(magic) !== -1 ) {
+		if ( typeof msg === 'string' && msg.indexOf(magic) !== -1 ) {
 			return true;
 		}
 		if ( oe instanceof Function ) {
@@ -1635,7 +1641,7 @@ abort-on-property-read.js application/javascript
 	makeProxy(owner, chain);
 	var oe = window.onerror;
 	window.onerror = function(msg, src, line, col, error) {
-		if ( msg.indexOf(magic) !== -1 ) {
+		if ( typeof msg === 'string' && msg.indexOf(magic) !== -1 ) {
 			return true;
 		}
 		if ( oe instanceof Function ) {
@@ -1718,4 +1724,25 @@ wowhead.com.js application/javascript
 		}
 		y.apply(z, arguments);
 	}.bind(z);
+})();
+
+
+sharedWorker-defuser.js application/javascript
+(function() {
+	if ( window.SharedWorker instanceof Function === false ) { return; }
+	var needle = '{{1}}';
+	if ( needle === '' || needle === '{{1}}' ) { needle = '.?'; }
+	else if ( /^\/.+\/$/.test(needle) ) { needle = needle.slice(1,-1); }
+	else { needle = needle.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
+	needle = new RegExp(needle);
+	var RealSharedWorker = window.SharedWorker;
+	var WrappedSharedWorker = function(a, b) {
+		if ( this instanceof WrappedSharedWorker === false ) { return RealSharedWorker(); }
+		if ( needle.test(a) ) {
+			return new RealSharedWorker(window.URL.createObjectURL(new Blob([';'], {type:'text/javascript'})));
+		}
+		return new RealSharedWorker(a, b);
+	};
+	WrappedSharedWorker.prototype = RealSharedWorker.prototype;
+	window.SharedWorker = WrappedSharedWorker.bind(window);
 })();

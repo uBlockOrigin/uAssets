@@ -196,12 +196,14 @@ openload.co##script:inject(openload.co.js)
 openload.*##script:contains(/^\s*window\.popAdsLoaded=/)
 
 ! https://forums.lanik.us/viewtopic.php?f=64&t=27505
-kissanime.to##script:inject(kissanime-defuser.js)
+kissanime.*##script:inject(kissanime-defuser.js)
 ! To cancel https://hg.adblockplus.org/easylist/rev/589a2a8c87d4
-.to/ads/$important,subdocument,domain=kissanime.to
+.to/ads/$important,subdocument,domain=kissanime.ru|kissanime.to
 
 ! https://github.com/uBlockOrigin/uAssets/issues/241
-kisscartoon.me##script:inject(abort-on-property-write.js, _0x408a)
+kisscartoon.*##script:inject(abort-on-property-write.js, _0x408a)
+||kisscartoon.se^$first-party,subdocument
+||kisscartoon.me^$first-party,subdocument
 
 # https://forums.lanik.us/viewtopic.php?f=64&t=27908
 # https://github.com/gorhill/uBlock/issues/1354
@@ -420,6 +422,8 @@ go.mail.ru##.responses__wrapper > div > div:has([href^="http://an.yandex.ru/"])
 
 ! https://forums.lanik.us/viewtopic.php?f=62&t=31220
 merriam-webster.com##script:inject(nowebrtc.js)
+! https://forums.lanik.us/viewtopic.php?f=62&t=34903 
+merriam-webster.com##.abl
 
 ! https://adblockplus.org/forum/viewtopic.php?f=10&t=44944
 ||adf.ly/puopen.php?$popup,important
@@ -638,9 +642,6 @@ fullstuff.co##script:inject(bab-defuser.js)
 short.am###id64
 short.am##.content:style(display: block !important)
 
-! https://forums.lanik.us/viewtopic.php?p=88373#p88373
-nextinpact.com##section:has(:scope > lulz)
-
 ! https://forums.lanik.us/viewtopic.php?f=62&t=32208
 ||popcash.net^$script,redirect=noopjs,domain=fastrapidleech.com
 ||dubshub.com^$script,redirect=noopjs,domain=fastrapidleech.com
@@ -659,8 +660,9 @@ ndtv.com##script:inject(ndtv.com.js)
 nmac.to##script:inject(bab-defuser.js)
 
 ! https://forums.lanik.us/viewtopic.php?f=64&t=24179
-sc2casts.com##body > div:has(:scope > div > div > a[href="http://i.imgur.com/7On9KMf.png"])
 ||googlesyndication.com^$script,redirect=noopjs,important,domain=sc2casts.com
+! https://github.com/uBlockOrigin/uAssets/issues/252
+sc2casts.com##script:inject(abort-on-property-read.js, scriptfailed)
 
 ! https://twitter.com/xxdesmus/status/767410203792805888
 foreignpolicy.com###TB_window
@@ -672,6 +674,7 @@ userscloud.com##script:inject(noeval.js)
 ! https://forums.lanik.us/viewtopic.php?f=64&t=32278
 jpost.com##script:inject(upmanager-defuser.js)
 jpost.com##script:inject(nowebrtc.js)
+||ufraton.com^
 ! https://www.reddit.com/r/chrome/comments/58eix6/ublock_origin_not_working_on_certain_sites/
 technobuffalo.com##script:inject(upmanager-defuser.js)
 
@@ -734,8 +737,8 @@ parentherald.com##script:inject(abort-on-property-read.js, ADBlocked)
 ! https://github.com/uBlockOrigin/uAssets/issues/120
 ! https://forums.lanik.us/viewtopic.php?f=62&t=32184
 ! https://github.com/uBlockOrigin/uAssets/issues/123
-*$websocket,domain=1337x.to|datpiff.com|freewarefiles.com|kinotochka.net|thecountrycaller.com|videowood.tv
-||free-torrents.pw^$websocket
+! https://github.com/uBlockOrigin/uAssets/issues/251#issuecomment-270027166
+*$websocket,domain=1337x.to|datpiff.com|freewarefiles.com|jpost.com|kinotochka.net|thecountrycaller.com|videowood.tv
 
 ! https://forums.lanik.us/viewtopic.php?f=62&t=32401
 minecraftbuildinginc.com##script:inject(bab-defuser.js)
@@ -1028,11 +1031,9 @@ criminalcasetools.com##script:inject(bab-defuser.js)
 imore.com##script:inject(setTimeout-defuser.js, checkBlocked, 100)
 
 ! https://forums.lanik.us/viewtopic.php?f=62&t=33397
-*$websocket,domain=anime-joy.tv
 anime-joy.tv##script:inject(noeval.js)
 
 ! https://github.com/gorhill/uBlock/issues/2172
-*$websocket,domain=vidtodo.com
 vidtodo.com##script:inject(nowebrtc.js)
 
 ! https://forums.lanik.us/viewtopic.php?f=64&t=33940
@@ -1112,3 +1113,15 @@ blastingnews.com##div[id^="taboola-below-article-"]
 ! https://github.com/uBlockOrigin/uAssets/issues/245
 gamer.com.tw##img[onload="AntiAd.check(this)"]
 gamer.com.tw##script:inject(abort-on-property-read.js, AntiAd.check)
+
+! https://twitter.com/TritTriton/status/815145351074185216
+nextinpact.com##script:inject(sharedWorker-defuser.js, /^data:|^blob:/)
+
+! https://github.com/uBlockOrigin/uAssets/issues/254
+crackberry.com##script:inject(nowebrtc.js)
+
+! https://github.com/uBlockOrigin/uAssets/issues/190#issuecomment-269949614
+businessnewsdaily.com,investopedia.com,laptopmag.com,space.com,tomsguide.com##script:inject(nowebrtc.js)
+
+! https://github.com/uBlockOrigin/uAssets/issues/244
+skidrowreloaded.com##script:inject(popads.net.js)
