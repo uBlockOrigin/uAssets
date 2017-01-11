@@ -1068,7 +1068,12 @@ carbuyer.co.uk##script:inject(abort-on-property-write.js, _sp_)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/216
 @@||hackintosh.zone/*ads$first-party,script
-hackintosh.zone##script:inject(bab-defuser.js)
+||hackintosh.zone/advjs/bin/jso.php^$script
+||googlesyndication.com^$xmlhttprequest,redirect=nooptext,domain=hackintosh.zone
+||googlesyndication.com^$important,script,domain=hackintosh.zone
+hackintosh.zone##script:inject(setTimeout-defuser, /adsbygoogle|clientHeight|google_jobrunner/)
+! https://github.com/uBlockOrigin/uAssets/issues/225
+hackintosh.*##script:inject(bab-defuser.js)
 
 ! As of 2016-12-04, spotted use on http://www.vox.com/
 ! `0emn.com` belongs to Google Inc., created in October.
@@ -1085,9 +1090,6 @@ sueddeutsche.de##script:inject(abort-on-property-write.js, SZAdBlockDetection)
 uploads.to##script:inject(bab-defuser.js)
 ||uploads.to^$inline-script
 @@|https://uploads.to^|$inline-script
-
-! https://github.com/uBlockOrigin/uAssets/issues/225
-hackintosh.computer##script:inject(bab-defuser.js)
 
 ! https://forums.warframe.com/topic/737248-adblock-now-banned-on-wikia-including-warframe-wiki/
 wikia.com##script:inject(abort-on-property-write.js, _sp_)
@@ -1116,12 +1118,13 @@ gamer.com.tw##script:inject(abort-on-property-read.js, AntiAd.check)
 
 ! https://twitter.com/TritTriton/status/815145351074185216
 nextinpact.com##script:inject(sharedWorker-defuser.js, /^data:|^blob:/)
+nextinpact.com###list_news > section[class]:if(:scope > span:has-text(Publicité))
 
 ! https://github.com/uBlockOrigin/uAssets/issues/254
 crackberry.com##script:inject(nowebrtc.js)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/190#issuecomment-269949614
-businessnewsdaily.com,collegehumor.com,dorkly.com,investopedia.com,laptopmag.com,lifeandstylemag.com,phonearena.com,space.com,thepoliticalinsider.com,tomsguide.com##script:inject(nowebrtc.js)
+businessnewsdaily.com,collegehumor.com,dorkly.com,investopedia.com,laptopmag.com,lifeandstylemag.com,phonearena.com,space.com,theberry.com,thechive.com,thepoliticalinsider.com,tomsguide.com##script:inject(nowebrtc.js)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/244
 skidrowreloaded.com##script:inject(popads.net.js)
@@ -1135,3 +1138,12 @@ business.dk##script:inject(abort-on-property-write.js, _sp_)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/259
 grammarist.com##script:inject(abort-on-property-write.js, upManager)
+
+! https://github.com/gorhill/uBlock/issues/139#issuecomment-271506941
+onwatchseries.to##script:inject(noeval.js)
+
+! https://github.com/uBlockOrigin/uAssets/issues/261
+javadecompilers.com##script:inject(bab-defuser.js)
+
+! https://adblockplus.org/forum/viewtopic.php?f=1&t=50326
+sidereel.com##script:inject(setTimeout-defuser.js, S(), 1498)
