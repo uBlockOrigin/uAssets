@@ -315,6 +315,23 @@ google-analytics.com/inpage_linkid.js application/javascript
 	};
 })();
 
+# https://github.com/gorhill/uBlock/issues/2480
+# https://developers.google.com/analytics/devguides/collection/gajs/experiments#cxjs
+google-analytics.com/cx/api.js application/javascript
+(function() {
+	var noopfn = function() {
+		;
+	};
+	window.cxApi = {
+		chooseVariation: noopfn,
+		getChosenVariation: noopfn,
+		setAllowHash: noopfn,
+		setChosenVariation: noopfn,
+		setCookiePath: noopfn,
+		setDomainName: noopfn
+		};
+})();
+
 # Ubiquitous googletagservices.com: not blocked by EasyPrivacy.
 # "Tags are tiny bits of website code that let you measure traffic and
 # "visitor behavior"
