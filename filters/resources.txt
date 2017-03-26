@@ -1211,6 +1211,25 @@ silent-noeval.js application/javascript
 	}.bind(window);
 })();
 
+noeval-if.js application/javascript
+(function() {
+	var needle = '{{1}}';
+	if ( needle === '' || needle === '{{1}}' ) {
+		needle = '.?';
+	} else if ( needle.slice(0,1) === '/' && needle.slice(-1) === '/' ) {
+		needle = needle.slice(1,-1);
+	} else {
+		needle = needle.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+	}
+	needle = new RegExp(needle);
+	realNoEval = window.eval;
+	window.eval = function(a) {
+		if ( !needle.test(a.toString()) ) {
+			realNoEval.call(window, a);
+		}
+	}.bind(window);
+})();
+
 
 # Prevent web pages from using RTCPeerConnection(), and report attempts in console.
 nowebrtc.js application/javascript
@@ -1473,32 +1492,6 @@ Object.defineProperty(window, 'checkAdBlock', {
 });
 
 
-# https://forums.lanik.us/viewtopic.php?f=62&t=32636
-# https://forums.lanik.us/viewtopic.php?f=62&t=32703
-i10c-defuser.js application/javascript
-(function() {
-	var noopfn = function() {
-		return false;
-	};
-	var v = {
-		ScriptBegin: noopfn,
-		CanRun: noopfn,
-		ScriptEnd: noopfn
-	};
-	if ( window.I10C !== undefined ) {
-		window.I10C = v;
-	} else {
-		Object.defineProperty(window, 'I10C', { value: v });
-	}
-	v = { Init: noopfn };
-	if ( window.INSTART !== undefined ) {
-		window.INSTART = v;
-	} else {
-		Object.defineProperty(window, 'INSTART', { value: v });
-	}
-})();
-
-
 # https://github.com/uBlockOrigin/uAssets/issues/141
 criteo.net.js application/javascript
 (function() {
@@ -1736,21 +1729,6 @@ setInterval-logger.js application/javascript
 		log('uBO: setInterval("%s", %s)', a.toString(), b);
 		return z(a, b);
 	}.bind(window);
-})();
-
-
-# https://www.reddit.com/r/wow/comments/5exq2d/wowheadcom_sucking_bandwidth/
-wowhead.com.js application/javascript
-(function() {
-	var z = window.console,
-		y = z.log,
-		dummy;
-	window.console.log = function log(a) {
-		if ( a instanceof HTMLElement ) {
-			dummy = a.id != Date.now();
-		}
-		y.apply(z, arguments);
-	}.bind(z);
 })();
 
 
