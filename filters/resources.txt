@@ -1526,17 +1526,32 @@ Object.defineProperty(window, 'is_block_adb_enabled', { value: false });
 d3pkae9owd2lcf.cloudfront.net/mb105.js application/javascript
 (function() {
 	var noopfn = function(){};
+
+	var i = 0;
+	function rand() {
+		return ++i;
+	}
+	
 	window.pbjs = { libLoaded: true };
-	window.MonkeyBroker = window.MonkeyBroker || {
-		addAttribute: noopfn,
-		addSlot: noopfn,
-		defineSlot: noopfn,
+	var mb = window.MonkeyBroker = window.MonkeyBroker || {
+		atts: {},
+		addAttribute: function(k,v){mb.atts[k]=encodeURIComponent(v)};,
+		addSlot: function(v){return mb.defineSlot(v);};
+		defineSlot: function(v){
+	  		if(typeof(v.size)!=="undefined"){v.sizes=[v.size];delete v.size;}
+	  		if(typeof(v.slot)==="undefined"){var s="_dynamic_"+rand();v.slot=s;}
+	  		mb.regSlots.push(v);
+	  		mb.regSlotsMap[v.slot]=v;
+	  		return v.slot;
+		},
 		fillSlot: noopfn,
 		go: noopfn,
 		inventoryConditionalPlacement: noopfn,
 		registerSizeCallback: noopfn,
 		registerSlotCallback: noopfn,
-		slots: {}
+		slots: {},
+		regSlots: [],
+		regSlotsMap: {}
 	};
 })();
 
