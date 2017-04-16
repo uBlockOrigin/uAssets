@@ -315,6 +315,23 @@ google-analytics.com/inpage_linkid.js application/javascript
 	};
 })();
 
+# https://github.com/gorhill/uBlock/issues/2480
+# https://developers.google.com/analytics/devguides/collection/gajs/experiments#cxjs
+google-analytics.com/cx/api.js application/javascript
+(function() {
+	var noopfn = function() {
+		;
+	};
+	window.cxApi = {
+		chooseVariation: noopfn,
+		getChosenVariation: noopfn,
+		setAllowHash: noopfn,
+		setChosenVariation: noopfn,
+		setCookiePath: noopfn,
+		setDomainName: noopfn
+		};
+})();
+
 # Ubiquitous googletagservices.com: not blocked by EasyPrivacy.
 # "Tags are tiny bits of website code that let you measure traffic and
 # "visitor behavior"
@@ -799,6 +816,9 @@ addthis.com/addthis_widget.js application/javascript
 		init: noopfn,
 		layers: noopfn,
 		ready: noopfn,
+		sharecounters: {
+			getShareCounts: noopfn
+		},
 		toolbox: noopfn,
 		update: noopfn
 	};
@@ -1145,7 +1165,8 @@ gpt-defuser.js application/javascript
 	var noopfn = function() {
 		;
 	};
-	var props = [ 'resetGPT', 'resetAndLoadGPTRecovery', 'setupGPT', 'setupGPTuo' ];
+	var props = '_resetGPT resetGPT resetAndLoadGPTRecovery _resetAndLoadGPTRecovery setupGPT setupGPTuo';
+	props = props.split(/\s+/);
 	while ( props.length ) {
 		var prop = props.pop();
 		if ( typeof window[prop] === 'function' ) {
@@ -1183,6 +1204,32 @@ noeval.js application/javascript
 (function() {
 	window.eval = function(s) {
 		console.log('Document tried to eval... \n' + s);
+	}.bind(window);
+})();
+
+silent-noeval.js application/javascript
+(function() {
+	window.eval = function(s) {
+		;
+	}.bind(window);
+})();
+
+noeval-if.js application/javascript
+(function() {
+	var needle = '{{1}}';
+	if ( needle === '' || needle === '{{1}}' ) {
+		needle = '.?';
+	} else if ( needle.slice(0,1) === '/' && needle.slice(-1) === '/' ) {
+		needle = needle.slice(1,-1);
+	} else {
+		needle = needle.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+	}
+	needle = new RegExp(needle);
+	realNoEval = window.eval;
+	window.eval = function(a) {
+		if ( !needle.test(a.toString()) ) {
+			realNoEval.call(window, a);
+		}
 	}.bind(window);
 })();
 
@@ -1448,32 +1495,6 @@ Object.defineProperty(window, 'checkAdBlock', {
 });
 
 
-# https://forums.lanik.us/viewtopic.php?f=62&t=32636
-# https://forums.lanik.us/viewtopic.php?f=62&t=32703
-i10c-defuser.js application/javascript
-(function() {
-	var noopfn = function() {
-		return false;
-	};
-	var v = {
-		ScriptBegin: noopfn,
-		CanRun: noopfn,
-		ScriptEnd: noopfn
-	};
-	if ( window.I10C !== undefined ) {
-		window.I10C = v;
-	} else {
-		Object.defineProperty(window, 'I10C', { value: v });
-	}
-	v = { Init: noopfn };
-	if ( window.INSTART !== undefined ) {
-		window.INSTART = v;
-	} else {
-		Object.defineProperty(window, 'INSTART', { value: v });
-	}
-})();
-
-
 # https://github.com/uBlockOrigin/uAssets/issues/141
 criteo.net.js application/javascript
 (function() {
@@ -1508,6 +1529,7 @@ Object.defineProperty(window, 'is_block_adb_enabled', { value: false });
 d3pkae9owd2lcf.cloudfront.net/mb105.js application/javascript
 (function() {
 	var noopfn = function(){};
+	window.pbjs = { libLoaded: true };
 	window.MonkeyBroker = window.MonkeyBroker || {
 		addAttribute: noopfn,
 		addSlot: noopfn,
@@ -1516,7 +1538,8 @@ d3pkae9owd2lcf.cloudfront.net/mb105.js application/javascript
 		go: noopfn,
 		inventoryConditionalPlacement: noopfn,
 		registerSizeCallback: noopfn,
-		registerSlotCallback: noopfn
+		registerSlotCallback: noopfn,
+		slots: {}
 	};
 })();
 
@@ -1712,21 +1735,6 @@ setInterval-logger.js application/javascript
 })();
 
 
-# https://www.reddit.com/r/wow/comments/5exq2d/wowheadcom_sucking_bandwidth/
-wowhead.com.js application/javascript
-(function() {
-	var z = window.console,
-		y = z.log,
-		dummy;
-	window.console.log = function log(a) {
-		if ( a instanceof HTMLElement ) {
-			dummy = a.id != Date.now();
-		}
-		y.apply(z, arguments);
-	}.bind(z);
-})();
-
-
 sharedWorker-defuser.js application/javascript
 (function() {
 	if ( window.SharedWorker instanceof Function === false ) { return; }
@@ -1745,4 +1753,10 @@ sharedWorker-defuser.js application/javascript
 	};
 	WrappedSharedWorker.prototype = RealSharedWorker.prototype;
 	window.SharedWorker = WrappedSharedWorker.bind(window);
+})();
+
+
+sidereel.com.js application/javascript
+(function() {
+    window.localStorage.setItem('__trex', Date.now() + 86400000);
 })();

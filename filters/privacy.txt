@@ -1,4 +1,4 @@
-# µBlock -- Privacy
+# uBlock Origin -- Privacy filters
 #
 # Some of these filters make use of the `important` filter option,
 # which purpose is to guarantee that a filter won't be overriden by 
@@ -42,6 +42,9 @@
 
 # Redirect to neutered Google Analytics 
 ||google-analytics.com/analytics.js$script,redirect=google-analytics.com/analytics.js
+
+! Redirect to neutered Google Analytics Experiments
+||google-analytics.com/cx/api.js$script,redirect=google-analytics.com/cx/api.js
 
 # https://github.com/gorhill/uBlock/issues/1411
 # https://www.reddit.com/r/firefox/comments/3pwcey/firefox_extension_download_manager_s3_asks_for/
@@ -102,3 +105,21 @@ architecturaldigest.com,arstechnica.com,bonappetit.com,brides.com,cntraveler.com
 
 ! https://github.com/uBlockOrigin/uAssets/issues/227
 /g00/*/clientprofiler/adb
+
+! gravity.com, essentially just like Taboola, Outbrain.
+! Creates "recommended" click-baity links which point back to their servers,
+! meaning that as a 3rd-party, this increases the privacy exposure of visitors.
+! Will starts with narrower filters, will broaden if required while keeping
+! this 3rd-party under watch.
+! Example site using it: http://www.huffingtonpost.co.uk/
+||rma-api.gravity.com/*/api/intelligence
+||api.gravity.com/*/recommendations
+||b.grvcdn.com/moth-min.js
+! The following filters are the ssl counterparts of the ones above. They were
+! spotted on: https://techcrunch.com/
+! The links were not click-baity, they APPEARED to be just 1st-party links.
+! However, clicking on any of these links caused the browser to visit 3rd-party
+! rma-api.gravity.com before being redirected back to the expected 1st-party
+! content.
+||secure-api.gravity.com/*/api/intelligence
+||b-ssl.grvcdn.com/moth-min.js
