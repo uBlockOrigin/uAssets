@@ -1521,17 +1521,22 @@ d3pkae9owd2lcf.cloudfront.net/mb105.js application/javascript
 (function() {
 	var noopfn = function(){};
 	window.pbjs = { libLoaded: true };
-	window.MonkeyBroker = window.MonkeyBroker || {
+	var mb = window.MonkeyBroker || {
 		addAttribute: noopfn,
-		addSlot: noopfn,
+		addSlot: function(a) {
+			this.slots[a.slot] = {};
+		},
 		defineSlot: noopfn,
 		fillSlot: noopfn,
 		go: noopfn,
 		inventoryConditionalPlacement: noopfn,
 		registerSizeCallback: noopfn,
 		registerSlotCallback: noopfn,
-		slots: {}
+		slots: {},
+		version: ''
 	};
+	mb.regSlotsMap = mb.slots;
+	window.MonkeyBroker = mb;
 })();
 
 
