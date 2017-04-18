@@ -845,16 +845,6 @@ bcplayer-defuser.js application/javascript
 })();
 
 
-# Might be useful on some sites to be able to foil all calls to `setTimeout`.
-# Example of a filter: `example.com##script:inject(setTimeout-defuser)`
-setTimeout-defuser application/javascript
-(function() {
-	window.setTimeout = function() {
-		return 1;
-	};
-})();
-
-
 # Completely experimental: load Disqus on demand only. Purpose is to avoid
 # connecting to Disqus' servers, unless the user explicitly asks for the
 # comments to be loaded.
@@ -1680,7 +1670,7 @@ setTimeout-defuser.js application/javascript
 	var z = window.setTimeout,
 		needle = '{{1}}',
 		delay = parseInt('{{2}}', 10);
-	if ( needle === '' ) {
+	if ( needle === '' || needle === '{{1}}' ) {
 		needle = '.?';
 	} else if ( needle.slice(0,1) === '/' && needle.slice(-1) === '/' ) {
 		needle = needle.slice(1,-1);
@@ -1711,13 +1701,18 @@ setTimeout-logger.js application/javascript
 setInterval-defuser.js application/javascript
 (function() {
 	var z = window.setInterval,
-		delay = parseInt('{{2}}', 10),
-		needle = '{{1}}';
+		needle = '{{1}}',
+		delay = parseInt('{{2}}', 10);
+	if ( needle === '' || needle === '{{1}}' ) {
+		needle = '.?';
+	} else if ( needle.slice(0,1) === '/' && needle.slice(-1) === '/' ) {
+		needle = needle.slice(1,-1);
+	} else {
+		needle = needle.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+	}
+	needle = new RegExp(needle);
 	window.setInterval = function(a, b) {
-		if (
-			(isNaN(delay) || b == delay) &&
-			(needle === '' || a.toString().indexOf(needle) !== -1)
-		) {
+		if ( (isNaN(delay) || b == delay) && needle.test(a.toString()) ) {
 			return 0;
 		}
 		return z(a, b);
