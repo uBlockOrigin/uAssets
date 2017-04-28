@@ -464,14 +464,21 @@ googletagservices.com/gpt.js application/javascript
 	}
 })();
 
+
 # Obviously more work needs to be done, but at least for now it takes care of:
 # See related filter in assets/ublock/privacy.txt
+# Also:
+# - https://github.com/gorhill/uBlock/issues/2569
 googletagmanager.com/gtm.js application/javascript
 (function() {
 	var noopfn = function() {
-		;
 	};
-	window.ga = window.ga || noopfn;
+	var w = window;
+	w.ga = w.ga || noopfn;
+	var dl = w.dataLayer;
+	if ( dl instanceof Object && dl.hide instanceof Object && typeof dl.hide.end === 'function' ) {
+		dl.hide.end();
+	}
 })();
 
 
