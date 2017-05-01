@@ -1768,3 +1768,16 @@ sidereel.com.js application/javascript
 (function() {
     window.localStorage.setItem('__trex', Date.now() + 86400000);
 })();
+
+
+# Ability to inject CSP in document, to further restrict what web pages can do.
+# Reference: https://www.w3.org/TR/CSP3/
+csp.js application/javascript
+(function() {
+	var doc = document;
+	if ( doc.head === null ) { return; }
+	var meta = doc.createElement('meta');
+	meta.setAttribute('http-equiv', 'Content-Security-Policy');
+	meta.setAttribute('content', '{{1}}');
+	doc.head.appendChild(meta);
+})();
