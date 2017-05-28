@@ -469,6 +469,7 @@ googletagservices.com/gpt.js application/javascript
 # See related filter in assets/ublock/privacy.txt
 # Also:
 # - https://github.com/gorhill/uBlock/issues/2569
+# - https://github.com/uBlockOrigin/uAssets/issues/420
 googletagmanager.com/gtm.js application/javascript
 (function() {
 	var noopfn = function() {
@@ -476,9 +477,20 @@ googletagmanager.com/gtm.js application/javascript
 	var w = window;
 	w.ga = w.ga || noopfn;
 	var dl = w.dataLayer;
-	if ( dl instanceof Object && dl.hide instanceof Object && typeof dl.hide.end === 'function' ) {
-		dl.hide.end();
-	}
+	if ( dl instanceof Object === false ) { return; }
+    if ( dl.hide instanceof Object && typeof dl.hide.end === 'function' ) {
+        dl.hide.end();
+    }
+    if ( typeof dl.push === 'function' ) {
+        dl.push = function(o) {
+            if (
+                o instanceof Object &&
+                typeof o.eventCallback === 'function'
+            ) {
+                setTimeout(o.eventCallback, 1);
+            }
+        };
+    }
 })();
 
 
