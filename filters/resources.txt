@@ -1707,7 +1707,7 @@ setTimeout-defuser.js application/javascript
 		if ( (isNaN(delay) || b == delay) && needle.test(a.toString()) ) {
 			return 0;
 		}
-		return z(a, b);
+		return z.apply(this, arguments);
 	}.bind(window);
 })();
 
@@ -1718,7 +1718,7 @@ setTimeout-logger.js application/javascript
 		log = console.log.bind(console);
 	window.setTimeout = function(a, b) {
 		log('uBO: setTimeout("%s", %s)', a.toString(), b);
-		return z(a, b);
+		return z.apply(this, arguments);
 	}.bind(window);
 })();
 
