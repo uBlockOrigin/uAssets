@@ -329,6 +329,7 @@ play.spotify.com##script:inject(nr-unwrapper.js)
 ! https://news.ycombinator.com/item?id=11791940
 ibtimes.co.uk###signin_popup
 ! https://github.com/uBlockOrigin/uAssets/issues/393
+||ibtimes.co.uk/*/adframe.js$script,first-party,redirect=noopjs
 ibtimes.co.uk##body:style(overflow: auto !important;)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/58
@@ -1009,12 +1010,15 @@ thenextweb.com##html > body.is-canvas.tnw-canvas--opened .main:style(animation: 
 ||adrevivify.com^
 
 ! https://github.com/uBlockOrigin/uAssets/issues/191
+! https://github.com/uBlockOrigin/uAssets/issues/440
 ||italyshare.club/adframe.js$script,redirect=noopjs,domain=dasolo.co
 dasolo.co##script:inject(abort-on-property-read.js, adblock)
+dasolo.co##script:inject(abort-on-property-read.js, adblock_aktiv)
 dasolo.co##script:inject(nowebrtc.js)
 dasolo.co###adblockplus
 @@||dasolo.co^$script,first-party
 @@||dasolo.co^$generichide
+dasolo.co###blockblockA
 
 ! https://github.com/gorhill/uBlock/issues/2154
 mio.to##script:inject(setTimeout-defuser.js, e=d(), 1000)
@@ -1435,15 +1439,15 @@ myip.ms##script:inject(bab-defuser.js)
 ! https://forums.lanik.us/viewtopic.php?f=62&t=36750
 ! https://github.com/uBlockOrigin/uAssets/issues/406
 androidpolice.com,beliefnet.com,businessinsider.com,comicbook.com,eurogamer.net,grubstreet.com,hotair.com,parkers.co.uk,patheos.com,popculture.com,townhall.com,twitchy.com,wwg.com##script:inject(abort-on-property-read.js, stop)
-||0mme.com^$script,important,domain=comicbook.com|popculture.com
+||0mme.com^$script,domain=comicbook.com|popculture.com
 ||1emn.com^$script,domain=hotair.com
 ||1enm.com^$script,domain=parkers.co.uk
-||2enm.com^$important,domain=androidpolice.com|beliefnet.com
-||e0mn.com^$script,important,domain=patheos.com
-||em0n.com^$important,domain=businessinsider.com|grubstreet.com|twitchy.com
+||2enm.com^$domain=androidpolice.com|beliefnet.com
+||e0mn.com^$script,domain=patheos.com
+||em0n.com^$domain=businessinsider.com|grubstreet.com|twitchy.com
 ||mdf91.com^$script,domain=townhall.com
-||mn0e.com^$script,important,domain=wwg.com
-||nn0e.com^$important,domain=eurogamer.net
+||mn0e.com^$script,domain=wwg.com
+||nn0e.com^$domain=eurogamer.net
 
 ! https://github.com/gorhill/uBlock/issues/2609
 segodnya.ua##iframe:not([src]):style(max-height: 1px !important;)
@@ -1486,6 +1490,7 @@ full-film.me,full-serie.co##script:inject(abort-on-property-write.js, h9c0)
 
 ! Prevent popunders + redirections on multiple websites
 ||go.onclasrv.com/apu.php$script,redirect=noopjs
+||onclkds.com/apu.php$script,redirect=noopjs
 
 ! https://www.reddit.com/r/uBlockOrigin/comments/6blj0x/block_adblock_is_really_starting_to_irk_me/
 randomarchive.com##script:inject(bab-defuser.js)
@@ -1539,3 +1544,9 @@ wwg.com##.ad_blk
 @@||kingofshrink.com/img/skip.png$image,first-party
 @@||kingofdown.com^$generichide
 @@||kingofshrink.com^$generichide
+
+! https://github.com/uBlockOrigin/uAssets/issues/447
+digiday.com###ipu_article_article
+
+! https://github.com/uBlockOrigin/uAssets/issues/449
+extreme-down.one##div > a:has-text(anonyme & rapide)
