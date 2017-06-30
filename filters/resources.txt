@@ -675,38 +675,6 @@ openload.co.js application/javascript
 })();
 
 
-# https://github.com/gorhill/uBlock/issues/1136
-1136.js application/javascript
-(function() {
-	var wjdmp;
-	var noopfn = function() {
-		;
-	};
-	var wjdmpGet = function() {
-		return wjdmp;
-	};
-	var wjdmpSet = function(a) {
-		wjdmp = function(r, o) {
-			var kk = Object.keys(o).sort(function(a, b) {
-				return parseInt(a) - parseInt(b);
-			});
-			var fn = o[kk[1]];
-			if ( typeof fn === 'function' && /adBreaks\.push/.test(fn.toString()) ) {
-				return;
-			}
-			a(r, o);
-		};
-	};
-	try {
-		Object.defineProperty(window, 'webpackJsonpdmp', {
-			get: wjdmpGet,
-			set: wjdmpSet
-		});
-	} catch(ex) {
-	}
-})();
-
-
 bab-defuser.js application/javascript
 (function() {
 	var sto = window.setTimeout,
