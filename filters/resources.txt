@@ -587,17 +587,16 @@ pornhub-popup-defuser.js application/javascript
 (function() {
 	var w = window;
 	var count = Math.ceil(8+Math.random()*4);
-	var tomorrow = new Date(Date.now() + 86400);
-	var expire = tomorrow.toString();
-	document.cookie = 'FastPopSessionRequestNumber=' + count + '; expires=' + expire;
+	var tomorrow = new Date(Date.now() + 86400000);
+	document.cookie = 'FastPopSessionRequestNumber=' + count + '; expires=' + tomorrow.toUTCString();
 	var db;
 	if ( (db = w.localStorage) ) {
 		db.setItem('InfNumFastPops', count);
-		db.setItem('InfNumFastPopsExpire', expire);
+		db.setItem('InfNumFastPopsExpire', tomorrow.toISOString());
 	}
 	if ( (db = w.sessionStorage) ) {
 		db.setItem('InfNumFastPops', count);
-		db.setItem('InfNumFastPopsExpire', expire);
+		db.setItem('InfNumFastPopsExpire', tomorrow.toISOString());
 	}
 })();
 
@@ -1800,3 +1799,45 @@ csp.js application/javascript
 # https://github.com/uBlockOrigin/uAssets/issues/513
 entrepreneur.com.js application/javascript
 window.analyticsEvent = function(){};
+
+
+
+addEventListener-logger.js application/javascript
+(function() {
+	var z = self.EventTarget.prototype.addEventListener;
+	self.EventTarget.prototype.addEventListener = function(a, b) {
+		console.log('addEventListener("%s", %s)', a, b.toString());
+		return z.apply(this, arguments);
+	};
+})();
+
+
+# https://github.com/uBlockOrigin/uAssets/issues/521
+addEventListener-defuser.js application/javascript
+(function() {
+	var needle1 = '{{1}}',
+		needle2 = '{{2}}',
+		z = self.EventTarget.prototype.addEventListener;
+	if ( needle1 === '' || needle1 === '{{1}}' ) {
+		needle1 = '.?';
+	} else if ( /^\/.+\/$/.test(needle1) ) {
+		needle1 = needle1.slice(1,-1);
+	} else {
+		needle1 = needle1.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+	}
+	needle1 = new RegExp(needle1);
+	if ( needle2 === '' || needle2 === '{{2}}' ) {
+		needle2 = '.?';
+	} else if ( /^\/.+\/$/.test(needle2) ) {
+		needle2 = needle2.slice(1,-1);
+	} else {
+		needle2 = needle2.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+	}
+	needle2 = new RegExp(needle2);
+	self.EventTarget.prototype.addEventListener = function(a, b) {
+		if ( needle1.test(a.toString()) && needle2.test(b.toString()) ) {
+			return;
+		}
+		return z.apply(this, arguments);
+	};
+})();
