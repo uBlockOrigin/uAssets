@@ -1839,10 +1839,13 @@ ville-ideale.fr##script:inject(setTimeout-defuser.js, contrformpub, 10000)
 ! https://github.com/uBlockOrigin/uAssets/issues/558
 ! https://github.com/uBlockOrigin/uAssets/issues/578
 torrentz2.*##.HalfAcceptableAds
+torrentz2.*##.HalfRAcceptableAds
 torrentz2.*##dl:if(> dd:has-text(Promoted))
+torrentz2.*##dl:if(> dd:has-text(Sponsored))
 
 ! https://github.com/uBlockOrigin/uAssets/issues/561
 limetorrents.cc##.torrentinfo tr:has(a[href*="//movie4u.cc/"])
+limetorrents.cc##.torrentinfo > div:has(a[href*="/redir.php"])
 limetorrents.cc##a[href*="/rel/index.cfm?RST="]
 limetorrents.cc##table:has(a[href*="//goo.gl/"])
 
@@ -1888,3 +1891,17 @@ inoreader.com###sinner_container
 
 ! https://github.com/uBlockOrigin/uAssets/issues/590
 bournemouthecho.co.uk##script:inject(abort-on-property-write.js, _sp_)
+
+! https://github.com/uBlockOrigin/uAssets/issues/591
+sockshare.net##script:inject(abort-on-property-write.js, Q8w56)
+
+! https://github.com/uBlockOrigin/uAssets/issues/596
+bittorrent.am##script:inject(bab-defuser.js)
+
+! https://github.com/uBlockOrigin/uAssets/issues/595
+monova.org##script:inject(abort-on-property-read.js, adblock)
+monova.org#@#script + [class] > [class]:first-child
+
+! https://github.com/uBlockOrigin/uAssets/issues/597
+torrentz.to##.k-button.pull-right
+torrentz.to##tr:if(> td:has-text(Sponsored))
