@@ -1869,12 +1869,7 @@ palacesquare.rambler.ru-defuser.js application/javascript
 # https://github.com/gorhill/uBlock/issues/2835
 gamespot.com.js application/javascript
 (function() {
-	if ( /^\/([^/]+\/)?images\//.test(window.location.pathname) ) {
-		return;
+	if ( typeof window.pf_notify === 'function' ) {
+		window.pf_notify(false);
 	}
-	var z;
-	Object.defineProperty(window, 'bm_website_code', {
-		get: function() { return z; },
-		set: function(a) { z = a; throw new Error(); }
-	});
 })();
