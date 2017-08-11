@@ -1848,7 +1848,7 @@ addEventListener-defuser.js application/javascript
 #   https://github.com/AdguardTeam/AdguardFilters/blob/master/RussianFilter/sections/antiadblock.txt
 palacesquare.rambler.ru-defuser.js application/javascript
 (function() {
-    var w = window,
+	var w = window,
 		pr = w.Promise,
 		tostr = Function.prototype.toString;
 	w.Promise = function(executor) {
@@ -1880,11 +1880,12 @@ abort-current-inline-script.js application/javascript
 (function() {
 	var target = '{{1}}';
 	if ( target === '' || target === '{{1}}' ) { return; }
-	var needle = '{{2}}';
-	if ( needle === '' || needle === '{{2}}' ) { return; }
-	var reText = /^\/.+\/$/.test(needle)
-		? needle.slice(1,-1)
-		: needle.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+	var needle = '{{2}}', reText = '.?';
+	if ( needle !== '' && needle !== '{{2}}' ) {
+		reText = /^\/.+\/$/.test(needle)
+			? needle.slice(1,-1)
+			: needle.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+	}
 	var re = new RegExp(reText);
 	var chain = target.split('.');
 	var owner = window, prop;
