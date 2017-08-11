@@ -1873,3 +1873,52 @@ gamespot.com.js application/javascript
 		window.pf_notify(false);
 	}
 })();
+
+
+# https://github.com/uBlockOrigin/uAssets/issues/618
+abort-current-inline-script.js application/javascript
+(function() {
+	var target = '{{1}}';
+	if ( target === '' || target === '{{1}}' ) { return; }
+	var needle = '{{2}}';
+	if ( needle === '' || needle === '{{2}}' ) { return; }
+	var reText = /^\/.+\/$/.test(needle)
+		? needle.slice(1,-1)
+		: needle.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+	var re = new RegExp(reText);
+	var chain = target.split('.');
+	var owner = window, prop;
+	for (;;) {
+		prop = chain.shift();
+		if ( chain.length === 0 ) { break; }
+		owner = owner[prop];
+		if ( owner instanceof Object === false ) { return; }
+	}
+	var desc = Object.getOwnPropertyDescriptor(owner, prop);
+	if ( desc && desc.get !== undefined ) { return; }
+	var magic = String.fromCharCode(Date.now() % 26 + 97) +
+				Math.floor(Math.random() * 982451653 + 982451653).toString(36);
+	var value = owner[prop];
+	Object.defineProperty(owner, prop, {
+		get: function() {
+			var script = document.currentScript;
+			if (
+				script instanceof HTMLScriptElement === false ||
+				script.src !== '' ||
+				re.test(script.textContent) === false
+			) {
+				return value;
+			}
+			throw new ReferenceError(magic);
+		}
+	});
+	var oe = window.onerror;
+	window.onerror = function(msg) {
+		if ( typeof msg === 'string' && msg.indexOf(magic) !== -1 ) {
+			return true;
+		}
+		if ( oe instanceof Function ) {
+			return oe.apply(this, arguments);
+		}
+	}.bind();
+})();
