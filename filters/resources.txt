@@ -1706,7 +1706,7 @@ setTimeout-defuser.js application/javascript
 	needle = new RegExp(needle);
 	window.setTimeout = function(a, b) {
 		if ( (isNaN(delay) || b == delay) && needle.test(a.toString()) ) {
-			return 0;
+			return z(function(){}, b);
 		}
 		return z.apply(this, arguments);
 	}.bind(window);
@@ -1901,17 +1901,20 @@ abort-current-inline-script.js application/javascript
 	var magic = String.fromCharCode(Date.now() % 26 + 97) +
 				Math.floor(Math.random() * 982451653 + 982451653).toString(36);
 	var value = owner[prop];
+	var validate = function() {
+		var e = document.currentScript;
+		if ( e instanceof HTMLScriptElement && e.src === '' && re.test(e.textContent) ) {
+			throw new ReferenceError(magic);
+		}
+	};
 	Object.defineProperty(owner, prop, {
 		get: function() {
-			var script = document.currentScript;
-			if (
-				script instanceof HTMLScriptElement === false ||
-				script.src !== '' ||
-				re.test(script.textContent) === false
-			) {
-				return value;
-			}
-			throw new ReferenceError(magic);
+			validate();
+			return value;
+		},
+		set: function(a) {
+			validate();
+			value = a;
 		}
 	});
 	var oe = window.onerror;
