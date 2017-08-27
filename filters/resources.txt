@@ -538,44 +538,6 @@ ligatus.com/*/angular-tag.js application/javascript
 })();
 
 
-# Yavli ads. These are blocked using an inline script tag filter, but this
-# works only on Firefox. So we side-load the following script for sites
-# suffering Yavli's click-bait ads.
-yavli-defuser.js application/javascript
-(function() {
-	var noopfn = function() {
-		;
-	};
-	var nourl = {
-		set: noopfn,
-		get: function() {
-			return '';
-		}
-	};
-	try {
-		Object.defineProperty(window, '__durl', nourl);
-		Object.defineProperty(window, '__lsurl', nourl);
-		Object.defineProperty(window, '__lturl', nourl);
-	} catch (ex) {
-	}
-	var aa = 'hx xh xb xj xs xw xf dx oq oj oz wy wj nr nw cw cv gy mr mz tq gb kx kr kt kv hc jz jb jd jx jj nz'.split(/\s+/);
-	var no = {
-		set: noopfn,
-		get: function() {
-			return {
-				start: noopfn
-			};
-		}
-	};
-	while ( aa.length ) {
-		try {
-			Object.defineProperty(window, aa.pop(), no);
-		} catch (e) {
-		}
-	}
-})();
-
-
 # Addefend defuser
 uabinject-defuser.js application/javascript
 (function() {
