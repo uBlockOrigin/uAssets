@@ -301,7 +301,8 @@ google-analytics.com/analytics.js application/javascript
 	p.set = noopfn;
 	p.send = noopfn;
 	//
-	var gaName = window.GoogleAnalyticsObject || 'ga';
+	var w = window,
+		gaName = w.GoogleAnalyticsObject || 'ga';
 	var ga = function() {
 		var len = arguments.length;
 		if ( len === 0 ) {
@@ -324,7 +325,12 @@ google-analytics.com/analytics.js application/javascript
 		return [];
 	};
 	ga.remove = noopfn;
-	window[gaName] = ga;
+	w[gaName] = ga;
+	// https://github.com/gorhill/uBlock/issues/3075
+	var dl = w.dataLayer;
+	if ( dl instanceof Object && dl.hide instanceof Object && typeof dl.hide.end === 'function' ) {
+		dl.hide.end();
+	}
 })();
 
 google-analytics.com/inpage_linkid.js application/javascript
