@@ -1501,12 +1501,15 @@ golovbukh.ua##body:style(overflow: auto !important;)
 ! https://github.com/uBlockOrigin/uAssets/issues/403
 ! https://adblockplus.org/forum/viewtopic.php?f=10&t=53349
 ! https://github.com/uBlockOrigin/uAssets/issues/577
+! https://github.com/uBlockOrigin/uAssets/issues/636
 tvad.me##script:inject(abort-on-property-read.js, app.adblockPop)
-tvad.me##script:inject(popads-dummy.js)
-||thevideo.me/assets/g=adb
-@@||thevideo.me/js/jspc.js$script,first-party
+tvad.me,thevideo.io,thevideo.me##script:inject(popads-dummy.js)
+thevideo.me##script:inject(abort-current-inline-script.js, app.config.adblock_domain)
 thevideo.me##script:inject(abort-on-property-read.js, app.main.adblock)
 thevideo.me##script:inject(abort-on-property-read.js, MarketGidJSON)
+thevideo.me##script:inject(addEventListener-defuser.js, click, void)
+||thevideo.me/assets/g=adb
+@@||thevideo.me/js/jspc.js$script,first-party
 
 ! https://github.com/uBlockOrigin/uAssets/issues/411
 @@||uvnc.com^$generichide
@@ -2048,9 +2051,6 @@ cloudwebcopy.com##script:inject(bab-defuser.js)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/639
 bleepingcomputer.com##LI:has(.nl_spons)
-
-! https://github.com/uBlockOrigin/uAssets/issues/636
-thevideo.me##script:inject(addEventListener-defuser.js, click, void)
 
 ! https://www.reddit.com/r/uBlockOrigin/comments/6vc7l5/fmoviesis_website_will_not_allow_ublock_need_help/
 @@||fmovies.is^$generichide
