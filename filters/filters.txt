@@ -93,20 +93,6 @@ filmvf.net,hentaifr.net,jeu.info,tuxboard.com,xstory-fr.com##script:inject(goyav
 # This prevents spurious redirections
 washingtonpost.com##script:inject(wpredirect-defuser.js)
 
-# Useful inline script tag filters until filter list maintainers start to use
-# it in their respective filter lists
-arstechnica.com##script:contains(ars.READY.push)
-commentcamarche.net,foot01.com,journaldunet.com,metronews.fr##script:contains(/[Ll]igatus/)
-jeux-porno.net##script:contains(/^\s*?var\s+?uniqueParam\s*?=/)
-getvids.de,podcast.de,sommerhaus.de,spielespielen24.de##script:contains(/^\s*function\s+gS/)
-jav4.me##script:contains(adblock.htm)
-kino-dom.org##script:contains(my_abadiv)
-layer13.net##script:contains(adBlockDetected)
-linternaute.com##script:contains(/^\s*var\s+Asl=/)
-pornfun.com##script:contains(canRunAds)
-vg.no##script:contains(/^\s*?window\.__AB__/)
-voetbalzone.nl##script:contains(/^\s*?var\s+?init_ads/)
-
 # uabInject-related ads
 ! https://github.com/gorhill/uBlock/issues/1044#issuecomment-163725136
 ! https://github.com/uBlockOrigin/uAssets/issues/209
@@ -140,7 +126,6 @@ voetbalzone.nl##script:contains(/^\s*?var\s+?init_ads/)
 ||carambo.la^$third-party
 
 # https://skystreaming.net/canali/sky/guarda-sky-sport-1-in-streaming-live
-skystreaming.net##script:contains(abisuq)
 @@||skystreaming.net^$generichide
 skystreaming.net###fanback + style + div[id]
 
@@ -197,8 +182,6 @@ forbes.com##script:inject(forbes-defuser.js)
 
 # https://github.com/gorhill/uBlock/issues/1194
 oload.info,oload.tv,openload.co,streamango.com##script:inject(openload.co.js)
-# https://github.com/gorhill/uBlock/issues/1201
-openload.*##script:contains(/^\s*window\.popAdsLoaded=/)
 
 ! https://forums.lanik.us/viewtopic.php?f=64&t=27505
 kissanime.*##script:inject(kissanime-defuser.js)
@@ -285,9 +268,6 @@ wired.com###around-the-web
 ||wired.com/ams/page-ads.js$important,script
 wired.com##script:inject(setTimeout-defuser.js, Bait)
 
-! https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/reviews/792454/
-vipleague.sx##script:inject(overlay-buster.js)
-
 ! https://github.com/gorhill/uBlock/issues/1591
 ||static.adzerk.net/ados.js$script,important,domain=serverfault.com|stackoverflow.com
 
@@ -365,11 +345,6 @@ bloomberg.com###adBlockerContainer
 ||104.197.199.227^$popup
 ! https://github.com/uBlockOrigin/uAssets/issues/699
 opensubtitles.org##script:inject(abort-current-inline-script.js, atob)
-
-! https://github.com/uBlockOrigin/uAssets/issues/68
-fullpremiums.com##script:inject(overlay-buster.js)
-||fullpremiums.com/templates/plugmod/images/a.png
-@@||fullpremiums.com/adblock.js$script,first-party
 
 ! https://forums.lanik.us/viewtopic.php?f=62&t=31363
 videowood.tv##script:inject(videowood.tv.js)
@@ -457,9 +432,6 @@ al.ly,ally.sh##script:inject(popads.net.js)
 @@||al.ly^$generichide
 @@||ally.sh^$generichide
 
-! https://adblockplus.org/forum/viewtopic.php?f=10&t=47070
-empyrion.gamepedia.com###atflb
-
 ! https://forums.lanik.us/viewtopic.php?f=91&t=31251
 @@||ops.prismamediadigital.com/js/advertisement.js$xmlhttprequest,domain=programme-tv.net
 
@@ -490,9 +462,6 @@ mumbaimirror.indiatimes.com##body:style(overflow: auto !important;)
 mumbaimirror.indiatimes.com###container:style(opacity: 1 !important;)
 mumbaimirror.indiatimes.com###blcontent
 mumbaimirror.indiatimes.com###blwrapper
-
-! https://forums.lanik.us/viewtopic.php?f=62&t=31681
-||mid-day.com/Resources/midday/js/adblocker$script,first-party,important
 
 ! https://github.com/gorhill/uBlock/issues/1789
 ! https://forums.lanik.us/viewtopic.php?p=98839
@@ -1134,7 +1103,8 @@ wikia.com##script:inject(abort-on-property-write.js, _sp_)
 ! https://github.com/uBlockOrigin/uAssets/issues/388
 ! https://github.com/uBlockOrigin/uAssets/issues/510
 ! https://github.com/uBlockOrigin/uAssets/issues/580
-123movies.net,2ddl.*,buzzfil.net,clicknupload.org,eztv.*,go4up.com,icefilms.info,mac-torrents.com,pdf-giant.com,readmanga.today,sportshd.me,streamfilmzzz.com,streamzzz.online,thevideobee.to,torrentz2.*,uploading.site,uptobox.com,yts.ag,yts.gs##script:inject(nowebrtc.js)
+! https://www.reddit.com/r/uBlockOrigin/comments/7631ww/not_blocking_googles_ads_ip/
+123movies.net,2ddl.*,buzzfil.net,clicknupload.org,eztv.*,go4up.com,icefilms.info,mac-torrents.com,openload.ch,pdf-giant.com,readmanga.today,sportshd.me,streamfilmzzz.com,streamzzz.online,thevideobee.to,torrentz2.*,uploading.site,uptobox.com,yts.ag,yts.gs##script:inject(nowebrtc.js)
 
 ! https://twitter.com/BabbyForDays/status/870399439365578752
 mobile.twitter.com##main section ._1_KafmK5--src-app-containers-RichTimeline-cell:has(:scope > div > div > div > div > .YunaQoc2--src-app-components-PromotedIndicator-icon)
@@ -1309,7 +1279,7 @@ movie-blog.org##script:inject(abort-on-property-write.js, DCVU)
 ! https://forums.lanik.us/viewtopic.php?p=118390#p118390
 ! https://www.reddit.com/r/uBlockOrigin/comments/71avqz/piratebay_found_a_new_method_to_bypass_ublock/
 ! https://github.com/uBlockOrigin/uAssets/issues/734
-9xbuddy.com,adf.ly,albumkings.org,ay.gy,bestfilmeshd.com,daclips.in,filescdn.com,filmuptobox.net,gomovies.es,gorillavid.in,hulkload.com,j.gs,jkanime.net,karanpc.com,microify.com,minecraft-forum.net,monova.org,opensubtitles.org,pintient.com,pirateproxy.*,psarips.com,q.gs,security-links.com,solidfiles.com,stream2watch.cc,thepiratebay.org,uploadrocket.net,uptobox.com,vidabc.com,yourporn.sexy,zippyshare.com##script:inject(abort-on-property-write.js, Fingerprint2)
+9xbuddy.com,adf.ly,albumkings.org,ay.gy,bestfilmeshd.com,daclips.in,english-subtitles.pro,filescdn.com,filmuptobox.net,gomovies.es,gorillavid.in,hulkload.com,j.gs,jkanime.net,karanpc.com,microify.com,minecraft-forum.net,monova.org,opensubtitles.org,pintient.com,pirateproxy.*,psarips.com,q.gs,security-links.com,solidfiles.com,stream2watch.cc,thepiratebay.org,uploadrocket.net,uptobox.com,vidabc.com,yourporn.sexy,zippyshare.com##script:inject(abort-on-property-write.js, Fingerprint2)
 
 ! https://www.reddit.com/r/uBlockOrigin/comments/5ywxnd/anyone_know_how_to_block_this_ad/
 ! https://forums.lanik.us/viewtopic.php?p=124411#p124411
@@ -1668,8 +1638,8 @@ iwatchonline.cr,iwatchonline.eu##script:inject(abort-on-property-write.js, Finge
 ||ov2ochu.bid^
 
 ! https://github.com/uBlockOrigin/uAssets/issues/470
-xclusivejams.xyz##script:inject(abort-on-property-write.js, Fingerprint2)
-xclusivejams.xyz##script:inject(abort-on-property-write.js, _pop)
+xclusivejams2.com##script:inject(abort-on-property-write.js, Fingerprint2)
+xclusivejams2.com##script:inject(abort-on-property-write.js, _pop)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/463
 bloomberg.com##.bb-nav-categories:style(z-index: 1000 !important;)
@@ -2201,14 +2171,15 @@ arenabg.ch,yifymovies.to##script:inject(addEventListener-defuser.js, /^(click|mo
 ft.com##script:inject(abort-on-property-read.js, _sp_._networkListenerData)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/703
-fbstreams.me,mlbstream.me,nbastreams.me,nflstreams.me,nhlstreams.me##script:inject(abort-on-property-write.js, Fingerprint2)
-fbstreams.me,mlbstream.me,nbastreams.me,nflstreams.me,nhlstreams.me,strikeout.co##script:inject(nowebrtc.js)
-fbstreams.me,mlbstream.me,nbastreams.me,nflstreams.me,nhlstreams.me,strikeout.co##script:inject(popads.net.js)
-fbstreams.me,mlbstream.me,nbastreams.me,nflstreams.me,nhlstreams.me,strikeout.co##a[href^="http://www.downloadplayer2.com/sportstreaming/"]
-fbstreams.me,mlbstream.me,nbastreams.me,nflstreams.me,nhlstreams.me,strikeout.co##a[href^="http://www.movie4all.co/VIPremium/index.html"]
+fbstreams.me,mlbstream.me,nbastreams.me,nflstreams.me,nhlstreams.me,strikeout.co,vipleague.me##script:inject(abort-on-property-write.js, adcashMacros)
+fbstreams.me,mlbstream.me,nbastreams.me,nflstreams.me,nhlstreams.me,vipleague.me##script:inject(abort-on-property-write.js, Fingerprint2)
+fbstreams.me,mlbstream.me,nbastreams.me,nflstreams.me,nhlstreams.me,strikeout.co,vipleague.me##script:inject(nowebrtc.js)
+fbstreams.me,mlbstream.me,nbastreams.me,nflstreams.me,nhlstreams.me,strikeout.co,vipleague.me##script:inject(popads.net.js)
+fbstreams.me,mlbstream.me,nbastreams.me,nflstreams.me,nhlstreams.me,strikeout.co,vipleague.me##a[href^="http://www.downloadplayer2.com/sportstreaming/"]
+fbstreams.me,mlbstream.me,nbastreams.me,nflstreams.me,nhlstreams.me,strikeout.co,vipleague.me##a[href^="http://www.movie4all.co/"]
 mlbstream.me,nbastreams.me,nflstreams.me,nhlstreams.me,strikeout.co##script:inject(abort-current-inline-script.js, jqueryload, uBlock)
 livecamtv.me,realcam.me,seelive.me##script:inject(abort-on-property-write.js, _pop)
-fbstreams.me,mlbstream.me,nbastreams.me,nflstreams.me,nhlstreams.me,strikeout.co##script + [id][style]
+fbstreams.me,mlbstream.me,nbastreams.me,nflstreams.me,nhlstreams.me,strikeout.co,vipleague.me##script + [id][style]
 livecamtv.me,realcam.me,seelive.me##style + [id][style]
 
 ! https://github.com/uBlockOrigin/uAssets/pull/705
@@ -2309,7 +2280,9 @@ ikshow.net##script:inject(abort-on-property-read.js, BetterJsPop)
 wunderground.com##script:inject(abort-on-property-write.js, _sp_)
 
 ! https://forums.lanik.us/viewtopic.php?f=62&t=38489
-putlocker.sk##script:inject(abort-current-inline-script.js, parseInt, tabunder)
+putlocker.*##script:inject(abort-current-inline-script.js, parseInt, tabunder)
+putlocker.io##script:inject(abort-current-inline-script.js, MutationObserver, 676574456c656d656e747342795461674e616d65)
+putlocker.io##script:inject(nowebrtc.js)
 
 ! https://forums.lanik.us/viewtopic.php?f=62&t=38536
 10fastfingers.com##script:inject(abort-current-inline-script.js, document.createElement, decodeURIComponent)
