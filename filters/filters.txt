@@ -588,14 +588,14 @@ eurogamer.net##html:style(cursor: default !important;)
 ! https://github.com/uBlockOrigin/uAssets/issues/98
 facebook.com###stream_pagelet div[id^="hyperfeed_story_id_"]:has(a.uiStreamSponsoredLink)
 ! "People You May Know": EasyList tries to block these, might as well block them fully
-facebook.com##:xpath(//div[@id="stream_pagelet"]//div[starts-with(@id,"hyperfeed_story_id_")][.//h6//span/text()="People You May Know"])
+facebook.com###stream_pagelet div[id^="hyperfeed_story_id_"]:if(h6:has-text(People You May Know))
 m.facebook.com##article:has(footer > div > div > a[href^="/friends/center/?fb_ref="])
 ! https://www.reddit.com/r/uBlockOrigin/comments/58o3k6/facebook_ads_solution/
 facebook.com##.ego_section:has(a.adsCategoryTitleLink)
 ! https://github.com/uBlockOrigin/uAssets/issues/507
 facebook.com###stream_pagelet [id^="hyperfeed_story_id_"]:has(span._4dcu)
 ! https://github.com/uBlockOrigin/uAssets/issues/722
-facebook.com##.ego_column:has(a[href^="/campaign/landing"])
+facebook.com##.ego_column:if(a[href^="/campaign/landing"])
 facebook.com##div[id^="hyperfeed_story_id_"]:if(a:has-text(Chartered))
 facebook.com##div[id^="hyperfeed_story_id_"]:if(a:has-text(Sponsored))
 
