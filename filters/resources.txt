@@ -1932,61 +1932,61 @@ window.open-defuser.js application/javascript
 # https://github.com/uBlockOrigin/uAssets/issues/883
 adfly-defuser.js application/javascript
 (function() {
-    // Based on AdsBypasser
-    // License:
-    // https://github.com/adsbypasser/adsbypasser/blob/master/LICENSE
-    var isDigit = /^\d$/;
-    var handler = function(encodedURL) {
-        var var1 = "", var2 = "", i;
-        for (i = 0; i < encodedURL.length; i++) {
-            if (i % 2 === 0) {
-                var1 = var1 + encodedURL.charAt(i);
-            } else {
-                var2 = encodedURL.charAt(i) + var2;
-            }
-        }
-        var data = (var1 + var2).split("");
-        for (i = 0; i < data.length; i++) {
-            if (isDigit.test(data[i])) {
-                for (var ii = i + 1; ii < data.length; ii++) {
-                    if (isDigit.test(data[ii])) {
-                        var temp = parseInt(data[i],10) ^ parseInt(data[ii],10);
-                        if (temp < 10) {
-                            data[i] = temp.toString();
-                        }
-                        i = ii;
-                        break;
-                    }
-                }
-            }
-        }
-        data = data.join("");
-        var decodedURL = window.atob(data).slice(16, -16);
-        window.stop();
-        window.onbeforeunload = null;
-        window.location.href = decodedURL;
-    };
-    try {
-        var val;
-        var flag = true;
-        window.Object.defineProperty(window, "ysmm", {
-            configurable: false,
-            set: function(value) {
-                if (flag) {
-                    flag = false;
-                    try {
-                        if (typeof value === "string") {
-                            handler(value);
-                        }
-                    } catch (err) { }
-                }
-                val = value;
-            },
-            get: function() {
-                return val;
-            }
-        });
-    } catch (err) {
-        window.console.error("Failed to set up Adfly bypasser!");
-    }
+	// Based on AdsBypasser
+	// License:
+	// https://github.com/adsbypasser/adsbypasser/blob/master/LICENSE
+	var isDigit = /^\d$/;
+	var handler = function(encodedURL) {
+		var var1 = "", var2 = "", i;
+		for (i = 0; i < encodedURL.length; i++) {
+			if (i % 2 === 0) {
+				var1 = var1 + encodedURL.charAt(i);
+			} else {
+				var2 = encodedURL.charAt(i) + var2;
+			}
+		}
+		var data = (var1 + var2).split("");
+		for (i = 0; i < data.length; i++) {
+			if (isDigit.test(data[i])) {
+				for (var ii = i + 1; ii < data.length; ii++) {
+					if (isDigit.test(data[ii])) {
+						var temp = parseInt(data[i],10) ^ parseInt(data[ii],10);
+						if (temp < 10) {
+							data[i] = temp.toString();
+						}
+						i = ii;
+						break;
+					}
+				}
+			}
+		}
+		data = data.join("");
+		var decodedURL = window.atob(data).slice(16, -16);
+		window.stop();
+		window.onbeforeunload = null;
+		window.location.href = decodedURL;
+	};
+	try {
+		var val;
+		var flag = true;
+		window.Object.defineProperty(window, "ysmm", {
+			configurable: false,
+			set: function(value) {
+				if (flag) {
+					flag = false;
+					try {
+						if (typeof value === "string") {
+							handler(value);
+						}
+					} catch (err) { }
+				}
+				val = value;
+			},
+			get: function() {
+				return val;
+			}
+		});
+	} catch (err) {
+		window.console.error("Failed to set up Adfly bypasser!");
+	}
 })();
