@@ -1990,3 +1990,27 @@ adfly-defuser.js application/javascript
 		window.console.error("Failed to set up Adfly bypasser!");
 	}
 })();
+
+# https://github.com/jspenguin2017/uBlockProtector/issues/390
+vvvvid.it.js text/javascript
+(function() {
+	function defuse() {
+		var re = /var a=function.*};/;
+		var data = 'var a=function(){vvvvid.advPlayer=null,$(c.playerControlsClass).removeClass("ppad"),e()};';
+		window.vvvvid.cab5 = function(a, b) {
+			this.isAdBlockActive = false;
+			if (b) {
+				b(false);
+			}
+		};
+		var func = window.String(window.vvvvid.models.PlayerObj.prototype.startAdv);
+		if (re.test(func)) {
+			window.eval("window[mnsJHnyT] = window.vvvvid.models.PlayerObj.prototype.startAdv = " + func.replace(re, data));
+		}
+	};
+	if (window.vvvvid) {
+		defuse()
+	} else {
+		window.addEventListener('load', defuse);
+	}
+})();
