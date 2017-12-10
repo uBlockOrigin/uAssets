@@ -2046,3 +2046,70 @@ set-constant.js application/javascript
 		}
 	});
 })();
+
+
+# This removes BODY & HEAD elements if run inside framed content.
+remove-frame-content.js application/javascript
+(function() {
+	var log = console.log.bind(console);
+	var removedHead = {
+		async: false,
+		result: false
+	};
+	var removedBody = {
+		async: false,
+		result: false
+	};
+	var url = 'unknown';
+	try {
+		url = window.location.href || url;
+	} catch (e) {};
+	function inIframe() {
+		try {
+			return window.self !== window.top;
+		} catch (e) {};
+		return true;
+	}
+	function removeHead() {
+		try {
+			// This is sometimes causing 100% CPU usage.
+			// Using innerHTML fixes this issue in Chrome.
+			//document.head.parentNode.removeChild(document.head);
+			document.head.innerHTML = '';
+			return true;
+		} catch (e) {};
+		return false;
+	}
+	function removeBody() {
+		try {
+			document.body.parentNode.removeChild(document.body);
+			return true;
+		} catch (e) {};
+		return false;
+	}
+	if (inIframe()) {
+		if (document.head) {
+			removedHead.result = removeHead();
+		} else {
+			setTimeout(function() {
+				removedHead.async = true;
+				removedHead.result = removeHead();
+			}, 0);
+		}
+		if (document.body) {
+			removedBody.result = removeBody();
+		} else {
+			setTimeout(function() {
+				removedBody.async = true;
+				removedBody.result = removeBody();
+			}, 0);
+		}
+		setTimeout(function() {
+			log('uBO> Removed frame content [HEAD:%s] [BODY:%s] [URL:%s]',
+				removedHead.result + (removedHead.async ? ',async' : ''),
+				removedBody.result + (removedBody.async ? ',async' : ''),
+				url
+			);
+		}, 10);
+	}
+})();
