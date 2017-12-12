@@ -2007,3 +2007,39 @@ disable-newtab-links.js application/javascript
 		}
 	});
 })();
+
+
+set-constant.js application/javascript
+(function() {
+	var chain = '{{1}}', value = '{{2}}';
+	if ( value === 'undefined' ) {
+		value = undefined;
+	} else if ( value === 'false' ) {
+		value = false;
+	} else if ( value === 'true' ) {
+		value = true;
+	} else if ( /^\d+$/.test(value) ) {
+		value = parseFloat(value);
+		if ( isNaN(value) ) { return; }
+		if ( Math.abs(value) > 0x7FFF ) { return; }
+	} else {
+		return;
+	}
+	var owner = window;
+	var desc = Object.getOwnPropertyDescriptor(owner, chain);
+	if ( desc && desc.get !== undefined ) { return; }
+	var v = owner[chain];
+	if ( v !== undefined && value !== undefined && typeof value !== typeof v ) {
+		return;
+	}
+	Object.defineProperty(owner, chain, {
+		get: function() {
+			return value;
+		},
+		set: function(a) {
+			if ( a !== undefined && value !== undefined && typeof a !== typeof value ) {
+				value = a;
+			}
+		}
+	});
+})();
