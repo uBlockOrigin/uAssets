@@ -2028,16 +2028,19 @@ set-constant.js application/javascript
 	var owner = window;
 	var desc = Object.getOwnPropertyDescriptor(owner, chain);
 	if ( desc && desc.get !== undefined ) { return; }
-	var v = owner[chain];
-	if ( v !== undefined && value !== undefined && typeof value !== typeof v ) {
-		return;
-	}
+	var aborted = false;
+	var mustAbort = function(v) {
+		if ( aborted ) { return true; }
+		aborted = v !== undefined && value !== undefined && typeof v !== typeof value;
+		return aborted;
+	};
+	if ( mustAbort(owner[chain]) ) { return; }
 	Object.defineProperty(owner, chain, {
 		get: function() {
 			return value;
 		},
 		set: function(a) {
-			if ( a !== undefined && value !== undefined && typeof a !== typeof value ) {
+			if ( mustAbort(a) ) {
 				value = a;
 			}
 		}
