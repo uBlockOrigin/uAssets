@@ -653,7 +653,7 @@ bab-defuser.js application/javascript
 		re = /\.bab_elementid.$/;
 	window.setTimeout = function(a, b) {
 		if ( typeof a !== 'string' || !re.test(a) ) {
-			return sto(a, b);
+			return sto.apply(this, arguments);
 		}
 	}.bind(window);
 	var signatures = [
