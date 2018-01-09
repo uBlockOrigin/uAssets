@@ -2011,38 +2011,73 @@ disable-newtab-links.js application/javascript
 
 set-constant.js application/javascript
 (function() {
-	var chain = '{{1}}', value = '{{2}}';
-	if ( value === 'undefined' ) {
-		value = undefined;
-	} else if ( value === 'false' ) {
-		value = false;
-	} else if ( value === 'true' ) {
-		value = true;
-	} else if ( /^\d+$/.test(value) ) {
-		value = parseFloat(value);
-		if ( isNaN(value) ) { return; }
-		if ( Math.abs(value) > 0x7FFF ) { return; }
+	var cValue = '{{2}}';
+	if ( cValue === 'undefined' ) {
+		cValue = undefined;
+	} else if ( cValue === 'false' ) {
+		cValue = false;
+	} else if ( cValue === 'true' ) {
+		cValue = true;
+	} else if ( cValue === 'noopFunc' ) {
+		cValue = function(){};
+	} else if ( cValue === 'trueFunc' ) {
+		cValue = function(){ return true; };
+	} else if ( cValue === 'falseFunc' ) {
+		cValue = function(){ return false; };
+	} else if ( /^\d+$/.test(cValue) ) {
+		cValue = parseFloat(cValue);
+		if ( isNaN(cValue) ) { return; }
+		if ( Math.abs(cValue) > 0x7FFF ) { return; }
 	} else {
 		return;
 	}
-	var owner = window;
-	var desc = Object.getOwnPropertyDescriptor(owner, chain);
-	if ( desc && desc.get !== undefined ) { return; }
 	var aborted = false;
 	var mustAbort = function(v) {
 		if ( aborted ) { return true; }
-		aborted = v !== undefined && value !== undefined && typeof v !== typeof value;
+		aborted = v !== undefined && cValue !== undefined && typeof v !== typeof cValue;
 		return aborted;
 	};
-	if ( mustAbort(owner[chain]) ) { return; }
-	Object.defineProperty(owner, chain, {
-		get: function() {
-			return value;
-		},
-		set: function(a) {
-			if ( mustAbort(a) ) {
-				value = a;
+	var chain = '{{1}}', owner = window;
+	var makeProxy = function(owner, chain) {
+		var desc;
+		var pos = chain.indexOf('.');
+		if ( pos === -1 ) {
+			if ( mustAbort(owner[chain]) ) { return; }
+			desc = Object.getOwnPropertyDescriptor(owner, chain);
+			if ( desc === undefined || desc.get === undefined ) {
+				Object.defineProperty(owner, chain, {
+					get: function() {
+						return cValue;
+					},
+					set: function(a) {
+						if ( mustAbort(a) ) {
+							cValue = a;
+						}
+					}
+				});
 			}
+			return;
 		}
-	});
+		var prop = chain.slice(0, pos),
+			v = owner[prop];
+		chain = chain.slice(pos + 1); 
+		if ( v !== undefined ) {
+			makeProxy(v, chain);
+			return;
+		}
+		desc = Object.getOwnPropertyDescriptor(owner, prop);
+		if ( desc && desc.set ) { return; }
+		Object.defineProperty(owner, prop, {
+			get: function() {
+				return v;
+			},
+			set: function(a) {
+				v = a;
+				if ( a instanceof Object ) {
+					makeProxy(a, chain);
+				}
+			}
+		});
+	};
+	makeProxy(owner, chain);
 })();
