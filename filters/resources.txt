@@ -1795,9 +1795,10 @@ window.analyticsEvent = function(){};
 # https://github.com/uBlockOrigin/uAssets/issues/521
 addEventListener-logger.js application/javascript
 (function() {
+	var c = console, l = c.log;
 	var z = self.EventTarget.prototype.addEventListener;
 	self.EventTarget.prototype.addEventListener = function(a, b) {
-		console.log('addEventListener("%s", %s)', a, b.toString());
+		l.call(c, 'addEventListener("%s", %s)', a, b.toString());
 		return z.apply(this, arguments);
 	};
 })();
