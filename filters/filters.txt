@@ -2041,10 +2041,11 @@ torrentz.to##tr:if(> td:has-text(Sponsored))
 
 ! https://github.com/uBlockOrigin/uAssets/issues/602
 ! https://www.reddit.com/r/uBlockOrigin/comments/6wqwct/help_cant_block_ads_on_allucee/
-alluc.ee##script:inject(abort-current-inline-script.js, parseInt, 676574456c656d656e747342795461674e616d65)
+! https://github.com/gorhill/uBlock/issues/3553
+alluc.ee##^script:has-text(676574456c656d656e747342795461674e616d65)
 ||alluc.ee^*/exo/$script
-alluc.ee##.clickable:has(img[src*="/icoad."])
 ||piguiqproxy.com^$xmlhttprequest,redirect=nooptext,domain=alluc.ee
+alluc.ee##.clickable:has(img[src*="/icoad."])
 
 ! https://www.reddit.com/r/uBlockOrigin/comments/6qq40e/popups_in_httpsdropapkcom/
 dropapk.com##script:inject(abort-on-property-write.js, Fingerprint2)
