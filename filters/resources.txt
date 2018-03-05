@@ -2192,16 +2192,19 @@ remove-attr.js application/javascript
 (function() {
 	var attr = '{{1}}';
 	if ( attr === '' || attr === '{{1}}' ) { return; }
+	var attrs = attr.split(/\s*\|\s*/);
 	var selector = '{{2}}';
 	if ( selector === '' || selector === '{{2}}' ) {
-		selector = '[' + attr + ']';
+		selector = '[' + attrs.join('],[') + ']';
 	}
 	var rmattr = function(ev) {
 		if ( ev ) { window.removeEventListener(ev.type, rmattr, true); }
 		try {
-			var nodes = document.querySelectorAll(selector),
-				i = nodes.length;
-			while ( i-- ) { nodes[i].removeAttribute(attr); }
+			var nodes = document.querySelectorAll(selector), i = nodes.length;
+			while ( i-- ) {
+				var node = nodes[i], j = attrs.length;
+				while ( j-- ) { node.removeAttribute(attrs[j]); }
+			}
 		} catch(ex) {
 		}
 	};
