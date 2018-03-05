@@ -2186,3 +2186,28 @@ nano-setInterval-booster.js application/javascript
 		return z.apply(this, arguments);
 	}.bind(window);
 })();
+
+
+remove-attr.js application/javascript
+(function() {
+	var attr = '{{1}}';
+	if ( attr === '' || attr === '{{1}}' ) { return; }
+	var selector = '{{2}}';
+	if ( selector === '' || selector === '{{2}}' ) {
+		selector = '[' + attr + ']';
+	}
+	var rmattr = function(ev) {
+		if ( ev ) { window.removeEventListener(ev.type, rmattr, true); }
+		try {
+			var nodes = document.querySelectorAll(selector),
+				i = nodes.length;
+			while ( i-- ) { nodes[i].removeAttribute(attr); }
+		} catch(ex) {
+		}
+	};
+	if ( document.readyState === 'loading' ) {
+		window.addEventListener('DOMContentLoaded', rmattr, true);
+	} else {
+		rmattr();
+	}
+})();
