@@ -5239,8 +5239,14 @@ marvelousga.com##script:inject(abort-current-inline-script.js, $, openNewWindow)
 ! https://www.reddit.com/r/uBlockOrigin/comments/81am26/anyone_has_any_idea_on_how_to_block_1movie/
 1movies.to##script:inject(abort-current-inline-script.js, atob, encodeURIComponent)
 1movies.to##script:inject(window.open-defuser.js)
-||loadshare.org/custom/*/1m_video.mp4$media,domain=1movies.to
-1movies.to###no_po_share
+||loadshare.org/custom/*/1m_video.mp4$media,domain=1movies.se|1movies.to
+1movies.se,1movies.to###no_po_share
+! https://github.com/uBlockOrigin/uAssets/issues/1718
+1movies.se##script:inject(abort-on-property-write.js, Fingerprint2)
+1movies.se##^script:has-text(3f87b0eaddd)
+||amgload.net^$xmlhttprequest,redirect=nooptext,domain=1movies.se
+||piguiqproxy.com^$xmlhttprequest,redirect=nooptext,domain=1movies.se
+1movies.se###a_wrap
 
 ! https://github.com/uBlockOrigin/uAssets/issues/1568
 tinypaste.cc##script:inject(abort-current-inline-script.js, decodeURI, decodeURIComponent)
