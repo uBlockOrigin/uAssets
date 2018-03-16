@@ -1834,9 +1834,13 @@ supforums.com##script:inject(abort-on-property-read.js, adsLoaded)
 supforums.com##.sidebar-rcs
 
 ! https://github.com/uBlockOrigin/uAssets/issues/521
-primewire.ag##.actual_tab > table:if(td:first-of-type + td + td:has-text(/Promo Host|Sponsor Host/))
-primewire.*##script:inject(addEventListener-defuser.js, mousedown)
-primewire.*##script:inject(addEventListener-defuser.js, click, ConsoleLog)
+! https://www.reddit.com/r/uBlockOrigin/comments/84vav1/redirects_on_sites/
+primewire.*##script:inject(abort-on-property-read.js, console.clear)
+primewire.*##script:inject(abort-on-property-read.js, _wwwp)
+primewire.*##script:inject(nowebrtc.js)
+primewire.*##script:inject(setInterval-defuser.js, (), 500)
+primewire.*##script:inject(window.open-defuser.js)
+primewire.*##.actual_tab > table:if(td:first-of-type + td + td:has-text(/Promo Host|Sponsor Host/))
 @@||engine.*/tag.engine?$script,domain=primewire.ag|primewire.in,badfilter
 @@||cdn.engine.*^guid^$third-party,script,domain=primewire.ag|primewire.in,badfilter
 
@@ -5749,3 +5753,6 @@ rb7url.com##script:inject(abort-on-property-write.js, Fingerprint2)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/1726
 @@||listaiptvbrasil.com^$generichide
+
+! https://www.reddit.com/r/uBlockOrigin/comments/84vav1/redirects_on_sites/
+cricfree.sc##script:inject(abort-current-inline-script.js, decodeURI, decodeURIComponent)
