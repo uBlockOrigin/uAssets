@@ -1716,7 +1716,8 @@ setTimeout-logger.js application/javascript
 
 setInterval-defuser.js application/javascript
 (function() {
-	var z = window.setInterval,
+	var w = window,
+		z = w.setInterval,
 		needle = '{{1}}',
 		delay = parseInt('{{2}}', 10);
 	if ( needle === '' || needle === '{{1}}' ) {
@@ -1727,12 +1728,13 @@ setInterval-defuser.js application/javascript
 		needle = needle.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 	}
 	needle = new RegExp(needle);
-	window.setInterval = function(a, b) {
+	w.setInterval = function(a, b) {
 		if ( (isNaN(delay) || b == delay) && needle.test(a.toString()) ) {
-			return 0;
+			return z(function(){}, b);
 		}
 		return z.apply(this, arguments);
-	}.bind(window);
+	}.bind(w);
+	w.setInterval.toString = function() { return z.toString(); };
 })();
 
 
