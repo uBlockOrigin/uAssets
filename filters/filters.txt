@@ -1352,9 +1352,10 @@ movie-blog.org##script:inject(abort-on-property-write.js, DCVU)
 ! https://www.reddit.com/r/uBlockOrigin/comments/5ywxnd/anyone_know_how_to_block_this_ad/
 ! https://forums.lanik.us/viewtopic.php?p=124411#p124411
 watchcartoononline.io##script:inject(abort-current-inline-script.js, String.fromCharCode, /\/\*[0-9a-f]{40}\*\//)
-||piguiqproxy.com^$xmlhttprequest,redirect=nooptext,domain=watchcartoononline.io
-||amgload.net^$xmlhttprequest,redirect=nooptext,domain=watchcartoononline.io
+watchcartoononline.*##script:inject(abort-on-property-read.js, BB_ind)
 watchcartoononline.io##script:inject(fuckadblock.js-3.2.0)
+||amgload.net^$xmlhttprequest,redirect=nooptext,domain=watchcartoononline.io
+||piguiqproxy.com^$xmlhttprequest,redirect=nooptext,domain=watchcartoononline.io
 
 ! https://github.com/uBlockOrigin/uAssets/issues/319
 fdesouche.com##script:inject(bab-defuser.js)
@@ -2206,7 +2207,6 @@ watchcartoonsonline.*##script:inject(abort-current-inline-script.js, parseInt, 6
 watchcartoonsonline.*##script:inject(set-constant.js, check_adblock, true)
 watchcartoonsonline.*##header
 watchcartoonsonline.*##[id*="ScriptRoot"]
-watchcartoononline.*##script:inject(abort-on-property-read.js, BB_ind)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/645
 computerbild.de##a[data-downloader-url$="_CB-DL-Manager.exe"]
