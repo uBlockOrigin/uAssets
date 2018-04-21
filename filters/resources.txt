@@ -2314,15 +2314,14 @@ damoh-defuser.js application/javascript
 
 twitch-videoad.js application/javascript
 (function() {
-	var ourMediaPlayer = undefined;
+	var ourMediaPlayer;
 	Object.defineProperty(window, 'MediaPlayer', {
 		set: function(newMediaPlayer) {
-			if (typeof(ourMediaPlayer) !== 'undefined')
-				return;
+			if ( ourMediaPlayer !== undefined ) { return; }
 			var oldLoad = newMediaPlayer.MediaPlayer.prototype.load;
 			newMediaPlayer.MediaPlayer.prototype.load = function(e) {
 				try {
-					if (e.startsWith('https://usher.ttvnw.net/api/channel/hls/')) {
+					if ( e.startsWith('https://usher.ttvnw.net/api/channel/hls/') ) {
 						var url = new URL(e);
 						url.searchParams.delete('baking_bread');
 						url.searchParams.delete('baking_brownies');
@@ -2330,7 +2329,7 @@ twitch-videoad.js application/javascript
 						e = url.href;
 					}
 				} catch (err) {
-					console.error('Failed to bypass Twitch livestream ad');
+					//console.error('Failed to bypass Twitch livestream ad');
 				}
 				return oldLoad.call(this, e);
 			};
