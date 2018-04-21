@@ -32,8 +32,6 @@ Dailymotion
 
 Discord
 	discordapp.com *
-		_ 1st-party *
-		_ 1st-party cookie
 		_ 1st-party script
 		_ discord.gg *
 		_ discord.gg xhr
@@ -53,13 +51,15 @@ Github
 		_ render.githubusercontent.com frame
 		_ raw.githubusercontent.com *
 		_ raw.githubusercontent.com xhr
-		! Required for uploading files in comments
+		! Required for uploading pictures in comments
 		_ github-production-user-asset-6210df.s3.amazonaws.com xhr
-		
+		! Required for uploading other files in comments
+		_ github-production-repository-file-5c1aeb.s3.amazonaws.com xhr
+
 Gitlab
 	gitlab.com *
 		_ 1st-party script
-	  	_ gitlab-static.net *
+		_ gitlab-static.net *
 		_ gitlab-static.net script
 
 Google account sign in
@@ -78,7 +78,15 @@ Google Maps
 		_ maps.googleapis.com script
 		! needed for satellite view
 		no-workers: _ false
-		
+
+Google reCaptcha
+	* www.google.com
+		_ www.google.com *
+		_ www.google.com script
+		_ www.google.com frame
+		_ www.gstatic.com *
+		_ www.gstatic.com script
+
 IMDb
 	imdb.com *
 		_ 1st-party script
@@ -90,7 +98,7 @@ IMDb
 		! required to upload images
 		_ 1st-party frame
 		_ amazonaws.com script
-		
+
 JSFiddle
 	jsfiddle.net *
 		_ 1st-party script
@@ -130,7 +138,14 @@ Outlook (Formerly Hotmail)
 Proton
 	protonmail.com *
 		_ 1st-party script
-    		no-workers: _ false
+		no-workers: _ false
+
+Slack
+	slack.com *
+		_ 1st-party script
+		_ slack-edge.com *
+		_ slack-edge.com script
+		_ slack-msgs.com *
 
 Soundcloud
 	soundcloud.com *
@@ -162,6 +177,18 @@ Twitch
 		_ twitchsvc.net *
 		_ twitchsvc.net script
 
+Twitch as 3rd-party
+	* twitch.tv
+		no-workers: _ false
+		_ twitch.tv *
+		_ twitch.tv frame
+		_ twitch.tv script
+		! Additionally, you MAY need to allow 3rd-party
+		! cookies in your browser settings :(
+		_ ttvnw.net xhr
+		_ twitchcdn.net *
+		_ twitchcdn.net script
+
 Twitter no account
 	twitter.com *
 		_ 1st-party script
@@ -173,10 +200,10 @@ Twitter with account
 		_ 1st-party script
 		_ twimg.com *
 		_ twimg.com script
-		
+
 Wikia
 	wikia.com *
-		! wikis are displayed as text-only without this 
+		! wikis are displayed as text-only without this
 		_ nocookie.net *
 		_ nocookie.net script
 
@@ -187,7 +214,7 @@ Vimeo as 3rd-party
 		_ player.vimeo.com frame
 		_ vimeocdn.com *
 		_ vimeocdn.com script
-		
+
 XDA-Developers
 	xda-developers.com *
 		_ xda-cdn.com *
