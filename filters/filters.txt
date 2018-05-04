@@ -4545,12 +4545,13 @@ ourl.io,myurl.io##script:inject(window.open-defuser.js)
 myurl.io##script:inject(nowebrtc.js)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/1277
+cpmlink.net##script:inject(abort-current-inline-script.js, decodeURI, decodeURIComponent)
 cpmlink.net##script:inject(abort-on-property-write.js, _pop)
 cpmlink.net##script:inject(nowebrtc.js)
-cpmlink.net##iframe[src="about:blank"]
-||hitcpm.com^$third-party
-cpmlink.net##script:inject(abort-current-inline-script.js, decodeURI, decodeURIComponent)
 ||cpmlink.net^$csp=script-src 'self' 'unsafe-inline' 'unsafe-eval' data: *.gstatic.com *.google-analytics.com *.google.com *.cloudflare.com
+*$subdocument,third-party,domain=cpmlink.net
+||hitcpm.com^$third-party
+cpmlink.net##iframe[src="about:blank"]
 
 ! https://github.com/jspenguin2017/uBlockProtector/issues/811
 win4cut.com##script:inject(abort-on-property-read.js, app_vars.force_disable_adblock)
