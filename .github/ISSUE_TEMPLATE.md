@@ -10,7 +10,7 @@ Replace the bracketed [...] placeholders with your own information.
 
 ### Screenshot(s)
 
-[Screenshot(s) for difficult to describe visual issues are **mandatory**]
+[Screenshot(s) for difficult to describe visual issues are **mandatory**. Post links instead of **Inline Images** for Screenshots containing **Adult material**.]
 
 ### Versions
 
