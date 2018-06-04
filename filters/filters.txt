@@ -1,4 +1,4 @@
-! Title: uBlock filters
+u! Title: uBlock filters
 ! Expires: 4 days
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
@@ -2390,7 +2390,7 @@ watchcartoononline.com##script:inject(setTimeout-defuser.js, Pu.call, 1)
 watchcartoononline.com##^script:has-text(3f87b0eaddd)
 watchcartoononline.com##a[href*="/1.0/go"]
 kimcartoon.*##script:inject(abort-current-inline-script.js, parseInt, tabunder)
-kimcartoon.*##script:inject(abort-on-property-read.js, Uint8Array)
+kimcartoon.*##script:inject(abort-on-property-read.js, crypto)
 kimcartoon.*##script:inject(abort-on-property-write.js, Fingerprint2)
 kimcartoon.*##script:inject(addEventListener-defuser.js, /^(?:click|mousedown|mousemove|touchstart|touchend|touchmove)$/, system.popunder)
 kimcartoon.*##script:inject(set-constant.js, check_adblock, true)
@@ -5358,9 +5358,10 @@ go4up.com##script:inject(set-constant.js, _0xd348, true)
 ! https://www.reddit.com/r/uBlockOrigin/comments/7wpk97/cant_block_ad_at_the_bottom_of_readcomiconline/
 ! https://forums.lanik.us/viewtopic.php?p=136688#p136688
 readcomiconline.to##^script:has-text(this[atob)
+readcomiconline.to##script:inject(abort-on-property-read.js, crypto)
 ||fghtem.com^$xmlhttprequest,redirect=nooptext,domain=readcomiconline.to
+||readcomiconline.to/widgets/exo$subdocument,first-party
 readcomiconline.to##.divCloseBut
-readcomiconline.to##script:inject(abort-on-property-read.js, Uint8Array)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/1526
 arbwarez.com##script:inject(set-constant.js, $tieE3, true)
@@ -6732,12 +6733,12 @@ clipwatching.com##script:inject(set-constant.js, adblock, false)
 updato.com##script:inject(setTimeout-defuser.js, updato-overlay, 500)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/1946
-animeland.tv##script:inject(abort-on-property-read.js, Element.prototype.insertAdjacentElement)
+animeland.tv##script:inject(abort-on-property-read.js, crypto)
 animeland.tv##script:inject(nowebrtc.js)
 animeland.tv##^script:has-text(676574456c656d656e747342795461674e616d65)
 ||piguiqproxy.com^$xmlhttprequest,redirect=nooptext,domain=animeland.tv
 ! ! adding sites using the same script
-animenova.org,animeplus.tv,animetoon.org,animewow.org,goodanime.co,mangareader.net,memecenter.com,toonget.net,toonova.net##script:inject(abort-on-property-read.js, Uint8Array)
+animenova.org,animeplus.tv,animetoon.org,animewow.org,goodanime.co,mangareader.net,memecenter.com,toonget.net,toonova.net##script:inject(abort-on-property-read.js, crypto)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/1949
 ||pagead2.googlesyndication.com^$script,redirect=noopjs,domain=offidocs.com
@@ -7811,7 +7812,7 @@ turbobit.net##script:inject(abort-on-property-read.js, open)
 turbobit.net##script:inject(popads-dummy.js)
 
 ! https://forums.lanik.us/viewtopic.php?f=62&t=40461
-mangapanda.com##script:inject(abort-on-property-read.js, Uint8Array)
+mangapanda.com##script:inject(abort-on-property-read.js, crypto)
 
 ! https://github.com/NanoAdblocker/NanoFilters/issues/80
 @@||bigspeeds.com/*/advertisement.js$script,first-party
@@ -8172,7 +8173,7 @@ tvtropes.org##script:inject(abort-on-property-read.js, Uint8Array)
 
 ! https://www.reddit.com/r/uBlockOrigin/comments/8obvtx/started_getting_some_odd_behavior_on/
 igg-games.com##script:inject(abort-current-inline-script.js, decodeURI, getScriptFromCss)
-igg-games.com##script:inject(abort-on-property-read.js, Uint8Array)
+igg-games.com##script:inject(abort-on-property-read.js, crypto)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/2456
 javwhores.com##script:inject(addEventListener-defuser.js, /^(?:click|mousedown)$/, _0x)
