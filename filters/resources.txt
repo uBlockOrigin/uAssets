@@ -2369,13 +2369,22 @@ cookie-remover.js application/javascript
 		reName = new RegExp(needle.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
 	}
 	let removeCookie = function() {
-		document.cookie.split(';').forEach(v => {
-			let pos = v.indexOf('=');
+		document.cookie.split(';').forEach(cookieStr => {
+			let pos = cookieStr.indexOf('=');
 			if ( pos === -1 ) { return; }
-			let cn = v.slice(0, pos).trim();
-			if ( !reName.test(cn) ) { return; }
-			document.cookie = cn + '=; Max-Age=-1000; expires=Thu, 01 Jan 1970 00:00:00 GMT';
-			document.cookie = cn + '=; domain=.' + document.location.hostname + '; Max-Age=-1000; expires=Thu, 01 Jan 1970 00:00:00 GMT';
+			let cookieName = cookieStr.slice(0, pos).trim();
+			if ( !reName.test(cookieName) ) { return; }
+			let part1 = cookieName + '=';
+			let part2a = '; domain=' + document.location.hostname;
+			let part2b = '; domain=.' + document.location.hostname;
+			let part3 = '; path=/';
+			let part4 = '; Max-Age=-1000; expires=Thu, 01 Jan 1970 00:00:00 GMT';
+			document.cookie = part1 + part4;
+			document.cookie = part1 + part2a + part4;
+			document.cookie = part1 + part2b + part4;
+			document.cookie = part1 + part3 + part4;
+			document.cookie = part1 + part2a + part3 + part4;
+			document.cookie = part1 + part2b + part3 + part4;
 		});
 	};
 	removeCookie();
