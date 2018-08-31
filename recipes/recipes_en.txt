@@ -9,11 +9,18 @@
 ! Please contribute ruleset recipes for the benefit of all other users:
 ! https://github.com/uBlockOrigin/uAssets/tree/master/recipes
 
+
 4chan
 	4chan.org *
 		_ 1st-party script
 		_ 4cdn.org *
 		_ 4cdn.org script
+
+Apple Mapkit as 3rd-party
+	* apple-mapkit.com
+		_ apple-mapkit.com *
+		_ apple-mapkit.com script
+		no-workers: _ false
 
 Ars Technica
 	arstechnica.com *
@@ -27,6 +34,11 @@ Ars Technica
 		_ d2c8v52ll5s99u.cloudfront.net *
 		_ d2c8v52ll5s99u.cloudfront.net script
 		_ dp8hsntg6do36.cloudfront.net *
+
+Cloudflare Stream as 3rd-party
+	* cloudflarestream.com
+		_ embed.cloudflarestream.com script
+		_ videodelivery.net xhr
 
 Dailymotion
 	dailymotion.com *
@@ -48,6 +60,12 @@ Disqus as 3rd-party
 		_ disqus.com *
 		_ disqus.com frame
 		_ disquscdn.com *
+		
+Embedly as 3rd-party
+	* embedly.com
+		_ api-cdn.embed.ly xhr
+		_ cdn.embedly.com *
+		_ cdn.embedly.com script
 
 Facebook no account
 	facebook.com *
@@ -121,6 +139,15 @@ JSFiddle
 		_ jshell.net *
 		_ jshell.net script
 		_ jshell.net frame
+		
+Mapbox as 3rd-party
+	* mapbox.com
+		_ api.mapbox.com *
+		_ api.mapbox.com script
+		_ tiles.mapbox.com *
+		_ tiles.mapbox.com script
+		! mapbox gl needs workers
+		no-workers: _ false
 
 MEGA
 	mega.nz *
@@ -170,6 +197,9 @@ Reddit
 		_ redditstatic.com *
 		_ redditstatic.com script
 		_ redditmedia.com *
+		_ redditmedia.com frame
+		! Necessary to unbreak ability to upload
+		_ reddit-uploaded-media.s3-accelerate.amazonaws.com xhr
 
 Slack
 	slack.com *
