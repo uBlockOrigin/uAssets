@@ -2344,6 +2344,14 @@ twitch-videoad.js application/javascript
 			return ourMediaPlayer;
 		}
 	});
+	var realFetch = window.fetch;
+	window.fetch = function() {		
+		if (JSON.stringify(arguments).includes("access_token"))
+		{
+			document.cookie = "unique_id=;expires=Thu, 01 Jan 1970 00:00:00 GMT;domain=.twitch.tv;";
+		}
+		return realFetch.apply(this, arguments);
+	}
 })();
 
 
