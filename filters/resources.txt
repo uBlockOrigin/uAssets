@@ -2345,10 +2345,10 @@ twitch-videoad.js application/javascript
 		}
 	});
 	var realFetch = window.fetch;
-	window.fetch = function() {		
-		if (JSON.stringify(arguments).includes("access_token"))
+	window.fetch = function(input, init) {
+		if (arguments.length >= 2 && typeof input === "string" && input.includes("/access_token"))
 		{
-			document.cookie = "unique_id=;expires=Thu, 01 Jan 1970 00:00:00 GMT;domain=.twitch.tv;";
+			init.credentials = "omit";
 		}
 		return realFetch.apply(this, arguments);
 	}
