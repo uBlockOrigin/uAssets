@@ -8656,7 +8656,13 @@ escuchalas.com##^script:has-text(3f87b0)
 ! zmctrack crap
 censor.net.ua,hdreactor.club,i.ua,meta.ua,ngs.ru,pravda.com.ua,sinoptik.ua##+js(abort-on-property-read.js, atob)
 ||mixadvert.com^$third-party
+!#if env_firefox
 ||sinoptik.ua^$csp=script-src 'self' * 'unsafe-inline' 'unsafe-eval'
+!#endif
+
+!#if env_chromium
+||sinoptik.ua^$csp=script-src 'self' * 'unsafe-inline' 'unsafe-eval' data:
+!#endif
 
 ! https://github.com/uBlockOrigin/uAssets/issues/2484#issuecomment-395174594
 foumovies.*,full4movies.co,hdpopcorns.*,moviescouch.info,moviescounter.*,mydownloadtube.*,rdxhd.me,123movies.ph,700mbdownload.*##+js(abort-on-property-write.js, decodeURIComponent)
