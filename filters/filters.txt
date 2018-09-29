@@ -1670,7 +1670,11 @@ myip.ms##+js(bab-defuser.js)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/400
 ! https://github.com/uBlockOrigin/uAssets/issues/693
+! https://github.com/uBlockOrigin/uAssets/issues/951
+! https://github.com/uBlockOrigin/uAssets/issues/3622
 wstream.video##+js(abort-current-inline-script.js, setTimeout, .myads)
+wstream.video##+js(setTimeout-defuser.js, (), 2000)
+||wstream.video^$csp=script-src 'self' 'unsafe-inline' 'unsafe-eval' data: *.googletagmanager.com *.wstream.video
 ||wstream.video/imgad/$image,redirect=2x2-transparent.png,first-party
 wstream.video##div[onclick^="window.open"]
 
@@ -3481,9 +3485,6 @@ whentai.com##+js(abort-on-property-read.js, canRunAds)
 @@*$generichide,domain=animesgo.net|animesgo.info
 ||i.imgur.com/$image,domain=animesgo.info
 ||jyz.com.br/ads$subdocument
-
-! https://github.com/uBlockOrigin/uAssets/issues/951
-wstream.video##+js(abort-current-inline-script.js, setTimeout, mypop)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/952
 javdude.com##+js(abort-on-property-read.js, miner)
