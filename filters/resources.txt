@@ -2347,8 +2347,7 @@ twitch-videoad.js application/javascript
 	});
 	var realFetch = window.fetch;
 	window.fetch = function(input, init) {
-		if (arguments.length >= 2 && typeof input === "string" && input.includes("/access_token"))
-		{
+		if ( arguments.length >= 2 && typeof input === 'string' && input.includes('/access_token') ) {
 			var url = new URL(arguments[0]);
 			url.searchParams.delete('player_type');
 			arguments[0] = url.href;
