@@ -2672,16 +2672,6 @@ sockshare.net##^script:has-text(676574456c656d656e747342795461674e616d65)
 ! https://github.com/uBlockOrigin/uAssets/issues/741
 @@||demolandia.net^$generichide
 
-! https://www.reddit.com/r/uBlockOrigin/comments/74tiik/stopping_popunder_load_new_page_ubo_on_sceperws/
-! https://forums.lanik.us/viewtopic.php?f=62&t=38226
-! https://github.com/uBlockOrigin/uAssets/issues/1835
-downloadhub.ws##+js(abort-current-inline-script.js, decodeURI, decodeURIComponent)
-downloadhub.ws##+js(abort-current-inline-script.js, parseInt, tabunder)
-sceper.ws##+js(abort-on-property-write.js, bidrev)
-downloadhub.ws,sceper.ws##+js(abort-on-property-write.js, Fingerprint2)
-*.gif$domain=downloadhub.ws,image
-downloadhub.ws##a[href="/watchnowbuttons.php"]
-
 ! https://github.com/gorhill/uBlock/issues/3112
 ikshow.net##+js(abort-on-property-read.js, BetterJsPop)
 
@@ -10589,13 +10579,6 @@ torrentdosfilmeshd.net##+js(abort-on-property-read.js, carregarJS)
 ||torrentdosfilmeshd.ga^$script,domain=torrentdosfilmeshd.net
 torrentdosfilmeshd.net##[href^="http://www.tradeadexchange.com/script/preurl.php"]
 
-! https://github.com/uBlockOrigin/uAssets/issues/3107
-downloadhub.cc##+js(abort-on-property-write.js, decodeURIComponent)
-downloadhub.cc##a[href*=".php"]
-*.gif$domain=downloadhub.cc,image
-downloadhub.cc##.header-adcode
-downloadhub.cc##.alignnone
-
 ! https://forums.lanik.us/viewtopic.php?f=62&p=139311
 ustv247.com##+js(set-constant.js, google_jobrunner, true)
 
@@ -12209,3 +12192,7 @@ sp-today.com##+js(set-constant.js, isAdBlockActive, false)
 ! https://github.com/uBlockOrigin/uAssets/issues/3645
 the123movieshub.net##+js(abort-current-inline-script.js, decodeURI, atob)
 the123movieshub.net##+js(set-constant.js, atob, noopFunc)
+
+! https://forums.lanik.us/viewtopic.php?p=141704#p141704
+downloadhub.*##+js(abort-current-inline-script.js, puShown , /doOpen|popundr/)
+downloadhub.*##.alignnone
