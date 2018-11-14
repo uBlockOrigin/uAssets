@@ -376,6 +376,12 @@ google-analytics.com/analytics.js application/javascript
 			return;
 		}
 		var f = arguments[len-1];
+		if ( typeof f === 'function' ) {
+			try {
+				f(new Tracker());
+			} catch (ex) {
+			}
+		}
 		if ( typeof f !== 'object' || f === null || typeof f.hitCallback !== 'function' ) {
 			return;
 		}
