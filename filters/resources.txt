@@ -1952,6 +1952,7 @@ abort-current-inline-script.js application/javascript
 			? needle.slice(1,-1)
 			: needle.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 	}
+	var thisScript = document.currentScript;
 	var re = new RegExp(reText);
 	var chain = target.split('.');
 	var owner = window, prop;
@@ -1968,7 +1969,12 @@ abort-current-inline-script.js application/javascript
 	var value = owner[prop];
 	var validate = function() {
 		var e = document.currentScript;
-		if ( e instanceof HTMLScriptElement && e.src === '' && re.test(e.textContent) ) {
+		if (
+			e instanceof HTMLScriptElement &&
+			e.src === '' &&
+			e !== thisScript &&
+			re.test(e.textContent)
+		) {
 			throw new ReferenceError(magic);
 		}
 	};
@@ -2317,6 +2323,7 @@ damoh-defuser.js application/javascript
 })();
 
 
+# https://github.com/uBlockOrigin/uAssets/pull/3517
 twitch-videoad.js application/javascript
 (function() {
 	if ( /(^|\.)twitch\.tv$/.test(document.location.hostname) === false ) { return; }
