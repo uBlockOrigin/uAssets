@@ -1,4 +1,4 @@
-Replace the bracketed [...] placeholders with your own information.
+<!-- Replace the bracketed [...] placeholders with your own information. -->
 
 ### URL(s) where the issue occurs
 
