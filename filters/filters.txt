@@ -13753,8 +13753,10 @@ agar.space##+js(abort-current-inline-script.js, document.getElementById, block)
 consoletarget.com,gamecopyworld.*##+js(abort-on-property-read.js, loadTool)
 
 ! https://www.reddit.com/r/uBlockOrigin/comments/9xn570/trueachievementscom_with_adchoices_on_pc/
-trueachievements.com##+js(abort-current-inline-script.js, setTimeout, iframeTestTimeMS)
+!#if env_chromium
 trueachievements.com##+js(abort-on-property-read.js, Date.prototype.toUTCString)
+!#endif
+trueachievements.com##^script:has-text(iframeTestTimeMS)
 
 ! https://github.com/NanoMeow/QuickReports/issues/331
 ! https://github.com/uBlockOrigin/uAssets/issues/3156
