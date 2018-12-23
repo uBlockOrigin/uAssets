@@ -768,7 +768,7 @@ bab-defuser.js application/javascript
 	};
 	var realEval = window.eval;
 	window.eval = function(a) {
-		if ( !check(a) ) {
+		if ( typeof a !== 'string' || !check(a) ) {
 			return realEval(a);
 		}
 		var el = document.body;
