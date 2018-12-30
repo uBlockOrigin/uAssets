@@ -1912,11 +1912,6 @@ hdfree.se###videoplayer:style(display: block !important;)
 ||andreas-unterberger.at/includes/js/helperFunctions.js$script,first-party
 wz.de##+js(abort-on-property-read.js, jsABLoaded)
 
-! https://github.com/uBlockOrigin/uAssets/issues/84
-news.yandex.ru##.page-content__left > div[class]:has(a[href*="/clck/jsredir"])
-news.yandex.ru##.page-content__right > .page-content__col > div[class]:has(a[href*="/clck/jsredir"])
-news.yandex.ru##.page-content__right > div[class]:not(.page-content__col):has(a[href*="/clck/jsredir"])
-
 ! https://adblockplus.org/forum/viewtopic.php?f=10&t=53374
 ||xstory-fr.com^$first-party,script,badfilter
 xstory-fr.com##+js(abort-on-property-write.js, checkRealLoad)
@@ -15322,6 +15317,12 @@ news.yandex.by,news.yandex.kz,news.yandex.ru,news.yandex.ua##+js(setTimeout-defu
 news.yandex.by,news.yandex.kz,news.yandex.ru,news.yandex.ua##.sticky_visible
 news.yandex.by,news.yandex.kz,news.yandex.ru,news.yandex.ua##[class*="_name_first"]
 news.yandex.by,news.yandex.kz,news.yandex.ru,news.yandex.ua##[class*="_name_footer"]
+!#if env_firefox
+||news.yandex.by^$csp=script-src * 'unsafe-inline'
+||news.yandex.kz^$csp=script-src * 'unsafe-inline'
+||news.yandex.ru^$csp=script-src * 'unsafe-inline'
+||news.yandex.ua^$csp=script-src * 'unsafe-inline'
+!#endif
 
 ! https://github.com/uBlockOrigin/uAssets/issues/4464
 ! https://github.com/uBlockOrigin/uAssets/issues/4465
