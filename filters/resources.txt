@@ -1719,10 +1719,15 @@ twitch-videoad.js application/javascript
 fingerprint2.js application/javascript
 (function() {
 	let fp2 = function(){};
+	let browserId = '';
+	for (let i = 0; i < 32; i++) {
+		browserId += '0123456789abcdef'[(Math.random() * 16) | 0];
+	}
+	fp2.get = function(cb) {
+		setTimeout(function() { cb(browserId, []); }, 1);
+	}
 	fp2.prototype = {
-		get: function(cb) {
-			setTimeout(function() { cb('', []); }, 1);
-		}
+		get: fp2.get
 	};
 	window.Fingerprint2 = fp2;
 })();
