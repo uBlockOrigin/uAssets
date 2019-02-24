@@ -1341,30 +1341,6 @@ nowebrtc.js application/javascript
 })();
 
 
-# https://adblockplus.org/forum/viewtopic.php?f=10&t=46010
-indiatoday.intoday.in.js application/javascript
-(function() {
-	Object.defineProperties(window, {
-		adBlock: { value: false },
-		checkAds: { value: function() {} }
-	});
-})();
-
-
-# Prevent web pages from using eval(), and report attempts in console.
-videowood.tv.js application/javascript
-(function() {
-	var realEval = window.eval;
-	window.eval = function(s) {
-		var r = realEval(s);
-		if ( window.config && window.config.adb_remind ) {
-			window.config.adb_remind = false;
-		}
-		return r;
-	}.bind(window);
-})();
-
-
 # https://github.com/gorhill/uBlock/issues/1340#issuecomment-230495317
 __$dc-defuser.js application/javascript
 (function() {
@@ -1376,59 +1352,6 @@ __$dc-defuser.js application/javascript
 		Math.mt_random = function() { throw new TypeError(); }.bind();
 	}
 })();
-
-
-# https://forums.lanik.us/viewtopic.php?f=62&t=31285
-indiatimes.com.js application/javascript
-(function() {
-	var dael = document.addEventListener.bind(document),
-		evts = ['error', 'mousemove', 'scroll'];
-	document.addEventListener = function(a, b, c) {
-		if ( evts.indexOf(a) !== -1 ) {
-			var s = b.toString();
-			if ( /^\s*function\s+(\(?_0x[0-9a-z]+\)?|detected)(?:.|\n)*?\1/.test(s) ) {
-				return;
-			}
-		}
-		return dael(a, b, c);
-	}.bind();
-})();
-
-
-# https://forums.lanik.us/viewtopic.php?f=23&t=31545
-adf.ly.js application/javascript
-(function() {
-	var realEval = window.eval;
-	var noopfn = function(){
-		;
-	}.bind();
-	window.eval = function(s) {
-		var r = realEval(s);
-		if ( typeof window.abgo === 'function' ) {
-			window.abgo = noopfn;
-		}
-		return r;
-	}.bind(window);
-})();
-
-
-# https://m.reddit.com/r/firefox/comments/4ucrvy/can_ublock_origin_disable_javascript_for_a/
-hindustantimes.com.js application/javascript
-window.canRun = true;
-
-
-# https://m.reddit.com/r/firefox/comments/4ucrvy/can_ublock_origin_disable_javascript_for_a/
-bhaskar.com.js application/javascript
-window.canABP = true;
-
-
-# https://adblockplus.org/forum/viewtopic.php?f=1&t=47754
-thesimsresource.com.js application/javascript
-Object.defineProperties(window, {
-	gadsize: { value: 1 },
-	iHaveLoadedAds: { value: true },
-	OX: { value: true }
-});
 
 
 # https://github.com/uBlockOrigin/uAssets/issues/88
@@ -1514,11 +1437,6 @@ xvideos.com.js application/javascript
 })();
 
 
-# https://forums.lanik.us/viewtopic.php?f=62&t=31322&start=30
-ndtv.com.js application/javascript
-Object.defineProperty(window, '___p_p', { value: 1 });
-
-
 # https://forums.lanik.us/viewtopic.php?f=64&t=32278
 # https://www.reddit.com/r/chrome/comments/58eix6/ublock_origin_not_working_on_certain_sites/
 upmanager-defuser.js application/javascript
@@ -1533,35 +1451,6 @@ upmanager-defuser.js application/javascript
 		}
 	};
 	Object.defineProperty(window, 'upManager', { value: function() {} });
-})();
-
-
-# https://github.com/uBlockOrigin/uAssets/issues/108
-wetteronline.de.js application/javascript
-(function() {
-	var nopefn = function() { throw new TypeError('Nope'); };
-	Object.defineProperty(window, 'xq5UgyIZx', {
-		get: nopefn,
-		set: nopefn
-	});
-	window.WO = {};
-	Object.defineProperty(window.WO, 'doAbCheck', {
-		value: function() {}
-	});
-})();
-
-
-# https://github.com/uBlockOrigin/uAssets/issues/108
-trafictube.ro.js application/javascript
-(function() {
-	var z = window.setInterval.bind(window),
-		re = /\(new\s+\w\)\.start\(\)/;
-	window.setInterval = function(a, b) {
-		if ( re.test(a.toString()) ) {
-			return 0;
-		}
-		return z(a, b);
-	}.bind(window);
 })();
 
 
@@ -1606,11 +1495,6 @@ Object.defineProperties(window._r3z, {
 });
 
 
-# https://forums.lanik.us/viewtopic.php?f=103&t=31558
-ideal.es.js application/javascript
-Object.defineProperty(window, 'is_block_adb_enabled', { value: false });
-
-
 # https://github.com/uBlockOrigin/uAssets/issues/125
 d3pkae9owd2lcf.cloudfront.net/mb105.js application/javascript
 (function() {
@@ -1649,11 +1533,6 @@ last.fm.js application/javascript
 })();
 
 
-# https://news.ycombinator.com/item?id=12677179
-livescience.com.js application/javascript
-Object.defineProperty(window, 'tmnramp', { value: {} });
-
-
 # https://twitter.com/Scarbir/status/785551814460571648
 static.chartbeat.com/chartbeat.js application/javascript
 (function() {
@@ -1663,11 +1542,6 @@ static.chartbeat.com/chartbeat.js application/javascript
 		virtualPage: noopfn
 	};
 })();
-
-
-# https://discourse.mozilla-community.org/t/support-ublock-origin/6746/214
-lachainemeteo.com.js application/javascript
-Object.defineProperty(window, 'pliga', { value: { push: function(){} } });
 
 
 # https://github.com/gorhill/uBlock/issues/2132
@@ -1845,12 +1719,6 @@ sharedWorker-defuser.js application/javascript
 })();
 
 
-sidereel.com.js application/javascript
-(function() {
-	window.localStorage.setItem('__trex', Date.now() + 86400000);
-})();
-
-
 # Ability to inject CSP in document, to further restrict what web pages can do.
 # Reference: https://www.w3.org/TR/CSP3/
 csp.js application/javascript
@@ -1931,16 +1799,6 @@ palacesquare.rambler.ru-defuser.js application/javascript
 		Object.defineProperty(w.Promise, propName, Object.getOwnPropertyDescriptor(pr, propName));
 	});
 	pr.prototype.constructor = w.Promise;
-})();
-
-
-# https://www.reddit.com/r/uBlockOrigin/comments/6nrayv/new_to_using_ublock_origin_its_breaking_videos_on/
-# https://github.com/gorhill/uBlock/issues/2835
-gamespot.com.js application/javascript
-(function() {
-	if ( typeof window.pf_notify === 'function' ) {
-		window.pf_notify(false);
-	}
 })();
 
 
