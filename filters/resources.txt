@@ -1355,12 +1355,19 @@ __$dc-defuser.js application/javascript
 
 
 # https://github.com/uBlockOrigin/uAssets/issues/88
-golem.de.js application/javascript
 (function() {
-	var rael = window.addEventListener;
-	window.addEventListener = function(a, b, c) {
-		rael(a, b, c);
-		if ( /^\s*function\s*\(\)\s*{\s*window\.clearTimeout\(r\)\s*\}\s*$/.test(b.toString()) ) {
+	const rael = window.addEventListener;
+	window.addEventListener = function(a, b) {
+		rael(...arguments);
+		let haystack;
+		try {
+			haystack = b.toString();
+		} catch(ex) {
+		}
+		if (
+			typeof haystack === 'string' &&
+			/^\s*function\s*\(\)\s*\{\s*window\.clearTimeout\(r\)\s*\}\s*$/.test(haystack)
+		) {
 			b();
 		}
 	}.bind(window);
