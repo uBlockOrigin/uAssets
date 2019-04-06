@@ -1751,7 +1751,7 @@ addEventListener-logger.js application/javascript
 	var c = console, l = c.log;
 	var z = self.EventTarget.prototype.addEventListener;
 	self.EventTarget.prototype.addEventListener = function(a, b) {
-		l.call(c, 'addEventListener("%s", %s)', a, b.toString());
+		l.call(c, 'addEventListener("%s", %s)', a, String(b));
 		return z.apply(this, arguments);
 	};
 })();
@@ -1780,7 +1780,7 @@ addEventListener-defuser.js application/javascript
 	}
 	needle2 = new RegExp(needle2);
 	self.EventTarget.prototype.addEventListener = function(a, b) {
-		if ( needle1.test(a.toString()) && needle2.test(b.toString()) ) {
+		if ( needle1.test(a.toString()) && needle2.test(String(b)) ) {
 			return;
 		}
 		return z.apply(this, arguments);
