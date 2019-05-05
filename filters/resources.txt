@@ -2245,6 +2245,8 @@ cookie-remover.js application/javascript
 			let part1 = cookieName + '=';
 			let part2a = '; domain=' + document.location.hostname;
 			let part2b = '; domain=.' + document.location.hostname;
+			let domain = document.domain;
+			let part2c = domain && domain !== document.location.hostname ? '; domain=.' + domain : undefined;
 			let part3 = '; path=/';
 			let part4 = '; Max-Age=-1000; expires=Thu, 01 Jan 1970 00:00:00 GMT';
 			document.cookie = part1 + part4;
@@ -2253,6 +2255,9 @@ cookie-remover.js application/javascript
 			document.cookie = part1 + part3 + part4;
 			document.cookie = part1 + part2a + part3 + part4;
 			document.cookie = part1 + part2b + part3 + part4;
+			if ( part2c !== undefined ) {
+				document.cookie = part1 + part2c + part3 + part4;
+			}
 		});
 	};
 	removeCookie();
