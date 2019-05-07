@@ -13,6 +13,7 @@ Issues involving
 - ad-reinsertion
 - popups/popunders
 - site breakage
+- video ads
 
 will always be fixed in uAssets even if they don't require extended syntax.
 
