@@ -615,15 +615,6 @@ uabinject-defuser.js application/javascript
 })();
 
 
-# https://github.com/gorhill/uBlock/issues/733
-wpredirect-defuser.js application/javascript
-(function() {
-	var twp = window.TWP = window.TWP || {};
-	twp.Identity = twp.Identity || {};
-	twp.Identity.initComplete = true;
-})();
-
-
 # https://github.com/gorhill/uBlock/issues/1194
 # https://github.com/uBlockOrigin/uAssets/issues/106
 openload.co.js application/javascript
@@ -759,25 +750,6 @@ addthis.com/addthis_widget.js application/javascript
 		toolbox: noopfn,
 		update: noopfn
 	};
-})();
-
-
-# https://github.com/gorhill/uBlock/issues/1059#issuecomment-185434177
-# Works for stern.de, will see if reusable.
-bcplayer-defuser.js application/javascript
-(function() {
-	var bcPlayer;
-	Object.defineProperty(window, 'bcPlayer', {
-		get: function() {
-			return bcPlayer;
-		},
-		set: function(a) {
-			bcPlayer = a;
-			a.ads = function(a) {
-				;
-			};
-		}
-	});
 })();
 
 
