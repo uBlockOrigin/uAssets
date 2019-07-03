@@ -1244,19 +1244,6 @@ nowebrtc.js application/javascript
 })();
 
 
-# https://github.com/gorhill/uBlock/issues/1340#issuecomment-230495317
-__$dc-defuser.js application/javascript
-(function() {
-	if ( Math.mt_random === undefined ) {
-		Object.defineProperty(Math, 'mt_random', {
-			value: function() { throw new TypeError(); }.bind()
-		});
-	} else {
-		Math.mt_random = function() { throw new TypeError(); }.bind();
-	}
-})();
-
-
 # https://github.com/uBlockOrigin/uAssets/issues/88
 golem.de.js application/javascript
 (function() {
@@ -1560,19 +1547,6 @@ setInterval-logger.js application/javascript
 		log('uBO: setInterval("%s", %s)', a.toString(), b);
 		return z.apply(this, arguments);
 	}.bind(window);
-})();
-
-
-# Ability to inject CSP in document, to further restrict what web pages can do.
-# Reference: https://www.w3.org/TR/CSP3/
-csp.js application/javascript
-(function() {
-	var doc = document;
-	if ( doc.head === null ) { return; }
-	var meta = doc.createElement('meta');
-	meta.setAttribute('http-equiv', 'Content-Security-Policy');
-	meta.setAttribute('content', '{{1}}');
-	doc.head.appendChild(meta);
 })();
 
 
