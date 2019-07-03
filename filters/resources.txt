@@ -1593,28 +1593,6 @@ addEventListener-defuser.js application/javascript
 })();
 
 
-# https://github.com/uBlockOrigin/uAssets/issues/531
-# Scriptlet below borrowed from:
-#   https://github.com/AdguardTeam/AdguardFilters/blob/master/RussianFilter/sections/antiadblock.txt
-palacesquare.rambler.ru-defuser.js application/javascript
-(function() {
-	var w = window,
-		pr = w.Promise,
-		tostr = Function.prototype.toString;
-	w.Promise = function(executor) {
-		if ( tostr.call(executor).indexOf('getRandomSelector') !== -1 ) {
-			throw new Error();
-		} else {
-			return new pr(executor);
-		}
-	}.bind();
-	Object.getOwnPropertyNames(pr).forEach(function(propName) {
-		Object.defineProperty(w.Promise, propName, Object.getOwnPropertyDescriptor(pr, propName));
-	});
-	pr.prototype.constructor = w.Promise;
-})();
-
-
 # https://github.com/uBlockOrigin/uAssets/issues/618
 abort-current-inline-script.js application/javascript
 (function() {
