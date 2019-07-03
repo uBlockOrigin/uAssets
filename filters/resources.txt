@@ -1563,27 +1563,6 @@ setInterval-logger.js application/javascript
 })();
 
 
-sharedWorker-defuser.js application/javascript
-(function() {
-	if ( window.SharedWorker instanceof Function === false ) { return; }
-	var needle = '{{1}}';
-	if ( needle === '' || needle === '{{1}}' ) { needle = '.?'; }
-	else if ( /^\/.+\/$/.test(needle) ) { needle = needle.slice(1,-1); }
-	else { needle = needle.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
-	needle = new RegExp(needle);
-	var RealSharedWorker = window.SharedWorker;
-	var WrappedSharedWorker = function(a, b) {
-		if ( this instanceof WrappedSharedWorker === false ) { return RealSharedWorker(); }
-		if ( needle.test(a) ) {
-			return new RealSharedWorker(window.URL.createObjectURL(new Blob([';'], {type:'text/javascript'})));
-		}
-		return new RealSharedWorker(a, b);
-	};
-	WrappedSharedWorker.prototype = RealSharedWorker.prototype;
-	window.SharedWorker = WrappedSharedWorker.bind(window);
-})();
-
-
 # Ability to inject CSP in document, to further restrict what web pages can do.
 # Reference: https://www.w3.org/TR/CSP3/
 csp.js application/javascript
