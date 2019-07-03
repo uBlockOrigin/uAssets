@@ -615,44 +615,6 @@ uabinject-defuser.js application/javascript
 })();
 
 
-# https://github.com/gorhill/uBlock/issues/1094
-pornhub-popup-defuser.js application/javascript
-(function() {
-	var w = window;
-	var count = Math.ceil(8+Math.random()*4);
-	var tomorrow = new Date(Date.now() + 86400000);
-	document.cookie = 'FastPopSessionRequestNumber=' + count + '; expires=' + tomorrow.toUTCString();
-	var db;
-	if ( (db = w.localStorage) ) {
-		db.setItem('InfNumFastPops', count);
-		db.setItem('InfNumFastPopsExpire', tomorrow.toISOString());
-	}
-	if ( (db = w.sessionStorage) ) {
-		db.setItem('InfNumFastPops', count);
-		db.setItem('InfNumFastPopsExpire', tomorrow.toISOString());
-	}
-})();
-
-
-# https://archive.rebeccablacktech.com/g/thread/S54040346#p54046766
-pornhub-sanitizer.js application/javascript
-(function() {
-	var removeAdFrames = function(aa) {
-		var el;
-		for ( var i = 0; i < aa.length; i++ ) {
-			el = document.getElementById(aa[i]);
-			if ( el !== null ) {
-				el.parentNode.removeChild(el);
-			}
-		}
-	};
-	Object.defineProperty(window, 'block_logic', {
-		get: function() { return removeAdFrames; },
-		set: function() {}
-	});
-})();
-
-
 goyavelab-defuser.js application/javascript
 (function() {
 	var noopfn = function() {
