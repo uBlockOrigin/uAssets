@@ -615,23 +615,6 @@ uabinject-defuser.js application/javascript
 })();
 
 
-# https://news.ycombinator.com/item?id=10814913
-forbes-defuser.js application/javascript
-(function() {
-	if ( window.location.pathname.lastIndexOf('/forbes/welcome/', 0) !== 0 ) {
-		return;
-	}
-	document.cookie = 'welcomeAd=true';
-	window.addEventListener('load', function() {
-		// https://developer.mozilla.org/en-US/docs/Web/API/Document/cookie#Example_2_Get_a_sample_cookie_named_test2
-		var toURL = document.cookie.replace(/(?:(?:^|.*;\s*)toURL\s*\=\s*([^;]*).*$)|^.*$/, "$1");
-		if ( toURL.lastIndexOf('http', 0) === 0 ) {
-			window.location.replace(toURL);
-		}
-	});
-})();
-
-
 # https://github.com/gorhill/uBlock/issues/733
 wpredirect-defuser.js application/javascript
 (function() {
