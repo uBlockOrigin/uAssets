@@ -608,22 +608,6 @@ ligatus.com/*/angular-tag.js application/javascript
 })();
 
 
-# https://github.com/gorhill/uBlock/issues/1194
-# https://github.com/uBlockOrigin/uAssets/issues/106
-openload.co.js application/javascript
-(function() {
-	Object.defineProperties(window, {
-		adblock2: { value: false },
-		OlPopup: { value: null },
-		preserve: {
-			get: function() { return true; },
-			set: function() {}
-		},
-		turnoff: { value: true }
-	});
-})();
-
-
 bab-defuser.js application/javascript
 (function() {
 	var sto = window.setTimeout,
@@ -855,15 +839,6 @@ amazon-adsystem.com/aax2/amzn_ads.js application/javascript
 })();
 
 
-# Good case for https://github.com/gorhill/uBlock/issues/781
-rtlfr-defuser.js application/javascript
-(function() {
-	window.addEventListener('load', function() {
-		document.body.style.setProperty('overflow', 'auto');
-	});
-})();
-
-
 # Experimental: Generic nuisance overlay buster.
 # if this works well and proves to be useful, this may end up as a stock tool
 # in uBO's popup panel.
@@ -922,77 +897,12 @@ overlay-buster.js application/javascript
 })();
 
 
-# http://www.wilderssecurity.com/threads/ublock-a-lean-and-fast-blocker.365273/page-77
-imore-sanitizer.js application/javascript
-(function() {
-	if ( window.mbn_zones ) {
-		delete window.mbn_zones;
-		return;
-	}
-	Object.defineProperty(window, 'mbn_zones', {
-		value: undefined
-	});
-})();
-
-
-# https://forums.lanik.us/viewtopic.php?f=62&t=25212
-# https://github.com/uBlockOrigin/uAssets/issues/3
-impspcabe-defuser.js application/javascript
-(function(){
-	window._impspcabe = false;
-	window._impspcabe_alpha = false;
-	window._impspcabe_beta = false;
-	window._impspcabe_path = 'about:blank';
-})();
-
-
 # https://github.com/uBlockOrigin/uAssets/issues/8
 alert-buster.js application/javascript
 (function() {
 	window.alert = function(a) {
 		console.info(a);
 	};
-})();
-
-
-# https://github.com/uBlockOrigin/uAssets/issues/36
-nr-unwrapper.js application/javascript
-(function(){
-	var wrapped = ' \
-		EventTarget.prototype.addEventListener \
-		EventTarget.prototype.removeEventListener \
-		XMLHttpRequest.prototype.open \
-		XMLHttpRequest.prototype.send \
-		addEventListener \
-		clearTimeout \
-		removeEventListener \
-		requestAnimationFrame \
-		setInterval \
-		setTimeout \
-		'.split(/\s+/);
-	var path, o, p, fn;
-	for ( var i = 0; i < wrapped.length; i++ ) {
-		path = wrapped[i].split('.');
-		p = '';
-		for ( var j = 0; j < path.length; j++ ) {
-			if ( path[j] === '' ) {
-				continue;
-			}
-			o = p !== '' ? o = o[p] : window;
-			p = path[j];
-		}
-		if ( p === '' ) {
-			continue;
-		}
-		fn = o[p];
-		if (
-			typeof fn === 'function' &&
-			fn.toString().indexOf('nrWrapper') !== -1 &&
-			typeof fn['nr@original'] === 'function'
-		) {
-			o[p] = fn['nr@original'];
-		}
-	}
 })();
 
 
@@ -1140,42 +1050,6 @@ popads-dummy.js application/javascript
 	Object.defineProperties(window, {
 		PopAds: { value: {} },
 		popns: { value: {} }
-	});
-})();
-
-
-# https://forums.lanik.us/viewtopic.php?f=62&t=32070
-xvideos.com.js application/javascript
-(function() {
-	var z = function(ads) {
-		var banners = ads && ads.banners;
-		if ( !banners ) { return; }
-		var banner, div;
-		while ( banners.length !== 0 ) {
-			banner = banners[0];
-			if ( !banner ) { continue; }
-			while ( (div = document.getElementById(banner.div_id)) !== null ) {
-				div.parentNode.removeChild(div);
-			}
-			banners.shift();
-		}
-	};
-	window.addEventListener('DOMContentLoaded', function() {
-		var xv = window.xv;
-		z(xv && xv.conf && xv.conf.ads);
-	});
-	var dfn,
-		dfntrap = function(a, b, c) {
-			if ( a !== 'config/ads' ) { dfn(a, b, c); return; }
-			var ads = b;
-			while ( typeof ads === 'function' ) { ads = ads(); }
-			z(ads);
-			b = function() { return function() { return JSON.parse(JSON.stringify(ads)); }; };
-			dfn(a, ads, c);
-		};
-	Object.defineProperty(window, 'define', {
-		get: function() { return dfn ? dfntrap : undefined; },
-		set: function(a) { dfn = a; }
 	});
 })();
 
