@@ -1812,7 +1812,7 @@ vidnow.to##+js(abort-on-property-read.js, BetterJsPop)
 vshare.eu##+js(abort-on-property-read.js, BetterJsPop)
 ||vshare.eu/sw.js$script,first-party
 vshare.eu##+js(abort-current-inline-script.js, decodeURI, decodeURIComponent)
-vidup.me##+js(abort-on-property-read.js, adsShowPopup)
+vidup.*##+js(abort-on-property-read.js, adsShowPopup)
 
 ! https://adblockplus.org/forum/viewtopic.php?f=1&t=53362
 hdfree.se###advPlayer
@@ -4480,13 +4480,6 @@ ceesty.com,clkmein.com,corneey.com,destyy.com,festyy.com,gestyy.com,sh.st,skiip.
 @@||skipp.io^$generichide
 @@||viid.me^$generichide
 ceesty.com,clkmein.com,corneey.com,destyy.com,festyy.com,gestyy.com,sh.st,skiip.me,skipp.io,viid.me##.skip-advert
-
-! https://github.com/uBlockOrigin/uAssets/issues/1193
-vidup.me##+js(abort-on-property-read.js, miner)
-vidup.me##+js(popads-dummy.js)
-$websocket,domain=vidup.me
-! https://github.com/uBlockOrigin/uAssets/issues/1620
-vidup.me^$csp=script-src 'self' 'unsafe-inline' 'unsafe-eval' *.facebook.com *.facebook.net
 
 ! https://github.com/uBlockOrigin/uAssets/issues/1205
 dir50.*##+js(bab-defuser.js)
@@ -11435,15 +11428,6 @@ newswatan.com##+js(abort-on-property-read.js, app_vars.force_disable_adblock)
 ! sawlive.tv popups
 sawlive.tv##+js(abort-on-property-write.js, Fingerprint2)
 sawlive.tv##+js(window.open-defuser.js)
-
-! https://github.com/uBlockOrigin/uAssets/issues/3366
-! https://github.com/uBlockOrigin/uAssets/issues/3774
-vidup.*##+js(abort-on-property-read.js, __INITIAL_STATE__.ads.pops)
-vidup.*##+js(addEventListener-defuser.js, /^(click|mousedown)$/, ||)
-vidup.*##+js(window.open-defuser.js)
-||popunders.bid^$3p
-@@||vidup.*^$generichide
-||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$script,redirect=noopjs,domain=vidup.io
 
 ! https://www.reddit.com/r/uBlockOrigin/comments/9bk0es
 converto.io##+js(abort-current-inline-script.js, atob, decodeURIComponent)
@@ -22292,3 +22276,15 @@ lyricsongation.com##+js(bab-defuser.js)
 ! https://github.com/NanoMeow/QuickReports/issues/1578
 @@||finalboss.io^$generichide
 finalboss.io##.adsbygoogle
+
+! https://github.com/uBlockOrigin/uAssets/issues/5140#issuecomment-515653809
+vev.*,vidop.*,vidup.*##+js(addEventListener-defuser.js, /^(?:click|mousedown|mouseup)$/, di())
+vev.*,vidop.*,vidup.*##+js(set-constant, console.clear, trueFunc)
+@@||vev.*^$generichide
+@@||vidop.*^$generichide
+@@||vidup.*^$generichide
+*$frame,3p,domain=vev.io|vev.red|vidop.icu|vidup.io
+||vev.*/sw.js$script,1p
+||vidop.*/sw.js$script,1p
+||vidup.*/sw.js$script,1p
+||popunders.bid^$3p
