@@ -195,7 +195,7 @@ spanishdict.com##.ad-wrapper
 ! https://forums.lanik.us/viewtopic.php?f=62&t=43097
 ! https://github.com/NanoMeow/QuickReports/issues/1382
 ! https://github.com/NanoMeow/QuickReports/issues/1528
-al.com,allkpop.com,calendarpedia.co.uk,ccn.com,comicsands.com,duffelblog.com,gamepur.com,mandatory.com,mlive.com,newatlas.com,pgatour.com,readlightnovel.org,secondnexus.com,sevenforums.com,sport24.co.za,theodysseyonline.com,westernjournal.com##+js(abort-on-property-read.js, __cmpGdprAppliesGlobally)
+al.com,allkpop.com,calendarpedia.co.uk,ccn.com,cleveland.com,comicsands.com,duffelblog.com,gamepur.com,gamerevolution.com,mandatory.com,mlive.com,musicfeeds.com.au,newatlas.com,pgatour.com,readlightnovel.org,secondnexus.com,sevenforums.com,sport24.co.za,superherohype.com,thefashionspot.com,theodysseyonline.com,totalbeauty.com,westernjournal.com##+js(abort-on-property-read.js, __cmpGdprAppliesGlobally)
 
 ! https://github.com/gorhill/uBlock/issues/3532
 ! https://github.com/NanoAdblocker/NanoFilters/issues/94
@@ -628,9 +628,8 @@ voirfilms.ws##+js(abort-on-property-read.js, document.onselectstart)
 ! https://github.com/uBlockOrigin/uAssets/issues/3278#issuecomment-421038747
 @@||nyt.com/ads/google/adsbygoogle.js$script,domain=nytimes.com
 ! https://github.com/uBlockOrigin/uAssets/issues/5677
-!#if env_firefox
+nytimes.com##+js(set-constant.js, navigator.storage.estimate, undefined)
 nytimes.com##+js(set-constant.js, webkitRequestFileSystem, noopFunc)
-!#endif
 
 ! https://github.com/uBlockOrigin/uAssets/issues/2682#issuecomment-421085748
 @@||xiaomitoday.com^$generichide
@@ -1731,9 +1730,10 @@ imore.com##.adunit-wrap
 ! https://github.com/uBlockOrigin/uAssets/issues/4987
 mobile.twitter.com##span:has-text(/get the most/i):xpath(../../../../../..)
 mobile.twitter.com##body:style(overflow: auto !important; margin: 0 !important;)
+mobile.twitter.com##div[tabindex="0"]:matches-css(position:fixed):has([href="/signup"])
 ! https://github.com/uBlockOrigin/uAssets/issues/5911
 twitter.com##.js-signup-call-out
-mobile.twitter.com##div[data-testid="sidebarColumn"] section[aria-label][role="region"]
+mobile.twitter.com##div[data-testid="sidebarColumn"] section[aria-label][role="region"]:nth-ancestor(1)
 
 ! https://forums.lanik.us/viewtopic.php?f=62&t=42661#p145853
 @@||linguasorb.com/Scripts/lib/adframe.js$script,1p
@@ -1798,13 +1798,6 @@ beprobeproud.org##.movement-popup
 
 ! https://github.com/uBlockOrigin/uAssets/issues/5030
 prestashop.com##.cTopicPostArea:has(> div > .cGuestTeaser)
-
-! https://github.com/uBlockOrigin/uAssets/issues/5030
-seekingalpha.com##.in.fade.modal
-seekingalpha.com##.modal-dialog
-seekingalpha.com##.blured:style(opacity: 1.0 !important)
-seekingalpha.com##.p:style(display: block !important)
-seekingalpha.com##body:style(overflow: auto !important;)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/5030
 bookbub.com##.blur.signup-gate
@@ -2026,6 +2019,9 @@ salary.com###sgpb-popup-dialog-main-div-wrapper, .sgpb-theme-1-overlay
 ! https://github.com/uBlockOrigin/uAssets/issues/5283
 aliexpress.com##.close-layer:xpath(..)
 aliexpress.com##.ui-mask
+! https://github.com/uBlockOrigin/uAssets/issues/6184
+aliexpress.com##.next-overlay-wrapper:has(.newuser-container)
+aliexpress.com##body:style(overflow: auto !important; padding: 0 !important;)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/5284
 mlbshop.com##.modal, .modal-backdrop, .modal-wrapper
@@ -2042,6 +2038,7 @@ postandcourier.com##.tp-backdrop, .tp-modal
 tomshw.it##+js(setTimeout-defuser.js, bioEp.showPopup)
 ###bio_ep
 ###bio_ep_bg
+kei.pl##body:style(overflow: auto !important;)
 
 ! https://github.com/NanoMeow/QuickReports/issues/852
 yoututosjeff.es##^script:has-text(oncontextmenu)
@@ -2055,7 +2052,7 @@ animeligeroenmega.com##+js(abort-on-property-read.js, document.oncontextmenu)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/5317
 autoblog.com##.modal, .modal-backdrop
-autoblog.com##body:style(overflow-x: hidden !important; overflow-y: scroll !important;)
+autoblog.com##body:style(overflow-x: hidden !important; overflow-y: scroll !important; padding-right: 0 !important;)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/5312
 ||emeraldchat.com/user_is_temp
@@ -2243,7 +2240,6 @@ tunovelaligera.com##+js(abort-on-property-read.js, contentprotector)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/5489#issuecomment-489892660
 auepaisagismo.com,auepaisajismo.com##body:style(overflow: auto !important;)
-auepaisagismo.com,auepaisajismo.com###bio_ep_bg
 
 ! https://github.com/uBlockOrigin/uAssets/issues/5489#issuecomment-490331076
 austcham-china.com##+js(abort-current-inline-script.js, jQuery, oncontextmenu)
@@ -2481,3 +2477,90 @@ softwaretestinghelp.com##body:style(overflow: auto !important;)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/6021
 watson.de##+js(set-constant.js, bAdBlocker, false)
+
+! https://github.com/uBlockOrigin/uAssets/issues/6032
+foodyindians.in##+js(abort-current-inline-script.js, $, modal)
+foodyindians.in##+js(set-constant.js, blurred, false)
+
+! https://github.com/uBlockOrigin/uAssets/issues/6033
+! https://github.com/uBlockOrigin/uAssets/issues/6034
+! https://github.com/uBlockOrigin/uAssets/issues/6036
+! https://github.com/uBlockOrigin/uAssets/issues/6038
+! https://github.com/uBlockOrigin/uAssets/issues/6039
+adsafelink.net,b.shrtp.com,bollyleague.com,linkqu.site,uusedy.com##+js(set-constant.js, blurred, false)
+
+! https://github.com/uBlockOrigin/uAssets/issues/6037
+safe.mirrordown.com##+js(set-constant.js, blurred, false)
+
+! https://github.com/uBlockOrigin/uAssets/issues/6035
+dikmean.com##+js(set-constant.js, blurred, false)
+
+! https://github.com/uBlockOrigin/uAssets/issues/6041
+gpcoder.com##+js(abort-on-property-read.js, anOptions)
+
+! https://github.com/NanoMeow/QuickReports/issues/292
+babel.com##[id^=adReplacement]
+babel.com##.infopub
+
+! https://github.com/NanoMeow/QuickReports/issues/1620
+@@||airbnbhell.com^$generichide
+
+! https://github.com/uBlockOrigin/uAssets/issues/4707
+clk.ink##+js(set-constant.js, blurred, false)
+
+! https://github.com/uBlockOrigin/uAssets/issues/6050
+smashboards.com##+js(sid, height)
+
+! yeane .org right click, select, ctrl-U
+yeane.org##+js(acis, document.oncontextmenu)
+yeane.org##body:style(-webkit-touch-callout: default !important; -webkit-user-select: text !important;-moz-user-select: text !important;-ms-user-select: text !important;user-select: text !important;)
+
+! https://github.com/ryanbr/fanboy-adblock/issues/1127
+blueorangebank.com###GDPR-modal, .modal-backdrop
+blueorangebank.com##body:style(overflow: auto !important; padding: 0 !important;)
+
+! https://github.com/NanoMeow/QuickReports/issues/1651
+linuxandubuntu.com##+js(aopr.js, anOptions)
+
+! https://github.com/uBlockOrigin/uAssets/issues/6070
+bosch-easycontrol.com###cookielaw, .modal-backdrop
+bosch-easycontrol.com##.modal-open:style(overflow: auto !important; padding-right: 0 !important;)
+
+! https://github.com/NanoMeow/QuickReports/issues/1655
+bitblokes.de##+js(acis, document.getElementsByTagName, null)
+bitblokes.de##[href^="https://airvpn.org/"]
+
+! https://github.com/uBlockOrigin/uAssets/issues/6073
+recantodasletras.com.br##+js(aopr, RL.licenseman.init)
+
+! https://github.com/uBlockOrigin/uAssets/issues/6093
+starblast.io##+js(ra, oncontextmenu)
+@@||cdnjs.cloudflare.com/ajax/libs/blockadblock/*/blockadblock.min.js$script,domain=starblast.io
+@@||starblast.io^$generichide
+
+! https://github.com/NanoMeow/QuickReports/issues/1692
+@@||thesaurus.com/assets/ads.js$xhr,1p
+
+! block medium.com "pardon the interruption" modal that prompts you to sign-up/log-in.
+medium.com##:xpath(//div[.//div[contains(@tabindex,"-1") and contains(@aria-modal,"true")]])
+
+! https://forums.lanik.us/viewtopic.php?f=62&t=43420
+vedbex.com##.in.fade
+vedbex.com##body:style(overflow: auto !important;)
+||vedbex.com/*banners$image
+||vedbex.com/*/sponsers$image
+
+! https://github.com/NanoMeow/QuickReports/issues/1709
+||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$script,redirect=noopjs,domain=files2zip.com
+files2zip.com##div.black.banner
+
+! https://github.com/uBlockOrigin/uAssets/issues/6180
+latestseoupdate.com##+js(set-constant, blurred, false)
+
+! https://www.reddit.com/r/uBlockOrigin/comments/cvm6pn/how_to_get_rid_of_blurred_text_on_websites_such/
+enotes.com##.obscured:style(color: black !important;text-shadow: none !important; filter: none !important)
+enotes.com##.paywall-mount
+
+! https://github.com/uBlockOrigin/uAssets/issues/6194
+bogdankaminski.pl,serwer1695147.home.pl###robactwo:not([style])
+bogdankaminski.pl,serwer1695147.home.pl##*:style(-moz-user-select: text !important; -ms-user-select: text !important; user-select: text !important; khtml-user-select: text !important; -webkit-touch-callout: default !important; -webkit-user-select: text !important;)
