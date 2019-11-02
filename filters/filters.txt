@@ -2648,7 +2648,6 @@ adshort.*##+js(aopw, Fingerprint2)
 adshort.*,adsrt.*##+js(window.open-defuser.js)
 adshort.*##A[href$=".html"][rel="nofollow norefferer noopener"]
 adshort.*##+js(popads-dummy.js)
-||bid^$script,domain=adshort.im
 adshort.*,adsrt.*##[id*="frme"]
 ! https://github.com/uBlockOrigin/uAssets/issues/911#issuecomment-417348509
 adsrt.*#@#[id*="ScriptRoot"]
@@ -2656,6 +2655,11 @@ adsrt.*#@#[id*="ScriptRoot"]
 adsrt.*###captchaShortlink:style(display: block !important; margin-left: 35% !important;)
 ||adsrt.*/sw.js$script,1p
 adsrt.*##div[id^="SC_TBlock"]
+@@||native.propellerclick.com/$script,xhr,domain=adshort.org
+@@||adshort.org^$script,1p
+@@||adshort.*^$generichide
+adshort.org##[id^="p_root_"]:style(max-height: 100px !important;)
+||adshort.org^$csp=connect-src 'self' *.google.com
 
 ! https://github.com/uBlockOrigin/uAssets/issues/906
 up-4ever.*##+js(abort-current-inline-script.js, Math, zfgloaded)
