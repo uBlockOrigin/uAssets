@@ -19,3 +19,5 @@ will always be fixed in uAssets even if they don't require extended syntax.
 
 
 If the ABP-compatible fixes are for high-traffic sites, they should be added to uBO filters until they are added to EasyList.
+
+Circumventing a paywall is considered [out of scope](https://github.com/uBlockOrigin/uAssets/issues/2317#issuecomment-392009540)
