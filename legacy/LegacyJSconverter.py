@@ -59,6 +59,12 @@ def prepare_palemoon(lines) -> str:
         )
 
         line = re.sub(
+           r"\(aopw\.js,", 
+           r"(abort-on-property-write.js,", 
+           line
+        )
+
+        line = re.sub(
            r"\(window.open-defuser\)", 
            r"(window.open-defuser.js)", 
            line
@@ -101,7 +107,7 @@ def prepare_palemoon(lines) -> str:
         )
 
         line = re.sub(
-           r"^[/*.|:#-].*", 
+           r"^[/*.|:#-?].*", 
            r"", 
            line
         )
@@ -120,6 +126,12 @@ def prepare_palemoon(lines) -> str:
 
         line = re.sub(
            r"^! To counter", 
+           r"", 
+           line
+        )
+
+        line = re.sub(
+           r".*\^\$.*", 
            r"", 
            line
         )
