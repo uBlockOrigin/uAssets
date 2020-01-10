@@ -159,6 +159,12 @@ def prepare_palemoon(lines) -> str:
            r"", 
            line
         )
+        
+        line = re.sub(
+           r"^ .*", 
+           r"", 
+           line
+        )
 
         if is_supported_palemoon(line) and not line == '':
             text += line + '\r\n'
