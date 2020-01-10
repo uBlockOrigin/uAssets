@@ -1,0 +1,36 @@
+! Title: uBlock filters -- Legacy
+! Expires: 11 days
+! Description: Filters to address issues specific to legacy versions of uBO.
+! Thanks to Dandelion Sprout for doing the groundwork for this list's conversion script, and to Andrey Meshkov for doing the groundwork for the groundwork.
+! Homepage: https://github.com/uBlockOrigin/uAssets
+! Licence: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
+! 
+! GitHub issues: https://github.com/uBlockOrigin/uAssets/issues
+! GitHub pull requests: https://github.com/uBlockOrigin/uAssets/pulls
+
+! https://github.com/uBlockOrigin/uAssets/issues/5120
+@@||svonm.com/hd-main.js$script,domain=kicker.de|kino.de|videos.giga.de|video.spieletipps.de
+!#if env_chromium
+@@||svonm.com/hd-main.js$script,domain=kicker.de|kino.de|videos.giga.de|video.spieletipps.de,badfilter
+!#endif
+!#if env_firefox
+@@||svonm.com/hd-main.js$script,domain=kicker.de|kino.de|videos.giga.de|video.spieletipps.de,badfilter
+!#endif
+!#if env_mobile
+@@||svonm.com/hd-main.js$script,domain=kicker.de|kino.de|videos.giga.de|video.spieletipps.de,badfilter
+!#endif
+
+! https://github.com/uBlockOrigin/uAssets/issues/5186
+||fwmrm.net/ad/*$script,redirect=noopjs,domain=nationalgeographic.com
+@@||fwmrm.net/*/fox_live/AdManager.js$script,domain=nationalgeographic.com
+
+! https://github.com/easylist/easylist/issues/3261#issuecomment-483481215
+@@||adswizz.com/anon.npr-mp3/*$object,domain=podbay.fm
+@@||adswizz.com/anon.npr-podcasts/*$object,domain=podbay.fm
+
+! https://github.com/easylist/easylist/issues/4185#issuecomment-567586648
+||cbsistatic.com/*/dw-tracking$script,important,redirect=noopjs,domain=techrepublic.com,badfilter
+
+! https://github.com/uBlockOrigin/uAssets/issues/5305#issuecomment-572308826
+@@||wallpaperwaifu.com^$generichide
+wallpaperwaifu.com##.adsbygoogle
