@@ -107,20 +107,8 @@ def prepare_palemoon(lines) -> str:
         )
 
         line = re.sub(
-           r"\(nostif,", 
-           r"(no-setTimeout-if.js,", 
-           line
-        )
-
-        line = re.sub(
            r"\(ra,", 
            r"(remove-attr.js,", 
-           line
-        )
-
-        line = re.sub(
-           r"\(nosiif,", 
-           r"(no-setInterval-if.js,", 
            line
         )
 
