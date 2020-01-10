@@ -107,7 +107,7 @@ def prepare_palemoon(lines) -> str:
         )
 
         line = re.sub(
-           r"^[/*.|:#-?].*", 
+           r"^[?/*.|:#-].*", 
            r"", 
            line
         )
@@ -119,7 +119,7 @@ def prepare_palemoon(lines) -> str:
         )
 
         line = re.sub(
-           r" [a-zA-Z0-9]", 
+           r"^ [a-zA-Z0-9]", 
            r"", 
            line
         )
