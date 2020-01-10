@@ -164,7 +164,7 @@ if __name__ == "__main__":
 import requests
 import re
 
-SOURCES = ['https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/legacy/NonAuto.notlist', 'https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/legacy/legacyJS.notlist']
+SOURCES = ['https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/legacy/NotAuto.notlist', 'https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/legacy/legacyJS.notlist']
 
 OUTPUT = 'xyzzyx2.txt'
 OUTPUT_PALEMOON = 'legacy.txt'
