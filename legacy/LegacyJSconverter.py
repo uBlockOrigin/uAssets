@@ -113,6 +113,12 @@ def prepare_palemoon(lines) -> str:
         )
 
         line = re.sub(
+           r" [a-zA-Z0-9]", 
+           r"", 
+           line
+        )
+
+        line = re.sub(
            r"^! To counter", 
            r"", 
            line
@@ -170,7 +176,7 @@ def prepare_palemoon(lines) -> str:
         if line == previous_line:
             continue
 
-        if not line == '':
+        if line:
             text += line + '\r\n'
 
     return text
