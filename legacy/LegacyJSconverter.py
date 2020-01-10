@@ -3,7 +3,7 @@ import re
 
 SOURCES = ['https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/filters.txt', 'https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/badware.txt', 'https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/unbreak.txt', 'https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/annoyances.txt', 'https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/resource-abuse.txt', 'https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/privacy.txt']
 
-UNSUPPORTED_PALEMOON = ['(nano-set', '||', ':has', '@@', ':xpath']
+UNSUPPORTED_PALEMOON = ['(nano-set', '||', ':has', '@@', ':xpath', '(raf-if', '(nosiif', '(json-prune']
 
 OUTPUT = 'xyzzyx.txt'
 OUTPUT_PALEMOON = 'legacyJS.notlist'
@@ -97,6 +97,42 @@ def prepare_palemoon(lines) -> str:
         line = re.sub(
            r"\(set-constant,", 
            r"(set-constant.js,", 
+           line
+        )
+
+        line = re.sub(
+           r"\(set,", 
+           r"(set-constant.js,", 
+           line
+        )
+
+        line = re.sub(
+           r"\(nostif,", 
+           r"(no-setTimeout-if.js,", 
+           line
+        )
+
+        line = re.sub(
+           r"\(ra,", 
+           r"(remove-attr.js,", 
+           line
+        )
+
+        line = re.sub(
+           r"\(nosiif,", 
+           r"(no-setInterval-if.js,", 
+           line
+        )
+
+        line = re.sub(
+           r"\(sid,", 
+           r"(setInterval-defuser.js,", 
+           line
+        )
+
+        line = re.sub(
+           r"\(nostif,", 
+           r"(setTimeout-defuser.js,", 
            line
         )
 
