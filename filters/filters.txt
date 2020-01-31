@@ -1120,7 +1120,11 @@ dwrean.net##+js(nobab)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/4864
 *expires$media,redirect=noopmp3-0.1s,domain=sat1.de|wetter.com
-||zomap.de/*$xhr,redirect=nooptext,domain=sat1.de|wetter.com
+||zomap.de/*$xhr,redirect=nooptext,domain=wetter.com
+!#if env_chromium
+||zomap.de/*$xhr,redirect=nooptext,domain=sat1.de
+!#endif
+
 ||vidapi.expepp.de/files/*$media,domain=moviepilot.de
 
 ! https://adblockplus.org/forum/viewtopic.php?f=1&t=52379
@@ -14944,7 +14948,9 @@ derbyshiretimes.co.uk##.leaderboard-ad
 *expires$media,redirect=noopmp3-0.1s,domain=kabeleinsdoku.de
 *expires$media,redirect=noopmp3-0.1s,domain=sat1gold.de
 *expires$media,redirect=noopmp3-0.1s,domain=sixx.de
+!#if env_chromium
 ||zomap.de/*$xhr,redirect=nooptext,domain=kabeleins.de|kabeleinsdoku.de|sat1gold.de|sixx.de
+!#endif
 ||damoh.vox.de^$media,redirect=noopmp4-1s,domain=vox.de
 
 ! https://github.com/NanoMeow/QuickReports/issues/834
