@@ -1781,3 +1781,26 @@ ampproject.org/v0.js application/javascript
 	].join('\n');
 	head.appendChild(style);
 })();
+
+
+nowebsocketsend-if.js application/javascript
+(function() {
+	var needle = '{{1}}',
+		wss = window.WebSocket.prototype.send;
+	if (needle === '' || needle === '{{1}}') {
+		needle = '.?';
+	} else if ( needle.slice(0,1) === '/' && needle.slice(-1) === '/' ) {
+		needle = needle.slice(1,-1);
+	} else {
+		needle = needle.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+	}
+	needle = new RegExp(needle);
+	window.WebSocket.prototype.send = function(a) {
+		if (needle.test(a.toString())) {
+			console.log("Document attempted to send a WebSocket message: 
+			return true;
+		} else {
+			return wss(a);
+		}
+	});
+})();
