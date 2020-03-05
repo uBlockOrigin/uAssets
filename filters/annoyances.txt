@@ -3518,3 +3518,11 @@ quotev.com##^script:has-text(document.body.onselectstart)
 
 ! https://github.com/NanoMeow/QuickReports/issues/3216
 underconsideration.com##+js(nostif, test.remove)
+
+! https://github.com/uBlockOrigin/uAssets/issues/7058
+!#if env_chromium
+newyorker.com##+js(set, navigator.storage.estimate, undefined)
+!#endif
+env_firefox
+newyorker.com##+js(set, webkitRequestFileSystem, noopFunc)
+!#endif
