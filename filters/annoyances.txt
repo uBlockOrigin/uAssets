@@ -600,8 +600,12 @@ voirfilms.*##+js(abort-on-property-read.js, document.onselectstart)
 ! https://github.com/uBlockOrigin/uAssets/issues/3278#issuecomment-421038747
 @@||nyt.com/ads/google/adsbygoogle.js$script,domain=nytimes.com
 ! https://github.com/uBlockOrigin/uAssets/issues/5677
+!#if env_chromium
 nytimes.com##+js(set-constant.js, navigator.storage.estimate, undefined)
+!#endif
+!#if env_firefox
 nytimes.com##+js(set-constant.js, webkitRequestFileSystem, noopFunc)
+!#endif
 
 ! https://github.com/uBlockOrigin/uAssets/issues/2682#issuecomment-421085748
 @@||xiaomitoday.com^$generichide
