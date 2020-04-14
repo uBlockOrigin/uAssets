@@ -2615,7 +2615,6 @@ adshort.*,adsrt.*##[id*="frme"]
 ! https://github.com/uBlockOrigin/uAssets/issues/911#issuecomment-417348509
 adsrt.*#@#[id*="ScriptRoot"]
 ! https://github.com/uBlockOrigin/uAssets/issues/911#issuecomment-423769642
-adsrt.*###captchaShortlink:style(display: block !important; margin-left: 35% !important;)
 ||adsrt.*/sw.js$script,1p
 adsrt.*##div[id^="SC_TBlock"]
 @@||native.propellerclick.com/$script,xhr,domain=adshort.org
@@ -13869,6 +13868,9 @@ apl6.me###ads
 @@||ferrarilamborghininews.com^$ghide
 ||googlesyndication.com/pagead/show_ads.js$script,redirect=noopjs,domain=ferrarilamborghininews.com
 *.jpg#$image,domain=ferrarilamborghininews.com,redirect=2x2.png
+!#if env_mobile
+ferrarilamborghininews.com##^script:has-text(antiblock)
+!#endif
 
 ! https://github.com/uBlockOrigin/uAssets/issues/4922
 @@||googlesyndication.com/pagead/js/adsbygoogle.js$script,domain=battlecats-db.com
@@ -23837,10 +23839,8 @@ trendsderzukunft.de##+js(aopr, onload)
 ! https://github.com/NanoMeow/QuickReports/issues/3117
 @@||vidlii.com^$ghide
 vidlii.com##+js(nostif, cloudflare-app)
-vidlii.com##+js(aopr, CloudflareApps.installs)
-vidlii.com##+js(aeld, , nextFunction)
+vidlii.com##+js(aopw, ABB_config)
 vidlii.com##.adsbygoogle
-||vidlii.com/cdn-cgi/apps/*$script
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/50316
 docer.pl##+js(set, ads_unblocked, true)
@@ -24143,7 +24143,6 @@ atdhe.*###bannerInCenter
 cuerpose.eu###obrazek
 ||automatedcomputers.com^$3p
 ||bitcoines.com^$3p
-||dadsokz.com^
 
 ! 5299 .tv anti adb
 5299.tv##+js(acis, jQuery, setTimeout)
