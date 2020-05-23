@@ -782,13 +782,16 @@ sythe.org##+js(acis, document.getElementsByTagName, adblocker)
 !sythe.org##:xpath(//*[string-length(@style) > 64]):has([href])
 sythe.org##:xpath(//*[contains(translate(@href,' ',''),"('")])
 sythe.org##:xpath(//*[string-length(@src) > 50]):upward([href][style*="cursor"])
-sythe.org##+js(ra, src, :not(div):not(span):not(li):not(h3)>a>*>img)
+!sythe.org##+js(ra, src, :not(div):not(span):not(li):not(h3)>a>*>img)
 !sythe.org##span > [href] [src]:style(width:25px!important; height:15px!important;)
 !sythe.org##span [src]:style(width:25px!important; height:15px!important;)
-sythe.org##img:matches-css(width:/(?:55[0-9]|5[6-9][0-9]|6[0-4][0-9]|650)px/):matches-css(height:/(?:8[0-9]|9[0-9]|100)px/)
+sythe.org##img:matches-css(width: /(?:55[0-9]|5[6-9][0-9]|6[0-4][0-9]|650)px/):matches-css(height: /(?:8[0-9]|9[0-9]|100)px/):remove()
 sythe.org##[src]:matches-css(width:/(?:55[0-9]|5[6-9][0-9]|6[0-4][0-9]|650)px/):matches-css(height:/(?:8[0-9]|9[0-9]|100)px/):remove()
-!sythe.org##a >:matches-css(display:inline-block):remove()
-sythe.org##[href] :matches-css(display:inline-block):remove()
+!sythe.org##[href] :matches-css(display:inline-block):remove()
+sythe.org##^style:has-text(calc)
+!#if env_chromium
+||sythe.org^$csp=style-src *
+!#endif
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/54747
 mangareddit.com##+js(nostif, visibility, 1500)
