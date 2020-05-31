@@ -5,8 +5,14 @@
 ! Requested here: https://github.com/uBlockOrigin/uAssets/issues/4318
 ! Homepage: https://github.com/gwarser/filter-lists
 !
-! Regular expressions are not efficient in general. Here, should be tokenized by first IP octet,
-! but only if not followed by /^([^\\]\.|\\[dw]|[([{}?*]|$)/ (reRegexBadSuffix, src/js/static-net-filtering.js:1880).
+! Regular expressions are not efficient in general. Here, should be tokenized by first IP octet.
+! In general uBO can tokenize Regular Expression filter when:
+! - they contain `reRegexToken` /[%0-9A-Za-z]{2,}/g,
+! - are not preceded by `reRegexTokenAbort` /[([]/,
+! - not directly preceded by `reRegexBadPrefix` /(^|[^\\]\.|[*?{}\\])$/,
+! - and not directly followed by `reRegexBadSuffix` /^([^\\]\.|\\[dw]|[([{}?*.]|$)/.
+! Commonly used tokens are discarded - `badTokens`.
+! See `extractTokenFromRegex` function in `src/js/static-net-filtering.js`.
 ! Tool for tokenization check would be handy.
 ! Tools:
 ! http://gamon.webfactional.com/regexnumericrangegenerator/
