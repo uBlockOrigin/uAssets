@@ -3789,8 +3789,12 @@ bolssc.com##+js(aopr, app_vars.force_disable_adblock)
 ! https://github.com/AdguardTeam/AdguardFilters/issues/61230
 real-sky.com##+js(aopr, app_vars.force_disable_adblock)
 
+! https://github.com/uBlockOrigin/uAssets/issues/4964
 ! https://github.com/uBlockOrigin/uAssets/issues/7750
-healthline.com##a[href*="/confirm_linkout_redirect.aspx?"]:upward(section)
+healthline.com##aside:has(div:matches-css-before(content:/ADVERTISEMENT/))
+healthline.com##div[data-empty^="true"]:matches-css-before(content:/ADVERTISEMENT/)
+healthline.com##[class*="css"]:matches-css-before(content:/ADVERTISEMENT/)
+healthline.com##[href*="redirect"]:upward(section)
 healthline.com##hl-adsense
 
 ! https://community.brave.com/t/website-kept-asking-leave-site-if-i-click-cancel-it-opened-new-window-i-couldnt-even-close-brave-without-end-process/
