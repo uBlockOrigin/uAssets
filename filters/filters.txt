@@ -6049,7 +6049,7 @@ loadvid.online##+js(set, pop_cnt, 1)
 loadvid.online##+js(nostif, _creatBait)
 ||bit.ly^$frame,domain=loadvid.online
 loadvid.online###overlay-vcplayer
-solarmoviez.*,yesmovies.to##a[href^="https://watchasap.com/"]
+solarmoviez.*##a[href^="https://watchasap.com/"]
 ! https://github.com/uBlockOrigin/uAssets/issues/1166#issuecomment-437637076
 solarmoviez.*##+js(nowebrtc)
 cloudcdnvideo.com,solarmoviez.*##+js(nowoif)
@@ -11387,11 +11387,16 @@ putload.tv##+js(nowebrtc)
 123movieslife.*##+js(ra, href, [href*="/hd"])
 vido.fun##+js(nowoif)
 
-! https://github.com/uBlockOrigin/uAssets/issues/2689#issuecomment-447592381
+! yesmovies .vc 
+!#if !env_firefox
+yesmovies.*##+js(aost, JSON.parse, computed)
+!#endif
+!#if env_firefox
+yesmovies.*##+js(aost, Math, ajax)
+!#endif
+yesmovies.*##+js(nowoif)
 yesmovies.*##+js(disable-newtab-links)
 yesmovies.*##+js(aopr, AaDetector)
-yesmovies.*##+js(aopw, Fingerprint2)
-yesmovies.*##+js(acis, Math, zfgloaded)
 xmovies8.is,yesmovies.*##+js(nowebrtc)
 ||yesmovies.*/sw$script,1p
 ||flixtor.life/sw.js$script,1p
@@ -12023,10 +12028,6 @@ filmywaap.*##[href*="/supply"]
 
 ! https://github.com/uBlockOrigin/uAssets/issues/4510
 2movierulz.*##+js(acis, atob, decodeURIComponent)
-
-! https://github.com/uBlockOrigin/uAssets/issues/4514
-yesmovies.rs##+js(nostif, '0x)
-yesmovies.rs##+js(set, check_adblock, true)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/4516
 123kmovies.*##+js(acis, Math, zfgloaded)
