@@ -7,21 +7,22 @@
 !
 ! Tools:
 ! http://gamon.webfactional.com/regexnumericrangegenerator/
-! http://www.analyticsmarket.com/freetools/ipregex
+! http://www.analyticsmarket.com/freetools/ipregex (generates invalid range - above 255)
 ! https://en.wikipedia.org/wiki/IPv6_address#Literal_IPv6_addresses_in_network_resource_identifiers
+! http://www.gestioip.net/cgi-bin/subnet_calculator.cgi
 ! ———
 !
 ! ——— LAN
 ! https://en.wikipedia.org/wiki/Private_network
 !
-/^\w+://10\.(?:(?:[0-9]|[1-9][0-9]|1(?:[0-9][0-9])|2(?:[0-4][0-9]|5[0-5]))\.){2}(?:[0-9]|[1-9][0-9]|1(?:[0-9][0-9])|2(?:[0-4][0-9]|5[0-5]))[:/]/$third-party
-/^\w+://172\.(?:1[6-9]|2[0-9]|3[01])(?:\.(?:[0-9]|[1-9][0-9]|1(?:[0-9][0-9])|2(?:[0-4][0-9]|5[0-5]))){2}[:/]/$third-party
-/^\w+://192\.168(?:\.(?:[0-9]|[1-9][0-9]|1(?:[0-9][0-9])|2(?:[0-4][0-9]|5[0-5]))){2}[:/]/$third-party
+/^\w+://10\.(?:(?:\d|[1-9]\d|1(?:\d\d)|2(?:[0-4]\d|5[0-5]))\.){2}(?:\d|[1-9]\d|1(?:\d\d)|2(?:[0-4]\d|5[0-5]))[:/]/$third-party
+/^\w+://172\.(?:1[6-9]|2\d|3[01])(?:\.(?:\d|[1-9]\d|1(?:\d\d)|2(?:[0-4]\d|5[0-5]))){2}[:/]/$third-party
+/^\w+://192\.168(?:\.(?:\d|[1-9]\d|1(?:\d\d)|2(?:[0-4]\d|5[0-5]))){2}[:/]/$third-party
 ! Includes link-local
 /^(?:http|ws)s?://\[f(?:[cd][0-9a-f]|e[89a-f])[0-9a-f]:[0-9a-f:]+\][:/]/$third-party
 !
 ! Ipv4 link-local addresses for network autoconfiguration #5
-/^\w+://169\.254\.(?:[1-9]|[1-9]\d|1\d\d|2[0-4]\d|25[0-4])\.(?:[1-9]?\d|[12]\d\d)[:/]/$third-party
+/^\w+://169\.254\.(?:[1-9]\d?|1\d{2}|2(?:[0-4]\d|5[0-4]))\.(?:[1-9]?\d|1\d{2}|2(?:[0-4]\d|5[0-5]))[:/]/$third-party
 !
 ! Ipv6 from ipv4 transition addresses #6
 ! TODO:
@@ -29,7 +30,7 @@
 ! ——— localhost
 ! https://en.wikipedia.org/wiki/Localhost
 !
-/^\w+://127\.(?:(?:[0-9]|[1-9][0-9]|1(?:[0-9][0-9])|2(?:[0-4][0-9]|5[0-5]))\.){2}(?:[0-9]|[1-9][0-9]|1(?:[0-9][0-9])|2(?:[0-4][0-9]|5[0-5]))[:/]/$third-party
+/^\w+://127\.(?:(?:\d|[1-9]\d|1(?:\d\d)|2(?:[0-4]\d|5[0-5]))\.){2}(?:\d|[1-9]\d|1(?:\d\d)|2(?:[0-4]\d|5[0-5]))[:/]/$third-party
 ||[::1]^$third-party
 ||localhost^$third-party
 !
