@@ -16,14 +16,14 @@
 ! ——— LAN
 ! https://en.wikipedia.org/wiki/Private_network
 !
-/^\w+://10\.(?:(?:[1-9]?\d|1\d\d|2(?:[0-4]\d|5[0-5]))\.){2}(?:[1-9]?\d|1\d\d|2(?:[0-4]\d|5[0-5]))[:/]/$third-party
-/^\w+://172\.(?:1[6-9]|2\d|3[01])(?:\.(?:[1-9]?\d|1\d\d|2(?:[0-4]\d|5[0-5]))){2}[:/]/$third-party
-/^\w+://192\.168(?:\.(?:[1-9]?\d|1\d\d|2(?:[0-4]\d|5[0-5]))){2}[:/]/$third-party
+/^\w+://10\.(?:(?:[1-9]?\d|1\d\d|2(?:[0-4]\d|5[0-5]))\.){2}(?:[1-9]?\d|1\d\d|2(?:[0-4]\d|5[0-5]))[:/]/$third-party,domain=~localhost|~127.0.0.1|~[::1]|~0.0.0.0|~[::]
+/^\w+://172\.(?:1[6-9]|2\d|3[01])(?:\.(?:[1-9]?\d|1\d\d|2(?:[0-4]\d|5[0-5]))){2}[:/]/$third-party,domain=~localhost|~127.0.0.1|~[::1]|~0.0.0.0|~[::]
+/^\w+://192\.168(?:\.(?:[1-9]?\d|1\d\d|2(?:[0-4]\d|5[0-5]))){2}[:/]/$third-party,domain=~localhost|~127.0.0.1|~[::1]|~0.0.0.0|~[::]
 ! Includes link-local
-/^\w+://\[f(?:[cd][0-9a-f]|e[89a-f])[0-9a-f]:[0-9a-f:]+\][:/]/$third-party
+/^\w+://\[f(?:[cd][0-9a-f]|e[89a-f])[0-9a-f]:[0-9a-f:]+\][:/]/$third-party,domain=~localhost|~127.0.0.1|~[::1]|~0.0.0.0|~[::]
 !
 ! Ipv4 link-local addresses for network autoconfiguration #5
-/^\w+://169\.254\.(?:[1-9]\d?|1\d{2}|2(?:[0-4]\d|5[0-4]))\.(?:[1-9]?\d|1\d{2}|2(?:[0-4]\d|5[0-5]))[:/]/$third-party
+/^\w+://169\.254\.(?:[1-9]\d?|1\d{2}|2(?:[0-4]\d|5[0-4]))\.(?:[1-9]?\d|1\d{2}|2(?:[0-4]\d|5[0-5]))[:/]/$third-party,domain=~localhost|~127.0.0.1|~[::1]|~0.0.0.0|~[::]
 !
 ! Ipv6 from ipv4 transition addresses #6
 ! TODO:
@@ -31,32 +31,32 @@
 ! ——— localhost
 ! https://en.wikipedia.org/wiki/Localhost
 !
-/^\w+://127\.(?:(?:[1-9]?\d|1\d\d|2(?:[0-4]\d|5[0-5]))\.){2}(?:[1-9]?\d|1\d\d|2(?:[0-4]\d|5[0-5]))[:/]/$third-party
-||[::1]^$third-party
-||localhost^$third-party
+/^\w+://127\.(?:(?:[1-9]?\d|1\d\d|2(?:[0-4]\d|5[0-5]))\.){2}(?:[1-9]?\d|1\d\d|2(?:[0-4]\d|5[0-5]))[:/]/$third-party,domain=~localhost|~127.0.0.1|~[::1]|~0.0.0.0|~[::]
+||[::1]^$third-party,domain=~localhost|~127.0.0.1|~[::1]|~0.0.0.0|~[::]
+||localhost^$third-party,domain=~localhost|~127.0.0.1|~[::1]|~0.0.0.0|~[::]
 !
 ! ——— any local
 ! https://en.wikipedia.org/wiki/0.0.0.0
 !
-||0.0.0.0^$third-party
-||[::]^$third-party
+||0.0.0.0^$third-party,domain=~localhost|~127.0.0.1|~[::1]|~0.0.0.0|~[::]
+||[::]^$third-party,domain=~localhost|~127.0.0.1|~[::1]|~0.0.0.0|~[::]
 !
 ! ——— known router domains
 ! dig, drill
 !
-||airbox.home^$third-party
-||arcor.easybox^$third-party
-||congstar.box^$third-party
-||connect.box^$third-party
-||easy.box^$third-party
-||fritz.box^$third-party
-||fritz.nas^$third-party
-||giga.cube^$third-party
-||hi.link^$third-party
-||router.asus.com^$third-party
-||routerlogin.com^$third-party
-||routerlogin.net^$third-party
-||samsung.router^$third-party
-||speedport.ip^$third-party
+||airbox.home^$third-party,domain=~localhost|~127.0.0.1|~[::1]|~0.0.0.0|~[::]
+||arcor.easybox^$third-party,domain=~localhost|~127.0.0.1|~[::1]|~0.0.0.0|~[::]
+||congstar.box^$third-party,domain=~localhost|~127.0.0.1|~[::1]|~0.0.0.0|~[::]
+||connect.box^$third-party,domain=~localhost|~127.0.0.1|~[::1]|~0.0.0.0|~[::]
+||easy.box^$third-party,domain=~localhost|~127.0.0.1|~[::1]|~0.0.0.0|~[::]
+||fritz.box^$third-party,domain=~localhost|~127.0.0.1|~[::1]|~0.0.0.0|~[::]
+||fritz.nas^$third-party,domain=~localhost|~127.0.0.1|~[::1]|~0.0.0.0|~[::]
+||giga.cube^$third-party,domain=~localhost|~127.0.0.1|~[::1]|~0.0.0.0|~[::]
+||hi.link^$third-party,domain=~localhost|~127.0.0.1|~[::1]|~0.0.0.0|~[::]
+||router.asus.com^$third-party,domain=~localhost|~127.0.0.1|~[::1]|~0.0.0.0|~[::]
+||routerlogin.com^$third-party,domain=~localhost|~127.0.0.1|~[::1]|~0.0.0.0|~[::]
+||routerlogin.net^$third-party,domain=~localhost|~127.0.0.1|~[::1]|~0.0.0.0|~[::]
+||samsung.router^$third-party,domain=~localhost|~127.0.0.1|~[::1]|~0.0.0.0|~[::]
+||speedport.ip^$third-party,domain=~localhost|~127.0.0.1|~[::1]|~0.0.0.0|~[::]
 !
 ! ——— END
