@@ -2386,6 +2386,7 @@ wrestlingtalk.org##+js(nobab)
 
 ! URL Shortener
 ! https://github.com/uBlockOrigin/uAssets/issues/2768
+adbull.org##+js(set, blurred, false)
 *$script,3p,domain=adbull.org
 @@||static.adbull.me^$script,domain=adbull.org
 *$script,redirect-rule=noopjs,domain=adbull.org
@@ -3030,7 +3031,7 @@ anyfreeporn.com##.rmedia
 ! https://github.com/uBlockOrigin/uAssets/issues/1051
 ! https://github.com/uBlockOrigin/uAssets/issues/2752
 ouo.press##+js(acis, decodeURI, HTMLIFrameElement)
-ouo.press##+js(acis, String.fromCharCode, btoa)
+ouo.press##+js(acis, Math, btoa)
 ouo.press##+js(aopr, AaDetector)
 ouo.press##+js(aopr, jsPopunder)
 ouo.press##+js(aopw, _pop)
@@ -3342,9 +3343,12 @@ pussyspace.com##:xpath(//span[contains(text(),"PARTNER")]/..)
 ! https://github.com/uBlockOrigin/uAssets/issues/1164
 adpop.me##+js(aopr, app_vars.force_disable_adblock)
 adpop.me##+js(aopr, smrtAdSySBanner)
-adpop.me##+js(aeld, click, trigger)
+adpop.me##+js(aopr, open)
+adpop.me##+js(aopw, _pop)
+adpop.me##+js(set, blurred, false)
 @@||adpop.me^$ghide
 adpop.me##[id*="ScriptRoot"]
+*$script,3p,denyallow=cloudflare.com|google.com|gstatic.com|recaptcha.net,domain=adpop.me
 
 ! https://github.com/uBlockOrigin/uAssets/issues/1165
 vier.be##+js(aopw, _sp_)
@@ -6429,11 +6433,12 @@ link.tl##+js(nano-sib, , 1800)
 ||jetinteraktif.com^$image,domain=link.tl
 ||rsc.cdn77.org/onclick_ad/
 ||lnk.news^$csp=sandbox allow-forms allow-same-origin allow-scripts allow-modals allow-orientation-lock allow-pointer-lock allow-presentation allow-top-navigation
-lnk.news##+js(aopr, popAdsClickCount)
-lnk.news##+js(nano-sib, , , 0)
-lnk.news##+js(nostif, redirectPage)
-lnk.news##+js(set, Math.random, trueFunc)
-lnk.news##.child-centered.display-300x250
+||lnk.parts^$csp=sandbox allow-forms allow-same-origin allow-scripts allow-modals allow-orientation-lock allow-pointer-lock allow-presentation allow-top-navigation
+lnk.news,lnk.parts##+js(aopr, popAdsClickCount)
+lnk.news,lnk.parts##+js(nano-sib, , , 0)
+lnk.news,lnk.parts##+js(nostif, redirectPage)
+lnk.news,lnk.parts##+js(set, Math.random, trueFunc)
+lnk.news,lnk.parts##.child-centered.display-300x250
 
 ! https://github.com/uBlockOrigin/uAssets/issues/2335
 ! https://www.reddit.com/r/uBlockOrigin/comments/bn9n4o/nzbstarscom/
@@ -8245,10 +8250,13 @@ shrinkbucks.com##+js(aopr, app_vars.force_disable_adblock)
 ! https://github.com/uBlockOrigin/uAssets/issues/3125
 payskip.org##+js(acis, Math, zfgloaded)
 payskip.org##+js(aopr, app_vars.force_disable_adblock)
+payskip.org##+js(aopw, _pop)
+payskip.org##+js(set, blurred, false)
 ||payskip.org/sw.js$script,1p
 ||payskip.org/VLC.php$frame,1p
 payskip.org##[href^="https://ladsipz.com/"]
 payskip.org##center > center
+*$script,3p,denyallow=cloudflare.com|google.com|gstatic.com|recaptcha.net,domain=payskip.org
 ||adsaturn.com^$3p
 
 ! https://github.com/uBlockOrigin/uAssets/issues/3128
@@ -12491,9 +12499,11 @@ tvguia.es##+js(acis, $, .height)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/4697
 lkop.me##+js(aopr, app_vars.force_disable_adblock)
-lkop.me##+js(aeld, click, trigger)
+lkop.me##+js(aopr, open)
+lkop.me##+js(set, blurred, false)
 ||lkop.me/sw.js$script,1p
 lkop.me##[href="https://techoverride.com/"]
+*$script,3p,denyallow=cloudflare.com|google.com|gstatic.com|recaptcha.net,domain=lkop.me
 ||bloggybro.com^$3p
 
 ! https://github.com/uBlockOrigin/uAssets/issues/4698
@@ -12894,13 +12904,16 @@ coolmathgames.com###block-adstop-otherpage-728x90
 
 ! https://github.com/uBlockOrigin/uAssets/issues/4866
 ! https://github.com/uBlockOrigin/uAssets/issues/6461
-voxc.org##+js(acis, Math, zfgloaded)
+voxc.org##+js(acis, String.fromCharCode, btoa)
 voxc.org##+js(aopr, app_vars.force_disable_adblock)
 voxc.org##+js(aopr, links)
 voxc.org##+js(aopw, _pop)
 voxc.org##+js(aopw, adBlockDetected)
 voxc.org##+js(aeld, load, onload)
 voxc.org##+js(nowoif)
+voxc.org##+js(set, blurred, false)
+*$frame,denyallow=google.com,domain=voxc.org
+*$script,3p,denyallow=cloudflare.com|google.com|gstatic.com|recaptcha.net,domain=voxc.org
 ||poweredbyliquidfire.mobi^$3p
 
 ||eudoomizedes.info^
@@ -14850,6 +14863,7 @@ boxlink.us##+js(aopr, open)
 boxlink.us##+js(aopw, _pop)
 boxlink.us##+js(set, blurred, false)
 boxlink.us##.boxr
+boxlink.us###link-view > center
 boxlink.us##[href^="https://bit.ly"]
 *$script,3p,denyallow=google.com|gstatic.com|recaptcha.net,domain=boxlink.us
 
@@ -18123,7 +18137,9 @@ waaw.tv,waaw1.tv,waaws.*##+js(aopr, adBlockDetected)
 ! https://github.com/uBlockOrigin/uAssets/issues/6242
 tmearn.*##+js(aopr, app_vars.force_disable_adblock)
 tmearn.*##+js(nowoif)
+tmearn.*##+js(set, blurred, false)
 cutpaid.com,tmearn.*##+js(aopr, AaDetector)
+*$script,3p,denyallow=cloudflare.com|google.com|gstatic.com|recaptcha.net,domain=tmearn.*
 ||tmearn.com/*sw.js$script,1p
 tmearn.*##.banner
 shopmoon.in##+js(aopr, app_vars.force_disable_adblock)
