@@ -1,5 +1,20 @@
 <!-- Replace the bracketed [...] placeholders with your own information. -->
 
+### Prerequisites
+
+<!-- Check the appropriate boxes before you submit your issue -->
+
+- [ ] This is not a support issue or a question
+    - Support issues and questions are handled at [/r/uBlockOrigin](https://old.reddit.com/r/uBlockOrigin/)
+    <!-- Such issues will be closed as invalid -->
+- [ ] I performed a cursory search of the issue tracker to avoid opening a duplicate issue
+    - Your issue may already be reported.
+- [ ] I tried to reproduce the issue when...
+    - [ ] uBlock Origin is the only extension
+    - [ ] uBlock Origin with default lists/settings
+    - [ ] using a new, unmodified browser profile
+- [ ] I am running the latest version of uBlock Origin
+
 ### URL(s) where the issue occurs
 
 <!-- [At least one URL for a web page where the clearly described issue occurs is **mandatory**. The backticks surrounding the URLs is important, it prevents the URL from being clickable. Warn with "NSFW" where applicable.] -->
