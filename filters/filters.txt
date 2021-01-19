@@ -2663,7 +2663,7 @@ txxx.*##[class^="___"]
 txxx.*##.chbanner
 txxx.*##.__nat_box
 txxx.*##div[class]:has(:scope > div > .text > a[href="#"])
-txxx.*##.jwplayer > .afs_ads + div[id][class][style="display: flex;"]
+txxx.*##.jwplayer > .afs_ads + div
 txxx.*##.content.page.page-video > .wrapper + div[class]
 txxx.*##.content.page.page-video > .wrapper > .video-content > div[class] > div > div[class] > div[class][style^="background-image:"]:style(background-image: none !important;)
 *$popunder,3p,domain=txxx.*
@@ -2695,6 +2695,7 @@ hotmovs.com##+js(aopw, ads_priv)
 hotmovs.com##+js(aeld, , pop)
 hotmovs.com##.ntv-banners-container.sidebar
 hotmovs.com##+js(nowoif)
+hotmovs.com##.container > #holder.holder.row + div
 hotmovs.com##.player-holder > link + span[class]
 hotmovs.com##.player > .underplayer
 hotmovs.com###header_mobile_dva
@@ -12352,14 +12353,14 @@ tvguia.es##+js(acis, $, .height)
 ||googlesyndication.com/pagead/show_ads.js$script,redirect-rule=noopjs,domain=iblogbox.com
 
 ! https://github.com/uBlockOrigin/uAssets/issues/4697
-askhoow.com,lkop.me##+js(aopr, app_vars.force_disable_adblock)
-askhoow.com,lkop.me##+js(nowoif, !?safelink_redirect=)
-askhoow.com,lkop.me##+js(set, blurred, false)
-askhoow.com,lkop.me##form#go-popup:remove()
+askhoow.com,earningradar.com,lkop.me##+js(aopr, app_vars.force_disable_adblock)
+askhoow.com,earningradar.com,lkop.me##+js(nowoif, !?safelink_redirect=)
+askhoow.com,earningradar.com,lkop.me##+js(set, blurred, false)
+askhoow.com,earningradar.com,lkop.me##form#go-popup:remove()
 ||lkop.me/sw.js$script,1p
 lkop.me##[href="https://techoverride.com/"]
-*$frame,denyallow=facebook.com|google.com|youtube.com,domain=lkop.me|askhoow.com
-*$script,3p,denyallow=akamaiedge.net|cloudflare.com|facebook.net|fbcdn.net|google.com|gstatic.com|pinterest.com|recaptcha.net,domain=askhoow.com|lkop.me
+*$frame,denyallow=facebook.com|google.com|youtube.com,domain=lkop.me|askhoow.com|earningradar.com
+*$script,3p,denyallow=akamaiedge.net|cloudflare.com|facebook.net|fbcdn.net|google.com|gstatic.com|pinterest.com|recaptcha.net,domain=askhoow.com|earningradar.com|lkop.me
 ||bloggybro.com^$3p
 
 ! https://github.com/uBlockOrigin/uAssets/issues/4698
@@ -14079,8 +14080,9 @@ anime-jl.net##+js(aopr, detector_launch)
 elamigos-games.com,zona-leros.net##+js(aeld, DOMContentLoaded, shortener)
 elamigos-games.com,zona-leros.net##[href*="/tienda/"]:xpath(../..)
 player.animejl.net,player.zona-leros.net,zlplayer.net###dvr-vid
+zpaste.net,zplayer.live##+js(acis, String.fromCharCode, /btoa|break/)
 zpaste.net,zlpaste.net##+js(aeld, DOMContentLoaded, adlinkfly)
-zplayer.live##+js(acis, String.fromCharCode, /btoa|break/)
+zpaste.net,zplayer.live##+js(aopw, _pop)
 zplayer.live##.user
 zpaste.net,pixeldrain.com###sponsors
 zplayer.live##.banner
@@ -21442,10 +21444,11 @@ pelis28.*###options-0
 pelispub.info##+js(aopr, mejs)
 
 ! verpelistoday.com popup ads
-verpelistoday.com##+js(ra, href, [href*="/dowload/registro/"])
-verpelistoday.com##[href^="/dowload/"]
-verpelistoday.com##.ano_300
-verpelistoday.com##.textb
+verepeliculas.com#@#.fake_player
+verepeliculas.com##+js(ra, href, .fake_player > a[href])
+verepeliculas.com##a[href^="https://www.verepeliculas.com/dowload/"]
+playembed.xyz,playtemporal.xyz##+js(nowoif)
+playembed.xyz##+js(set, clientSide.adbDetect, noopFunc)
 
 ! pelis-gratis.com ads
 pelis-gratis.com##a.align_c.button
