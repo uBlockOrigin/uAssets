@@ -16,14 +16,14 @@
 ! ——— LAN
 ! https://en.wikipedia.org/wiki/Private_network
 !
-/^\w+://10\.(?:(?:[1-9]?\d|1\d\d|2(?:[0-4]\d|5[0-5]))\.){2}(?:[1-9]?\d|1\d\d|2(?:[0-4]\d|5[0-5]))[:/]/$third-party,domain=~localhost|~127.0.0.1|~[::1]|~0.0.0.0|~[::]
-/^\w+://172\.(?:1[6-9]|2\d|3[01])(?:\.(?:[1-9]?\d|1\d\d|2(?:[0-4]\d|5[0-5]))){2}[:/]/$third-party,domain=~localhost|~127.0.0.1|~[::1]|~0.0.0.0|~[::]
-/^\w+://192\.168(?:\.(?:[1-9]?\d|1\d\d|2(?:[0-4]\d|5[0-5]))){2}[:/]/$third-party,domain=~localhost|~127.0.0.1|~[::1]|~0.0.0.0|~[::]
+/^\w+://10\.(?:(?:[1-9]?\d|1\d\d|2(?:[0-4]\d|5[0-5]))\.){2}(?:[1-9]?\d|1\d\d|2(?:[0-4]\d|5[0-5]))[:/]/$third-party,domain=~localhost|~127.0.0.1|~[::1]|~0.0.0.0|~[::]|~local
+/^\w+://172\.(?:1[6-9]|2\d|3[01])(?:\.(?:[1-9]?\d|1\d\d|2(?:[0-4]\d|5[0-5]))){2}[:/]/$third-party,domain=~localhost|~127.0.0.1|~[::1]|~0.0.0.0|~[::]|~local
+/^\w+://192\.168(?:\.(?:[1-9]?\d|1\d\d|2(?:[0-4]\d|5[0-5]))){2}[:/]/$third-party,domain=~localhost|~127.0.0.1|~[::1]|~0.0.0.0|~[::]|~local
 ! Includes link-local
-/^\w+://\[f(?:[cd][0-9a-f]|e[89a-f])[0-9a-f]:[0-9a-f:]+\][:/]/$third-party,domain=~localhost|~127.0.0.1|~[::1]|~0.0.0.0|~[::]
+/^\w+://\[f(?:[cd][0-9a-f]|e[89a-f])[0-9a-f]:[0-9a-f:]+\][:/]/$third-party,domain=~localhost|~127.0.0.1|~[::1]|~0.0.0.0|~[::]|~local
 !
 ! Ipv4 link-local addresses for network autoconfiguration #5
-/^\w+://169\.254\.(?:[1-9]\d?|1\d{2}|2(?:[0-4]\d|5[0-4]))\.(?:[1-9]?\d|1\d{2}|2(?:[0-4]\d|5[0-5]))[:/]/$third-party,domain=~localhost|~127.0.0.1|~[::1]|~0.0.0.0|~[::]
+/^\w+://169\.254\.(?:[1-9]\d?|1\d{2}|2(?:[0-4]\d|5[0-4]))\.(?:[1-9]?\d|1\d{2}|2(?:[0-4]\d|5[0-5]))[:/]/$third-party,domain=~localhost|~127.0.0.1|~[::1]|~0.0.0.0|~[::]|~local
 !
 ! Ipv6 from ipv4 transition addresses #6
 ! TODO:
@@ -31,36 +31,41 @@
 ! ——— localhost
 ! https://en.wikipedia.org/wiki/Localhost
 !
-/^\w+://127\.(?:(?:[1-9]?\d|1\d\d|2(?:[0-4]\d|5[0-5]))\.){2}(?:[1-9]?\d|1\d\d|2(?:[0-4]\d|5[0-5]))[:/]/$third-party,domain=~localhost|~127.0.0.1|~[::1]|~0.0.0.0|~[::]
-||[::1]^$third-party,domain=~localhost|~127.0.0.1|~[::1]|~0.0.0.0|~[::]
-||localhost^$third-party,domain=~localhost|~127.0.0.1|~[::1]|~0.0.0.0|~[::]
+/^\w+://127\.(?:(?:[1-9]?\d|1\d\d|2(?:[0-4]\d|5[0-5]))\.){2}(?:[1-9]?\d|1\d\d|2(?:[0-4]\d|5[0-5]))[:/]/$third-party,domain=~localhost|~127.0.0.1|~[::1]|~0.0.0.0|~[::]|~local
+||[::1]^$third-party,domain=~localhost|~127.0.0.1|~[::1]|~0.0.0.0|~[::]|~local
+||localhost^$third-party,domain=~localhost|~127.0.0.1|~[::1]|~0.0.0.0|~[::]|~local
 !
 ! ——— any local
 ! https://en.wikipedia.org/wiki/0.0.0.0
 !
-||0.0.0.0^$third-party,domain=~localhost|~127.0.0.1|~[::1]|~0.0.0.0|~[::]
-||[::]^$third-party,domain=~localhost|~127.0.0.1|~[::1]|~0.0.0.0|~[::]
+||0.0.0.0^$third-party,domain=~localhost|~127.0.0.1|~[::1]|~0.0.0.0|~[::]|~local
+||[::]^$third-party,domain=~localhost|~127.0.0.1|~[::1]|~0.0.0.0|~[::]|~local
+!
+! ——— .local TLD
+! https://en.wikipedia.org/wiki/.local
+!
+||local^$third-party,domain=~localhost|~127.0.0.1|~[::1]|~0.0.0.0|~[::]|~local
 !
 ! ——— known router domains
 ! dig, drill
 !
-||airbox.home^$third-party,domain=~localhost|~127.0.0.1|~[::1]|~0.0.0.0|~[::]
-||arcor.easybox^$third-party,domain=~localhost|~127.0.0.1|~[::1]|~0.0.0.0|~[::]
-||congstar.box^$third-party,domain=~localhost|~127.0.0.1|~[::1]|~0.0.0.0|~[::]
-||connect.box^$third-party,domain=~localhost|~127.0.0.1|~[::1]|~0.0.0.0|~[::]
-||easy.box^$third-party,domain=~localhost|~127.0.0.1|~[::1]|~0.0.0.0|~[::]
-||fritz.box^$third-party,domain=~localhost|~127.0.0.1|~[::1]|~0.0.0.0|~[::]
-||fritz.nas^$third-party,domain=~localhost|~127.0.0.1|~[::1]|~0.0.0.0|~[::]
-||fritz.repeater^$third-party,domain=~localhost|~127.0.0.1|~[::1]|~0.0.0.0|~[::]
-||giga.cube^$third-party,domain=~localhost|~127.0.0.1|~[::1]|~0.0.0.0|~[::]
-||hi.link^$third-party,domain=~localhost|~127.0.0.1|~[::1]|~0.0.0.0|~[::]
-||hitronhub.home^$third-party,domain=~localhost|~127.0.0.1|~[::1]|~0.0.0.0|~[::]
-||huaweimobilewifi.com^$third-party,domain=~localhost|~127.0.0.1|~[::1]|~0.0.0.0|~[::]
-||myfritz.box^$third-party,domain=~localhost|~127.0.0.1|~[::1]|~0.0.0.0|~[::]
-||router.asus.com^$third-party,domain=~localhost|~127.0.0.1|~[::1]|~0.0.0.0|~[::]
-||routerlogin.com^$third-party,domain=~localhost|~127.0.0.1|~[::1]|~0.0.0.0|~[::]
-||routerlogin.net^$third-party,domain=~localhost|~127.0.0.1|~[::1]|~0.0.0.0|~[::]
-||samsung.router^$third-party,domain=~localhost|~127.0.0.1|~[::1]|~0.0.0.0|~[::]
-||speedport.ip^$third-party,domain=~localhost|~127.0.0.1|~[::1]|~0.0.0.0|~[::]
+||airbox.home^$third-party,domain=~localhost|~127.0.0.1|~[::1]|~0.0.0.0|~[::]|~local
+||arcor.easybox^$third-party,domain=~localhost|~127.0.0.1|~[::1]|~0.0.0.0|~[::]|~local
+||congstar.box^$third-party,domain=~localhost|~127.0.0.1|~[::1]|~0.0.0.0|~[::]|~local
+||connect.box^$third-party,domain=~localhost|~127.0.0.1|~[::1]|~0.0.0.0|~[::]|~local
+||easy.box^$third-party,domain=~localhost|~127.0.0.1|~[::1]|~0.0.0.0|~[::]|~local
+||fritz.box^$third-party,domain=~localhost|~127.0.0.1|~[::1]|~0.0.0.0|~[::]|~local
+||fritz.nas^$third-party,domain=~localhost|~127.0.0.1|~[::1]|~0.0.0.0|~[::]|~local
+||fritz.repeater^$third-party,domain=~localhost|~127.0.0.1|~[::1]|~0.0.0.0|~[::]|~local
+||giga.cube^$third-party,domain=~localhost|~127.0.0.1|~[::1]|~0.0.0.0|~[::]|~local
+||hi.link^$third-party,domain=~localhost|~127.0.0.1|~[::1]|~0.0.0.0|~[::]|~local
+||hitronhub.home^$third-party,domain=~localhost|~127.0.0.1|~[::1]|~0.0.0.0|~[::]|~local
+||huaweimobilewifi.com^$third-party,domain=~localhost|~127.0.0.1|~[::1]|~0.0.0.0|~[::]|~local
+||myfritz.box^$third-party,domain=~localhost|~127.0.0.1|~[::1]|~0.0.0.0|~[::]|~local
+||router.asus.com^$third-party,domain=~localhost|~127.0.0.1|~[::1]|~0.0.0.0|~[::]|~local
+||routerlogin.com^$third-party,domain=~localhost|~127.0.0.1|~[::1]|~0.0.0.0|~[::]|~local
+||routerlogin.net^$third-party,domain=~localhost|~127.0.0.1|~[::1]|~0.0.0.0|~[::]|~local
+||samsung.router^$third-party,domain=~localhost|~127.0.0.1|~[::1]|~0.0.0.0|~[::]|~local
+||speedport.ip^$third-party,domain=~localhost|~127.0.0.1|~[::1]|~0.0.0.0|~[::]|~local
 !
 ! ——— END
