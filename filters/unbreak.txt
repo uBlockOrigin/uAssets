@@ -3829,6 +3829,10 @@ independent.co.uk##article > div > div > div[data-tile-name="top_banner"]:upward
 bing.com#@#a[href*="/aclick?ld="]
 bing.com##a[href*="/aclick?ld="]:not(.vsp_ads)
 bing.com##.ins_exp.vsp
+! https://github.com/easylist/easylist/issues/7240
+!#if env_firefox
+bing.com##+js(nosiif, logQueue, 10000)
+!#endif
 
 ! unlock site page cpmstar. com (Peter Lowe's)
 ||cpmstar.com^$badfilter
@@ -3876,3 +3880,13 @@ bing.com##.ins_exp.vsp
 ! https://github.com/AdguardTeam/AdguardFilters/issues/76760
 ! https://github.com/easylist/easylist/pull/7337
 freexcafe.com#@#a[href*="//refer.ccbill.com/cgi-bin/clicks.cgi"]
+
+! https://forums.lanik.us/viewtopic.php?p=159121#p159121
+||go.nordvpn.net^$third-party,badfilter
+
+! ncaa.com march madness live stream broken by =728x90_ in EasyList
+@@||warnermediacdn.com^$xhr,domain=ncaa.com
+
+! https://www.reddit.com/r/uBlockOrigin/comments/m8lp8a/broken_site/
+uschovna.cz#@#body:style(background:none !important;)
+uschovna.cz##body:style(background-image:none !important)
