@@ -3568,7 +3568,7 @@ gala.fr,gentside.com,geo.fr,hbrfrance.fr,nationalgeographic.fr,ohmymag.com,seren
 ! https://github.com/uBlockOrigin/uAssets/issues/1247
 ! https://github.com/NanoMeow/QuickReports/issues/1618#issuecomment-517955406
 wi.cr##+js(aopr, app_vars.force_disable_adblock)
-wi.cr##+js(acis, Math, zfgloaded)
+wi.cr##+js(aopw, _pop)
 wi.cr##.banner
 wi.cr###overly
 wikiall.org##.adsbygoogle
@@ -10941,9 +10941,10 @@ vidcloud.*##+js(acis, atob, decodeURIComponent)
 vidcloud.*##+js(acis, Math, XMLHttpRequest)
 vidcloud9.*##+js(acis, String.fromCharCode, /btoa|break/)
 @@||vidcloud.*^$ghide
-streamingworld.*##+js(acis, atob, decodeURI)
+streamingworld.*##+js(acis, atob, decodeURIComponent)
 streamingworld.*##+js(aopr, AaDetector)
 streamingworld.*##+js(aopw, Fingerprint2)
+streamingworld.*##+js(acis, Math, break;case $.)
 ||123movies123.*/sw.js$script,1p
 c123movies.com,123freemovies.*,123movieslife.*,123movie.*,123movies123.*###option-0, a[href="#option-0"]
 123freemovies.*,123movies123.*,123movieslife.*,123movies4u.club##.pframe:has([href^="javascript: void(0);"])
@@ -16808,10 +16809,14 @@ rlslog.net##+js(nowebrtc)
 lolinime.net##+js(set, showAds, true)
 
 ! tf1 .fr
+! https://www.reddit.com/r/uBlockOrigin/comments/me8x4e/ublock_detected_again_for_mytf1fr/
 @@||tf1.fr^$ghide
 ||delivery.tf1.fr/pub$media,redirect=noopmp3-0.1s,domain=tf1.fr
 ||dnl-adv-ssl.tf1.fr/$media,redirect=noopmp3-0.1s,domain=tf1.fr
 *$xhr,redirect-rule=nooptext,domain=tf1.fr
+!#if env_chromium
+tf1.fr##+js(no-fetch-if, adsafeprotected)
+!#endif
 @@||footprint.net^$xhr,domain=prod-player.tf1.fr
 @@||vendorlist.consensu.org/vendorlist.json$xhr,domain=tf1.fr
 @@||cdn.tagcommander.com/cmp-api/cmp.js$script,domain=tf1.fr
@@ -19206,6 +19211,8 @@ news18.com##+js(aopr, getAdsScripts)
 news18.com##+js(acis, $, scroll)
 news18.com##.ad-container
 news18.com##[class^="adv_placeholder_"]
+news18.com##.n18thder
+news18.com##div[class^="jsx-"][style^="width: 300px; min-height: 250px"]
 !#endif
 
 ! https://github.com/NanoMeow/QuickReports/issues/2290
