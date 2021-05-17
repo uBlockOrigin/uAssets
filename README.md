@@ -14,6 +14,8 @@ Issues involving
 - popups/popunders
 - site breakage
 - video ads
+- contextmenu blockage
+- cut/copy/paste blockage
 
 will always be fixed in uAssets even if they don't require extended syntax.
 
