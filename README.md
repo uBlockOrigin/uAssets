@@ -9,8 +9,8 @@ If an issue can be fixed without using extended syntax, i.e. [scriptlet injectio
 
 Issues involving
 
-- anti-adblock
 - ad-reinsertion
+- anti-adblock
 - contextmenu blockage
 - copy/cut/paste blockage 
 - popups/popunders
