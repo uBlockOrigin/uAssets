@@ -22,7 +22,7 @@
 ### Describe the issue
 
 <!-- [Be as clear as possible: nobody can read mind, and nobody is looking at your issue over your shoulder.] --> 
-<!-- Make sure you aren't using another blocker. They might interfere with fixes for anti-adblock mechanisms -->
+<!-- Make sure you aren't using another blocker. It might interfere with fixes for anti-adblock mechanisms -->
 
 ### Screenshot(s)
 
