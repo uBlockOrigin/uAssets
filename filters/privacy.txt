@@ -1,4 +1,4 @@
-! Title: uBlock filters – Privacy
+﻿! Title: uBlock filters – Privacy
 ! Description: Some of these filters make use of the `important` filter option,
 !              which purpose is to guarantee that a filter won't be overriden by
 !              exception filters.
@@ -137,9 +137,6 @@ sfr.fr##+js(aopr, _oEa)
 brillen.de##+js(acis, document.createElement, 'script')
 ||marketing.net.*^$1p
 
-! thesaurus.com / dictionary.com Adblock detection
-dictionary.com,thesaurus.com##+js(aopr, adDetection)
-
 ! https://github.com/uBlockOrigin/uAssets/issues/7118
 ||vidtech.cbsinteractive.com^*/tracking/$script,redirect=noop.js,important
 
@@ -226,9 +223,12 @@ beaumontenterprise.com,chron.com,ctinsider.com,ctpost.com,expressnews.com,housto
 !#endif
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/80625
-tweakers.net##+js(aopr, WebTrekkClickMap)
+tweakers.net##+js(set, WebTrekkClickMap, noopFunc)
 tweakers.net##+js(aopr, snowplow)
-tweakers.net##+js(acis, _wtq, trackId)
+tweakers.net##+js(acis, AbStats, trackId)
+tweakers.net##+js(aopr, GlobalSnowplowNamespace)
+tweakers.net##+js(set, tweakersConfig.wtConfig.scriptUrl, '')
+||tweakers.net/*/event-tracking/
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/81533
 ||yuktamedia.com^$3p
@@ -241,3 +241,16 @@ tweakers.net##+js(acis, _wtq, trackId)
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/81867
 ||proxycheck.io^$3p
+
+! https://github.com/uBlockOrigin/uAssets/issues/9103
+*$script,redirect-rule=noopjs,domain=kruidvat.nl
+kruidvat.nl##.async-hide:style(opacity:1.0 !important)
+
+! https://github.com/AdguardTeam/AdguardFilters/issues/75098
+||stats.webgames.io^
+
+! https://www.reddit.com/r/uBlockOrigin/comments/niiytr/help_needed_filtering_wwwsporizle1pw/
+||sporizle1.pw/embed/*?stat=$frame
+
+! https://www.reddit.com/r/uBlockOrigin/comments/nlllo9/popups_getting_through_now/
+||xuicy.me^
