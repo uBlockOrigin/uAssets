@@ -113,7 +113,8 @@ youtube.com##ytd-video-masthead-ad-advertiser-info-renderer,ytm-promoted-sparkle
 ! https://github.com/easylist/easylist/issues/5112
 ! @@||youtube.com/get_video_info?*timedtext_editor$xhr,1p
 ! https://redd.it/ggcmkp https://redd.it/gx03e0
-youtube.com,youtube-nocookie.com##+js(json-prune, *.playerResponse.adPlacements *.playerResponse.playerAds [].playerResponse.adPlacements [].playerResponse.playerAds playerResponse.adPlacements playerResponse.playerAds adPlacements playerAds)
+!youtube.com,youtube-nocookie.com##+js(json-prune, *.playerResponse.adPlacements *.playerResponse.playerAds [].playerResponse.adPlacements [].playerResponse.playerAds playerResponse.adPlacements playerResponse.playerAds adPlacements playerAds)
+youtube.com,youtube-nocookie.com##+js(json-prune, [].playerResponse.adPlacements [].playerResponse.playerAds playerResponse.adPlacements playerResponse.playerAds adPlacements playerAds)
 youtube.com,youtube-nocookie.com##+js(set, ytInitialPlayerResponse.adPlacements, undefined)
 youtube.com,youtube-nocookie.com##+js(set, playerResponse.adPlacements, undefined)
 ! https://www.reddit.com/r/uBlockOrigin/comments/kg7224/
@@ -351,7 +352,6 @@ rt.pornhub.*,rt.pornhubthbh7ap3u.onion##div[id^="customSkin"]
 rt.pornhub.*,rt.pornhubthbh7ap3u.onion##div.container:style(margin-top: 0px !important)
 ! https://github.com/uBlockOrigin/uAssets/issues/356
 ! https://forums.lanik.us/viewtopic.php?p=120148#p120148
-youjizz.com##+js(aopw, nb)
 youjizz.com##+js(noeval)
 youjizz.com###desktopFooterPr
 
@@ -3726,6 +3726,7 @@ linkshorts.*##.blog-item
 dz4link.com##+js(aopr, app_vars.force_disable_adblock)
 dz4link.com##+js(aopw, Fingerprint2)
 dz4link.com##+js(set, blurred, false)
+dz4link.com##+js(nowoif)
 dz4link.com##.banner
 dz4up.com##.container + div[style] > [title="Download Now"] > img
 *$frame,denyallow=google.com,domain=dz4link.com
@@ -4851,8 +4852,10 @@ uploadbaz.*##+js(aopr, AaDetector)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/1839
 vermangasporno.com##+js(aopr, dataPopUnder)
-vermangasporno.com##[href^="http://bit.ly"]
-*$script,3p,denyallow=cloudflare.net|disqus.com|disquscdn.com|fastlylb.net,domain=vermangasporno.com
+vcp.xxx,vermangasporno.com##+js(acis, document.querySelectorAll, popMagic)
+vermangasporno.com##[href^="https://bit.ly"]
+vermangasporno.com##[href*="http://www.ciberhentai.net"]
+*$script,3p,denyallow=cloudflare.net|cloudfront.net|disqus.com|disquscdn.com|fastlylb.net,domain=vermangasporno.com
 ##a[href^="http://gamingadult.biz/"]
 
 ! https://github.com/uBlockOrigin/uAssets/issues/1842
@@ -5636,6 +5639,7 @@ worldfreeware.com##+js(aopr, require)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/2207
 tibiabr.com##+js(nosiif, visibility, 1000)
+||tibiabr.com/$frame,1p
 @@||tibiabr.com^$ghide
 tibiabr.com##div[id^="div-gpt-ad"]
 
@@ -5778,6 +5782,9 @@ marcosfranciscodesouza.*##+js(nobab)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/2278
 *$script,redirect-rule=noopjs,domain=youmath.it
+youmath.it###D_1
+youmath.it###C_1
+||cloudflare.com/cdn-cgi/trace^$xhr
 
 ! https://github.com/uBlockOrigin/uAssets/issues/2281
 @@||billiongraves.com^$ghide
@@ -10230,7 +10237,7 @@ root-top.com##+js(aopr, adblockblock)
 @@||watchgleeonline.com^$ghide
 @@||watchdowntonabbeyonline.com^$ghide
 @@||watchnashvilleonline.com^$ghide
-iwatchtheoffice.com,watchthemiddleonline.com,watchagathachristiespoirot.com,watchelementaryonline.com,watchaccordingtojimonline.com,watchprettylittleliarsonline.com,watcheronline.net,watchcalifornicationonline.com,watchrulesofengagementonline.com,watchsuitsonline.net,watchmalcolminthemiddle.com,watchthekingofqueens.com,watchmonkonline.com,watchlostonline.net,watchgleeonline.com,watchdowntonabbeyonline.com,watchnashvilleonline.com,watchdrakeandjoshonline.com,watchhouseonline.net##[id*="ScriptRoot"]
+iwatchtheoffice.com,watchthemiddleonline.com,watchelementaryonline.com,watchaccordingtojimonline.com,watchprettylittleliarsonline.com,watcheronline.net,watchcalifornicationonline.com,watchrulesofengagementonline.com,watchsuitsonline.net,watchmalcolminthemiddle.com,watchthekingofqueens.com,watchmonkonline.com,watchlostonline.net,watchgleeonline.com,watchdowntonabbeyonline.com,watchnashvilleonline.com,watchdrakeandjoshonline.com,watchhouseonline.net##[id*="ScriptRoot"]
 rapid58.com##.banner
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/26709
@@ -10469,10 +10476,12 @@ thepiratebay.*##+js(aopw, _pop)
 ! https://github.com/NanoMeow/QuickReports/issues/459
 ||googlesyndication.com/pagead/js/adsbygoogle.js$script,redirect=noopjs:10,domain=naminakiky.com
 
-! https://github.com/NanoMeow/QuickReports/issues/1468
+! https://github.com/AdguardTeam/AdguardFilters/issues/84965
+linksht.com##+js(nostif, _$_, 3000)
 linksht.com##+js(acis, $, bannerads)
 @@||static.doubleclick.net/instream/ad_status.js$xhr,domain=linksht.com
 @@||linksht.com^$ghide
+linksht.com###bannerads
 
 ! https://github.com/NanoMeow/QuickReports/issues/464
 @@||linkpunyaku.*^$ghide
@@ -11904,7 +11913,7 @@ fromhots.com,hahasports.co##+js(acis, Math, break;case)
 hulkstreams.com,jackstream.*,olivertv.com##+js(acis, Math, zfgloaded)
 hulkstreams.com,jackstream.*,olivertv.com##+js(aopr, Date.prototype.toUTCString)
 hulkstreams.com,jackstream.*,olivertv.com##+js(aopr, decodeURIComponent)
-hulkstream.com,hulkstreams.com,jackstream.*,livesport.*,olivertv.com##+js(aopr, open)
+hulkstream.com,hulkstreams.com,jackstream.*,olivertv.com##+js(aopr, open)
 hulkstreams.com,jackstream.*,olivertv.com##+js(aopw, _pop)
 jackstream.*,olivertv.com##+js(nowebrtc)
 allfeeds.*,bfst.xyz,dubsstreamz.com,freefeds.com,live-golf.stream,lowend.xyz,sporting77.*,sport24hd.net,sportustv4.ru,teleriumtv.net,whd365.pro,wstream.to##+js(nowoif)
@@ -11914,7 +11923,7 @@ jackstream.*##+js(acis, Math, break;case)
 hulkstream.com,mafiasport.*,livesport.*##^script:has-text('shift')
 ###lads1
 ! https://www.reddit.com/r/uBlockOrigin/comments/e6ogyl/cannot_open_livesport_tab/
-livesport.cz#@#+js(aopr, open)
+livesport.cz,livesport.com#@#+js(aopr, open)
 hulkstreams.com##+js(nowebrtc)
 apl6.me,sportes.pw,wmsxx.com##+js(aopr, open)
 sportes.pw##.boxof, .overlay_video
@@ -16766,10 +16775,6 @@ kisstvshow.to##div[style="width: 620px; margin: 0px auto; overflow: hidden;"]
 ||kisstvshow.*/api/pop.php$xhr,1p
 ||ad.kisstvshow.*^
 
-! https://github.com/uBlockOrigin/uAssets/issues/4240
-shortye.net##+js(aopr, app_vars.force_disable_adblock)
-shortye.net##+js(aopr, absda)
-
 ! https://github.com/NanoMeow/QuickReports/issues/1892
 @@||viduplayer.com^$ghide
 ||movcpm.com/watch.xml$xhr,domain=imasdk.googleapis.com
@@ -16802,9 +16807,9 @@ checkz.net##+js(aopw, console.log)
 checkz.net##.adsbygoogle
 
 ! https://www.reddit.com/r/uBlockOrigin/comments/kzceq3/adblock_detected/
-ff14angler.com##+js(nostif, check_adsense)
-ff14angler.com##+js(rc, adsbygoogle, div)
-ff14angler.com##ins.adsbygoogle,[id^="aswift_"]:style(position:absolute !important;left:-3000px !important)
+@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$script,domain=ff14angler.com
+@@||pagead2.googlesyndication.com/pagead/js/*/show_ads_impl_$script,domain=ff14angler.com
+ff14angler.com##ins.adsbygoogle,[id^="aswift_"]:style(height:1px!important;)
 @@||ff14angler.com^$ghide
 
 ! https://github.com/NanoMeow/QuickReports/issues/1900
@@ -16844,10 +16849,6 @@ shrinkurl.org##+js(nosiif, visibility, 1000)
 shrinkurl.org##+js(set, blurred, false)
 ! https://www.reddit.com/r/uBlockOrigin/comments/mffz09/
 ||ladsatz.com^$empty,domain=shrinkurl.org
-
-! https://github.com/NanoMeow/QuickReports/issues/1912
-watchagathachristiespoirot.com##+js(aopr, AaDetector)
-@@||watchagathachristiespoirot.com^$ghide
 
 ! https://github.com/NanoMeow/QuickReports/issues/1915
 ||doubleclick.net/pagead/id$xhr,redirect=nooptext,domain=windowsreport.com
@@ -16889,9 +16890,6 @@ megagames.com##+js(acis, jQuery, fuckAdBlock)
 ! https://github.com/uBlockOrigin/uAssets/issues/6357
 @@||designoptimal.com^$ghide
 designoptimal.com##.adsbygoogle
-
-! https://github.com/NanoMeow/QuickReports/issues/1936
-shrinkerhub.com##+js(aopr, app_vars.force_disable_adblock)
 
 ! almohtarif-tech .net anti adb
 almohtarif-tech.net##+js(aeld, load, onload)
@@ -19314,6 +19312,7 @@ mtlurb.com##+js(nostif, purple_box)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/4737
 123moviesc.*##+js(aopr, AaDetector)
+123moviesc.*##+js(acis, Math, break;case $.)
 ||dadsimz.com^
 
 ! https://github.com/uBlockOrigin/uAssets/issues/2484
@@ -21177,8 +21176,6 @@ customercareal.com##+js(nano-sib)
 ! https://github.com/NanoMeow/QuickReports/issues/3328
 cryptobite.site##+js(set, show_ads_gr8_lite, true)
 cryptobite.site##+js(nosiif, visibility, 1000)
-||bannertrack.net^$3p
-||adnetasia.com^$3p
 
 ! https://github.com/NanoMeow/QuickReports/issues/3332
 miniurl.*##+js(aopr, app_vars.force_disable_adblock)
@@ -21217,6 +21214,7 @@ mavanimes.co##+js(aopr, AaDetector)
 100count.net##+js(aopr, app_vars.force_disable_adblock)
 100count.net##+js(acis, Math, zfgloaded)
 100count.net##+js(nano-sib, /sec--|timedisplay--/)
+100count.net##+js(set, blurred, false)
 100count.net##.banner
 100count.net##div.banner1
 100count.net##div.banner2
@@ -21225,6 +21223,8 @@ mavanimes.co##+js(aopr, AaDetector)
 100count.net##.col-md-2
 100count.net##ins[class^="bmadblock-"]
 100count.net##[class^="_"]
+100count.net##[id^="div-gpt-ad"]
+100count.net###id-custom_banner
 *$3p,denyallow=google.com|gstatic.com|bootstrapcdn.com|googleapis.com|hwcdn.net|jquery.com|cloudflare.com|ibb.co|recaptcha.net|hcaptcha.com|consensu.org,domain=100count.net
 ||bmcdn1.com^
 
@@ -21724,15 +21724,15 @@ ludigames.com##+js(nostif, ads)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/7180
 ! https://github.com/uBlockOrigin/uAssets/issues/9123
-federleqa.icu,imageking.xyz,imgair.net,imgao.xyz,imgbigo.xyz,imgbird.xyz,imgblaze.net,imgbrd.xyz,imgex.xyz,imgez.xyz,imgfish.xyz,imgfl.xyz,imgflyer.xyz,imgfrost.net,imgfsh.xyz,imggoing.xyz,imghb.xyz,imgkaida.xyz,imgkes.xyz,imgkis.xyz,imgko.xyz,imgkoi.xyz,imgkor.xyz,imglin.xyz,imglion.xyz,imgopp.xyz,imgsup.xyz,imgsupa.xyz,imgtiger.xyz,imgtigr.xyz,imgviv.xyz,imgvivo.xyz,imgweng.xyz,imgwew.xyz,imgxen.xyz,imgxn.xyz,imgxx.xyz,imgzer.net,kekolangti.com,opalekr.icu,pixsera.net,rtkenale.icu,venpix.xyz,vestimage.site##+js(nano-sib, timer)
-federleqa.icu,imageking.xyz,imgair.net,imgao.xyz,imgbigo.xyz,imgbird.xyz,imgblaze.net,imgbrd.xyz,imgex.xyz,imgez.xyz,imgfish.xyz,imgfl.xyz,imgflyer.xyz,imgfrost.net,imgfsh.xyz,imggoing.xyz,imghb.xyz,imgkaida.xyz,imgkes.xyz,imgkis.xyz,imgko.xyz,imgkoi.xyz,imgkor.xyz,imglin.xyz,imglion.xyz,imgopp.xyz,imgsup.xyz,imgsupa.xyz,imgtiger.xyz,imgtigr.xyz,imgviv.xyz,imgvivo.xyz,imgweng.xyz,imgwew.xyz,imgxen.xyz,imgxn.xyz,imgxx.xyz,imgzer.net,kekolangti.com,opalekr.icu,pixsera.net,rtkenale.icu,venpix.xyz,vestimage.site##+js(nowoif, !/prcf.fiyar|themes|pixsense|.jpg/)
-federleqa.icu,imageking.xyz,imgair.net,imgao.xyz,imgbigo.xyz,imgbird.xyz,imgblaze.net,imgbrd.xyz,imgex.xyz,imgez.xyz,imgfish.xyz,imgfl.xyz,imgflyer.xyz,imgfrost.net,imgfsh.xyz,imggoing.xyz,imghb.xyz,imgkaida.xyz,imgkes.xyz,imgkis.xyz,imgko.xyz,imgkoi.xyz,imgkor.xyz,imglin.xyz,imglion.xyz,imgopp.xyz,imgsup.xyz,imgsupa.xyz,imgtiger.xyz,imgtigr.xyz,imgviv.xyz,imgvivo.xyz,imgweng.xyz,imgwew.xyz,imgxen.xyz,imgxn.xyz,imgxx.xyz,imgzer.net,kekolangti.com,opalekr.icu,pixsera.net,rtkenale.icu,venpix.xyz,vestimage.site##+js(set, hold_click, false)
-federleqa.icu,imageking.xyz,imgair.net,imgao.xyz,imgbigo.xyz,imgbird.xyz,imgblaze.net,imgbrd.xyz,imgex.xyz,imgez.xyz,imgfish.xyz,imgfl.xyz,imgflyer.xyz,imgfrost.net,imgfsh.xyz,imggoing.xyz,imghb.xyz,imgkaida.xyz,imgkes.xyz,imgkis.xyz,imgko.xyz,imgkoi.xyz,imgkor.xyz,imglin.xyz,imglion.xyz,imgopp.xyz,imgsup.xyz,imgsupa.xyz,imgtiger.xyz,imgtigr.xyz,imgviv.xyz,imgvivo.xyz,imgweng.xyz,imgwew.xyz,imgxen.xyz,imgxn.xyz,imgxx.xyz,imgzer.net,kekolangti.com,opalekr.icu,pixsera.net,rtkenale.icu,venpix.xyz,vestimage.site###pbe
-*$frame,script,3p,denyallow=googleapis.com,domain=federleqa.icu|imageking.xyz|imgair.net|imgao.xyz|imgbigo.xyz|imgbird.xyz|imgblaze.net|imgbrd.xyz|imgex.xyz|imgez.xyz|imgfish.xyz|imgfl.xyz|imgflyer.xyz|imgfrost.net|imgfsh.xyz|imggoing.xyz|imghb.xyz|imgkaida.xyz|imgkes.xyz|imgkis.xyz|imgko.xyz|imgkoi.xyz|imgkor.xyz|imglin.xyz|imglion.xyz|imgopp.xyz|imgsup.xyz|imgsupa.xyz|imgtiger.xyz|imgtigr.xyz|imgviv.xyz|imgvivo.xyz|imgweng.xyz|imgwew.xyz|imgxen.xyz|imgxn.xyz|imgxx.xyz|imgzer.net|kekolangti.com|opalekr.icu|pixsera.net|rtkenale.icu|venpix.xyz|vestimage.site
+federleqa.icu,imageking.xyz,imgair.net,imgao.xyz,imgbigo.xyz,imgbird.xyz,imgblaze.net,imgbrd.xyz,imgex.xyz,imgez.xyz,imgfish.xyz,imgfl.xyz,imgflyer.xyz,imgfrost.net,imgfsh.xyz,imggoing.xyz,imghb.xyz,imgkaida.xyz,imgkes.xyz,imgkis.xyz,imgko.xyz,imgkoi.xyz,imgkor.xyz,imglin.xyz,imglion.xyz,imgopp.xyz,imgsup.xyz,imgsupa.xyz,imgtiger.xyz,imgtigr.xyz,imgviv.xyz,imgvivo.xyz,imgweng.xyz,imgwew.xyz,imgxen.xyz,imgxn.xyz,imgxx.xyz,imgyear.icu,imgzer.net,kekolangti.com,opalekr.icu,pixsera.net,rtkenale.icu,venpix.xyz,vestimage.site##+js(nano-sib, timer)
+federleqa.icu,imageking.xyz,imgair.net,imgao.xyz,imgbigo.xyz,imgbird.xyz,imgblaze.net,imgbrd.xyz,imgex.xyz,imgez.xyz,imgfish.xyz,imgfl.xyz,imgflyer.xyz,imgfrost.net,imgfsh.xyz,imggoing.xyz,imghb.xyz,imgkaida.xyz,imgkes.xyz,imgkis.xyz,imgko.xyz,imgkoi.xyz,imgkor.xyz,imglin.xyz,imglion.xyz,imgopp.xyz,imgsup.xyz,imgsupa.xyz,imgtiger.xyz,imgtigr.xyz,imgviv.xyz,imgvivo.xyz,imgweng.xyz,imgwew.xyz,imgxen.xyz,imgxn.xyz,imgxx.xyz,imgyear.icu,imgzer.net,kekolangti.com,opalekr.icu,pixsera.net,rtkenale.icu,venpix.xyz,vestimage.site##+js(nowoif, !/prcf.fiyar|themes|pixsense|.jpg/)
+federleqa.icu,imageking.xyz,imgair.net,imgao.xyz,imgbigo.xyz,imgbird.xyz,imgblaze.net,imgbrd.xyz,imgex.xyz,imgez.xyz,imgfish.xyz,imgfl.xyz,imgflyer.xyz,imgfrost.net,imgfsh.xyz,imggoing.xyz,imghb.xyz,imgkaida.xyz,imgkes.xyz,imgkis.xyz,imgko.xyz,imgkoi.xyz,imgkor.xyz,imglin.xyz,imglion.xyz,imgopp.xyz,imgsup.xyz,imgsupa.xyz,imgtiger.xyz,imgtigr.xyz,imgviv.xyz,imgvivo.xyz,imgweng.xyz,imgwew.xyz,imgxen.xyz,imgxn.xyz,imgxx.xyz,imgyear.icu,imgzer.net,kekolangti.com,opalekr.icu,pixsera.net,rtkenale.icu,venpix.xyz,vestimage.site##+js(set, hold_click, false)
+federleqa.icu,imageking.xyz,imgair.net,imgao.xyz,imgbigo.xyz,imgbird.xyz,imgblaze.net,imgbrd.xyz,imgex.xyz,imgez.xyz,imgfish.xyz,imgfl.xyz,imgflyer.xyz,imgfrost.net,imgfsh.xyz,imggoing.xyz,imghb.xyz,imgkaida.xyz,imgkes.xyz,imgkis.xyz,imgko.xyz,imgkoi.xyz,imgkor.xyz,imglin.xyz,imglion.xyz,imgopp.xyz,imgsup.xyz,imgsupa.xyz,imgtiger.xyz,imgtigr.xyz,imgviv.xyz,imgvivo.xyz,imgweng.xyz,imgwew.xyz,imgxen.xyz,imgxn.xyz,imgxx.xyz,imgyear.icu,imgzer.net,kekolangti.com,opalekr.icu,pixsera.net,rtkenale.icu,venpix.xyz,vestimage.site###pbe
+*$frame,script,3p,denyallow=googleapis.com,domain=federleqa.icu|imageking.xyz|imgair.net|imgao.xyz|imgbigo.xyz|imgbird.xyz|imgblaze.net|imgbrd.xyz|imgex.xyz|imgez.xyz|imgfish.xyz|imgfl.xyz|imgflyer.xyz|imgfrost.net|imgfsh.xyz|imggoing.xyz|imghb.xyz|imgkaida.xyz|imgkes.xyz|imgkis.xyz|imgko.xyz|imgkoi.xyz|imgkor.xyz|imglin.xyz|imglion.xyz|imgopp.xyz|imgsup.xyz|imgsupa.xyz|imgtiger.xyz|imgtigr.xyz|imgviv.xyz|imgvivo.xyz|imgweng.xyz|imgwew.xyz|imgxen.xyz|imgxn.xyz|imgxx.xyz|imgyear.icu|imgzer.net|kekolangti.com|opalekr.icu|pixsera.net|rtkenale.icu|venpix.xyz|vestimage.site
 /^http:\/\/[0-9a-z]{8,}\.com\/[0-9a-z]{8,}\?(?:key|shu)=[0-9a-z]+/$frame,3p
 /^http:\/\/img[a-z]+\.xyz(\/[a-z]{2,4}){2}\.js$/$script,1p,domain=xyz
 /\.com(\/[a-z]{2,4}){2}\.js$/$script,1p,domain=kekolangti.com|pikupalate.com
-/\.icu(\/[a-z]{2,4}){2}\.js$/$script,1p,domain=federleqa.icu|opalekr.icu|rtkenale.icu
+/\.icu(\/[a-z]{2,4}){2}\.js$/$script,1p,domain=federleqa.icu|imgyear.icu|opalekr.icu|rtkenale.icu
 /\.net(\/[a-z]{2,4}){2}\.js$/$script,1p,domain=pixsera.net
 /c-hive.min.js$script,1p
 /shrinker/js/h1j.js$script,1p
@@ -21745,7 +21745,7 @@ federleqa.icu,imageking.xyz,imgair.net,imgao.xyz,imgbigo.xyz,imgbird.xyz,imgblaz
 !xyz##+js(aeld, , _0x)
 pikupalate.com##+js(aopr, console.clear)
 pikupalate.com##+js(aeld, , _0x)
-federleqa.icu,kekolangti.com,nemenlake.*,opalekr.icu,pikupalate.com,pixsera.net,rtkenale.icu##+js(nostif, _0x)
+federleqa.icu,imgyear.icu,kekolangti.com,nemenlake.*,opalekr.icu,pikupalate.com,pixsera.net,rtkenale.icu##+js(nostif, _0x)
 nemenlake.*##+js(nowoif)
 
 ||chaglihysty.pro^
@@ -22130,7 +22130,7 @@ techdracula.com##.adsbygoogle
 
 ! regex
 /[0-9a-f]{32}\/invoke\.js$/$script,3p
-/^https?:\/\/([a-z0-9]{8,10}\.)?[-a-z0-9]{5,}\.(click|com?|bid|link|net|online|top|club)\/([a-z0-9]{2}\/){3}[a-f0-9]{32}\.js/$script,3p
+/^https?:\/\/([a-z0-9]{8,10}\.)?[-a-z0-9]{5,}\.(?:click|com?|bid|link|net|online|top|club)\/([a-z0-9]{2}\/){3}[a-f0-9]{32}\.js/$script,3p
 ! https://github.com/easylist/easylist/issues/6476
 /^https?:\/\/[0-9a-z]{7,16}\.(?:com|pw|site)\/[a-z](?=[0-9A-Z]{0,15}[a-z])(?=[0-9a-z]{0,14}[A-Z])(?=[a-z]{0,13}[0-9A-Z])[0-9a-zA-Z]{10,16}\/(?:[1-3]\d{4}|[4-9]\d{3})(\?_=\d+)?$/$script,3p,match-case
 
