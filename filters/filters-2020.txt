@@ -1439,9 +1439,6 @@ supergoku.com###link:style(display: block !important;)
 ! docker.events.cube365.net
 cube365.net##+js(set, mixpanel.get_distinct_id, true)
 
-! https://github.com/AdguardTeam/AdguardFilters/issues/56345
-tipsforce.com##+js(aopr, app_vars.force_disable_adblock)
-
 ! https://github.com/AdguardTeam/AdguardFilters/issues/56351
 altyazikutu.ml##+js(nowoif)
 altyazikutu.ml##+js(set, clientSide.adbDetect, noopFunc)
@@ -4568,8 +4565,6 @@ enterha.com,helow.id,lokerja.pw,momozain.com,petsched.website,teknomuda.com,upin
 enterha.com,lokerja.pw,momozain.com,partyhomedecor.com,petsched.website,teknomuda.com,tokosehatkita.xyz,upinipin.me##*:has(+ div[align="center"] button.btn)
 enterha.com##div[align="center"]:not(:has(.btn))
 skiped.me##.banner-page iframe
-||onsafelink.com^$badfilter
-||onsafelink.com^$script,3p
 
 ! nsfw popups gayvidsclub .com
 gayvidsclub.com##+js(nowoif)
@@ -5125,7 +5120,7 @@ polska-ie.com##+js(aeld, load, isBlanketFound)
 *$script,redirect-rule=noopjs,domain=polska-ie.com
 
 ! https://forum.videohelp.com/ ad-reinsertion
-videohelp.com##div[id] :has(:scope > a[href]:has-text(/^Try D.?V.?D.?F.?a.?b/) + a[href])
+videohelp.com##div[id] :has(:scope > a[href]:has-text(/^Try (?:D.?V.?D.?F.?a.?b|StreamFab)/) + a[href])
 
 ! hentaitube ads
 hentais.tube,hentaitube.online##+js(aopr, checkCookieClick)
@@ -5167,7 +5162,6 @@ userload.co##+js(aeld, , _0x)
 userload.co##+js(nowoif)
 userload.co##+js(acis, document.getElementById, style.display)
 ||userload.co/maroc.js$script,1p
-/ad-blocker.js$badfilter
 @@||userload.co/ad-banner.js
 *$image,redirect-rule=1x1.gif,domain=userload.co
 userload.co##div[style="position: fixed; display: block; width: 100%; height: 100%; inset: 0px; background-color: rgba(0, 0, 0, 0); z-index: 300000;"]
@@ -5470,6 +5464,7 @@ pureshort.*##+js(aopr, open)
 pureshort.*##+js(set, blurred, false)
 pureshort.*##.banner
 pureshort.*###link-view > br
+pureshort.*###link-view > a[href] > img
 assamservice.com,speedynews.xyz##+js(nano-sib)
 ||speedynews.xyz^$3p
 
@@ -5540,8 +5535,7 @@ share1223.com##+js(aopr, adBlockDetected)
 *$script,redirect-rule=noopjs,domain=telek.top
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/68005
-||googlesyndication.com^$script,redirect-rule=googlesyndication_adsbygoogle.js,domain=baddiehub.com
-baddiehub.com##+js(acis, sessionStorage, AdBlock)
+baddiehub.com##+js(nostif, css_class.scroll)
 
 ! chochox.com popup
 chochox.com##+js(acis, String.fromCharCode, atob)
@@ -5604,7 +5598,7 @@ nightlifeporn.com##.wps-player__happy-inside--pause.wps-player__happy-inside
 incestvidz.com##+js(aeld, DOMContentLoaded, init)
 
 ! apkshrt.com popup ads
-apkshrt.com##+js(acis, String.fromCharCode, /btoa|break/)
+apkshrt.com##+js(acis, Math, break;case $.)
 apkshrt.com##+js(aopr, app_vars.force_disable_adblock)
 apkshrt.com##+js(set, blurred, false)
 *$script,3p,denyallow=consensu.org|google.com|gstatic.com|recaptcha.net,domain=apkshrt.com
@@ -5664,7 +5658,6 @@ downloadtwittervideo.com##+js(nowoif)
 
 ! https://www.reddit.com/r/uBlockOrigin/comments/jz12a7/cant_watch_videos_without_turning_off_ubo/
 @@||neulionms-a.akamaihd.net^$script,domain=nba.com
-.net/ad/$script,badfilter
 
 ! https://www.reddit.com/r/uBlockOrigin/comments/jzs64f/adblock_detected/
 mzupdate.com##+js(aopr, absda)
@@ -5672,10 +5665,14 @@ mzupdate.com##+js(acis, atob)
 mzupdate.com##[href^="//"], div#result
 sportzonline.to##div[id="html1"]
 
-! https://github.com/AdguardTeam/AdguardFilters/issues/68326
+! https://github.com/uBlockOrigin/uAssets/issues/9424
 kiwiexploits.com##+js(nowoif)
-@@||kiwiexploits.com^$ghide
-kiwiexploits.com##.adsbygoogle
+kiwiexploits.com##+js(nosiif, visibility, 1000)
+*$xhr,3p,domain=kiwiexploits.com
+*$script,3p,domain=kiwiexploits.com
+||myregardslo.biz^
+||rskillsplu.club^
+||eadvertisingd.biz^
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/68343
 *$script,redirect-rule=noopjs,domain=taufiqhdyt.com
@@ -6501,8 +6498,9 @@ xpicse.com##+js(acis, document.querySelectorAll, popMagic)
 live-eventsport.com##+js(acis, document.getElementById, alert)
 streamsport.*,wigilive.com##+js(aopw, _pop)
 wigistream.to##+js(aopw, adcashMacros)
-streamsport.*,wigistream.to##+js(aeld, , _0x)
+streamsport.*##+js(aeld, , _0x)
 streamsport.*,wigilive.com##+js(nowoif)
+wigistream.to##div[style="position:absolute;top:0;left:0;width: 100%;height: 100%;z-index:2147483647"]
 @@||wigilive.com^$ghide
 ||cdnaqw.com^$3p
 
