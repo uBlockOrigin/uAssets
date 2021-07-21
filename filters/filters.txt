@@ -2483,6 +2483,17 @@ platinmods.*##+js(nano-sib)
 ! https://github.com/uBlockOrigin/uAssets/issues/949
 ||whentai.com/*.gif$image
 
+! Common rules for TXXX network
+/\/[a-z]{4,14}\/[a-z]{3,6}\d\.\d\.\d{1,2}\.[0-9a-f]{32}\.js$/$script,1p,domain=hclips.com|hdzog.com|hotmovs.com|porn555.com|pornforrelax.com|pornj.com|pornl.com|pornq.com|privatehomeclips.com|puporn.com|see.xxx|shemalez.com|sss.xxx|thegay.com|thegay.porn|tubepornclassic.com|tuberel.com|txxx.com|upornia.com|voyeurhit.com
+/(?:com|xxx)\/[a-z]{8,12}\/[a-z]{8,12}\.js$/$script,1p,domain=see.xxx|upornia.com
+/afon7.$script,1p
+/barbar7.$script,1p
+/holly7.$script,1p
+/huyass7.$script,1p
+/rass7.$script,1p
+/teo7.$script,1p
+/nofa7.$script,1p
+/assets/jwplayer-*/vast.js$script,1p
 ! https://github.com/uBlockOrigin/uAssets/issues/953
 txxx.*##+js(acis, setTimeout, hommy.mutation.mutation)
 txxx.*##+js(aeld, click, pop.beforeOpen)
@@ -2493,12 +2504,9 @@ txxx.*##.video-content > div > div + div + div:has-text(/Advertisement|Sponsored
 txxx.*##.video-content > div[class] > div.text > a[href="#"]:upward(2)
 txxx.*##.video-content > div[class]:first-child > div > div[class]:first-child:has(> div:not([class]) > div[id][class])
 ||txxx.*^$csp=script-src  'self' 'unsafe-eval' 'unsafe-inline' blob:
-||txxx.com/erbrightni/*$script,1p
-||txxx.com/*teo4$script,1p
 *$frame,3p,denyallow=google.com|gstatic.com,domain=txxx.*
 *$popunder,3p,domain=txxx.*
 ||easyjetset.online^$3p
-
 ! https://github.com/uBlockOrigin/uAssets/issues/956
 voyeurhit.com##+js(acis, adver)
 voyeurhit.com##+js(acis, document.createElement, atob)
@@ -2508,13 +2516,15 @@ voyeurhit.com##.content > div > .container + div
 voyeurhit.com##.videoplayer-wrapper > link + span[class]
 ##.__nat_link
 ||mysmokingmistress.com^$3p
-
 ! https://github.com/uBlockOrigin/uAssets/issues/957
 upornia.com##+js(acis, adver)
 upornia.com##+js(nosiif, undefined)
 upornia.com##+js(nowoif)
-upornia.com##.footer-block
-
+upornia.com##.jwplayer > .afs_ads + div[style="display:flex !important"]
+upornia.com##.video-ad-videos
+upornia.com##.video-content > div[class] > div.text > a[href="#"]:upward(2)
+upornia.com##.video-related + div[class*="-"]
+upornia.com##.videoplayer-wrapper + div > div[class]:only-child
 ! https://github.com/uBlockOrigin/uAssets/issues/2074
 hotmovs.com##+js(acis, adver)
 hotmovs.com##+js(aopr, ExoLoader)
@@ -2524,7 +2534,6 @@ hotmovs.com##.afs_ads + span[class] > div[style=""]:only-child > div:only-child
 hotmovs.com##.partners-wrap
 hotmovs.com##.video-page__related + section
 ||hotmovs.com/sw.js$script,1p
-
 ! https://github.com/uBlockOrigin/uAssets/issues/959
 vjav.com##+js(acis, document.getElementById, pop)
 vjav.com##+js(aeld, , window.open)
@@ -2541,6 +2550,45 @@ vjav.com##.footer-banners
 vjav.com##.video-page__content > .right
 vjav.com##.afs_ads + span[class] > div[style=""]:only-child > div:only-child
 ||loadnot.online^
+! pornq .com popups
+pornq.com##+js(aeld, , window.open)
+pornq.com##.thumb--adv
+||pornq.com/sw.js$script,1p
+||bitupsss.com^$all
+! pornj .com popups
+pornj.com##+js(aopr, open)
+pornj.com##.vda-item
+||viiigle.com^$3p
+! pornl.com
+pornl.com##+js(aeld, , pop)
+pornl.com##+js(aopr, open)
+pornl.com##.adv-list--footer
+pornl.com##div.vda-item.thumbnail-next.thumbnail-x2
+! porn555 .com popups
+porn555.com##+js(aeld, , window.open)
+! see .xxx
+||see.xxx/sw.js$script,1p
+||see.xxx/nr.js
+see.xxx##+js(aeld, , pop)
+see.xxx##div.vda-x2.vda-item
+! https://github.com/easylist/easylist/pull/6720
+||porntop.com/magic/$script,1p
+porntop.com##.right
+||sss.xxx/sw.js$script,1p
+tuberel.com##+js(aeld, , open)
+||tuberel.com/*.php
+||puporn.com/sw.js$script,1p
+! https://github.com/easylist/easylist/issues/7918
+thegay.com##+js(acis, adver)
+thegay.com##.videoplayer-wrapper > span[class] > div[style]:only-child
+thegay.com##.wrapper + section
+thegay.com##.underplayer__info > div:first-child:has(> div > div#und_ban)
+! privatehomeclips.com
+privatehomeclips.com##.footer-banners
+privatehomeclips.com##.jwplayer > .afs_ads + span[class]
+privatehomeclips.com##.partners-wrap
+privatehomeclips.com##.video-page__content > .right
+privatehomeclips.com##.video-page__item
 
 ! https://github.com/uBlockOrigin/uAssets/issues/961
 ! https://github.com/uBlockOrigin/uAssets/issues/962
@@ -19713,20 +19761,6 @@ dr-farfar.com##+js(nowoif)
 dr-farfar.com##.essb-sharebooster
 dr-farfar.com##.essb-sharebooster-overlay
 
-! pornq .com popups
-pornq.com##+js(aeld, , window.open)
-pornq.com##.thumb--adv
-||pornq.com/sw.js$script,1p
-||bitupsss.com^$all
-
-! porn555 .com popups
-porn555.com##+js(aeld, , window.open)
-
-! see .xxx
-||see.xxx/sw.js$script,1p
-see.xxx##+js(aeld, , pop)
-see.xxx##div.vda-x2.vda-item
-
 ! https://forums.lanik.us/viewtopic.php?p=153496#p153496
 ok.xxx,pornhat.*##+js(acis, document.querySelectorAll, popMagic)
 pornhat.*##+js(aopr, document.dispatchEvent)
@@ -20720,7 +20754,7 @@ comicxxx.eu##^meta[http-equiv="refresh"]
 blowjobgif.net##+js(aopr, ExoDetector)
 favefreeporn.com,onlygayvideo.com,peachytube.com,stepsisterfuck.me##+js(aopr, ExoLoader.addZone)
 decorativemodels.com,erowall.com,freyalist.com,eroticacamp.com,ghostbabes.com,guruofporn.com,infinityerotic.com,jesseporn.xyz,kendralist.com,vipergirls.to,lizardporn.com,wantedbabes.com,bustybloom.com,exgirlfriendmarket.com,nakedneighbour.com##+js(aopr, loadTool)
-comicxxx.eu,mybestxtube.com,onlyhgames.com,pornobengala.com,pornl.com,pornicom.com,xecce.com,teensporn.tv,pornlift.com,reddflix.com,superbgays.com##+js(aopr, open)
+comicxxx.eu,mybestxtube.com,onlyhgames.com,pornobengala.com,pornicom.com,xecce.com,teensporn.tv,pornlift.com,reddflix.com,superbgays.com##+js(aopr, open)
 classicpornbest.com,desihoes.com,indianpornvideo.org,porn18sex.com,pervclips.com,slaughtergays.com,sexiestpicture.com##+js(aopr, decodeURI)
 classicpornbest.com##+js(aeld, popstate)
 classicpornbest.com##+js(aopr, localStorage)
@@ -20744,8 +20778,6 @@ pornforrelax.com##+js(aopr, adver.abFucker.serve)
 pornforrelax.com##+js(aeld, , _blank)
 fatwhitebutt.com,smplace.com,slaughtergays.com,sexiestpicture.com,sassytube.com,vipergirls.to,xh.video##+js(nowoif)
 sokobj.com,smplace.com##+js(aopw, _pop)
-tuberel.com##+js(aeld, , open)
-pornl.com##+js(aeld, , pop)
 fatwhitebutt.com,pictoa.com##+js(acis, document.querySelectorAll, popMagic)
 fatwhitebutt.com##+js(aeld, , _blank)
 freepornrocks.com##+js(aeld, , open)
@@ -20800,8 +20832,6 @@ bobs-tube.com##.player-related-videos
 bobs-tube.com##.adv
 porno-zhena.com##.list-fakers
 porno-zhena.com##.right-fakers
-pornl.com##.adv-list--footer
-pornl.com##div.vda-item.thumbnail-next.thumbnail-x2
 pornicom.com##.thumb_spots
 pornforrelax.com##.vda-item
 porn613.net##[src="about:blank"]
@@ -21478,9 +21508,6 @@ pstream.net##head:has(style#videojs-css) + body > *:not(.video-js)
 @@||pstream.net^$xhr,1p
 *$script,1p,redirect-rule=noopjs,domain=pstream.net
 ||lologhfd.com^$all
-
-! pornj .com popups
-pornj.com##+js(aopr, open)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/7163
 suanoticia.online##+js(nano-sib)
