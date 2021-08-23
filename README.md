@@ -24,4 +24,6 @@ If the ABP-compatible fixes are for high-traffic sites, they should be added to 
 
 Circumventing a paywall is considered [out of scope](https://github.com/uBlockOrigin/uAssets/issues/2317#issuecomment-392009540). GDPR messages will not be addressed in [uAssets](https://github.com/uBlockOrigin/uAssets/issues/4123#issuecomment-439232886).
 
+Support issues and questions are handled at [/r/uBlockOrigin](https://old.reddit.com/r/uBlockOrigin/).
+
 Using a similarly purposed blocker with uBO can result in site breakage or any undefined result, see https://twitter.com/gorhill/status/1033706103782170625.
