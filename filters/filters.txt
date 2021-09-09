@@ -1593,6 +1593,8 @@ msn.com##.stripecontainer:has(.adslabel)
 ! https://www.reddit.com/r/uBlockOrigin/comments/pkdd5k/
 msn.com##.intra-article-ad
 msn.com##.native-ad
+! https://www.msn.com/ja-jp/news placeholder
+msn.com##div[class^="displayAds"]:upward(1)
 
 ! https://github.com/reek/anti-adblock-killer/issues/3492
 newser.com##+js(set, document.querySelectorAll, noopFunc)
@@ -1641,13 +1643,14 @@ jav.guru##.alignnone
 
 ! https://github.com/uBlockOrigin/uAssets/issues/605
 ! https://forums.lanik.us/viewtopic.php?f=62&t=38997
-! https://github.com/jspenguin2017/uBlockProtector/issues/781
 ! https://github.com/uBlockOrigin/uAssets/issues/2084#issuecomment-385204003
 ! https://github.com/uBlockOrigin/uAssets/issues/2333
 ! https://github.com/uBlockOrigin/uAssets/issues/3764
 9anime.*##+js(acis, window.open, Cookie)
 9anime.*##+js(nosiif, break)
 9anime.*##+js(nowoif)
+9anime.*##+js(set, console.clear, noopFunc)
+9anime.*##+js(nostif, h["Fe"])
 9anime.*##+js(aopr, AaDetector)
 9anime.*##section.sda
 @@||9anime.*^$ghide
@@ -8224,6 +8227,7 @@ yupptv.in##+js(aeld, load, onload)
 @@||crazyhd.com^$ghide
 @@||chd4.com^$ghide
 ! https://github.com/bogachenko/fuckfuckadblock/issues/223
+chd4.com##+js(aopw, checkAdBlocker)
 ||adblockanalytics.com^$xhr,redirect-rule=noop.txt,domain=chd4.com
 
 ! https://github.com/NanoMeow/QuickReports/issues/63
@@ -15160,14 +15164,12 @@ nosey.com##.unreel-player-overlay
 
 ! https://github.com/uBlockOrigin/uAssets/issues/5937
 ! https://github.com/uBlockOrigin/uAssets/issues/5938
-tusfiles.com,tusfiles.net##+js(aopw, Fingerprint2)
+tusfiles.com##+js(aopw, Fingerprint2)
 tusfiles.com##+js(nowoif)
-tusfiles.com##+js(acis, Math, zfgloaded)
+tusfiles.com##+js(acis, Math, break;case $.)
 ||tusfiles.com/sw.js$script,1p
-gdtot.com##+js(acis, String.fromCharCode, /btoa|break/)
-!#if env_chromium
-*$xhr,3p,domain=gdtot.com
-!#endif
+gdtot.*##+js(acis, Math, break;case $.)
+gdtot.*##+js(acis, document.createElement, 'script')
 
 ! https://github.com/NanoMeow/QuickReports/issues/1481
 @@||lapresse.ca^$ghide
