@@ -96,19 +96,23 @@ google.*##.ads-ad
 google.*###sqh
 
 ! https://github.com/uBlockOrigin/uAssets/issues/3482
+!#if !env_mobile
 google.*##a[href*="/aclk?"][data-al]:upward(2)
+!#endif
 
 ! https://github.com/NanoMeow/QuickReports/issues/1375#issuecomment-503802350
 www.google.*##div.ellip > span:has-text(/^Ads?$/):upward(2)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/9597
-www.google.*##[href^="/aclk"][href$="adurl="]:not(:scope > :upward([class^="sh-sr__shop-result-group"])):upward(3)
+www.google.*##*:not([class^="sh-sr__shop-result-group"]) [href^="/aclk"][href$="adurl="]:upward(3)
+! remove "!" once $shide filters by #9642 and #9694 are removed
+!www.google.*##.sh-sr__shop-result-group .sh-sp__btn:matches-css(font-size: 13px):upward(.sh-sr__shop-result-group):has(a[href^="/aclk"][href$="adurl="])
 www.google.*##[href^="https://www.googleadservices.com/pagead/aclk?"][href$="adurl="]:upward(3)
 ! `$shide` replacement
-! www.google.*##:not(:matches-path(/^/search\?q=.*?tbm=shop|^/shopping/)) [href^="/aclk"][href$="adurl="]:not(>  *:upward([class^="sh-sr__shop-result-group"])):upward(3)
+! www.google.*##:not(:matches-path(/^/search\?.*tbm=shop|^/shopping/)) *:not([class^="sh-sr__shop-result-group"]) [href^="/aclk"][href$="adurl="]:upward(3)
 
 ! https://www.reddit.com/r/uBlockOrigin/comments/p94hv9/google_maps_booking_dot_com_ad/
-www.google.*##a[href^="/aclk"][href*="placesheetAdFix="][href*="adurl="]:upward(1)
+www.google.com##div[data-section-id] > a[href^="/aclk"][href*="placesheetAdFix="][href*="adurl="]:upward(1)
 
 ! http://www.wilderssecurity.com/threads/ublock-a-lean-and-fast-blocker.365273/page-25#post-2461804
 ! Specific cosmetic filters for Youtube home page
@@ -2838,6 +2842,9 @@ arkadium.com##+js(nano-sib)
 ##[class^="DisplayAd"]
 ##.ark-ad-message
 ##div[class*="displayAdRight"]
+! https://www.reddit.com/r/uBlockOrigin/comments/pmutke/
+arkadium.com#@#display-ad-component
+||yellowblue.io^
 
 ! https://www.reddit.com/r/uBlockOrigin/comments/7kg792/need_help_blocking_this_persistent_ad/
 ||nwanime.tv^$csp=script-src 'self' 'unsafe-inline' 'unsafe-eval' data: *.googleapis.com *.scorecardresearch.com *.disqus.com *.google-analytics.com
@@ -4857,6 +4864,7 @@ uploadbaz.*##+js(aopr, AaDetector)
 /glx_*.js$script
 ||beigeiros.pw^
 *$script,3p,denyallow=bootstrapcdn.com|cloudflare.com|cloudflare.net|disqus.com|fastly.net|fastlylb.net|google.com|googleapis.com|gstatic.com|hwcdn.net|jquery.com|jsdelivr.net|jwpcdn.com|recaptcha.net,domain=desiupload.*
+||d3al52d8cojds7.cloudfront.net^
 
 ! https://github.com/uBlockOrigin/uAssets/issues/1839
 vermangasporno.com##+js(aeld, , _0x)
@@ -4928,8 +4936,8 @@ megaup.net##+js(acis, Math, break;case)
 megaup.net##+js(acis, I833)
 !megaup.net##[id^="AdskeeperComposite"]:style(transform:translate(-999999px,0))
 !megaup.net##.mgbox:style(transform:translate(-999999px,0))
-!megaup.net##.metaRedirectWrapperBottomAds:style(transform:translate(-999999px,0))
-megaup.net##.metaRedirectWrapperBottomAds:style(pointer-events: none !important;opacity: 0 !important)
+!megaup.net##.metaRedirectWrapperBottomAds:style(pointer-events: none !important;opacity: 0 !important)
+megaup.net##[id*="ScriptRootC"]:upward(1):style(position:absolute !important;left:-99999px !important)
 @@||megaup.net^$ghide
 @@||jsc.adskeeper.co.uk/*/megaup.net$script,domain=megaup.net
 @@||servicer.adskeeper.co.uk^$script,domain=megaup.net
@@ -9115,7 +9123,7 @@ bisceglielive.it##.mkt-728x90
 ! https://github.com/NanoMeow/QuickReports/issues/4730
 ymovies.*##+js(acis, Math, break;case $.)
 ymovies.*###banner_publi
-*$script,3p,denyallow=cloudflare.com|google.com|facebook.net|fbcdn.net,domain=ymovies.*
+!*$script,3p,denyallow=cloudflare.com|google.com|facebook.net|fbcdn.net,domain=ymovies.*
 
 ! https://github.com/uBlockOrigin/uAssets/issues/3853
 @@||townmoneysaver.com^$ghide
@@ -13871,7 +13879,8 @@ streameast.live##[id^="Advertisement"]
 sportlive.*##+js(ra, onclick)
 hdstream365.com##+js(nowoif)
 streameast.live##div[class]:has-text(adblock)
-@@*$script,domain=streameast.live
+@@||seast.xyz^$script,domain=streameast.live
+streameast.live##body > div > div > div:has-text(adblock)
 ||streameast.live/cdn-cgi/bm/cv/$script,important
 livesport4u.com,pcast.pw,sportlive.site###localpp
 pcast.pw###ads
@@ -15292,7 +15301,6 @@ news-tech.xyz##+js(aeld, load, 2000)
 
 ! https://github.com/easylist/easylist/issues/3796
 @@||fwmrm.net/ad/*$xhr,domain=uktvplay.uktv.co.uk
-uktvplay.uktv.co.uk##.vjs-text-track-display
 
 ! https://github.com/NanoMeow/QuickReports/issues/1529
 techhx.com##+js(set, google_jobrunner, true)
@@ -18869,8 +18877,9 @@ call2friends.com#@#.adWrapper
 adslinkfly.online##+js(aopr, app_vars.force_disable_adblock)
 adslinkfly.online##+js(aopr, document.write)
 adslinkfly.online##+js(set, blurred, false)
-adslinkfly.online##+js(acis, document.addEventListener, google_ad_client)
+adslinkfly.online##+js(acis, document.addEventListener, nextFunction)
 adslinkfly.online##.banner
+go.adslinkfly.online##.short
 informaxonline.com##+js(nano-sib)
 
 ! https://github.com/NanoMeow/QuickReports/issues/2676
@@ -21945,6 +21954,7 @@ techdracula.com##.adsbygoogle
 ! https://github.com/easylist/easylist/issues/6471
 /^https?:\/\/js.*\/t\/[0-9]{3}\/[0-9]{3}\/[a-z0-9]{7,8}\.js/$script,3p,badfilter
 /\/t\/[0-9]{3}\/[0-9]{3}\/a[0-9]{4,9}\.js$/$script
+/^https?:\/\/[0-9a-zA-Z]{10,16}\.cloudfront\.net\/\?[a-z]{3,7}=[0-9]{4,8}$/$script,3p
 
 ! As of 2020-04-09, new filters will be added to year-based sublists
 
