@@ -22,7 +22,9 @@ will always be fixed in uAssets even if they don't require extended syntax.
 
 If the ABP-compatible fixes are for high-traffic sites, they should be added to uBO filters until they are added to EasyList.
 
-Circumventing a paywall is considered [out of scope](https://github.com/uBlockOrigin/uAssets/issues/2317#issuecomment-392009540). GDPR messages will not be addressed in [uAssets](https://github.com/uBlockOrigin/uAssets/issues/4123#issuecomment-439232886).
+Circumventing a paywall is considered [out of scope](https://github.com/uBlockOrigin/uAssets/issues/2317#issuecomment-392009540). GDPR messages will not be addressed in [uAssets](https://github.com/uBlockOrigin/uAssets/issues/4123#issuecomment-439232886). 
+
+Sites found to be porn-farms or part of porn-farms will not be addressed in uAssets.
 
 Support issues and questions are handled at [/r/uBlockOrigin](https://old.reddit.com/r/uBlockOrigin/).
 
