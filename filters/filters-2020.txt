@@ -21,7 +21,8 @@
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/53288
 azm.to##+js(aopr, absda)
-*$script,3p,denyallow=jquery.com|hwcdn.net|plyr.io|fastly.net|jwpcdn.com|googleapis.com|zencdn.net,domain=azm.to
+*$script,3p,denyallow=jquery.com|hwcdn.net|plyr.io|fastly.net|jwpcdn.com|googleapis.com|zencdn.net|hcaptcha.com,domain=azm.to
+unlimitedfiles.xyz##+js(aopr, BetterJsPop)
 
 ! https://github.com/NanoMeow/QuickReports/issues/3528
 mysflink.blogspot.com##+js(set, safelink.adblock, false)
@@ -47,6 +48,7 @@ l2db.info##+js(aopr, google_jobrunner)
 l2db.info##+js(nowoif)
 ||l2db.info/uploads/banners/$image
 l2db.info##.branding
+l2db.info##[href^="https://overworld.pro/"]
 
 ! https://github.com/NanoMeow/QuickReports/issues/3537
 bestbitcoinfaucets.net##+js(set, show_ads_gr8_lite, true)
@@ -707,7 +709,7 @@ pornone.com##.vjs-paused > .warp
 sythe.org##+js(acis, $, adblocker)
 sythe.org##+js(acis, document.getElementsByTagName, adblocker)
 /?referral=sythe$all
-||sythe.org/*.php$~css,all
+||sythe.org/*.php$3p
 /sytheb$all
 /^https:\/\/([a-z]+\.)?sythe\.org\/[\w\W]{30,}/$image
 *$image,redirect-rule=1x1.gif,domain=sythe.org
@@ -722,10 +724,6 @@ sythe.org###topadplaceholder
 
 ! https://www.reddit.com/r/uBlockOrigin/comments/gbsl28
 ||pagead2.googlesyndication.com/pagead/show_ads.js$script,domain=websimhockey.com,redirect=noopjs
-
-! https://github.com/NanoMeow/QuickReports/issues/4130
-babupc.com##+js(set, awm, true)
-babupc.com##+js(aeld, , _0x)
 
 ! https://forums.lanik.us/viewtopic.php?f=90&t=44637
 wg-gesucht.de##+js(acis, $, detectAdBlocker)
@@ -889,6 +887,7 @@ jardiner-malin.fr##+js(set, wIsAdBlocked, false)
 
 ! ricettafitness.com popads
 ricettafitness.com##+js(acis, String.fromCharCode, 'shift')
+ricettafitness.com##+js(nosiif, visibility, 1000)
 
 ! https://github.com/NanoMeow/QuickReports/issues/3786
 skidrowcodex.net##^script:has-text(break;case $.)
@@ -4011,8 +4010,9 @@ cartoonbrew.com##.cb-ad
 ! https://github.com/AdguardTeam/AdguardFilters/issues/64356
 zap.in###verifyAd,#flexContentAdFrame:style(position:absolute !important; height:500px !important; display:block !important; left:-30000px !important)
 
-! https://github.com/NanoMeow/QuickReports/issues/4737
+! https://github.com/uBlockOrigin/uAssets/issues/10155
 purposegames.com##+js(nostif, googletag, 5000)
+*$script,redirect-rule=noopjs,domain=purposegames.com
 purposegames.com##.adlabel
 
 ##[href^="//cadsecs.com/"]
@@ -4037,6 +4037,7 @@ fullmatchtv.com##.belowpost
 
 ! https://github.com/uBlockOrigin/uAssets/issues/7944
 highporn.net##+js(acis, document.querySelectorAll, popMagic)
+highporn.net##+js(acis, addEventListener, -0x)
 *$script,3p,denyallow=chatango.com|cloudflare.com|cloudflare.net|disqus.com|disquscdn.com|facebook.net|fastly.net|fastlylb.net|fbcdn.net|google.com|googleapis.com|gstatic.com|hcaptcha.com|hwcdn.net|jquery.com|jsdelivr.net|jwpcdn.com|recaptcha.net|wp.com,domain=highporn.net
 highporn.net##.in-video-1
 highporn.net##.fel-playclose
@@ -4337,6 +4338,7 @@ nurgsm.com##+js(nostif, ai_adb)
 ! ads, popups https://github.com/uBlockOrigin/uAssets/commit/f4c10dc21904704b2f9de72c0ed95a4a62cf6667#commitcomment-43135442
 ||sextop.net/ads/
 streamabc.xyz##+js(nowoif)
+streamabc.xyz##[target="_blank"][style]:upward(1)
 
 ! https://forums.lanik.us/viewtopic.php?p=156945#p156945
 newsiqra.com##+js(nosiif, visibility, 1000)
@@ -4604,6 +4606,8 @@ elitestream.to##+js(acis, spr)
 elitetorrent.*##+js(aopw, adcashMacros)
 megadictos.org##.DisplayVideo > [href][target="_blank"]
 *$script,3p,denyallow=cloudflare.com|cloudflare.net|disqus.com|disquscdn.com|fastlylb.net|google.com|googleapis.com|gstatic.com,domain=elitestream.to|elitetorrent.*
+uqload.com##^script:has-text(break;case $.)
+uqload.com##+js(acis, JSON.parse, break;case $.)
 uqload.com##+js(acis, Math, break;case $.)
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/66077
@@ -6493,7 +6497,6 @@ gatcha.org##+js(nostif, css_class.show)
 zilinak.sk##+js(nostif, offsetHeight)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/8413
-@@||loadout.tf^$ghide
 loadout.tf##.loadout-application-advertisement-header
 loadout.tf##.adsbygoogle:upward(2):style(left-3000px !important;position:absolute !important)
 
