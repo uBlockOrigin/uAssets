@@ -5749,7 +5749,7 @@ mangaku.*##+js(acis, $, onclick)
 *.gif$domain=mangaku.*,image
 
 ! https://forums.lanik.us/viewtopic.php?f=62&t=29217
-mac2sell.net##+js(nostif, adblock, 200)
+mac2sell.net##+js(no-fetch-if, method:HEAD)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/2267
 xberuang.*##+js(set, safelink.adblock, false)
@@ -13704,21 +13704,22 @@ hqcelebcorner.net##+js(aopw, _pop)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/5527
 ! https://github.com/uBlockOrigin/uAssets/issues/9710
-streameast.live##+js(acis, $, adblocker)
-streameast.live##+js(aeld, /^/, 0x)
-streameast.live##+js(aeld, DOMContentLoaded, showModal)
-streameast.live##+js(aopr, popjs.init)
-streameast.live##+js(nosiif, visibility, 1000)
-streameast.live##+js(nowebrtc)
-@@||streameast.live^$ghide
-@@||streameast.live^$script,1p
-*$xhr,redirect-rule=nooptext,domain=streameast.live
-streameast.live##[id^="Advertisement"]
+streameast.*##+js(acis, $, adblocker)
+streameast.*##+js(aeld, /^/, 0x)
+streameast.*##+js(aeld, DOMContentLoaded, showModal)
+streameast.*##+js(aopr, popjs.init)
+streameast.*##+js(nosiif, visibility, 1000)
+streameast.*##+js(nowebrtc)
+@@||streameast.*$ghide
+@@||streameast.*$script,1p
+*$xhr,redirect-rule=nooptext,domain=streameast.*
+streameast.*##[id^="Advertisement"]
 sportlive.*##+js(ra, onclick)
 hdstream365.com##+js(nowoif)
-streameast.live##div[class^="qddd"],div[class^="xddd"]
-*$image,redirect-rule=32x32.png,domain=streameast.live
-@@||club^$script,domain=streameast.live
+streameast.*##div[class*="ddd"]
+*$image,redirect-rule=32x32.png,domain=streameast.*
+@@||club^$script,domain=streameast.*
+@@||space^$script,domain=streameast.*
 livesport4u.com,pcast.pw,sportlive.site###localpp
 pcast.pw###ads
 
@@ -15128,6 +15129,7 @@ egy.best,egybest.*##+js(acis, Math, XMLHttpRequest)
 egy.best,egybest.*,vidstream.*,~vidstream.pro##+js(nowoif, !api?call=, 10, obj)
 ! Workaround for https://github.com/uBlockOrigin/uAssets/issues/8319
 egy.best,egybest.*##+js(nostif, WinMsgHtml)
+||psaiceex.net^
 
 ! https://github.com/NanoMeow/QuickReports/issues/1538
 watchgameofthrones.*##+js(aopr, AaDetector)
@@ -21640,7 +21642,7 @@ techdracula.com##.adsbygoogle
 
 ! thememazing .com broken page + other anti adb
 ! fix mdpDeBlocker + some other anti-adb
-||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$script,xhr,redirect-rule=googlesyndication_adsbygoogle.js:10
+||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$script,xhr,redirect-rule=googlesyndication_adsbygoogle.js:5
 ||googleads.g.doubleclick.net/$xhr,redirect-rule=nooptext
 
 ! regex
