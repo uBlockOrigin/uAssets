@@ -628,6 +628,9 @@ rangerboard.com##+js(acis, $, btoa)
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/54274
 beermoneyforum.com##+js(acis, $, initAdblockDetection)
+beermoneyforum.com##+js(nostif, samOverlay)
+beermoneyforum.com##.is-active.overlay-container
+beermoneyforum.com##.samBackground:style(background-image:none !important)
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/54703
 bg-gledai.co##+js(nosiif, visibility, 1000)
@@ -1525,7 +1528,6 @@ animesanka.*##^script:has-text(h=decodeURIComponent)
 @@||animesanka.*^$ghide
 *$image,redirect-rule=1x1.gif,domain=animesanka.*
 animesanka.*##[id*="-ads-"]
-||akcrdstmn.xyz^
 ||ugahutoa.com^
 
 ! https://github.com/NanoMeow/QuickReports/issues/4030
@@ -1968,10 +1970,11 @@ text2voice.org##+js(nosiif, visibility, 1000)
 vidbem.com##+js(acis, String.fromCharCode, /btoa|break/)
 vidbem.com###adbd
 
-! https://github.com/uBlockOrigin/uAssets/issues/7590
-fulltube.*##+js(acis, Math, break;case $.)
-fulltube.*##.mvic-btn
-*$script,3p,denyallow=google.com|googleapis.com|gstatic.com|tawk.to|twitter.com|unpkg.com,domain=fulltube.*
+! https://github.com/uBlockOrigin/uAssets/pull/10271
+fullcinema.*,fullreal.*##+js(acis, JSON.parse, break;case $.)
+fullcinema.*,fullreal.*##.mobile-btn
+fullcinema.*,fullreal.*##.mvic-btn
+fullcinema.*,fullreal.*##div.content-kuss
 
 ! https://github.com/uBlockOrigin/uAssets/issues/7591
 bondibeachau.com##+js(nano-sib)
@@ -2975,8 +2978,10 @@ brawlhalla.fr##+js(nostif, check)
 ! vidshar .tv popups
 vidshar.tv##+js(acis, Math, XMLHttpRequest)
 
-! https://github.com/NanoAdblocker/NanoFilters/issues/547
-informaxonline.com##+js(nostif, nextFunction)
+! https://github.com/uBlockOrigin/uAssets/issues/10265
+@@||informaxonline.com^$ghide
+informaxonline.com##.idblog-topbanner-aftermenu
+informaxonline.com##.adsbygoogle
 
 ! https://github.com/NanoMeow/QuickReports/issues/4500
 familyrenders.com##+js(aopr, adBlockDetected)
@@ -3478,8 +3483,9 @@ bikemania.org##[id^="blocker-modal-"]
 apksvip.com##+js(aopr, app_vars.force_disable_adblock)
 apksvip.com##+js(set, blurred, false)
 
-! https://github.com/NanoMeow/QuickReports/issues/4646
+! https://github.com/uBlockOrigin/uAssets/issues/10280
 linuxsecurity.com##+js(aeld, load, nextFunction)
+linuxsecurity.com##.ad_prev_main
 
 ! https://github.com/NanoMeow/QuickReports/issues/4644
 loader.to##+js(aopr, open)
@@ -5022,7 +5028,8 @@ unityassets4free.com##img[src^="https://unityassets4free.com/wp-content/uploads/
 ! vlive.tv pre-roll ads
 vlive.tv##+js(json-prune, meta.advertise)
 
-! https://www.reddit.com/r/uBlockOrigin/comments/jteijh/nsfw_adblock_detected_please_disable_your/
+! https://github.com/uBlockOrigin/uAssets/issues/10281
+new.lewd.ninja##+js(set, adnPopConfig, trueFunc)
 new.lewd.ninja##+js(aeld, error)
 *$xhr,redirect-rule=nooptext,domain=new.lewd.ninja
 new.lewd.ninja##div[class]:matches-css(overflow:hidden):matches-css(text-align: center)
