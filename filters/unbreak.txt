@@ -3899,9 +3899,6 @@ demae-can.com##+js(ra, data-trm-action|data-trm-category|data-trm-label, .trm_ev
 ! https://github.com/uBlockOrigin/uAssets/issues/9451
 @@||pluralsight.com/analytics/analytics-facade$script,1p
 
-! https://github.com/uBlockOrigin/uAssets/issues/9458
-@@||google-analytics.com/ga.js$script,redirect-rule,domain=daj.jp
-
 ! unbreak rightside
 gameranbu.jp#@#.side_ad
 
@@ -3916,9 +3913,6 @@ gameranbu.jp#@#.side_ad
 @@||pubads.g.doubleclick.net/ssai/event/*/streams$xmlhttprequest,domain=etonline.com
 @@||tags.tiqcdn.com/utag/cbsi/etonlinesite/*/utag.js$script,domain=etonline.com
 @@||media.amlg.io^$image,domain=etonline.com
-
-! https://github.com/uBlockOrigin/uAssets/issues/9506
-@@||google-analytics.com/analytics.js$script,redirect-rule,domain=hatenacorp.jp|okwave.jp|viviennewestwood-tokyo.com
 
 ! https://github.com/easylist/easylist/pull/7905
 @@||cloudfront.net/ad-navi/$css,image,domain=kinro.ntv.co.jp
@@ -3992,10 +3986,6 @@ thefamouspeople.com##.tfp_master_left_ad
 thefamouspeople.com###left_sticky_ad
 thefamouspeople.com###content10 > .topmenu-cls
 
-! https://www.reddit.com/r/uBlockOrigin/comments/osht47/prisjaktnu_is_a_blank_page/
-! to be removed once 1.37.2 reaches stores
-@@||googletagmanager.com/gtm.js$script,redirect-rule,domain=prisjakt.nu|hintaopas.fi|ledenicheur.fr|prisjagt.dk|prisjakt.no|pricespy.co.nz|pricespy.co.uk
-
 ! https://github.com/uBlockOrigin/uAssets/issues/9659
 adyou.me##button.flleft.btn-lg.btn-warning.btn.skip:style(display:block !important)
 adyou.me#@#+js(addEventListener-defuser, /^(?:click|mousedown)$/, bypassEventsInProxies)
@@ -4055,9 +4045,6 @@ coolmathgames.com##+js(set, network_user_id, '')
 
 ! https://github.com/uBlockOrigin/uAssets/issues/9828
 @@||dez.ro/media/images/ads/$image,1p
-
-! https://github.com/AdguardTeam/AdguardFilters/issues/92359
-@@||google-analytics.com/analytics.js$script,redirect-rule,domain=dengekionline.com
 
 ! https://forums.lanik.us/viewtopic.php?f=64&t=46688
 ||ads.pinterest.com^$badfilter
@@ -4186,7 +4173,7 @@ xunta.gal#@##anuncio
 
 ! https://www.reddit.com/r/uBlockOrigin/comments/qcw76h/ublocks_blocks_then_page_stops_loading/
 myair2.resmed.com##+js(no-xhr-if, cloudflare.com/cdn-cgi/trace)
-||cloudflare.com/cdn-cgi/trace$3p,xhr,redirect-rule=noop.txt
+||cloudflare.com/cdn-cgi/trace$3p,xhr,redirect-rule=noop.txt,domain=~funimation.com
 
 ! https://github.com/uBlockOrigin/uAssets/issues/10285
 @@||d2wy8f7a9ursnm.cloudfront.net/*/bugsnag.min.js$script,domain=crust.com.au
@@ -4249,3 +4236,41 @@ saitama-np.co.jp#@#[id^="div-gpt-ad"]:style(width:1px!important;height:1px!impor
 ! fix mixpanel 1p issues (Peter Lowes)
 ! https://github.com/easylist/easylist/issues/9920
 ||mixpanel.com^$badfilter
+
+! https://github.com/uBlockOrigin/uAssets/issues/10583
+@@||givingassistant.org/Advertisers/$image,xhr,1p
+@@||cdn.segment.com^$script,xhr,domain=givingassistant.org
+
+! https://github.com/uBlockOrigin/uAssets/issues/10594
+@@||cdn.questionpro.com^$css
+
+! https://github.com/uBlockOrigin/uAssets/issues/10582
+@@||rdstation.com.br^*api/$xhr
+
+! Reported internally, this unbreaks:
+! https://www.shockwave.com/gamelanding/dailydiff.jsp
+@@||googletagmanager.com/gtm.js$script,domain=www.shockwave.com
+
+! https://github.com/uBlockOrigin/uAssets/issues/10615
+||natureetdecouvertes.com^$1p,image,redirect-rule=2x2.png
+
+! https://github.com/uBlockOrigin/uAssets/issues/10629
+!#if env_mobile
+||cxense.com/cx.js$script,redirect-rule=noop.js,domain=itmedia.co.jp
+!#endif
+
+! https://github.com/uBlockOrigin/uAssets/issues/10643
+ilbianconero.com##.no-scroll:style(overflow:auto!important)
+
+! https://www.reddit.com/r/uBlockOrigin/comments/r4z0zj/how_to_unblock_elements_tweets_blocked_by_jsnofloc/
+@@||googletagmanager.com/gtm.js$script,domain=insideevs.com
+
+! fix amateur8.com​,lesbian8.com, etc. videos
+@@/s/s/js/m/pr-before.js?b=$script,1p
+
+! https://github.com/uBlockOrigin/uAssets/issues/10694
+@@||googletagmanager.com/gtm.js$script,domain=suspilne.media
+
+! https://github.com/easylist/easylist/pull/9904
+@@||clj.valuecommerce.com/*/vcushion.min.js
+
