@@ -4951,7 +4951,12 @@ streamingcommunity.*##^script:has-text(break;case $.)
 streamingcommunity.*##+js(acis, JSON.parse, break;case $.)
 @@||scws.xyz^$xhr,domain=streamingcommunity.*
 @@||streamingcommunity.*/$xhr,1p
+!#if env_firefox
 @@||googletagmanager.com/gtag/js$xhr,domain=streamingcommunity.*
+!#endif
+!#if !env_firefox
+||googletagmanager.com^$xhr,domain=streamingcommunity.*,redirect-rule=noop.js
+!#endif
 
 ! tvmd .info ads
 ##.fints-block__row
