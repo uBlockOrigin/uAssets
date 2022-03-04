@@ -25,14 +25,22 @@ If the ABP-compatible fixes are for high-traffic sites, they should be added to 
 #### Paywall
 Circumventing a paywall is considered [out of scope](https://github.com/uBlockOrigin/uAssets/issues/2317#issuecomment-392009540). 
 
+
+
 #### GDPR
 GDPR modals will not be addressed in [uAssets](https://github.com/uBlockOrigin/uAssets/issues/4123#issuecomment-439232886). 
+
+
 
 #### Porn-farms
 Sites found to be porn-farms or part of porn-farms will not be addressed in uAssets.
 
+
+
 #### Support forum
 Support issues and questions are handled at [/r/uBlockOrigin](https://old.reddit.com/r/uBlockOrigin/).
+
+
 
 #### Similarly purposed blocker
 Using a similarly purposed blocker with uBO can result in site breakage or any undefined result, see https://twitter.com/gorhill/status/1033706103782170625.
