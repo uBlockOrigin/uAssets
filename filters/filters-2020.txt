@@ -5093,12 +5093,6 @@ passgen.icu##div[style*="z-index:99999"] > div[style*="width:300px"]
 *$frame,denyallow=google.com,domain=passgen.icu
 *$script,3p,denyallow=google.com|gstatic.com|hcaptcha.com|jsdelivr.net|recaptcha.net|cloudflare.com,domain=genpas.icu
 
-! https://github.com/AdguardTeam/AdguardFilters/issues/68019
-yeptube.com##+js(nowoif)
-yeptube.com##.puFloatLine
-yeptube.com##.spots[style$="height: 257px;"]
-yeptube.com##.thr-rcol
-
 ! https://github.com/AdguardTeam/AdguardFilters/issues/68177
 sssam.com##+js(set, ads, true)
 
@@ -5293,11 +5287,7 @@ rapbhe.com##+js(acis, String.fromCharCode, atob)
 ! https://github.com/uBlockOrigin/uAssets/pull/8294
 niusdiario.es##+js(aeld, load, Adblock)
 
-! iceporn.com popup
-iceporn.com##+js(nowoif)
-iceporn.com##.puFloatLine
-iceporn.com###abmessage
-iceporn.com##.drt-spot-box
+
 
 ! https://www.reddit.com/r/uBlockOrigin/comments/k3v0z9/adblocker_detected_on_multicseu/
 multics.eu##+js(acis, $, .test)
@@ -5849,13 +5839,56 @@ jerkoffer.com##iframe[src^="//a.o333o.com"]:upward(li.thumb)
 ! https://github.com/AdguardTeam/AdguardFilters/issues/70460
 sshconect.com.br##+js(acis, addEventListener, nextFunction)
 
-! hd21.com popup, ads, PH
+! hd21 group sites
+! hd21.com/net
+hd21.*##+js(nowoif)
 hd21.com###spot_livecams_menu:upward(.holder)
 hd21.com##.ID-bottom-banner
 hd21.com##.adv_middle
-hd21.com##.aside_video
+hd21.*##.aside_video
 hd21.com##.drt-sponsor-block
-||hd21.com/templates/base_master/js/jquery.shows.min.js
+||hd21.*/templates/base_master/js/jquery.shows.min.js
+! iceporn.com/net
+iceporn.*##+js(nowoif)
+iceporn.com##.puFloatLine
+iceporn.com###abmessage
+iceporn.com##.drt-spot-box
+iceporn.*###spot_video_livecams
+iceporn.*##.furtherance
+iceporn.*##.take_place + .take_place
+||iceppsn.com/templates/base_master/js/jquery.shows.min.js
+! https://github.com/uBlockOrigin/uAssets/issues/8462
+! https://github.com/AdguardTeam/AdguardFilters/issues/102670
+nuvid.*##+js(aeld, click, open)
+nuvid.*##+js(nowoif)
+nuvid.*##div[style^="height:477px"]
+nuvid.*##footer > .rfix
+nuvid.*##.aside > h2
+nuvid.*##.download_adv_text_photo
+nuvid.*##.video-options
+nuvid.*##.advertisement
+||nvdst.com/templates/base_master/js/jquery.shows.min.js
+! pornlib.com
+pornlib.com##+js(nowoif)
+||plibcdn.com/templates/base_master/js/jquery.shows.min.js
+! tubeon.com/net
+tubeon.com##+js(nowoif)
+tubeon.*##.spots
+tubeon.*##.thr-rcol
+||tubeon.*/templates/base_master/js/jquery.shows.min.js
+! vivatube.com/net
+vivatube.*##+js(nowoif)
+vivatube.*##.livecams
+vivatube.*##.clear + .mt15.container[style="margin-top:15px; border-bottom:0;"]
+||vivatube.*/templates/base_master/js/jquery.shows.min.js
+! winporn.com/net
+winporn.*##+js(nowoif)
+||winporn.*/templates/base_master/js/jquery.shows.min.js
+! yeptube.com/net
+yeptube.*##+js(nowoif)
+yeptube.com##.puFloatLine
+yeptube.*##.spots
+yeptube.*##.thr-rcol
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/70482
 gasngogeneralstores.com##[href="https://gasngogeneralstores.com/sexdating.php"]
