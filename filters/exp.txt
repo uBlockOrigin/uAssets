@@ -1,0 +1,14 @@
+! Title: experimental list
+! Description: experimental filters 
+! Expires: 4 days
+! License: https://creativecommons.org/licenses/by/3.0/
+! Homepage: https://github.com/uBlockOrigin/uAssets
+! Forums: https://github.com/uBlockOrigin/uAssets/issues
+
+! https://github.com/uBlockOrigin/uAssets/issues/12214
+*$script,domain=money.pl,redirect-rule=noopjs
+money.pl#@#+js()
+||wp.pl^$frame,domain=money.pl
+||v.wpimg.pl/*.html$frame
+money.pl##:xpath(//*[string-length(@href) > 1600])
+money.pl#@#.ads
