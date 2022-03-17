@@ -11,7 +11,7 @@ echo "*** Copying files to $DES"
 cp ./filters/*.txt $DES/
 echo "*** Checking out gh-pages"
 git fetch origin gh-pages --depth=1
-git checkout gh-pages
+git checkout origin/gh-pages
 echo "*** Copying files to gh-pages"
 cp $DES/*.txt ./
 if [[ -n $(git diff) ]]; then
