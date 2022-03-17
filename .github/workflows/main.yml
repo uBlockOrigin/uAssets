@@ -12,8 +12,17 @@ jobs:
     steps:
       - name: Clone uAssets
         uses: actions/checkout@v3
-      - name: Copy to gh-pages
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+            ref: gh-pages
+      - name: Copy files to gh-pages
         run: |
           tools/make-gh-pages.sh
+      - name: Setup git config
+        run: |
+          git config user.name "GitHub Actions Bot"
+          git config user.email "<>"
+      - name: commit
+        run: |
+          git add -u
+          git commit -m "Update all lists"
+          git push origin gh-pages

@@ -7,13 +7,12 @@ set -e
 DES=$(mktemp -d)
 echo "*** Created temporary directory: $DES"
 
-echo "*** Copying files to $DES"
-cp ./filters/*.txt $DES/
-echo "*** Checking out gh-pages"
-git fetch origin
-git checkout gh-pages
-echo "*** Copying files to gh-pages"
-cp $DES/*.txt ./
+echo "*** Clone repo to $DES"
+git clone --depth=1 https://github.com/uBlockOrigin/uAssets.git $DES
+
+echo "*** Copying files from $DES/filters"
+cp $DES/filters/*.txt .
+
 if [[ -n $(git diff) ]]; then
   echo "*** Committing changes to gh-pages"
   git config user.email "rhill@raymondhill.net"
@@ -24,10 +23,3 @@ if [[ -n $(git diff) ]]; then
 else
   echo "*** No changes to commit"
 fi
-
-echo "*** Removing temporary directory"
-rm -f $DES/*.txt
-rmdir $DES
-
-echo "*** Checking out master"
-git checkout master
