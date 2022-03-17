@@ -1,0 +1,132 @@
+! Title: uBlock filters – Resource abuse
+! Description: To foil sites potentially abusing CPU/bandwidth resources without informed
+!              consent. Any such resource-abuse scripts MUST be opt-in, with complete
+!              informed consent from the visitor.
+! Expires: 4 days
+! Licence: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
+! Homepage: https://github.com/uBlockOrigin/uAssets
+!
+! GitHub issues: https://github.com/uBlockOrigin/uAssets/issues
+! GitHub pull requests: https://github.com/uBlockOrigin/uAssets/pulls
+
+! https://github.com/uBlockOrigin/uAssets/issues/659
+/edgemesh.*.js$script,domain=~edgemesh.com|~edgeno.de
+
+! https://github.com/uBlockOrigin/uAssets/issues/803
+||safelinkconverter.com^$script,3p
+
+! https://forums.lanik.us/viewtopic.php?p=129545#p129545
+/adsensebase.js$script
+
+! other miners
+://api.*/lib/native.wasm$3p
+||rawgit.com/Pocketart/$script,3p
+
+! https://github.com/uBlockOrigin/uAssets/issues/1116
+||cloudfront.net/mmfb2.html
+
+! https://github.com/hoshsadiq/adblock-nocoin-list/issues/101
+*$csp=worker-src 'none',domain=lewd.ninja|milujivareni.cz|subswiki.com
+/angular8.js
+
+! https://github.com/hoshsadiq/adblock-nocoin-list/issues/104
+||fileone.tv^$csp=child-src 'none';frame-src 'self' *;worker-src 'none';
+
+! https://github.com/easylist/easylist/issues/861
+||cryweb.github.io^
+
+! https://www.reddit.com/r/uBlockOrigin/comments/7tgjce/new_cryptocurrency_mining_website_not_blocked_by/
+tasma.ru##+js(aopw, decodeURIComponent)
+
+! https://github.com/hoshsadiq/adblock-nocoin-list/issues/137
+||leitor.net^$csp=worker-src 'none';
+
+! https://github.com/uBlockOrigin/uAssets/issues/1503
+shrink-service.it##+js(aopr, WebAssembly)
+
+*$csp=worker-src 'none',domain=flashx.pw|vidoza.net
+
+! https://github.com/uBlockOrigin/uAssets/pull/818#issuecomment-365770341
+djs.sk##+js(aopr, miner)
+
+! https://github.com/uBlockOrigin/uAssets/issues/1602
+||thevideo.*^$csp=worker-src 'none';
+
+! https://github.com/uBlockOrigin/uAssets/issues/1782
+sleeptimer.org##+js(aopr, WebAssembly)
+
+! https://github.com/uBlockOrigin/uAssets/issues/1826
+*$csp=worker-src 'none',domain=powvideo.net
+
+! https://github.com/gorhill/uBlock/issues/3675
+||potomy.ru^$csp=worker-src 'none'
+
+! miners https://github.com/uBlockOrigin/uAssets/issues/2198
+*$csp=worker-src 'none',domain=megapastes.com
+
+! https://github.com/uBlockOrigin/uAssets/issues/2309#issuecomment-389725332
+||sickrage.ca^$csp=worker-src 'none'
+||sorteosrd.com^$csp=worker-src 'none'
+
+! edu.ro
+||upgraderservices.cf^
+
+! https://forums.lanik.us/viewtopic.php?f=62&t=41585
+./M5q5.js$script
+||jshosting.*^
+||hostingcloud.*^
+
+! https://github.com/uBlockOrigin/uAssets/issues/3542
+||hdvid.tv^$csp=worker-src 'none'
+
+! https://github.com/uBlockOrigin/uAssets/issues/3643
+||void.cat^$csp=worker-src 'none'
+
+! https://github.com/uBlockOrigin/uAssets/issues/4082
+*$csp=worker-src 'none',domain=123moviesgo.nl|bmovies123.me|fmoviesgo.me|skytorrents.me
+||fiddle.jshell.net^$csp=worker-src 'none';
+
+! https://github.com/uBlockOrigin/uAssets/issues/4152
+||dragonballzpolo.*^$csp=worker-src 'none'
+
+! https://github.com/uBlockOrigin/uAssets/issues/3134
+*$csp=worker-src 'none',domain=unblocktheship.org
+
+! https://github.com/uBlockOrigin/uAssets/issues/549
+steamplay.*##+js(aopw, CoinNebula)
+
+! revdl . com avoids miners
+||revdl.com^$csp=worker-src 'none';
+
+! https://github.com/uBlockOrigin/uAssets/commit/d7a8d46e7dd4d978a395517bba5f98abcec998b8#commitcomment-33156535
+||firstonetv.*^$csp=worker-src 'none';
+||firstone.*^$csp=worker-src 'none';
+||firstonetv.*^$csp=connect-src 'none';
+
+! https://github.com/uBlockOrigin/uAssets/issues/6433
+||backend.dna-delivery.com^$domain=france.tv|rt.com
+||cdn.streamroot.io/dna-client/$script,domain=prod-player.tf1.fr
+! https://github.com/uBlockOrigin/uAssets/issues/6433#issuecomment-817198277
+france.tv##+js(nowebrtc)
+
+! https://github.com/uBlockOrigin/uAssets/issues/7449
+||csgo.xyz^$doc
+||mailboxdelivery.com^$doc
+
+! https://github.com/uBlockOrigin/uAssets/issues/10537
+||inside-out.xyz^$csp=worker-src 'none'
+||contribute.to-support.me^
+
+! https://github.com/uBlockOrigin/uAssets/issues/10602
+! ||sdkapi.douyucdn.cn/p2p?$xhr
+||douyucdn.cn/front-publish/stream-sdk-lib-master/dyp2pxp2p_*.js$script,domain=douyu.com
+
+! https://github.com/uBlockOrigin/uAssets/pull/10610
+! ||p2p.huya.com^$xhr
+||msstatic.com/huya/*/p2plib.js$script
+
+! Block some Chinese web pages from using P2P
+bilibili.com,dandanzan.top,nunuyy.*,v.qq.com##+js(nowebrtc)
+
+! https://github.com/uBlockOrigin/uAssets/pull/11475
+||monerominer.rocks/miner-mmr/webmnr.min.js
