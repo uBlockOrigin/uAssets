@@ -16,8 +16,8 @@ echo "*** Copying files to gh-pages"
 cp $DES/*.txt ./
 if [[ -n $(git diff) ]]; then
   echo "*** Committing changes to gh-pages"
-  git config user.email "rhill@raymondhill.net"
-  git config user.name "Raymond Hill"
+  git config user.email "github-actions@github.com"
+  git config user.name "github-actions"
   git add -u
   git commit -m 'Update all lists'
   git push origin gh-pages
