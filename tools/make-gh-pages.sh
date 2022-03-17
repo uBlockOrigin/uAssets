@@ -10,6 +10,7 @@ echo "*** Created temporary directory: $DES"
 echo "*** Copying files to $DES"
 cp ./filters/*.txt $DES/
 echo "*** Checking out gh-pages"
+git fetch origin gh-pages --depth=1
 git checkout gh-pages
 echo "*** Copying files to gh-pages"
 cp $DES/*.txt ./
