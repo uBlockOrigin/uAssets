@@ -3,7 +3,7 @@ name: GitHub CI
 on:
   schedule:
     # * is a special character in YAML so you have to quote this string
-    - cron:  '43 * * * *'
+    - cron:  '43 */2 * * *'
 
 jobs:
   publish:
@@ -14,25 +14,19 @@ jobs:
         uses: actions/checkout@v3
         with:
             ref: gh-pages
-      - name: Copy files to gh-pages
+      - name: Copy filter lists to gh-pages
         run: |
-          DES=$(mktemp -d)
-          echo "*** Created temporary directory: $DES"
-          echo "*** Clone repo to $DES"
-          git clone --depth=1 https://github.com/uBlockOrigin/uAssets.git $DES
-          echo "*** Copying files from $DES/filters"
-          cp $DES/filters/*.txt .
+          TMPDIR=$(mktemp -d)
+          git clone --depth=1 https://github.com/uBlockOrigin/uAssets.git $TMPDIR
+          cp $TMPDIR/filters/*.txt filters/
       - name: Setup git config
         run: |
           git config user.name "GitHub Actions Bot"
           git config user.email "<>"
-      - name: commit
+      - name: Commit changes (if any)
         run: |
           if [[ -n $(git diff) ]]; then
-            echo "*** Committing changes to gh-pages"
-            git add -u
-            git commit -m "Update all lists"
+            git add -u filters/
+            git commit -m "Update all filter lists"
             git push origin gh-pages
-          else
-            echo "*** No changes to commit"
           fi
