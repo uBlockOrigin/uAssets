@@ -1378,6 +1378,7 @@ ign.com##+js(aost, Math.random, inlineScript)
 ||opencarry.org/wp-content/uploads/*468x103$image
 ||opencarry.org/wp-content/uploads/*468x165$image
 opencarry.org##[id^="ad_global"]
+opencarry.org##.adsbygoogle
 
 ! https://github.com/uBlockOrigin/uAssets/issues/547
 techtimes.com##+js(set, String.fromCharCode, noopFunc)
@@ -5228,6 +5229,7 @@ atresplayer.com##[href^="https://www3.smartadserver.com/click"]
 @@||dogefaucet.com^$ghide
 dogefaucet.com##.loader
 dogefaucet.com##+js(ra, disabled, input)
+||a-ads.com^$subdocument,redirect-rule=noopframe,domain=dogefaucet.com
 
 ! https://github.com/uBlockOrigin/uAssets/issues/2094
 @@||jppinto.com^$ghide
@@ -5996,6 +5998,7 @@ o2tvseries.com##+js(nowebrtc)
 cellmapper.net##+js(set, adTestPass, true)
 
 ! https://www.reddit.com/r/uBlockOrigin/comments/phaeom/gaming_adult_ads_not_blocked/
+igg-games.com##+js(nostif, Ads)
 igg-games.com##+js(acis, $, php)
 igg-games.com##+js(aopw, btoa)
 igg-games.com##+js(ra, srcdoc, iframe)
@@ -8193,8 +8196,8 @@ hitomi.la##+js(noeval)
 hitomi.la##+js(aopr, open)
 hitomi.la##+js(aopr, pops)
 hitomi.la##[href*="nutaku.net/signup/"]
-hitomi.la##.hitomi-anintager
-hitomi.la##.hitomi-driLZ
+hitomi.la##[class^="hitomi-"]
+/^https:\/\/ltn\.hitomi\.la\/[A-Za-z]{4,7}\/(?=[a-z]{0,15}[A-Z])[A-Za-z]{10,16}\.js$/$script,1p,match-case,domain=hitomi.la
 
 ! https://forums.lanik.us/viewtopic.php?p=141036#p141036
 fupa.net##+js(set, jQuery.adblock, 1)
@@ -8751,7 +8754,7 @@ leechpremium.link##body:style(overflow: auto !important;)
 ! https://github.com/uBlockOrigin/uAssets/issues/3777#issuecomment-586671449
 @@||leechpremium.link/peel.js$script
 leechpremium.link##+js(aopr, app_vars.force_disable_adblock)
-*$script,3p,denyallow=bootstrapcdn.com|google.com|googleapis.com|gstatic.com|recaptcha.net,domain=leechpremium.link
+*$script,3p,denyallow=bootstrapcdn.com|google.com|googleapis.com|gstatic.com|recaptcha.net|tawk.to|jsdelivr.net,domain=leechpremium.link
 
 ! https://github.com/NanoMeow/QuickReports/issues/236
 @@||tsubasa.im^$ghide
@@ -9722,6 +9725,7 @@ hpav.tv,hpjav.tv##+js(aopr, AaDetector)
 hpav.tv,hpjav.tv##+js(aopr, VAST)
 hpav.tv,hpjav.tv##+js(set, checkdom, 0)
 hpav.tv,hpjav.tv##+js(acis, document.querySelectorAll, popMagic)
+hpav.tv,hpjav.tv##+js(nowoif)
 *$script,redirect-rule=noopjs,domain=hpjav.tv
 ||stunninglover.com^$frame,3p
 hpav.tv,hpjav.tv##[href^="http://wct.link/click"]
@@ -9738,6 +9742,7 @@ fileone.tv##+js(aopw, _pop)
 fileone.tv##+js(nowoif)
 hpav.tv,hpjav.tv##[id*="_ad_"]
 @@||cdn.tsyndicate.com/sdk/$script,domain=hpav.tv|hpjav.tv
+/vast3.js$domain=hpav.tv|hpjav.tv
 
 ! https://github.com/uBlockOrigin/uAssets/issues/4216
 mywatchseries.*##+js(nosiif, visibility, 1000)
@@ -10321,6 +10326,7 @@ milfzr.com##+js(aopw, _pop)
 milfzr.com##+js(acis, String.prototype.charCodeAt, tabunder)
 milfzr.com##.wpfp_custom_ad_content
 milfzr.com##.aoa_overlay
+milfzr.com###post-0
 ||milfzr.com/*.gif$image
 
 ! https://forums.lanik.us/viewtopic.php?f=62&t=42364
@@ -11812,8 +11818,8 @@ pes24.com##.adsbig
 ||tczzzlwpss.com^
 
 ! https://github.com/NanoMeow/QuickReports/issues/733
-urlgalleries.net##+js(nobab)
 urlgalleries.net##+js(aopr, AaDetector)
+urlgalleries.net##+js(acis, document.cookie, setOCookie)
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/30290
 @@||lisenme.com^$ghide
@@ -14536,11 +14542,13 @@ northern-scot.co.uk##.TaboolaSide
 cnbc.com##+js(set, cnbc.canShowAds, true)
 cnbc.com##[class^="CreditCardCalloutWildcard-styles-select"]:has([href*="/?lid="])
 
+! https://github.com/uBlockOrigin/uAssets/issues/12328
 ! allporncomic.com anti adb popups
 allporncomic.com##+js(aopw, ExoLoader)
 allporncomic.com##+js(aopr, document.dispatchEvent)
 allporncomic.com##+js(aopr, exoJsPop101)
 allporncomic.com##.ad
+allporncomic.com##iframe
 *$3p,script,domain=allporncomic.com
 ||profield.ddns.net^
 ||servebeer.com^
@@ -15001,7 +15009,7 @@ eio.io,exee.io,exe.app##+js(aopr, adBlockDetected)
 bevru.club,eririo.club,exe.app,freshi.site,exey.io##+js(no-fetch-if, google)
 exe.io,wealthh.xyz##+js(aopr, parcelRequire)
 @@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$script,domain=exey.io
-@@||pagead2.googlesyndication.com/pagead/managed/js/adsense/*/show_ads_impl_fy2019.js$script,domain=exey.io
+@@||pagead2.googlesyndication.com/pagead/managed/js/adsense/$script,domain=exey.io
 /ad-m.js$script,1p
 ||lengejoberdak.pro^
 ||measur-d.com^$3p
@@ -16226,6 +16234,7 @@ livingstondaily.com##+js(aopr, _sp_)
 ! https://www.reddit.com/r/uBlockOrigin/comments/m7n8wj/not_working_on_bluemediafilescom/
 bluemediafiles.com##+js(aopw, Fingerprint2)
 bluemediafiles.com##+js(aopr, open)
+@@||bluemediafiles.com^$ghide
 
 ! https://www.reddit.com/r/uBlockOrigin/comments/pywx7p/ad_block_detected_httpssports24stream/
 @@||sports24.*^$ghide
@@ -20656,6 +20665,7 @@ techdracula.com##.adsbygoogle
 /pn07uscr/f/tr/zavbn/*$script,3p
 /v2/a/push/js/*$script,3p
 /sdk/push_web/?zid=$script,3p
+/code/native.js?h=
 
 ! As of 2020-04-09, new filters will be added to year-based sublists
 
