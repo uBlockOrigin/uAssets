@@ -75,9 +75,13 @@ rjno1.com##body > *:not(#site-top-bar):not(#page):not(iframe):not(.wp-die-messag
 rjno1.com##*:matches-css(max-height:/300px/):style(max-height: none !important;)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/9696
-/techpowerup\.com\/review\/[a-z]+\/images\/[a-z0-9]{8}\-[a-z0-9]{8}\.jpg/$image,1p,domain=techpowerup.com
-techpowerup.com##:not(:matches-path(/forums/)) a[href^="/review/"][href$="?j.jpg"]
-techpowerup.com##:not(:matches-path(/forums/)) .sydbry > div:has(img)
+/techpowerup\.com\/review\/[a-z]+\/images\/[a-z0-9]{8,9}\-[a-z0-9]{8}\.jpg/$image,1p,domain=techpowerup.com
+techpowerup.com##:not(:matches-path(/forums/)) a[href^="/review/"][href$=".jpg"][href*="?"]
+techpowerup.com##:not(:matches-path(/forums/)) .sydbyry > div:has(img)
+techpowerup.com##:not(:matches-path(/forums/)) body:has(a[href*="/register"]) div:matches-css(position:/absolute/):matches-css(right:/0/):matches-css(top:/0/):matches-css(width:/72/):has(img)
+techpowerup.com##:not(:matches-path(/forums/)) body:has(a[href*="/register"]) .pageheader__logowrappery + div:has(img)
+techpowerup.com##:not(:matches-path(/forums/)) body:has(a[href*="/register"]) form[method="get"][action*="earch"]:upward(1) ~ *:has(img)
+techpowerup.com##:not(:matches-path(/forums/)) body:has(a[href*="/register"]) input[type][placeholder*="earch"][name]:upward(article) ~ *:has(img)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/12329
 ||imasdk.googleapis.com/js/sdkloader/ima3.js$script,important,domain=news.tbs.co.jp,badfilter
