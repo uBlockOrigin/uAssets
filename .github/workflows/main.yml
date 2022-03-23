@@ -21,13 +21,19 @@ jobs:
           cp $TMPDIR/filters/*.txt filters/
       - name: Commit changes (if any)
         run: |
+          DATE=$(date -Ru)
+          for f in $(git diff --name-only); do
+            STAT=$(git diff --numstat $f | sed -r '/^1\s+1\s+/d')
+            if [[ -n $STAT ]]; then
+              sed -ir "s/^\(! Last updated: \)%timestamp%/\\1$DATE/" $f
+            else
+              git checkout $f
+            fi
+          done
+          fi
           if [[ -n $(git diff) ]]; then
             git config user.name "gitHub-actions bot"
             git config user.email "<>"
-            DATE=$(date -Ru)
-            for f in $(git diff --name-only); do
-              sed -ir "s/^\(! Last updated: \)%timestamp%/\\1$DATE/" $f
-            done
             git add -u filters/
             git commit -m "Update all filter lists"
             git push origin gh-pages
