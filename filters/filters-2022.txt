@@ -1,7 +1,7 @@
 ! Title: uBlock filters
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Expires: 4 days
-! Last updated: Wed, 23 Mar 2022 17:39:33 +0000
+! Last updated: Wed, 23 Mar 2022 18:08:41 +0000
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! Licence: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 ! New filters from January 2022 to ->
@@ -1696,3 +1696,14 @@ jardima.com##.g1-slideup-wrap
 ! zirof.com focus
 zirof.com##+js(set, blurred, false)
 
+! https://github.com/uBlockOrigin/uAssets/issues/12396
+! for-ad-inserter-sites
+||media.net^$object,redirect-rule=noopjs
+||google-analytics.com^$object,redirect-rule=noopjs
+||doubleclick.net^$object,redirect-rule=noopjs
+#@#.ad-inserter
+#@#.SponsorAds
+#@##banner-advert-container
+##.ad-inserter:not(#banner-advert-container)
+##.SponsorAds:not(.adsense)
+###banner-advert-container:not(.ad-inserter)
