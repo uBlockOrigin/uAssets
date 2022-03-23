@@ -19,7 +19,7 @@ jobs:
           TMPDIR=$(mktemp -d)
           git clone --depth=1 https://github.com/uBlockOrigin/uAssets.git $TMPDIR
           cp $TMPDIR/filters/*.txt filters/
-      - name: Commit changes (if any)
+      - name: Patch last-updated field
         run: |
           DATE=$(date -Ru)
           for f in $(git diff --name-only); do
@@ -30,6 +30,8 @@ jobs:
               git checkout -q $f
             fi
           done
+      - name: Commit changes (if any)
+        run: |
           if [[ -n $(git diff) ]]; then
             git config user.name "gitHub-actions bot"
             git config user.email "<>"
