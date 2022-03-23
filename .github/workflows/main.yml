@@ -1,9 +1,9 @@
-name: GitHub CI
+name: Deploy to gh-pages branch
 
 on:
-  schedule:
-    # * is a special character in YAML so you have to quote this string
-    - cron:  '43 */8 * * *'
+  push:
+    branches:
+      - master
 
 jobs:
   publish:
@@ -19,13 +19,15 @@ jobs:
           TMPDIR=$(mktemp -d)
           git clone --depth=1 https://github.com/uBlockOrigin/uAssets.git $TMPDIR
           cp $TMPDIR/filters/*.txt filters/
-      - name: Setup git config
-        run: |
-          git config user.name "GitHub Actions Bot"
-          git config user.email "<>"
       - name: Commit changes (if any)
         run: |
           if [[ -n $(git diff) ]]; then
+            git config user.name "gitHub-actions bot"
+            git config user.email "<>"
+            DATE=$(date -Ru)
+            for f in $(git diff --name-only); do
+              sed -ir "s/^\(! Last updated: \)%timestamp%/\\1$DATE/" $f
+            done
             git add -u filters/
             git commit -m "Update all filter lists"
             git push origin gh-pages
