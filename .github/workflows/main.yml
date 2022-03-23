@@ -27,7 +27,7 @@ jobs:
             if [[ -n $STAT ]]; then
               sed -ir "s/^\(! Last updated: \)%timestamp%/\\1$DATE/" $f
             else
-              git checkout $f
+              git checkout -q $f
             fi
           done
           if [[ -n $(git diff) ]]; then
