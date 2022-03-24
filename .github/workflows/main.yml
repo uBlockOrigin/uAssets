@@ -25,7 +25,7 @@ jobs:
           for f in $(git diff --name-only); do
             STAT=$(git diff --numstat $f | sed -r '/^1\s+1\s+/d')
             if [[ -n $STAT ]]; then
-              sed -ir "s/^\(! Last updated: \)%timestamp%/\\1$DATE/" $f
+              sed -ir "0,/^! Last modified: /s/^\(! Last modified: \)%timestamp%/\\1$DATE/" $f
             else
               git checkout -q $f
             fi
@@ -36,6 +36,6 @@ jobs:
             git config user.name "gitHub-actions bot"
             git config user.email "<>"
             git add -u filters/
-            git commit -m "Update all filter lists"
+            git commit -m "Update modified filter lists"
             git push origin gh-pages
           fi
