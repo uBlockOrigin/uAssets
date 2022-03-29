@@ -2,7 +2,7 @@
 ! Description: Filters optimized for uBlock Origin, to be used with Fanboy's
 !              and/or Adguard's "Annoyances" list(s)
 ! Expires: 4 days
-! Last modified: Tue, 29 Mar 2022 11:45:49 +0000
+! Last modified: Tue, 29 Mar 2022 11:53:28 +0000
 ! License: https://creativecommons.org/licenses/by/3.0/
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! Forums: https://github.com/uBlockOrigin/uAssets/issues
@@ -4308,7 +4308,10 @@ clubulbebelusilor.ro##+js(aeld, contextmenu)
 ||googlesyndication.com/pagead/js/adsbygoogle.js$script,redirect-rule=googlesyndication_adsbygoogle.js,domain=colnect.com
 
 ! voxvalachorum .ro anti right click, anti select, anti ctrl-u etc
-voxvalachorum.ro##+js(acis, document.oncontextmenu)
+voxvalachorum.ro##style:has-text(@media print):remove()
+voxvalachorum.ro##*:style(-webkit-touch-callout: default !important; -webkit-user-select: text !important; -moz-user-select: text !important; -ms-user-select: text !important; user-select: text !important;)
+voxvalachorum.ro##+js(aopw, disableEnterKey)
+voxvalachorum.ro##+js(acis, document.ondragstart)
 voxvalachorum.ro##+js(acis, disableSelection, reEnable)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/8120
