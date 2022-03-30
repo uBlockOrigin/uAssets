@@ -1,7 +1,7 @@
 ! Title: Quick fixes list
 ! Description: experimental filters 
 ! Expires: 1 days
-! Last modified: Wed, 30 Mar 2022 12:42:46 +0000
+! Last modified: Wed, 30 Mar 2022 19:00:15 +0000
 ! License: https://creativecommons.org/licenses/by/3.0/
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! Forums: https://github.com/uBlockOrigin/uAssets/issues
@@ -78,10 +78,11 @@ rjno1.com##*:matches-css(max-height:/300px/):style(max-height: none !important;)
 ! https://github.com/uBlockOrigin/uAssets/issues/9696
 ||tpucdn.com/review/vas-rfee*/images/*.jpg$image,domain=techpowerup.com
 !#if env_mobile
-techpowerup.com##:not(:matches-path(/forums/)) body:has(a[href*="/login/"]) body > div > div > nav[class^="p"] > aside[class]:has(> div:not([class]):not([id]) > a[href^="/review/"] > span > img)
+techpowerup.com##:not(:matches-path(/forums/)) body:has(a[href*="/login/"]) nav[class^="p"] > div + aside[class]:has(> div:not([class]):not([id]) > a[href^="/review/"] > span > img):style(height: 1px !important; width: 1px !important; pointer-events: none !important;)
 !#endif
 !#if env_chromium
-techpowerup.com##:not(:matches-path(/forums/)) body:has(a[href*="/login/"]) a[href^="/review/"][href$="eq"]:has(img)
+techpowerup.com##:not(:matches-path(/forums/)) body:has(a[href*="/login/"]) a[href^="/review/"][href$="er"]:has(img):style(height: 1px !important; width: 1px !important; pointer-events: none !important;)
+techpowerup.com##:not(:matches-path(/forums/)) iddv:has(> a[href^="/review/"] > span > img):style(height: 1px !important; width: 1px !important; pointer-events: none !important;)
 !#endif
 
 ! https://github.com/uBlockOrigin/uAssets/issues/9932#issuecomment-1075139639
