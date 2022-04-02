@@ -33,7 +33,7 @@ GDPR modals will not be addressed in [uAssets](https://github.com/uBlockOrigin/u
 
 
 #### Porn-farms
-Sites found to be porn-farms or part of porn-farms will not be addressed in uAssets.
+Sites found to be porn-farms (families of mass-produced porn sites without any original contents) or part of porn-farms will not be addressed in uAssets.
 
 
 
