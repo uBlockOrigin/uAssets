@@ -1,7 +1,7 @@
 ! Title: uBlock filters
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Expires: 4 days
-! Last modified: Sun, 03 Apr 2022 04:24:39 +0000
+! Last modified: Sun, 03 Apr 2022 04:33:25 +0000
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! Licence: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 ! new filters from april 2020 to ->
@@ -4210,11 +4210,12 @@ abandonmail.com##+js(nostif, offsetHeight)
 abandonmail.com##+js(aopr, indexedDB.open)
 
 ! kissanime. nz scammy 3p scripts
+! https://github.com/uBlockOrigin/uAssets/issues/12570
 kissanime.*##+js(acis, String.fromCharCode, /btoa|break/)
 kissanime.*###upgrade_pop
 kissanime.*##+js(acis, JSON.parse, break;case $.)
 embed.streamx.me##+js(noeval-if, debugger)
-||kissanime.*/api/pop.php$xhr,1p
+||kissanime.*/api/pop$xhr,1p
 ||kissasian.*/api/pop.php$xhr,1p
 ||ad.kissasian.*^$script,1p
 ||kisscartoon.*/api/pop.php$xhr,1p
