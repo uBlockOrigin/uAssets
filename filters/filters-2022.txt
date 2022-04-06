@@ -1,7 +1,7 @@
 ! Title: uBlock filters
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Expires: 4 days
-! Last modified: Wed, 06 Apr 2022 05:06:07 +0000
+! Last modified: Wed, 06 Apr 2022 07:01:32 +0000
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! Licence: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 ! New filters from January 2022 to ->
@@ -2030,3 +2030,9 @@ top1iq.com##+js(nano-stb, run)
 top1iq.com##+js(ra, disabled, a#redirect-btn)
 top1iq.com##+js(rc, disabled, a#redirect-btn)
 top1iq.com###post-body > p
+
+! playtamil. tube ads
+playtamil.*##+js(acis, JSON.parse, break;case $.)
+!#if env_mobile
+||playtamil.*^$csp=default-src 'self' *.imgur.com
+!#endif
