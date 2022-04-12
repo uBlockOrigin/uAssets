@@ -72,7 +72,7 @@ ac-illust.com,photo-ac.com##body.modal-open *:style(filter: none!important;)
 entrepelis.org##^script[data-cfasync]:has-text(h=decodeURIComponent)
 
 ! propeller crap/ads
-9xmovie.click,a123movies.net,acervofilmes.com,airportseirosafar.com,animefreak.*,askim-bg.com,assistirseriados.net,cmp3.ru,comofuncionaque.com,filmovi.ws,gentlewasher.com,hackiee.mobi,hd44.net,hds-streaming-vf.com,hdzone.org,hurawatch.*,hwnaturkya.com,i123movies.net,ibrasoftware.com,iegybest.co,imgbase.ru,jujutsukaisen-manga.online,jujutsukaisenonline.net,kimoitv.com,mangahere.today,manganatos.com,mangceh.cc,mcubd.host,mega-mkv.com,mobilephonedir.com,mobiro.org,moviestars.to,mp3-gratis.it,mp3-vk.ru,myviid.com,nosong.ru,onlinesubtitrat.com,peliculontube.net,playlist-youtu.be,putlocker68.com,rojadirectahd.online,s4p2.shingekinokyojin.tv,serijefilmovi.com,sflix.to,ssoap2day.*,stickerdeals.net,thingstomen.com,u123movies.com,vanime.co,vbox7-mp3.info,vidbam.org,vkmp3.*,vkmp3s.ru,yodbox.com,zeidgh.com##+js(acis, JSON.parse, break;case $.)
+9xmovie.click,a123movies.net,acervofilmes.com,airportseirosafar.com,animefreak.*,askim-bg.com,assistirseriados.net,cmp3.ru,comofuncionaque.com,filmovi.ws,gentlewasher.com,hackiee.mobi,hd44.net,hds-streaming-vf.com,hdzone.org,hurawatch.*,hwnaturkya.com,i123movies.net,ibrasoftware.com,iegybest.co,imgbase.ru,jujutsukaisen-manga.online,jujutsukaisenonline.net,kimoitv.com,mangahere.today,manganatos.com,mangceh.cc,mcubd.host,mega-mkv.com,mobilephonedir.com,mobiro.org,moviestars.to,mp3-gratis.it,mp3-vk.ru,myviid.com,nosong.ru,onlinesubtitrat.com,peliculontube.net,playlist-youtu.be,putlocker68.com,rojadirectahd.online,s4p2.shingekinokyojin.tv,serijefilmovi.com,sflix.to,ssoap2day.*,stickerdeals.net,thingstomen.com,u123movies.com,vanime.co,vbox7-mp3.info,vidbam.org,vkmp3.*,vkmp3s.ru,watchgintama.com,yodbox.com,zeidgh.com##+js(acis, JSON.parse, break;case $.)
 putlocker68.com##^script:has-text(break;case $.)
 /ajax/banner/list?$domain=primewire.today|newprimewire.site
 ||astcarbinkom.com^
@@ -774,7 +774,8 @@ adinsurance.xyz,insurglobal.xyz##+js(set, blurred, false)
 adinsurance.xyz,insurglobal.xyz##div[id^="bsa-zone_"]
 
 ! https://github.com/uBlockOrigin/uAssets/issues/1905#issuecomment-1033865488
-banned.video,freeworldnews.tv##+js(set, Object.prototype.ads, noopFunc)
+! https://github.com/uBlockOrigin/uAssets/issues/12687
+banned.video,freeworldnews.tv##+js(set, Object.prototype.nopreroll_, true)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/11676
 faselhd.top##+js(acis, JSON.parse, break;case $.)
@@ -1221,8 +1222,10 @@ novamovie.net##+js(aopw, _pop)
 ! stream.pkayprek. com ads
 stream.pkayprek.com##+js(acis, JSON.parse, break;case $.)
 
-! masahub. net popups
+! https://github.com/AdguardTeam/AdguardFilters/issues/115182
 masahub.net##+js(aopr, decodeURI)
+masahub.net##+js(aopr, mm)
+||gifyu.com/*.gif$image,domain=masahub.net
 
 ! https://github.com/easylist/easylist/pull/11128/
 striptube.net##+js(aopr, loadTool)
@@ -1590,6 +1593,7 @@ saveearning.com##.e3lan
 saveearning.com##.theiaStickySidebar
 
 ! kmansin03.com ads
+kmansin03.com##+js(acis, document.createElement, __htas)
 *$script,3p,denyallow=edgecastcdn.net|googleapis.com|twimg.com,domain=kmansin03.com
 
 ! cricfree. io / live popups
@@ -1682,7 +1686,6 @@ animesuge.to##+js(aost, document.createElement, _0x)
 kissasians.org##+js(acis, JSON.parse, break;case $.)
 kissasians.org##.banner
 kissasians.org##.btn-success[href*="?key="]
-||kissasians.org/banners/$image
 ||berangkasilmu.com^$3p
 
 ! https://github.com/easylist/easylist/pull/11409
@@ -2027,7 +2030,6 @@ pornwhite.com##.player-spots
 
 ! https://github.com/uBlockOrigin/uAssets/issues/12619
 fzlink.*##+js(aeld, , break;case $.)
-||ocubafyv.xyz^
 
 ! https://github.com/uBlockOrigin/uAssets/pull/12621
 hindimoviestv.com,onlinewatchmoviespk.com##+js(nowoif)
@@ -2126,3 +2128,32 @@ watchmoviesonlinepk.com##+js(nowoif)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/12680
 *$script,redirect-rule=noopjs,domain=elkjop.no
+
+! https://github.com/uBlockOrigin/uAssets/issues/12694
+s.to,serienstream.to##+js(acis, JSON.parse, break;case $.)
+||jswfgfmmuvkuh.com^
+
+! https://www.goflix.io/10540-aquaman.html younetu.com popup
+younetu.com##+js(aopr, console.clear)
+younetu.com##+js(nowoif)
+
+! shadowrangers.live popup
+shadowrangers.live##+js(acis, JSON.parse, break;case $.)
+shadowrangers.live##+js(aopw, _pop)
+
+! animehub.ac,animeflv.ac popup
+||animehub.ac/api/pop.php
+
+! 194.163.152.200 ads
+194.163.152.200###sgpb-popup-dialog-main-div-wrapper
+194.163.152.200##.sgpb-popup-overlay
+
+! https://github.com/uBlockOrigin/uAssets/issues/12700
+autotrader.co.uk##.search-page__products > [data-is-promoted-listing]
+
+! https://7apple.net/?go=CBn2gh8qacq timer
+7apple.net###wpsafe-generate,#wpsafe-link:style(display: block !important;)
+7apple.net##div[id^="wpsafe-wait"]
+
+! shopee ads search
+shopee.*##.shopee-search-item-result__items.row [data-sqe="ad"]:upward(.shopee-search-item-result__item)
