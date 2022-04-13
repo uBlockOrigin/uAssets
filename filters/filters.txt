@@ -1,7 +1,7 @@
 ! Title: uBlock filters
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Expires: 4 days
-! Last modified: Wed, 13 Apr 2022 18:12:52 +0000
+! Last modified: Wed, 13 Apr 2022 19:22:02 +0000
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! Licence: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 !
@@ -11084,6 +11084,8 @@ hdfriday.*##.btn_d:has-text(/high/i)
 letsdownloads.com##.adsbygoogle
 
 ! https://github.com/uBlockOrigin/uAssets/issues/4834
+extramovies.*##+js(acis, Math, break;case $.)
+extramovies.*,extralinks.*##^script:has-text(break;case $.)
 extralinks.*##+js(aost, Math.random, /\st\.[a-zA-Z]*\s/)
 extramovies.*##+js(aopr, open)
 extramovies.*##+js(aopr, AaDetector)
@@ -11096,6 +11098,11 @@ extramovies.*##center
 extramovies.*##[href^="/dlbutton.php"]
 *$script,3p,denyallow=bootstrapcdn.com|disqus.com|jsdelivr.net|jwpcdn.com|fastly.net|fastlylb.net|jquery.com|hwcdn.net|recaptcha.net|cloudflare.com|cloudflare.net|google.com|googleapis.com|gstatic.com|facebook.net,domain=extramovies.*
 extramovies.*###theme_back
+! https://github.com/uBlockOrigin/uAssets/issues/11023
+extralinks.*,extramovies.*##[href^="https://t.me/"]
+extralinks.*,extramovies.*##[class^="ad_btn"]:upward(center)
+||extralinks.*/ads.js$script,1p
+||extramovies.*/ads.js$script,1p
 
 ! https://github.com/uBlockOrigin/uAssets/issues/4835
 @@||googletagmanager.com/gtm.js$script,domain=ciudad.com.ar
