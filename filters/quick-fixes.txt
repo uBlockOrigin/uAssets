@@ -1,7 +1,7 @@
 ! Title: Quick fixes list
 ! Description: experimental filters 
 ! Expires: 1 days
-! Last modified: Thu, 14 Apr 2022 11:36:52 +0000
+! Last modified: Thu, 14 Apr 2022 12:48:36 +0000
 ! License: https://creativecommons.org/licenses/by/3.0/
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! Forums: https://github.com/uBlockOrigin/uAssets/issues
@@ -98,14 +98,14 @@ rjno1.com##body > div *:style(height: unset !important; max-height: unset !impor
 rjno1.com##+js(ra, id, #content)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/9696
-/\/review\/[0-9a-z\-]{9,15}\/images\/[0-9a-z\-]+\-[0-9a-z]{10}\.jpg/$image,3p,redirect=1x1.gif,domain=techpowerup.com
+/\/review\/[0-9a-z\-]{9,15}\/images\/[0-9a-z\-]{21}\.jpg/$image,3p,redirect=1x1.gif,domain=techpowerup.com
 ||techpowerup.com/_botcheck$xhr
 !#if env_mobile
 techpowerup.com##:not(:matches-path(/forums/)) body:has(a[href*="/login"]) .apyrort > nav > div + aside[class]:has(> div:not([class]):not([id]) > div > a[href^="/review/"] > span > b > span > img):style(height: 1px !important; width: 1px !important; opacity: 0 !important; pointer-events: none !important;)
 !#endif
 !#if env_chromium
-techpowerup.com##:not(:matches-path(/forums/)) body:has(a[href*="/login"]) yxixvdc > a[href^="/review/"] > * > img:style(height: 1px !important; width: 1px !important; opacity: 0 !important; pointer-events: none !important;)
-techpowerup.com##:not(:matches-path(/forums/)) body:has(a[href*="/login"]) aside > div:not([class]):not([id]) > div > a[href^="/review/"] > * > img[src^="https://tpucdn.com/review/"]:style(height: 1px !important; width: 1px !important; opacity: 0 !important; pointer-events: none !important;)
+techpowerup.com##:not(:matches-path(/forums/)) body:has(a[href*="/login"]) aside > *:not(div, span) > a[href^="/review/"] > * > img:style(height: 1px !important; width: 1px !important; opacity: 0 !important; pointer-events: none !important;)
+techpowerup.com##:not(:matches-path(/forums/)) body:has(a[href*="/login"]) nav > *:not(div, span) > div:not([class]):not([id]) > div > a[href^="/review/"] > * > img[src^="https://tpucdn.com/review/"]:style(height: 1px !important; width: 1px !important; opacity: 0 !important; pointer-events: none !important;)
 !#endif
 
 ! https://github.com/uBlockOrigin/uAssets/issues/9932#issuecomment-1075139639
