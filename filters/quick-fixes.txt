@@ -1,7 +1,7 @@
 ! Title: Quick fixes list
 ! Description: experimental filters 
 ! Expires: 1 days
-! Last modified: Sun, 17 Apr 2022 20:31:06 +0000
+! Last modified: Sun, 17 Apr 2022 21:03:09 +0000
 ! License: https://creativecommons.org/licenses/by/3.0/
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! Forums: https://github.com/uBlockOrigin/uAssets/issues
@@ -106,9 +106,11 @@ rjno1.com##+js(ra, id, #mvlf91)
 !#if env_mobile
 techpowerup.com##:not(:matches-path(/forums/)) div:not([class], [id]) > div:not([class], [id]) > * > * > a[href$="ee"] > * > img[src^="https://tpucdn.com/review/"]:style(height: 1px !important; width: 1px !important; opacity: 0 !important; pointer-events: none !important;)
 !#endif
-techpowerup.com##:not(:matches-path(/forums/)) section[class] > a[href^="/review/"] > * > * > img[src^="https://tpucdn.com/review/"][alt=""]
-techpowerup.com##:not(:matches-path(/forums/)) *:not(div, span) > div > div > a[href^="/review/"] > * > * > img[src^="https://tpucdn.com/review/"][alt=""]
+/\/review\/[0-9a-z\-]{15,25}\/images\/[0-9a-z\-\_]{30,}\.jpg/$image,3p,redirect=1x1.gif,domain=techpowerup.com
+techpowerup.com##:not(:matches-path(/forums/)) section[class] > a[href^="/review/"] > * > * > * > img[src^="https://tpucdn.com/review/"][alt=""]
+techpowerup.com##:not(:matches-path(/forums/)) *:not(div, span) > div > div > a[href^="/review/"] > * > * > * > img[src^="https://tpucdn.com/review/"][alt=""]
 techpowerup.com##:not(:matches-path(/forums/)) a[href^="/review/"]:not([data-width]) img[src^="https://tpucdn.com/review/"]:not([width], [height])
+techpowerup.com##:not(:matches-path(/forums/)) a[href^="/review/"][data-width=""] img[src^="https://tpucdn.com/review/"]:not([width], [height])
 
 ! https://github.com/uBlockOrigin/uAssets/issues/9932#issuecomment-1075139639
 nikita.tk##+js(aost, document.cookie)
