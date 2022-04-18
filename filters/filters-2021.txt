@@ -1,7 +1,7 @@
 ! Title: uBlock filters
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Expires: 4 days
-! Last modified: Mon, 18 Apr 2022 11:01:46 +0000
+! Last modified: Mon, 18 Apr 2022 16:25:06 +0000
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! Licence: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 ! New filters from January 2021 to ->
@@ -735,7 +735,7 @@ pinoyalbums.com##+js(aeld, , adb)
 skmedix.pl##+js(nosiif, visibility, 1000)
 
 ! 123movieslinks. live popups
-123movieslinks.live##+js(acis, Math, break;case $.)
+123movieslinks.live##+js(aeld, , break;case $.)
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/52487
 easylinkref.com##+js(nano-sib, , , 0)
@@ -1630,9 +1630,9 @@ goalup.live,nbaup.live##+js(acis, String.fromCharCode, break;case)
 goalup.live##+js(nosiif, 0x)
 goalup.live##+js(ra, onclick)
 
-! pelispop.com popup
+! pelispop.com/.me popup
 pelispop.*##^script:has-text(break;case $.)
-pelispop.*##+js(acis, Math, break;case $.)
+pelispop.*##+js(aeld, , break;case $.)
 
 ! https://github.com/easylist/easylist/issues/7395#issuecomment-796787384
 freeuseporn.com##+js(aopr, encodeURIComponent)
@@ -1895,7 +1895,7 @@ m.sextvx.com###home_hor_top_ads
 m.sextvx.com###home_hor_bot_ads
 
 ! https://github.com/uBlockOrigin/uAssets/issues/8752
-katmoviehd4.com##+js(acis, Math, break;case $.)
+katmoviehd4.com##+js(aeld, , break;case $.)
 katmoviehd4.com##+js(aopw, _pop)
 katmoviehd4.com##+js(nowoif)
 
@@ -2823,8 +2823,9 @@ empregovaga.online###banner
 ! https://github.com/uBlockOrigin/uAssets/issues/8969
 getpaste.link##+js(set, isAdBlockActive, false)
 
-! https://unlimitmovies.com
-unlimitmovies.com##+js(acis, Math, XMLHttpRequest)
+! unlimitmovies. com
+unlimitmovies.com##+js(acis, parseInt, break;case $.)
+unlimitmovies.com##^script:has-text(break;case $.)
 unlimitmovies.com##+js(aopr, JSON.stringify)
 
 ! nuroflix. com/. club ads
@@ -3211,7 +3212,7 @@ gamingbible.co.uk##.css-1dgm0zi-Advert
 @@||micro.rubiconproject.com/prebid/dynamic/$script,domain=gamingbible.co.uk
 
 ! hxfile. co popups
-hxfile.co##+js(acis, Math, break;case $.)
+hxfile.co##+js(aeld, , break;case $.)
 hxfile.co##+js(aopw, _pop)
 hxfile.co##^script:has-text(break;case $.)
 hxfile.co##^script[data-cfasync]:has-text(h=decodeURIComponent)
@@ -3220,11 +3221,6 @@ hxfile.co##a.btn-block
 ! https://github.com/AdguardTeam/AdguardFilters/issues/83658
 ||storage.de.cloud.ovh.net^*/sarsor/avikingdynamic.js$script,3p
 go4kora.com###id-custom_banner
-
-! nulled-scripts. cc anti adb + popups
-nulled-scripts.cc##+js(acis, Math, break;case $.)
-@@||nulled-scripts.cc^$ghide
-nulled-scripts.cc##[href^="https://nulled-scripts.cc/BlueHost"]
 
 ! https://github.com/uBlockOrigin/uAssets/issues/9139
 povaddict.com##+js(acis, document.querySelectorAll, popMagic)
@@ -3290,7 +3286,7 @@ watchmovierulz.*##+js(nowoif)
 ! https://github.com/uBlockOrigin/uAssets/issues/9155
 sbembed1.com,sbvideo.*##+js(aopr, console.clear)
 sbvideo.*##+js(nowoif, !/d/)
-cmovies.*##+js(acis, Math, break;case $.)
+cmovies.*##+js(aeld, , break;case $.)
 sbembed1.com,sbplay.*##+js(aopr, DoodPop)
 dlmovies.link,embedsb.com,pelistop.co,playersb.com,sbcloud1.com,sbchip.*,sbembed1.com,sbembed2.com,sbfast.com,sbflix.*,sbplay1.com,sbplay2.*,sbvideo.*,tubesb.com,viewsb.com,watchsb.com##+js(aopr, __Y)
 ||app.adjust.net.in^
@@ -3391,7 +3387,7 @@ sukidesuost.info###custom_html-23
 
 ! https://www.reddit.com/r/uBlockOrigin/comments/p9lity/how_to_block_favicon_popups_on_these_websites/
 ! https://github.com/uBlockOrigin/uAssets/issues/9940
-asianload.*,asianload1.com,asianstream.tv##+js(acis, Math, break;case $.)
+asianload.*,asianload1.com##+js(acis, Math, break;case $.)
 oxl.one,sbembed3.com,sbembed4.com,sbplay.*,sbplay3.*##+js(aopr, __Y)
 cloudemb.com,dlmovies.link,oxl.one,playersb.com,sbchip.bar,sbcloud1.com,sbembed1.com,sbembed2.com,sbembed3.com,sbembed4.com,sbfast.com,sbflix.*,sbplay.*,sbplay1.com,sbplay2.*,sbplay3.*,sbvideo.net,tubesb.com,viewsb.com,watchsb.com##+js(aopr, mm)
 sbplay.*,sbplay1.com##+js(set, console.clear, noopFunc)
@@ -3522,11 +3518,6 @@ coinunit.ashortstory.in,seowebnews.com##+js(nano-sib)
 techmyhub.com##+js(set, blurred, false)
 techmyhub.com##+js(aopr, open)
 
-! https://github.com/uBlockOrigin/uAssets/pull/9371
-zshrink.com##+js(set, blurred, false)
-zshrink.com##+js(aopr, open)
-zshrink.com##+js(acis, Math, break;case $.)
-
 ! https://github.com/uBlockOrigin/uAssets/pull/9375
 adbity.com##+js(aopr, app_vars.force_disable_adblock)
 adbity.com##+js(aopr, open)
@@ -3558,7 +3549,7 @@ clikern.com##.banner-inner
 clikern.com##.blog-item
 
 ! whatshowto.com popup
-whatshowto.com##+js(acis, JSON.parse, break;case $.)
+whatshowto.com##+js(aeld, , break;case $.)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/9386
 cashathome.online##+js(acis, document.querySelectorAll, popMagic)
@@ -3571,12 +3562,6 @@ ofilmywap.*,kannadamasti.*,buyjiocoin.*,filmygod13.*##+js(nowoif)
 ! o2tvseries.paidnaija. com ads
 o2tvseries.paidnaija.com##+js(aost, Math.floor, )
 
-! gofile. us ads
-gofile.us##+js(aopw, _pop)
-gofile.us##+js(nowoif)
-gofile.us##+js(acis, Math, break;case $.)
-gofile.us##^script:has-text(break;case $.)
-
 ! fiedrive. com antiadb
 fiedrive.com##+js(aopr, app_vars.force_disable_adblock)
 
@@ -3586,8 +3571,7 @@ veryfastdownload.pw##+js(aopr, SmartPopunder.make)
 ! eztvtorrent. co popups
 eztvtorrent.co##+js(acis, document.querySelectorAll, popMagic)
 
-! ucanwatch. site ads
-ucanwatch.*##+js(acis, Math, break;case $.)
+! ucanwatch. me ads
 ucanwatch.*##+js(nowoif)
 
 ! tvglobe.me popups
@@ -4125,9 +4109,6 @@ link.asiaon.top##+js(set, blurred, false)
 ! https://github.com/uBlockOrigin/uAssets/issues/9534
 bestgamehack.top,hackofgame.com##+js(aopr, open)
 
-! https://aa01. net/tv/ watch-regular-show-free-38515.157429 popups
-aa01.net##+js(acis, Math, break;case $.)
-
 ! https://www.reddit.com/r/uBlockOrigin/comments/odfs9m/is_there_a_way_to_whitelist_a_site_from_specific/
 193.124.191.200##+js(acis, eval, replace)
 
@@ -4586,7 +4567,7 @@ manganelo.tv##+js(aopr, JSON.parse)
 
 ! movizland. top + players => popups 
 movizland.*##+js(aopr, open)
-movizland.*,vedpom.com,vedsharr.com##+js(acis, Math, break;case $)
+movizland.*##+js(acis, Math, break;case $)
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/90816
 upstore.net##+js(nano-sib, countDown, 1150, 0.5)
@@ -4712,10 +4693,6 @@ coinsurl.com###frame
 
 ! https://github.com/uBlockOrigin/uAssets/issues/9787
 apkdoze.com##+js(acis, $, samAdBlockAction)
-
-! https://github.com/AdguardTeam/AdguardFilters/issues/90903
-moviesrush.*##+js(acis, Math, break;case $.)
-moviesrush.*##+js(nostif, nextFunction, 2000)
 
 ! latestreview.tech anti-adb
 latestreview.tech##+js(set, tie.ad_blocker_detector, '')
@@ -5731,6 +5708,10 @@ olympusscanlation.com###teaser1
 
 ! https://github.com/uBlockOrigin/uAssets/issues/10192
 dirproxy.com##+js(aost, Math, )
+dirproxy.com##+js(aeld, , break;case $.)
+*$3p,script,domain=dirproxy.com
+||onpluslean.com^
+||inklinkor.com^
 torrentdownloads.dirproxy.com##.left_shadow:has-text(Fast)
 torrentdownload.info##.thleft:has-text(Fast):upward(2)
 dirproxy.com##[src="/logo_d.jpg"]
@@ -6177,6 +6158,7 @@ usagoals.*##+js(aopw, _pop)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/10356
 toxicwap.us##+js(aost, Math, https)
+||toxicwap.us/sw.js$script,1p
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/98494
 ! https://github.com/uBlockOrigin/uAssets/issues/10367
