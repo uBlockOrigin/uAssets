@@ -1,48 +1,29 @@
 ! Title: Quick fixes list
 ! Description: experimental filters 
 ! Expires: 1 days
-! Last modified: Wed, 20 Apr 2022 20:33:10 +0000
+! Last modified: Wed, 20 Apr 2022 20:37:04 +0000
 ! License: https://creativecommons.org/licenses/by/3.0/
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! Forums: https://github.com/uBlockOrigin/uAssets/issues
 
 ! https://github.com/uBlockOrigin/uAssets/issues/12214
-*$script,domain=money.pl,redirect-rule=noopjs
-money.pl#@#+js()
-||wp.pl^$frame,domain=money.pl
+*$script,domain=wp.pl|money.pl|o2.pl|parenting.pl|pudelek.pl|autokult.pl|gadzetomania.pl|fotoblogia.pl|komorkomania.pl|polygamia.pl,redirect-rule=noopjs
+@@*$ghide,domain=wp.pl|money.pl|o2.pl|parenting.pl|pudelek.pl|autokult.pl|gadzetomania.pl|fotoblogia.pl|komorkomania.pl|polygamia.pl
+wp.pl,money.pl,o2.pl,parenting.pl,pudelek.pl,autokult.pl,gadzetomania.pl,fotoblogia.pl,komorkomania.pl,polygamia.pl#@#+js()
+wp.pl,money.pl,o2.pl,parenting.pl,pudelek.pl,autokult.pl,gadzetomania.pl,fotoblogia.pl,komorkomania.pl,polygamia.pl#@#.ads
+||wp.pl^$frame,domain=wp.pl|money.pl|o2.pl|parenting.pl|pudelek.pl|autokult.pl|gadzetomania.pl|fotoblogia.pl|komorkomania.pl|polygamia.pl
 ||v.wpimg.pl/*.html$frame
-money.pl##:xpath(//*[string-length(@href) > 1600])
-money.pl#@#.ads
-@@||money.pl^$ghide
-! wp.pl company anti adblock overlay and ads
-wp.pl,money.pl,o2.pl,parenting.pl,pudelek.pl,autokult.pl,gadzetomania.pl,fotoblogia.pl,komorkomania.pl##body:has(button:has-text(Zaloguj)) > [id] > [class]:matches-css(z-index:/2147483647/)
-wp.pl,money.pl,o2.pl,parenting.pl,pudelek.pl,autokult.pl,gadzetomania.pl,fotoblogia.pl,komorkomania.pl##body:has(button:has-text(Zaloguj)) > div:style(filter: none !important)
-wp.pl,money.pl,o2.pl,parenting.pl,pudelek.pl,autokult.pl,gadzetomania.pl,fotoblogia.pl,komorkomania.pl##body:has(button:has-text(Zaloguj)):style(overflow: auto !important)
-wp.pl,money.pl,pudelek.pl,gadzetomania.pl,fotoblogia.pl,o2.pl##body:has(button:has-text(Zaloguj)) div > style:has-text(flex: 0 0 100%) + div
-autokult.pl,fotoblogia.pl,kafeteria.pl,komorkomania.pl##body:has(button:has-text(Zaloguj)) a[href^="https://www.wp.pl"] > img[src^="https://v.wpimg.pl/"]:upward(3)
-fotoblogia.pl,kafeteria.pl##body:has(button:has-text(Zaloguj)) .article-sidebar-wrapper + div:has(a[href^="https://www.wp.pl"] > img[src^="https://v.wpimg.pl/"])
-wp.pl,money.pl##body:has(button:has-text(Zaloguj)) div[class] > div > div:empty + div > a[href*="wp.pl/"] > img[src^="https://v.wpimg.pl/"]:upward(4)
-www.wp.pl##body:has(button:has-text(Zaloguj)) #site-header > div:not(:has(#logo)):has(img[src^="https://v.wpimg.pl"])
-www.wp.pl##body:has(button:has-text(Zaloguj)) aside > div:not([class]) > div:has(img[src^="https://v.wpimg.pl/"]):not([data-testid])
-www.wp.pl##body:has(button:has-text(Zaloguj)) #app-content > div > div:not([class]):not([id])
-www.wp.pl##body:has(button:has-text(Zaloguj)) div[class] > img[src^="https://v.wpimg.pl/"] + img[src^="https://v.wpimg.pl/"] + div:has(div[style="opacity: 1;"]):upward(1)
-www.wp.pl##body:has(button:has-text(Zaloguj)) #app-content > div[class] > div[class] > div:not([id]):not([class]) > div[class] > a[href^="https://www.wp.pl/"]:upward(2)
-wp.pl##body:has(button:has-text(Zaloguj)) div[class] > img[src^="https://v.wpimg.pl/"][alt][role="presentation"] + div > div > div:empty + div:upward(3)
-wp.pl##body:has(button:has-text(Zaloguj)) div[style*="top: 0px; left: 320px; background-position: center 0px; background-color: transparent; background-repeat: no-repeat; margin-left: -8.5px; z-index: -1; width: 1920px; height: 1080px"]
-wp.pl##body:has(button:has-text(Zaloguj)) a[style*="background:"][href^="https://www.wp.pl?src"] + div > div + div + div
-wp.pl##body:has(button:has-text(Zaloguj)) div[class] > div[class] + img[width="56"][height="45"][alt][src^="https://v.wpimg.pl"] + div[class]:upward(1)
-wp.pl##body:has(button:has-text(Zaloguj)) span[class]:has-text(REKLAMA):upward(li[data-adv])
-wp.pl,autokult.pl##body:has(button:has-text(Zaloguj)) > div[class]:has(> div[style*="height: 184"] > a[href*="wp.pl"])
-autokult.pl##body:has(button:has-text(Zaloguj)) iframe[src^="https://v.wpimg.pl/"]
-autokult.pl##body:has(button:has-text(Zaloguj)) .article-wrapper > [class]:not(.content-wrapper)
-o2.pl##div[class]:has(> h6:has-text(Oferty dla Ciebie) + div > img[role="presentation"])
-o2.pl,pudelek.pl##body:has(button:has-text(Zaloguj)) div[class] > div:not([class]):not([id]) > a > div > div:has-text(Reklama):upward(4)
-sportowefakty.wp.pl##body:has(button:has-text(Zaloguj)) div[class] > div[class] > div:empty + div[class] > div:not([class]) > div[class]:has(a[href*="wp.pl/"] > img[src^="https://v.wpimg.pl/"]):upward(4)
-sportowefakty.wp.pl##body:has(button:has-text(Zaloguj)) li:matches-css-after(content:/REKLAMA/)
-parenting.pl,abczdrowie.pl##body:has(button:has-text(Zaloguj)) main + div:has(a[href*=".pl/"] > img[src^="https://v.wpimg.pl/"])
-pudelek.pl,autokult.pl##body:has(button:has-text(Zaloguj)) div[style*="position: relative; top: 0px;"]:has(> a[href*=".pl/"] > div[style*="background-image"])
-parenting.pl,abczdrowie.pl##body:has(button:has-text(Zaloguj)) > div[class]:has(> div[style*="height: 184"] > a[href*=".pl"])
-sportowefakty.wp.pl,fotoblogia.pl##body:has(button:has-text(Zaloguj)) div[class] > div[class] > div:empty + div[class] > a[href*="wp.pl/"]:has(img[src^="https://v.wpimg.pl/"]):upward(3)
+wp.pl,money.pl,o2.pl,parenting.pl,pudelek.pl,autokult.pl,gadzetomania.pl,fotoblogia.pl,komorkomania.pl,polygamia.pl##:xpath(//*[string-length(@href) > 1600])
+sportowefakty.wp.pl,autokult.pl,fotoblogia.pl,komorkomania.pl##[class*="article"] > div[class]:not([class*="article"]):has(> div[class] > div[class]:empty)
+money.pl,o2.pl,pudelek.pl,gadzetomania.pl,polygamia.pl##div[class]:has(> img[src] + div > style:has-text(flex: 0 0 100%))
+autokult.pl,komorkomania.pl,fotoblogia.pl##div[class]:has(> div[class]:empty + img[src^="https://i.wpimg.pl/"])
+sportowefakty.wp.pl###matchtable + div:not([class], [id]):has(> div > div + div:empty)
+o2.pl##div[class]:has(> h6:has-text(Oferty dla Ciebie) + div > img[src^="https://www.o2.pl/"][role="presentation"])
+o2.pl##div:has(> div[style="width:100%"] > div > img[src^="https://www.o2.pl/"][role="presentation"])
+www.wp.pl###app-content > div > div:not([class]):not([id])
+www.wp.pl##div[data-cover] > div > div > div > div[style="width:100%;height:100%"]
+www.wp.pl##div > div[class]:has(> img[src^="https://v.wpimg.pl/"][role="presentation"] + div > div + div:empty)
+www.wp.pl##div[class] > img[src^="https://v.wpimg.pl/"] + img[src^="https://v.wpimg.pl/"] + div:has(div[style="opacity: 1;"]):upward(1)
 
 ! next-episode anti adb
 @@||next-episode.net^$script,1p
