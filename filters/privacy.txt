@@ -261,8 +261,9 @@ botcomics.com,chandlerorchards.com,comicleaks.com,marketdata.app,monumentmetals.
 /p13n/batch/action/*$image
 
 ! https://github.com/uBlockOrigin/uAssets/issues/9717
-/^https:\/\/cdn\.jsdelivr\.net\/npm\/[a-z]{10}@latest\/dist\/script\.min\.js$/$script,3p,match-case
+/^https:\/\/cdn\.jsdelivr\.net\/npm\/[-a-z]{4,22}@latest\/dist\/script\.min\.js$/$script,3p,match-case
 ||1ee085aa-4c05-43a8-a4fe-fafedbedd062.xyz^
+||03c844c9-d265-4006-a39d-400e6cb40bb7.xyz^
 
 ! https://www.reddit.com/r/uBlockOrigin/comments/p29y3w/these_guys_boast_combatting_all_adblocks/
 ||connectier.io^
@@ -381,6 +382,15 @@ endbasic.dev,jmmv.dev##+js(no-xhr-if, method:POST)
 
 ! https://www.reddit.com/r/uBlockOrigin/comments/tihpyw/oldredditcom_outbound_tracking_via_out_reddit_com/i1f290z/?context=3
 old.reddit.com##+js(ra, data-outbound-url, .outbound)
+reddit.com##+js(set, Object.prototype.allowClickTracking, false)
 
 ! techpowerup.com analytics
 techpowerup.com##+js(aopw, test)
+
+! https://www.reddit.com/r/uBlockOrigin/comments/u13isu/how_to_block_fathom_tracking
+||a2f41194651173ebf.awsglobalaccelerator.com^$3p
+/?p=%2F*&h=https%3A%2F%2F*&r=&sid=*&qs=*&cid=$image,1p
+
+! https://www.reddit.com//r/uBlockOrigin/comments/u4ef87/webtoons_redirects_to_loginfracom_and_back_to/
+webtoons.com##+js(set, ccsrv, '')
+webtoons.com##+js(set, lcs_SerName, '')
