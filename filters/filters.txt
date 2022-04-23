@@ -5654,10 +5654,12 @@ cbc.ca##.ad-container
 *$xhr,redirect-rule=nooptext,domain=freemcserver.net
 
 ! popups http://assia.tv/live/betsport/?lang=rs
-assia.tv##+js(set, ClickUnder, noopFunc)
-||assia.tv/css/$frame,1p
-assia.tv##[class*="ban"]
-assia.tv##+js(nowoif)
+! https://github.com/AdguardTeam/AdguardFilters/issues/116307
+assia.tv,assia4.com##+js(set, ClickUnder, noopFunc)
+/css/*$frame,domain=assia.tv|assia4.com
+/css/jquerymin$script,domain=assia.tv|assia4.com
+assia.tv,assia4.com##[class*="ban"]
+assia.tv,assia4.com##+js(nowoif)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/2327
 dallasnews.com##+js(nostif, initializeCourier, 3000)
