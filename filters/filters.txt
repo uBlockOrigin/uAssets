@@ -1,7 +1,7 @@
 ! Title: uBlock filters
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Expires: 4 days
-! Last modified: Mon, 25 Apr 2022 14:28:49 +0000
+! Last modified: Mon, 25 Apr 2022 14:34:28 +0000
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! Licence: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 !
@@ -2505,7 +2505,7 @@ voyeurhit.com##.footer-banners
 upornia.com##+js(acis, adver)
 upornia.com##+js(nosiif, undefined)
 upornia.com##+js(nowoif)
-upornia.*##.jwplayer > .afs_ads + div[style="display:flex !important"]
+upornia.*##.jwplayer > div[style="display:flex !important"] > div
 upornia.*##.video-content > div[class] > div.text > a[href="#"]:upward(2)
 upornia.*##.videoplayer-wrapper + div > div[class]:only-child
 upornia.*##.app-banners
@@ -2583,7 +2583,7 @@ thegay.com##.underplayer__info > div:first-child:has(> div > div#und_ban)
 thegay.*##.video-page__content > .right
 ! privatehomeclips.com
 privatehomeclips.com##.footer-banners
-privatehomeclips.com##.jwplayer > .afs_ads + span[class]
+privatehomeclips.com##.jwplayer > div[style="display:flex !important"] > div
 privatehomeclips.com##.partners-wrap
 privatehomeclips.com##.video-page__content > .right
 privatehomeclips.com##.video-page__item
@@ -2621,10 +2621,12 @@ hclips.com##+js(aopr, ExoLoader)
 hclips.com##.adv-box-holder
 hclips.com##[class^="pl_"]
 hclips.com##iframe[src="javascript:false"]
-hclips.com##.jwplayer > .afs_ads + span[class]
+hclips.com##.jwplayer > div[style="display:flex !important"] > div
 hclips.com##.video-page__content > .right
 hclips.com##.video-page__item
 hclips.com##.content > div > .wrapper + div[class]:not(.wrapper)
+hclips.com##.underplayer > div[class]:not([class*="_"]) > div[class]
+hclips.com##.wrapper + .partners-wrap + div[class]
 *$script,3p,denyallow=recaptcha.net|gstatic.com,domain=hclips.com
 *$frame,3p,denyallow=google.com|gstatic.com,domain=hclips.com
 ! https://github.com/uBlockOrigin/uAssets/issues/8391
