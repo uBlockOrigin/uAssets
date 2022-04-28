@@ -1,7 +1,7 @@
 ! Title: Quick fixes list
 ! Description: experimental filters 
 ! Expires: 1 days
-! Last modified: Wed, 27 Apr 2022 20:43:04 +0000
+! Last modified: Thu, 28 Apr 2022 09:34:21 +0000
 ! License: https://creativecommons.org/licenses/by/3.0/
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! Forums: https://github.com/uBlockOrigin/uAssets/issues
@@ -102,11 +102,10 @@ rjno1.com##.menu-use-js
 ||techpowerup.com/_botcheck$xhr
 !#if env_mobile
 techpowerup.com##body:not([data-template]) a[href^="/review/481/"] img[src^="https://tpucdn.com/review/"]:style(height: 1px !important; width: 1px !important; opacity: 0 !important; pointer-events: none !important;)
-!#endif
-techpowerup.com##body:not([data-template]) *:not(header.clearfix + script + .text) > * > * > a img[src*=".com/review/"]
-techpowerup.com##body:not([data-template]) *:not(div[class^="responsive-image-"][style^="width:"]) > *:not(figure[style^="padding-top:7"]) > a img[src*=".com/review/"]
+!#endiftechpowerup.com##body:not([data-template]) *:not(header.clearfix + script + .text) > * > * > .responsive-image:has(a img[src*="/revie/"]):upward(1)
+techpowerup.com##body:not([data-template]) *:not(div[class^="responsive-image-"][style^="width:"]) > *:not(figure[style^="padding-top:7"]) > .responsive-image:has(a img[src*="/revie/"]):upward(1)
 techpowerup.com##body:not([data-template]) figure[style="padding-top:7px"] > a img[src*=".com/review/"]
-techpowerup.com##body:not([data-template]) a[data-wdh][data-height=""] > img[src*=".com/review/"][xheight]
+techpowerup.com##body:not([data-template]) .responsive-image:has(a[data-wh][data-height=""] > img[src*="/revie/"][xheight]):upward(1)
 techpowerup.com##body:not([data-template]) figure > a:not([href^="/review/"]):has(img[src*=".com"])
 ||www.techpowerup.com/*/b680$image,1p
 
