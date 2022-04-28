@@ -101,13 +101,20 @@ rjno1.com##.menu-use-js
 ! https://github.com/uBlockOrigin/uAssets/issues/9696
 ||techpowerup.com/_botcheck$xhr
 !#if env_mobile
-techpowerup.com##body:not([data-template]) a[href^="/review/481/"] img[src^="https://tpucdn.com/review/"]:style(height: 1px !important; width: 1px !important; opacity: 0 !important; pointer-events: none !important;)
-!#endiftechpowerup.com##body:not([data-template]) *:not(header.clearfix + script + .text) > * > * > .responsive-image:has(a img[src*="/revie/"]):upward(1)
-techpowerup.com##body:not([data-template]) *:not(div[class^="responsive-image-"][style^="width:"]) > *:not(figure[style^="padding-top:7"]) > .responsive-image:has(a img[src*="/revie/"]):upward(1)
-techpowerup.com##body:not([data-template]) figure[style="padding-top:7px"] > a img[src*=".com/review/"]
-techpowerup.com##body:not([data-template]) .responsive-image:has(a[data-wh][data-height=""] > img[src*="/revie/"][xheight]):upward(1)
-techpowerup.com##body:not([data-template]) figure > a:not([href^="/review/"]):has(img[src*=".com"])
-||www.techpowerup.com/*/b680$image,1p
+techpowerup.com##div[class*="__"] + *[class^="07cc6"]:not(div, span)
+!#endif
+!#if env_chromium
+techpowerup.com##:matches-path(/29) body:not([data-template]):has(.imgcontainer) *:not(.imgcontainer) > a:not([href^="https://www.techpowerup.com/img/"]) > img:not([href^="https://tpucdn.com/img/"])
+techpowerup.com##:matches-path(/review/) body:not([data-template]) *:not(header.clearfix + script + .text) > * > *:not(.photo) > a img
+techpowerup.com##:matches-path(/gallery/) body:not([data-template]) a[data-height=""] > img[xheight=""]
+techpowerup.com##:matches-path(/vgabios/) body:not([data-template]) *:not(section.cardimage) > * > a img
+techpowerup.com##:matches-path(/gpu-specs/) body:not([data-template]) *:not(div[class^="gpudb-"]) > a img
+techpowerup.com##:matches-path(/cpu-specs/) body:not([data-template]) *:not(div[class="clearfix images"]) > * > a img
+techpowerup.com##:matches-path(/live/) body:not([data-template]) a[href^="/"]:not([href^="/live/images/"]) img[src^="/"]:not([src^="/live/images/"])
+techpowerup.com##:matches-path(/download/) body:not([data-template]) a:not([href^="https://tpucdn.com/download/images/"]) img[src^="/"]:not([src$=".png"])
+techpowerup.com##:matches-path(/articles/) body:not([data-template]) a:not([href^="http://www.techpowerup.com/articles/"]) img:not([src^="https://tpucdn.com/articles/"])
+!#endif
+||www.techpowerup.com/*/b681$image,1p
 
 ! https://github.com/uBlockOrigin/uAssets/issues/9932#issuecomment-1075139639
 nikita.tk##+js(aost, document.cookie)
