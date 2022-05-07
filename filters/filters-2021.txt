@@ -1,7 +1,7 @@
 ! Title: uBlock filters
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Expires: 4 days
-! Last modified: Sat, 07 May 2022 14:08:52 +0000
+! Last modified: Sat, 07 May 2022 15:44:17 +0000
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! Licence: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 ! New filters from January 2021 to ->
@@ -2065,7 +2065,7 @@ nudeof.com##.col-xl-4.col-lg-6.col-md-8.col-12.order-xl-1.order-lg-1.order-md-1.
 nudeof.com##div.happy-section
 
 ! https://github.com/uBlockOrigin/uAssets/issues/11582
-dlpsgame.org##+js(acis, JSON.parse, break;case $.)
+dlpsgame.org##+js(acis, parseInt, break;case $.)
 dlpsgame.org##div.widget-content > .title
 
 ! https://github.com/uBlockOrigin/uAssets/issues/8801
@@ -2879,10 +2879,6 @@ short.goldenfaucet.io##.rectangles
 ! https://github.com/uBlockOrigin/uAssets/issues/8984
 icttipsandtricks.nl##+js(aost, String.prototype.charCodeAt, ai_)
 
-! https://github.com/AdguardTeam/AdguardFilters/issues/81707
-traficodetorrents.com##+js(acis, addEventListener, google_ad_client)
-traficodetorrents.com##+js(acis, JSON.parse, break;case $.)
-
 ! https://github.com/AdguardTeam/AdguardFilters/issues/81803
 *$script,redirect-rule=noopjs,domain=ver-television.online|red-point.xyz
 
@@ -2947,7 +2943,7 @@ french-stream.*##+js(aeld, , break;case $.)
 rodude.com##+js(acis, onload)
 
 ! hds-streaming. tv / site popups
-hds-streaming.*##+js(acis, JSON.parse, break;case $.)
+hds-streaming.*##+js(acis, parseInt, break;case $.)
 hds.club,hds-streaming.*###fakeplayer
 hds.club,hds-streaming.*##.asgdc
 
@@ -3926,9 +3922,6 @@ jogging-plus.com##+js(set, tie.ad_blocker_detector, '')
 tutflix.org##+js(acis, $, test)
 @@||tutflix.org^$ghide
 
-! https://www.reddit.com/r/uBlockOrigin/comments/o68ofr/when_i_click_some_links_the_page_randomly_brings/
-pahe.ph##+js(acis, JSON.parse, break;case $.)
-
 ! https://github.com/AdguardTeam/AdguardFilters/issues/86555
 pussy-hub.com##+js(aeld, click, popundr)
 ||pussy-hub.com/*/stat1_$script,1p
@@ -4309,9 +4302,6 @@ viserve.com##^responseheader(location)
 ! auto redirect when visited
 millebook.com##+js(acis, loadNewDoc, location)
 
-! https://github.com/AdguardTeam/AdguardFilters/issues/88566
-anime4up.com##+js(acis, JSON.parse, break;case $.)
-
 ! https://github.com/uBlockOrigin/uAssets/issues/9606
 @@||leaklinks.com^$script,1p
 *.gif$domain=leaklinks.com,image
@@ -4524,12 +4514,10 @@ superonleech.biz##+js(acis, document.addEventListener, google_ad_client)
 ! https://www.reddit.com/r/uBlockOrigin/comments/p0ina2/blocked_video_on_howstuffworkscom/
 ||imasdk.googleapis.com/js/sdkloader/ima3.js^$script,redirect-rule=noopjs,domain=howstuffworks.com
 
-! https://www.reddit.com/r/uBlockOrigin/comments/p0jrio/project_free_tv_no_longer_working_with_ublock/h892hgh/
-123movies-hd.com##+js(acis, JSON.parse, break;case $.)
-
-! egynow. live popups
-egynow.live##+js(aost, JSON.parse, computed)
-egynow.live##^script:has-text(break;case $)
+! egynow. live/ cam popups
+egynow.cam##+js(aost, JSON.parse, computed)
+egynow.cam,vidspeeds.com##^script:has-text(break;case $)
+vidspeeds.com##+js(aeld, , break;case $.)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/8156
 userload.*##+js(aeld, , _0x)
