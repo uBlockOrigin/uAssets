@@ -244,15 +244,14 @@ search.brave.com##+js(no-fetch-if, body:browser)
 /^\w+://[\w.\-]+\.www\.logology\.co//$1p,script
 /^\w+://[\w.\-]+\.www\.atlaslane\.com//$1p,script
 /^\w+://[0-9a-z]{12}\.tapmyback\.com//$1p,script
-/^\w+://[\w.\-]+\.www\.cefirates\.com//$1p,script
 fjlaboratories.com##+js(aost, Math.floor, injectedScript)
 stoic.ai##^script:has-text(\x3c)
 stoic.ai##+js(aost, Math.floor, injectedScript)
 ||ampl.cinotes.com^
 ||data-saver-cindi.herokuapp.com^
 ||cdn.cindicator.com/$script,3p
-botcomics.com,chandlerorchards.com,comicleaks.com,filmustage.com,freecodecamp.org,mailfloss.com,marketdata.app,monumentmetals.com,nikita.tk,ping.gg##+js(acis, String.fromCharCode, join)
-botcomics.com,chandlerorchards.com,comicleaks.com,marketdata.app,monumentmetals.com,nikita.tk##^script:has-text(join)
+botcomics.com,chandlerorchards.com,comicleaks.com,filmustage.com,freecodecamp.org,mailfloss.com,marketdata.app,monumentmetals.com,nikita.tk,ping.gg,cefirates.com##+js(acis, String.fromCharCode, join)
+botcomics.com,chandlerorchards.com,comicleaks.com,marketdata.app,monumentmetals.com,nikita.tk,cefirates.com##^script:has-text(join)
 
 ! https://www.reddit.com/r/uBlockOrigin/comments/opoba7/washington_post_showing_ad_placeholders/
 ||washpost.nile.works^
@@ -261,7 +260,8 @@ botcomics.com,chandlerorchards.com,comicleaks.com,marketdata.app,monumentmetals.
 /p13n/batch/action/*$image
 
 ! https://github.com/uBlockOrigin/uAssets/issues/9717
-/^https:\/\/cdn\.jsdelivr\.net\/npm\/[-a-z]{4,22}@latest\/dist\/script\.min\.js$/$script,3p,match-case
+||da29e6b8-f018-490f-b25f-39a887fc95e7.xyz^
+/^https:\/\/cdn\.jsdelivr\.net\/npm\/[-a-z_]{4,22}@latest\/dist\/script\.min\.js$/$script,3p,match-case
 ||1ee085aa-4c05-43a8-a4fe-fafedbedd062.xyz^
 ||03c844c9-d265-4006-a39d-400e6cb40bb7.xyz^
 
@@ -337,7 +337,6 @@ reddit.com##+js(no-xhr-if, method:POST url:/^https:\/\/www\.reddit\.com$/)
 ! https://github.com/uBlockOrigin/uAssets/pull/10610
 ||statwup.huya.com^
 ||va.huya.com^
-||metric.huya.com^
 ||e-stat.huya.com^
 
 ! pornocolombiano.net analytics
@@ -363,7 +362,7 @@ skk.moe##+js(no-fetch-if, method:POST)
 ||gplinks.co/Auth/ads_stats_controller.php
 
 ! https://github.com/uBlockOrigin/uAssets/issues/9970
-||videovard.sx/api/front/view^$xhr,important
+||videovard.*/api/front/view^$xhr,important
 
 ! https://github.com/uBlockOrigin/uAssets/issues/11644
 endbasic.dev,jmmv.dev##+js(no-xhr-if, method:POST)
@@ -390,7 +389,14 @@ techpowerup.com##+js(aopw, test)
 ! https://www.reddit.com/r/uBlockOrigin/comments/u13isu/how_to_block_fathom_tracking
 ||a2f41194651173ebf.awsglobalaccelerator.com^$3p
 /?p=%2F*&h=https%3A%2F%2F*&r=&sid=*&qs=*&cid=$image,1p
+/?h=https%3A%2F%2F*&r=&sid=*&qs=*&cid=$image,1p
 
 ! https://www.reddit.com//r/uBlockOrigin/comments/u4ef87/webtoons_redirects_to_loginfracom_and_back_to/
 webtoons.com##+js(set, ccsrv, '')
 webtoons.com##+js(set, lcs_SerName, '')
+
+! https://github.com/uBlockOrigin/uAssets/issues/13059
+||hdslb.com/bfs/cm/cm-sdk/static/js/bili-collect.js$script,redirect=noop.js,domain=bilibili.com,important
+
+! https://vostanimez.com/Episode/shokei-shoujo-no-ikiru-michi-the-executioner-and-her-way-of-life-vostfr-saison-1-episode-6-streaming-hd/
+||imsdb.pw/player/ip.php
