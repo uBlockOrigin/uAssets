@@ -1,7 +1,7 @@
 ! Title: uBlock filters
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Expires: 4 days
-! Last modified: Sat, 14 May 2022 02:12:57 +0000
+! Last modified: Sat, 14 May 2022 02:54:44 +0000
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! Licence: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 ! New filters from January 2021 to ->
@@ -7190,7 +7190,9 @@ raky.in##+js(nano-sib)
 ! https://github.com/uBlockOrigin/uAssets/issues/10914
 ! https://github.com/uBlockOrigin/uAssets/issues/13132
 titantv.com##+js(aopr, prm)
-titantv.com##.gridTable > tbody > tr:not([class]):has(> td[align="center"][style^="vertical-align: top; overflow: hidden;"] > div[id][style]:empty)
+titantv.com##+js(aost, document.createElement, loadPlayer)
+titantv.com##.gridTable > tbody > tr:not([class]) div[id]
+! titantv.com##.gridTable > tbody > tr:not([class]):has(> td[align="center"][style^="vertical-align: top; overflow: hidden;"] > div[id][style]:empty)
 titantv.com##.s2nFloatBox
 titantv.com###stnvidplyr
 titantv.com##:xpath(//*[contains(text(),"sponsored")])
