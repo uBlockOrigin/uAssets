@@ -10,8 +10,13 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
+permissions:
+  contents: read
+
 jobs:
   publish:
+    permissions:
+      contents: write  # for Git to git push
     name: Publish lists
     runs-on: ubuntu-latest
     steps:
