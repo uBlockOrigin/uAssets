@@ -5588,7 +5588,10 @@ ijr.com##+js(acis, document.createElement, admiral)
 *$image,redirect-rule=1x1.gif,domain=guardian.gg
 
 ! https://github.com/uBlockOrigin/uAssets/pull/9925
+! https://github.com/uBlockOrigin/uAssets/issues/13297
 outlook.live.com##div[class][tabindex="-1"][role=region][aria-label][data-min-width][data-max-width] ~ div[class][data-max-width="2400"] + div[class]
+outlook.live.com###MainModule + div[class] > div[style^="width"] > div > i[data-icon-name="OutlookLogo"]:upward(3)
+outlook.live.com###MainModule div[data-max-width="2400"] + div[class]
 
 ! https://www.reddit.com/r/uBlockOrigin/comments/pjhnuc/site_crippling_basic_browser_functions/
 naaree.com##+js(aopw, disableEnterKey)
@@ -6481,3 +6484,38 @@ layarkacaxxi.icu##+js(set, devtoolIsOpening, undefined)
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/118407
 cdramalove.com##+js(acis, document.oncontextmenu)
+
+! https://www.reddit.com/r/uBlockOrigin/comments/uo7w9g/clicking_on_the_play_button_of_the_video/ anti right click
+fucktube4k.com##+js(acis, document.addEventListener, contextmenu)
+
+! http://animevietsub.tv/phim/spy-x-family-a4402/tap-01-83381.html anti devtools
+||animevietsub.tv/statics/default/js/detect.dev.js$script
+
+! https://www.ssphim.net/p/spy-x-family-tap-1 anti right click
+ssphim.net##+js(acis, $, contextmenu)
+ssphim.net##+js(acis, document.onkeydown)
+
+! e-words.jp anti-adb
+e-words.jp###forvisitors
+
+! bigdatauni. com anti select, f-keys, print, snow
+/wp-content/plugins/wp-snow/*
+bigdatauni.com##*:style(-webkit-touch-callout: default !important; -webkit-user-select: text !important; -moz-user-select: text !important; -ms-user-select: text !important; user-select: text !important;)
+bigdatauni.com##+js(acis, disableSelection, reEnable)
+bigdatauni.com##+js(acis, document.ondragstart)
+bigdatauni.com##style:has-text(@media print):remove()
+
+! https://github.com/uBlockOrigin/uAssets/issues/13228
+colegiosconcertados.info##*:style(-webkit-touch-callout: default !important; -webkit-user-select: text !important; -moz-user-select: text !important; -ms-user-select: text !important; user-select: text !important;)
+colegiosconcertados.info##+js(acis, disableSelection, reEnable)
+colegiosconcertados.info##+js(acis, document.ondragstart)
+colegiosconcertados.info##style:has-text(@media print):remove()
+
+! matzoo. pl anti right click
+matzoo.pl##+js(ra, oncontextmenu)
+matzoo.pl##+js(aeld, contextmenu)
+
+! flashplayer.org. ua anti right click, select, f-keys
+flashplayer.org.ua##+js(aopr, document.oncontextmenu)
+flashplayer.org.ua##+js(aopr, document.onkeydown)
+flashplayer.org.ua##+js(aopr, disableSelection)

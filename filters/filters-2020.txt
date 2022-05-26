@@ -403,6 +403,7 @@ adslink.pw##.banner-inner
 adslink.pw##+js(aopw, ai_adb)
 adslink.pw##+js(aopw, _pop)
 adslink.pw##+js(set, blurred, false)
+adslink.pw##+js(acis, document.createElement, __htas)
 *$script,3p,denyallow=b-cdn.net|cdnized.com|google.com|gstatic.com|recaptcha.net,domain=adslink.pw
 
 ! https://github.com/NanoMeow/QuickReports/issues/3625
@@ -1412,10 +1413,7 @@ gtamaxprofit.com##+js(acis, $, wrapfabtest)
 
 ! https://www.reddit.com/r/uBlockOrigin/comments/ml8swm/how_to_block_adblock_detection_on_similar_site/
 @@||myuploadedpremium.de^$ghide
-myuploadedpremium.de##+js(aeld, mouseover)
-myuploadedpremium.de##+js(nostif, checkifr)
-myuploadedpremium.de##+js(nosiif, /length|checkifr/)
-myuploadedpremium.de##+js(aopr, atob)
+myuploadedpremium.de##+js(set, getRandomArbitrary, noopFunc)
 myuploadedpremium.de##.adsbygoogle
 myuploadedpremium.de###babasbmsgx
 myuploadedpremium.de##.copyright > .card
@@ -3130,6 +3128,7 @@ responsivevoice.org##.cp-modal-popup-container:remove()
 ! https://github.com/AdguardTeam/AdguardFilters/issues/69603
 ! https://github.com/AdguardTeam/AdguardFilters/issues/76539
 *$frame,script,3p,denyallow=akamaiedge.net|cloudflare.com|edgecastcdn.net|facebook.com|fastly.net|googleapis.com|hatena.ne.jp|hcaptcha.com|line.me|twitter.com,domain=comick.top|manga1000.*|manga1001.*|mangapro.top|syosetu.top
+||js.mangapro.top^
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/62793
 samapkstore.com##+js(nosiif, visibility, 1000)
@@ -3341,12 +3340,12 @@ hentaicloud.com###photo-container > .center:not(.center:first-child)
 hentaicloud.com###player_one > .vjs-fade.vjs-over
 hentaicloud.com##section.videos-content:has(.thumbnail > a[href^="https://www.nutaku.net/signup/landing/"])
 
-! javdisk.com/javsun.cc popup ads
-player.javdisk.com###poster
-player.javdisk.com,player.javsun.*,player.javtc.tv###preroll
-javdisk.com,javfree.la,javfree.sh,javsun.*,javtc.tv,javthe.com##[style^="height: 250px;overflow"]
-*$script,3p,denyallow=cdndoe.xyz|cloudflare.com|doecdn.me,domain=javdisk.com|javfree.*|javsun.*|javtc.tv|javthe.com
-||pub.javwide.com
+! javdoe.to/javsun.cc/javtc.fun popup ads
+player.javsun.*,player.javtc.*###preroll
+javfree.la,javfree.sh,javsun.*,javtc.*,javthe.com##[style^="height: 250px;overflow"]
+*$script,3p,denyallow=cdndoe.xyz|cloudflare.com|doecdn.me|googleapis.com,domain=javthe.com|javfree.*
+*$script,3p,domain=javdoe.to|javsun.*|javtc.*
+||pub.javwide.com^
 
 ! javbangers.com popup ads
 javbangers.com##+js(acis, document.addEventListener, initBCPopunder)
@@ -3814,7 +3813,10 @@ aylink.co,gitizle.vip,shtms.co##+js(ra, data-ppcnt_ads|onclick, #main)
 aylink.co,gitizle.vip,shtms.co##.alternative-ad
 
 ! https://github.com/NanoMeow/QuickReports/issues/4755
-databasegdriveplayer.*##+js(acis, JSON.parse, break;case $.)
+databasegdriveplayer.*##+js(aeld, , break;case $.)
+databasegdriveplayer.*##^script:has-text(break;case $.)
+*$frame,xhr,css,image,3p,denyallow=gdriveplayer.io|isostech.com|jwcdn.com|m.media-amazon.com|subscene.gdriveplayer.me|themoviedb.org|tmdb.org,domain=databasegdriveplayer.co
+||tauvoojo.net^
 
 ! etcscrs .to popups
 etcscrs.to##+js(aopr, LieDetector)
@@ -4219,9 +4221,6 @@ weviral.org##+js(nosiif, visibility, 1000)
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/65871
 *$script,redirect-rule=noopjs,domain=sydroid.co
-
-! https://github.com/AdguardTeam/AdguardFilters/issues/65891
-noonnu.cc##+js(aopr, noonnuCanRunAds)
 
 ! play.webcric .com popups
 *$script,3p,domain=webcric.com,denyallow=ucplayer.xyz|ucweb.live
@@ -4944,6 +4943,7 @@ mytoolz.net##+js(aopr, onload)
 ! https://github.com/uBlockOrigin/uAssets/issues/8233
 pics4you.net##+js(aopr, absda)
 pics4you.net##+js(aopr, loadTool)
+*$script,3p,domain=pics4you.net
 
 ! https://github.com/uBlockOrigin/uAssets/issues/8237
 moozpussy.com,zoompussy.com##+js(aopr, loadTool)
@@ -5038,13 +5038,6 @@ getpczone.com###breadcrumb-ads-links
 ! kissmanga. nl popups
 kissmanga.*##+js(acis, JSON.parse, break;case $.)
 kissmanga.*###myModal
-
-! coindailytimes.com/wavescoin.xyz anti-adblock/ads
-coindailytimes.com##[href^="http://moonbit.co.in/"]
-coindailytimes.com##[href^="http://moondoge.co.in/"]
-coindailytimes.com##[href^="http://moonliteco.in/"]
-coindailytimes.com##div[align="center"]
-coindailytimes.com##body > div > div > a
 
 ! https://github.com/uBlockOrigin/uAssets/issues/8247
 thevideos.ga##+js(acis, Math, zfgloaded)
@@ -5441,14 +5434,14 @@ cryptowin.io##.panel-body > p[style=" color:#818181; background-color: #fffdc4; 
 cryptowin.io##.hidden-xs
 
 ! https://github.com/uBlockOrigin/uAssets/issues/7702
-cdnqq.net,cdn1.fastvid.co,gotoons.org,hydrax.xyz,kokostream.net,movi.pk,player.cineflixtv.com,player.msmini.*,ply.mp4cage.com##+js(nowoif)
+0gomovies.*,cdnqq.net,cdn1.fastvid.co,gotoons.org,hydrax.xyz,kokostream.net,movi.pk,player.cineflixtv.com,player.msmini.*,ply.mp4cage.com##+js(nowoif)
+0gogle.com##+js(aopr, __Y)
 movi.pk##+js(aeld, , vads)
 movi.pk##+js(aeld, , break;case $.)
 movi.pk##+js(aopw, _pop)
 movi.pk###vads
 ||vadspremium.com^$3p
-/cdn-cgi/trace$xhr,1p,domain=cdnqq.net|cdn1.fastvid.co|gotoons.org|hydrax.xyz|kokostream.net|movi.pk|netu.in|player.cineflixtv.com|player.msmini.*|ply.mp4cage.com
-||glizauvo.net^
+/cdn-cgi/trace$xhr,1p,domain=0gomovies.*|cdnqq.net|cdn1.fastvid.co|gotoons.org|hydrax.xyz|kokostream.net|movi.pk|netu.in|player.cineflixtv.com|player.msmini.*|ply.mp4cage.com
 
 ! https://www.reddit.com/r/uBlockOrigin/comments/k8m63f/adblock_detected/
 plugincrack.com##+js(nostif, ai_adb)
@@ -5461,7 +5454,9 @@ pikkado.com###dest_rev
 ||gartic.io/videos/*$media,1p,redirect=noopmp4-1s
 
 ! https://github.com/uBlockOrigin/uAssets/issues/8340
-||doubleclick.net/tag/js/gpt.js$script,redirect-rule=noopjs,domain=hindustantimes.com
+hindustantimes.com##.blackOverlay
+hindustantimes.com##.adBlocker
+hindustantimes.com##body:style(overflow: auto !important;)
 hindustantimes.com##+js(no-fetch-if, adsbygoogle.js)
 hindustantimes.com##+js(ra, onclick, a[href][onclick^="getFullStory"])
 @@||hindustantimes.com^$ghide
@@ -5510,7 +5505,7 @@ hentaihd.net##.active-item
 ! https://github.com/AdguardTeam/AdguardFilters/issues/87085
 !#if env_mobile
 *##.ad-300x250
-*##.ad-banner
+*##.ad-banner:not([style="height: 5px; width: 5px; position: absolute; top: 0;"]):not(.blocker-tester + .ad-banner)
 *##.ad-block
 *##.ad-center
 *##.ad-slot
@@ -5528,6 +5523,7 @@ xnxx.com,xvideos.com###ad-header-mobile
 jprime.jp##.ad-overlay
 apkdone.com##.adplaceholder-top
 cyclehack.jp,gogo-miyagi.com,izuhack.akao-hotel.co.jp,nap-camp.com,runhack.jp,tsurihack.com,yamahack.com###ad-overlay
+m.washingtontimes.com##.mrf-adv__wrapper
 !#endif
 
 ! https://www.reddit.com/r/uBlockOrigin/comments/k9va25/cashearncc/
@@ -5536,6 +5532,9 @@ cashearn.cc##+js(nostif, checkblockUser)
 cashearn.cc##+js(aopw, _pop)
 cashearn.cc##+js(set, blurred, false)
 cashearn.cc##+js(aopw, u_cfg)
+cashearn.cc##+js(acis, $, check)
+cashearn.cc##[src^="blob:https://cashearn.cc/"]
+cashearn.cc##[target="_blank"]
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/69563
 *$script,redirect-rule=noopjs,domain=konnoznet.xyz
@@ -5992,9 +5991,11 @@ eropaste.com##+js(set, isAdBlockActive, false)
 ! https://github.com/AdguardTeam/AdguardFilters/issues/70487
 ! https://github.com/AdguardTeam/AdguardFilters/issues/70888
 ! https://github.com/AdguardTeam/AdguardFilters/issues/71223
+adult-sex-gamess.com,hentaigames.app,mobilesexgamesx.com,mysexgamer.com,porngameshd.com,sexgamescc.com##+js(nostif, /out.php)
 adult-sex-gamess.com,hentaigames.app,mobilesexgamesx.com,mysexgamer.com,porngameshd.com,sexgamescc.com##.a-th:first-child:has(iframe)
 adult-sex-gamess.com,hentaigames.app,mobilesexgamesx.com,mysexgamer.com,porngameshd.com,sexgamescc.com##.alert-danger > .row
-adult-sex-gamess.com,hentaigames.app,mobilesexgamesx.com,mysexgamer.com,porngameshd.com,sexgamescc.com##+js(nostif, /out.php)
+adult-sex-gamess.com,hentaigames.app,mobilesexgamesx.com,mysexgamer.com,porngameshd.com,sexgamescc.com##.ntkSides
+adult-sex-gamess.com,hentaigames.app,mobilesexgamesx.com,mysexgamer.com,porngameshd.com,sexgamescc.com###modalegames
 
 ! yporn.tv popunder
 yporn.tv##+js(acis, document.querySelectorAll, popMagic)

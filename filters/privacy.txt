@@ -31,10 +31,10 @@
 ||taboola.com^$3p
 
 ! Redirect to neutered Google Analytics
-||google-analytics.com/analytics.js$script,redirect=google-analytics.com/analytics.js
+||google-analytics.com/analytics.js$script,redirect=google-analytics.com/analytics.js:5
 
 ! Redirect to neutered Google Analytics Experiments
-||google-analytics.com/cx/api.js$script,redirect=google-analytics.com/cx/api.js
+||google-analytics.com/cx/api.js$script,redirect=google-analytics.com/cx/api.js:5
 
 ! https://github.com/gorhill/uBlock/issues/1411
 ! https://www.reddit.com/r/firefox/comments/3pwcey/firefox_extension_download_manager_s3_asks_for/
@@ -53,15 +53,15 @@
 
 ! https://www.reddit.com/r/ublock/comments/47o2ih/ublock_disabling_all_javascript_links/d0fhock
 ! Time to bring this filter out of experimental status
-||googletagservices.com/tag/js/gpt.js$script,redirect=googletagservices.com/gpt.js
-||securepubads.g.doubleclick.net/tag/js/gpt.js$script,redirect=googletagservices_gpt.js
-||pagead2.googlesyndication.com/tag/js/gpt.js$script,redirect=googletagservices_gpt.js
+||googletagservices.com/tag/js/gpt.js$script,redirect=googletagservices.com/gpt.js:5
+||securepubads.g.doubleclick.net/tag/js/gpt.js$script,redirect=googletagservices_gpt.js:5
+||pagead2.googlesyndication.com/tag/js/gpt.js$script,redirect=googletagservices_gpt.js:5
 
 ! https://github.com/gorhill/uBlock/issues/1265
-||scorecardresearch.com/beacon.js$script,redirect=scorecardresearch.com/beacon.js
+||scorecardresearch.com/beacon.js$script,redirect=scorecardresearch.com/beacon.js:5
 
 ! https://github.com/uBlockOrigin/uAssets/issues/7
-||google-analytics.com/ga.js$script,redirect=google-analytics.com/ga.js
+||google-analytics.com/ga.js$script,redirect=google-analytics.com/ga.js:5
 
 ! https://www.eff.org/deeplinks/2014/07/white-house-website-includes-unique-non-cookie-tracker-despite-privacy-policy
 ! https://github.com/uBlockOrigin/uAssets/issues/1713
@@ -86,12 +86,12 @@ free18.net,gadgetlove.com,nrc.gov,onbeing.org,rapgenius.com,schonmagazine.com,te
 ! https://adblockplus.org/forum/viewtopic.php?f=10&t=48183
 ! https://forums.lanik.us/viewtopic.php?f=64&t=32161
 ! https://forums.lanik.us/viewtopic.php?f=64&t=30670
-||googletagmanager.com/gtm.js$script,redirect=googletagmanager.com/gtm.js
+||googletagmanager.com/gtm.js$script,redirect=googletagmanager_gtm.js:5
 
 ! https://github.com/gorhill/uBlock/issues/1082
 ! https://github.com/gorhill/uBlock/issues/1250#issuecomment-173533894
 ! https://github.com/gorhill/uBlock/issues/2155
-||widgets.outbrain.com/outbrain.js$script,redirect=widgets.outbrain.com/outbrain.js
+||widgets.outbrain.com/outbrain.js$script,redirect=outbrain-widget.js:5
 
 ! https://github.com/uBlockOrigin/uAssets/issues/713
 ||google-analytics.com/analytics.js$important,script,redirect=google-analytics.com/analytics.js,domain=support.amd.com
@@ -299,10 +299,6 @@ reddit.com##+js(no-xhr-if, method:POST url:/^https:\/\/www\.reddit\.com$/)
 ! https://github.com/easylist/easylist/pull/9370
 ||tr.jianshu.com^
 
-! https://github.com/uBlockOrigin/uAssets/pull/10282
-||log.mix.sina.com.cn^
-||sbeacon.sina.com.cn^
-
 ! https://github.com/easylist/easylist/pull/9469#issuecomment-950179366
 /lib/f_ad_code.js
 
@@ -314,7 +310,8 @@ reddit.com##+js(no-xhr-if, method:POST url:/^https:\/\/www\.reddit\.com$/)
 
 ! https://github.com/Yuki2718/adblock/issues/40
 ! https://github.com/Yuki2718/adblock/issues/44
-/\.com\/[-_0-9a-zA-Z]{4,}\/[-\/_0-9a-zA-Z]{30,}$/$script,1p,domain=gu-global.com|uniqlo.com
+! https://www.reddit.com/r/uBlockOrigin/comments/udaxzt/block_fingerprinting_javascript_with_completely/i8xaru3/
+/\.com\/[-_0-9a-zA-Z]{4,}\/[-\/_0-9a-zA-Z]{25,}$/$script,1p,domain=gu-global.com|uniqlo.com
 
 ! https://www.reddit.com/r/uBlockOrigin/comments/r06yju/sur_in_english_website_recognises_ad_blocker/
 ||metrics.surinenglish.com^
@@ -383,9 +380,6 @@ endbasic.dev,jmmv.dev##+js(no-xhr-if, method:POST)
 old.reddit.com##+js(ra, data-outbound-url, .outbound)
 reddit.com##+js(set, Object.prototype.allowClickTracking, false)
 
-! techpowerup.com analytics
-techpowerup.com##+js(aopw, test)
-
 ! https://www.reddit.com/r/uBlockOrigin/comments/u13isu/how_to_block_fathom_tracking
 ||a2f41194651173ebf.awsglobalaccelerator.com^$3p
 /?p=%2F*&h=https%3A%2F%2F*&r=&sid=*&qs=*&cid=$image,1p
@@ -400,3 +394,6 @@ webtoons.com##+js(set, lcs_SerName, '')
 
 ! https://vostanimez.com/Episode/shokei-shoujo-no-ikiru-michi-the-executioner-and-her-way-of-life-vostfr-saison-1-episode-6-streaming-hd/
 ||imsdb.pw/player/ip.php
+
+! tarnkappe. info tracking
+tarnkappe.info##+js(aopr, Matomo)
