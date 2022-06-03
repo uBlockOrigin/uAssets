@@ -5,8 +5,13 @@ on:
     - cron: "29 7 * * 3"
   workflow_dispatch:
 
+permissions:
+  contents: read
+
 jobs:
   publish:
+    permissions:
+      contents: write  # for Git to git push
     name: Update 3rd-party assets
     runs-on: ubuntu-latest
     steps:
