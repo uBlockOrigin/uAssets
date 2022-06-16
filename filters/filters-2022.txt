@@ -3563,10 +3563,18 @@ utopiascans.com##+js(ra, href, [href*="discord"])
 ! https://github.com/uBlockOrigin/uAssets/issues/13677
 ! https://github.com/uBlockOrigin/uAssets/issues/13738
 ! streamingcommunity .press
+streamingcommunity.*##^script:has-text(break;case $.)
+streamingcommunity.*##+js(acis, parseInt, break;case $.)
 streamingcommunity.*##+js(aeld, , break;case $.)
-||thaudray.com^$script,xhr,redirect-rule=noop.js,domain=streamingcommunity.*
+@@||scws.xyz^$xhr,domain=streamingcommunity.*
+@@||streamingcommunity.*/$xhr,1p
 !#if env_firefox
+@@||googletagmanager.com/gtag/js$xhr,domain=streamingcommunity.*
 streamingcommunity.*##+js(no-xhr-if, thaudray.com)
+!#endif
+!#if !env_firefox
+||googletagmanager.com^$xhr,domain=streamingcommunity.*,redirect-rule=noop.js
+||thaudray.com^$script,xhr,redirect-rule=noop.js,domain=streamingcommunity.*
 !#endif
 
 ! tennistream. com => players => popups
