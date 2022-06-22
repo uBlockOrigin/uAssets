@@ -1,7 +1,7 @@
 ! Title: Quick fixes list
 ! Description: experimental filters
 ! Expires: 1 days
-! Last modified: Tue, 21 Jun 2022 09:18:35 +0000
+! Last modified: Wed, 22 Jun 2022 14:45:36 +0000
 ! License: https://creativecommons.org/licenses/by/3.0/
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! Forums: https://github.com/uBlockOrigin/uAssets/issues
@@ -74,11 +74,22 @@ aternos.org##[data-google-query-id]:upward(.responsive-leaderboard)
 aternos.org##ins[id^="gpt_unit_"]
 
 ! https://github.com/uBlockOrigin/uAssets/issues/12163
-ppss.kr##div[style="margin-left: auto; margin-right: auto; position: relative; display: flex; justify-content: center;"]::before:style(content: ''; display: block; position: absolute; top: 0; left: 0; z-index: 2147483647; height: 100%; width: 100%; background: white;)
-feedclick.net##div[style="margin-left: auto; margin-right: auto; position: relative; display: flex; justify-content: center;"]::before:style(content: ''; display: block; position: absolute; top: 0; left: 0; z-index: 2147483647; height: 100%; width: 100%; background: #1F1F1F;)
-loawa.com##div[style="margin-left: auto; margin-right: auto; position: relative; display: flex; justify-content: center;"] > div::before:style(content: ''; display: block; position: absolute; top: 0; left: 0; z-index: 2147483647; height: 100%; width: 100%; background: #0e1015;)
-ygosu.com##div[style="margin-left: auto; margin-right: auto; position: relative; display: flex; justify-content: center;"]::before:style(content: ''; display: block; position: absolute; top: 0; left: 0; z-index: 2147483647; height: 100%; width: 100%; background: white;)
-inven.co.kr##div[style="margin-left: auto; margin-right: auto; position: relative; display: flex; justify-content: center;"]::before:style(content: ''; display: block; position: absolute; top: 0; left: 0; z-index: 2147483647; height: 100%; width: 100%; background: white;)
+*$frame,redirect-rule=noopframe,domain=ppss.kr|ygosu.com|loawa.com|feedclick.net|dailian.co.kr|inven.co.kr
+*$script,xhr,redirect-rule=noopjs,domain=ppss.kr|ygosu.com|loawa.com|feedclick.net|dailian.co.kr|inven.co.kr
+*$image,redirect-rule=1x1.gif,domain=ygosu.com|loawa.com|feedclick.net|dailian.co.kr|inven.co.kr
+*$image,redirect-rule=32x32.png,domain=ppss.kr
+@@*$ghide,domain=ppss.kr|ygosu.com|loawa.com|feedclick.net|dailian.co.kr|inven.co.kr
+!#if env_chromium
+@@||static.dable.io/dist/plugin.min.js$xhr,domain=ppss.kr|ygosu.com|feedclick.net|loawa.com|inven.co.kr
+@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$xhr,domain=ppss.kr|ygosu.com|inven.co.kr
+@@||ad.doubleclick.net/ddm/adj/Bkne/Bdfs$xhr,domain=ppss.kr|ygosu.com|feedclick.net|loawa.com|inven.co.kr
+!#endif
+@@||pagead2.googlesyndication.com/pagead/managed/js/adsense/$script,domain=loawa.com|feedclick.net
+@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$script,xhr,domain=loawa.com|feedclick.net
+@@||adservice.google.*/adsid/integrator.js?domain=loawa.com$script,domain=loawa.com
+@@||api.dable.io/plugin/services/ppss.kr/prefs2?$script,domain=ppss.kr
+@@||static.dable.io/dist/plugin.min.js$script,domain=ppss.kr
+@@||tab2.clickmon.co.kr/pop/$script,domain=ygosu.com
 ||googleads.g.doubleclick.net/pagead/ads$frame,removeparam=/^(?:correlator|f[cr-w]|p[e-sv]|[abdeg-or-x])/,domain=loawa.com
 ||googleads.g.doubleclick.net/pagead/ads$frame,removeparam=p,domain=loawa.com
 
