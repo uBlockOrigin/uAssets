@@ -1,7 +1,7 @@
 ! Title: Quick fixes list
 ! Description: experimental filters
 ! Expires: 1 days
-! Last modified: Thu, 30 Jun 2022 08:44:22 +0000
+! Last modified: Thu, 30 Jun 2022 10:10:07 +0000
 ! License: https://creativecommons.org/licenses/by/3.0/
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! Forums: https://github.com/uBlockOrigin/uAssets/issues
@@ -40,18 +40,19 @@ aternos.org##[data-google-query-id]:upward(.responsive-leaderboard)
 aternos.org##ins[id^="gpt_unit_"]
 
 ! https://github.com/uBlockOrigin/uAssets/issues/12163
-*$frame,redirect-rule=noopframe,domain=ppss.kr|ygosu.com|loawa.com|feedclick.net|dailian.co.kr|inven.co.kr
-*$script,xhr,redirect-rule=noopjs,domain=ppss.kr|ygosu.com|loawa.com|feedclick.net|dailian.co.kr|inven.co.kr
-*$image,redirect-rule=1x1.gif,domain=ygosu.com|loawa.com|feedclick.net|dailian.co.kr|inven.co.kr
+*$frame,redirect-rule=noopframe,domain=ppss.kr|ygosu.com|loawa.com|feedclick.net|dailian.co.kr|inven.co.kr|algumon.com
+*$script,xhr,redirect-rule=noopjs,domain=ppss.kr|ygosu.com|loawa.com|feedclick.net|dailian.co.kr|inven.co.kr|algumon.com
+*$image,redirect-rule=1x1.gif,domain=ygosu.com|loawa.com|feedclick.net|dailian.co.kr|inven.co.kr|algumon.com
 *$image,redirect-rule=32x32.png,domain=ppss.kr
-@@*$ghide,domain=ppss.kr|ygosu.com|loawa.com|feedclick.net|dailian.co.kr|inven.co.kr
+@@*$ghide,domain=ppss.kr|ygosu.com|loawa.com|feedclick.net|dailian.co.kr|inven.co.kr|algumon.com
+algumon.com#@#div[class^="ad-"]
 !#if env_chromium
-@@||static.dable.io/dist/plugin.min.js$xhr,domain=ppss.kr|ygosu.com|feedclick.net|loawa.com|inven.co.kr
-@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$xhr,domain=ygosu.com|inven.co.kr
-@@||ad.doubleclick.net/ddm/adj/Bkne/Bdfs$xhr,domain=ppss.kr|ygosu.com|feedclick.net|loawa.com|inven.co.kr
+@@||static.dable.io/dist/plugin.min.js$xhr,domain=ppss.kr|ygosu.com|feedclick.net|loawa.com|inven.co.kr|algumon.com
+@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$xhr,domain=ygosu.com|inven.co.kr|algumon.com
+@@||ad.doubleclick.net/ddm/adj/Bkne/Bdfs$xhr,domain=ppss.kr|ygosu.com|feedclick.net|loawa.com|inven.co.kr|algumon.com
 !#endif
-@@||pagead2.googlesyndication.com/pagead/managed/js/adsense/$script,domain=loawa.com|feedclick.net|ppss.kr
-@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$script,xhr,domain=loawa.com|feedclick.net|ppss.kr
+@@||pagead2.googlesyndication.com/pagead/managed/js/adsense/$script,domain=loawa.com|feedclick.net|ppss.kr|algumon.com
+@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$script,xhr,domain=loawa.com|feedclick.net|ppss.kr|algumon.com
 @@||adservice.google.*/adsid/integrator.js?domain=loawa.com$script,domain=loawa.com
 @@||tpc.googlesyndication.com/sodar/sodar2.js$script,domain=loawa.com
 @@||googleads.g.doubleclick.net/pagead/ads?*&format=970x90$frame,domain=loawa.com
@@ -65,9 +66,9 @@ aternos.org##ins[id^="gpt_unit_"]
 ppss.kr,ygosu.com,inven.co.kr##div[style^="position: relative; margin-right: auto; display: flex; justify-content: center;"]::after:style(content: ''; display: block; position: absolute; top: 0; left: 0; z-index: 2147483647; height: 40%; width: 100%; background: white;)
 ppss.kr,ygosu.com,inven.co.kr##div[style^="position: relative; margin-right: auto; display: flex; justify-content: center;"] > div::after:style(content: ''; display: block; position: absolute; top: 40%; left: 0; z-index: 2147483647; height: 40%; width: 100%; background: white;)
 ppss.kr,ygosu.com,inven.co.kr##div[style^="position: relative; margin-right: auto; display: flex; justify-content: center;"]::before:style(content: ''; display: block; position: absolute; top: 80%; left: 0; z-index: 2147483647; height: 20%; width: 100%; background: white;)
-feedclick.net##div[style^="position: relative; margin-right: auto; display: flex; justify-content: center;"]::after:style(content: ''; display: block; position: absolute; top: 0; left: 0; z-index: 2147483647; height: 40%; width: 100%; background: #1F1F1F;)
-feedclick.net##div[style^="position: relative; margin-right: auto; display: flex; justify-content: center;"] > div::after:style(content: ''; display: block; position: absolute; top: 40%; left: 0; z-index: 2147483647; height: 40%; width: 100%; background: #1F1F1F;)
-feedclick.net##div[style^="position: relative; margin-right: auto; display: flex; justify-content: center;"]::before:style(content: ''; display: block; position: absolute; top: 80%; left: 0; z-index: 2147483647; height: 20%; width: 100%; background: #1F1F1F;)
+feedclick.net,algumon.com##div[style^="position: relative; margin-right: auto; display: flex; justify-content: center;"]::after:style(content: ''; display: block; position: absolute; top: 0; left: 0; z-index: 2147483647; height: 40%; width: 100%; background: #1F1F1F;)
+feedclick.net,algumon.com##div[style^="position: relative; margin-right: auto; display: flex; justify-content: center;"] > div::after:style(content: ''; display: block; position: absolute; top: 40%; left: 0; z-index: 2147483647; height: 40%; width: 100%; background: #1F1F1F;)
+feedclick.net,algumon.com##div[style^="position: relative; margin-right: auto; display: flex; justify-content: center;"]::before:style(content: ''; display: block; position: absolute; top: 80%; left: 0; z-index: 2147483647; height: 20%; width: 100%; background: #1F1F1F;)
 loawa.com##div[style^="position: relative; margin-right: auto; display: flex; justify-content: center;"]::after:style(content: ''; display: block; position: absolute; top: 0; left: 0; z-index: 2147483647; height: 40%; width: 100%; background: #0e1015;)
 loawa.com##div[style^="position: relative; margin-right: auto; display: flex; justify-content: center;"] > div::after:style(content: ''; display: block; position: absolute; top: 40%; left: 0; z-index: 2147483647; height: 40%; width: 100%; background: #0e1015;)
 loawa.com##div[style^="position: relative; margin-right: auto; display: flex; justify-content: center;"]::before:style(content: ''; display: block; position: absolute; top: 80%; left: 0; z-index: 2147483647; height: 20%; width: 100%; background: #0e1015;)
