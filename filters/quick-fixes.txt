@@ -1,7 +1,7 @@
 ! Title: Quick fixes list
 ! Description: experimental filters
 ! Expires: 1 days
-! Last modified: Tue, 19 Jul 2022 09:28:37 +0000
+! Last modified: Tue, 19 Jul 2022 20:42:55 +0000
 ! License: https://creativecommons.org/licenses/by/3.0/
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! Forums: https://github.com/uBlockOrigin/uAssets/issues
@@ -131,12 +131,8 @@ fcdn.lauta.media##+js(set, loadFailHandler, noopFunc)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/9849
 ! https://github.com/uBlockOrigin/uAssets/issues/11004
-@@||anydebrid.com^$ghide
-@@||hotdebrid.com^$ghide
-@@://*.*.*/$script,domain=anydebrid.com|hotdebrid.com
-||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js|$important,domain=anydebrid.com|hotdebrid.com
-||googletagmanager.com/gtag/js?id=UA-$important,domain=anydebrid.com|hotdebrid.com
-||mc.yandex.ru/metrika/tag.js|$important,domain=hotdebrid.com
+anydebrid.com,hotdebrid.com##+js(set, skipABCheck, true)
+anydebrid.com,hotdebrid.com##+js(set, abCheck, true)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/13424
 megaup.net##.metaRedirectWrapperBottomAds > div > a > img:style(transform: translateX(10000px) !important; pointer-events: none !important;)
