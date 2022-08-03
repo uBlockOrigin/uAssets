@@ -1,7 +1,7 @@
 ! Title: Quick fixes list
 ! Description: experimental filters
 ! Expires: 1 days
-! Last modified: Wed, 03 Aug 2022 14:31:44 +0000
+! Last modified: Wed, 03 Aug 2022 15:02:39 +0000
 ! License: https://creativecommons.org/licenses/by/3.0/
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! Forums: https://github.com/uBlockOrigin/uAssets/issues
@@ -217,3 +217,10 @@ soft98.ir##div[id] a[title*="آنلاین"]:upward(2):remove()
 ! https://www.reddit.com/r/uBlockOrigin/comments/weu5ra/
 ! https://github.com/uBlockOrigin/uAssets/issues/14235
 *$script,redirect-rule=noopjs,domain=kimcartoon.*
+
+! https://github.com/easylist/easylistgermany/issues/200
+! ads, video ads and breakage on https://www.rtl.de/videos/valentina-pahde-haut-fans-mit-heissem-bikini-foto-um-62ea42b8386306532009b995.html
+||rtl.de/phoenix/images-loaded/local.js
+@@||technical-service.net^$xhr,domain=rtl.de
+@@||bilder-a.akamaihd.net/ip/js/ipdvdc/ipdvdc.min.js$script,domain=rtl.de
+rtl.de##+js(no-xhr-if, svonm)
