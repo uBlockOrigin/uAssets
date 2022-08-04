@@ -1,7 +1,7 @@
 ! Title: uBlock filters
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Expires: 4 days
-! Last modified: Thu, 04 Aug 2022 11:51:07 +0000
+! Last modified: Thu, 04 Aug 2022 16:37:46 +0000
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! Licence: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 ! New filters from January 2021 to ->
@@ -7066,11 +7066,16 @@ mangastream.mobi###myModal
 ##.ad-loading:not(.adsbox)
 ##.ad-marker:not(.adsbox)
 ##.ad-refresh:not(.adsbox)
+#@#.ad-unit
+#@#.ad_unit
+##.ad-unit:not(.text-ad)
+##.ad_unit:not(.text-ad)
 /ad-300x250.jpg$image,redirect-rule=1x1.gif
 ||doubleclick.net^$xhr,redirect-rule=noop.txt,domain=~d3ward.github.io
 ||media.fastclick.net^$xhr,redirect-rule=noop.txt,domain=~d3ward.github.io
 ||ads.facebook.com^$xhr,redirect-rule=noop.txt,domain=~d3ward.github.io
 ||advice-ads.s3.amazonaws.com^$xhr,redirect-rule=noop.txt
+||ads.youtube.com^$xhr,redirect-rule=noop.txt,domain=~d3ward.github.io
 
 ! https://github.com/uBlockOrigin/uAssets/issues/10964
 globfone.com##+js(no-xhr-if, ads)
