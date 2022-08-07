@@ -1,7 +1,7 @@
 ! Title: Quick fixes list
 ! Description: experimental filters
 ! Expires: 1 days
-! Last modified: Sun, 07 Aug 2022 10:44:44 +0000
+! Last modified: Sun, 07 Aug 2022 11:46:06 +0000
 ! License: https://creativecommons.org/licenses/by/3.0/
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! Forums: https://github.com/uBlockOrigin/uAssets/issues
@@ -167,9 +167,6 @@ apkcombo.com##div[class*=-ad]
 apkcombo.com##p:has-text(Advertisement)
 
 ! https://github.com/uBlockOrigin/uAssets/pull/14178
-soft98.ir##header[id]:has(.row):remove()
-soft98.ir##:xpath(/html/body/div[1]/div/div[2]):remove()
-soft98.ir##:xpath(/html/body/div[2]/div/div[2]):remove()
 soft98.ir##[href*="linkdoni.soft98.ir"]:upward(3):remove()
 soft98.ir##[href*="instagram.com"]:upward(15):remove()
 soft98.ir##:xpath(/html/body/div[3]/div/aside/section[1]/header):remove()
@@ -184,7 +181,8 @@ soft98.ir##:xpath(/html/body/div[4]/div/aside/div/section/div):remove()
 soft98.ir##.text-center.card-body:not(:has([src*="cdn.soft98.ir"])):upward(1):remove()
 soft98.ir##[style*="color:"]:upward(2):remove()
 soft98.ir##[href*="SMostafa.ir"]:remove()
-soft98.ir##*:has-text(F5):remove()
+soft98.ir##a[href^="https://soft98.ir/"]:has(img[src$=".az"]):remove()
+soft98.ir##+js(nostif, , 3000)
 ||soft98.ir/engine/modules/antibot/antibot.php^$all
 ||soft98.ir/engine/ajax/controller.php^$all
 ||file.soft98.ir^$image,redirect=nooptext
