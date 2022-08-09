@@ -1,7 +1,7 @@
 ! Title: Quick fixes list
 ! Description: experimental filters
 ! Expires: 1 days
-! Last modified: Tue, 09 Aug 2022 05:35:46 +0000
+! Last modified: Tue, 09 Aug 2022 06:26:12 +0000
 ! License: https://creativecommons.org/licenses/by/3.0/
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! Forums: https://github.com/uBlockOrigin/uAssets/issues
@@ -167,9 +167,10 @@ apkcombo.com##div[class*=-ad]
 apkcombo.com##p:has-text(Advertisement)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/14296
-soft98.ir##[src*="file.soft98.ir"]:style(color: white !important;)
-soft98.ir##[src*="cdn.hostdl.com"]:style(color: white !important;)
-soft98.ir##:xpath(/html/body/div[*]/div/div[*]/div/div[1]):has(a[href*="g"]):remove()
+soft98.ir##+js(rc, c6e1y2, *, stay)
+soft98.ir##[src*="file.soft98.ir"]:style(color: #437593 !important; background-color: #437593 !important; border: #437593 !important;)
+soft98.ir##[src*="cdn.hostdl.com"]:style(color: white !important; background-color: white !important; border: white !important;)
+soft98.ir##:xpath(/html/body/div[*]/div/div[*]/div/div[1]):not(:has([role])):remove()
 soft98.ir##[href*="linkdoni.soft98.ir"]:remove()
 soft98.ir##:xpath(/html/body/div[*]/div/aside/section[*]/header):remove()
 soft98.ir##:xpath(/html/body/div[*]/div/div/section[*]/header):remove()
@@ -178,7 +179,7 @@ soft98.ir##:xpath(/html/body/div[*]/div/aside/div/section/header):remove()
 soft98.ir##:xpath(/html/body/div[*]/div/aside/div/section/div):remove()
 soft98.ir##:xpath(/html/body/div[*]/div/div/div/section):remove()
 soft98.ir##:xpath(/html/body/div[*]/div[*]/main/article[*]/span):remove()
-soft98.ir##:xpath(/html/body/div[*]/div[*]/main/article[*]/div[*]):has([style]):remove()
+soft98.ir##:xpath(/html/body/div[*]/div[*]/main/article[*]/div[*]):has(strong):not(:has(a[href*="/dl"])):remove()
 soft98.ir##[href*="SMostafa.ir"]:remove()
 ||soft98.ir/engine/modules/antibot/antibot.php^$all
 ||soft98.ir/engine/ajax/controller.php^$all
