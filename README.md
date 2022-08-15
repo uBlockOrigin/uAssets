@@ -1,5 +1,5 @@
 # uAssets
-Resources for [uBlock Origin](https://github.com/gorhill/uBlock) (uBO): static filter lists, ready-to-use rulesets, etc.
+Resources for [uBlock Origin (uBO)](https://github.com/gorhill/uBlock): static filter lists, ready-to-use rulesets, etc.
 
 The goal of this repository is to receive all the reports on the need for new filters or reports of web pages broken by existing filters and will be open for people to contribute (those who have proven to be valuable contributors will receive write permissions on the project). Ideally, I wish for a small army of dedicated volunteers to deal solely with filter issues.
 
