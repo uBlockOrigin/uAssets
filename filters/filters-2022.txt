@@ -1,7 +1,7 @@
 ! Title: uBlock filters
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Expires: 4 days
-! Last modified: Tue, 16 Aug 2022 10:15:24 +0000
+! Last modified: Tue, 16 Aug 2022 10:17:57 +0000
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! Licence: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 ! New filters from January 2022 to ->
@@ -4090,3 +4090,28 @@ apkcombo.com##p:has-text(Advertisement)
 ! canale. live anti adb
 canale.live##+js(set, moneyAbovePrivacyByvCDN, true)
 canale.live##+js(nosiif, href)
+
+! https://github.com/uBlockOrigin/uAssets/issues/12163
+*$frame,redirect-rule=noopframe,domain=ppss.kr|ygosu.com|loawa.com|feedclick.net|dailian.co.kr|inven.co.kr|algumon.com|sportalkorea.com
+*$script,xhr,redirect-rule=noopjs,domain=ppss.kr|ygosu.com|loawa.com|feedclick.net|dailian.co.kr|inven.co.kr|algumon.com|sportalkorea.com
+*$image,redirect-rule=1x1.gif,domain=ygosu.com|loawa.com|feedclick.net|dailian.co.kr|inven.co.kr|algumon.com|sportalkorea.com
+*$image,redirect-rule=32x32.png,domain=ppss.kr
+@@*$ghide,domain=ppss.kr|ygosu.com|loawa.com|feedclick.net|dailian.co.kr|inven.co.kr|algumon.com|sportalkorea.com
+algumon.com#@#div[class^="ad-"]
+!#if env_chromium
+@@||static.dable.io/dist/plugin.min.js$xhr,domain=ppss.kr|ygosu.com|feedclick.net|loawa.com|inven.co.kr|algumon.com|sportalkorea.com
+@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$xhr,domain=ygosu.com|inven.co.kr|sportalkorea.com
+@@||ad.doubleclick.net/ddm/adj/Bkne/Bdfs$xhr,domain=ppss.kr|ygosu.com|feedclick.net|loawa.com|inven.co.kr|algumon.com|sportalkorea.com
+!#endif
+@@||pagead2.googlesyndication.com/pagead/managed/js/adsense/$script,domain=loawa.com|feedclick.net|ppss.kr|algumon.com
+@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$script,xhr,domain=loawa.com|feedclick.net|ppss.kr|algumon.com
+@@||adservice.google.*/adsid/integrator.js?domain=loawa.com$script,domain=loawa.com
+@@||tpc.googlesyndication.com/sodar/sodar2.js$script,domain=loawa.com
+@@||googleads.g.doubleclick.net/pagead/ads?*&format=970x90$frame,domain=loawa.com
+@@||googleads.g.doubleclick.net/pagead/ads?*&format=0x100$frame,domain=loawa.com
+@@||wcs.naver.net/wcslog.js$script,domain=loawa.com
+@@||api.dable.io/plugin/services/ppss.kr/prefs2?$script,domain=ppss.kr
+@@||static.dable.io/dist/plugin.min.js$script,domain=ppss.kr
+@@||tab2.clickmon.co.kr/pop/$script,domain=ygosu.com
+||googleads.g.doubleclick.net/pagead/ads$frame,removeparam=/^(?:correlator|f[cr-w]|p[e-sv]|[abdeg-or-x])/,domain=loawa.com
+||googleads.g.doubleclick.net/pagead/ads$frame,removeparam=p,domain=loawa.com
