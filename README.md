@@ -1,46 +1,35 @@
 # uAssets
-Resources for [uBlock Origin](https://github.com/gorhill/uBlock) ("uBO"): static filter lists, ready-to-use rulesets, etc.
+Resources for [uBlock Origin (uBO)](https://github.com/gorhill/uBlock): static filter lists, ready-to-use rulesets, etc.
 
-The goal of this repository is to receive all the reports for the need of new filters, or reports of web pages broken by existing filters, and will be open for people to contribute (those who have proven to be valuable contributors will be given write permissions on the project). Ideally I wish eventually there will be a small army of volunteers dedicated to deal with filter issues.
+The goal of this repository is to receive all the reports on the need for new filters or reports of web pages broken by existing filters and will be open for people to contribute (those who have proven to be valuable contributors will receive write permissions on the project). Ideally, I wish for a small army of dedicated volunteers to deal solely with filter issues.
 
-The rationale on whether to include a specific filter in one of uBO's own filter lists is the same as outlined by [EasyList/EasyPrivacy policies](https://easylist.to/pages/policy.html), also taking into account whether a filter requires uBO's extended filter syntax.
+The rationale on whether to include a specific filter in one of uBO's filter lists is the same as outlined by [EasyList/EasyPrivacy policies](https://easylist.to/pages/policy.html), also taking into account whether a filter requires uBO's extended filter syntax.
 
-If an issue can be fixed without using extended syntax, i.e. [scriptlet injection](https://github.com/gorhill/uBlock/wiki/Static-filter-syntax#scriptlet-injection), [redirect](https://github.com/gorhill/uBlock/wiki/Static-filter-syntax#redirect), [procedural cosmetic filters](https://github.com/gorhill/uBlock/wiki/Static-filter-syntax#procedural-cosmetic-filters), etc. the issue will, as a rule of thumb, not be fixed by uAssets, because fixing it in EasyList if possible is preferable.
+Any resolution of issues without using extended syntax ([scriptlet injection](https://github.com/gorhill/uBlock/wiki/Static-filter-syntax#scriptlet-injection), [redirect](https://github.com/gorhill/uBlock/wiki/Static-filter-syntax#redirect), [procedural cosmetic filters](https://github.com/gorhill/uBlock/wiki/Static-filter-syntax#procedural-cosmetic-filters), etc.) will not occur in uAssets. The preferable way is to fix it in EasyList, if possible.
 
-Issues involving
+Issues involving the following will be fixed in uAssets even if they don't require extended syntax:
 
 - ad-reinsertion
 - anti-adblock
-- contextmenu blockage
-- copy/cut/paste blockage 
+- context menu blockage
+- copy/cut/paste blockage
 - popups/popunders
 - site breakage
 - video ads
 
-will always be fixed in uAssets even if they don't require extended syntax.
-
-
-If the ABP-compatible fixes are for high-traffic sites, they should be added to uBO filters until they are added to EasyList.
+If the ABP-compatible fixes are for high-traffic sites, they need to be added to uBO filters until they get added to EasyList.
 
 #### Paywall
-Circumventing a paywall is considered [out of scope](https://github.com/uBlockOrigin/uAssets/issues/2317#issuecomment-392009540). 
-
-
+Circumventing a paywall is considered [out of scope](https://github.com/uBlockOrigin/uAssets/issues/2317#issuecomment-392009540).
 
 #### GDPR
-GDPR modals will not be addressed in [uAssets](https://github.com/uBlockOrigin/uAssets/issues/4123#issuecomment-439232886). 
+[uAssets](https://github.com/uBlockOrigin/uAssets/issues/4123#issuecomment-439232886) will not address GDPR modals.
 
-
-
-#### Porn-farms
-Sites found to be porn-farms (families of mass-produced porn sites without any original contents) or part of porn-farms will not be addressed in uAssets.
-
-
+#### Porn farms
+Sites found to be porn farms (families of mass-produced porn sites without original content) or are part of a porn farm will not be addressed in uAssets.
 
 #### Support forum
-Support issues and questions are handled at [/r/uBlockOrigin](https://old.reddit.com/r/uBlockOrigin/).
-
-
+For any support, questions or help, visit [/r/uBlockOrigin](https://www.reddit.com/r/uBlockOrigin/).
 
 #### Similarly purposed blocker
-Using a similarly purposed blocker with uBO can result in site breakage or any undefined result, see https://twitter.com/gorhill/status/1033706103782170625.
+Using a similarly purposed blocker with uBO can result in site breakage or undefined results. See https://twitter.com/gorhill/status/1033706103782170625.
