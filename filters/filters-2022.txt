@@ -1,7 +1,7 @@
 ! Title: uBlock₀ filters
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Expires: 4 days
-! Last modified: Mon, 22 Aug 2022 17:37:14 +0000
+! Last modified: Tue, 23 Aug 2022 16:15:56 +0000
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! Licence: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 ! New filters from January 2022 to ->
@@ -3974,13 +3974,12 @@ ewrc-results.com##+js(set, canGetAds, true)
 koushoku.org##+js(aopr, open)
 @@||a.realsrv.com/ad-provider.js$script,domain=koushoku.org
 @@||syndication.realsrv.com/*/api.php$xhr,domain=koushoku.org
+@@||syndication.realsrv.com/cimp.php$xhr,domain=koushoku.org
 koushoku.org##.adv
 ||realsrv.com^$xhr,redirect-rule=noop.txt,domain=koushoku.org
-||afcdn.net^$media,image,domain=koushoku.org
+||afcdn.net^$image,redirect=32x32.png
+||afcdn.net^$media,redirect=noop-1s.mp4,domain=koushoku.org
 @@||koushoku.org^$ghide
-koushoku.org##[style*="afcdn"]:upward(2)
-koushoku.org##video:upward([style])
-koushoku.org##.exo-native-widget-item-content
 
 ! cultura-informatica.com ai_front
 #@##im_popupFixed
