@@ -1,7 +1,7 @@
 ! Title: uBlock₀ filters
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Expires: 4 days
-! Last modified: Mon, 29 Aug 2022 17:33:45 +0000
+! Last modified: Mon, 29 Aug 2022 20:48:30 +0000
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! Licence: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 ! New filters from January 2022 to ->
@@ -4129,3 +4129,10 @@ komiklokal.me##+js(nowoif)
 komiklokal.me###teaser3
 ||komiklokal.me/wp-content/uploads/*-1024x512.png
 ||ductclickjl.com^
+
+! https://github.com/uBlockOrigin/uAssets/issues/14565
+flipkart.com##span:has-text(/^Ad$/):upward(div[style])
+!#if env_mobile
+flipkart.com##div[dir]:has-text(/^AD$/):upward(div[style])
+flipkart.com##div[style*="width:24px;height:20px;"]:has(img[src*="/promos/"]):upward(div[style])
+!#endif
