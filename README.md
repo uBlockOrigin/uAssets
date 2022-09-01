@@ -10,7 +10,7 @@ Any resolution of issues without using extended syntax ([scriptlet injection](ht
 Issues involving the following will be fixed in uAssets even if they don't require extended syntax:
 
 - ad-reinsertion
-- anti-adblock
+- anti-blocker
 - context menu blockage
 - copy/cut/paste blockage
 - popups/popunders
