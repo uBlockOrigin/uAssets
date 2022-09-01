@@ -1,7 +1,7 @@
 ! Title: uBlock₀ filters
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Expires: 4 days
-! Last modified: Thu, 01 Sep 2022 07:00:47 +0000
+! Last modified: Thu, 01 Sep 2022 07:41:48 +0000
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! Licence: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 ! New filters from January 2022 to ->
@@ -4146,9 +4146,10 @@ mafiatown.pl##+js(set, aLoad, noopFunc)
 mafiatown.pl##+js(set, mtCanRunAdsSoItCanStillBeOnTheWeb, true)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/14617
-@@||iocnt.net^$script,domain=www.rtl.de
-@@||googletagmanager.com/gtm.js$script,domain=www.rtl.de
-||ais-akamai.rtl.de/autoimg/*$subdocument,1p
+rtl.de##+js(nostif, null, 10)
+@@||iocnt.net^$script,domain=rtl.de
+@@||googletagmanager.com/gtm.js$script,domain=rtl.de
+||ais-akamai.rtl.de/autoimg/*$frame,1p
 rtl.de##[class*="superbanner"]:upward(article > div:not(#main))
 
 ! https://www.reddit.com/r/uBlockOrigin/comments/wzwgpa/how_would_one_go_about_removing_this_countdown_so/
