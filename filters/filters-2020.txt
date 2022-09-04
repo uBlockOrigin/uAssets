@@ -1,7 +1,7 @@
 ! Title: uBlock₀ filters
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Expires: 4 days
-! Last modified: Sun, 04 Sep 2022 10:13:54 +0000
+! Last modified: Sun, 04 Sep 2022 10:24:01 +0000
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! Licence: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 ! new filters from april 2020 to ->
@@ -3253,9 +3253,12 @@ javfree.la,javfree.sh,javsun.*,javtc.*,javthe.com##[style^="height: 250px;overfl
 *$script,3p,domain=javdoe.to|javsun.*|javtc.*
 ||pub.javwide.com^
 
-! javbangers.com popup ads
+! https://github.com/AdguardTeam/AdguardFilters/issues/128820
 javbangers.com##+js(acis, document.addEventListener, initBCPopunder)
 javbangers.com##+js(acis, readCookieDelit)
+javbangers.com##+js(acis, onload, puHref)
+javbangers.com##+js(set, flashvars.adv_pre_vast, '')
+javbangers.com##+js(set, flashvars.adv_postpause_vast, '')
 javbangers.com##div.opt
 *$script,3p,denyallow=fastly.net|google.com|googleapis.com|gstatic.com|h-cdn.com,domain=javbangers.com
 
