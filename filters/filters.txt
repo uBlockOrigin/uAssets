@@ -1,7 +1,7 @@
 ! Title: uBlock₀ filters
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Expires: 4 days
-! Last modified: Sun, 11 Sep 2022 13:30:07 +0000
+! Last modified: Sun, 11 Sep 2022 13:35:51 +0000
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! Licence: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 !
@@ -622,11 +622,11 @@ gadgets.ndtv.com##.adblockerContent:style(display: initial !important;)
 gadgets.ndtv.com###ndtv-message-userss
 
 ! https://forums.lanik.us/viewtopic.php?p=102620#p102620
-amazon.*###s-results-list-atf > .s-result-item:has(:scope > .s-item-container h5.s-sponsored-list-header)
+amazon.*#?##s-results-list-atf > .s-result-item:has(> .s-item-container h5.s-sponsored-list-header)
 ! https://github.com/uBlockOrigin/uAssets/issues/1278
-amazon.*###s-results-list-atf > .s-result-item:has(:scope > .s-item-container h5.s-sponsored-header)
+amazon.*#?##s-results-list-atf > .s-result-item:has(.s-item-container h5.s-sponsored-header)
 ! https://github.com/uBlockOrigin/uAssets/issues/399
-amazon.*##.s-result-item:has(:scope > .s-item-container > h5 .s-sponsored-info-icon)
+amazon.*#?#.s-result-item:has(> .s-item-container > h5 .s-sponsored-info-icon)
 ! https://github.com/AdguardTeam/AdguardFilters/issues/83145
 amazon.*##.s-widget > [data-cel-widget^="MAIN"] > [data-cel-widget^="tetris"] > div[id^="CardInstance"][class^="_tetris-"]:upward(3)
 ! https://jbbs.shitaraba.net/bbs/read.cgi/internet/25463/1618326670/80 blank slide on top page
@@ -651,7 +651,7 @@ motherless.com##+js(acis, jQuery, cookie)
 /?*&callback=callback_json_adblade*$script
 
 ! https://forums.lanik.us/viewtopic.php?f=62&t=32878
-freethesaurus.com,thefreedictionary.com##div:has(:scope > a:not([href*="/"]) > img:not([src*="/"]))
+freethesaurus.com,thefreedictionary.com#?#div:has(> a:not([href*="/"]) > img:not([src*="/"]))
 freethesaurus.com,thefreedictionary.com##+js(nostif, warn)
 ! https://github.com/uBlockOrigin/uAssets/issues/1896
 freethesaurus.com,thefreedictionary.com##+js(aopr, adc)
@@ -667,7 +667,7 @@ freethesaurus.com,thefreedictionary.com#?##sidebar > .widget:not([id]):has(>.hol
 ||x.shopsavvy.com^$3p
 
 ! https://github.com/NanoMeow/QuickReports/issues/3179
-money.cnn.com##section.column:has(:scope > #moneySponsors)
+money.cnn.com#?#section.column:has(> #moneySponsors)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/163
 ! https://github.com/uBlockOrigin/uAssets/issues/534
@@ -3330,7 +3330,7 @@ sexytrunk.com,teensark.com##+js(aopr, document.dispatchEvent)
 ! https://github.com/uBlockOrigin/uAssets/issues/1224
 planetsuzy.org##+js(set, __ads, true)
 planetsuzy.org##+js(acis, jQuery, ready)
-planetsuzy.org##div[style]:has(:scope > script[src*="ads.exoclick.com/"])
+planetsuzy.org#?#div[style]:has(> script[src*="ads.exoclick.com/"])
 
 ! https://github.com/uBlockOrigin/uAssets/issues/1227
 zrozz.com##+js(set, adblock, false)
@@ -3415,7 +3415,7 @@ iiv.pl##+js(aopr, miner)
 
 ! https://github.com/reek/anti-adblock-killer/issues/3841
 ||img.stomp.com.sg/sites/all/themes/stompst/images/placeholder.jpg$image
-stomp.straitstimes.com##.content:if(:scope > div:has-text(Branded Content))
+stomp.straitstimes.com#?#.content:has(> div:has-text(Branded Content))
 
 ! https://forums.lanik.us/viewtopic.php?p=130672#p130672
 serietvsubita.*##+js(nowebrtc)
@@ -3460,7 +3460,7 @@ gogoanime.*##+js(set, console.clear, undefined)
 gogoanime.*##+js(set, check_adblock, true)
 gogoanime.*##+js(acs, document.createElement, /function\(__[a-z]+\)/)
 gogoanime.*##.banner_center
-gogoanime.*##.anime_video_body_cate > div[style]:has(:scope > div[id] + script[src])
+gogoanime.*#?#.anime_video_body_cate > div[style]:has(> div[id] + script[src])
 gogoanime.*##.adx
 gogoanimetv.*##+js(aopr, AaDetector)
 gogoanimetv.*##+js(nosiif, _0x)
@@ -3609,7 +3609,7 @@ mylust.com##.fp-bnr
 mylust.com##.no_pop.centeredbox
 mylust.com##.cs-bnr.content_source
 mylust.com##iframe.clear_both
-mylust.com#?#div[class^="span"] > div.box:has(:scope > .title > div:has-text(Advertisement))
+mylust.com#?#div[class^="span"] > div.box:has(> .title > div:has-text(Advertisement))
 mylust.com###wrapper > div[style*="height:18px"]
 mylust.com##.list_videos_ad
 
@@ -4639,7 +4639,7 @@ gamcore.com,porcore.com,69games.xxx##+js(nowoif)
 gamcore.com,porcore.com,69games.xxx##+js(set, puShown, true)
 gamcore.com,69games.xxx##[href*="/ads/"]
 classic.gamcore.com##.warningbox:upward(1)
-classic.gamcore.com###center > .flashes > .wide:has(:scope > a[href][rel])
+classic.gamcore.com#?##center > .flashes > .wide:has(> a[href][rel])
 gamcore.com##.item:has([href^="/games/"][class=""])
 gamcore.com##.item > a[href] > img[src*="//cdn.69games.xxx/"]:upward(.item)
 gamcore.com##.menuArea [rel]
@@ -4662,7 +4662,7 @@ porcore.com##li > a[href*="/loader?"]
 69games.xxx###tvnotice
 69games.xxx##[class^="leaderboard"]
 69games.xxx##[id*="tvadbody"]
-69games.xxx##[id^="center"] .I:has(:scope > [class=""][href])
+69games.xxx#?#[id^="center"] .I:has(> [class=""][href])
 69games.xxx##.side_flash
 zazzybabes.com##+js(aeld, /error|canplay/, (t))
 *$frame,script,3p,denyallow=bootstrapcdn.com|cloudflare.com|cloudflare.net|fastly.net|fastlylb.net|getbootstrap.com|google.com|googleapis.com|gstatic.com|hcaptcha.com|hwcdn.net|jquery.com|recaptcha.net|serverable.com|zencdn.net,domain=porcore.com|zazzybabes.com
@@ -7036,7 +7036,7 @@ globe24.cz##.adsbygoogle
 
 ! https://github.com/uBlockOrigin/uAssets/issues/3019
 repelisgoo.*,repelisgooo.*,repelisgt.*,repelisxd.*,pelisplusgo.*,pelisplusxd.*###ads
-repelisgoo.*,repelisgooo.*,repelisgt.*,repelisxd.*,pelisplusgo.*,pelisplusxd.*##div[class]:has(:scope > div[class] > iframe[src*="/srv-pv/tag-"])
+repelisgoo.*,repelisgooo.*,repelisgt.*,repelisxd.*,pelisplusgo.*,pelisplusxd.*#?#div[class]:has(> div[class] > iframe[src*="/srv-pv/tag-"])
 
 ! https://github.com/uBlockOrigin/uAssets/issues/3021
 pelisplus.online##+js(aopw, mz_str)
@@ -9378,7 +9378,7 @@ goltelevision.com##+js(set, adblock, false)
 mega-mkv.com,mkv-pastes.com##+js(aeld, DOMContentLoaded, adlinkfly)
 mega-mkv.com##+js(aeld, DOMContentLoaded, shortener)
 mega-mkv.com,mkv-pastes.com##+js(aopw, _pop)
-mega-mkv.com##center > p:has(:scope > a[href] > img.alignnone)
+mega-mkv.com#?#center > p:has(> a[href] > img.alignnone)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/4205
 @@||freevpn.us^$ghide
@@ -11949,9 +11949,9 @@ anime-jl.net##+js(aopr, detector_launch)
 elamigos-games.com,zona-leros.net##+js(aeld, DOMContentLoaded, shortener)
 elamigos-games.com,zona-leros.net##.content_store
 elamigos-games.com##h3.my-4:has-text(/^Advertising/)
-elamigos-games.com##.row > .col-lg-2:first-child:has(:scope > .card > a[href][target="_blank"])
+elamigos-games.com#?#.row > .col-lg-2:first-child:has(> .card > a[href][target="_blank"])
 player.zona-leros.net,zlplayer.net###dvr-vid
-zona-leros.net##.Body > .Container > ul.Rows > li:first-child:has(:scope > article > a[href][target="_blank"])
+zona-leros.net#?#.Body > .Container > ul.Rows > li:first-child:has(> article > a[href][target="_blank"])
 zpaste.net,zlpaste.net##+js(aeld, DOMContentLoaded, adlinkfly)
 zpaste.net##+js(aopr, absda)
 zpaste.net,zplayer.live##+js(aopw, _pop)
@@ -15229,7 +15229,7 @@ avseesee.com##+js(acis, document.getElementById, _banner)
 avseesee.com##+js(aopw, _pop)
 avseesee.com##.aoa_overlay
 avseesee.com##.happy-under-player
-avseesee.com##.textwidget:has(:scope ins)
+avseesee.com##.textwidget:has(ins)
 ! https://github.com/NanoMeow/QuickReports/issues/3508
 juicywest.com##+js(aopr, __Y)
 
@@ -16103,17 +16103,17 @@ fluentu.com##+js(aopr, __eiPb)
 forocoches.com##+js(aopr, pbjsChunk)
 forocoches.com##table.cajasnews > tbody > tr > td > table > tbody > tr > td > a[rel=nofollow]:has-text(Promos):upward(2)
 forocoches.com##table.cajasprin > tbody > tr > td:has(iframe[src^="//cdn.forocoches.com/lwa/forocoches/fc_promo.html"])
-forocoches.com##table.tborder#threadslist > tbody[id^="threadbits_forum_"] > tr:has(:scope > [id^="td_threadtitle_"][style^="background-color: #"].alt1 > .smallfont > span)
-forocoches.com##table.tborder[id^="table"] > tbody:has(:scope > tr > .alt1 [href][target]):has(strong)
-forocoches.com##table.tborder > tbody:has(:scope > tr > .alt1 [href^="/link.php?url=https%3A%2F%2Fwww.pccomponentes.com"][target])
-forocoches.com##table.tborder > tbody:has(:scope > tr > .alt1 > table > tbody > tr > td > a):has(strong):has(span > font > strong)
-forocoches.com##table.tborder > tbody:has(:scope > tr > .alt1 > table > tbody > tr > td > table > tbody > tr > td > strong > a[target][href])
-forocoches.com##table.tborder[id^="table"] > tbody > tr > .alt1:has(:scope > table[id^="table"] > tbody > tr > td > div[style] > a[style][href^="/foro/"] > strong)
-forocoches.com##table.tborder[id^="table"] > tbody:has(:scope > tr > .alt1 > table[id^="table"] > tbody > tr > td > [href] + span > br + strong)
+forocoches.com#?#table.tborder#threadslist > tbody[id^="threadbits_forum_"] > tr:has(> [id^="td_threadtitle_"][style^="background-color: #"].alt1 > .smallfont > span)
+forocoches.com#?#table.tborder[id^="table"] > tbody:has(> tr > .alt1 [href][target]):has(strong)
+forocoches.com#?#table.tborder > tbody:has(> tr > .alt1 [href^="/link.php?url=https%3A%2F%2Fwww.pccomponentes.com"][target])
+forocoches.com#?#table.tborder > tbody:has(> tr > .alt1 > table > tbody > tr > td > a):has(strong):has(span > font > strong)
+forocoches.com#?#table.tborder > tbody:has(> tr > .alt1 > table > tbody > tr > td > table > tbody > tr > td > strong > a[target][href])
+forocoches.com#?#table.tborder[id^="table"] > tbody > tr > .alt1:has(> table[id^="table"] > tbody > tr > td > div[style] > a[style][href^="/foro/"] > strong)
+forocoches.com#?#table.tborder[id^="table"] > tbody:has(> tr > .alt1 > table[id^="table"] > tbody > tr > td > [href] + span > br + strong)
 forocoches.com###vbnotices
 m.forocoches.com##div.title-forum-display-destacado
 m.forocoches.com##.page > div > ul > li[style^="word-wrap:break-word; word-break:break-word; background-color: #"]
-m.forocoches.com##.page > div > ul[style]:has(:scope > li > div[style] > a[style][href^="/foro/"] > strong)
+m.forocoches.com#?#.page > div > ul[style]:has(> li > div[style] > a[style][href^="/foro/"] > strong)
 m.forocoches.com##[id*="adslot"]:upward(ul > li)
 ||cdn.forocoches.com/lwa/forocoches/*_promo.html$frame,1p
 
@@ -17715,7 +17715,7 @@ pro-social.xyz##+js(set, timeleft, 0)
 newsonthegotoday.com##+js(aopr, STREAM_CONFIGS)
 newsonthegotoday.com##+js(ra, target, .clickbutton)
 newsonthegotoday.com##.clickbutton:not([data-href])
-newsonthegotoday.com#?#.viewtable:has(:scope > center:has-text(▼ Scroll down to Continue ▼)) > a[href][target="_blank"]
+newsonthegotoday.com#?#.viewtable:has(> center:has-text(▼ Scroll down to Continue ▼)) > a[href][target="_blank"]
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/49261
 @@||bitearns.com^$ghide
@@ -19014,7 +19014,7 @@ positive-feedback.com##.load-screen
 
 ! https://github.com/NanoMeow/QuickReports/issues/3318
 medicalnewstoday.com##div[id="__next"] > div[class^="css-"] > div > section > div:matches-css-before(content: /ADVERTISEMENT/)
-medicalnewstoday.com##div[id="__next"] > div[class^="css-"] > aside:has(:scope > div:matches-css-before(content: /ADVERTISEMENT/))
+medicalnewstoday.com#?#div[id="__next"] > div[class^="css-"] > aside:has(> div:matches-css-before(content: /ADVERTISEMENT/))
 medicalnewstoday.com##div[data-dynamic-ads]
 medicalnewstoday.com##div[class^="css-"]:matches-css-before(content: /ADVERTISEMENT/)
 medicalnewstoday.com##hl-adsense
