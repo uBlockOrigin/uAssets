@@ -1,7 +1,7 @@
 ! Title: uBlock₀ filters
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Expires: 4 days
-! Last modified: Sun, 11 Sep 2022 13:26:29 +0000
+! Last modified: Sun, 11 Sep 2022 13:30:07 +0000
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! Licence: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 !
@@ -110,7 +110,7 @@ www.google.*##[href^="https://www.googleadservices.com/pagead/aclk?"][href$="adu
 www.google.*##:not(:matches-path(/^/search\?.*tbm=shop|^/shopping/)) *:not([class^="sh-sr__shop-result-group"]) [href^="/aclk"][href$="adurl="]:upward(3)
 ! https://github.com/uBlockOrigin/uAssets/issues/10132
 www.google.*##.sh-sr__shop-result-group[data-hveid] .sh-sp__btn:matches-css(font-size: 13px):upward(.sh-sr__shop-result-group):has(a[href^="/aclk"][href$="adurl="])
-www.google.*##c-wiz div[data-hveid] > div > div > ul:has(> li[style="max-width:200px;"] > div > div[data-hveid] > a[href*="/aclk"]):upward(3)
+www.google.*#?#c-wiz div[data-hveid] > div > div > ul:has(> li[style="max-width:200px;"] > div > div[data-hveid] > a[href*="/aclk"]):upward(3)
 
 ! https://www.reddit.com/r/uBlockOrigin/comments/p94hv9/google_maps_booking_dot_com_ad/
 www.google.com##div[data-section-id] > a[href^="/aclk"][href*="placesheetAdFix="][href*="adurl="]:upward(1)
@@ -656,7 +656,7 @@ freethesaurus.com,thefreedictionary.com##+js(nostif, warn)
 ! https://github.com/uBlockOrigin/uAssets/issues/1896
 freethesaurus.com,thefreedictionary.com##+js(aopr, adc)
 freethesaurus.com,thefreedictionary.com##div[class][id]:not(.logo):if-not(*):has-text(/^$/)
-freethesaurus.com,thefreedictionary.com###sidebar > .widget:not([id]):has(>.holder > a[href])
+freethesaurus.com,thefreedictionary.com#?##sidebar > .widget:not([id]):has(>.holder > a[href])
 ! To counter exception filters
 ||googlesyndication.com^$script,important,domain=thefreedictionary.com
 
@@ -1701,7 +1701,7 @@ spaste.com##+js(nofab)
 spaste.com##[href^="http://bit.ly/"]
 spaste.com##[href="javascript:showhide('deals')"]
 spaste.com##b
-spaste.com##h5:has(> a[href^="javascript:"])
+spaste.com#?#h5:has(> a[href^="javascript:"])
 spaste.com##h5 > a[href^="http://amzn.to/"]
 ||baylnk.com^
 
@@ -2462,7 +2462,7 @@ txxx.*##div[style="display:flex !important"] > div
 txxx.*##.page-video > div.video-videos-slider ~ div[class]:matches-css(justify-content: center)
 txxx.*##.video-videos-slider
 txxx.*##.video-content > div + div:last-child
-txxx.*##.video-content > div:first-child > div[class]:has(> div > a[href="#"])
+txxx.*#?#.video-content > div:first-child > div[class]:has(> div > a[href="#"])
 txxx.*##.videos-tube-friends
 *$frame,3p,denyallow=google.com|gstatic.com,domain=txxx.*
 *$popunder,3p,domain=txxx.*
@@ -4381,8 +4381,8 @@ broadwayworld.com##a[href^="https://ad.doubleclick.net/ddm/"]
 op.gg##+js(aopw, lifeOnwer)
 op.gg##+js(nostif, adblock, 2000)
 ! https://github.com/uBlockOrigin/uAssets/issues/13033
-op.gg##div[class^="css-"]:has(> div:not([class], [id]) > .vm-placement:not([style]))
-op.gg##div[class^="css-"]:has(> div:not([class], [id]) > .vm-placement[data-display-type="hybrid-banner"])
+op.gg#?#div[class^="css-"]:has(> div:not([class], [id]) > .vm-placement:not([style]))
+op.gg#?#div[class^="css-"]:has(> div:not([class], [id]) > .vm-placement[data-display-type="hybrid-banner"])
 ! https://github.com/uBlockOrigin/uAssets/issues/13023
 op.gg##[id^="div-gpt-ad"]:not([class]):upward(div[class])
 @@||doubleclick.net^$xhr,domain=op.gg
@@ -7388,7 +7388,7 @@ wowescape.com##[id^="aswift"]
 wowescape.com##embed:style(display:inherit!important)
 wowescape.com###adContainer
 wowescape.com##[id^="gdsdk_"]
-wowescape.com##div:has(>div:has(>.adsbygoogle))
+wowescape.com#?#div:has(> div:has(> .adsbygoogle))
 wowescape.com##div.border_radius:has-text(Advertisement)
 wowescape.com##.col-sm-4:has-text(Advertisement)
 wowescape.com##+js(ra, target)
@@ -7542,7 +7542,7 @@ games2rule.com##.adsbygoogle
 games2rule.com##embed:style(display:inherit!important)
 games2rule.com###adContainer
 games2rule.com##[id^="gdsdk_"]
-games2rule.com##div:has(>div:has(>.adsbygoogle))
+games2rule.com#?#div:has(> div:has(> .adsbygoogle))
 games2rule.com##div.border_radius:has-text(Advertisement)
 games2rule.com##.col-sm-4:has-text(Advertisement)
 games2rule.com##+js(ra, target)
