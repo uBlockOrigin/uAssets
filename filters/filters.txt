@@ -1,7 +1,7 @@
 ! Title: uBlock₀ filters
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Expires: 4 days
-! Last modified: Wed, 14 Sep 2022 16:38:19 +0000
+! Last modified: Wed, 14 Sep 2022 19:20:14 +0000
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! Licence: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 !
@@ -12271,7 +12271,10 @@ berliner-kurier.de,berliner-zeitung.de##.dm_ad-container
 eplfootballmatch.com##+js(set, document.bridCanRunAds, true)
 
 ! https://github.com/NanoMeow/QuickReports/issues/1011
-email.it##+js(acis, $, document.getElementById)
+! https://github.com/uBlockOrigin/uAssets/issues/14827
+!#if env_firefox
+@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$xhr,domain=webmail.email.it
+!#endif
 
 ! https://github.com/uBlockOrigin/uAssets/issues/5364
 allacronyms.com##+js(nobab)
