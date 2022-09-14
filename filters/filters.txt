@@ -1,7 +1,7 @@
 ! Title: uBlock₀ filters
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Expires: 4 days
-! Last modified: Tue, 13 Sep 2022 20:49:07 +0000
+! Last modified: Wed, 14 Sep 2022 12:51:57 +0000
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! Licence: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 !
@@ -2501,10 +2501,12 @@ hotmovs.com##+js(aopw, ads_priv)
 hotmovs.com##+js(aeld, , pop)
 hotmovs.com##.afs_ads + span[class] > div[style=""]:only-child > div:only-child
 hotmovs.com##.partners-wrap
-hotmovs.com##.video-page__related + section
 hotmovs.*##.app-banners__wrapper
 hotmovs.*##.video-page > .block_label > div:has(Advertisement)
-hotmovs.*##.video-right-top
+hotmovs.*##.block_label--last + div[class]
+hotmovs.*##.pagination + div.block_label--last
+hotmovs.*##.underplayer__info > div[class]:first-child
+hotmovs.*##.video-page__content > div.left + div[class]:last-child
 ||hotmovs.com/sw.js$script,1p
 ! https://github.com/uBlockOrigin/uAssets/issues/959
 vjav.com##+js(acis, document.getElementById, pop)
@@ -2623,6 +2625,9 @@ hdzog.com##.video-page__banners
 hdzog.com##.content > div > .content-block + div[class]:not(.content-block)
 hdzog.com##.suggestions
 hdzog.com##.partners-wrap
+hdzog.com##.pagination +  div[class]:last-of-type
+hdzog.com##.video-page__left > div[class]:last-of-type
+hdzog.com##.video-page__row > div[class]:last-child
 
 ! https://github.com/uBlockOrigin/uAssets/issues/961
 ! https://github.com/uBlockOrigin/uAssets/issues/962
@@ -14614,7 +14619,7 @@ tubepornclassic.com##.jwplayer > .afs_ads + span[class]
 tubepornclassic.com##.video-page__adv
 tubepornclassic.com##.video-page__content > .right
 tubepornclassic.com##a[href^="http://www.theclassicporn.com/"]:upward(1)
-tubepornclassic.com##.video-page__content > div[class]:not(.left):last-child
+tubepornclassic.com##.video-page__content > div.left + div[class]:last-child
 
 ! https://github.com/uBlockOrigin/uAssets/issues/6144
 flashingjungle.com##+js(aeld, /^(click|mousedown|mousemove|touchstart|touchend|touchmove)/, system.popunder)
