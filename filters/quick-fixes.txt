@@ -1,7 +1,7 @@
 ! Title: uBlock₀ filters – Quick fixes
 ! Description: Immediate, temporary filters to fix websites
 ! Expires: 1 days
-! Last modified: Wed, 14 Sep 2022 06:30:52 +0000
+! Last modified: Wed, 14 Sep 2022 08:06:27 +0000
 ! License: https://creativecommons.org/licenses/by/3.0/
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! Forums: https://github.com/uBlockOrigin/uAssets/issues
@@ -123,7 +123,7 @@ mrlzqoe.buzz,utinwpqqui.buzz,pyotinle.buzz,xmbme.buzz,velnibug.buzz##div[class][
 @@/wp-content/plugins/agreeable-button/*$script,1p,domain=buzz
 
 ! https://github.com/uBlockOrigin/uAssets/issues/14296
-*$csp=script-src,domain=linkdoni.soft98.ir
+*$script,domain=linkdoni.soft98.ir
 soft98.ir,~forum.soft98.ir##+js(aeld, mousedown)
 soft98.ir,~forum.soft98.ir##+js(window-close-if, /link-)
 sysban.ir##+js(window-close-if, /telephone-service)
@@ -142,6 +142,9 @@ soft98.ir,~forum.soft98.ir##img[src*="file.soft98.ir"]:style(height: 90px !impor
 soft98.ir,~forum.soft98.ir##*:has-text(@):has(a[href*="soft98.ir/user"]):not(body,html):remove()
 soft98.ir,~forum.soft98.ir##*:has-text(@):has(a[href*="s98.ir/"]):not(body,html):remove()
 linkdoni.soft98.ir##html:remove()
+!#if env_firefox
+linkdoni.soft98.ir##^body, title
+!#endif
 @@||soft98.ir^$ghide
 
 ! https://github.com/uBlockOrigin/uAssets/issues/14189
