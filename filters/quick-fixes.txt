@@ -1,7 +1,7 @@
 ! Title: uBlock₀ filters – Quick fixes
 ! Description: Immediate, temporary filters to fix websites
 ! Expires: 1 days
-! Last modified: Sat, 17 Sep 2022 06:59:49 +0000
+! Last modified: Sat, 17 Sep 2022 07:50:25 +0000
 ! License: https://creativecommons.org/licenses/by/3.0/
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! Forums: https://github.com/uBlockOrigin/uAssets/issues
@@ -130,8 +130,8 @@ sysban.ir##+js(window-close-if, /telephone-service)
 smostafa.ir##+js(window-close-if, /^/)
 ! .gif^$image,redirect=click2load.html,domain=soft98.ir|~forum.soft98.ir
 ^utm_source=soft98^$removeparam=utm_source
-^utm_source=soft98^$removeparam=utm_medium
 ^utm_source=soft98^$removeparam=utm_campaign
+^utm_source=soft98^$removeparam=utm_content
 ^utm_source=soft98^$all
 .ir^$popup,domain=soft98.ir|~forum.soft98.ir,3p
 ||iranick0d.ir^$all
@@ -141,7 +141,10 @@ smostafa.ir##+js(window-close-if, /^/)
 cdn.hostdl.com##^responseheader(location)
 ||smostafa.ir^$all,domain=soft98.ir
 ||sysban.ir^$all,domain=soft98.ir
-iranicard.ir##:matches-path(/utm_content=spotify/) html:remove()
+||iranicard.ir/خرید-اکانت-اسپاتیفای-spotify-2/?utm_medium=banner^$csp=script-src
+||asiatech.ir/tabestan1401/?utm_medium=referral^$csp=script-src
+iranicard.ir##:matches-path(/utm_medium=banner/) html:remove()
+asiatech.ir##:matches-path(/utm_medium=referral/) html:remove()
 linkdoni.soft98.ir##html:remove()
 !#if env_firefox
 linkdoni.soft98.ir##^body, title
