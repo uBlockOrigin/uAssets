@@ -1,7 +1,7 @@
 ! Title: uBlock₀ filters
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Expires: 4 days
-! Last modified: Sun, 02 Oct 2022 16:38:45 +0000
+! Last modified: Sun, 02 Oct 2022 16:57:55 +0000
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 !
@@ -2546,10 +2546,13 @@ tuberel.com##+js(aeld, , open)
 ||tuberel.com/*.php
 ||puporn.com/sw.js$script,1p
 ! https://github.com/easylist/easylist/issues/7918
-thegay.com##+js(acis, adver)
-thegay.com##.videoplayer-wrapper > span[class] > div[style]:only-child
-thegay.com##.wrapper + section
-thegay.*##.video-page__content > .right
+! https://github.com/AdguardTeam/AdguardFilters/issues/131194
+thegay.*##+js(acis, adver)
+thegay.*##.content > div:not([class]) > .wrapper ~ div[class]:not(.wrapper)
+thegay.*##.underplayer__info > div[class]:first-child
+thegay.*##.video-page__content > div.left + div[class]:last-child
+thegay.*##div[style="display:flex !important"] > div
+
 ||thegay.com^$csp=default-src 'self' *.ahcdn.com fonts.gstatic.com fonts.googleapis.com https://thegay.com https://tn.thegay.com 'unsafe-inline' 'unsafe-eval' data: blob:,badfilter
 ! privatehomeclips.com
 privatehomeclips.com##.footer-banners
