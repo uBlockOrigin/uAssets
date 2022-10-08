@@ -1,7 +1,7 @@
 ! Title: uBlock₀ filters
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Expires: 4 days
-! Last modified: Sat, 08 Oct 2022 10:11:24 +0000
+! Last modified: Sat, 08 Oct 2022 10:26:49 +0000
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 ! New filters from January 2022 to ->
@@ -2439,12 +2439,13 @@ slidesgo.com##.ssm_adunit_container:upward([id^="list_ads"])
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/117701
 ! https://github.com/uBlockOrigin/uAssets/issues/13856
-apkmaven.com##+js(no-fetch-if, googlesyndication)
-apkmaven.com##+js(aeld, DOMContentLoaded, adsBlocked)
-apkmaven.com###wpsafe-generate, #wpsafe-link:style(display: block !important;)
-apkmaven.com##div[id^="wpsafe-wait"]
-apkmaven.com###countdown
-apkmaven.com###download_link:style(display: block !important;)
+! https://github.com/AdguardTeam/AdguardFilters/issues/131668
+apkmaven.*##+js(no-xhr-if, googlesyndication)
+apkmaven.*##+js(aeld, DOMContentLoaded, adsBlocked)
+apkmaven.*###wpsafe-generate, #wpsafe-link:style(display: block !important;)
+apkmaven.*##div[id^="wpsafe-wait"]
+apkmaven.*###countdown
+apkmaven.*###download_link:style(display: block !important;)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/13094
 photopea.com##+js(no-fetch-if, /googlesyndication|uniconsent/)
