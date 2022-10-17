@@ -1,7 +1,7 @@
 ! Title: uBlock₀ filters – Quick fixes
 ! Description: Immediate, temporary filters to fix websites
 ! Expires: 1 days
-! Last modified: Mon, 17 Oct 2022 16:25:21 +0000
+! Last modified: Mon, 17 Oct 2022 16:30:40 +0000
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! Forums: https://github.com/uBlockOrigin/uAssets/issues
@@ -129,7 +129,20 @@ satoshi-win.xyz##+js(set, fouty, true)
 satoshi-win.xyz##.banner-inner
 /adsEnd.$badfilter
 ! https://github.com/uBlockOrigin/uAssets/issues/14189#issuecomment-1280373773
-satoshi-win.xyz##+js(refresh-defuser)
+!#if env_chromium
+@@||ads.themoneytizer.com/s/requestform.js?$script,domain=satoshi-win.xyz
+@@||gibevay.ru/retarget/get$script,domain=satoshi-win.xyz
+@@||googletagservices.com/tag/js/gpt.js$script,domain=satoshi-win.xyz
+@@||govbusi.info^$script,domain=satoshi-win.xyz
+@@||themoneytizer.com^$frame,domain=satoshi-win.xyz
+@@||umekana.ru/retarget/get$script,domain=satoshi-win.xyz
+@@||zatnoh.com/pw/*=eyJ.js$script,domain=satoshi-win.xyz
+||googletagmanager.com/gtag/js$script,redirect-rule=googletagmanager_gtm.js:10,domain=satoshi-win.xyz
+||id5-sync.com^$image,redirect-rule=1x1.gif,domain=satoshi-win.xyz
+|about:blank$popup,domain=satoshi-win.xyz
+||funuzai.ru^$popup
+!#endif
+satoshi-win.xyz##^responseheader(refresh)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/14499
 ! https://github.com/uBlockOrigin/uAssets/issues/14509
