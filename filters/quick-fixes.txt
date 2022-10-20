@@ -1,7 +1,7 @@
 ! Title: uBlock₀ filters – Quick fixes
 ! Description: Immediate, temporary filters to fix websites
 ! Expires: 1 days
-! Last modified: Thu, 20 Oct 2022 14:20:18 +0000
+! Last modified: Thu, 20 Oct 2022 15:38:09 +0000
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! Forums: https://github.com/uBlockOrigin/uAssets/issues
@@ -204,3 +204,13 @@ koushoku.org##.exo-native-widget,div[style*="250px"],div[style*="728px"],img[wid
 
 ! https://github.com/uBlockOrigin/uAssets/issues/15341
 ||fundingchoicesmessages.google.com^$script,redirect-rule=noop.js,domain=rocketnews24.com
+
+! Ad-Shield
+*$frame,redirect-rule=noopframe,domain=ondemandkorea.com
+*$script,xhr,redirect-rule=noopjs,domain=ondemandkorea.com
+*$image,redirect-rule=1x1.gif,domain=ondemandkorea.com
+@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$script,xhr,domain=ondemandkorea.com
+@@||static.dable.io/dist/plugin.min.js$script,domain=ondemandkorea.com
+ondemandkorea.com##.banner_728x90:remove()
+ondemandkorea.com##[id^="div-gpt-ad"]:remove()
+ppss.kr,ygosu.com,loawa.com,feedclick.net,dailian.co.kr,algumon.com,sportalkorea.com,ondemandkorea.com##div[style$="px; display: flex; margin-right: auto; justify-content: center; max-width: 100%;"] > div[id]:style(pointer-events: none !important; user-select: none !important;)
