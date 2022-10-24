@@ -1,8 +1,8 @@
-name: Update 3rd-party assets (daily)
+name: Update Easylist assets (hourly)
 
 on:
   schedule:
-    - cron: "29 4 * * *"
+    - cron: "47 */4 * * *"
   workflow_dispatch:
 
 permissions:
@@ -12,20 +12,20 @@ jobs:
   publish:
     permissions:
       contents: write  # for Git to git push
-    name: Update 3rd-party assets
+    name: Update Easylist assets
     runs-on: ubuntu-latest
     steps:
       - name: Clone uAssets
         uses: actions/checkout@v3
-      - name: Fetch 3rd-party assets
+      - name: Assemble Easylist assets
         run: |
-          ./tools/update-3rdparties.sh
+          ./tools/make-easylist.sh
       - name: Commit changes, if any
         run: |
           if [[ -n $(git diff) ]]; then
             git config user.name "github-actions bot"
             git config user.email "<>"
             git add -u thirdparties/
-            git commit -m "Update all 3rd-party assets"
+            git commit -m "Update Easylist assets"
             git push origin master
           fi

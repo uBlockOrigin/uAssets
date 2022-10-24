@@ -28,5 +28,3 @@ for i in "${!assets[@]}"; do
         fi
     fi
 done
-
-bash ./tools/make-easylist.sh
