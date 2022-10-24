@@ -85,14 +85,7 @@ async function main() {
         process.exit(1);
     }
 
-    let beforeText = await fs.readFile(outFile, { encoding: 'utf8' });
-
-    // This is to avoid spurious commits
-    beforeText = beforeText.replace(
-        /^! Last modified: .*$/m,
-        '! Last modified: %timestamp%'
-    );
-
+    const beforeText = await fs.readFile(outFile, { encoding: 'utf8' });
     const dirname = path.dirname(inFile);
     const inText = fs.readFile(inFile, { encoding: 'utf8' });
 
@@ -102,18 +95,10 @@ async function main() {
         parts = expandIncludes(dirname, parts);
     } while ( parts.some(v => typeof v !== 'string'));
 
-    let afterText = parts
+    const afterText = parts
         .filter(chunk => chunk.trim() !== '')
         .join('\n') + '\n';
-
     if ( afterText === beforeText ) { return; }
-
-    const now = new Date();
-
-    afterText = afterText.replace(
-        '%timestamp%',
-        now.toISOString().replace('T', ' ').replace(/:\d+\.\d+Z$/, ' UTC')
-    );
 
     fs.writeFile(outFile, afterText);
 }
