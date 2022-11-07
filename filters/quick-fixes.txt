@@ -1,7 +1,7 @@
 ! Title: uBlock₀ filters – Quick fixes
 ! Description: Immediate, temporary filters to fix websites
 ! Expires: 1 days
-! Last modified: Sun, 06 Nov 2022 21:07:24 +0000
+! Last modified: Mon, 07 Nov 2022 09:24:21 +0000
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! Forums: https://github.com/uBlockOrigin/uAssets/issues
@@ -194,12 +194,9 @@ next-episode.net##+js(aost, document.createElement, /(?=^(?!.*(https|stopTrackin
 dragontea.ink##+js(nostif, /addClass|block|classList|console|gogo|having/)
 dragontea.ink##+js(nostif, , 3000)
 *$script,redirect-rule=noopjs,domain=dragontea.ink
-dragontea.ink##+js(set, hiublock, noopFunc)
-dragontea.ink##script[id$="-js-extra"] + div[style^="display:block!important;background-color:"]
-!#if env_firefox
-dragontea.ink##^script:has-text(_0xd9e6)
-dragontea.ink##div[style*="display:block!important"]:has(.adblock_title)
-!#endif
+@@||stpd.cloud^$script,domain=dragontea.ink
+@@||dragontea.ink^$ghide
+dragontea.ink##+js(no-xhr-if, adsystem)
 
 ! https://twitter.com/Aquavit/status/1581306309500030978
 tv-tokyo.co.jp#@#.ad
