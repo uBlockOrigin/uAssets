@@ -1,7 +1,7 @@
 ! Title: uBlock₀ filters
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Expires: 4 days
-! Last modified: Wed, 09 Nov 2022 13:06:46 +0000
+! Last modified: Wed, 09 Nov 2022 19:09:50 +0000
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 !
@@ -527,7 +527,7 @@ finanzen.*###bs_abstand
 finanzen.*##[id^="sas_"]:style(height: 1px !important)
 ||images.finanzen.net/*banner$image
 finanzen.net##.pull-right.img-responsive
-finanzen.net##:xpath(//*[contains(text(),"Werbung")]) + [class]
+finanzen.net##:xpath('//*[contains(text(),"Werbung")]') + [class]
 
 ! https://github.com/reek/anti-adblock-killer/issues/2000
 ! https://github.com/NanoMeow/QuickReports/issues/1068
@@ -1231,7 +1231,7 @@ supforums.com##.sidebar-rcs
 ! https://github.com/uBlockOrigin/uAssets/issues/7802
 ! primewire.mn ads
 primewire.*##+js(set, console.clear, noopFunc)
-primewire.*##:xpath(//*[contains(text(),"Sponsored")]):upward(2)
+primewire.*##:xpath('//*[contains(text(),"Sponsored")]'):upward(2)
 ||primewire.*/sw$script,1p
 ||primewire.*/addons/*.gif$image
 primewire.*##[href="/user/profile/premium-membership"][target="_blank"]
@@ -2524,7 +2524,7 @@ spankwire.com##.vjs-inplayer-disclaimer
 spankwire.com##.vjs-inplayer-closeandplay
 spankwire.com##[src^="//www.spankwire.com/neverblock/"]
 spankwire.com###js-react-player-ad-under
-spankwire.com##:xpath(//*[contains(text(),"Advertisement")]):upward(1)
+spankwire.com##:xpath('//*[contains(text(),"Advertisement")]'):upward(1)
 spankwire.com##div[data-class="vjs-inplayer-overlay"]
 @@||spankwire.com^$ghide
 ||spankwire.com/sw.js$script,1p
@@ -2804,7 +2804,7 @@ chooyomi.com##+js(nowoif)
 ! https://github.com/NanoMeow/QuickReports/issues/1048
 x1337x.*##[href*=".php"]
 1337x.*,x1337x.*,1337x.unblock2.xyz,1337x.unblocked.*,1337x.unblockit.*##ul > li:has-text(/‌/i)
-1337x.*,x1337x.*,1337x.unblock2.xyz,1337x.unblocked.*,1337x.unblockit.*##:xpath(//*[contains(text(),"IP Address")]/..)
+1337x.*,x1337x.*,1337x.unblock2.xyz,1337x.unblocked.*,1337x.unblockit.*##:xpath('//*[contains(text(),"Hide your IP")]/..')
 1337x.unblock2.xyz,1337x.unblockit.*##+js(aopr, btoa)
 1337x.unblock2.xyz,1337x.unblocked.*,1337x.unblockit.*##+js(aopr, open)
 1337x.unblock2.xyz##+js(aopr, Math.floor)
@@ -6224,7 +6224,7 @@ gsm-solution.com###adblock-blocker-overlay
 ettv.*##+js(popads-dummy)
 ettv.*##+js(nowoif)
 ettv.*##+js(aopr, AaDetector)
-ettv.*##:xpath(//*[contains(text(),"VPN")]):upward(2)
+ettv.*##:xpath('//*[contains(text(),"VPN")]'):upward(2)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/2668
 pelisgratis.*##+js(aopw, smrtSB)
@@ -13170,7 +13170,7 @@ gdrivez.xyz##+js(nostif, nextFunction, 2000)
 ebay.*##.sresult:has(.promoted-lv)
 ebay.*#?#li.s-item:has(span:has-text(/S[^P]*?P[^O]*?O[^N]*?N[^S]*?S[^O]*?O[^R]*?R[^E]*?E[^D]*?D/))
 ebay.*##.s-item__title-tag:has-text(/^SPONSORED$/):upward(.s-item)
-ebay.*##.s-item:has-text(Sponsored):xpath(//*[string-length(@aria-labelledby) = 8]):upward(.s-item)
+ebay.*##.s-item:has-text(Sponsored):xpath('//*[string-length(@aria-labelledby) = 8]'):upward(.s-item)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/5828
 acefile.co##+js(aopw, _pop)
@@ -13510,7 +13510,7 @@ washingtonpost.com##.outbrain-wrapper
 washingtonpost.com##.bb.pt-0
 washingtonpost.com##div.grey-bg
 washingtonpost.com##section > div:has-text(/^AD$/)
-washingtonpost.com##:xpath(//*[(text()='AD')]/..)
+washingtonpost.com##:xpath('//*[(text()='AD')]/..')
 washingtonpost.com##.bottom-ad--bigbox:upward(1)
 ! https://github.com/uBlockOrigin/uAssets/issues/9185#issuecomment-847835587
 !#if env_mobile
@@ -15266,7 +15266,7 @@ sports24.*##div[data-player] > .container:style(max-width: 100% !important;)
 sports24.*###ao
 sports24.*##.sp24
 sports24.*##a.btn[href*="/a?live="]
-sports24.*##:xpath(//*[contains(text(),"Watch HD")])
+sports24.*##:xpath('//*[contains(text(),"Watch HD")]')
 sports24.*###notice
 sports24.*##.btn-outline-primary:has-text(/HD$/)
 sports24.*##.container > div.col[style^="height: 225px; width: 400px"]
@@ -16300,7 +16300,7 @@ sonyliv.com##+js(json-prune, adProvider)
 ||magyarhang.org/*.gif$image
 
 ! https://www.reddit.com/r/uBlockOrigin/comments/e8xapo/hide_ads_on_trakt/
-trakt.tv##:xpath(//*[(text()='Advertisement')]/..)
+trakt.tv##:xpath('//*[(text()='Advertisement')]/..')
 
 ! https://www.reddit.com/r/uBlockOrigin/comments/e93zy9/adblock_blocker_on_vsttorrents/
 @@||vsttorrents.net^$ghide
