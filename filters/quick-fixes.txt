@@ -1,7 +1,7 @@
 ! Title: uBlock₀ filters – Quick fixes
 ! Description: Immediate, temporary filters to fix websites
 ! Expires: 1 days
-! Last modified: Wed, 09 Nov 2022 16:30:25 +0000
+! Last modified: Wed, 09 Nov 2022 18:50:24 +0000
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! Forums: https://github.com/uBlockOrigin/uAssets/issues
@@ -182,9 +182,9 @@ dragontea.ink##+js(nostif, /addClass|block|classList|console|gogo|having/)
 @@||dragontea.ink^$ghide
 dragontea.ink##+js(no-xhr-if, adsystem)
 ||gum.criteo.com/sid/json?$important,domain=dragontea.ink
-!#if env_firefox
-dragontea.ink##div[style*="display:block!important"][style*="background-color:"][style$="!important;"]
 dragontea.ink##html, body:style(overflow: auto !important;)
+!#if env_firefox
+dragontea.ink##div[style*="position:fixed!important;"][style*="background-color:"][style$="!important;"]
 dragontea.ink##^script:has-text(/_0x|_1x|_2x|_3x|_4x|_5x|_6x|_7x|_8x|_9x|console\.log|MutationObserver/)
 !#endif
 !#if env_chromium
@@ -198,10 +198,9 @@ dragontea.ink##^script:has-text(/_0x|_1x|_2x|_3x|_4x|_5x|_6x|_7x|_8x|_9x|console
 @@||bidder.criteo.com/cdb$xhr,domain=dragontea.ink
 @@/\/hb-api.omnitagjs.com\/hb-api\/prebid\/v1$/$xhr,domain=dragontea.ink
 ||bidder.criteo.com/cdb?*bundle$xhr,domain=dragontea.ink,important
-dragontea.ink##html, body:style(overflow: auto !important;)
 dragontea.ink##+js(nosiif, , 1001)
 dragontea.ink##+js(nosiif, googletag)
-dragontea.ink##body > div[style]:not([id^="a11y-"]):not([style="display:block;"])
+dragontea.ink##body > div:not([id], [class], [style]) > [style]:not([id^="a11y-"]):not([style="display:block;"])
 !#endif
 ||setupad.net^
 
