@@ -1,7 +1,7 @@
 ! Title: uBlock₀ filters – Quick fixes
 ! Description: Immediate, temporary filters to fix websites
 ! Expires: 1 days
-! Last modified: Thu, 10 Nov 2022 11:34:42 +0000
+! Last modified: Thu, 10 Nov 2022 11:59:16 +0000
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! Forums: https://github.com/uBlockOrigin/uAssets/issues
@@ -187,29 +187,12 @@ uniqueten.net##+js(nostif, console)
 @@/\/prebid$/$xhr,domain=dragontea.ink
 @@||prebid-eu.creativecdn.com/bidder/prebid/bids$xhr,domain=dragontea.ink
 @@||tag.1rx.io/rmp/$xhr,domain=dragontea.ink
-@@/?callback=jQuery*$script,domain=dragontea.ink
+@@/?callback=jQuery*$script,redirect-rule=noopjs,domain=dragontea.ink
 @@||stpd.cloud/saas/$script,domain=dragontea.ink
 @@||gum.criteo.com/sid/json$xhr,domain=dragontea.ink
 !dragontea.ink##+js(no-xhr-if, adsystem)
 dragontea.ink##html, body:style(overflow: auto !important;)
 dragontea.ink#@#+js()
-!#if env_firefox
-dragontea.ink##h4:has-text(Ads Blocker Detected!!!):upward(div:not([id], [class], [style]))
-!dragontea.ink##^script:has-text(/_0x|_1x|_2x|_3x|_4x|_5x|_6x|_7x|_8x|_9x|console\.log|MutationObserver/)
-!#endif
-!#if env_chromium
-!@@||securepubads.g.doubleclick.net/gpt/pubads_impl*$script,domain=dragontea.ink
-!@@||securepubads.g.doubleclick.net/pagead/ppub_config?ippd=dragontea.ink$xhr,domain=dragontea.ink
-!@@||securepubads.g.doubleclick.net/tag/js/gpt.js$script,domain=dragontea.ink
-!@@||id5-sync.com/g/v2/*.json$xhr,domain=dragontea.ink
-!@@||prebid.a-mo.net/a/c$xhr,domain=dragontea.ink
-!@@||bidder.criteo.com/csm/events$xhr,domain=dragontea.ink
-!@@||bidder.criteo.com/cdb$xhr,domain=dragontea.ink
-!||bidder.criteo.com/cdb?*bundle$xhr,domain=dragontea.ink,important
-!dragontea.ink##+js(nosiif, , 1001)
-!dragontea.ink##+js(nosiif, googletag)
-dragontea.ink##body > div:not([id], [class], [style]) > div:not([id], [class], [style]) > div:not([id], [class], [style])
-!#endif
 ||setupad.com^
 ||setupad.net^
 
