@@ -1,7 +1,7 @@
 ! Title: uBlock₀ filters
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Expires: 4 days
-! Last modified: Thu, 10 Nov 2022 15:06:04 +0000
+! Last modified: Thu, 10 Nov 2022 21:41:31 +0000
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 !
@@ -16013,8 +16013,10 @@ upzone.cc##+js(acis, document.getElementById, undefined)
 
 ! https://github.com/NanoMeow/QuickReports/issues/2453
 ! https://github.com/olegwukr/polish-privacy-filters/issues/67
-player.pl##+js(json-prune, movie.advertising.ad_server)
-@@||cdntvn.pl/*/advert.js$xhr,domain=player.pl
+!player.pl##+js(json-prune, movie.advertising.ad_server)
+@@||cdntvn.pl^$script,domain=player.pl
+@@||player.pl^$cname
+/ad.xml$xhr,badfilter
 
 ! https://github.com/NanoMeow/QuickReports/issues/2318
 @@||jbzd.com.pl^$ghide
