@@ -89,13 +89,6 @@
 ||clickbank.com^$badfilter
 ||clickbank.com^$3p
 
-! https://github.com/chrisaljoudi/uBlock/issues/614
-! To counter `awaps.yandex.ru` in hpHosts
-! To counter `mc.yandex.ru` in hpHosts, MVPS
-@@||awaps.yandex.ru^$domain=market.yandex.ru
-@@||mc.yandex.ru^$domain=market.yandex.ru
-@@||yastatic.net/market-export/*/advert.js$domain=market.yandex.ru
-
 ! https://github.com/chrisaljoudi/uBlock/issues/774
 ! To counter `carbonads.net` in Peter Lowe's
 ||carbonads.net^$badfilter
@@ -1118,9 +1111,6 @@ go.com#@#.has-ad
 ! https://github.com/uBlockOrigin/uAssets/issues/4226
 @@||computerworld.com/*/jquery$script,1p
 
-! m.avito.ru ublock issues 327
-@@||an.yandex.ru/system/context.js$script,domain=avito.ru
-
 ! https://www.reddit.com/r/uBlockOrigin/comments/a3r5e1/site_not_rendering_properly_with_ublockorigin/
 @@||adverts.ie/css/$css,1p
 
@@ -1780,9 +1770,6 @@ twitter.com#@#article[role="article"]:has-text(Promoted)
 ! https://github.com/NanoMeow/QuickReports/issues/1319
 @@||moatads.com/aolvidibleapi*$script,domain=bloombergquint.com
 
-! https://github.com/NanoMeow/QuickReports/issues/1949
-@@||pladform.ru/*/hls-vod/*$xhr,domain=rutube.ru
-
 ! https://github.com/easylist/easylist/issues/4114
 /thermostat.js$badfilter
 /thermostat.js$script,domain=royle.com
@@ -2013,9 +2000,6 @@ pcgamer.com#@#.hawk-widget
 @@||tgt.tamedia.ch/*/api/$xhr,domain=tagesanzeiger.ch
 ! https://github.com/uBlockOrigin/uAssets/issues/6729
 @@||tdn.da-services.ch/libs/prebid$script,domain=tagesanzeiger.ch
-
-! https://forums.lanik.us/viewtopic.php?f=64&t=43990&p=151746#p151745
-@@||livelib.ru/service/*captcha$xhr,image,1p
 
 ! https://github.com/uBlockOrigin/uAssets/issues/6673
 @@||amazon.jobs/assets/analytics-$script,1p
@@ -2455,9 +2439,6 @@ recensionihot.com#@#a[href^="https://www.moscarossa.biz/"]
 ! trafic .ro blocked Peter Lowe's
 ||trafic.ro^$badfilter
 ||trafic.ro^$3p
-
-! https://www.reddit.com/r/uBlockOrigin/comments/ga0veq/ubo_is_blocking_ads_and_popups_but_the_site_is/
-|https://$image,other,script,css,3p,xhr,domain=01fmovies.com|ffmovies.ru|fmovies.mx|fmovies.taxi|fmovies.world|fmovies123.cc|fmovieson.com|thefmovies.me,badfilter
 
 ! https://github.com/NanoMeow/QuickReports/issues/3632#issuecomment-621503457
 |https://$script,3p,domain=thepiratebay.org,badfilter
@@ -4771,6 +4752,9 @@ mail.google.com#@#div[aria-label="Ads"]
 @@||tra.scds.pmdstatic.net/$xhr,domain=gala.fr
 gala.fr#@#[data-ads-core]
 gala.fr##+js(no-xhr-if, doubleclick)
+! https://github.com/uBlockOrigin/uAssets/issues/15531#issuecomment-1305952402
+@@||tra.scds.pmdstatic.net/sourcepoint/$script,domain=programme-tv.net
+@@||securepubads.g.doubleclick.net/gampad/ads$xhr,domain=programme-tv.net
 
 ! https://forums.lanik.us/viewtopic.php?t=47859-lemonde-fr
 @@||cmp.huffingtonpost.fr/js/huffpost.min.js$script,1p
@@ -4783,3 +4767,10 @@ lemonde.fr#@#.gdpr-lmd-wall
 
 ! https://th4-app.taximail.com/campaign-detail/3#overview UI breakage
 @@||taximail.com/js/analytics.js$script,1p
+
+! https://github.com/uBlockOrigin/uAssets/issues/15552
+@@||assets.adobedtm.com/*.js$script,domain=accounts.o2.co.uk
+||assets.adobedtm.com/*source.min.js$script,domain=accounts.o2.co.uk,important
+
+! https://github.com/uBlockOrigin/uAssets/issues/15561
+instagram.com#@#div[style="max-height: inherit; max-width: inherit;"]:has(span:has-text(Paid partnership with ))

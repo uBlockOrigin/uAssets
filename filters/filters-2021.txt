@@ -769,7 +769,7 @@ readyssh.net##+js(aeld, load, nextFunction)
 ! https://forums.lanik.us/viewtopic.php?f=64&t=45644
 akvi.icu##+js(acis, $, show)
 akvi.icu##[style='display: none;']:has(#vplayer):style(display:block!important;)
-akvi.icu##:xpath(//*[contains(text(),"Disable")])
+akvi.icu##:xpath('//*[contains(text(),"Disable")]')
 
 ! https://github.com/uBlockOrigin/uAssets/issues/8507
 convert2mp3.club##+js(nowoif)
@@ -4534,6 +4534,7 @@ quizlet.com##.StickyAdz
 quizlet.com##+js(rc, has-sidebar-adz|DashboardPage-inner, div[class^="DashboardPage-inner"], stay)
 quizlet.com##+js(rc, hasStickyAd, div.hasStickyAd[class^="SetPage"], stay)
 quizlet.com##+js(rc, has-adz, div.has-adz, stay)
+quizlet.com##+js(nano-stb)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/9911
 vivo.st##+js(aeld, , preventDefault)
@@ -4990,7 +4991,10 @@ pobre.*##.generalModal
 ||cloclo60.datacloudmail.ru/public/view/*.mp4|$media,domain=pobre.*,redirect=noopmp3-0.1s
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/93513
+! https://github.com/uBlockOrigin/uAssets/issues/15588
 coinsparty.com##+js(nowoif)
+coinsparty.com##+js(no-xhr-if, wpadmngr)
+coinsparty.com###captchaShortlink:upward(form#coinsparty > div):style(display: block !important;)
 coinsparty.com##form[action$="/links/popad"]:remove()
 coinsparty.com##div[style="position: fixed; display: block; width: 100%; height: 100%; inset: 0px; background-color: rgba(0, 0, 0, 0); z-index: 300000;"]
 ||ad4point.nyc3.digitaloceanspaces.com^
@@ -5880,6 +5884,10 @@ gotxx.com##+js(aopw, _pop)
 gotxx.com##+js(aost, Element.prototype.matches, litespeed)
 sturls.com##+js(acis, decodeURI, decodeURIComponent)
 gotxx.com##div[class][style^="position: absolute; cursor: pointer; z-index: 2147483646"]
+! https://github.com/uBlockOrigin/uAssets/issues/15580 timer and focus detection
+sturls.com##+js(set, blurred, false)
+sturls.com###cc:style(display: block !important;)
+sturls.com###timer
 
 ! https://www.reddit.com/r/uBlockOrigin/comments/qtvlfk/adblock_detected_on_edealinfocom/
 edealinfo.com##+js(acis, $, offsetHeight)
@@ -5994,6 +6002,9 @@ thecustomrom.com##+js(acis, decodeURIComponent, ai_)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/10518
 phsensei.com##+js(acis, String.fromCharCode, decodeURIComponent)
+! https://github.com/AdguardTeam/AdguardFilters/issues/134204
+homeairquality.org,techtrim.tech##+js(no-fetch-if, googlesyndication)
+homeairquality.org,techtrim.tech##+js(no-xhr-if, googlesyndication)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/10519
 techsolveprac.com##+js(nostif, display, 5000)
@@ -6581,6 +6592,7 @@ raky.in##+js(nano-sib)
 titantv.com##+js(acis, document.createElement, admiral)
 titantv.com##+js(aeld, load, player)
 @@||ntv.io/serve/load.js$script,domain=titantv.com
+titantv.com###sidebox
 
 ! https://www.reddit.com/r/uBlockOrigin/comments/rgs3zt/ublock_origin_detected/
 1apple.xyz##+js(no-xhr-if, mahimeta)
@@ -6672,12 +6684,6 @@ xnxx.com,xvideos.*###ad-footer
 retrostic.com,sickchirpse.com###ad-header
 chortle.co.uk,coloring.ws,dltk-holidays.com,dltk-kids.com,kidzone.ws,pcsteps.com,primeraescuela.com###adBanner
 ! https://github.com/orgs/uBlockOrigin/teams/ublock-filters-volunteers/discussions/377/comments/63
-! https://github.com/AdguardTeam/AdguardFilters/issues/107617
-! https://github.com/uBlockOrigin/uAssets/issues/15283
-#@##ad-banner
-~androidauthority.com,~soundguys.com#@#.ad-banner
-###ad-banner:not([style="height: 5px; width: 5px; position: absolute; top: 0;"]):not([style*="width: 1px;"])
-~ananweb.jp##.ad-banner:not([style="height: 5px; width: 5px; position: absolute; top: 0;"]):not(.blocker-tester + .ad-banner):not(:empty)
 ! generic absda fix
 #@#.adsBox
 ##.adsBox:not([style$="-99999px;"])
