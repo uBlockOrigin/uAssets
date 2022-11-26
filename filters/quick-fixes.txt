@@ -1,7 +1,7 @@
 ! Title: uBlock₀ filters – Quick fixes
 ! Description: Immediate, temporary filters to fix websites
 ! Expires: 1 days
-! Last modified: Sat, 26 Nov 2022 12:32:33 +0000
+! Last modified: Sat, 26 Nov 2022 15:08:37 +0000
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! Forums: https://github.com/uBlockOrigin/uAssets/issues
@@ -176,6 +176,7 @@ uniqueten.net##+js(nostif, console)
 !dragontea.ink##+js(nostif, /addClass|block|classList|console|gogo|having/)
 !*$3p,script,xhr,frame,denyallow=cloudflare.com|cloudflare.net|gstatic.com|jsdelivr.net|ko-fi.com,domain=dragontea.ink
 *$script,redirect-rule=noopjs,domain=dragontea.ink
+*$frame,redirect-rule=noopframe,domain=dragontea.ink
 @@||dragontea.ink^$ghide
 @@||stpd.cloud/saas/$script,domain=dragontea.ink
 @@||c.amazon-adsystem.com/aax2/apstag.js$script,domain=dragontea.ink
@@ -201,9 +202,9 @@ uniqueten.net##+js(nostif, console)
 ||doubleclick.net^$removeparam=pvsid,important,domain=dragontea.ink
 ||doubleclick.net^$removeparam=/u_h|u_his|u_w|u_ah|u_aw|u_cd|u_sd|u_tz/,important,domain=dragontea.ink
 ||securepubads.g.doubleclick.net/gpt/pubads_impl_page_level_ads*$script,domain=dragontea.ink,important
-dragontea.ink##[id$=_anchor]:style(visibility: collapse !important;)
-dragontea.ink##.c-ads:style(visibility: collapse !important;)
-dragontea.ink##.widget_text.row:style(visibility: collapse !important;)
+dragontea.ink##[id$=_anchor]:style(filter: opacity(0) !important;)
+dragontea.ink##.c-ads:style(filter: opacity(0) !important;)
+dragontea.ink##.widget_text.row:style(filter: opacity(0) !important;)
 dragontea.ink##html, body:style(overflow: auto !important;)
 ||setupad.com^
 ||setupad.net^
