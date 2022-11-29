@@ -1,7 +1,7 @@
 ! Title: uBlock₀ filters – Quick fixes
 ! Description: Immediate, temporary filters to fix websites
 ! Expires: 1 days
-! Last modified: Tue, 29 Nov 2022 15:11:43 +0000
+! Last modified: Tue, 29 Nov 2022 21:46:10 +0000
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! Forums: https://github.com/uBlockOrigin/uAssets/issues
@@ -188,8 +188,8 @@ uniqueten.net##+js(nostif, console)
 @@||gum.criteo.com/sid/json?$xhr,domain=dragontea.ink
 @@||tpc.googlesyndication.com/sodar/sodar2.js$script,domain=dragontea.ink
 @@||pagead2.googlesyndication.com/getconfig/sodar?$xhr,domain=dragontea.ink
-||doubleclick.net^$removeparam=/^a/,important,domain=dragontea.ink
-||doubleclick.net^$removeparam=/^b/,important,domain=dragontea.ink
+@@||google-analytics.com/analytics.js$script,domain=dragontea.ink
+@@||static.criteo.net/js/ld/publishertag.prebid.117.js$script,domain=dragontea.ink
 ||doubleclick.net^$removeparam=/^d/,important,domain=dragontea.ink
 ||doubleclick.net^$removeparam=/^ga/,important,domain=dragontea.ink
 ||doubleclick.net^$removeparam=/^id/,important,domain=dragontea.ink
@@ -205,11 +205,16 @@ uniqueten.net##+js(nostif, console)
 ||doubleclick.net^$removeparam=pvsid,important,domain=dragontea.ink
 ||doubleclick.net^$removeparam=/u_h|u_his|u_w|u_ah|u_aw|u_cd|u_sd|u_tz/,important,domain=dragontea.ink
 ||securepubads.g.doubleclick.net/gpt/pubads_impl_page_level_ads*$script,domain=dragontea.ink,important
+dragontea.ink##+js(set, google_image_requests, [])
 dragontea.ink##html, body:style(overflow: auto !important;)
 dragontea.ink#@#.div-gpt-ad:style(width:1px!important;height:1px!important;min-width:1px!important;min-height:1px!important;margin:0!important;padding:0!important;overflow:hidden!important;opacity:0!important)
 dragontea.ink#@#[class^="div-gpt-ad"]:style(width:1px!important;height:1px!important;min-width:1px!important;min-height:1px!important;margin:0!important;padding:0!important;overflow:hidden!important;opacity:0!important)
 dragontea.ink#@#[id^="div-gpt-ad"]:style(width:1px!important;height:1px!important;min-width:1px!important;min-height:1px!important;margin:0!important;padding:0!important;overflow:hidden!important;opacity:0!important)
+dragontea.ink#@#div[id^="div-gpt-"]:not([id^="div-gpt-ad"]):style(width:1px!important;height:1px!important;min-width:1px!important;min-height:1px!important;margin:0!important;padding:0!important;overflow:hidden!important;opacity:0!important)
 dragontea.ink##.dtaf > div:style(transform: translateX(-5000%) !important;)
+dragontea.ink##.dtau:style(max-height: 5px !important;)
+dragontea.ink##[data-google-query-id]:style(max-height: 5px !important;)
+dragontea.ink##html[i-amphtml-no-boilerplate][amp4ads][class="i-amphtml-inabox"]
 ||setupad.com^
 ||setupad.net^
 
