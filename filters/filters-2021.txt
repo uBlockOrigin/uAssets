@@ -1,7 +1,7 @@
 ! Title: uBlock₀ filters
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Expires: 4 days
-! Last modified: Mon, 28 Nov 2022 12:08:14 +0000
+! Last modified: Tue, 29 Nov 2022 07:28:55 +0000
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 ! New filters from January 2021 to ->
@@ -800,8 +800,12 @@ taxidrivermovie.com##[href="/category/taxi-fares/"]:upward(.thumb)
 embedstream.me,nolive.me##+js(aopw, _pop)
 embedstream.me##+js(nowebrtc)
 embedstream.me,nolive.me##+js(nowoif)
-nolive.me##+js(acs, JSON, break;case)
-*$script,3p,denyallow=nolive.me|plyjam.me,domain=embedstream.me
+embedstream.me,nolive.me##+js(acs, JSON, break;case)
+embedstream.me##+js(nostif, (), 150)
+embedstream.me##^script:has-text(FingerprintJS)
+embedstream.me##^script:has-text("admc")
+embedstream.me##^script:has-text(\"admc\")
+embedstream.me##^script[data-cfasync]:has-text(h=decodeURIComponent)
 *$script,3p,denyallow=cloudflare.net|fastly.net|gstatic.com|jsdelivr.net,domain=nolive.me
 embedstream.me##body > .position-absolute
 embedstream.me###aff-click
