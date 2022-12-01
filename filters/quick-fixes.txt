@@ -1,7 +1,7 @@
 ! Title: uBlock₀ filters – Quick fixes
 ! Description: Immediate, temporary filters to fix websites
 ! Expires: 1 days
-! Last modified: Wed, 30 Nov 2022 21:36:17 +0000
+! Last modified: Thu, 01 Dec 2022 10:53:42 +0000
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! Forums: https://github.com/uBlockOrigin/uAssets/issues
@@ -198,7 +198,9 @@ uniqueten.net##+js(nostif, console)
 @@||gum.criteo.com/sid/json?$xhr,domain=dragontea.ink
 @@||static.criteo.net/js/ld/publishertag.prebid.js$xhr,domain=dragontea.ink
 @@||bidder.criteo.com/cdb?$xhr,domain=dragontea.ink
-dragontea.ink##+js(set, ugay, false)
+@@||tpc.googlesyndication.com/sodar/sodar2/225/runner.html$frame,domain=dragontea.ink
+@@||pagead2.googlesyndication.com/bg/$script,domain=tpc.googlesyndication.com
+@@||tpc.googlesyndication.com/sodar/sodar2.js$script,domain=dragontea.ink
 ||doubleclick.net^$removeparam=/^d/,important,domain=dragontea.ink
 ||doubleclick.net^$removeparam=/^ga/,important,domain=dragontea.ink
 ||doubleclick.net^$removeparam=/^id/,important,domain=dragontea.ink
@@ -220,7 +222,8 @@ dragontea.ink#@#[class^="div-gpt-ad"]:style(width:1px!important;height:1px!impor
 dragontea.ink#@#[id^="div-gpt-ad"]:style(width:1px!important;height:1px!important;min-width:1px!important;min-height:1px!important;margin:0!important;padding:0!important;overflow:hidden!important;opacity:0!important)
 dragontea.ink#@#div[id^="div-gpt-"]:not([id^="div-gpt-ad"]):style(width:1px!important;height:1px!important;min-width:1px!important;min-height:1px!important;margin:0!important;padding:0!important;overflow:hidden!important;opacity:0!important)
 dragontea.ink##.dtaf > div:style(transform: translateX(-5000%) !important;)
-dragontea.ink##html[i-amphtml-no-boilerplate][amp4ads][class="i-amphtml-inabox"] > body.amp-animate
+dragontea.ink##html[i-amphtml-no-boilerplate][amp4ads][class="i-amphtml-inabox"]:has(body > amp-pixel[src^="https://securepubads.g.doubleclick.net/pagead/adview?ai="][style])
+dragontea.ink##body:not([class], [id]) > #mys-wrapper
 ||setupad.com^
 ||setupad.net^
 
