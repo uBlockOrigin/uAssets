@@ -1,7 +1,7 @@
 ! Title: uBlock₀ filters – Quick fixes
 ! Description: Immediate, temporary filters to fix websites
 ! Expires: 1 days
-! Last modified: Sat, 03 Dec 2022 17:58:07 +0000
+! Last modified: Sat, 03 Dec 2022 23:07:56 +0000
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! Forums: https://github.com/uBlockOrigin/uAssets/issues
@@ -177,6 +177,7 @@ uniqueten.net##+js(nostif, console)
 @@*$3p,~image,~ping,~media,~frame,domain=dragontea.ink
 @@||tpc.googlesyndication.com/sodar/sodar2/225/runner.html$frame,domain=dragontea.ink
 @@||pagead2.googlesyndication.com/bg/$script,domain=tpc.googlesyndication.com
+@@||tpc.googlesyndication.com/simgad/$image,domain=dragontea.ink
 dragontea.ink#@#+js(addEventListener-defuser, DOMContentLoaded, Adblock)
 dragontea.ink#@#.div-gpt-ad:style(width:1px!important;height:1px!important;min-width:1px!important;min-height:1px!important;margin:0!important;padding:0!important;overflow:hidden!important;opacity:0!important)
 dragontea.ink#@#[class^="div-gpt-ad"]:style(width:1px!important;height:1px!important;min-width:1px!important;min-height:1px!important;margin:0!important;padding:0!important;overflow:hidden!important;opacity:0!important)
@@ -186,12 +187,14 @@ dragontea.ink#@#div[id^="div-gpt-"]:not([id^="div-gpt-ad"]):style(width:1px!impo
 *$frame,redirect-rule=noopframe,domain=dragontea.ink
 @@||dragontea.ink^$ghide
 dragontea.ink##img[src^="https://tpc.googlesyndication.com/simgad/"]:style(height: 250px !important; width: 250px !important;)
-dragontea.ink##html:has(link[rel="pingback"][href="https://dragontea.ink/xmlrpc.php"]) .dtaf > div[style][id="dragontea_ink_1000x100_anchor"]
-dragontea.ink##html:has(link[rel="pingback"][href="https://dragontea.ink/xmlrpc.php"]) + ins[id^="gpt_unit_/"][style^="display: block !important; width: 100vw !important; height: 100vh !important;"]
+dragontea.ink##html:has(script[src="https://dragontea.ink/wp-includes/js/jquery/jquery.min.js"]) .dtaf > div[style][id="dragontea_ink_1000x100_anchor"]
+dragontea.ink##html:has(script[src="https://dragontea.ink/wp-includes/js/jquery/jquery.min.js"]) + ins[id^="gpt_unit_/"]
 dragontea.ink##:not(:matches-path(tyc)) body[onload="init();"]:not(:has(iframe)) canvas:style(opacity: 0 !important; pointer-events: none !important;)
-dragontea.ink##:not(:matches-path(tyc)) body.amp-animate:not(:has(iframe, canvas)) *
+dragontea.ink##:not(:matches-path(tyc)) body.amp-animate:not(:has(iframe, .top_article_leadeboard)) *
 ||setupad.com^
 ||setupad.net^
+||tiiny.site^$frame,domain=dragontea.ink
+||pix.onebid.cloud/events/$image,domain=dragontea.ink
 ||doubleclick.net^$removeparam=/u_h|u_his|u_w|u_ah|u_aw|u_cd|u_sd|u_tz/,important,domain=dragontea.ink
 *$image,redirect-rule=3x2.png,domain=dragontea.ink
 
