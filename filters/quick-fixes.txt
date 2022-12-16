@@ -1,7 +1,7 @@
 ! Title: uBlock₀ filters – Quick fixes
 ! Description: Immediate, temporary filters to fix websites
 ! Expires: 1 days
-! Last modified: Fri, 16 Dec 2022 12:48:41 +0000
+! Last modified: Fri, 16 Dec 2022 13:36:03 +0000
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! Forums: https://github.com/uBlockOrigin/uAssets/issues
@@ -262,11 +262,6 @@ sekai-kabuka.com##table[width="762px"] > tbody > tr > td[class] > div[id][class]
 realtime-chart.info##div[class][id][style="top: 340px;"] > a[id][onclick]
 sekai-kabuka.com#@#td[width="160"] > div[class] > div > div[id][style^="height:"]:contaiins(広告非表示):style(z-index: -1 !important;)
 
-! https://github.com/uBlockOrigin/uAssets/issues/6541
-! https://github.com/uBlockOrigin/uAssets/issues/15698
-giga.de,t-online.de##+js(aeld, error, [native code])
-giga.de,t-online.de##+js(nostif, !0, 20)
-
 ! https://github.com/uBlockOrigin/uBlock-issues/issues/2356
 golem.de#@#li[data-article-id]:has(span:-abp-properties(ANZEIGE))
 golem.de#@#li[data-article-id]:has(h3:-abp-properties(ANZEIGE))
@@ -312,3 +307,7 @@ magesy.download##+js(nobab)
 ! https://github.com/uBlockOrigin/uAssets/issues/15918
 @@||adnxs.com^$domain=welt.de
 ||adnxs.com/$xhr,domain=welt.de,removeparam,important
+welt.de#@#+js(nostif, .call(null), 10)
+*$frame,domain=welt.de,redirect-rule=noopframe
+*$script,domain=welt.de,redirect-rule=noopjs
+welt.de##+js(aost, Object, /gdpr.*inlineScript/, 2)
