@@ -1,7 +1,7 @@
 ! Title: uBlock₀ filters – Quick fixes
 ! Description: Immediate, temporary filters to fix websites
 ! Expires: 1 days
-! Last modified: Wed, 21 Dec 2022 09:06:32 +0000
+! Last modified: Wed, 21 Dec 2022 09:35:26 +0000
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! Forums: https://github.com/uBlockOrigin/uAssets/issues
@@ -191,10 +191,12 @@ dragontea.ink#@#div[id^="div-gpt-"]:not([id^="div-gpt-ad"]):style(width:1px!impo
 ||tpc.googlesyndication.com/simgad/*/$redirect=1x1.gif:5,important,domain=dragontea.ink
 @@||dragontea.ink^$ghide
 dragontea.ink##ins[id^="gpt_unit_/"]:style(opacity: 0 !important; pointer-events: none !important;)
-dragontea.ink##.floater iframe:remove()
+dragontea.ink##.floater iframe:style(position: relative !important; z-index: -100000 !important;)
 dragontea.ink##.dtaf iframe:remove()
-dragontea.ink##[amp-version] > body.amp-animate:has(img[src^="https://tpc.googlesyndication.com/simgad/"])
+dragontea.ink##img[src^="https://tpc.googlesyndication.com/simgad/"][src*="?sqp="]
 dragontea.ink##body.amp-animate [id*="squareThrone"]
+dragontea.ink##body.amp-animate #square
+dragontea.ink##body.amp-animate div[class*="-banner"]
 ||setupad.com^
 ||setupad.net^
 ||tiiny.site^$frame,domain=dragontea.ink
