@@ -1,37 +1,42 @@
-name: Report Filter Issue From Support Pane
-description: |
-  DO NOT manually choose THIS TEMPLATE TO REPORT ISSUES.
-  It's to be used by uBO version 1.38.7 and above through the new "Support" pane.
+name: Support Pane Filter Issue
+description: DO NOT MANUALLY SELECT THIS TEMPLATE. This template is used by uBlock Origin (uBO)'s "Support" pane to auto-fill essential information to file a filter issue.
 body:
   - type: checkboxes
     attributes:
       label: Prerequisites
       description: To rule out invalid issues, confirm and check each one of the checkboxes.
       options:
-        - label: This is not a [support issue or a question](https://old.reddit.com/r/uBlockOrigin/)
+        - label: This is not a support issue or a question. For support, questions, or help, visit [/r/uBlockOrigin](https://www.reddit.com/r/uBlockOrigin/).
           required: true
-        - label: I performed a [cursory search of the issue tracker](https://github.com/uBlockOrigin/uAssets/issues) to avoid opening a duplicate issue
+        - label: I performed a [cursory search of the issue tracker](https://github.com/uBlockOrigin/uAssets/issues?q=is%3Aissue) to avoid opening a duplicate issue.
           required: true
-        - label: I am running the latest version of uBlock Origin
+        - label: I am running the latest version of uBlock Origin (uBO).
           required: true
-    
+
   - type: checkboxes
     attributes:
       label: I tried to reproduce the issue when...
       options:
-        - label: uBO is the only extension
+        - label: uBO is the only extension.
           required: true
-        - label: uBO with default lists/settings
+        - label: uBO uses default lists and settings.
           required: true
-        - label: using a new, unmodified browser profile
+        - label: using a new, unmodified browser profile.
           required: true
 
   - type: textarea
     attributes:
-      label: URL(s) where the issue occurs
+      label: Description
+      description: Provide a clear and concise description of this filter issue.
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: URL(s) where the issue occurs.
       description: |
-        At least one URL for a web page where the clearly described issue occurs is **mandatory**. 
-        The backticks (`) surrounding the URLs are important, it prevents the URL from being clickable. Warn with "NSFW" where applicable.
+        At least one URL is **MANDATORY** for an issue affecting a web page.
+        The backticks (`) surrounding the URL(s) are important, it prevents the URL(s) from being clickable. Warn with **"NSFW"** where applicable.
       placeholder: |
         `https://example.com`
         `https://example.org`
@@ -41,28 +46,18 @@ body:
 
   - type: textarea
     attributes:
-      label: Describe the issue
-      description: |
-        Be as clear as possible: nobody can read mind, and nobody is looking at your issue over your shoulder.
-    validations:
-      required: true
-
-  - type: textarea
-    attributes:
       label: Screenshot(s)
       description: |
-        Screenshot(s) for **difficult to describe visual issues are mandatory**. 
-        Post **links** instead of inline images for screenshots containing **adult material**.
+        Screenshot(s) are **MANDATORY** for hard-to-describe visual issues.
+        Post **LINKS** instead of inline images for screenshots containing **ADULT MATERIAL**.
     validations:
       required: false
 
   - type: textarea
     attributes:
       label: Notes
-      description: |
-        Please investigate the issues you report -- this prevents burdening other volunteers. 
-        This is especially true for issues arising from settings which are very different from default ones.
-      placeholder: Write here the result of whatever investigation work you have done
+      description: Please troubleshoot the issues you report. It prevents burdening volunteers, particularly when you change the default settings.
+      placeholder: Describe any troubleshooting you have performed.
     validations:
       required: false
 
@@ -71,6 +66,6 @@ body:
     attributes:
       label: Configuration
       description: |
-        If this section is automatically filled by uBO, leave it alone
+        If this section is auto-filled by uBO, leave it alone.
     validations:
-      required: true  
+      required: true
