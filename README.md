@@ -26,6 +26,14 @@ For support, questions, or help, visit [/r/uBlockOrigin](https://www.reddit.com/
 
 Report any issues with uBO in the [uBO issue tracker](https://github.com/uBlockOrigin/uBlock-issues/issues).
 
+#### uBO Lite (uBOL) Issues
+
+Report issues specific to the Chromium Manifest Version 3 (MV3) variant in the [uBOL issue tracker](https://github.com/uBlockOrigin/uBOL-issues/issues).
+
+#### uBO Legacy Issues
+
+Report issues specific to the legacy variant in the [uBO Legacy issue tracker](https://github.com/gorhill/uBlock-for-firefox-legacy/issues).
+
 #### Paywall
 
 Circumventing a paywall is considered [out of scope](https://github.com/uBlockOrigin/uAssets/issues/2317#issuecomment-392009540).
