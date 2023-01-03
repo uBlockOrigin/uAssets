@@ -1,7 +1,7 @@
 ! Title: uBlock₀ filters
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Expires: 4 days
-! Last modified: Tue, 03 Jan 2023 07:03:59 +0000
+! Last modified: Tue, 03 Jan 2023 07:36:09 +0000
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 !
@@ -1509,12 +1509,6 @@ jav.guru##.aligncenter
 jav.guru##.alignnone
 ||player-cdn.com/cdn-cgi/trace$xhr,1p
 
-! https://github.com/uBlockOrigin/uAssets/issues/605
-! https://forums.lanik.us/viewtopic.php?f=62&t=38997
-! https://github.com/uBlockOrigin/uAssets/issues/2084#issuecomment-385204003
-! https://github.com/uBlockOrigin/uAssets/issues/2333
-! https://github.com/uBlockOrigin/uAssets/issues/3764
-! https://github.com/AdguardTeam/AdguardFilters/issues/111929
 ! https://github.com/uBlockOrigin/uAssets/issues/12058
 9anime.*##+js(acis, setTimeout, String.fromCharCode)
 9anime.*##+js(acis, window.open, Cookie)
@@ -1543,6 +1537,10 @@ mcloud.to,vizcloud.*##+js(ra, data-ad-img|data-ad-target, , stay)
 ||soujoobafoo.com^
 /mellowpresence.com^$script
 /\/[A-Z]\/[-0-9a-z]{5,}\.com\/(?:[0-9a-f]{2}\/){3}[0-9a-f]{32}\.js$/$script,1p,match-case
+9anime.*##+js(aopw, _pop)
+||9anime.*^$csp=worker-src 'none';
+! anti debugger crap
+||9anime.*^$csp=script-src 'self' *.cloudflare.com *.bunnycdn.ru *.jsdelivr.net *.facebook.net *.twitter.com *.gstatic.com *.googleapis.com *.google.com
 
 ! https://github.com/uBlockOrigin/uAssets/pull/643
 s.to,serienstream.*##+js(acis, Date, 'shift')
