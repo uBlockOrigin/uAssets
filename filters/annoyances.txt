@@ -2,7 +2,7 @@
 ! Description: Filters optimized for uBlock Origin, to be used with Fanboy's
 !              and/or Adguard's "Annoyances" list(s)
 ! Expires: 4 days
-! Last modified: Tue, 03 Jan 2023 15:59:37 +0000
+! Last modified: Tue, 03 Jan 2023 16:07:40 +0000
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! Forums: https://github.com/uBlockOrigin/uAssets/issues
@@ -1441,10 +1441,6 @@ flashbak.com,geneticliteracyproject.org,marijuanamoment.net,naturalblaze.com,sal
 ! baattv .com right click, select
 baattv.com##+js(acis, document.oncontextmenu)
 baattv.com##*:style(-webkit-touch-callout: default !important; -webkit-user-select: text !important; -moz-user-select: text !important; -ms-user-select: text !important; user-select: text !important;)
-
-! blogvisaodemercado .pt ctrl-U select
-blogvisaodemercado.pt##+js(acis, disableSelection, reEnable)
-blogvisaodemercado.pt##.unselectable:style(-webkit-touch-callout: default !important; -webkit-user-select: text !important; -moz-user-select: text !important; -ms-user-select: text !important; user-select: text !important;)
 
 ! allresultbd .com right click, select ctrl-A ctrl-U
 allresultbd.com##+js(aopw, nocontext)
@@ -3211,11 +3207,6 @@ wpb.shueisha.co.jp##+js(aeld, contextmenu, preventDefault)
 ! asianexpress. co.uk right click
 asianexpress.co.uk##+js(acis, document.oncontextmenu)
 
-! cours-de-droit .net right click, select, ctrl-u etc
-cours-de-droit.net##+js(acis, document.oncontextmenu)
-cours-de-droit.net##+js(acis, disableSelection, reEnable)
-cours-de-droit.net##.unselectable:style(-webkit-touch-callout: default !important; -webkit-user-select: text !important; -moz-user-select: text !important; -ms-user-select: text !important; user-select: text !important;)
-
 ! tercihiniyap .net right click, select
 tercihiniyap.net##+js(ra, oncontextmenu|onselectstart|ondragstart)
 
@@ -3501,12 +3492,6 @@ marfilius.blogspot.com##*:style(-webkit-touch-callout: default !important; -webk
 thisisfutbol.com##.ad-billboard
 thisisfutbol.com##.c-header__advert
 thisisfutbol.com###snack_dex6
-
-! iptv4best .com select, ctrl-u, right click, drag, print
-iptv4best.com##+js(acis, disableSelection, reEnable)
-iptv4best.com##+js(acis, document.ondragstart)
-iptv4best.com##style:has-text(@media print):remove()
-iptv4best.com##*:style(-webkit-touch-callout: default !important; -webkit-user-select: text !important; -moz-user-select: text !important; -ms-user-select: text !important; user-select: text !important;)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/7642
 odoserwis.pl##body *:style(-webkit-user-select: auto !important; -moz-user-select: auto !important; -ms-user-select: auto !important; user-select: auto !important;)
@@ -6789,17 +6774,6 @@ stiridinromania.ro##*:style(-webkit-touch-callout: default !important; -webkit-u
 jamilacuisine.ro##+js(aost, document.oncontextmenu)
 jamilacuisine.ro##+js(aost, Object,  /(?=^(?!.*(jquery|inlineScript)))/)
 
-! select, right click, drag, print, f-keys https://github.com/tcptomato/ROad-Block/issues/319
-pitesti24.ro##^script[id^="wpcp"]
-pitesti24.ro##^style:has-text(user-select: none;)
-pitesti24.ro##^style:has-text(@media print)
-!#if !cap_html_filtering
-pitesti24.ro##+js(acis, disableSelection, reEnable)
-pitesti24.ro##+js(aopr, nocontext)
-pitesti24.ro##*:style(-webkit-touch-callout: default !important; -webkit-user-select: text !important;-moz-user-select: text !important;-ms-user-select: text !important;user-select: text !important;)
-pitesti24.ro##style:has-text(@media print):remove()
-!#endif
-
 ! https://www.slideshare.net/secret/r4TGJDeZF0s9jt anti adb
 slideshare.net##+js(acis, ab_tests)
 
@@ -6881,17 +6855,6 @@ duhoctrungquoc.vn###danger_adblock
 @@||ganohr.net^$ghide
 ganohr.net###gnr-modal
 
-! https://github.com/uBlockOrigin/uAssets/issues/15742
-samsungtechwin.com##^script[id^="wpcp"]
-samsungtechwin.com##^style:has-text(user-select: none;)
-samsungtechwin.com##^style:has-text(@media print)
-!#if !cap_html_filtering
-samsungtechwin.com##+js(acis, disableSelection, reEnable)
-samsungtechwin.com##+js(aopr, nocontext)
-samsungtechwin.com##*:style(-webkit-touch-callout: default !important; -webkit-user-select: text !important;-moz-user-select: text !important;-ms-user-select: text !important;user-select: text !important;)
-samsungtechwin.com##style:has-text(@media print):remove()
-!#endif
-
 ! tarnkappe. info anti adblock annoyance
 tarnkappe.info##+js(set, traffective, true)
 tarnkappe.info##section[style="min-height: 304px;"]
@@ -6957,3 +6920,15 @@ oila.tj##+js(aopr, window.LOCO_DATA.copyrightTranslation)
 safirsoft.com##form[id="tfnewsearch"]:remove-attr(onsubmit)
 safirsoft.com##form[id="tfnewsearch"]:style(font-size: 0px !important;)
 safirsoft.com##form[id="tfnewsearch"] > input[id="val"]:style(clip-path: circle(0) !important;)
+
+! WPCP https://wordpress.org/plugins/wp-content-copy-protector/
+! https://github.com/tcptomato/ROad-Block/issues/319
+! https://github.com/uBlockOrigin/uAssets/issues/15742
+pitesti24.ro,samsungtechwin.com,cours-de-droit.net,iptv4best.com,blogvisaodemercado.pt##^script[id^="wpcp_"]
+pitesti24.ro,samsungtechwin.com,cours-de-droit.net,iptv4best.com,blogvisaodemercado.pt##body:style(cursor: auto !important; -webkit-touch-callout: default !important; -webkit-user-select: text !important; -khtml-user-select: text !important; -moz-user-select: text !important; -ms-user-select: text !important; user-select: text !important; -webkit-tap-highlight-color: black !important;)
+pitesti24.ro,samsungtechwin.com,cours-de-droit.net,iptv4best.com,blogvisaodemercado.pt##^style:has-text(@media print)
+!#if !cap_html_filtering
+pitesti24.ro,samsungtechwin.com,cours-de-droit.net,iptv4best.com##+js(aopr, nocontext)
+pitesti24.ro,samsungtechwin.com,cours-de-droit.net,iptv4best.com,blogvisaodemercado.pt##+js(acis, disableSelection, reEnable)
+pitesti24.ro,samsungtechwin.com,cours-de-droit.net,iptv4best.com,blogvisaodemercado.pt##style:has-text(@media print):remove()
+!#endif
