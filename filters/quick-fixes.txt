@@ -1,7 +1,7 @@
 ! Title: uBlock₀ filters – Quick fixes
 ! Description: Immediate, temporary filters to fix websites
 ! Expires: 1 days
-! Last modified: Thu, 12 Jan 2023 10:07:26 +0000
+! Last modified: Thu, 12 Jan 2023 10:08:20 +0000
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! Forums: https://github.com/uBlockOrigin/uAssets/issues
@@ -196,14 +196,14 @@ dragontea.ink#@#div[id^="div-gpt-"]:not([id^="div-gpt-ad"]):style(width:1px!impo
 ||tpc.googlesyndication.com/simgad/*/$redirect=1x1.gif:5,important,domain=dragontea.ink
 @@||dragontea.ink^$ghide
 dragontea.ink##ins[id^="gpt_unit_/"]:style(opacity: 0 !important; pointer-events: none !important;)
-dragontea.ink##.floater iframe:style(position: relative !important; z-index: -100000 !important;)
-dragontea.ink##.dtaf iframe:remove()
-dragontea.ink##img[src^="https://tpc.googlesyndication.com/simgad/"][src*="?sqp="]
-dragontea.ink##body.amp-animate [id*="squareThrone"]
-dragontea.ink##body.amp-animate #square
-dragontea.ink##body.amp-animate div[class*="-banner"]
+dragontea.ink##html:not(:has([i-amphtml-version="012211060024000"])) a[href^="https://googleads.g.doubleclick.net/aclk?sa=l&ai="]:remove()
+dragontea.ink##body.amp-animate [id*="squareThrone"] > *:not(:empty)
+dragontea.ink##body.amp-animate #square > *:not(:empty)
+dragontea.ink##body.amp-animate div[class*="-banner"] > *:not(:empty)
+dragontea.ink###abgc
 ||setupad.com^
 ||setupad.net^
+||geniusmonkey.com^$3p
 ||tiiny.site^$frame,domain=dragontea.ink
 ||pix.onebid.cloud/events/$image,domain=dragontea.ink
 ||doubleclick.net^$removeparam=/u_h|u_his|u_w|u_ah|u_aw|u_cd|u_sd|u_tz|cookie/,important,domain=dragontea.ink
@@ -213,7 +213,7 @@ dragontea.ink##body.amp-animate div[class*="-banner"]
 /auction*$xhr,3p,important,domain=dragontea.ink
 ||tag.1rx.io^$xhr,3p,important,domain=dragontea.ink
 ||pubgw.yahoo.com/admax/bid/$xhr,3p,important,domain=dragontea.ink
-||g.doubleclick.net/aclk?$popup,domain=dragontea.ink
+||doubleclick.net^$popup,domain=dragontea.ink
 
 ! https://github.com/uBlockOrigin/uBlock-issues/issues/2356
 golem.de#@#li[data-article-id]:has(span:-abp-properties(ANZEIGE))
