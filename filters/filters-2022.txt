@@ -1,7 +1,7 @@
 ! Title: uBlock₀ filters
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Expires: 4 days
-! Last modified: Thu, 26 Jan 2023 11:35:02 +0000
+! Last modified: Thu, 26 Jan 2023 12:44:30 +0000
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 ! New filters from January 2022 to ->
@@ -1227,11 +1227,11 @@ mobilanyheter.net##+js(nostif, ai_)
 ||rotf.lol^
 a8ix.*,atishmkv.*,atishmkv.marathi.vip,marathi.love,marathimovies.online,mkv.*,vipmarathi.xyz##.idmuvi-bannerplayer
 a8ix.*,atishmkv.marathi.vip,atishmkv.*,mkv.*##.idmuvi-center-ads
-atishmkv.marathi.vip,atishmkv.*##.idmuvi-topbanner-aftermenu
+a8ix.*,atishmkv.marathi.vip,atishmkv.*##.idmuvi-topbanner-aftermenu
 atishmkv.*##.inner-floatbanner-bottom
 atishmkv.*##[href^="https://go.aff.thecasinoaffiliates.com/"]
-atishmkv.*##.idmuvi-footerbanner
-atishmkv.*###custom_html-21
+a8ix.*,atishmkv.*##.idmuvi-footerbanner
+a8ix.*,atishmkv.*###custom_html-21
 
 ! flixtor. stream ads
 flixtor.stream##+js(nowoif)
@@ -1836,7 +1836,11 @@ ytmp3cut.com##+js(aopr, _conf.pops)
 ! https://github.com/uBlockOrigin/uAssets/issues/12594
 alycia-debnam-carey.com,christinaricci.net,emmy-rossum.com,natalie-portman.org,rachel-brosnahan.org##+js(acis, setTimeout, .click())
 
-! nsfw watchomovies. co/.net ads
+! nsfw watchomovies. life ads
+!#if env_chromium
+*$script,3p,denyallow=ajax.googleapis.com|gstatic.com|twitter.com,domain=watchomovies.*
+!#endif
+watchomovies.*##^script:has-text(decodeURIComponent)
 ||a.streamoupload.^$script
 /^https:\/\/a\.[-0-9a-z]{4,16}\.(?:club|com?|cyou|info|net|ru|site|top?|xxx|xyz)\/(?=[a-z]{0,6}[0-9A-Z])[0-9a-zA-Z]{7}\.js$/$script,match-case
 
