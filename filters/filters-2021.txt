@@ -1,7 +1,7 @@
 ! Title: uBlock₀ filters
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Expires: 4 days
-! Last modified: Mon, 23 Jan 2023 06:05:27 +0000
+! Last modified: Thu, 26 Jan 2023 06:13:57 +0000
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 ! New filters from January 2021 to ->
@@ -5583,11 +5583,13 @@ kinas.tv##+js(nowoif)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/10383
 ! https://github.com/uBlockOrigin/uAssets/issues/14284
-1stream.top##+js(acis, document.createElement, "script")
-1stream.top##+js(aopw, _pop)
-1stream.top##+js(nostif, "admc")
-1stream.top##^script[type]:has-text(c=document.createElement)
-1stream.top##^script[data-cfasync]:has-text(h=decodeURIComponent)
+! https://github.com/uBlockOrigin/uAssets/issues/16500
+1stream.*##+js(acs, setTimeout, admc)
+1stream.*##+js(acs, document.createElement, "script")
+1stream.*##+js(aopw, _pop)
+1stream.*##+js(nostif, "admc")
+1stream.*##^script[type]:has-text(c=document.createElement)
+1stream.*##^script[data-cfasync]:has-text(h=decodeURIComponent)
 ||pagath.com^$3p
 
 ! https://www.reddit.com/r/uBlockOrigin/comments/qlir5v/annoying_ad_on_stocktwits_no_longer_being_blocked/
