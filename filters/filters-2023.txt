@@ -602,3 +602,35 @@ nhl66.ir##+js(nowoif)
 
 ! https://www.reddit.com/r/uBlockOrigin/comments/10wlagl/
 www.walmart.com##[data-stack-index] > section > div > div [data-item-id] > a[link-identifier][href^="https://wrd.walmart.com"]:upward(section > div > div)
+
+! https://github.com/uBlockOrigin/uAssets/issues/12214
+*$script,domain=wp.pl|money.pl|o2.pl|parenting.pl|pudelek.pl|autokult.pl|gadzetomania.pl|fotoblogia.pl|komorkomania.pl|polygamia.pl|abczdrowie.pl,redirect-rule=noopjs
+@@*$ghide,domain=wp.pl|money.pl|o2.pl|parenting.pl|pudelek.pl|autokult.pl|gadzetomania.pl|fotoblogia.pl|komorkomania.pl|polygamia.pl|abczdrowie.pl
+wp.pl,money.pl,o2.pl,parenting.pl,pudelek.pl,autokult.pl,gadzetomania.pl,fotoblogia.pl,komorkomania.pl,polygamia.pl,abczdrowie.pl#@#+js()
+wp.pl,money.pl,o2.pl,parenting.pl,pudelek.pl,autokult.pl,gadzetomania.pl,fotoblogia.pl,komorkomania.pl,polygamia.pl,abczdrowie.pl#@#.ads
+wp.pl,money.pl,o2.pl,parenting.pl,pudelek.pl,autokult.pl,gadzetomania.pl,fotoblogia.pl,komorkomania.pl,polygamia.pl,abczdrowie.pl#@#[class^="advertisement"]
+||wp.pl^$frame,domain=wp.pl|money.pl|o2.pl|parenting.pl|pudelek.pl|autokult.pl|gadzetomania.pl|fotoblogia.pl|komorkomania.pl|polygamia.pl|abczdrowie.pl
+||v.wpimg.pl/*.html$frame
+wp.pl#@#[class^="css-"]
+wp.pl,money.pl,o2.pl,parenting.pl,pudelek.pl,autokult.pl,gadzetomania.pl,fotoblogia.pl,komorkomania.pl,polygamia.pl,open.fm##:xpath('//*[string-length(@href) > 1600]')
+wp.pl,money.pl,o2.pl,parenting.pl,pudelek.pl,autokult.pl,gadzetomania.pl,fotoblogia.pl,komorkomania.pl,polygamia.pl,open.fm##:xpath(//*[string-length(@href) > 1600])
+wp.pl,money.pl,o2.pl,pudelek.pl,gadzetomania.pl,polygamia.pl,dobreprogramy.pl,autokult.pl,fotoblogia.pl,komorkomania.pl##div[class]:has(> img[src] + div > style:has-text(flex: 0 0 100%))
+autokult.pl,komorkomania.pl,fotoblogia.pl##div[class]:has(> div[class]:empty + img[src^="https://i.wpimg.pl/"])
+sportowefakty.wp.pl###matchtable + div:not([class], [id]):has(> div > div + div:empty)
+sportowefakty.wp.pl##article > div[class*=" "]:has(> div:empty:not([style]))
+sportowefakty.wp.pl###gallerybox_id > div:first-child:has(> div:empty)
+sportowefakty.wp.pl##.articleteasers__list > .articleteaser:has(> .inview + span > a[target="_blank"])
+sportowefakty.wp.pl##body > div[style="display: none; visibility: visible;"][id] + div:has(> div[style^="height: 184"])
+o2.pl##div[class]:has(> h6:has-text(Oferty dla Ciebie) + div > img[src^="https://www.o2.pl/"][role="presentation"]):remove()
+o2.pl##div[data-st-area="st-article"] > div:has(> div > img[src^="https://www.o2.pl/"][role="presentation"])
+o2.pl##div[style="width:100%"]:has(> div > img[src^="https://www.o2.pl/"][role="presentation"])
+o2.pl##article > div > div:has(> img[src^="https://www.o2.pl/"][role="presentation"])
+www.wp.pl###app-content > div > div:not([class]):not([id])
+www.wp.pl##div[data-cover] > div > div > div > div[style="width:100%;height:100%"]
+www.wp.pl##div > div[class]:has(> img[src^="https://v.wpimg.pl/"][role="presentation"] + div > div + div:empty)
+www.wp.pl##div[class] > img[src^="https://v.wpimg.pl/"] + img[src^="https://v.wpimg.pl/"] + div:has(div[style="opacity: 1;"]):upward(1)
+www.wp.pl##div[class][style="margin-bottom: 20px;"]:has(> div + div + div > img[src^="https://v.wpimg.pl/"][role="presentation"])
+www.wp.pl##div[class][style="margin-bottom: 20px;"]:has(div > div > a#undefined-0)
+www.wp.pl##div[class]:has(> div > div[style^="width: "] > a[href^="https://www.wp.pl/"][style="text-decoration: none;"])
+www.wp.pl###site-header > div:first-child
+||naanalle.pl^
