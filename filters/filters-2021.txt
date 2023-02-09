@@ -1,7 +1,7 @@
 ! Title: uBlock₀ filters
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Expires: 4 days
-! Last modified: Tue, 07 Feb 2023 22:47:38 +0000
+! Last modified: Thu, 09 Feb 2023 05:31:42 +0000
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 ! New filters from January 2021 to ->
@@ -2752,9 +2752,12 @@ xfiles.io##+js(aopr, app_vars.force_disable_adblock)
 xfiles.io##+js(set, blurred, false)
 
 ! https://www.reddit.com/r/uBlockOrigin/comments/nbf953/please_fix_this_site_to_use_it_with_ubo/
+! https://github.com/uBlockOrigin/uAssets/issues/16678
 @@||simplebits.io^$ghide
 @@||simplebits.io/$script,1p
 *$script,redirect-rule=noopjs,domain=simplebits.io
+*$xhr,redirect-rule=nooptext,domain=simplebits.io
+simplebits.io##.placeholder
 simplebits.io##div[class][style="min-height: 250px; height: 250px;"]
 simplebits.io##div[class][style="min-height: 90px;"]
 simplebits.io##div[class][style="min-height: 60px;"]
@@ -2762,6 +2765,7 @@ simplebits.io##div[class][style="min-height: 60px;"]
 @@||satoshilabs.net/$script,1p
 ||satoshilabs.net/sh/ads/$frame
 ||simplebits.io/sh/ads/
+||simplebits.io/ads/
 simplebits.io##+js(no-xhr-if, /ads)
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/66742
