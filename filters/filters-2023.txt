@@ -1,7 +1,7 @@
 ! Title: uBlock₀ filters
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Expires: 4 days
-! Last modified: Fri, 10 Feb 2023 10:55:21 +0000
+! Last modified: Fri, 10 Feb 2023 14:56:56 +0000
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 ! New filters from January 2023 to ->
@@ -644,3 +644,18 @@ www.wp.pl##div[class][style="margin-bottom: 20px;"]:has(div > div > a#undefined-
 www.wp.pl##div[class]:has(> div > div[style^="width: "] > a[href^="https://www.wp.pl/"][style="text-decoration: none;"])
 www.wp.pl###site-header > div:first-child
 ||naanalle.pl^
+
+! globalThis crap
+/sw.js?puid=$script,1p
+/utx?tid=
+/^https?:\/\/[a-z]{8,15}\.club\/[%0-9a-zA-Z]{170,}$/$script,3p,match-case
+/^https?:\/\/[a-z]{8,15}\.fun\/[%0-9a-zA-Z]{170,}$/$script,3p,match-case
+/^https?:\/\/[a-z]{8,15}\.hair\/[%0-9a-zA-Z]{170,}$/$script,3p,match-case
+/^https?:\/\/[a-z]{8,15}\.work\/[%0-9a-zA-Z]{170,}$/$script,3p
+/^https?:\/\/[a-z]{8,15}\.xyz\/[%0-9a-zA-Z]{170,}$/$script,3p
+/^https?:\/\/[a-z]{8,15}\.com?\/(?=[%0-9a-zA-Z]*%)(?=[%a-zA-Z]*\d)(?=[%0-9a-z]*[A-Z])[%0-9a-zA-Z]{170,}$/$script,3p,match-case,domain=~edu|~gov
+
+! adservers on NSFW sites
+/pw/waWQiOjEw*=eyJ.js^$script
+||xdiwbc.com^
+||skeetads.com^
