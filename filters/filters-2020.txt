@@ -875,7 +875,7 @@ talkceltic.net##+js(set, samDetected, false)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/7365
 @@||splitshire.com^$ghide
-splitshire.com##.adsbygoogle:upward(.row-container)
+splitshire.com##.adtester-container
 
 ! https://github.com/uBlockOrigin/uAssets/issues/7366
 @@||kwamkidhen.com^$ghide
@@ -2522,7 +2522,7 @@ real-sky.com##+js(aopr, app_vars.force_disable_adblock)
 healthline.com##aside:has(div:matches-css-before(content:/ADVERTISEMENT/))
 healthline.com##div[data-empty^="true"]:matches-css-before(content:/ADVERTISEMENT/)
 healthline.com##[class*="css"]:matches-css-before(content:/ADVERTISEMENT/)
-healthline.com##[href*="redirect"]:upward(section)
+healthline.com##section:has([href*="redirect"])
 healthline.com##hl-adsense
 
 ! https://community.brave.com/t/website-kept-asking-leave-site-if-i-click-cancel-it-opened-new-window-i-couldnt-even-close-brave-without-end-process/
@@ -2921,10 +2921,9 @@ duplichecker.com##[href^="https://www.duplichecker.com/link"]
 duplichecker.com##.home_bg > .container > style + style + div
 duplichecker.com##.clearfix + div > style + style + div
 duplichecker.com##.clearfix + div:has(> style:has-text(min-height:302px))
-duplichecker.com###home_after_title > .adsbygoogle:upward(.main-content > div > *)
-duplichecker.com###home_before_buton > .adsbygoogle:upward(.data_inbox > div)
-duplichecker.com##div[style] > [class^="avds"]:upward(div[style])
-duplichecker.com##div > span[id^="side_bar"] > .adsbygoogle:upward(div)
+duplichecker.com##[class^="avds"]
+duplichecker.com##div[style]:has(> [class^="avds"])
+duplichecker.com##div:has(> span[id^="side_bar"] > .adsbygoogle)
 duplichecker.com##a[style="display: inline-block;"][target="_blank"][rel="nofollow"]
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/63002
@@ -2998,18 +2997,12 @@ ohentai.org##[class^="listleaderboardcontainer"]
 ohentai.org##.videobrick > .videoadintro:upward(1)
 ohentai.org##+js(nowoif)
 
-! youngpornvideos.com popup ads
-youngpornvideos.com##+js(acis, url)
-youngpornvideos.com##.ads
-youngpornvideos.com##.ads-mobile
-youngpornvideos.com##.ads-thumb-list:upward(.outer-item)
-
 ! https://github.com/uBlockOrigin/uAssets/issues/8988
 hentaicloud.com##+js(set, decodeURI, noopFunc)
 hentaicloud.com##+js(aopr, TotemToolsObject)
 hentaicloud.com##+js(aopr, AaDetector)
 hentaicloud.com##.vertical-ads-content
-hentaicloud.com##.ad:upward(.horizontal-ads-content)
+hentaicloud.com##.horizontal-ads-content:has(.ad)
 hentaicloud.com##section.videos-content:has(.thumbnail > a[href^="https://www.nutaku.net/signup/landing/"])
 
 ! javdoe.to/javsun.cc/javtc.fun popup ads
@@ -3867,11 +3860,6 @@ humannootropicsindex.com##.widget_custom_html
 forums.asianbookie.com##.topics > table > tbody > tr > td > table > tbody > tr > .topicrowdate
 ||asianbookie.com/displaytable.cfm?tablename=cslodds$frame
 asianbookie.com##a[href^="/cgi-bin/to.cgi"]
-
-! justfullporn.com popup
-justfullporn.com##.video-block-happy:upward(.order-1)
-*$script,3p,denyallow=fastly.net|google.com|gstatic.com|twitter.com,domain=justfullporn.com
-vidxhot.net##+js(nowoif)
 
 ! elitetorrent.com popup
 elitetorrent.*##+js(aopw, adcashMacros)
@@ -4841,7 +4829,7 @@ forexforum.co##+js(acis, $, .test)
 21porno.com##+js(nostif, window.location.href, 50)
 
 ! rule34.paheal.net PH
-rule34.paheal.net##script[src$="ads.js"]:upward(section[id])
+rule34.paheal.net##section[id]:has(script[src$="ads.js"])
 
 ! palcomix.com ads
 palcomix.com##center > font[size="3"][face="ARIAL"]:has-text(ADVERTISING):upward(td)
@@ -4867,7 +4855,7 @@ freemagazines.top##+js(acis, eval, replace)
 *$xhr,redirect-rule=nooptext,domain=freemagazines.top
 ! https://github.com/uBlockOrigin/uAssets/issues/15522
 freemagazines.top###fixedbanner
-freemagazines.top##.adsbygoogle:upward(.code-block)
+freemagazines.top##.code-block:has(.adsbygoogle)
 
 ! https://www.reddit.com/r/uBlockOrigin/comments/k6opvk/aggressive_ad_popup_locks_out_site_for_45seconds/
 namebio.com##.modal.bootbox[aria-hidden="false"]:has(#nudge-link[href^="https://bit.ly"])
@@ -5035,9 +5023,6 @@ cashearn.cc##div[style="display: flex;justify-content: center;"]
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/69563
 *$script,redirect-rule=noopjs,domain=konnoznet.xyz
-
-! nypost.com PH
-nypost.com##img[src$="/knewz_300x250.png"]:upward(.widget_text)
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/69639
 fappee.com##+js(acis, doMyStuff)
@@ -5268,7 +5253,7 @@ miklpro.com##.banner
 *$script,3p,denyallow=google.com|gstatic.com|recaptcha.net,domain=miklpro.com
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/70442
-jerkoffer.com##iframe[src^="//a.o333o.com"]:upward(li.thumb)
+jerkoffer.com##li.banner:has(iframe[src^="//a.labadena.com"])
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/70460
 sshconect.com.br##+js(acis, addEventListener, nextFunction)
@@ -5277,7 +5262,7 @@ sshconect.com.br##+js(acis, addEventListener, nextFunction)
 ||zusepe.xyz^
 ! hd21.com/net
 hd21.*##+js(nowoif)
-hd21.com###spot_livecams_menu:upward(.holder)
+hd21.com##.holder:has(#spot_livecams_menu)
 hd21.com##.ID-bottom-banner
 hd21.com##.adv_middle
 hd21.*##.aside_video
@@ -5495,20 +5480,14 @@ sexflashgame.org##+js(acis, ishop_codes)
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/70849
 ||porngames.com/*.gif$image,1p
-porngames.com##a[href="javascript:void(0);"]:upward(.contentbox)
+porngames.com##.contentbox:has(a[href="javascript:void(0);"])
 porngames.com##div[style^="display: block; position: fixed; z-index:"]
-porngames.com##iframe[src^="//"]:upward(.contentbox)
+porngames.com##.contentbox:has(iframe[src^="//"])
 
 ! https://www.reddit.com/r/uBlockOrigin/comments/kkg3sw/
 f2movies.to##+js(nostif, /0x|devtools/)
 f2movies.to##+js(nosiif, _0x)
 f2movies.to###gift-top > [href="/android-movies-apk"]
-
-! https://github.com/AdguardTeam/AdguardFilters/issues/70843
-//images\/(?:Banner\d{1,2}\.|[a-z]{3}\/)/$image,1p,domain=thesquarshers.com
-thesquarshers.com##img[src*="/Banner"]:upward(a)
-thesquarshers.com##.table
-thesquarshers.com##.video-holder
 
 ! cutesexyteengirls.com exit prevention
 cutesexyteengirls.com##+js(aeld, beforeunload)
@@ -5602,7 +5581,7 @@ javnow.net##div[style$="width:300px;height:250px;"]
 ||highwebmedia.com/ri/$domain=clubsarajay.com
 clubsarajay.com###mgb
 clubsarajay.com###mpc-container
-clubsarajay.com##iframe[src^="https://ads2."]:upward(.widget)
+clubsarajay.com##.widget:has(> small)
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/71300
 gatcha.org##+js(nostif, css_class.show)
