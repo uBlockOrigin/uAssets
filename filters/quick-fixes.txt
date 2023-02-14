@@ -1,7 +1,7 @@
 ! Title: uBlock₀ filters – Quick fixes
 ! Description: Immediate, temporary filters to fix websites
 ! Expires: 1 days
-! Last modified: Tue, 14 Feb 2023 13:05:48 +0000
+! Last modified: Tue, 14 Feb 2023 13:46:23 +0000
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! Forums: https://github.com/uBlockOrigin/uAssets/issues
@@ -119,17 +119,6 @@ next-episode.net##+js(aopr, showNotice)
 ! https://github.com/uBlockOrigin/uAssets/issues/15628
 @@||partner-api.sddan.com/api/*/public/partner/$xhr,domain=6play.fr
 
-! https://github.com/uBlockOrigin/uAssets/issues/15793
-techcyan.com#@##captchabox > .elementor-widget-container > h3
-@@*$ghide,domain=techcyan.com|kiktu.com|upshrink.com|trangchu.news
-*$frame,domain=techcyan.com|kiktu.com|upshrink.com,redirect-rule=noopframe
-kiktu.com,techcyan.com,upshrink.com##+js(no-fetch-if, /^/)
-@@.kiktu.com/index.js$xhr
-@@.upshrink.com/|$xhr,3p
-banaraswap.in,techcyan.com##.btnbox-outer
-banaraswap.in,techcyan.com###wggen2
-banaraswap.in,techcyan.com##a[href$="file.zip"]
-
 ! https://github.com/uBlockOrigin/uAssets/issues/15778
 blog.cryptowidgets.net,blog.insurancegold.in,blog.wiki-topia.com##+js(ra, disabled, .btn-primary)
 blog.cryptowidgets.net,blog.insurancegold.in,blog.wiki-topia.com##input[type="hidden"]:style(display: block !important;)
@@ -230,3 +219,13 @@ apkmirror.com###ezmob-wrapper
 
 ! https://github.com/uBlockOrigin/uAssets/issues/16701
 bing.com#@#.b_ad:remove()
+
+! https://github.com/uBlockOrigin/uAssets/issues/15793
+techcyan.com#@##captchabox > .elementor-widget-container > h3
+@@*$ghide,domain=techcyan.com|kiktu.com|upshrink.com|trangchu.news
+*$frame,domain=techcyan.com|kiktu.com|upshrink.com,redirect-rule=noopframe
+kiktu.com,techcyan.com,upshrink.com##+js(no-fetch-if, /^/)
+banaraswap.in,techcyan.com##.btnbox-outer
+banaraswap.in,techcyan.com###wggen2
+banaraswap.in,techcyan.com##a[href$="file.zip"]
+@@*$xhr,domain=kiktu.com|techcyan.com|upshrink.com|banaraswap.in
