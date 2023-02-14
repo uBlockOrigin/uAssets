@@ -3,7 +3,7 @@
 !     Filters optimized for uBlock Origin, to unbreak sites broken as
 !     a result of 3rd-party filter lists enabled by default.
 ! Expires: 4 days
-! Last modified: Tue, 14 Feb 2023 10:49:01 +0000
+! Last modified: Tue, 14 Feb 2023 14:07:49 +0000
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 !
@@ -4234,13 +4234,16 @@ html5.gamedistribution.com##+js(no-fetch-if, api)
 ! https://forums.lanik.us/viewtopic.php?t=47647-video-di-sky-incorporati-in-altre-pagine
 ||4strokemedia.com^$3p,badfilter
 @@||4strokemedia.com^$script,xhr,domain=oasport.it
-@@||imasdk.googleapis.com/js/sdkloader/ima3.js$script,domain=oasport.it|video.gazzetta.it
+@@||imasdk.googleapis.com/js/sdkloader/ima3.js$script,domain=oasport.it
 @@||secure.quantserve.com/quant.js$script,domain=oasport.it
 oasport.it#@#.adv
 oasport.it#@#[id^="div-gpt-ad"]:style(width:1px!important;height:1px!important;min-width:1px!important;min-height:1px!important;margin:0!important;padding:0!important;overflow:hidden!important;opacity:0!important)
 ! https://github.com/uBlockOrigin/uAssets/issues/16309
 @@||components2.rcsobjects.it/rcs_adv/*/distro/dfp/common/prebid$script,domain=video.gazzetta.it
 @@||c.amazon-adsystem.com/aax2/apstag.js$script,domain=video.gazzetta.it
+||imasdk.googleapis.com/js/sdkloader/ima3.js$script,domain=video.gazzetta.it,redirect-rule=google-ima.js
+video.gazzetta.it##+js(set, google.ima.OmidVerificationVendor, {})
+video.gazzetta.it##+js(set, Object.prototype.omidAccessModeRules, {})
 
 ! vice. com cookie banner reappear after every reload
 ||sourcepoint.vice.com^$badfilter
