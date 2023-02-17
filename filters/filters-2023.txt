@@ -1,7 +1,7 @@
 ! Title: uBlock₀ filters
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Expires: 4 days
-! Last modified: Fri, 17 Feb 2023 12:36:22 +0000
+! Last modified: Fri, 17 Feb 2023 13:07:27 +0000
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 ! New filters from January 2023 to ->
@@ -630,11 +630,16 @@ wp.pl#@#[class^="css-"]
 wp.pl,money.pl,o2.pl,parenting.pl,pudelek.pl,autokult.pl,gadzetomania.pl,fotoblogia.pl,komorkomania.pl,polygamia.pl,open.fm,benchmark.pl##:xpath('//*[string-length(@href) > 1600]')
 wp.pl,money.pl,o2.pl,pudelek.pl,gadzetomania.pl,polygamia.pl,dobreprogramy.pl,autokult.pl,fotoblogia.pl,komorkomania.pl##div[class]:has(> img[src] + div > style:has-text(flex: 0 0 100%))
 autokult.pl,komorkomania.pl,fotoblogia.pl##div[class]:has(> div[class]:empty + img[src^="https://i.wpimg.pl/"])
-sportowefakty.wp.pl###matchtable + div:not([class], [id]):has(> div > div + div:empty)
+sportowefakty.wp.pl###matchtable + div:not([class], [id]):has(> div > div:empty)
+sportowefakty.wp.pl##section.section + div[class]:has(> div:empty)
+sportowefakty.wp.pl##main.content + div:has(> div:empty)
+sportowefakty.wp.pl##li[id^="comment_"] + div:has(> div:first-child > div:empty)
+sportowefakty.wp.pl###sgfirstDrawer + div:has(> div:first-child > div:empty)
+sportowefakty.wp.pl###exitpopup + div:has(> div:first-child > div:empty)
+sportowefakty.wp.pl##.streamshorts__label > div:has(> div:first-child > div:empty)
 sportowefakty.wp.pl##article > div[class*=" "]:has(> div:empty:not([style]))
 sportowefakty.wp.pl###gallerybox_id > div:first-child:has(> div:empty)
-sportowefakty.wp.pl##.articleteasers__list > .articleteaser:has(> .inview + span > a[target="_blank"])
-sportowefakty.wp.pl##body > div[style="display: none; visibility: visible;"][id] + div:has(> div[style^="height: 184"])
+sportowefakty.wp.pl##.gallery__comments > div:first-child:has(> div:empty)
 o2.pl##div[class]:has(> h6:has-text(Oferty dla Ciebie) + div > img[src^="https://www.o2.pl/"][role="presentation"]):remove()
 o2.pl##div[data-st-area="st-article"] > div:has(> div > img[src^="https://www.o2.pl/"][role="presentation"])
 o2.pl##div[style="width:100%"]:has(> div > img[src^="https://www.o2.pl/"][role="presentation"])
