@@ -2,7 +2,7 @@
 
 This repository is for the resources of [uBlock Origin (uBO)](https://github.com/gorhill/uBlock). It receives all reports for new filters or existing filters that cause web page breakage. Any contributors are welcome. Contributors who are proven valuable will receive write permissions to the project.
 
-The rationale for including a specific filter in uBO's filter lists is the same as the [EasyList/EasyPrivacy policies](https://easylist.to/pages/policy.html) and also takes into account whether a filter requires uBO's extended filter syntax.
+The rationale for including a specific filter in uBO's filter lists is the same as the [EasyList/EasyPrivacy policies](https://easylist.to/pages/policy.html) + [here](https://github.com/easylist/easylist#readme) and also takes into account whether a filter requires uBO's extended filter syntax.
 
 It is preferred to fix filter issues in EasyList. Any filters included in uBO's filter lists must use the [extended syntax](https://github.com/gorhill/uBlock/wiki/Static-filter-syntax#extended-syntax).
 
@@ -10,11 +10,12 @@ The following exceptions will be fixed in uAssets even if they do not require us
 
 - Ad-Reinsertion
 - Anti-Blocker
-- Context Menu Blockage
-- Cut/Copy/Paste Blockage
+- Context Menu/Dev Console Blockage
+- Cut/Copy/Paste/Drag Blockage
 - Popups/Popunders
 - Website Breakage
-- Video Ads
+- Resource Abuse/Coin Mining
+- Video/Audio Ads
 
 The EasyList-compatible fixes for high-traffic websites need to be added to uBO filters until they become added to EasyList.
 
