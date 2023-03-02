@@ -3076,11 +3076,12 @@ druckerchannel.de###DCGA
 @@||a.realsrv.com/video-slider.js$script,domain=verhentai.top
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/74505
-! https://github.com/uBlockOrigin/uAssets/issues/9807#issuecomment-1252504716
+! https://github.com/uBlockOrigin/uAssets/issues/9807
 @@||imasdk.googleapis.com/js/sdkloader/ima3.$script,domain=independent.co.uk
 @@||cdn.permutive.com/*-web.js$domain=independent.co.uk
 @@||pub.pixels.ai/wrap-independent-prebid-lib.js$script,domain=independent.co.uk
 @@||static.adsafeprotected.com/iasPET.1.js$script,domain=independent.co.uk
+independent.co.uk##+js(no-fetch-if, doubleclick)
 
 ! to counter Peter Lowe's filters (breaking the site itself)
 ||chartbeat.com^$badfilter
@@ -4809,9 +4810,17 @@ meaww.com##+js(json-prune, country region ip)
 
 ! https://github.com/easylist/easylist/issues/15018
 ||connatix.com^$badfilter
-||connatix.com^$3p,domain=~accuweather.com|~elnuevoherald.com|~loot.tv|~miamiherald.com,badfilter
-||connatix.com/connatix.player.js|$domain=~loot.tv
-||connatix.com^*/pixel?
+||connatix.com^$3p
+||connatix.com^*cid=$3p,removeparam=cid
+@@||cd.connatix.com/connatix.player.js$3p,script,domain=accesousa.com|adweek.com|bellinghamherald.com|bnd.com|bradenton.com|centredaily.com|charlotteobserver.com|easternstandardtimes.com|elnuevoherald.com|flkeysnews.com|fresnobee.com|heraldonline.com|heraldsun.com|idahostatesman.com|islandpacket.com|kansas.com|kansascity.com|kentucky.com|ledger-enquirer.com|loot.tv|macon.com|mahoningmatters.com|mcclatchydc.com|mercedsunstar.com|miamiherald.com|modbee.com|myrtlebeachonline.com|newsobserver.com|reuters.com|sacbee.com|sanluisobispo.com|star-telegram.com|sunherald.com|thenewstribune.com|theolympian.com|thestate.com|tri-cityherald.com
+@@||cds.connatix.com/p/*/connatix.player.$3p,script
+@@||cds.connatix.com/p/*/player.css$3p
+@@||connatix.com/elements/*/cnx-lead-style.css$3p
+@@||capi.connatix.com/core/pls$3p,xhr
+@@||img.connatix.com/pid-$3p,image
+@@||vid.connatix.com/pid-$3p,xhr
+@@||cds.connatix.com/p/*/elements.ui.$3p,script
+@@||cds.connatix.com/p/*/hls.$3p,script
 #@#.wps-player-wrap
 
 ! connatix.com recommended articles/videos
@@ -4821,3 +4830,10 @@ meaww.com##+js(json-prune, country region ip)
 @@||cds.connatix.com/p/*/connatix.playspace.css^$css,domain=adweek.com
 @@||connatix.com/core/story^$xhr,method=post,domain=adweek.com
 ||adweek.com^*traffic_source=$removeparam=traffic_source
+
+! https://github.com/uBlockOrigin/uAssets/issues/17000
+mediaite.com#@#.adthrive-video-player
+mediaite.com##.adthrive-video-player:style(padding-bottom: 0 !important;)
+
+! https://github.com/uBlockOrigin/uAssets/issues/9807#issuecomment-1451781619
+@@||googletagmanager.com/gtag/js$script,domain=independentespanol.com
