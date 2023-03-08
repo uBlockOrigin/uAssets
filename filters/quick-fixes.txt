@@ -1,7 +1,7 @@
 ! Title: uBlock₀ filters – Quick fixes
 ! Description: Immediate, temporary filters to fix websites
 ! Expires: 1 days
-! Last modified: Tue, 07 Mar 2023 19:00:44 +0000
+! Last modified: Wed, 08 Mar 2023 07:31:12 +0000
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! Forums: https://github.com/uBlockOrigin/uAssets/issues
@@ -29,22 +29,10 @@ rjno1.com##^script:has-text(/window.location|getTimezoneOffset|google_global_cor
 rjno1.com##+js(nostif, /^/)
 rjno1.com##+js(acis, onload)
 
-! ylilauta. org
 ! https://github.com/uBlockOrigin/uAssets/issues/14204
-*$image,domain=fcdn.lauta.media,redirect-rule=32x32.png
-@@||adform.net/banners/scripts/adx.js^$xhr,script,domain=fcdn.lauta.media
-@@||adx.adform.net/adx/$script,xhr,domain=fcdn.lauta.media
-@@||ads.ylilauta.org^$frame,1p
-@@||track.adform.net/adfscript$script,xhr,domain=fcdn.lauta.media
-@@||adform.net/banners/scripts/mobile/adform.js?$script,domain=fcdn.lauta.media
-||s1.adform.net/banners/Elements/$important,domain=fcdn.lauta.media
-fcdn.lauta.media##+js(aeld, click)
-fcdn.lauta.media##body[style="background: rgb(238, 238, 238) none repeat scroll 0% 0%;"]
-fcdn.lauta.media###adf-click:style(cursor: default !important;)
-fcdn.lauta.media##body::after:style(content: ''; display: block; position: absolute; left: 0; top: 0; height: 100%; width: 100%; background-color: white;)
-!#if env_chromium
-ylilauta.org##iframe.a
-!#endif
+||fcdn.lauta.media^$frame,redirect=noopframe,domain=ylilauta.org
+||es.ylilauta.org/view?placement_id=*&t=$xhr,1p,removeparam
+ylilauta.org#@#iframe.a
 
 ! https://github.com/uBlockOrigin/uAssets/issues/13544
 ! https://github.com/uBlockOrigin/uAssets/commit/6008194de5ebfb5f37abb375c8b6147f52d8bff3#commitcomment-76982803
