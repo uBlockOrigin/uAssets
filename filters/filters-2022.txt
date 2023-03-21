@@ -1,7 +1,7 @@
 ! Title: uBlock₀ filters
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Expires: 4 days
-! Last modified: Tue, 21 Mar 2023 01:27:27 +0000
+! Last modified: Tue, 21 Mar 2023 07:22:41 +0000
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 ! New filters from January 2022 to ->
@@ -4350,9 +4350,15 @@ rlxtech.tech##+js(nano-sib, count)
 @@||browser.sentry-cdn.com/*/bundle.min.js$script,domain=blog.cryptowidgets.net|blog.wiki-topia.com
 *$script,redirect-rule=noopjs,domain=cryptowidgets.net|wiki-topia.com
 cryptowidgets.net,wiki-topia.com##.floating-banner
+! https://github.com/uBlockOrigin/uAssets/issues/15071
+*$script,redirect-rule=noopjs,domain=insurancegold.in
+! https://github.com/uBlockOrigin/uAssets/issues/15778
+blog.cryptowidgets.net,blog.insurancegold.in,blog.wiki-topia.com##+js(acs, document.createElement, adsBlocked)
+blog.cryptowidgets.net,blog.insurancegold.in,blog.wiki-topia.com##+js(ra, disabled, .btn-primary)
+blog.cryptowidgets.net,blog.insurancegold.in,blog.wiki-topia.com##input[type="hidden"]:style(display: block !important;)
 ! https://github.com/uBlockOrigin/uAssets/issues/17166#issuecomment-1475715113
-cryptowidgets.net##+js(aeld, load, htmls)
-cryptowidgets.net##^script:has-text(htmls)
+cryptowidgets.net,insurancegold.in##+js(aeld, load, htmls)
+cryptowidgets.net,insurancegold.in##^script:has-text(htmls)
 
 ! https://moddroid.co/apps/videomusic/spotify-premium-apk/ ads and popups
 moddroid.co##+js(nowoif)
@@ -4823,9 +4829,6 @@ linkdoni.soft98.ir##^body, title
 
 ! https://github.com/uBlockOrigin/uAssets/issues/15073
 upiapi.in##+js(set, detectAdBlock, noopFunc)
-
-! https://github.com/uBlockOrigin/uAssets/issues/15071
-*$script,redirect-rule=noopjs,domain=insurancegold.in
 
 ! https://github.com/uBlockOrigin/uAssets/issues/15080
 ||hbo.yspsvc-na.net/csm/*&caid=$xhr,removeparam=caid,domain=play.hbomax.com
@@ -5596,11 +5599,6 @@ gourmetscans.net##+js(nostif, fn_ibf, 4000)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/15780
 noor-book.com##+js(no-fetch-if, ads)
-
-! https://github.com/uBlockOrigin/uAssets/issues/15778
-blog.cryptowidgets.net,blog.insurancegold.in,blog.wiki-topia.com##+js(acs, document.createElement, adsBlocked)
-blog.cryptowidgets.net,blog.insurancegold.in,blog.wiki-topia.com##+js(ra, disabled, .btn-primary)
-blog.cryptowidgets.net,blog.insurancegold.in,blog.wiki-topia.com##input[type="hidden"]:style(display: block !important;)
 
 ! theporndude.com too obtrusive and redundant promo
 theporndude.com##.wrapper::before
