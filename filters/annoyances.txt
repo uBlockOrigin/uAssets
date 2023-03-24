@@ -2,7 +2,7 @@
 ! Description: Filters optimized for uBlock Origin, to be used with Fanboy's
 !              and/or Adguard's "Annoyances" list(s)
 ! Expires: 4 days
-! Last modified: Fri, 24 Mar 2023 13:39:22 +0000
+! Last modified: Fri, 24 Mar 2023 14:09:08 +0000
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! Forums: https://github.com/uBlockOrigin/uAssets/issues
@@ -4429,8 +4429,11 @@ gnt24365.net##+js(acis, document.onselectstart)
 gnt24365.net##*:style(-webkit-touch-callout: default!important;-webkit-user-select: auto!important;-moz-user-select: auto!important;user-select: auto!important;)
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/80660
-*$script,domain=cssreference.io,redirect-rule=noopjs
-cssreference.io##*:matches-css(border-radius:/5/)
+cssreference.io##^script:has-text(window.carbonLoaded)
+!#if !cap_html_filtering
+cssreference.io##+js(aopr, carbonLoaded)
+!#endif
+cssreference.io##.placeholder
 
 ! https://www.reddit.com/r/uBlockOrigin/comments/mskp1p/sites_are_able_to_disable_scrolling_when_asking/
 technicpack.net##+js(acis, document.createElement, admiral)
