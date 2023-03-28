@@ -1,7 +1,7 @@
 ! Title: uBlock₀ filters – Quick fixes
 ! Description: Immediate, temporary filters to fix websites
 ! Expires: 1 days
-! Last modified: Tue, 28 Mar 2023 09:14:48 +0000
+! Last modified: Tue, 28 Mar 2023 10:06:59 +0000
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! Forums: https://github.com/uBlockOrigin/uAssets/issues
@@ -265,3 +265,12 @@ telsu.fi##a[href^="/elk?"]:upward(div[class])
 ! https://github.com/uBlockOrigin/uAssets/issues/9717
 ||31830fbc-adbf-11ed-afa1-0242ac120002.site^$xhr,ping
 ||15823f12-289e-4189-9e51-e2de1bf1a105.online^$xhr,ping
+*$frame,redirect-rule=noopframe,domain=hancinema.net
+*$script,xhr,redirect-rule=noopjs,domain=hancinema.net
+*$image,redirect-rule=1x1.gif,domain=hancinema.net
+@@||hancinema.net^$ghide
+@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$script,xhr,domain=hancinema.net
+@@||api.prod.ad-shield.io^$xhr,image,domain=hancinema.net
+hancinema.net##+js(set, dable, {})
+hancinema.net##div[style$="px; display: flex; margin-right: auto; justify-content: center; max-width: 100%;"] > div[id]:style(pointer-events: none !important; user-select: none !important;)
+hancinema.net##ad-shield-inventory
