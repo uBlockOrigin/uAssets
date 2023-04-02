@@ -6735,5 +6735,14 @@ geeksforgeeks.org##.ad-blocker-modal
 geeksforgeeks.org##body:style(overflow: auto !important;)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/17045#issuecomment-1492975020
-weakstream.org##+js(acs, $, debugger)
 weakstream.org##^script:has-text(debugger)
+!#if !cap_html_filtering
+weakstream.org##+js(acs, $, debugger)
+!#endif
+
+! https://github.com/MasterKia/PersianBlocker/issues/156
+public-psychology.ir##^script[src^="data:text/javascript;base64,ZG9jdW"][src$="hdWx0KCl9fQ=="]
+!#if !cap_html_filtering
+public-psychology.ir##+js(acis, document.oncontextmenu, , /^data:/)
+!#endif
+public-psychology.ir##body:style(-webkit-touch-callout: default !important; -webkit-user-select: text !important; -moz-user-select: text !important; -ms-user-select: text !important; user-select: text !important;)
