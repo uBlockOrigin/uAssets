@@ -29,7 +29,11 @@
 /^\w+:\/\/169\.254\.(?:[1-9]\d?|1\d{2}|2(?:[0-4]\d|5[0-4]))\.(?:[1-9]?\d|1\d{2}|2(?:[0-4]\d|5[0-5]))[:/]/$3p,domain=~localhost|~127.0.0.1|~[::1]|~0.0.0.0|~[::]|~local
 !
 ! Ipv6 from ipv4 transition addresses https://github.com/gwarser/filter-lists/issues/6
-! TODO:
+!                    |127.0-255.   |10.0-255.   |172.16-31.
+!                    |             |            |           |192.168.
+!                    |             |            |           |    |169.254.
+!                    |             |            |           |    |     |0-255.0-255
+/^\w+:\/\/\[::ffff:(?:7f[0-9a-f]{2}|a[0-9a-f]{2}|ac1[0-9a-f]|c0a8|a9fe):[0-9a-f]{1,4}\][:/]/$third-party,domain=~localhost|~127.0.0.1|~[::1]|~0.0.0.0|~[::]|~local
 !
 ! ——— localhost
 ! https://en.wikipedia.org/wiki/Localhost
