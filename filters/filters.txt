@@ -1,7 +1,7 @@
 ! Title: uBlock₀ filters
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Expires: 4 days
-! Last modified: Sat, 08 Apr 2023 09:35:56 +0000
+! Last modified: Sat, 08 Apr 2023 14:01:57 +0000
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 !
@@ -5568,17 +5568,18 @@ ilpuntotecnico.com##[style^="text-align:center; height:"][style$="px;"]
 @@||ilpuntotecnico.com^$ghide
 
 ! https://github.com/uBlockOrigin/uAssets/issues/2449
-a2zapk.com##+js(acis, atob, decodeURIComponent)
-a2zapk.com##+js(aopr, AaDetector)
-||a2zapk.com/js/notification.js
+! https://github.com/AdguardTeam/AdguardFilters/issues/147765
+a2zapk.*##+js(acis, atob, decodeURIComponent)
+a2zapk.*##+js(aopr, AaDetector)
+||a2zapk.*/js/notification.js
 @@||a2zupload.com^$ghide
 @@||googlesyndication.com/pagead/$script,domain=a2zupload.com
 @@*$image,domain=a2zupload.com
-a2zupload.com##ins.adsbygoogle
-educatiocenter.online##+js(acs, $, alertmsg)
-@@||dl.a2zapk.com/getred.php$xhr,domain=educatiocenter.online
-@@||tmp.a2zapk.com/js/advertisement/$frame,domain=educatiocenter.online
-||googlesyndication.com^$image,redirect-rule=1x1.gif,domain=educatiocenter.online
+a2zapk.*,a2zupload.com##ins.adsbygoogle
+a2zapk.*,educatiocenter.online##+js(acs, $, alertmsg)
+@@||dl.a2zapk.*/getred.php$xhr,domain=a2zapk.*|educatiocenter.online
+@@||tmp.a2zapk.*/js/advertisement/$frame,domain=a2zapk.*|educatiocenter.online
+||googlesyndication.com^$image,redirect-rule=1x1.gif,domain=a2zapk.*|educatiocenter.online
 
 ! https://github.com/uBlockOrigin/uAssets/issues/8292#issuecomment-955193548
 o2tvseries.com##+js(aeld, /^(?:click|mousedown)$/, _0x)
