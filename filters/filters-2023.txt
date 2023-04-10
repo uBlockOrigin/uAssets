@@ -1,7 +1,7 @@
 ! Title: uBlock₀ filters
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Expires: 4 days
-! Last modified: Mon, 10 Apr 2023 17:18:59 +0000
+! Last modified: Mon, 10 Apr 2023 18:43:27 +0000
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 ! New filters from January 2023 to ->
@@ -1680,3 +1680,59 @@ imgbox.com##^script:has-text(shouldPop)
 ! https://github.com/uBlockOrigin/uAssets/issues/17528
 fairyhorn.cc##+js(aopr, b2a)
 /js/ads.$badfilter
+
+! https://github.com/uBlockOrigin/uAssets/issues/12214
+*$script,domain=wp.pl|money.pl|o2.pl|parenting.pl|pudelek.pl|autokult.pl|gadzetomania.pl|fotoblogia.pl|komorkomania.pl|polygamia.pl|abczdrowie.pl|benchmark.pl|kafeteria.pl|pysznosci.pl|dobreprogramy.pl,redirect-rule=noopjs
+@@*$ghide,domain=wp.pl|money.pl|o2.pl|parenting.pl|pudelek.pl|autokult.pl|gadzetomania.pl|fotoblogia.pl|komorkomania.pl|polygamia.pl|abczdrowie.pl|benchmark.pl|kafeteria.pl|pysznosci.pl|dobreprogramy.pl
+wp.pl,money.pl,o2.pl,parenting.pl,pudelek.pl,autokult.pl,gadzetomania.pl,fotoblogia.pl,komorkomania.pl,polygamia.pl,abczdrowie.pl,kafeteria.pl,pysznosci.pl,dobreprogramy.pl#@#+js()
+wp.pl,money.pl,o2.pl,parenting.pl,pudelek.pl,autokult.pl,gadzetomania.pl,fotoblogia.pl,komorkomania.pl,polygamia.pl,abczdrowie.pl,benchmark.pl,kafeteria.pl,pysznosci.pl,dobreprogramy.pl#@#.ads
+wp.pl,money.pl,o2.pl,parenting.pl,pudelek.pl,autokult.pl,gadzetomania.pl,fotoblogia.pl,komorkomania.pl,polygamia.pl,abczdrowie.pl,benchmark.pl,kafeteria.pl,pysznosci.pl,dobreprogramy.pl#@#[class^="advertisement"]
+wp.pl,money.pl,o2.pl,parenting.pl,pudelek.pl,autokult.pl,gadzetomania.pl,fotoblogia.pl,komorkomania.pl,polygamia.pl,abczdrowie.pl,benchmark.pl,kafeteria.pl,pysznosci.pl,dobreprogramy.pl##body > [id] > [class]:matches-css(z-index:/2147483647/)
+wp.pl,money.pl,o2.pl,parenting.pl,pudelek.pl,autokult.pl,gadzetomania.pl,fotoblogia.pl,komorkomania.pl,polygamia.pl,abczdrowie.pl,benchmark.pl,kafeteria.pl,pysznosci.pl,dobreprogramy.pl##body > div:style(filter: none !important)
+wp.pl,money.pl,o2.pl,parenting.pl,pudelek.pl,autokult.pl,gadzetomania.pl,fotoblogia.pl,komorkomania.pl,polygamia.pl,abczdrowie.pl,benchmark.pl,kafeteria.pl,pysznosci.pl,dobreprogramy.pl##body:style(overflow: auto !important)
+||wp.pl^$frame,domain=wp.pl|money.pl|o2.pl|parenting.pl|pudelek.pl|autokult.pl|gadzetomania.pl|fotoblogia.pl|komorkomania.pl|polygamia.pl|abczdrowie.pl|benchmark.pl|kafeteria.pl|pysznosci.pl|dobreprogramy.pl
+||v.wpimg.pl/*.html$frame
+wp.pl#@#[class^="css-"]
+wp.pl,money.pl,o2.pl,parenting.pl,pudelek.pl,autokult.pl,gadzetomania.pl,fotoblogia.pl,komorkomania.pl,polygamia.pl,open.fm,benchmark.pl##:xpath('//*[string-length(@href) > 1600]')
+wp.pl,money.pl,o2.pl,pudelek.pl,gadzetomania.pl,polygamia.pl,dobreprogramy.pl,autokult.pl,fotoblogia.pl,komorkomania.pl##div[class]:has(> img[src] + div > style:has-text(flex: 0 0 100%))
+autokult.pl,komorkomania.pl,fotoblogia.pl##div[class]:has(> div[class]:empty + img[src^="https://i.wpimg.pl/"])
+autokult.pl##div[style="min-height:400px;height:400px"]
+sportowefakty.wp.pl,kafeteria.pl##div[class*=" "]:has(> div:first-child > div:first-child:empty):matches-css(z-index: 0):matches-css(position: relative)
+sportowefakty.wp.pl,kafeteria.pl##div[class*=" "]:has(> div:first-child:empty):matches-css(z-index: 0):matches-css(position: relative)
+o2.pl,horoskop.wp.pl,pysznosci.pl,www.wp.pl##div[class]:has(> img[src] + div:empty):matches-css(z-index: 0):matches-css(position: relative)
+o2.pl,horoskop.wp.pl,pysznosci.pl,www.wp.pl##div[class]:has(> img[src] + div > div:first-child:empty):matches-css(z-index: 0):matches-css(position: relative)
+o2.pl##div[data-testid="homePageView"] > div[style="box-shadow: none;"] > div[data-testid^="ad-placeholder-"]:upward(1)
+o2.pl##section > h2:has-text(Oferty dla Ciebie:)
+o2.pl##div > h6:has-text(Oferty dla Ciebie)
+o2.pl##div[data-testid="homePageView"] > div > div:has(> div[style="width:100%"])
+o2.pl##div[style="position: relative; top: 0px;"]:has(> div[style^="position: absolute; top: 0px; left:"])
+o2.pl##div[data-testid="screening-main"] > div:has(iframe[class][scrolling="no"][frameborder="0"][src^="https://v.wpimg.pl/"])
+www.wp.pl###app-content > div > div:not([class]):not([id]):has(> div > div > img[src^="https://v.wpimg.pl/"][role="presentation"])
+www.wp.pl###app-content > div > div > div:not([class]):not([id]):has(> div > img[src^="https://v.wpimg.pl/"][role="presentation"])
+www.wp.pl###app-content > div > div[style="box-shadow: none;"]
+www.wp.pl###app-content > div > div[style="box-shadow: none;"] + div > div:has(> div > img[src^="https://v.wpimg.pl/"][role="presentation"])
+www.wp.pl##div > div[class]:has(> img[src^="https://v.wpimg.pl/"][role="presentation"] + div > div + div:empty)
+www.wp.pl##div[class][style="margin-bottom: 20px;"]:has(div > div > a#undefined-0)
+www.wp.pl##div[data-section="celebrities"] > div:last-child > div:last-child > div:last-child:has(> div > div > img[src^="https://v.wpimg.pl/"][role="presentation"])
+www.wp.pl##div[class][style="margin-bottom: 20px;"]:has(> div > img[src^="https://v.wpimg.pl/"][role="presentation"])
+www.wp.pl##div[data-st-area="Mototech-naglowek"] + div div:has(> div > div > a#undefined-0)
+www.wp.pl##div[style="width: 100%;"]:has(> div > div > div:has-text(OFERTY DLA CIEBIE))
+www.wp.pl###site-header > div:first-child
+www.wp.pl###glonews > div[data-st-area] > div > aside > div:first-child > div:has(a[href^="https://www.wp.pl/"] > img[src^="https://v.wpimg.pl/"])
+www.wp.pl###site-header:style(min-height: 0px !important;)
+www.wp.pl##iframe[scrolling="no"][src^="https://v.wpimg.pl/"][frameborder="0"]:upward(1):remove()
+!#if env_mobile
+www.wp.pl##div[class*=" "]:has(> div > div:first-child > div:first-child > a[href^="https://www.wp.pl/"]:first-child):matches-css(max-width: 420px):remove()
+www.wp.pl###glonews > div > div:has(> div > a[href^="https://www.wp.pl/"] > img[src^="https://v.wpimg.pl/"])
+www.wp.pl##.app-container > div:has(div + img[src^="https://v.wpimg.pl/"] + div:empty)
+www.wp.pl##div:has(> div > div > iframe[scrolling="no"][data-bunch][data-slot])
+www.wp.pl##div:has(> div:first-child:empty + div:empty)
+money.pl##div:has(> style:has-text(flex: 0 0 100%))
+!#endif
+pilot.wp.pl##div[class]:has(> img[src] + div + style:has-text(flex: 0 0 100%))
+benchmark.pl##style:has-text(right:0;top:0;bottom:0;left:0;margin:auto;position:absolute;):upward(1)
+forum.benchmark.pl##div[id][style$="display:flex;justify-content:center;align-items:center"]
+money.pl##section + div:has(> iframe[src*="promoted"])
+money.pl##body > div > div[style^="height:"]
+money.pl##div[class]:has(> div > a[href^="https://money.wp.pl/"] > img[src^="https://v.wpimg.pl/"])
+genialne.pl##div[style="margin-left: auto; margin-right: auto; text-align: center; margin-top: 30px; margin-bottom: 30px; "]
