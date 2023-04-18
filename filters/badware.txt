@@ -1,5 +1,5 @@
 ! Title: uBlock₀ filters – Badware risks
-! Description: For sites documented to put users at risk of installing adware/crapware etc.
+! Description: For sites documented to put users at risk of installing adware/crapware/malware, having login credentials stolen, etc.
 !              The purpose is to at least ensure a user is warned of the risks ahead.
 ! Expires: 4 days
 ! Last modified: %timestamp%
@@ -9,8 +9,7 @@
 ! GitHub issues: https://github.com/uBlockOrigin/uAssets/issues
 ! GitHub pull requests: https://github.com/uBlockOrigin/uAssets/pulls
 !
-! Each entry has to be well enough sourced, see:
-! https://github.com/gorhill/uBlock/wiki/Badware-risks
+! Each entry has to be well enough sourced, see the comments above each entry for sources
 
 ! Using request of type `document` will cause the whole site to be blocked through
 ! strict blocking, yet the site will render properly if a user still decides to
@@ -308,10 +307,7 @@ thepiratebay3.com^$all
 ||storageplay.net^
 
 ! https://github.com/NanoMeow/QuickReports/issues/2577
-||comparetvs.net^$csp=child-src
-||find-me-now.com^$3p
-||clickenhanced.com^$3p
-||marketenhanced.com^$3p
+! https://www.reddit.com/r/uBlockOrigin/comments/12nrzng/
 ||mybestclick.net^$3p
 
 ! https://github.com/NanoMeow/QuickReports/issues/3205
@@ -341,7 +337,6 @@ thepiratebay3.com^$all
 ||catbeardx.com^$all
 ||newsinform.net^$all
 ||wdeliv.net^$all
-||bestprizeday.life^$all
 ||watch-video.net^$all
 ||findmedia.biz^$all
 ||polimer.xyz^$all
@@ -359,7 +354,6 @@ thepiratebay3.com^$all
 ||horried.pro^$all
 ||investing-fund.com^$all
 ||investing-bank.com^$all
-||personal-safety-update.com^$all
 ||trafficjunction.com^$all
 ||arclk.net^$all
 ||clkepd.com^$all
@@ -431,13 +425,11 @@ thepiratebay3.com^$all
 .net/c/*?s1=$doc,domain=net
 /tds/ae?tds_campaign=$doc
 ||adating.link^$all
-||arthyadtracker.info^$all
 ||arthyredir.com^$all
 ||aslnk.link^$all
 ||benaughty.com^$all
 ||searchdatestoday.com^$all
 ||robin201.xyz^$all
-||o-uccino.top^$all
 ||bnewsblite.me^$all
 ||ckre.net^$all
 ||doprinplupr.com^$all
@@ -584,7 +576,6 @@ okashimag.com,tech4yougadgets.com##+js(aopr, Notification)
 ||onlineplus.click^$all
 ||dirtyteenagers.com^$all
 ||adulttdates.com^$all
-||ardeminggiftcred.ml^$all
 ||jashautchord.com^$all
 ! royaljapan02.z23.web.core.windows.net
 ||royaljapan02.*^$all
@@ -611,7 +602,6 @@ okashimag.com,tech4yougadgets.com##+js(aopr, Notification)
 ||localsnapsext.com^$all
 ||lovemateforyou.com^$all
 ||shewantsumuch.com^$all
-||teens2fcuk.net^$all
 ||womenforyou.net^$all
 ||findmydating.com^$all
 ||heartmedia.biz^$all
@@ -712,8 +702,6 @@ okashimag.com,tech4yougadgets.com##+js(aopr, Notification)
 ||eningspon.com^$all
 ||familysimulatorgame.com^$all
 ||trackingboost.com^$all
-||meetka1.name^$all
-||meetka2.name^$all
 ||update-protection.com^$all
 ||asiaxdate.com^$all
 ||hotsimulator.com^$all
@@ -774,7 +762,7 @@ okashimag.com,tech4yougadgets.com##+js(aopr, Notification)
 ||updaterlife.com^$all
 ^s=*&ssk=*&svar=*&z=$doc
 /?cid=*&dom=$doc
-/?s1=*&click_id=$doc
+^s1=*&click_id=$doc
 ||totalrecaptcha.top^$all
 /?type=*&button=2&clickid=$doc
 ||valrogrowth.com^$all
@@ -850,6 +838,20 @@ okashimag.com,tech4yougadgets.com##+js(aopr, Notification)
 /jr.php?gz=$doc
 ||jamaretana.shop^$all
 /g?visitorid=*&extra_data2=|$doc
+||fehbsu.com^$all
+.com/play-2?h=*=eyJ&si1=$doc
+||cacto.cyou^
+||intrlguingdates.net^$all
+||prize-deals-today.click^$all
+/\.com\/proc\.php\?[0-9a-f]{40}$/$doc
+||eutrack.work^$all
+||postyourlife.com^$all
+||rplnd60.com^$all
+||djpjwf.com^$all
+||iwinprize.xyz^$all
+||shosril.com^
+||back-call.com^$all
+||meetamate.site^
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/68588
 ! https://github.com/uBlockOrigin/uAssets/issues/8869
@@ -863,8 +865,8 @@ okashimag.com,tech4yougadgets.com##+js(aopr, Notification)
 ! https://github.com/uBlockOrigin/uAssets/commit/df17084b4815e87d420e8adf19bf4959e828e6e5#commitcomment-66510549
 /^https?:\/\/[0-9a-z]*\.?[-0-9a-z]{4,}\.[a-z]{2,11}\/(?:[0-9a-z]{6,8}\/)?\/?\?o=[0-9a-z]{7}&u=[0-9a-z]{7}/$doc,frame,match-case
 ! push notification scam
-/^https:\/\/(?:www\d\.)?[-a-z]{6,}\.(?:com|info|net|org)\/(?=[-_a-zA-Z]{0,42}\d)(?=[-_0-9a-z]{0,42}[A-Z])[-_0-9a-zA-Z]{43}\/\?cid=[-_0-9a-zA-Z]{10,36}(?:&qs\d=\S+)?&sid=[_0-9a-z{}]{1,32}(?:&s=0\.\d+)?(?:#\S+)?$/$doc,match-case,domain=com|info|net|org
-/^https:\/\/(?:www\d\.)?[-a-z]{6,}\.(?:com|info|net|org)\/(?=[-_a-zA-Z]{0,42}\d)(?=[-_0-9a-z]{0,42}[A-Z])[-_0-9a-zA-Z]{43}\/\?sid=[_0-9a-z{}]{1,32}(?:&qs\d=\S+)?&cid=[-_0-9a-zA-Z]{10,36}(?:&s=0\.\d+)?(?:#\S+)?$/$doc,match-case,domain=com|info|net|org
+/^https:\/\/(?:www\d\.)?[-a-z]{6,}\.(?:com|info|net|org)\/(?=[-_a-zA-Z]{0,42}\d)(?=[-_0-9a-z]{0,42}[A-Z])[-_0-9a-zA-Z]{43}\/\?cid=[-_0-9a-zA-Z]{10,36}(?:&qs\d=\S+)?&(?:s|pub)id=[_0-9a-z{}]{1,32}(?:&s=0\.\d+)?(?:#\S+)?$/$doc,match-case,domain=com|info|net|org
+/^https:\/\/(?:www\d\.)?[-a-z]{6,}\.(?:com|info|net|org)\/(?=[-_a-zA-Z]{0,42}\d)(?=[-_0-9a-z]{0,42}[A-Z])[-_0-9a-zA-Z]{43}\/\?(?:pub|s)id=[_0-9a-z{}]{1,32}(?:&qs\d=\S+)?&cid=[-_0-9a-zA-Z]{10,36}(?:&s=0\.\d+)?(?:#\S+)?$/$doc,match-case,domain=com|info|net|org
 
 ! https://github.com/uBlockOrigin/uAssets/issues/8378
 ||ogtrk.net^
@@ -887,7 +889,7 @@ okashimag.com,tech4yougadgets.com##+js(aopr, Notification)
 ||telegra.ph/New-download-02-24$doc
 ||yuppdownload.com^$doc
 ||expert-top.com^$doc
-||m1shgan.app^$doc
+||m1shgan.app^$all
 ||leadsoftware.site^$doc
 ||gamegrack.site^$all
 ||greatsofts.space^$doc
@@ -905,6 +907,7 @@ okashimag.com,tech4yougadgets.com##+js(aopr, Notification)
 ||pcworldgetin.com^$doc
 ||gamecenter.pro^$doc
 ||softforall.art^$doc
+||soft-file-free.com^$doc
 ! https://github.com/uBlockOrigin/uAssets/issues/8630#issuecomment-803722231
 ||app-inject.com^$doc
 ! https://github.com/uBlockOrigin/uAssets/issues/8630#issuecomment-810957825
@@ -918,7 +921,6 @@ okashimag.com,tech4yougadgets.com##+js(aopr, Notification)
 ||atnpx.com^
 ||bestoffer2021.info^
 ||best-winplace.life^$all
-||bloodunpar.ml^$all
 ||checkup08.biz^
 ||getvottak.com^
 ||herdcowhas.icu^
@@ -974,6 +976,36 @@ okashimag.com,tech4yougadgets.com##+js(aopr, Notification)
 
 ! Typosquatting: redirects to scam sites
 ||bestbut.com^$all
+||gmkail.com^$all
+||yautube.com^$all
+! https://www.reddit.com/r/uBlockOrigin/comments/12ok014/
+||goglle.com^$all
+||twitterr.com^$all
+! https://www.reddit.com/r/uBlockOrigin/comments/12nrio5/
+||yourube.com^$all
+||youtubee.com^$all
+||youtunbe.com^$all
+||youutube.com^$all
+||youvetube.com^$all
+! https://groups.google.com/a/mozilla.org/g/dev-security-policy/c/oxX69KFvsm4/m/WJXUELicBQAJ
+! "looks like typo squatting"
+||wanderlust.rocks^$all
+||harmlessmessage.com^$all
+||hushemail.net^$all
+||hushmailservice.com^$all
+||lavaboom.net^$all
+||privacyharbor.net^$all
+||privacyharbors.com^$all
+||prontonmailpro.com^$all
+||protonmails.com^$all
+||protonmails.net^$all
+||safemessagesystems.com^$all
+||silencemail.com^$all
+||tutamail.net^$all
+||tutanoto.com^$all
+||messagesafe.net^$all
+||msgsafe.net^$all
+||best4fuck.com^$all
 
 ! https://www.huorong.cn/info/1531309921141.html
 ||kuaizip.com^$all
@@ -1061,12 +1093,12 @@ okashimag.com,tech4yougadgets.com##+js(aopr, Notification)
 ! phishing /scam /malware
 ! https://www.virustotal.com/gui/collection/e8b07232ca57df01f81a2b5d485ad0016ffaff9bf834aaf7d1a565f93b616e0a
 ||cs2-twitchs.com^$all
-||cs2-esports.com^$all
 ||dogehype.com^$all
-||cs2-twitchs.com^$all
-||cs2-esports.com^$all
 ||cosmicdrift.co^$all
 ||bbynetwork.nl^$all
+||deltaproject.dev^$all
+||cs2code.com^$all
+||rblx.land^$all
 
 ! https://github.com/uBlockOrigin/uAssets/issues/10181
 ||nbryb.com^$all
@@ -1109,6 +1141,10 @@ okashimag.com,tech4yougadgets.com##+js(aopr, Notification)
 ||privatespace.click^$all
 ||ww-softs.com^$all
 ||updatemobilee.com^$all
+||supreme-ad-blocker.info^$all
+||buyadvupfor24.com^$all
+||erdeallyighab.com^$all
+||allprizesforme.com^$all
 
 ! https://github.com/DandelionSprout/adfilt/issues/267
 ||tekhacks.net^$all
@@ -1324,26 +1360,6 @@ torrdroidforpc.com##[href^="http://slugmefilehos.xyz/"]
 ! https://twitter.com/harugasumi/status/1597417659163111424
 ||metamasku.cc^$all
 
-! https://groups.google.com/a/mozilla.org/g/dev-security-policy/c/oxX69KFvsm4/m/WJXUELicBQAJ
-! "looks like typo squatting"
-||wanderlust.rocks^$all
-||harmlessmessage.com^$all
-||hushemail.net^$all
-||hushmailservice.com^$all
-||lavaboom.net^$all
-||privacyharbor.net^$all
-||privacyharbors.com^$all
-||prontonmailpro.com^$all
-||protonmails.com^$all
-||protonmails.net^$all
-||safemessagesystems.com^$all
-||silencemail.com^$all
-||tutamail.net^$all
-||tutanoto.com^$all
-||messagesafe.net^$all
-||msgsafe.net^$all
-||best4fuck.com^$all
-
 ! https://github.com/uBlockOrigin/uAssets/issues/15879
 ||downloadpro.online^$all
 
@@ -1369,6 +1385,7 @@ torrdroidforpc.com##[href^="http://slugmefilehos.xyz/"]
 ||munkop.com^$all
 ||voutew.com^$all
 ||abukss.com^$all
+||amonro.com^$all
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/136693
 /axad/?lpkey=$doc
@@ -1379,6 +1396,7 @@ torrdroidforpc.com##[href^="http://slugmefilehos.xyz/"]
 ! https://twitter.com/tougei_miryoku/status/1602878676508344320
 ||borntiecalm.live^$all
 &t=main9|$doc,domain=live
+&t=main9ljs|$doc,domain=live
 
 ! https://github.com/uBlockOrigin/uAssets/pull/16038
 ||hypixei.com^$all
@@ -1441,8 +1459,6 @@ torrdroidforpc.com##[href^="http://slugmefilehos.xyz/"]
 ||cpuild.app^$all
 ! https://twitter.com/sugimu_sec/status/1623855519646765056
 ||alda64.com^$all
-! https://twitter.com/NaomiSuzuki_/status/1624044320071229441
-||kiziiay.net^$all
 ! https://twitter.com/sugimu_sec/status/1624273843337699329
 ||aida64ex.com^$all
 ! https://twitter.com/catnap707/status/1624558197897048064
@@ -1486,8 +1502,6 @@ torrdroidforpc.com##[href^="http://slugmefilehos.xyz/"]
 ||ehue77.cn^$all
 ! https://twitter.com/catnap707/status/1634321827731492865
 ||fajdgx.shop^$all
-! https://twitter.com/harugasumi/status/1634917986288160768
-||ccdbingou3.shop^$all
 ! https://twitter.com/harugasumi/status/1634924831564242944
 ||tonghongad.com^$all
 ! https://twitter.com/KesaGataMe0/status/1635333975672762369
@@ -1537,10 +1551,20 @@ torrdroidforpc.com##[href^="http://slugmefilehos.xyz/"]
 ||mymagicguide.com^$all
 ! https://twitter.com/harugasumi/status/1642524464838762496
 ||yanrefael.com^$all
-
-! https://github.com/uBlockOrigin/uAssets/issues/16558
-! https://transparencyreport.google.com/safe-browsing/search?url=http:%2F%2Fobsproicet.net%2F
-||obsproicet.net^$all
+! https://twitter.com/harugasumi/status/1643783469456326656
+||laolao8.top^$all
+! https://twitter.com/harugasumi/status/1644160487310114816
+||hangthailangiare.net^$all
+! https://mobile.twitter.com/sugimu_sec/status/1644914386291818499
+||amzpma.com^$all
+! https://twitter.com/harugasumi/status/1644990904242180098
+||hjxvcyu.com^$all
+! https://twitter.com/AP_Zenmashi/status/1645775638601814017
+||powerpointpalooza.com^$all
+! https://twitter.com/harugasumi/status/1647251655120019457
+||huiyouyang.com^$all
+! https://twitter.com/KesaGataMe0/status/1647882716216700929
+||bojsror.space^$all
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/141376
 ||7oc5b1i3v4iu.top^$all
@@ -1549,6 +1573,7 @@ torrdroidforpc.com##[href^="http://slugmefilehos.xyz/"]
 ||pocket-888.com^$all
 
 ! scam sites
+||adblock-one-protection.com^$all
 ||browser-updating.com^$all
 ||dokondigit.quest^$all
 ||ka4cv7yh4w.com^$all
@@ -1692,7 +1717,6 @@ torrdroidforpc.com##[href^="http://slugmefilehos.xyz/"]
 ||htpgkd.xyz^$doc
 ||i.redi-ana.jp^$doc
 ||i2019.jp^$doc
-||ike.delight-light.net^$doc
 ||in.other-geronica.com^$doc
 ||indiscerptible-provisionally.jp^$doc
 ||infoemphasiseleventh.com^$doc
@@ -1811,7 +1835,6 @@ torrdroidforpc.com##[href^="http://slugmefilehos.xyz/"]
 ||paesbeaqerdrsheuboapyh.com^$doc
 ||pair-online.jp^$doc
 ||permanent.wwtrend.com^$doc
-||photo-web.jp^$doc
 ||piasukai.xyz^$doc
 ||pinkredwhitereef.greenreef.net^$doc
 ||piyhhhbrc.com^$doc
@@ -2189,7 +2212,6 @@ torrdroidforpc.com##[href^="http://slugmefilehos.xyz/"]
 ||nexus.nice-splice.com^$doc
 ||nokamill.com^$doc
 ||oficialinesp.wixsite.com^$doc
-||oig.docb-s5dv.com^$doc
 ||one-sunnyday.com^$doc
 ||online-gluck.com^$doc
 ||onlineuranai-gluck.com^$doc
@@ -2489,7 +2511,6 @@ torrdroidforpc.com##[href^="http://slugmefilehos.xyz/"]
 ||zil1u73o.mars-for-5gt2li.com^$doc
 ||zmaka.net^$doc
 ||znapybthaneyjepbrinwitkc.com^$doc
-||zu40z6f9eh7od5.jp^$doc
 ||taosaleset.com^$all
 ||0281.jp^$doc
 ||0909810.com^$doc
@@ -2618,6 +2639,256 @@ torrdroidforpc.com##[href^="http://slugmefilehos.xyz/"]
 ||xzo.jp^$doc
 ||yceleb.com^$doc
 ||yourskiss.com^$doc
+||bruno-brown.com^$doc
+||life-is-luminous.com^$doc
+||00ebjdbagyqwt.club^$doc
+||0didjsgheje.club^$doc
+||174gla.milk-neo-memories.com^$doc
+||1ix-c.jp^$doc
+||5050.fm^$doc
+||54z8xf.jp^$doc
+||6xtpke4.com^$doc
+||8xpamp5fxd.com^$doc
+||9pty7m.jp^$doc
+||a5qd6qjhwg5d.com^$doc
+||aberration-0000000001.com^$doc
+||abstain-soldier.com^$doc
+||adoptmeantranslate.com^$doc
+||after-7.net^$doc
+||aikatuz.jp^$doc
+||all-time-domain.com^$doc
+||always-happy-fortune.com^$doc
+||alwayslike.safestspot.jp^$doc
+||anau6stg6y.com^$doc
+||andyou2.com^$doc
+||aphrodite-astrology.net^$doc
+||apppleheaddd.jp^$doc
+||au4y-p.jp^$doc
+||bestcosme.jp^$doc
+||blueberrydevastating.com^$doc
+||browser9182.web.fc2.com^$doc
+||burmesterone.jp^$doc
+||callb.biz^$doc
+||catchmetalk.blog^$doc
+||catchmetalk.com^$doc
+||charecttorr.jp^$doc
+||charm-n.com^$doc
+||chesscheckersvariation.com^$doc
+||circle7-bd.com^$doc
+||club-house.link^$doc
+||cocoro-liberty.com^$doc
+||coin-of-fate.jp^$doc
+||crystal5116.biz^$doc
+||cus49f.jp^$doc
+||d-sr.net^$doc
+||d-will.net^$doc
+||dalnynpu.tokyo^$doc
+||daylighteel.com^$doc
+||ddxdda.unusualdate.com^$doc
+||digital-mail.jp^$doc
+||divination-truth.com^$doc
+||dnrwecqiyl.mobi^$doc
+||during-the-holiday.com^$doc
+||e-d-en.com^$doc
+||e3kks.jp^$doc
+||eme.emeralldd.com^$doc
+||every-au.com^$doc
+||every-bisque.com^$doc
+||every-blanched.com^$doc
+||every-cornsilk.com^$doc
+||every-coral.com^$doc
+||every-cute.com^$doc
+||every-dark.com^$doc
+||every-dodo.com^$doc
+||every-ds123.com^$doc
+||every-enjoy.com^$doc
+||every-gold.com^$doc
+||every-isb.com^$doc
+||every-lemon.com^$doc
+||every-light.com^$doc
+||every-line1.com^$doc
+||every-line2.com^$doc
+||every-nejp.com^$doc
+||every-pcpc.com^$doc
+||every-rose.com^$doc
+||every-salmon.com^$doc
+||every-super.com^$doc
+||every-toroku1.com^$doc
+||every-toroku2.com^$doc
+||every-toroku3.com^$doc
+||every-yellow.com^$doc
+||experiencedlawsuit.com^$doc
+||extentfillet.com^$doc
+||family5-life.com^$doc
+||febdd.info^$doc
+||flupshare.com^$doc
+||fortune-start.com^$doc
+||fortune-yakata.com^$doc
+||fvipbyolrsex.info^$doc
+||g-spiritual.com^$doc
+||ganesha44.jp^$doc
+||gate-1-spiritual.com^$doc
+||gate-spiritual.com^$doc
+||gnan.jp^$doc
+||gnchag.com^$doc
+||gran-danker.jp^$doc
+||gyakunan.net^$doc
+||happiness-gate01.com^$doc
+||heart-g03.tokyo^$doc
+||heart-g04.space^$doc
+||high-moon-sun.com^$doc
+||higher-mainnd.jp^$doc
+||hretdsubgrmc.jp^$doc
+||htgefegf56756.xyz^$doc
+||hy3irjf.com^$doc
+||i8h4gr.jp^$doc
+||igazre.com^$doc
+||iksd23g5.jp^$doc
+||jg3wpu8um2zucn4m6a.com^$doc
+||jinsei-uranai2023.com^$doc
+||jk94ciajt8.com^$doc
+||just1ce.net^$doc
+||justfine.jp^$doc
+||kagayaki-tk.biz^$doc
+||kagayaki-tk.com^$doc
+||kantei-oracle.com^$doc
+||kinhako-lp.com^$doc
+||kinhako-m01.com^$doc
+||kinhako-m02.com^$doc
+||kinhako-p01.com^$doc
+||kinhako-p02.com^$doc
+||lightlydismantle.com^$doc
+||lineme.mom^$doc
+||lover-c.com^$doc
+||luck-is-home.com^$doc
+||mamagathering.org^$doc
+||match007.jp^$doc
+||mc-aoyama.com^$doc
+||mercury-lp.net^$doc
+||michibiki-uranai.com^$doc
+||miracle-door.com^$doc
+||mirai-kouun2023.com^$doc
+||mjzca66n34j7.com^$doc
+||moon-luck-power.com^$doc
+||mother-sku.jp^$doc
+||okanekasegeru.com^$doc
+||online-777.jp^$doc
+||onpiurbhviusd.com^$doc
+||p-mel.net^$doc
+||paknz.star-superstar-yellow.com^$doc
+||part-ner01.jp^$doc
+||peachcafe.net^$doc
+||poison-idea.com^$doc
+||polaris-775.com^$doc
+||polaris-775.jp^$doc
+||pollutionsatisfyadopt.com^$doc
+||prophecy-of-fate.com^$doc
+||pswh9.jp^$doc
+||relief.glad-glory.com^$doc
+||rising-to-fortune.com^$doc
+||rosaca-nina.net^$doc
+||ru.ruubbyy.com^$doc
+||s-space.jp^$doc
+||sachikuru.jp^$doc
+||shinjitsu-mirai2023.com^$doc
+||shotrym.com^$doc
+||sokuai.jp^$doc
+||sp-gt-meet.com^$doc
+||spring-sealion.com^$doc
+||spiritual-gt.com^$doc
+||spiritual-gt1.com^$doc
+||spiritual-leading.com^$doc
+||sta.star-star777.com^$doc
+||star-club-self.com^$doc
+||star-superstar-yellow.com^$doc
+||sugusagasu.com^$doc
+||sukui01.com^$doc
+||sukui02.com^$doc
+||sukui03.com^$doc
+||sukui04.com^$doc
+||sukuinote.jp^$doc
+||sumsmsp.info^$doc
+||szddbxyumfcf.net^$doc
+||szwbnlpq.info^$doc
+||tarot2fs.com^$doc
+||telet.me^$doc
+||this-you-good.com^$doc
+||tikgold2023.com^$doc
+||tomikuji.com^$doc
+||trend-officialsearch.com^$doc
+||ugfdwmausxfy.net^$doc
+||unmei-hikari2023.com^$doc
+||unmei2023.com^$doc
+||uranai-beginning.com^$doc
+||uranai-hit.com^$doc
+||uranai-like.com^$doc
+||utugmz93sr.com^$doc
+||vwqrzutjc.info^$doc
+||wafxz2.com^$doc
+||wastearguewasteill.com^$doc
+||web.fe-vrier.com^$doc
+||whitemusk.jp^$doc
+||whpbrmdss.com^$doc
+||will-kantei.com^$doc
+||wkdk.jp^$doc
+||xmwvmzm3fd8h.com^$doc
+||xxa6f.jp^$doc
+||zfyx8ht.jp^$doc
+||zrkp7fgmcdwe.com^$doc
+||feemwshape.sbs^$doc
+||6xy-zg.com^$doc
+||bvnx599app.com^$doc
+||cwa-2020.com^$doc
+||dwoetbarcrooplsloiwh.com^$doc
+||gargar.making-garden.com^$doc
+||gate-way110.com^$doc
+||happy-popice.com^$doc
+||kronos2022.com^$doc
+||like-baloon-leaf.com^$doc
+||mor.chance-10dayful.com^$doc
+||mugi--cha.com^$doc
+||octagongon.com^$doc
+||pa-ha8.com^$doc
+||qfmjw.arpviufltwiostoegrm.com^$doc
+||s.meru.jp^$doc
+||ts7nept8.com^$doc
+||vcrwv.monster^$doc
+||x-yz6asktoi.com^$doc
+||x-yzn6.com^$doc
+||x6-yz-kzyx0.com^$doc
+||x6-yzk.com^$doc
+||xy-z0-ra-had0.com^$doc
+||xy-z6goo-xyz.com^$doc
+||xy-z6x.com^$doc
+||xyz-xy.com^$doc
+||ytjon-d2s1ah.com^$doc
+||yuetp7hj.com^$doc
+||lets-tip315.com^$doc
+||loveri.net^$doc
+||lvli.jp^$doc
+||m2sg.jp^$doc
+||mamasg.net^$doc
+||mcbien.net^$doc
+||mlaligms205s.com^$doc
+||rollfa.net^$doc
+||rollin-12fate.com^$doc
+||rollin-fat1e.com^$doc
+||sgua.jp^$doc
+||spilov.net^$doc
+||splv.jp^$doc
+||suguap.net^$doc
+||vien.jp^$doc
+||a-power.jp^$doc
+||eternal-station.jp^$doc
+||fnyge.site^$doc
+||friends-connect.com^$doc
+||kinun-2023.com^$doc
+||madonnaoasis.com^$doc
+||market-price.jp^$doc
+||msg.metamessen.net^$doc
+||o-cean-fortune.biz^$doc
+||o-cean-fortune.com^$doc
+||secondary-with.com^$doc
 
 ! https://twitter.com/1ZRR4H/status/1623067548781539339
 ||soft-pro.site^$all
@@ -2674,7 +2945,6 @@ torrdroidforpc.com##[href^="http://slugmefilehos.xyz/"]
 ||8ebtdbsjsu.click^$all
 ||zjzxtmhcldsb.click^$all
 ||s2dd1io1x.click^$all
-||surwhytjwbn.click^$all
 ||sa489zylbvg.click^$all
 ||rsurwhytjwbn.click^$all
 ||de2b8pzju0h.click^$all
@@ -2747,15 +3017,15 @@ torrdroidforpc.com##[href^="http://slugmefilehos.xyz/"]
 
 ! techsupport scam
 /?{BV_SRCID}&$doc
-/werrx01/?$doc
+/werrx01/^$doc
 /winXos/?$doc
-/merrx01/?$doc
+/merrx01/^$doc
 ||nothingworking.xyz^$all
 ||ondigitalocean.app/*^phone=+1-$doc
 ||sakuriggd.online^$all
 ||flexedfitt.com^$all
 ||cxchutiyahotah.online^$all
-.online/a/eeeekayresrsammicraaajkaschhoilsebadhiyakuchtanahiaayaajturuionmeebbat/$doc
+.online/*/eeeekayresrsammicraaajkaschhoilsebadhiyakuchtanahiaayaajturuionmeebbat/$doc
 ||plesk.page/?phone=+1-$doc
 ||aamraai.cloud^$all
 ||satttawishonemottorecepi.online^$all
@@ -2771,3 +3041,36 @@ torrdroidforpc.com##[href^="http://slugmefilehos.xyz/"]
 ||naramgaram.online^$all
 ||windowshelps.site^$all
 ||orfon.site^$all
+||pinkpussy.one^$all
+||smalldingdong.top^$all
+||sportwebsforu.site^$all
+||teresangyara.online^$all
+||hotchicks.one^$all
+||sportwebsforu.xyz^$all
+||s3.ap-northeast-1.amazonaws.com/tedex.com/*/index.html$all
+/^https:\/\/(?:www\.)?[a-z]{8,15}\.[a-z]{3}\/V1\/$/$document,domain=one|top,match-case
+||d188l1lq8frqfz.cloudfront.net^$all
+||horenshi-receptte.online^$all
+||smarttvnew.vercel.app^$all
+||sportwebsforu.shop^$all
+/systemerror-mac/?$doc
+||d20czoh4nqf3iu.cloudfront.net^$all
+||d1owqt0pbd956t.cloudfront.net^$all
+||microflexed.shop^$all
+||slotsgaming.online^$all
+
+! https://insight-jp.nttsecurity.com/post/102ic6o/webgoogle-chrome
+||gateway.pinata.cloud^$3p
+
+! https://twitter.com/genegene1234561/status/1647164176438280192
+||japanonlinebroadcast.live^$all
+
+! https://www.reddit.com/r/uBlockOrigin/comments/12ng4o8/
+! https://www.virustotal.com/gui/url/fe6b4bc7a258a92a97ad3216c85d159857ccd581df9b31a50a308ca49f967e34
+! https://www.virustotal.com/gui/url/0d491da362effc08d2b026f32242046d174165e7995abbde6917ef7864a7556c
+||crackedpc.org^$all
+||cracksway.com^$all
+
+! https://www.reddit.com/r/uBlockOrigin/comments/12pues7/
+! https://www.virustotal.com/gui/url/30cd25755793be38b2757aad283bc0391763f6f0a8c17707d7f928c1102cde08
+||123moviesgo.ga^$all
