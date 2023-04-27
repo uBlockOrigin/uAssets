@@ -75,6 +75,20 @@ function expandIncludes(dirname, parts) {
 
 /******************************************************************************/
 
+function removeIncludeDirectives(text) {
+    const out = [];
+    for (;;) {
+        const match = /^!#include .+$/m.exec(text);
+        if ( match === null ) { break; }
+        out.push(text.slice(0, match.index).trim());
+        text = text.slice(match.index + match[0].length).trim();
+    }
+    out.push(text.trim(), '\n');
+    return out.join('\n');
+}
+
+/******************************************************************************/
+
 async function main() {
     const inFile = commandLineArgs.get('in');
     if ( typeof inFile !== 'string' || inFile === '' ) {
@@ -95,10 +109,11 @@ async function main() {
         parts = expandIncludes(dirname, parts);
     } while ( parts.some(v => typeof v !== 'string'));
 
-    const afterText = parts
+    const expandedText = parts
         .filter(chunk => chunk.trim() !== '')
         .join('\n') + '\n';
-    if ( afterText === beforeText ) { return; }
+
+    const afterText = removeIncludeDirectives(expandedText);
 
     fs.writeFile(outFile, afterText);
 }
