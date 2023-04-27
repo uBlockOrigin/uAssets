@@ -10,9 +10,9 @@ mkdir -p $TMPDIR/easylist
 git clone --depth 1 https://github.com/easylist/easylist.git $TMPDIR/easylist
 
 echo "*** uAssets: Assembling easylist.txt"
-node ./tools/easylist/make-easylist.js in=$TMPDIR/easylist/easylist.template out=thirdparties/easylist-downloads.adblockplus.org/easylist.txt
+node ./tools/easylist/make-easylist.js in=$TMPDIR/easylist/easylist.template out=thirdparties/easylist/easylist.txt
 
 echo "*** uAssets: Assembling easyprivacy.txt"
-node ./tools/easylist/make-easylist.js in=$TMPDIR/easylist/easyprivacy.template out=thirdparties/easylist-downloads.adblockplus.org/easyprivacy.txt
+node ./tools/easylist/make-easylist.js in=$TMPDIR/easylist/easyprivacy.template out=thirdparties/easylist/easyprivacy.txt
 
 rm -rf $TMPDIR
