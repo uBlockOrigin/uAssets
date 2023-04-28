@@ -102,6 +102,12 @@ function removeIncludeDirectives(text) {
 
 /******************************************************************************/
 
+function removeIssueRelatedComments(text) {
+    return text.replace(/^! https:\/\/[^\n]+[\n\r]+/gm, '');
+}
+
+/******************************************************************************/
+
 async function main() {
     const workingDir = commandLineArgs.get('dir') || '.';
     const inFile = commandLineArgs.get('in');
@@ -123,9 +129,12 @@ async function main() {
         parts = expandIncludes(workingDir, parts);
     } while ( parts.some(v => typeof v !== 'string'));
 
-    const expandedText = parts.join('\n') + '\n';
+    let afterText = parts.join('\n') + '\n';
+    afterText = removeIncludeDirectives(afterText);
 
-    const afterText = removeIncludeDirectives(expandedText);
+    if ( commandLineArgs.get('minimize') !== undefined ) {
+        afterText = removeIssueRelatedComments(afterText);
+    }
 
     console.info(`  Creating ${outFile}`);
 
