@@ -28,6 +28,9 @@ jobs:
         run: |
           TMPDIR=$(mktemp -d)
           git clone --depth=1 https://github.com/uBlockOrigin/uAssets.git $TMPDIR
+          pushd $TMPDIR > /dev/null
+          ./tools/make-ublock.sh
+          popd > /dev/null
           cp $TMPDIR/filters/*.txt filters/
           cp $TMPDIR/thirdparties/easylist/easy*.txt thirdparties/
       - name: Patch last-updated field

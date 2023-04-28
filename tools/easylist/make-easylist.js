@@ -31,6 +31,10 @@ import process from 'process';
 
 /******************************************************************************/
 
+const expandedParts = new Set();
+
+/******************************************************************************/
+
 const commandLineArgs = (( ) => {
     const args = new Map();
     let name, value;
@@ -60,8 +64,12 @@ function expandIncludes(dirname, parts) {
             if ( match === null ) { break; }
             const repo = match[1].trim();
             const fpath = match[2].trim();
+            const basename = path.basename(fpath);
+            expandedParts.add(basename);
+            console.info(`  Inserting ${basename}`);
             out.push(
                 part.slice(lastIndex, match.index).trim(),
+                '',
                 `! *** ${repo}:${fpath} ***`,
                 fs.readFile(`${dirname}/${fpath}`, { encoding: 'utf8' })
                     .then(text => text.trim()),
@@ -76,10 +84,15 @@ function expandIncludes(dirname, parts) {
 /******************************************************************************/
 
 function removeIncludeDirectives(text) {
+    const excludedParts = Array.from(expandedParts)
+        .map(s => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'))
+        .join('|');
+    const re = new RegExp(`^!#include +(${excludedParts}).*$`, 'm');
     const out = [];
     for (;;) {
-        const match = /^!#include .+$/m.exec(text);
+        const match = re.exec(text);
         if ( match === null ) { break; }
+        console.info(`  Removing "!#include ${match[1]}"`);
         out.push(text.slice(0, match.index).trim());
         text = text.slice(match.index + match[0].length).trim();
     }
@@ -90,6 +103,7 @@ function removeIncludeDirectives(text) {
 /******************************************************************************/
 
 async function main() {
+    const workingDir = commandLineArgs.get('dir') || '.';
     const inFile = commandLineArgs.get('in');
     if ( typeof inFile !== 'string' || inFile === '' ) {
         process.exit(1);
@@ -99,21 +113,21 @@ async function main() {
         process.exit(1);
     }
 
-    const beforeText = await fs.readFile(outFile, { encoding: 'utf8' });
-    const dirname = path.dirname(inFile);
-    const inText = fs.readFile(inFile, { encoding: 'utf8' });
+    console.info(`  Using template at ${inFile}`);
+
+    const inText = fs.readFile(`${workingDir}/${inFile}`, { encoding: 'utf8' });
 
     let parts = [ inText ];
     do {
         parts = await Promise.all(parts);
-        parts = expandIncludes(dirname, parts);
+        parts = expandIncludes(workingDir, parts);
     } while ( parts.some(v => typeof v !== 'string'));
 
-    const expandedText = parts
-        .filter(chunk => chunk.trim() !== '')
-        .join('\n') + '\n';
+    const expandedText = parts.join('\n') + '\n';
 
     const afterText = removeIncludeDirectives(expandedText);
+
+    console.info(`  Creating ${outFile}`);
 
     fs.writeFile(outFile, afterText);
 }
