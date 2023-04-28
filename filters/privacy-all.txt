@@ -3,8 +3,22 @@
 !   Some of these filters make use of the `important` filter option,
 !   which purpose is to guarantee that a filter won't be overriden by
 !   exception filters.
+! Expires: 7 days
+! Last modified: Fri, 28 Apr 2023 17:00:54 +0000
+! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
+! Homepage: https://github.com/uBlockOrigin/uAssets
+!
+! GitHub issues: https://github.com/uBlockOrigin/uAssets/issues
+! GitHub pull requests: https://github.com/uBlockOrigin/uAssets/pulls
+
+! *** uAssets:filters/privacy.txt ***
+! Title: uBlock₀ filters – Privacy
+! Description: |
+!   Some of these filters make use of the `important` filter option,
+!   which purpose is to guarantee that a filter won't be overriden by
+!   exception filters.
 ! Expires: 6 days
-! Last modified: Fri, 28 Apr 2023 15:04:02 +0000
+! Last modified: %timestamp%
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 !
@@ -12,21 +26,17 @@
 ! GitHub pull requests: https://github.com/uBlockOrigin/uAssets/pulls
 !
 ! I will use data from benchmarks to decide what to add here.
-! https://github.com/gorhill/uBlock/wiki/uBlock-and-others%3A-Blocking-ads%2C-trackers%2C-malwares
-
 ! I think web sites can live without this
 ! Commented out on 2014-10-03: I don't see it anymore in benchmarks. Will see.
 ! Commenting it out allows me to enable this one out-of-the-box.
 ! ||linkedin.com^$3p,important
 
-! https://github.com/chrisaljoudi/uBlock/issues/289
 ! Commented out, breaks to many sites. See:
 !   https://hg.adblockplus.org/easylist/rev/9f6e928c258a#l2.12
 !   Users can still block this one through hpHosts, MVPS, Dan Pollock's or
 !   manually through custom filters, or 3rd-party scripts
 ! ||www.googletagservices.com/tag/js/gpt.js
 
-! https://adblockplus.org/forum/viewtopic.php?f=2&t=38703
 ! 1st-party "recommendations" should never depends on a 3rd-party doing the job:
 !   this is just disguised tracking
 ||taboola.com^$3p
@@ -37,14 +47,10 @@
 ! Redirect to neutered Google Analytics Experiments
 ||google-analytics.com/cx/api.js$script,redirect=google-analytics.com/cx/api.js:5
 
-! https://github.com/gorhill/uBlock/issues/1411
-! https://www.reddit.com/r/firefox/comments/3pwcey/firefox_extension_download_manager_s3_asks_for/
-! https://www.reddit.com/r/chrome/comments/473ves/help_how_to_remove_qipru_redirect_when_searching/
 ||lnkr.us^$doc
 ||icontent.us^$doc
 ||qip.ng^$doc
 ||qip.ru^$doc
-! https://github.com/gorhill/uBlock/issues/1411#issuecomment-201031771
 ||ratexchange.net^
 ||adnotbad.com^
 ||serverads.net^
@@ -52,99 +58,67 @@
 ||takethatad.com^
 ||tradeadsexchange.com^
 
-! https://www.reddit.com/r/ublock/comments/47o2ih/ublock_disabling_all_javascript_links/d0fhock
 ! Time to bring this filter out of experimental status
 ||googletagservices.com/tag/js/gpt.js$script,redirect=googletagservices.com/gpt.js:5
 ||securepubads.g.doubleclick.net/tag/js/gpt.js$script,redirect=googletagservices_gpt.js:5
 ||pagead2.googlesyndication.com/tag/js/gpt.js$script,redirect=googletagservices_gpt.js:5
 
-! https://github.com/gorhill/uBlock/issues/1265
 ||scorecardresearch.com/beacon.js$script,redirect=scorecardresearch.com/beacon.js:5
 
-! https://github.com/uBlockOrigin/uAssets/issues/7
 ||google-analytics.com/ga.js$script,redirect=google-analytics.com/ga.js:5
 
-! https://www.eff.org/deeplinks/2014/07/white-house-website-includes-unique-non-cookie-tracker-despite-privacy-policy
-! https://github.com/uBlockOrigin/uAssets/issues/1713
-! https://github.com/uBlockOrigin/uAssets/issues/6319
-! https://github.com/gorhill/uBlock/issues/1384
-! https://github.com/uBlockOrigin/uAssets/issues/11003
 ||addthis.com/*/addthis_widget.js$script,redirect=addthis.com/addthis_widget.js
 ##.addthis_toolbox
 
 ! Examples of what is fixed by even an unfilled dummy API:
-! https://twitter.com/kenn_butler/status/709163241021317120
-! https://adblockplus.org/forum/viewtopic.php?f=10&t=48183
-! https://forums.lanik.us/viewtopic.php?f=64&t=32161
-! https://forums.lanik.us/viewtopic.php?f=64&t=30670
 ||googletagmanager.com/gtm.js$script,redirect=googletagmanager_gtm.js:5
 
-! https://github.com/gorhill/uBlock/issues/1082
-! https://github.com/gorhill/uBlock/issues/1250#issuecomment-173533894
-! https://github.com/gorhill/uBlock/issues/2155
 ||widgets.outbrain.com/outbrain.js$script,redirect=outbrain-widget.js:5,domain=~vice.com
 
-! https://github.com/uBlockOrigin/uAssets/issues/713
 ||google-analytics.com/analytics.js$important,script,redirect=google-analytics.com/analytics.js,domain=support.amd.com
 ||googletagmanager.com/gtm.js$important,script,redirect=googletagmanager.com/gtm.js,domain=support.amd.com
 
-! https://github.com/uBlockOrigin/uAssets/issues/3251
 teamskeet.com##+js(set, $.tstracker, noopFunc)
 
-! https://github.com/uBlockOrigin/uAssets/issues/4138
 rediff.com##+js(ra, onclick, [onclick^="track"])
 rediff.com##+js(ra, onmousedown, [onmousedown^="return enc(this,'https://track.rediff.com"])
 
-! https://www.reddit.com/r/uBlockOrigin/comments/b9qsix/new_reddit_tracks_a_ton_more_data_someone_said/
 ||reddit.com/api/jail/$xhr,1p
 
-! https://github.com/uBlockOrigin/uAssets/pull/5578
 ||colpirio.com^$3p
 
-! https://github.com/uBlockOrigin/uAssets/pull/5997
 docs.google.com##+js(no-xhr-if, method:POST url:/logImpressions)
 
-! https://github.com/uBlockOrigin/uAssets/issues/6538
 liberation.fr,officedepot.fr,oui.sncf##+js(acis, document.createElement, '.js')
 sfr.fr##+js(aopr, _oEa)
 
-! https://github.com/uBlockOrigin/uBlock-issues/issues/780#issuecomment-558734257
 brillen.de##+js(acis, document.createElement, 'script')
 ||marketing.net.*^$1p
 
-! https://github.com/uBlockOrigin/uAssets/issues/7118
 ||vidtech.cbsinteractive.com^*/tracking/$script,redirect=noop.js,important
 
-! https://github.com/uBlockOrigin/uAssets/issues/7178
 !#if env_chromium
 ||carsensor.net/usedcar/modules/clicklog_$xhr,1p,important,redirect=noop.txt
 !#endif
 
-! https://github.com/uBlockOrigin/uAssets/issues/478#issuecomment-612229916
 /analytics/analytics.$~xmlhttprequest,3p
 /ga_setup.js$3p
 /googleanalytics.js$3p
-! https://github.com/uBlockOrigin/uAssets/issues/11262
 -google-analytics/$domain=~wordpress.org,badfilter
 -google-analytics/$3p,domain=~wordpress.org
 
-! https://github.com/uBlockOrigin/uAssets/pull/4961
 ||the-japan-news.com/modules/js/lib/fgp/fingerprint2.js$script,redirect=fingerprint2.js,important
 
-! https://github.com/AdguardTeam/AdguardFilters/issues/57295
 ||mtsa.com.my/mtcs.php/pageview/track^$image
 
-! https://github.com/AdguardTeam/AdguardFilters/issues/57325
 ||api.tumblr.com/*/share/stats$script,3p
 
-! https://github.com/uBlockOrigin/uAssets/issues/7833
 frogogo.ru##+js(aopw, ADMITAD)
 ||artfut.com/static/tagtag.$script,3p,redirect=noop.js
 
 ! xhamster stats collection
 ||collector.xhamster*.*^
 
-! https://github.com/uBlockOrigin/uAssets/issues/8105
 ! block known tracking honeypots
 ||copyhomework.com^
 ||coursecopy.com^
@@ -153,16 +127,13 @@ frogogo.ru##+js(aopw, ADMITAD)
 ||studyeffect.com^
 ||testbooksolutions.com^
 
-! https://github.com/uBlockOrigin/uBlock-issues/issues/1388
 @@||googletagmanager.com/gtm.js$script,redirect-rule,domain=rocketnews24.com
 
-! https://github.com/uBlockOrigin/uAssets/commit/ee5aec09e45376b7e6fb50ff56cb54425826df0d#commitcomment-44879744
 /stats.php?*event=$image
 
 ! beastpics.club etc.
 /check.php?t=*&rand=$image,1p
 
-! https://github.com/easylist/easylist/issues/6724
 /jquery.js?*&rx=*&foxtail=$image,1p
 ||jsdelivr.net/npm/skx@*/optical.js
 
@@ -179,26 +150,19 @@ beaumontenterprise.com,chron.com,ctinsider.com,ctpost.com,expressnews.com,housto
 ! dekki.com analytics
 ||playbrain.io/analytics/
 
-! https://github.com/AdguardTeam/AdguardFilters/issues/80625
 tweakers.net##+js(aost, btoa, send)
 
-! https://github.com/AdguardTeam/AdguardFilters/issues/81533
 ||yuktamedia.com^$3p
 
-! https://github.com/AdguardTeam/AdguardFilters/issues/81778
 ||gamedock.io^$3p
 
-! https://github.com/uBlockOrigin/uAssets/issues/9103
 *$script,redirect-rule=noopjs,domain=kruidvat.nl
 kruidvat.nl##.async-hide:style(opacity:1.0 !important)
 
-! https://github.com/AdguardTeam/AdguardFilters/issues/75098
 ||stats.webgames.io^
 
-! https://www.reddit.com/r/uBlockOrigin/comments/niiytr/help_needed_filtering_wwwsporizle1pw/
 ||sporizle1.pw/embed/*?stat=$frame
 
-! https://github.com/uBlockOrigin/uAssets/issues/9273
 ||blogfoster.com^$3p
 
 ! mettablog.com
@@ -207,19 +171,14 @@ kruidvat.nl##.async-hide:style(opacity:1.0 !important)
 ! simply-hentai.com beacon
 ||t.simply-hentai.com^
 
-! https://search.brave.com/search?q=Chromium
 search.brave.com##+js(no-fetch-if, body:browser)
 
-! https://github.com/uBlockOrigin/uAssets/pull/9472
 ||d3bch4rrbnbe5n.cloudfront.net/pxl.png^
 
-! https://github.com/uBlockOrigin/uAssets/issues/9123
 /visilabs.min.js
 
-! https://github.com/orgs/uBlockOrigin/teams/ublock-filters-volunteers/discussions/354
 ||civicscience.com^$3p
 
-! https://github.com/uBlockOrigin/uAssets/issues/9932
 /dataunlocker$script,1p,domain=~dataunlocker.com
 /^\w+://[0-9a-z]{12}\.dataunlocker\.com//$1p,script
 /^\w+://[\w.\-]+\.www\.cybernetman\.com//$1p,script
@@ -242,13 +201,10 @@ alpacafinance.org,tt.live##^script:has-text('join("")')
 nikita.tk##+js(aost, document.cookie)
 ||nikita.tk/*-$script,1p
 
-! https://www.reddit.com/r/uBlockOrigin/comments/opoba7/washington_post_showing_ad_placeholders/
 ||washpost.nile.works^
 
-! https://github.com/easylist/easylist/commit/6457d9a221b19bf6d011d314d0bf14476d18f428#commitcomment-54257940
 /p13n/batch/action/*$image
 
-! https://github.com/uBlockOrigin/uAssets/issues/9717
 ppss.kr,ygosu.com,tgd.kr,inven.co.kr,loawa.com,feedclick.net,dailian.co.kr,algumon.com,sportalkorea.com,hancinema.net##+js(aeld, DOMContentLoaded, _0x)
 ppss.kr,ygosu.com,tgd.kr,inven.co.kr,loawa.com,feedclick.net,dailian.co.kr,algumon.com,sportalkorea.com,hancinema.net##^script:has-text(ad-shield)
 ||da29e6b8-f018-490f-b25f-39a887fc95e7.xyz^
@@ -256,67 +212,45 @@ ppss.kr,ygosu.com,tgd.kr,inven.co.kr,loawa.com,feedclick.net,dailian.co.kr,algum
 ||15823f12-289e-4189-9e51-e2de1bf1a105.online^$xhr,ping
 /^https:\/\/cdn\.jsdelivr\.net\/npm\/[-a-z_]{4,22}@latest\/dist\/script\.min\.js$/$script,3p,match-case
 
-! https://www.reddit.com/r/uBlockOrigin/comments/p29y3w/these_guys_boast_combatting_all_adblocks/
 ||connectier.io^
 
-! https://github.com/AdguardTeam/AdguardFilters/issues/91230
 ||nsfw.xxx/vendor/fingerprint/fingerprint2.min.js$script,redirect=fingerprint2.js,important
 
-! https://github.com/uBlockOrigin/uAssets/issues/9799
-! https://github.com/AdguardTeam/AdguardFilters/issues/102311
 ||collector.xhwebsite.com^
 ||collector.hamsterix.*^
 ||collector.xhwide1.com^
 
-! https://www.reddit.com/r/uBlockOrigin/comments/p9lity/how_to_block_favicon_popups_on_these_websites/
 ||g.jwpsrv.com/g/gcid-*?notrack$frame
 
-! https://github.com/uBlockOrigin/uAssets/issues/10012
 tacobell.com##+js(set, bmak.js_post, false)
 
-! https://github.com/easylist/easylist/pull/9136
 ||cloudflare.com/ajax/libs/fingerprintjs2/$script,redirect=fingerprint2.js,important,domain=gamebox.gesoten.com
 
-! https://github.com/easylist/easylist/pull/9137
 ||gamerch.com/s3-assets/library/js/fingerprint2.min.js$script,redirect=fingerprint2.js,important
 
-! https://github.com/AdguardTeam/AdguardFilters/issues/95660
 ||ahentai.top/counter.php
 
-! https://twitter.com/wongmjane/status/1446556836497264641
 reddit.com##+js(no-fetch-if, url:/^https:\/\/www\.reddit\.com$/ method:post)
 reddit.com##+js(no-xhr-if, method:POST url:/^https:\/\/www\.reddit\.com$/)
 
-! https://github.com/easylist/easylist/pull/9370
 ||tr.jianshu.com^
 
-! https://github.com/easylist/easylist/pull/9469#issuecomment-950179366
 /lib/f_ad_code.js
 
-! https://github.com/uBlockOrigin/uAssets/issues/10361
 ||159.203.84.58^
 
-! https://github.com/Yuki2718/adblock/issues/40
-! https://github.com/Yuki2718/adblock/issues/44
-! https://www.reddit.com/r/uBlockOrigin/comments/udaxzt/block_fingerprinting_javascript_with_completely/i8xaru3/
 /\.com\/[-_0-9a-zA-Z]{4,}\/[-\/_0-9a-zA-Z]{25,}$/$script,1p,domain=gu-global.com|uniqlo.com
 
-! https://www.reddit.com/r/uBlockOrigin/comments/r06yju/sur_in_english_website_recognises_ad_blocker/
 ||metrics.surinenglish.com^
 
-! https://github.com/uBlockOrigin/uAssets/issues/10615#issuecomment-980221624
 @@||natureetdecouvertes.com^*/pixel.png$~third-party,badfilter
 
-! https://github.com/uBlockOrigin/uAssets/issues/10630
 ||cm.bilibili.com/cm/api/$xhr
 
-! https://github.com/uBlockOrigin/uAssets/issues/10679
 ||wannads.com/api/track/fingerprint^
 
-! https://github.com/uBlockOrigin/uAssets/issues/10690
 ||wuzhuiso.com^$removeparam=src
 
-! https://github.com/uBlockOrigin/uAssets/pull/10610
 ||statwup.huya.com^
 ||va.huya.com^
 ||e-stat.huya.com^
@@ -324,12 +258,9 @@ reddit.com##+js(no-xhr-if, method:POST url:/^https:\/\/www\.reddit\.com$/)
 ! pornocolombiano.net analytics
 ||analytics.tiendaenoferta.com^
 
-! https://github.com/uBlockOrigin/uAssets/issues/10995
 ||zhihu.com^$removeparam=hybrid_search_source
 ||zhihu.com^$removeparam=hybrid_search_extra
 
-! https://github.com/easylist/easylist/issues/6724#issuecomment-1003172754
-! https://github.com/uBlockOrigin/uAssets/pull/15692#issuecomment-1321098072
 blog.skk.moe##+js(no-fetch-if, body:/[\w\W]{700}/)
 skk.moe##+js(no-fetch-if, method:/post|posT|poSt|poST|pOst|pOsT|pOSt|pOST|Post|PosT|PoSt|PoST|POst|POsT|POSt|POST/)
 /cfga/jquery.js?$image
@@ -338,65 +269,48 @@ skk.moe##+js(no-fetch-if, method:/post|posT|poSt|poST|pOst|pOsT|pOSt|pOST|Post|P
 ! jzzo.com,xxxvogue.net, etc.
 /s/js/ta-2.3.js?
 
-! https://github.com/uBlockOrigin/uAssets/issues/11152#issuecomment-1011094338
 ||rjno1.com/cdn-cgi/challenge-platform/h/b/scripts/invisible.js
 
-! https://github.com/uBlockOrigin/uAssets/issues/11278
 ||mynewsmedia.co/*/Linkpage/ads_stats_controller.php
 ||gplinks.co/Auth/ads_stats_controller.php
 
-! https://github.com/uBlockOrigin/uAssets/issues/9970
 ||videovard.*/api/front/view^$xhr,important
 
-! https://github.com/uBlockOrigin/uAssets/issues/11644
 endbasic.dev,jmmv.dev##+js(no-xhr-if, method:POST)
 
-! https://github.com/AdguardTeam/AdguardFilters/issues/106875
 ||b90.yahoo.co.jp^
 
-! https://github.com/AdguardTeam/AdguardFilters/issues/110958
 ||jsdelivr.net^*/fp.min.js$script,redirect-rule=fingerprint3.js:10
 
-! https://github.com/uBlockOrigin/uAssets/issues/11885
 /log/*$xhr,domain=vizcloud.*|vizcloud2.*
 
-! https://github.com/uBlockOrigin/uAssets/issues/11895
 ||serasaexperian.com.br/dist/scripts/fingerprint2.js^$redirect=fingerprint2.js,script,important
 
-! https://www.reddit.com/r/uBlockOrigin/comments/tihpyw/oldredditcom_outbound_tracking_via_out_reddit_com/i1f290z/?context=3
 old.reddit.com##+js(ra, data-outbound-url, .outbound)
 !reddit.com##+js(set, Object.prototype.allowClickTracking, false)
 
-! https://www.reddit.com/r/uBlockOrigin/comments/u13isu/how_to_block_fathom_tracking
 /?p=%2F*&h=https%3A%2F%2F*&r=&sid=*&qs=*&cid=$image,1p
 /?h=https%3A%2F%2F*&r=&sid=*&qs=*&cid=$image,1p
 /?v=eyJoIjoiaHR0cHM6Ly9$image,1p
 /?v=eyI*sImgiOiJodHRwczovL$image,1p
 !/^https?:\/\/[-.0-9a-z]+\/script\.js$/$script,1p,strict3p,match-case
 
-! https://www.reddit.com//r/uBlockOrigin/comments/u4ef87/webtoons_redirects_to_loginfracom_and_back_to/
 webtoons.com##+js(set, ccsrv, '')
 webtoons.com##+js(set, lcs_SerName, '')
 
-! https://github.com/uBlockOrigin/uAssets/issues/13059
 ||hdslb.com/bfs/cm/cm-sdk/static/js/bili-collect.js$script,redirect=noop.js,domain=bilibili.com,important
 
-! https://vostanimez.com/Episode/shokei-shoujo-no-ikiru-michi-the-executioner-and-her-way-of-life-vostfr-saison-1-episode-6-streaming-hd/
 ||imsdb.pw/player/ip.php
 
 ! tarnkappe. info tracking
 tarnkappe.info##+js(aopr, Matomo)
 ://posthog.$script,domain=~posthog.com
 
-! https://assets.acdn.no/pkg/@amedia/browserid/1.1.6/index.js trackers
-! https://github.com/uBlockOrigin/uAssets/pull/13408#issuecomment-1341756510
 ! ||no/api/aid/users/self?filter=*tracking$xhr
 
-! https://github.com/uBlockOrigin/uAssets/issues/13958
 ||play.google.com/store/apps/*referrer$removeparam=referrer
 ||apps.apple.com/*/app/*referrer$removeparam=referrer
 
-! https://github.com/uBlockOrigin/uAssets/issues/13970
 ||securemetrics.apple.com/b/ss/*maps$image,important
 
 ! techpowerup. com ping
@@ -408,7 +322,6 @@ tarnkappe.info##+js(aopr, Matomo)
 ||counter.darkreader.app^
 ||herokudns.com^$xhr,domain=darkreader.org
 
-! https://github.com/uBlockOrigin/uAssets/issues/14653
 ||hktvmall.com/yuicombo?$script,removeparam=/_ui/shared/common/js/analytics/with-intersection-track.js
 ||hktvmall.com/yuicombo?$script,removeparam=/_ui/shared/common/js/InappCommunicationManager.js
 ||hktvmall.com/yuicombo?$script,removeparam=/_ui/shared/common/js/util/jquery.analytics-utils.js
@@ -418,25 +331,19 @@ tarnkappe.info##+js(aopr, Matomo)
 ||hktvmall.com/_ui/shared/common/js/util/jquery.analytics-utils.js
 ||hktvmall.com/yuicombo|$script,1p
 
-! https://github.com/uBlockOrigin/uAssets/issues/14850#issuecomment-1249571859
 /discourse-fingerprint-
 
-! https://github.com/easylist/easylist/issues/13695
 ericdraken.com##+js(aopr, dataLayer)
 ericdraken.com##^script[async]
 
-! https://github.com/AdguardTeam/AdguardFilters/issues/81856
 /s/s/js/m/om.js?v=
 
-! https://github.com/uBlockOrigin/uAssets/issues/4059
-! https://github.com/AdguardTeam/AdguardFilters/issues/135665
 ://vip.*/?pge=$image,3p
 ://ply.*/?v=$image,3p
 
 ! brave.com analytics
 ||brave.com/static-assets/js/analysis.js
 
-! https://www.girlsofdesire.org/galleries/kana-kusakabe/00.html
 /images/*/analytics.js$domain=girlsofdesire.org
 
 ! t3n.de tracking
@@ -446,30 +353,21 @@ ericdraken.com##^script[async]
 ! doucolle.net analytics
 ||blozoo.info/js/inouttool/
 
-! https://github.com/uBlockOrigin/uAssets/issues/16478
 !||linkedin.com/li/track$xhr,1p
 
 ! jscrambler.com tracking
 ||jscrambler.com/api/statistics
 ||jscrambler.com/bc.js
 
-! https://github.com/AdguardTeam/AdguardFilters/commit/c996d0d98c6bc4f4542c258a44485f8868a8c8c7
 /oo/*/lsync.js$1p
 /oo/*/l.js|$1p
-! https://github.com/AdguardTeam/AdguardFilters/commit/dd15e29e10b0ad6f21c0451fa84aa0a041dfe68e
 /oo/cl*.js?rd=$1p
-! https://github.com/AdguardTeam/AdguardFilters/commit/e0033467716a3f4077adecb574da73861f663e76
 /acc/acctag.js
-! https://github.com/AdguardTeam/AdguardFilters/commit/b4ad45459bcd5e0a0c6711abec10a45dc35a5062
 .jp/static/js/track.js
-! https://github.com/AdguardTeam/AdguardFilters/commit/3ee12854a9da5737259eb5b4cd9ce124d5260a8b
 /outLoging.js
 /outLoging2.js
-! https://github.com/AdguardTeam/AdguardFilters/commit/06b30e49b01ace6f36da016bf4d02ab2f4b15524
 ||blozoo.info/js/ranktool/
-! https://github.com/AdguardTeam/AdguardFilters/commit/f9a82c08debe42b73950d4caf103aeafc8b12feb
 ||odsyms15.com/impression?
-! https://github.com/AdguardTeam/AdguardFilters/commit/4cebf73b405ef76c4f32fee4d5229908245c45e0
 ||rakuten.co.jp/com/js/omniture/
 
 ! heavyfetish.com tracking
@@ -478,45 +376,32 @@ heavyfetish.com##+js(cookie-remover, kt_qparams)
 heavyfetish.com##+js(cookie-remover, kt_ips)
 heavyfetish.com##+js(cookie-remover, kt_referer)
 
-! https://github.com/uBlockOrigin/uAssets/issues/16730#issuecomment-1427957300
 utreon.com##+js(no-xhr-if, utreon.com/pl/api/event method:POST)
 
-! https://github.com/uBlockOrigin/uAssets/issues/16731
 /^https:\/\/[0-9a-z]{7,25}\.com\/v2(?:\/0\/)?(?=[-_0-9a-z]{0,84}[A-Z])(?=[-_a-zA-Z]{0,84}[0-9])[-_0-9a-zA-Z]{54,85}(#\?v=[0-9a-f]{32})?$/$script,xhr,3p,match-case
 
-! https://github.com/uBlockOrigin/uAssets/issues/16751
 zhihu.com##+js(no-xhr-if, log-sdk.ksapisrv.com/rest/wd/common/log/collect method:POST)
 
-! https://github.com/AdguardTeam/AdguardFilters/issues/114908#issuecomment-1438714714
 ||torimochi.line-apps.com^$image,redirect=1x1.gif
 
-! https://github.com/uBlockOrigin/uAssets/issues/16965
 ||windowspro.de/stats/mto.js
 
 ! bilibili.com browser fingerprint collect
 ||api.bilibili.com/x/internal/gaia-gateway/ExClimbWuzhi$xhr,1p
 
-! https://github.com/easylist/easylist/issues/14723
 ||p.typekit.net/p.css$css,redirect-rule=noop.css
 ||p.typekit.net/p.css$css,domain=browserstack.com|bungie.net|robertsspaceindustries.com,redirect=noop.css,important
 
-! https://github.com/uBlockOrigin/uAssets/issues/17041
 -telemetry.officeapps.live$ping,xhr
 
-! https://github.com/uBlockOrigin/uAssets/issues/17119
 ||flow.microsoft.com/providers/Internal.Telemetry
 
-! https://github.com/uBlockOrigin/uAssets/issues/17120
 ||client-telemetry.roblox.com^
 
-! https://www.reddit.com/r/uBlockOrigin/comments/11rjv8n/
 ||kemono.party/js/script.js
 
-! https://github.com/uBlockOrigin/uAssets/issues/17204
 ||subdl.net/statsLog
 
-! https://github.com/uBlockOrigin/uAssets/issues/17067
-! https://github.com/uBlockOrigin/uAssets/issues/17254
 ||run.app/events$badfilter
 ||run.app/events$domain=imgur.com
 
@@ -551,10 +436,115 @@ zhihu.com##+js(no-xhr-if, log-sdk.ksapisrv.com/rest/wd/common/log/collect method
 ||ketekbisokaliau.com^
 ||sarang77skuy.com^
 
-! https://www.reddit.com/r/uBlockOrigin/comments/12vx18z/
 ||top-staging.mail.ru^
-! https://github.com/easylist/easylist/commit/a9e2c5e42deac7d2f29c2d133a6d58723946ad66#commitcomment-110218918
 ||trk.mail.ru^$image,ping
 
-! https://github.com/uBlockOrigin/uAssets/issues/17786
 ||adthrive.com^$removeparam
+
+
+! *** uAssets:filters/resource-abuse.txt ***
+! Title: uBlock₀ filters – Resource abuse
+! Description: |
+!   To foil sites potentially abusing CPU/bandwidth resources without informed
+!   consent. Any such resource-abuse scripts MUST be opt-in, with complete
+!   informed consent from the visitor.
+! Expires: 6 days
+! Last modified: %timestamp%
+! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
+! Homepage: https://github.com/uBlockOrigin/uAssets
+!
+! GitHub issues: https://github.com/uBlockOrigin/uAssets/issues
+! GitHub pull requests: https://github.com/uBlockOrigin/uAssets/pulls
+
+/edgemesh.*.js$script,domain=~edgemesh.com|~edgeno.de
+
+||safelinkconverter.com^$script,3p
+
+/adsensebase.js$script
+
+! other miners
+://api.*/lib/native.wasm$3p
+||rawgit.com/Pocketart/$script,3p
+
+*$csp=worker-src 'none',domain=lewd.ninja|milujivareni.cz
+/angular8.js
+
+||fileone.tv^$csp=child-src 'none';frame-src 'self' *;worker-src 'none';
+
+||cryweb.github.io^
+
+tasma.ru##+js(aopw, decodeURIComponent)
+
+||leitor.net^$csp=worker-src 'none';
+
+shrink-service.it##+js(aopr, WebAssembly)
+
+*$csp=worker-src 'none',domain=flashx.pw|vidoza.net
+
+djs.sk##+js(aopr, miner)
+
+||thevideo.*^$csp=worker-src 'none';
+
+*$csp=worker-src 'none',domain=powvideo.net
+
+||potomy.ru^$csp=worker-src 'none'
+
+! miners https://github.com/uBlockOrigin/uAssets/issues/2198
+*$csp=worker-src 'none',domain=megapastes.com
+
+||sickrage.ca^$csp=worker-src 'none'
+||sorteosrd.com^$csp=worker-src 'none'
+
+./M5q5.js$script
+||jshosting.*^
+||hostingcloud.*^
+
+||hdvid.tv^$csp=worker-src 'none'
+
+||void.cat^$csp=worker-src 'none'
+
+||dragonballzpolo.*^$csp=worker-src 'none'
+
+*$csp=worker-src 'none',domain=unblocktheship.org
+
+steamplay.*##+js(aopw, CoinNebula)
+
+! revdl . com avoids miners
+||revdl.com^$csp=worker-src 'none';
+
+||firstonetv.*^$csp=worker-src 'none';
+||firstone.*^$csp=worker-src 'none';
+||firstonetv.*^$csp=connect-src 'none';
+
+||backend.dna-delivery.com^$domain=france.tv|rt.com
+||cdn.streamroot.io/dna-client/$script,domain=prod-player.tf1.fr
+france.tv##+js(nowebrtc)
+
+||csgo.xyz^$doc
+
+||inside-out.xyz^$csp=worker-src 'none'
+
+! ||sdkapi.douyucdn.cn/p2p?$xhr
+||douyucdn.cn/front-publish/stream-sdk-lib-master/dyp2pxp2p_*.js$script,domain=douyu.com
+
+! ||p2p.huya.com^$xhr
+||msstatic.com/huya/*/p2plib.js$script
+
+! Block some Chinese web pages from using P2P
+bilibili.com,dandanzan.top,nunuyy.*,v.qq.com##+js(nowebrtc)
+
+||monerominer.rocks/miner-mmr/webmnr.min.js
+
+||sudonull.com/stop-ru.js
+
+app.koinly.io##.login-page:style(-webkit-animation: none !important)
+
+knowyourmeme.com##+js(nosiif, blogherads)
+
+*$websocket,domain=linuxtracker.org
+
+||dek5iqd53g59a.cloudfront.net^
+
+||cdn-prod.securiti.ai/consent/auto_blocking/$domain=xfinity.com
+||static.cimcontent.net/data-layer/$domain=xfinity.com
+
