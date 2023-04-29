@@ -8,41 +8,6 @@
 ! GitHub issues: https://github.com/uBlockOrigin/uAssets/issues
 ! GitHub pull requests: https://github.com/uBlockOrigin/uAssets/pulls
 
-! https://github.com/chrisaljoudi/uBlock/issues/57
-! https://github.com/chrisaljoudi/uBlock/issues/98
-! New filter class: entity filters, where entity = domain minus public suffix
-! The following filters were taken out of EasyList and given an entity name,
-! which makes them candidates to be injected early in the page.
-! Last imported: 2022-10-17
-google.*###atvcap + #tvcap > .mnr-c > .commercial-unit-mobile-top
-google.*###taw > .med + div > #tvcap > .mnr-c:not(.qs-ic) > .commercial-unit-mobile-top
-google.*###topstuff > #tads
-google.*##.commercial-unit-mobile-top .jackpot-main-content-container > .UpgKEd + .nZZLFc > .vci
-google.*##.commercial-unit-mobile-top .jackpot-main-content-container > .UpgKEd + .nZZLFc > div > .vci
-google.*##.commercial-unit-mobile-top > .v7hl4d
-google.*##.commercial-unit-mobile-top > div[data-pla="1"]
-google.*##div[jsdata*="CarouselPLA-"][data-id^="CarouselPLA-"]
-
-! https://github.com/uBlockOrigin/uAssets/issues/7761
-google.*##div[data-ismultirow="true"][data-id^="CarouselPLA-"]
-
-google.*##div[data-flt-ve="sponsored_search_ads"]
-google.*##div[jscontroller="U835zd"] + c-wiz[jsrenderer="YnuqN"]
-google.*##div[role="navigation"] + c-wiz > div > .kxhcC
-google.*##div[role="navigation"] + c-wiz > script + div > .kxhcC
-
-! https://www.reddit.com/r/uBlockOrigin/comments/8xg7p0/ublock_origin_is_not_blocking_google_sponsored/
-google.*##.ads-ad
-
-! https://github.com/uBlockOrigin/uAssets/issues/3482
-! https://github.com/uBlockOrigin/uAssets/issues/10099
-!#if env_mobile
-www.google.*##:not(:matches-path(/^/search\?.*tbm=shop|^/shopping/)) a[href*="/aclk?"][data-al]:upward(2)
-!#endif
-
-! https://github.com/NanoMeow/QuickReports/issues/1375#issuecomment-503802350
-www.google.*##div.ellip > span:has-text(/^Ads?$/):upward(2)
-
 ! https://github.com/uBlockOrigin/uAssets/issues/9597
 www.google.*##[href^="https://www.googleadservices.com/pagead/aclk?"][href$="adurl="]:upward(3)
 www.google.*##:not(:matches-path(/^/search\?.*tbm=shop|^/shopping/)) *:not([class^="sh-sr__shop-result-group"]) [href^="/aclk"][href$="adurl="]:upward(3)
