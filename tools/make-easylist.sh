@@ -2,8 +2,6 @@
 #
 # This script assumes a linux environment
 
-TEMPFILE=(mktemp)
-
 echo "*** uAssets: Assembling EasyList lists"
 TMPDIR=$(mktemp -d)
 mkdir -p $TMPDIR/easylist

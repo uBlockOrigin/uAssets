@@ -2,8 +2,6 @@
 #
 # This script assumes a linux environment
 
-TEMPFILE=(mktemp)
-
 echo "*** uAssets: Assembling filters/filters.txt"
 node ./tools/easylist/make-easylist.js in=templates/ublock-filters.template out=filters/filters.min.txt minify=1
 
