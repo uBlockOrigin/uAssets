@@ -23,4 +23,10 @@ node ./tools/easylist/make-easylist.js dir=$TMPDIR/easylist in=easylist-cookies.
 echo "*** uAssets: Assembling easylist-social.txt"
 node ./tools/easylist/make-easylist.js dir=$TMPDIR/easylist in=easylist-social.template out=thirdparties/easylist/easylist-social.txt
 
+echo "*** uAssets: Assembling easylist-newsletters.txt"
+node ./tools/easylist/make-easylist.js dir=$TMPDIR/easylist in=easylist-newsletters.template out=thirdparties/easylist/easylist-newsletters.txt
+
+echo "*** uAssets: Assembling easylist-notifications.txt"
+node ./tools/easylist/make-easylist.js dir=$TMPDIR/easylist in=easylist-notifications.template out=thirdparties/easylist/easylist-notifications.txt
+
 rm -rf $TMPDIR
