@@ -1,7 +1,7 @@
 ! Title: uBlock₀ filters – Quick fixes
 ! Description: Immediate, temporary filters to fix websites
 ! Expires: 12 hours
-! Last modified: Mon, 08 May 2023 11:37:30 +0000
+! Last modified: Mon, 08 May 2023 14:34:18 +0000
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! Forums: https://github.com/uBlockOrigin/uAssets/issues
@@ -30,17 +30,10 @@ rjno1.com##+js(acs, onload)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/14204
 ylilauta.org#@#iframe.a
-||es.ylilauta.org/static/css/style.css?$css,1p
-||es.ylilauta.org^$ping,popup
-||es.ylilauta.org^$media
-!#if env_chromium
-ylilauta.org##iframe.a, #fake
-ylilauta.org##+js(set, confirm, noopFunc)
-ylilauta.org##+js(set, alert, noopFunc)
-ylilauta.org##div[data-a][data-d]
-ylilauta.org##.toast-root
-ylilauta.org##+js(call-nothrow, Object.defineProperty)
-!#endif
+||es.ylilauta.org^$media,css,ping,popup,frame
+||es.ylilauta.org^$image,redirect=1x1.gif
+||es.ylilauta.org/t/$xhr,1p
+ylilauta.org##+js(aeld, , ad-load-fail)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/13544
 ! https://github.com/uBlockOrigin/uAssets/commit/6008194de5ebfb5f37abb375c8b6147f52d8bff3#commitcomment-76982803
