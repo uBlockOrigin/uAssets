@@ -21,7 +21,7 @@ uAssets will fix the following exceptions even if they do not require using the 
 uAssets will not address the following:
 
 - Paywalls
-- GDPR Modals
+- GDPR Modals (Cookie Notices)
 - Porn Farms
 
 #### Support Forum
