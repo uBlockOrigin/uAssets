@@ -1,6 +1,6 @@
 ! Title: uBlock₀ filters
 ! Description: Filters optimized for uBlock, to be used along EasyList
-! Last modified: Mon, 15 May 2023 06:37:21 +0000
+! Last modified: Mon, 15 May 2023 12:10:11 +0000
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 ! New filters from January 2022 to ->
@@ -5496,7 +5496,7 @@ plc247.com##+js(acs, String.fromCharCode, decodeURIComponent)
 mazterize.com##+js(acs, $, open)
 mazterize.com##.dl-but
 
-! protege-liens. com popups
+! https://www.protege-liens. com popups
 protege-liens.com##+js(nowoif)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/15754
@@ -5513,12 +5513,17 @@ rmweb.co.uk##html:style(overflow: auto !important;)
 ||invisioncic.com/*.gif$image,domain=rmweb.co.uk
 
 ! https://github.com/uBlockOrigin/uAssets/issues/15779
-gourmetscans.net##+js(nostif, fn_ibf, 4000)
+gourmetscans.net##+js(nostif, .data?)
+gourmetscans.net##[class^="publift-widget"]
+gourmetscans.net##.widget_custom_html ins:upward(.widget_custom_html)
+@@||securepubads.g.doubleclick.net/tag/js/gpt.js$script,domain=gourmetscans.net
+@@||securepubads.g.doubleclick.net/pagead/managed/js/gpt/*/pubads_impl.js$script,domain=gourmetscans.net
+@@||securepubads.g.doubleclick.net/gampad/ads$xhr,domain=gourmetscans.net
 
 ! https://github.com/uBlockOrigin/uAssets/issues/15780
 noor-book.com##+js(no-fetch-if, ads)
 
-! theporndude.com too obtrusive and redundant promo
+! https://theporndude.com too obtrusive and redundant promo
 theporndude.com##+js(nowoif)
 theporndude.com##body::before
 
