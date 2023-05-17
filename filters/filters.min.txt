@@ -1,7 +1,7 @@
 ! Title: uBlock filters
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Expires: 5 days
-! Last modified: Wed, 17 May 2023 09:52:17 +0000
+! Last modified: Wed, 17 May 2023 10:54:25 +0000
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 !
@@ -777,16 +777,13 @@ pornovore.fr##+js(aopw, popUrl)
 xstory-fr.com##+js(aopw, checkRealLoad)
 receive-sms-online.info##+js(aopr, ga.length)
 ||googlesyndication.com/pagead/js/adsbygoogle.js$script,redirect=googletagmanager.com/gtm.js:10,domain=breitbart.com
-hltv.org##+js(nowoif)
 ||gainskins.com^$frame,domain=hltv.org
-hltv.org##body:style(background: transparent !important;)
-||hltv.org/img/*?$image
 ||hltv.org/img/newwidgets/$image
 ||hltv.org/img/static/featured_bet_bg.png$image
-hltv.org##[data-seen-before]
-hltv.org##[style^="--"]
-hltv.org##.leftCol > div[style]
-hltv.org##.newMatches > .gtSmartphone-only
+hltv.org##+js(nowoif)
+hltv.org##body, body::before:style(background-image: unset !important;)
+hltv.org##:is(div, aside) > a[href^="/"][data-link-tracking-page="Widget"]:upward(1)
+hltv.org##.leftCol > div [data-link-tracking-page="Widget"]:upward(.leftCol > div)
 vidlox.*##+js(set, xRds, false)
 vidlox.*##+js(set, tRds, true)
 vidlox.*##+js(aopw, _pop)
