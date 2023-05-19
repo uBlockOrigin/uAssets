@@ -1,6 +1,6 @@
 ! Title: uBlock₀ filters
 ! Description: Filters optimized for uBlock, to be used along EasyList
-! Last modified: Fri, 19 May 2023 02:26:19 +0000
+! Last modified: Fri, 19 May 2023 11:44:07 +0000
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 ! New filters from January 2021 to ->
@@ -3154,8 +3154,12 @@ torproxy.cyou##+js(aopw, _pop)
 unblockweb.me##+js(aopw, _pop)
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/85695
+*$frame,redirect-rule=noopframe,domain=codingnepalweb.com
+@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$script,domain=codingnepalweb.com
+@@||pagead2.googlesyndication.com/pagead/managed/js/adsense/*/show_ads_impl$script,domain=codingnepalweb.com
 @@||codingnepalweb.com^$ghide
-codingnepalweb.com##.adsbygoogle:upward(1)
+codingnepalweb.com##.adsbygoogle
+codingnepalweb.com##+js(no-fetch-if, googlesyndication)
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/85708
 cozumpark.com##.adv-link
