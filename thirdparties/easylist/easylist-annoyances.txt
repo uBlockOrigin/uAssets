@@ -554,8 +554,6 @@ _site/gotop.
 ##[data-taboola-options]
 ! advocate.com (Video PIP following)
 ##.vjs-pip-y-bottom
-! wtsp.com
-##[data-name="exitInterstitial"]
 ! Google signin popup
 ###credential_picker_container
 ###credential_picker_iframe
@@ -2696,13 +2694,14 @@ jewishpress.com##.td-scroll-up
 ! *** easylist:fanboy-addon/fanboy_annoyance_specific_uBO.txt ***
 ! uBO-specific fixes
 ! youtube ads mitigation testing
-youtubekids.com,youtube-nocookie.com,youtube.com##+js(set, ytInitialPlayerResponse.adPlacements, null)
+youtubekids.com,youtube-nocookie.com,youtube.com##+js(set, ytInitialPlayerResponse.adPlacements, undefined
 youtubekids.com,youtube-nocookie.com,youtube.com##+js(set, playerResponse.adPlacements, undefined)
 ! youtube anti-adblock mitigation testing
 youtubekids.com,youtube-nocookie.com,youtube.com##+js(json-prune, [].playerResponse.adPlacements [].playerResponse.playerAds)
 youtube.com,youtubekids.com,youtube-nocookie.com##+js(json-prune, playerResponse.adPlacements playerResponse.playerAds adPlacements playerAds, playerResponse.playerConfig)
-youtube.com##+js(json-prune, auxiliaryUi.messageRenderers.enforcementMessageViewModel)
-youtube.com##+js(set, ytInitialPlayerResponse.auxiliaryUi.messageRenderers.enforcementMessageViewModel, undefined)
+youtube.com,youtubekids.com,youtube-nocookie.com##+js(json-prune, playerResponse.adPlacements playerResponse.playerAds adPlacements playerAds, playerConfig)
+youtube.com,youtubekids.com,youtube-nocookie.com##+js(json-prune, auxiliaryUi.messageRenderers.enforcementMessageViewModel)
+youtube.com,youtubekids.com,youtube-nocookie.com##+js(set, ytInitialPlayerResponse.auxiliaryUi.messageRenderers.enforcementMessageViewModel, undefined)
 ! audioholics
 audioholics.com##.modal
 audioholics.com##.modal-backdrop
@@ -2764,6 +2763,8 @@ watchsomuchproxy.com###ModalWindow
 watchsomuchproxy.com##.modal-backdrop
 watchsomuchproxy.com###btnStopAds
 watchsomuchproxy.com##body:style(overflow: scroll !important)
+! Exit overlay
+firstcoastnews.com,wtsp.com,ajc.com,wusa9.com,wfaa.com,9news.com,fox2now.com,wcnc.com,13newsnow.com,wsvn.com,abc15.com,wwltv.com,wkyc.com,wthr.com,11alive.com,wcnc.com,wusa9.com,wfaa.com,9news.com,fox2now.com,abc15.com,wwltv.com,wkyc.com,wthr.com,11alive.com##+js(ra, data-name="exitInterstitial", , stay)
 ! Floating video
 texasmonthly.com##.float-player
 texasmonthly.com##+js(rc, float-player, , stay)
