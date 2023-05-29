@@ -1,7 +1,7 @@
 ! Title: uBlock filters
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Expires: 5 days
-! Last modified: Mon, 29 May 2023 06:28:10 +0000
+! Last modified: Mon, 29 May 2023 06:32:34 +0000
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 !
@@ -7334,6 +7334,10 @@ puzzles.msn.com##+js(nano-sib)
 @@||imasdk.googleapis.com/js/sdkloader/ima3.js$script,3p,domain=puzzles.msn.com
 puzzles.msn.com##[class*="displayAd"], .ark-ad-message
 ||videorolls.row.aiv-cdn.net/*.mp4$media,redirect=noopmp3-0.1s,domain=amazon.com
+!#if ext_devbuild
+amazon.com##+js(json-prune, cuepointPlaylist)
+amazon.com##+js(xml-prune, xpath(//*[name()="Period"][.//*[name()="SupplementalProperty"][@value="Ad"]]), , .mpd)
+!#endif
 @@||novelgo.id^$ghide
 novelgo.id##ins.adsbygoogle
 dailymail.co.uk##+js(aopr, Notification)
