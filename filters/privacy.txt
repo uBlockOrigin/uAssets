@@ -4,7 +4,7 @@
 !   which purpose is to guarantee that a filter won't be overriden by
 !   exception filters.
 ! Expires: 7 days
-! Last modified: Wed, 07 Jun 2023 10:08:11 +0000
+! Last modified: Wed, 07 Jun 2023 11:10:48 +0000
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 !
@@ -549,7 +549,7 @@ zhihu.com##+js(no-xhr-if, log-sdk.ksapisrv.com/rest/wd/common/log/collect method
 ||adthrive.com^$removeparam,domain=~mediaite.com
 
 ! onesignal-sites
-||onesignal.com^$domain=iphoneincanada.ca|senpa.io
+||onesignal.com^$domain=androidauthority.com|iphoneincanada.ca|senpa.io
 
 ! geoip.cdn.arkadiumhosted.com
 ||geoip.cdn.arkadiumhosted.com^$domain=bestforpuzzles.com|charlotteobserver.com|independent.co.uk
@@ -564,6 +564,14 @@ mozilla.org##+js(href-sanitizer, a[href^="https://app.adjust.com/"][href*="?redi
 
 ! https://github.com/uBlockOrigin/uAssets/issues/17652
 ||fingerprint.com^$xhr,method=post,domain=~dev.fingerprint.com
+
+! https://www.androidauthority.com/third-party-reddit-apps-statement-3332238/ redirect links
+androidauthority.com##+js(href-sanitizer, a[href^="https://androidauth.wpengine.com/wp-json/api/advanced_redirect?ref="], ?ref)
+||androidauthority.com/api/locate/
+
+! lightboxcdn.com
+||lightboxcdn.com/*/digibox.gif?
+||lightboxcdn.com/*/jsonp/z?
 
 ! Merge in resource-abuse.txt
 !#include resource-abuse.txt
