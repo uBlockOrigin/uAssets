@@ -4846,14 +4846,12 @@ bitcotasks.com##+js(aeld, load, htmls)
 bitcotasks.com##^script:has-text(htmls)
 /files/banners/*.gif$image,domain=bitcotasks.com
 ! https://github.com/uBlockOrigin/uAssets/issues/16207
-||mdn.lol^$csp=style-src *
 hatecoin.me###wcfloatDiv4
 @@||clickiocdn.com^$script,domain=mdn.lol
 @@||holid.io^$script,domain=mdn.lol
 @@||cdn.unblockia.com^$script,domain=mdn.lol
 mdn.lol##+js(aopr, pbjs)
 mdn.lol##+js(no-fetch-if, wpadmngr)
-mdn.lol##+js(acs, document.getElementById, alert)
 mdn.lol##+js(acs, document.createElement, adsBlocked)
 mdn.lol##^script:has-text(adsBlocked)
 mdn.lol##form[action*="cashando.me"]
@@ -4862,6 +4860,15 @@ mdn.lol##form[action*="cashando.me"]
 ||hbagency.it^
 *$xhr,domain=mdn.lol,redirect-rule=noopjs
 ||live.demand.supply/up.js$script,redirect=noopjs,domain=mdn.lol
+! https://github.com/uBlockOrigin/uAssets/discussions/17361#discussioncomment-6110748
+mdn.lol##+js(set, document.hasFocus, trueFunc)
+mdn.lol##form > div[id][style="display: none;"] .g-recaptcha:upward( div[id][style="display: none;"]):style(display: block !important;)
+mdn.lol##.fa-xmark
+mdn.lol##div[style*="728px;"]
+mdn.lol##div[style$="min-height: 250px;"]
+mdn.lol##.modal
+mdn.lol##.modal-backdrop
+mdn.lol##.modal-open:style(overflow: auto !important;)
 ! https://github.com/uBlockOrigin/uAssets/issues/16534
 ! https://github.com/uBlockOrigin/uAssets/issues/16533
 techcyan.com,upshrink.com##+js(acs, RegExp, 0x)
