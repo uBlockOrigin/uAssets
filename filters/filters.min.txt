@@ -1,7 +1,7 @@
 ! Title: uBlock filters
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Expires: 5 days
-! Last modified: Fri, 09 Jun 2023 13:28:21 +0000
+! Last modified: Fri, 09 Jun 2023 14:57:38 +0000
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 !
@@ -1502,7 +1502,6 @@ platinmods.*##+js(nano-sib)
 /klesd7.$script,1p
 /assets/jwplayer-*/vast.js$script,1p
 txxx.*##+js(acs, setTimeout, hommy.mutation.mutation)
-txxx.*##+js(aeld, click, pop.beforeOpen)
 txxx.*##+js(aopr, jwplayer.utils.Timer)
 txxx.*##.content.page.page-video .video-content > div[class] > div > div[class] > div[class][style^="background-image:"]:style(background-image: none !important;)
 txxx.*##div[style="display:flex !important"] > div
@@ -1511,22 +1510,16 @@ txxx.*##.video-videos-slider
 txxx.*##.video-content > div + div:last-child
 txxx.*##.video-content > div:first-child > div[class]:has(> div > a[href="#"])
 txxx.*##.videos-tube-friends
-txxx.*##span:has-text(AD):upward(2)
+txxx.*##span:only-child:has-text(/^AD$/):upward(2)
 *$frame,3p,denyallow=google.com|gstatic.com,domain=txxx.*
 *$popunder,3p,domain=txxx.*
 voyeurhit.*##+js(acs, adver)
-voyeurhit.com##+js(aeld, , window.open)
-voyeurhit.com##+js(nosiif, document.readyState)
 voyeurhit.*##.content > div > .container + div
 voyeurhit.*##.video-page__content > div.left + div[class]:last-child
 voyeurhit.*##.video-page__underplayer > div[class]:first-child > div[class]
 voyeurhit.*##.video-related + div[class] > div[class]:only-child
 voyeurhit.*##div[style="display:flex !important"] > div
-##.__nat_link
-||mysmokingmistress.com^$3p
 upornia.*##+js(acs, adver)
-upornia.com##+js(nosiif, undefined)
-upornia.com##+js(nowoif)
 upornia.*##div[style="display:flex !important"] > div
 upornia.*##.video-content > div[class] > div.text > a[href="#"]:upward(2)
 upornia.*##.videoplayer-wrapper + div > div[class]:only-child
@@ -1537,10 +1530,7 @@ upornia.*##.aa_label + div:not([class])
 upornia.*##.video-videos-slider + .aa_label
 pornzog.com###ntv_a
 pornzog.com##.video-ntv-list
-hotmovs.com##+js(acs, adver)
-hotmovs.com##+js(aopr, ExoLoader)
-hotmovs.com##+js(aopw, ads_priv)
-hotmovs.com##+js(aeld, , pop)
+hotmovs.*##+js(acs, adver)
 hotmovs.com##.partners-wrap
 hotmovs.*##.block_label--last + div[class]
 hotmovs.*##.pagination + div.block_label--last
@@ -1549,12 +1539,7 @@ hotmovs.*##.video-page__content > div.left + div[class]:last-child
 hotmovs.*##div[style="display:flex !important"] > div
 hotmovs.*##.video-page > div.block_label.mt-15 + div[class]
 hotmovs.*##.videos-tube-friends
-||hotmovs.com/sw.js$script,1p
-vjav.com##+js(acs, document.getElementById, pop)
-vjav.com##+js(aeld, , window.open)
-vjav.com##+js(nosiif, document.readyState)
 *$script,3p,denyallow=gstatic.com,domain=vjav.*
-||vjav.com/sw.js$script,1p
 vjav.*##.hv-block
 vjav.*##.suggestions
 vjav.*##div[style="display:flex !important"] > div
@@ -1563,32 +1548,21 @@ vjav.*##.content > div:not([class]) > div.video-page + div[class]
 vjav.*##.video-page__content > div.left + div[class]:last-child
 vjav.*##.video-page__player + div[class] > div[class]
 ! pornq .com popups
-pornq.com##+js(aeld, , window.open)
-||pornq.com/sw.js$script,1p
 ||bitupsss.com^$all
 ! pornj .com popups
 pornj.com##+js(aopr, open)
 pornj.com##.vda-item
 ! pornl.com
-pornl.com##+js(aeld, , pop)
 pornl.com##+js(aopr, open)
 pornl.com##.adv-list--footer
-pornl.com##div.vda-item.thumbnail-next.thumbnail-x2
+pornl.com##.vda-item
 ! porn555 .com popups
-porn555.com##+js(aeld, , window.open)
 porn555.com##.vda-x2
 ! see .xxx
-||see.xxx/sw.js$script,1p
 ||see.xxx/nr.js
-see.xxx##+js(aeld, , pop)
-see.xxx##div.vda-x2.vda-item
-||porntop.com/magic/$script,1p
+see.xxx##.vda-item
 porntop.com###inv_pause
 porntop.com##.ip > .btn-close
-||sss.xxx/sw.js$script,1p
-tuberel.com##+js(aeld, , open)
-||tuberel.com/*.php
-||puporn.com/sw.js$script,1p
 thegay.*##+js(acs, adver)
 thegay.*##.content > div:not([class]) > .wrapper ~ div[class]:not(.wrapper)
 thegay.*##.underplayer__info > div[class]:first-child
@@ -1596,7 +1570,6 @@ thegay.*##.video-page__content > div.left + div[class]:last-child
 thegay.*##div[style="display:flex !important"] > div
 ||thegay.com^$csp=default-src 'self' *.ahcdn.com fonts.gstatic.com fonts.googleapis.com https://thegay.com https://tn.thegay.com 'unsafe-inline' 'unsafe-eval' data: blob:,badfilter
 ! privatehomeclips.com
-privatehomeclips.com##.footer-banners
 privatehomeclips.com##div[style="display:flex !important"] > div
 privatehomeclips.com##.partners-wrap
 privatehomeclips.com##.video-page__content > .right
@@ -1634,18 +1607,14 @@ mrgay.*,pornhits.com##.right
 senzuri.tube##+js(acs, adver)
 senzuri.tube##.right
 senzuri.tube##.video-tube-friends-wrapper
+txxxporn.tube##+js(acs, adver)
 txxxporn.tube##div[style="display:flex !important"] > div
 txxxporn.tube##.video-videos-slider + div[class] + div[class]
 txxxporn.tube##div.text:upward(1)
-txxxporn.tube##img[src^="https://tn.txxx.tube/contents/cst/"]:upward(.video-content > div > div)
 txxxporn.tube##.video-content > div:not(:has(.pplayer))
 txxxporn.tube##.video-content > div[class]:first-child > div[class]:has(> div > a[href="#"])
+txxxporn.tube##span:only-child:has-text(/^AD$/):upward(2)
 hclips.com##+js(acs, adver)
-hclips.com##+js(acs, document.getElementById, popunder)
-hclips.com##+js(aopr, ExoLoader)
-hclips.com##.adv-box-holder
-hclips.com##[class^="pl_"]
-hclips.com##iframe[src="javascript:false"]
 hclips.com##div[style="display:flex !important"] > div
 hclips.com##.video-page__content > .right
 hclips.com##.video-page__item
@@ -1654,8 +1623,6 @@ hclips.com##.underplayer > div[class]:not([class*="_"]) > div[class]
 hclips.com##.wrapper + .partners-wrap + div[class]
 *$frame,3p,denyallow=google.com|gstatic.com,domain=hclips.com
 hdzog.*##+js(acs, adver)
-hdzog.com###under-pl-ad
-hdzog.com##+js(aeld, , pop)
 hdzog.*##.content > div:not([class]) > div.content-block ~ div[class]:not(.content-block)
 hdzog.*##.suggestions
 hdzog.*##.partners-wrap
@@ -1664,6 +1631,7 @@ hdzog.*##.video-page__left > div[class]:last-of-type
 hdzog.*##div[style="display:flex !important"] > div
 hdzog.*##.video-page__content > div:not([class*="video"])
 hdzog.*##.video-page__row > div:not([class*="video"])
+tuberel.com##+js(acs, adver)
 mcfucker.com##+js(aopw, t4PP)
 sponsor=$domain=mcfucker.com
 mcfucker.com##.vadv
