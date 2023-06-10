@@ -1,7 +1,7 @@
 ! Title: uBlock filters
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Expires: 5 days
-! Last modified: Sat, 10 Jun 2023 09:02:43 +0000
+! Last modified: Sat, 10 Jun 2023 09:27:20 +0000
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 !
@@ -22770,9 +22770,8 @@ fapdrop.com##[href^="https://t.crdefault1.com/"]
 ||aromajob.jp/wp-content/themes/cloudtpl_495/images/ad/fukuichishiroromu.jpg
 embedgram.com##+js(nowoif)
 @@||ay.delivery/client-v2.js$script,domain=diep.io
-! Anti adblock + ad
-cellmapper.net##+js(nostif, AD BLOCKER DETECTED)
-cellmapper.net##.modal_dialog_base:has( > .modal_top_header:has-text(Ads))
+cellmapper.net##+js(nostif, /adblock/i)
+cellmapper.net##.modal_dialog_base > .modal_top_header:has-text(/Ads|Adv/):upward(1)
 cellmapper.net##table:has( > thead > .collapsableSection > td:has-text(Ads))
 medscape.com##+js(set, slideShow.displayInterstitial, true)
 hdrez.com##+js(nostif, displayMessage)
