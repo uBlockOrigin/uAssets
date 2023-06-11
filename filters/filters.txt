@@ -7989,6 +7989,11 @@ hulu.com##+js(json-prune, breaks pause_ads)
 @@||hulu.com^$ghide
 hulu.com###banner-ad-container
 hulu.com##.ad-choices
+! https://github.com/uBlockOrigin/uAssets/issues/17382
+!#if ext_devbuild
+hulu.com##+js(json-prune, video_metadata.end_credits_time)
+hulu.com##+js(xml-prune, xpath(//*[name()="MPD"]/@mediaPresentationDuration | //*[name()="Period"][starts-with(@id\, "Ad")] | //*[name()="Period"]/@start), , .mpd)
+!#endif
 
 ! https://github.com/uBlockOrigin/uAssets/issues/4356
 @@||adserver.iprom.net/adserver7$xhr,domain=rtl.hr
