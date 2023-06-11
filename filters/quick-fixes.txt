@@ -1,7 +1,7 @@
 ! Title: uBlock₀ filters – Quick fixes
 ! Description: Immediate, temporary filters to fix websites
 ! Expires: 12 hours
-! Last modified: Sun, 11 Jun 2023 14:55:33 +0000
+! Last modified: Sun, 11 Jun 2023 15:02:19 +0000
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! Forums: https://github.com/uBlockOrigin/uAssets/issues
@@ -104,49 +104,9 @@ work.ink##body > div > a#link:upward(body > div)
 ! https://github.com/uBlockOrigin/uAssets/issues/17054
 spiegel.de##^script:has-text(homad)
 welt.de,~dutyfarm.welt.de##div[id][style^="z-index: 2147483647; margin"][style$="px; position: absolute;"]:remove()
-!#if !ext_devbuild
-*$media,redirect-rule=noopmp4-1s,domain=spiegel.de|t-online.de|giga.de
-||googlevideo.com^$media,redirect=noopmp4-1s,domain=t-online.de|giga.de
-@@||securepubads.g.doubleclick.net/tag/js/gpt.js$script,domain=spiegel.de|t-online.de|giga.de
-@@||googletagmanager.com/gtag/js?$script,domain=spiegel.de|t-online.de|giga.de
-@@||googletagmanager.com/gtm.js?$script,domain=spiegel.de|t-online.de|giga.de
-@@||imasdk.googleapis.com/js/sdkloader/ima3.js$script,domain=spiegel.de|t-online.de|giga.de
-@@||imasdk.googleapis.com/js/sdkloader/vpaid_adapter.js?$script,domain=giga.de
-@@||p.jwpcdn.com/player/v/8.27.0/vast.js$script,domain=spiegel.de
-@@||pubads.g.doubleclick.net/activity$xhr,domain=spiegel.de
-@@||ad.doubleclick.net/ddm/$xhr,domain=spiegel.de|t-online.de
-@@||ad.sxp.smartclip.net/select?$xhr,domain=spiegel.de
-@@||tracking.m6r.eu/sync/dmp?$xhr,domain=t-online.de
-@@||vh.adscale.de/nuggad?nu=$xhr,domain=spiegel.de
-@@||assets.adobetarget.com/spiegelverlagrudolfa/production/v1/rules.json$xhr,domain=spiegel.de
-@@||te.technical-service.net/api?no_rc_pf=1&pa=2&gdpr_consent=$xhr,domain=spiegel.de
-@@||userreport.com^$xhr,domain=t-online.de
-@@||vh.adscale.de/vah?sid=$xhr,domain=t-online.de|spiegel.de|imasdk.googleapis.com
-@@||tracking.m6r.eu/win/vast?creativeLinkId=$xhr,domain=imasdk.googleapis.com
-@@||welect.de/homad/vpaid/t-online.tv?$xhr,domain=imasdk.googleapis.com
-@@||welect.de/homad/vpaid/instream/t-online.tv?$xhr,domain=imasdk.googleapis.com
-@@||tpc.googlesyndication.com/pagead/js/loader21.html?https://hgc-cf-cache-1.svonm.com/welect.js$frame,domain=imasdk.googleapis.com
-@@||nugmw.userreport.com/xml/adscale.nuggad.net/nuggad?nuggn=$xhr,domain=spiegel.de
-@@||nugmw.userreport.com/xml/adscale.nuggad.net/nuggad?nuggn=*t-online.de$xhr,domain=imasdk.googleapis.com
-@@||vh.adscale.de/nuggad?nu*t-online.de$xhr,domain=imasdk.googleapis.com
-@@||pubads.g.doubleclick.net/gampad/ads?iu=*t-online.de$xhr,domain=imasdk.googleapis.com
-@@||pubads.g.doubleclick.net/gampad/ads?iu=*giga.de$xhr,domain=imasdk.googleapis.com
-@@||trx.adscale.de/ve?ej=$xhr,domain=imasdk.googleapis.com
-@@vast*t-online.de$xhr,domain=imasdk.googleapis.com
-@@||amazonaws.com/homad-global-configs.schneevonmorgen.com^$xhr,domain=spiegel.de
-@@||te.technical-service.net/api?pa=$xhr,domain=spiegel.de
-@@/vast?$xhr,domain=spiegel.de
-t-online.de##.ima-ad-container
-@@*$xhr,domain=giga.de
-@@||js.stroeermediabrands.de/metaTag.min.$script,domain=giga.de
-||doubleclick.net^$script,important,domain=spiegel.de,badfilter
-||securepubads.g.doubleclick.net/gpt/pubads_impl_$script,important,domain=spiegel.de
-!#endif
-!#if ext_devbuild
 giga.de,kino.de##+js(rpnt, script, /\"homad\"\,/)
 t-online.de##+js(rpnt, script, /\"homad\":\{\"state\":\"enabled\"\}/, "homad":{"state":"disabled"})
-spiegel.de##+js(rpnt, script, /^\(function\(\)/, if(false))
-!#endif
+spiegel.de##+js(rmnt, #text, homad)
 
 ! https://github.com/uBlockOrigin/uBlock-discussions/discussions/765
 telsu.fi##body > a[href][style], #prg > a[href][style], .footer > a[href][style], .rpos a[href][style], #pb_dets > a[href][style]
