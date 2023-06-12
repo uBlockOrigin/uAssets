@@ -1,7 +1,7 @@
 ! Title: uBlock₀ filters – Quick fixes
 ! Description: Immediate, temporary filters to fix websites
 ! Expires: 12 hours
-! Last modified: Mon, 12 Jun 2023 07:59:44 +0000
+! Last modified: Mon, 12 Jun 2023 12:40:32 +0000
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! Forums: https://github.com/uBlockOrigin/uAssets/issues
@@ -106,7 +106,9 @@ spiegel.de##^script:has-text(homad)
 welt.de,~dutyfarm.welt.de##div[id][style^="z-index: 2147483647; margin"][style$="px; position: absolute;"]:remove()
 giga.de,kino.de##+js(rpnt, script, /\"homad\"\,/)
 t-online.de##+js(rpnt, script, /\"homad\":\{\"state\":\"enabled\"\}/, "homad":{"state":"disabled"})
+!#if !cap_html_filtering
 spiegel.de##+js(rmnt, script, homad)
+!#endif
 
 ! https://github.com/uBlockOrigin/uBlock-discussions/discussions/765
 telsu.fi##body > a[href][style], #prg > a[href][style], .footer > a[href][style], .rpos a[href][style], #pb_dets > a[href][style]
