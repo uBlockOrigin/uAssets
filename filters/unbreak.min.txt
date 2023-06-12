@@ -4,7 +4,7 @@
 !     Filters optimized for uBlock Origin, to unbreak sites broken as
 !     a result of 3rd-party filter lists enabled by default.
 ! Expires: 5 days
-! Last modified: Sat, 10 Jun 2023 10:05:09 +0000
+! Last modified: Mon, 12 Jun 2023 03:03:08 +0000
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 !
@@ -2359,3 +2359,7 @@ metastats.net###page-wrapper > div.row:nth-of-type(1)
 ||siteintercept.qualtrics.com^$badfilter
 *$script,domain=abcya.com,redirect-rule=noopjs
 ||googletagmanager.com/gtag/js$script,redirect-rule=noop.js:10,domain=scobel.pasaz24.pl
+@@||googletagmanager.com/gtm.js$script,domain=nj.com
+@@||apps.sophi.io/latest/al-nj.segments.min.js$script,domain=nj.com
+@@||nj.com/DG/DEFAULT/rest/rpc/$xhr,1p
+www.nj.com##^html > head > :is(meta[name="subscriber_only"][content="false"], meta[property="og:url"]:not([content*=".html"])):upward(html) script:has-text(/googletagmanager|window\.sophi/)
