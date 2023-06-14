@@ -4,7 +4,7 @@
 !   which purpose is to guarantee that a filter won't be overriden by
 !   exception filters.
 ! Expires: 7 days
-! Last modified: Wed, 14 Jun 2023 16:01:23 +0000
+! Last modified: Wed, 14 Jun 2023 16:25:36 +0000
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 !
@@ -67,7 +67,10 @@
 teamskeet.com##+js(set, $.tstracker, noopFunc)
 rediff.com##a[onclick^="trackURL"]:remove-attr(onclick)
 rediff.com##a[onmousedown^="return enc(this,'https://track.rediff.com"]:remove-attr(onmousedown)
-||reddit.com/api/jail/$xhr,1p
+reddit.com##+js(no-fetch-if, url:/^https:\/\/www\.reddit\.com$/ method:post)
+reddit.com##+js(no-xhr-if, method:POST url:/^https:\/\/www\.reddit\.com$/)
+old.reddit.com##a.outbound[data-outbound-url]:remove-attr(data-outbound-url)
+!reddit.com##+js(set, Object.prototype.allowClickTracking, false)
 ||colpirio.com^$3p
 docs.google.com##+js(no-xhr-if, method:POST url:/logImpressions)
 liberation.fr,officedepot.fr,oui.sncf##+js(acs, document.createElement, '.js')
@@ -165,8 +168,6 @@ tacobell.com##+js(set, bmak.js_post, false)
 ||cloudflare.com/ajax/libs/fingerprintjs2/$script,redirect=fingerprint2.js,important,domain=gamebox.gesoten.com
 ||gamerch.com/s3-assets/library/js/fingerprint2.min.js$script,redirect=fingerprint2.js,important
 ||ahentai.top/counter.php
-reddit.com##+js(no-fetch-if, url:/^https:\/\/www\.reddit\.com$/ method:post)
-reddit.com##+js(no-xhr-if, method:POST url:/^https:\/\/www\.reddit\.com$/)
 ||tr.jianshu.com^
 /lib/f_ad_code.js
 /\.com\/[-_0-9a-zA-Z]{4,}\/[-\/_0-9a-zA-Z]{25,}$/$script,1p,domain=gu-global.com|uniqlo.com
@@ -197,8 +198,6 @@ endbasic.dev,jmmv.dev##+js(no-xhr-if, method:POST)
 ||jsdelivr.net^*/fp.min.js$script,redirect-rule=fingerprint3.js:10
 /log/*$xhr,domain=vizcloud.*|vizcloud2.*
 ||serasaexperian.com.br/dist/scripts/fingerprint2.js^$redirect=fingerprint2.js,script,important
-old.reddit.com##+js(ra, data-outbound-url, .outbound)
-!reddit.com##+js(set, Object.prototype.allowClickTracking, false)
 /?p=%2F*&h=https%3A%2F%2F*&r=&sid=*&qs=*&cid=$image,1p
 /?h=https%3A%2F%2F*&r=&sid=*&qs=*&cid=$image,1p
 /?v=eyJoIjoiaHR0cHM6Ly9$image,1p
