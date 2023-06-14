@@ -6801,3 +6801,9 @@ embed.reddit.com##a:has(shreddit-player):remove-attr(href)
 
 ! https://zefoy.com/ anti devtools
 zefoy.com##+js(nostif, debugger)
+
+! https://www.jpost.com/science/article-746119 site refreshing
+jpost.com##^script:has-text(stopRefreshSite)
+!#if env_chromium
+jpost.com##+js(rmnt, script, stopRefreshSite)
+!#endif
