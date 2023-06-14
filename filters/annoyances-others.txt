@@ -3,7 +3,7 @@
 !   Filters optimized for uBlock Origin, to be used with EasyList's
 !   and/or Adguard's "Other Annoyances" list(s)
 ! Expires: 7 days
-! Last modified: Mon, 12 Jun 2023 15:33:51 +0000
+! Last modified: Wed, 14 Jun 2023 10:57:54 +0000
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! Forums: https://github.com/uBlockOrigin/uAssets/issues
@@ -6801,3 +6801,9 @@ embed.reddit.com##a:has(shreddit-player):remove-attr(href)
 
 ! https://zefoy.com/ anti devtools
 zefoy.com##+js(nostif, debugger)
+
+! https://www.jpost.com/science/article-746119 site refreshing
+jpost.com##^script:has-text(stopRefreshSite)
+!#if env_chromium
+jpost.com##+js(rmnt, script, stopRefreshSite)
+!#endif
