@@ -1646,16 +1646,10 @@ apkmirror.com##.downloadCountdown
 apkmirror.com##.OUTBRAIN
 apkmirror.com##[id^="adtester-container"]:style(position: absolute !important;)
 apkmirror.com##+js(aost, document.querySelectorAll, /onload inlineScript|onload https/)
-!#if env_firefox
 apkmirror.com##.ains
 apkmirror.com##^script:has-text(secondsLeft)
-!#endif
-!#if env_chromium
-@@||ezojs.com/ezoic/sa.min.js$script,domain=apkmirror.com
-||ezodn.com^$important,domain=apkmirror.com
-apkmirror.com###ezmobfooter
-apkmirror.com##.ains:style(height: 1px !important; min-height: 1px !important; padding: 0px !important;)
-apkmirror.com##+js(aopr, ezAnalyticsDefine)
+!#if !cap_html_filtering
+apkmirror.com##+js(rmnt, script, secondsLeft)
 !#endif
 
 ! https://forums.lanik.us/viewtopic.php?f=62&t=38653
@@ -3214,11 +3208,15 @@ dz4up.com##.container + div[style] > [title="Download Now"] > img
 *$frame,denyallow=google.com,domain=dz4link.com
 *$script,3p,denyallow=facebook.net|google.com|gstatic.com|recaptcha.net,domain=dz4link.com
 
-! https://forums.lanik.us/viewtopic.php?f=62&t=32110
+! https://github.com/uBlockOrigin/uAssets/issues/18480
 ! pixhost. to
 pixhost.*##+js(acs, document.querySelectorAll, popMagic)
 pixhost.*###js
 pixhost.*###web:style(display: block !important;)
+pixhost.*##^script:has-text(exdynsrv)
+!#if !cap_html_filtering
+pixhost.*##+js(rmnt, script, exdynsrv)
+!#endif
 
 ! https://adblockplus.org/forum/viewtopic.php?f=1&t=54957
 readmng.com##.desk
@@ -3394,6 +3392,7 @@ themeslide.com##+js(nano-stb)
 @@||prebid.a-mo.net/a/c$xhr,domain=aternos.org
 @@||vntsm.com/*/ad-manager.min.js$script,domain=aternos.org
 @@||hb.vntsm.io/content.html$xhr,domain=aternos.org
+@@||securepubads.g.doubleclick.net/tag/js/gpt.js$script,domain=aternos.org
 ||aternos.org/panel/ajax/reportDetection.php?$xhr,1p
 aternos.org##[style*="opacity:  0"]
 aternos.org##.header-ad
@@ -4121,11 +4120,11 @@ aquipelis.net##[class^="adsbutt"]
 ! https://github.com/easylist/easylist/issues/7486
 eporner.com##+js(aopw, EPeventFire)
 eporner.com##+js(nostif, additional_src, 300)
-eporner.com##+js(popads-dummy)
 *.xml$xhr,3p,domain=eporner.com
 ||eporner.com/js/bowser.php
 ||eporner.com/cppb/
 ||eporner.com/dotm/
+eporner.com##.mb > .adnative-1x1:upward(1)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/1855
 ! https://forums.lanik.us/viewtopic.php?p=134829#p134829
@@ -7274,7 +7273,7 @@ myegy.*##+js(aopw, decodeURI)
 ! https://github.com/uBlockOrigin/uAssets/issues/4068
 gamezhero.com##+js(set, ads, true)
 ||gamezhero.com/promo$frame,1p
-@@||imasdk.googleapis.com/js/sdkloader/ima3.js$script,domain=gamezhero.com
+||imasdk.googleapis.com/js/sdkloader/ima3.js$script,redirect-rule=google-ima.js,domain=gamezhero.com
 
 ! https://www.reddit.com/r/uBlockOrigin/comments/9utd8b/wikifeet_adverts/
 wikifeet.com##+js(aopr, NativeAd)
@@ -7324,7 +7323,8 @@ smallseotools.com##roksakotoroklo
 @@||smallseotools.com/webimages/process.gif
 smallseotools.com#@#.b
 smallseotools.com#@#.px304
-smallseotools.com,plagiarismdetector.net##[data-link*="grammarly.com"]
+smallseotools.com#@#[class*="gram"]
+plagiarismdetector.net##[data-hlink*="grammarly.com"]
 ! https://github.com/uBlockOrigin/uAssets/issues/9701
 ! https://github.com/uBlockOrigin/uAssets/issues/16075
 duplichecker.com##+js(no-fetch-if, /google|\/ad.+\.js/)
@@ -7353,21 +7353,15 @@ duplichecker.com,plagiarismchecker.co,plagiarismdetector.net,searchenginereports
 duplichecker.com,plagiarismchecker.co,plagiarismdetector.net,searchenginereports.net,smallseotools.com##.container > div a[href].set-anchor:upward(.container > div)
 duplichecker.com##.adsbygoogle:upward([style]):upward([style])
 plagiarismdetector.net##+js(aost, adblock)
-smallseotools.com##article
 plagiarismdetector.net###second_slot
 plagiarismdetector.net###first_slot
 smallseotools.com##.show.g_popup.fade.modal
 smallseotools.com##.show.fade.modal-backdrop
-smallseotools.com##.mxauto.my-2
-smallseotools.com##.sticky_ssb.my-2
 smallseotools.com##body:style(overflow: auto !important;)
 plagiarismchecker.co###top-ad:style(max-height: 2.1px !important;)
 searchenginereports.net,plagiarismdetector.net##+js(no-xhr-if, /googlesyndication|adpushup|adrecover/)
 searchenginereports.net##.adsbygoogle:upward(1)
-smallseotools.com##[id$="sst"]
-smallseotools.com##.mb-2.justify-content-center
-smallseotools.com##[class*="garammarly_"]
-smallseotools.com##.mxautoo.px267
+smallseotools.com##[onclick*="open"]
 searchenginereports.net##.grammarly-overall
 plagiarismchecker.co##form + section#after-ad + div[class][style]
 plagiarismchecker.co##.small_heading + section#top-ad + div[class][style]
@@ -7380,7 +7374,6 @@ searchenginereports.net##div[id^="mnm_s_"]
 plagiarismdetector.net##[style]:has([onclick*="open"])
 ||plagiarismdetector.net/pd-imgs/Grammarly_Square$image,1p
 ||plagiarismdetector.net/pd-imgs/Top_Grammarly_banner$image,1p
-||plagiarismdetector.net/pd-imgs/gram.png$image,1p
 
 ! https://github.com/uBlockOrigin/uAssets/issues/4104
 jagran.com##.ads
@@ -7676,7 +7669,8 @@ u.gg###af-header-link
 u.gg###af-all:style(margin-top: 4em;)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/4241
-@@||imasdk.googleapis.com/js/sdkloader/ima3.js$script,domain=actiongame.com|brain-games.co.uk|classicgame.com|games-site.co.uk|hiddenobjectgames.com|mahjong.co.uk|mahjong.com|match3.co.uk|match3games.com|mindgames.com|neongames.co.uk|neongames.com|solitaireonline.com|timemanagementgame.com
+@@||imasdk.googleapis.com/js/sdkloader/ima3.js$script,domain=actiongame.com|brain-games.co.uk|classicgame.com|games-site.co.uk|hiddenobjectgames.com|mahjong.co.uk|mahjong.com|match3.co.uk|match3games.com|mindgames.com|neongames.co.uk|solitaireonline.com|timemanagementgame.com
+||imasdk.googleapis.com/js/sdkloader/ima3.js$script,redirect-rule=google-ima.js,domain=neongames.com
 
 ! anti adb puzzlefry . com
 puzzlefry.com##+js(aopw, killAdBlock)
@@ -7978,18 +7972,14 @@ wemakesites.net##+js(acs, $, adBlockChecker)
 hulu.com##+js(set, Object.prototype._parseVAST, noopFunc)
 hulu.com##+js(set, Object.prototype.createAdBlocker, noopFunc)
 hulu.com##+js(set, Object.prototype.isAdPeriod, falseFunc)
-hulu.com##+js(json-prune, breaks pause_ads)
 ||assetshuluimcom-a.akamaihd.net/*.mp3$media,redirect=noopmp3-0.1s,domain=hulu.com
 ||ads-v-darwin.hulustream.com^$media,redirect=noopmp4-1s
 @@||hulu.com^$ghide
 hulu.com###banner-ad-container
 hulu.com##.ad-choices
 ! https://github.com/uBlockOrigin/uAssets/issues/17382
-!#if ext_devbuild
-hulu.com#@#+js(json-prune, breaks pause_ads)
 hulu.com##+js(json-prune, breaks pause_ads video_metadata.end_credits_time)
 hulu.com##+js(xml-prune, xpath(//*[name()="MPD"]/@mediaPresentationDuration | //*[name()="Period"][starts-with(@id\, "Ad")] | //*[name()="Period"]/@start), , .mpd)
-!#endif
 
 ! https://github.com/uBlockOrigin/uAssets/issues/4356
 @@||adserver.iprom.net/adserver7$xhr,domain=rtl.hr
@@ -8339,6 +8329,8 @@ pogo.com##+js(set, pogo.intermission.staticAdIntermissionPeriod, 0)
 @@||pogo.com^$ghide
 pogo.com##.hideableAd
 pogo.com###leaderboard-ad
+pogo.com##[class*="gameSkyscraperAd"]
+pogo.com##[class*="gameTopAd"]
 
 ! https://github.com/uBlockOrigin/uAssets/pull/4626
 @@||torrent9.*^$ghide
@@ -9311,8 +9303,8 @@ safelinkunited.blogspot.com##ins.adsbygoogle
 ! https://github.com/uBlockOrigin/uAssets/issues/5291
 ! https://github.com/AdguardTeam/AdguardFilters/issues/34440
 @@||gemius.pl^$script,xhr,domain=polsatnews.pl
-@@||imasdk.googleapis.com/js/sdkloader/ima3.js$script,domain=polsatnews.pl
 @@||hit.stat24.com/$xhr,domain=polsatnews.pl
+||imasdk.googleapis.com/js/sdkloader/ima3.js$script,redirect-rule=google-ima.js,domain=polsatnews.pl
 
 ! https://github.com/uBlockOrigin/uAssets/issues/8642
 ! https://github.com/uBlockOrigin/uAssets/issues/8287
@@ -9994,7 +9986,7 @@ oko.sh##+js(aopw, Fingerprint2)
 oko.sh##+js(nowebrtc)
 oko.sh##+js(set, blurred, false)
 oko.sh##+js(nostif, Adblock)
-oko.sh##+js(no-fetch-if, googlesyndication)
+oko.sh##+js(no-fetch-if, /googlesyndication|inklinkor/)
 oko.sh##+js(acs, XMLHttpRequest, adb)
 oko.sh##^script:has-text(adb_detected)
 *$image,redirect-rule=1x1.gif,domain=oko.sh
@@ -11454,10 +11446,8 @@ puzzles.msn.com##[class*="displayAd"], .ark-ad-message
 ! https://github.com/uBlockOrigin/uAssets/issues/5988
 ||videorolls.row.aiv-cdn.net/*.mp4$media,redirect=noopmp3-0.1s,domain=amazon.com
 ! https://github.com/uBlockOrigin/uAssets/issues/14512
-!#if ext_devbuild
 amazon.com##+js(json-prune, cuepointPlaylist)
 amazon.com##+js(xml-prune, xpath(//*[name()="Period"][.//*[name()="SupplementalProperty"][@value="Ad"]]), , .mpd)
-!#endif
 
 ! https://github.com/NanoMeow/QuickReports/issues/1570
 @@||novelgo.id^$ghide
