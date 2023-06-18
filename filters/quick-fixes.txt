@@ -214,7 +214,7 @@ listen.tidal.com#@#+js(json-prune, countryCode)
 
 ! soft98 anti blocker
 soft98.ir,~forum.soft98.ir##+js(rmnt, aside, /(.*)[9][^\w]*[0][^\w]*[9][^\w]*[9][^\w]*[0][^\w]*[7][^\w]*[1][^\w]*[4][^\w]*[6][^\w]*[1][^\w]*(.*)/)
-soft98.ir,~forum.soft98.ir##+js(rpnt, script, /function gtag\(\)\{.*\}/, document.querySelectorAll('a').forEach(node=>{for(let i=0;i<node.attributes.length;i++){let value=node.attributes[i].value;try{value=btoa(atob(value))==value?atob(value):value}catch(e){}if(value.includes('//dl')||(node.href.includes('#')&&value.includes('://'))){node.href=value}}});)
+soft98.ir,~forum.soft98.ir##+js(rpnt, script, /function gtag\(\)\{.*\}/, document.querySelectorAll('a').forEach(node=>{for(let i=0;i<node.attributes.length;i++){var value=node.attributes[i].value;try{value=btoa(atob(value))==value?atob(value):value}catch(e){}try{value=typeof JSON.parse(value)==='object'?JSON.parse(value):value}catch(e){}if(typeof value==='object'){value=value.scheme+"://"+value.host+value.path+'?'+value.query}if(value.includes('//dl')||(node.href.includes('#')&&value.includes('://'))){node.href=value}}});)
 ||soft98.ir^$script,1p,domain=~forum.soft98.ir
 .gif^$image,domain=soft98.ir|~forum.soft98.ir
 soft98.ir,~forum.soft98.ir##a:has(> img)
@@ -225,7 +225,7 @@ soft98.ir,~forum.soft98.ir##main span[class]:has(a):style(overflow: hidden !impo
 soft98.ir,~forum.soft98.ir##main > section:style(display: table-footer-group !important;)
 soft98.ir,~forum.soft98.ir##ul[role="tablist"] > li > a[class*="active"]:remove-class(active)
 soft98.ir,~forum.soft98.ir##ul[role="tablist"] > li > a[class][href^="#"]:remove-attr(href)
-soft98.ir,~forum.soft98.ir##div[class]:has(> a[href=""])
+soft98.ir,~forum.soft98.ir##main article div[class]:has(> a):has-text(/(.*)[ت][^\w]*[ب][^\w]*[ل][^\w]*[ی][^\w]*[غ][^\w]*(.*)/)
 soft98.ir,~forum.soft98.ir##div[class] > div[id][role="tabpanel"][aria-labelledby]:style(display: block !important; opacity: 1 !important;)
 soft98.ir,~forum.soft98.ir##aside > section:style(order: 1 !important;)
 soft98.ir,~forum.soft98.ir##aside > section > div > ul[id]:style(height: 100% !important;)
