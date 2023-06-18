@@ -1,7 +1,7 @@
 ! Title: uBlock₀ filters – Quick fixes
 ! Description: Immediate, temporary filters to fix websites
 ! Expires: 12 hours
-! Last modified: Sun, 18 Jun 2023 18:10:51 +0000
+! Last modified: Sun, 18 Jun 2023 19:40:21 +0000
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! Forums: https://github.com/uBlockOrigin/uAssets/issues
@@ -212,11 +212,12 @@ apkmirror.com##+js(rmnt, script, secondsLeft)
 ! https://github.com/uBlockOrigin/uAssets/issues/18522
 listen.tidal.com#@#+js(json-prune, countryCode)
 
-! soft98 anti blocker
+! https://github.com/uBlockOrigin/uAssets/issues/14480
 soft98.ir,~forum.soft98.ir##+js(rmnt, aside, /(.*)[9][^\w]*[0][^\w]*[9][^\w]*[9][^\w]*[0][^\w]*[7][^\w]*[1][^\w]*[4][^\w]*[6][^\w]*[1][^\w]*(.*)/)
 soft98.ir,~forum.soft98.ir##+js(rpnt, script, /function gtag\(\)\{.*\}/, base64=JSON.parse(atob(base64));document.querySelectorAll('a').forEach(node=>{for(let i=0;i<node.attributes.length;i++){var value=node.attributes[i].value;if(base64[value]){node.href=base64[value];continue}try{value=btoa(atob(value))==value?atob(value):value}catch(e){}try{value=typeof JSON.parse(value)==='object'?JSON.parse(value):value}catch(e){}if(typeof value==='object'){value=value.scheme+"://"+value.host+value.path+'?'+value.query}if(value.includes('//dl')||(node.href.includes('#')&&value.includes('://'))){node.href=value}else if(node.href.includes('#')){node.href=''}}});)
 ||soft98.ir^$script,1p,domain=~forum.soft98.ir
 .gif^$image,domain=soft98.ir|~forum.soft98.ir
+soft98.ir,~forum.soft98.ir##^a:has(> img)
 soft98.ir,~forum.soft98.ir##a:has(> img)
 soft98.ir,~forum.soft98.ir##aside > div[class] header:upward(div[class])
 soft98.ir,~forum.soft98.ir##main:style(display: table !important;)
