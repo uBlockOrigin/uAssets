@@ -7971,8 +7971,9 @@ hulu.com##+js(set, Object.prototype.isAdPeriod, falseFunc)
 hulu.com###banner-ad-container
 hulu.com##.ad-choices
 ! https://github.com/uBlockOrigin/uAssets/issues/17382
-hulu.com##+js(json-prune, breaks pause_ads video_metadata.end_credits_time)
-hulu.com##+js(xml-prune, xpath(//*[name()="MPD"]/@mediaPresentationDuration | //*[name()="Period"][starts-with(@id\, "Ad")] | //*[name()="Period"]/@start), , .mpd)
+! https://www.reddit.com/r/uBlockOrigin/comments/14b5lbw/
+hulu.com##+js(json-prune, breaks pause_ads video_metadata.end_credits_time, pause_ads)
+hulu.com##+js(xml-prune, xpath(//*[name()="MPD"]/@mediaPresentationDuration | //*[name()="Period"][starts-with(@id\, "Ad")] | //*[name()="Period"]/@start), Period[id^="Ad"], .mpd)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/4356
 @@||adserver.iprom.net/adserver7$xhr,domain=rtl.hr
