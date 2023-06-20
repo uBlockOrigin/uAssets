@@ -7,6 +7,7 @@ TMPDIR=$(mktemp -d)
 mkdir -p $TMPDIR/easylist
 git clone --depth 1 https://github.com/easylist/easylist.git $TMPDIR/easylist
 cp -R templates/easy*.template $TMPDIR/easylist/
+git clone --depth 1 https://github.com/uBlockOrigin/uAssets.git $TMPDIR/easylist/uAssets
 
 echo "*** uAssets: Assembling easylist.txt"
 node ./tools/easylist/make-easylist.js dir=$TMPDIR/easylist in=easylist.template out=thirdparties/easylist/easylist.txt
