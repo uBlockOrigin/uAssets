@@ -4,7 +4,7 @@
 !   which purpose is to guarantee that a filter won't be overriden by
 !   exception filters.
 ! Expires: 7 days
-! Last modified: Tue, 20 Jun 2023 00:22:50 +0000
+! Last modified: Tue, 20 Jun 2023 05:34:43 +0000
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 !
@@ -597,6 +597,10 @@ pcgamingwiki.com##+js(href-sanitizer, a[href^="https://greenmangaming.sjv.io/c/"
 
 ! https://github.com/uBlockOrigin/uAssets/issues/18562
 bikesales.com.au##^html > head > :is([name="canonical"], [rel="canonical"]):not([content*="/details/"]):upward(1) > script[src*="optimizely"]
+
+! https://github.com/uBlockOrigin/uAssets/issues/18588
+nypost.com##+js(json-prune, dataLayer.trackingId user.trackingId)
+nypost.com##+js(cookie-remover, blaize_tracking_id)
 
 ! Merge in resource-abuse.txt
 !#include resource-abuse.txt
