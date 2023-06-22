@@ -79,8 +79,9 @@ work.ink##.waldo-display-unit
 *$popup,3p,domain=work.ink,to=~discord.*|~google.com|~workink.*|~youtu.be|~youtube.com
 workink.click##+js(nowoif, !direct)
 work.ink##+js(nosiif, a0b)
-work.ink##+js(nostif, a0b)
+work.ink##+js(no-fetch-if, /outbrain|criteo/)
 work.ink##body > div > a#link:upward(body > div)
+work.ink##.opera-container
 
 ! https://github.com/uBlockOrigin/uAssets/issues/17054
 spiegel.de##^script:has-text(homad)
@@ -136,10 +137,6 @@ linkneverdie.net#@#+js(nostif, t)
 @@||pagead2.googlesyndication.com^$script,domain=linkneverdie.net
 @@||quantumdex.io^$script,domain=linkneverdie.net
 
-! https://github.com/AdguardTeam/AdguardFilters/issues/152800
-#@#a[href^="https://click.linksynergy.com/fs-bin/"]
-##a[href^="https://click.linksynergy.com/fs-bin/"] > img
-
 ! https://github.com/uBlockOrigin/uAssets/issues/18399
 ||dl-protect.net^$badfilter
 ||dl-protect.net^$3p
@@ -165,8 +162,7 @@ simpulumlamerop.com##+js(nowoif)
 simpulumlamerop.com##+js(nostif, blocked)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/17711
-duplichecker.com,plagiarismchecker.co,plagiarismdetector.net,searchenginereports.net,smallseotools.com#@#ins.adsbygoogle:style(max-height: 1.1px !important; visibility: collapse !important;)
-duplichecker.com,plagiarismchecker.co,plagiarismdetector.net,searchenginereports.net,smallseotools.com##ins.adsbygoogle:style(max-height: 1.23px !important;)
+duplichecker.com,plagiarismchecker.co,plagiarismdetector.net,searchenginereports.net,smallseotools.com##ins.adsbygoogle:style(max-height: 1.24px !important;)
 utm_source=*&utm_content=*&utm_term=$popup,domain=duplichecker.com|plagiarismchecker.co|plagiarismdetector.net|searchenginereports.net|smallseotools.com
 smallseotools.com##+js(rpnt, script, .css('display'), .css('opacity'))
 smallseotools.com##[class][rel]:matches-attr(/^/=/tool_trigger/)
@@ -190,20 +186,11 @@ plagiarismchecker.co##div[style="padding:0 0 0 50px;"][class^="col-md-"] > div[c
 plagiarismchecker.co##div.try_full_width[style] > div[class]
 plagiarismchecker.co##article[id]:has(> script[src^="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"]):style(position: absolute !important; pointer-events: none !important;)
 plagiarismchecker.co##div[class^="myyy-"]
-||searchenginereports.net/gm_imgs/
-searchenginereports.net##a[href^="https://searchenginereports.net/url-for-grammarly"]
-searchenginereports.net##div[id][style*="width"][style*="height"]:has(a img)
-searchenginereports.net##div[id^="vclass_Ads_"]
-searchenginereports.net##div[class^="vclass_Ads_"]
+searchenginereports.net##+js(rpnt, script, max-height, opacity)
+||searchenginereports.net/img_gmly/
+searchenginereports.net##div[id^="ado_ad_"], div[id^="g_imgs"], .ado_ad, a[title="advertisment"][target]
+searchenginereports.net##div[id][style*="text-align"][style*="center"]:has(> a[href][target][rel])
 
-! https://github.com/easylist/easylist/commit/704645f40d92b8d3edc7785a04da1c5ae009489e#commitcomment-117864373
-/sdk/push_web/?zid=
-/js/re-ads-
-! https://github.com/easylist/easylist/commit/d2bd1ccbe3b754cba8c1167f0e3deefe7af91991#commitcomment-118019741
-/_xa/ads_
-/image/affiliate/*
-/_adslot/*
-/ad-provider.
 ! https://github.com/easylist/easylist/commit/b7b49fcbba03b9758e04e9193cd6f3c4ed1b2f90#commitcomment-118194439
 /ads/300.html
 
@@ -213,7 +200,9 @@ apkmirror.com##+js(rmnt, script, secondsLeft)
 !#endif
 
 ! https://github.com/uBlockOrigin/uAssets/issues/18522
+! https://www.reddit.com/r/uBlockOrigin/comments/11dh4jm/ads_are_not_blocked_on_tidal_web_browser_details/jp0ed30/
 listen.tidal.com#@#+js(json-prune, countryCode)
+listen.tidal.com#@#+js(json-prune, countryCode, tidalId)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/14480
 ! soft98.ir,~forum.soft98.ir##+js(rmnt, aside, /(.*)[9][^\w]*[0][^\w]*[9][^\w]*[9][^\w]*[0][^\w]*[7][^\w]*[1][^\w]*[4][^\w]*[6][^\w]*[1][^\w]*(.*)/)
@@ -261,5 +250,9 @@ audioztools.com##+js(nostif, nextFunction)
 magesy.blog###abm
 
 ! https://github.com/uBlockOrigin/uAssets/issues/18597
+! https://github.com/uBlockOrigin/uAssets/issues/18609
 ||js.zohocdn.com^$third-party,badfilter
-||js.zohocdn.com^$third-party,domain=~zoho.com
+||js.zohocdn.com^$third-party,domain=~zoho.com,badfilter
+
+! https://github.com/AdguardTeam/AdguardFilters/issues/153183
+gamemod.blog.fc2.com#@#.AdContainer
