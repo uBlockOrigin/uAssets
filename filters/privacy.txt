@@ -104,6 +104,9 @@ reddit.com##+js(no-xhr-if, method:POST url:/^https:\/\/www\.reddit\.com$/)
 ! https://www.reddit.com/r/uBlockOrigin/comments/tihpyw/oldredditcom_outbound_tracking_via_out_reddit_com/i1f290z/?context=3
 old.reddit.com##a.outbound[data-outbound-url]:remove-attr(data-outbound-url)
 !reddit.com##+js(set, Object.prototype.allowClickTracking, false)
+! https://www.reddit.com/r/worldnews/
+reddit.com,~old.reddit.com##+js(rpnt, script, "outboundUrl", "outbound")
+reddit.com,~old.reddit.com##+js(json-prune, data.subredditInfoByName.elements.edges.[].node.outboundLink)
 
 ! https://github.com/uBlockOrigin/uAssets/pull/5578
 ||colpirio.com^$3p
