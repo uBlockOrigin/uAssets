@@ -1,7 +1,7 @@
 ! Title: uBlock filters
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Expires: 5 days
-! Last modified: Sun, 25 Jun 2023 03:17:21 +0000
+! Last modified: Sun, 25 Jun 2023 03:28:29 +0000
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 !
@@ -23071,3 +23071,11 @@ forplayx.ink##div[style="position:fixed;inset:0px;z-index:100000;height:100%;wid
 geo.de##+js(aeld, load, autoRecov)
 /^https:\/\/www\.geo\.de\/[a-z]{10,16}\.js$/$script,1p,strict1p,match-case
 indianyug.com##+js(nostif, siteAccessPopup)
+! yurasu.xyz skip countdown & anti adblock
+yurasu.xyz##+js(set, showAds, true)
+blog.yurasu.xyz##+js(rpnt, script, /timerSeconds: \d+/, timerSeconds: 0)
+blog.yurasu.xyz##+js(nano-sib)
+! kazefuri.net sanitize url
+kazefuri.net##+js(href-sanitizer, a[href^="https://www.adtival.network/"][href*="&url="], ?url)
+! khaddavi.net skip countdown
+khaddavi.net##+js(nano-sib)
