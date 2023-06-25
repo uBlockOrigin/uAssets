@@ -50,14 +50,9 @@ imgmffg.sbs,imgmffgtr.sbs,imgnbg.sbs,imgngc.sbs,imgnmh.cfd,imgqte.sbs,imguthes.s
 
 ! https://github.com/uBlockOrigin/uAssets/issues/15246
 *$script,redirect-rule=noopjs,domain=next-episode.net
-@@||tpc.googlesyndication.com^$script,xhr,domain=next-episode.net
 next-episode.net##.adsbygoogle
 next-episode.net##[id=""]
-next-episode.net##^script:has-text(/checkAdsBlocked|displayNotice/)
-next-episode.net##+js(nostif, /_0x|0x0/)
-!#if !cap_html_filtering
-next-episode.net##+js(rmnt, script, /checkAdsBlocked|displayNotice/)
-!#endif
+next-episode.net##+js(rmnt, script, /onerror|adsbygoogle/)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/15338
 atozmath.com##+js(set, googletag._vars_, {})
