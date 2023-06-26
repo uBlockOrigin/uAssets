@@ -1,7 +1,7 @@
 ! Title: uBlock₀ filters
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Expires: 5 days
-! Last modified: Mon, 26 Jun 2023 10:23:20 +0000
+! Last modified: Mon, 26 Jun 2023 15:35:11 +0000
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 !
@@ -1895,14 +1895,24 @@ sxyprn.*###vid_container_id > .tdn
 ! https://github.com/uBlockOrigin/uAssets/issues/1197
 lacuevadeguns.com##+js(aost, onload, inlineScript)
 *$image,redirect-rule=1x1.gif,domain=magesy.*|majesy.*|mage.si|magesypro.*
+@@*$ghide,domain=mage.si|magesypro.*|magesy.blog
 magesy.*##ins.adsbygoogle
 mage.si##+js(aeld, load, nextFunction)
-@@||mage.si^$ghide
 mage.si##+js(nano-sib)
-@@||magesypro.*^$ghide
 magesypro.*##ins.adsbygoogle
-magesy.*##div[style="background-color: rgba(255, 0, 0, 0.75);"]
-magesy.*##div[class$="-wrapper"]:has(> div[style="background-color: rgb(255, 255, 255);"])
+magesypro.pro,magesy.*##+js(nostif, AdBlocker)
+magesy.*,audioztools.com##+js(no-fetch-if, adsbygoogle)
+audiotools.pro,magesy.blog,magesypro.pro,audioztools.com##+js(noeval-if, blocker)
+audiotools.pro,magesy.blog,magesypro.pro,audioztools.com##+js(nostif, Blocked)
+magesy.download,audioztools.com##+js(acs, addEventListener, google_ad_client)
+audiotools.pro,magesypro.pro,magesy.*##+js(acs, document.createElement, admiral)
+magesy.*,magesypro.pro##+js(aost, document.getElementById, adsBlocked)
+audioztools.com##+js(nostif, nextFunction)
+@*.js$script,1p,important,domain=audiotools.pro|magesy.blog|magesypro.pro|audioztools.com
+(*.js$script,1p,important,domain=audiotools.pro|magesy.blog|magesypro.pro|audioztools.com
+@@*$script,1p,domain=audiotools.pro|magesy.blog|magesypro.pro|audioztools.com
+||cdn.jsdelivr.net/npm/@rimiti/abm@latest/dist/$script,css,3p
+magesy.blog###abm
 
 ! https://github.com/uBlockOrigin/uAssets/issues/6223
 hqq.*##+js(aopr, adBlockDetected)
