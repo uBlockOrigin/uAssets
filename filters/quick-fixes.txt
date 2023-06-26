@@ -11,7 +11,7 @@
 /^https:\/\/[a-z]{2,14}\.wp\.pl\/[a-zA-Z0-9_-]{200,915}$/$script,domain=nowy.tlen.pl|poczta.o2.pl|profil.wp.pl
 
 ! aternos anti adb
-aternos.org##.header-center:style(margin-top:-4990px !important;)
+aternos.org##.header-center:style(margin-top:-5001px !important;)
 aternos.org##.sidebar:style(width: 1.74px !important; padding: 0px !important;)
 aternos.org##.ad-dfp:style(min-height: 0.0037px !important; height: 0.0037px !important;)
 aternos.org###placement-takeover
@@ -171,17 +171,19 @@ plagiarismdetector.net##[class^="my-"], [onclick*="window.open($(this)"], #img1,
 plagiarismchecker.co##+js(rpnt, script, ('display'\,'block'), ('display'\,'none'))
 plagiarismchecker.co##+js(rpnt, script, fadeIn(), empty(), condition, adsbygoogle)
 ||plagiarismchecker.co/design_images/grmly_bg.svg$image,1p
-||plagiarismchecker.co/getimg
-plagiarismchecker.co##div[class] > a[rel] > img.img-fluid[src^="https://www.plagiarismchecker.co/"]
-plagiarismchecker.co##div[style="padding:0 0 0 50px;"][class^="col-md-"] > div[class]
-plagiarismchecker.co##div.try_full_width[style] > div[class]
+||plagiarismchecker.co/imgget
+plagiarismchecker.co##div[class] > a[rel] > img[src^="https://www.plagiarismchecker.co/"]:not([src$=".png"], [src$=".gif"], [src$=".svg"])
+plagiarismchecker.co##div[style*="padding"][class^="col-md-"] > div[class]
+plagiarismchecker.co##form[action=""][method="post"] + div[class]:has(> a[rel])
 plagiarismchecker.co##article[id]:has(> script[src^="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"]):style(position: absolute !important; pointer-events: none !important;)
-plagiarismchecker.co##div[class^="myyy-"]
+plagiarismchecker.co##div[class^="myyy"]
 searchenginereports.net##+js(rmnt, script, /check_if_blocking|XMLHttpRequest|adkiller/)
 searchenginereports.net##+js(rpnt, script, max-height, width)
 ||searchenginereports.net/imgy_ig/
 searchenginereports.net##div[id^="showmeads_"], div[id^="imgy_imgy"], .showmeads, a[href="https://searchenginereports.net/for-gma-ad"]
 searchenginereports.net##div[id][style=""]:has(> a[href][target][rel])
+! https://github.com/uBlockOrigin/uAssets/issues/18682
+duplichecker.com#@#+js(nostif, /ads|showPopup/)
 
 ! https://github.com/easylist/easylist/commit/b7b49fcbba03b9758e04e9193cd6f3c4ed1b2f90#commitcomment-118194439
 /ads/300.html
@@ -282,4 +284,5 @@ aliexpress.com#@#div[data-spm="main"] > a[class*="--container--"] span[class*="-
 aliexpress.com,aliexpress.us#@#a.search-card-item[href*="&aem_p4p_detail="]
 
 ! https://github.com/easylist/easylist/issues/16450
+! Can be removed on 4th of July, 2023.
 @@||tags.tiqcdn.com^$domain=bankofamerica.com
