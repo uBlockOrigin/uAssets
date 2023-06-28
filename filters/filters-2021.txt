@@ -1,6 +1,6 @@
 ! Title: uBlock₀ filters
 ! Description: Filters optimized for uBlock, to be used along EasyList
-! Last modified: Tue, 27 Jun 2023 20:35:01 +0000
+! Last modified: Wed, 28 Jun 2023 09:04:42 +0000
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 ! New filters from January 2021 to ->
@@ -6069,7 +6069,6 @@ go.fire-link.net##+js(ra, onclick, [onclick^="window.open"])
 yofaurls.com##+js(nowoif)
 go.fire-link.net##.banner-inner
 coin-free.com##+js(aopw, _pop)
-cryptopaid.net##+js(no-fetch-if, googlesyndication)
 dash-free.com##+js(set, go_popup, {})
 dash-free.com##+js(set, blurred, false)
 dash-free.com,softairbay.com,urlfiles.com##+js(aopr, app_vars.force_disable_adblock)
@@ -6083,11 +6082,7 @@ coin-free.com,kienthucrangmieng.com,thuocdangian.net,fanclup.info###wpsafe-gener
 *$script,redirect-rule=noopjs,domain=coin-free.com|kienthucrangmieng.com|techmart4u.in|chinhnhacoban.com|chamcuuhoc.com|hocchannuoi.com|thuocdangian.net|hoclamdaubep.com|tai-mui-hong.com|95news.com|vnpttelle.com|dhlgame.com|hynews.biz|fanclup.info
 techmart4u.in##+js(nano-sib)
 techmart4u.in##+js(noeval)
-@@||ovlinks.com^$ghide
-ovlinks.com##+js(aopr, open)
-@@||ccsl.xyz^$ghide
-ccsl.xyz,techmart4u.in,urlfiles.com##+js(nosiif, visibility, 1000)
-ccsl.xyz##center > div.row
+techmart4u.in,urlfiles.com##+js(nosiif, visibility, 1000)
 ||understatedworking.com^
 ! https://github.com/uBlockOrigin/uAssets/issues/17166#issuecomment-1480653096
 rainurl.com,snowurl.com##+js(nowoif)
@@ -6097,7 +6092,10 @@ conghuongtu.net##+js(no-fetch-if, googlesyndication)
 thuocdangian.net,tremamnon.com##+js(aeld, DOMContentLoaded, adsBlocked)
 chinhnhacoban.com,hynews.biz,tremamnon.com,vnpttelle.com##[id^="wpsafe-generate"], #continue:style(display: block !important;)
 chamcuuhoc.com###wpsafe-link:style(display: block !important;)
-kienthucrangmieng.com##+js(aeld, load, htmls)
+kienthucrangmieng.com,coin-free.com##^script:has-text(htmls)
+!#if !cap_html_filtering
+kienthucrangmieng.com,coin-free.com##+js(rmnt, script, htmls)
+!#endif
 
 ! https://github.com/uBlockOrigin/uAssets/issues/10894
 actresstoday.com##+js(acs, eval, replace)
