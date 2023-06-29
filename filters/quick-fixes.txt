@@ -1,7 +1,7 @@
 ! Title: uBlock₀ filters – Quick fixes
 ! Description: Immediate, temporary filters to fix websites
 ! Expires: 12 hours
-! Last modified: Thu, 29 Jun 2023 08:37:13 +0000
+! Last modified: Thu, 29 Jun 2023 08:55:41 +0000
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! Forums: https://github.com/uBlockOrigin/uAssets/issues
@@ -15,7 +15,6 @@ aternos.org##.header-center:style(margin-top:-512cm !important;)
 aternos.org##.sidebar:style(width: 1.744px !important; padding: 0px !important;)
 aternos.org##.ad-dfp:style(min-height: 0.1485px !important; height: 0.1485px !important;)
 aternos.org###placement-takeover
-aternos.org#@#.header-ad
 ||aternos.org/ajax/account/report-detection
 
 ! https://github.com/uBlockOrigin/uAssets/issues/11152
@@ -190,19 +189,12 @@ searchenginereports.net##+js(rpnt, script, max-height, width)
 ||searchenginereports.net/imgy_ig/
 searchenginereports.net##div[id^="showmeads_"], div[id^="imgy_imgy"], .showmeads, a[href="https://searchenginereports.net/for-gma-ad"]
 searchenginereports.net##div[id][style=""]:has(> a[href][target][rel])
-! https://github.com/uBlockOrigin/uAssets/issues/18682
-duplichecker.com#@#+js(nostif, /ads|showPopup/)
 
 ! https://github.com/easylist/easylist/commit/b7b49fcbba03b9758e04e9193cd6f3c4ed1b2f90#commitcomment-118194439
 /ads/300.html
 
 ! https://github.com/uBlockOrigin/uAssets/issues/18666
 apkmirror.com##+js(rmnt, script, .adslot:empty)
-
-! https://github.com/uBlockOrigin/uAssets/issues/18522
-! https://www.reddit.com/r/uBlockOrigin/comments/11dh4jm/ads_are_not_blocked_on_tidal_web_browser_details/jp0ed30/
-listen.tidal.com#@#+js(json-prune, countryCode)
-listen.tidal.com#@#+js(json-prune, countryCode, tidalId)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/14480
 soft98.ir,~forum.soft98.ir##+js(rpnt, script, /function gtag\(\)\{.*\}/, (function(){const safe={'addEventListener':document.addEventListener.bind(window)\,'setInterval':window.setInterval.bind(window)\,'setTimeout':window.setTimeout.bind(window)\,'clearInterval':window.clearInterval.bind(window)\,'clearTimeout':window.clearTimeout.bind(window)\,'querySelector':document.querySelector.bind(document)\,'querySelectorAll':document.querySelectorAll.bind(document)\,'scrollTo':window.scrollTo.bind(window)};let intervalID;let scrolled=false;safe.addEventListener('DOMContentLoaded'\,function(){safe.querySelectorAll('script:not([src])').forEach(node=>{if(node.innerText.includes('DOMContentLoaded')){node.innerText="window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js'\,new Date());gtag('config'\,'UA-20535270-2');"}});intervalID=safe.setInterval(function(){if(!scrolled){safe.scrollTo(0\,document.body.scrollHeight/2);scrolled=true}function clearAll(){var maxInterval=safe.setInterval("function () {}");for(var i=0;i<maxInterval;i++){safe.clearInterval(i)}var maxTimeout=safe.setTimeout("function () {}");for(var i=0;i<maxTimeout;i++){safe.clearTimeout(i)}safe.querySelectorAll('a > img').forEach(node=>{node.parentNode.style='display: none !important;'});safe.scrollTo(0\,0);window.stop()}if(location.href.endsWith('html')===true){safe.querySelectorAll('main article a').forEach(node=>{const link=new URL(node.href);link.search='';if(link.href.endsWith('.rar')||link.href.endsWith('.zip')||link.href.endsWith('.pkg')){safe.clearInterval(intervalID);clearAll()}})}else{clearAll()}}\,1)})})();)
@@ -222,32 +214,11 @@ hulu.com##+js(xml-prune, xpath(//*[name()="MPD"]/@mediaPresentationDuration | //
 /adflow.$from=~adflow.com.au|~adflow.genoudsa.ch|~adflow.io|~adflow.marketing|~adflow.pl,badfilter
 /adflow.$from=~adflow.adstandards.ca|~adflow.com.au|~adflow.genoudsa.ch|~adflow.io|~adflow.marketing|~adflow.pl
 
-! promoted tweet leftover
-twitter.com,twitter3e4tixl4xyajtrzo62zg5vztmjuricljdp2c5kshju4avyoid.onion##div[style^="transform"] h2 > div[style^="-webkit-line-clamp"] > span:has-text(/^(?:Promoted Tweet|プロモツイート|Promowany Tweet|Tweet promovat)$/):upward(3)
-
 ! https://github.com/uBlockOrigin/uAssets/issues/18704
 investing.com##+js(rpnt, script, /adb/i, xxx)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/18588
 @@||nypost.com/blaize/datalayer$xhr,1p
-
-! https://github.com/uBlockOrigin/uAssets/issues/1197
-! https://github.com/uBlockOrigin/uAssets/issues/18599
-@@||magesy.blog^$ghide
-magesypro.pro,magesy.*##+js(nostif, AdBlocker)
-magesy.*,audioztools.com##+js(no-fetch-if, adsbygoogle)
-audiotools.pro,magesy.blog,magesypro.pro,audioztools.com##+js(noeval-if, blocker)
-audiotools.pro,magesy.blog,magesypro.pro,audioztools.com##+js(nostif, Blocked)
-magesy.download,audioztools.com##+js(acs, addEventListener, google_ad_client)
-magesy.*##+js(nobab)
-audiotools.pro,magesypro.pro,magesy.*##+js(acs, document.createElement, admiral)
-magesy.*,magesypro.pro##+js(aost, document.getElementById, adsBlocked)
-audioztools.com##+js(nostif, nextFunction)
-@*.js$script,1p,important,domain=audiotools.pro|magesy.blog|magesypro.pro|audioztools.com
-(*.js$script,1p,important,domain=audiotools.pro|magesy.blog|magesypro.pro|audioztools.com
-@@*$script,1p,domain=audiotools.pro|magesy.blog|magesypro.pro|audioztools.com
-||cdn.jsdelivr.net/npm/@rimiti/abm@latest/dist/$script,css,3p
-magesy.blog###abm
 
 ! https://github.com/uBlockOrigin/uAssets/issues/18597
 ! https://github.com/uBlockOrigin/uAssets/issues/18609
@@ -264,23 +235,8 @@ gamemod.blog.fc2.com#@#.AdContainer
 ! https://github.com/AdguardTeam/AdguardFilters/issues/134092
 realtime-chart.info##[style="position:fixed;width:100%;top:0;z-index:-999;text-align:center;"] ~ [style] > table > tbody > tr > td > a[href^="https://amzn.to"]
 
-! https://github.com/uBlockOrigin/uAssets/issues/18627
-*$frame,redirect-rule=noopframe,domain=economist.co.kr
-*$script,xhr,redirect-rule=noopjs,domain=economist.co.kr
-*$image,redirect-rule=1x1.gif,domain=economist.co.kr
-@@||economist.co.kr^$ghide
-@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$script,xhr,domain=economist.co.kr
-@@||api.prod.ad-shield.io^$xhr,image,domain=economist.co.kr
-economist.co.kr##+js(set, dable, {})
-economist.co.kr##ad-shield-inventory
-
 ! https://www.reddit.com/r/uBlockOrigin/comments/147qio5/
 autosport.com,motorsport.com##+js(cookie-remover, adblDetectNb)
-
-! EL causes some videos to go blank
-! Sample: https://www.fandom.com/video/Eyy1TC92/super-mario-movie-the-loop
-! Can be removed on 29th of June, 2023.
-fandom.com#@##featured-video__player
 
 ! https://github.com/uBlockOrigin/uAssets/issues/18657
 ! hot fix google.com/maps in `Phishing URL Blocklist`
