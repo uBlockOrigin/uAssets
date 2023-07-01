@@ -3,7 +3,7 @@
 !     Filters optimized for uBlock Origin, to unbreak sites broken as
 !     a result of 3rd-party filter lists enabled by default.
 ! Expires: 5 days
-! Last modified: Sat, 01 Jul 2023 10:36:17 +0000
+! Last modified: Sat, 01 Jul 2023 13:06:59 +0000
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 !
@@ -4757,6 +4757,10 @@ sisigames.com##^#index-games:upward(html) > head > script:has-text(wgplayer)
 ||imasdk.googleapis.com/js/sdkloader/ima3.js$script,redirect-rule=google-ima.js,domain=canvids.com
 @@||afv.wgplayer.com/*/wgPlayer.js$script,domain=canvids.com
 @@||afv.wgplayer.com/*/conf.json$xhr,domain=canvids.com
+
+! yollamedia breakages - games
+@@||portal.cdn.yollamedia.com/storage/$script,domain=pozirk.com
+pozirk.com##^html:not(:has(iframe#game)) > head > script[src*="yollamedia.com"]
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/143476
 ||imasdk.googleapis.com/js/sdkloader/ima3.js$script,domain=cargames.com,redirect-rule=google-ima.js
