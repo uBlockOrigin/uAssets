@@ -1,7 +1,7 @@
 ! Title: uBlock₀ filters – Quick fixes
 ! Description: Immediate, temporary filters to fix websites
 ! Expires: 12 hours
-! Last modified: Sat, 01 Jul 2023 08:05:48 +0000
+! Last modified: Sat, 01 Jul 2023 10:51:06 +0000
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! Forums: https://github.com/uBlockOrigin/uAssets/issues
@@ -271,13 +271,10 @@ fandom.com##+js(set, optimizely, {})
 chip.de##body > script + div[id][style*="min-height:"]
 chip.de##.DetailPage__Right-Column > div[style*="min-height:"]:first-child
 chip.de##section.Subchapter.is-hidden-md > div[style^="margin-top:"]
-chip.de##a[target][href^="https://x.chip.de/"]:upward(div[id])
+chip.de##div[id]:has(> div.is-hidden-md > a[target][href^="https://x.chip.de/"])
 chip.de##div[id][style^="min-height:"][style*="min-width:"]:has(> a[href^="https://x.chip.de/"] > img[src^="https://im.chip.de/"])
 chip.de###A.A[style="display: block;"]
 ||mein-organizer.de^$image,doc
 
 ! images hidden
 twitter.com,twitter3e4tixl4xyajtrzo62zg5vztmjuricljdp2c5kshju4avyoid.onion#@#div[style^="transform"] > div > div:empty
-
-! https://github.com/uBlockOrigin/uAssets/issues/18763
-praxistipps.chip.de#@#a[target][href^="https://x.chip.de/"]:upward(div[id])
