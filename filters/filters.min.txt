@@ -1,7 +1,7 @@
 ! Title: uBlock filters
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Expires: 5 days
-! Last modified: Wed, 05 Jul 2023 13:26:32 +0000
+! Last modified: Wed, 05 Jul 2023 13:53:08 +0000
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 !
@@ -1339,6 +1339,12 @@ hqq.*##[href="https://t.me/Russia_Vs_Ukraine_War3"]
 hqq.*##a[onclick="openAuc();"]
 ||vkcdnservice.com^$script,redirect-rule=noopjs,3p
 ||ebd.cda-hd.cc^
+hqq.*##+js(set, adblockcheck, false)
+! Redirecting
+hqq.*##^script:has-text(self == top)
+!#if !cap_html_filtering
+hqq.*##+js(rmnt, script, self == top)
+!#endif
 filescdn.com##+js(nowoif)
 ! palimas tv => palimas org
 palimas.*##+js(acs, document.querySelectorAll, popMagic)
