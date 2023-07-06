@@ -1,6 +1,6 @@
 ! Title: uBlock₀ filters
 ! Description: Filters optimized for uBlock, to be used along EasyList
-! Last modified: Thu, 06 Jul 2023 11:42:48 +0000
+! Last modified: Thu, 06 Jul 2023 13:07:05 +0000
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 ! New filters from January 2023 to ->
@@ -3015,6 +3015,9 @@ empire-streaming.*##+js(no-xhr-if, googlesyndication.com)
 empire-streaming.*##+js(rpnt, script, /data: \[.*\]\,/, data: []\,, condition, ads_num)
 empire-streaming.*##+js(nano-stb, (!1), *)
 ||empire-streaming.*/iframe_ad/$csp=sandbox allow-forms allow-same-origin allow-scripts allow-modals allow-orientation-lock allow-pointer-lock allow-presentation allow-top-navigation
+empire-streaming.*#@##donation
+empire-streaming.*##+js(window.open-defuser)
+empire-streaming.*##+js(trusted-set-local-storage-item, donationtime, $currentDate$)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/11022
 steamcrackedgames.com##[href^="https://startgaming.net/"]
