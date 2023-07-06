@@ -1,7 +1,7 @@
 ! Title: uBlock₀ filters – Quick fixes
 ! Description: Immediate, temporary filters to fix websites
 ! Expires: 12 hours
-! Last modified: Thu, 06 Jul 2023 08:33:25 +0000
+! Last modified: Thu, 06 Jul 2023 08:56:36 +0000
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! Forums: https://github.com/uBlockOrigin/uAssets/issues
@@ -142,13 +142,18 @@ linkneverdie.net#@#+js(nostif, t)
 @@||falixnodes.net^$ghide
 @@||static.ads-twitter.com^$xhr,domain=mqrio.dev
 ||analytics.twitter.com^$image,redirect-rule=1x1.gif
-||adservice.google.com^$script,domain=client.falixnodes.net,important
 ||casalemedia.com^$xhr,important,domain=client.falixnodes.net
 @@*$image,script,xhr,domain=client.falixnodes.net
-client.falixnodes.net##body[topmargin="0"][marginwidth="0"][marginheight="0"][leftmargin="0"]
+client.falixnodes.net##html:not([class]) > body[marginwidth="0"][marginheight="0"]
 client.falixnodes.net##html[amp4ads][i-amphtml-no-boilerplate]
+!#if env_chromium
+client.falixnodes.net##div[id^="google_ads_iframe_/"][style*="width: 100vw !important; height: 100vh !important"]:has(iframe[style][title][sandbox][src*="safeframe.googlesyndication.com"]):remove()
+client.falixnodes.net##ins[id^="gpt_unit_/"][style*="width: 100vw !important; height: 100vh !important"]:has(iframe[style][title][sandbox][src*="safeframe.googlesyndication.com"]):remove()
+!#endif
+!#if !env_chromium
 client.falixnodes.net##div[id^="google_ads_iframe_/"][style*="width: 100vw !important; height: 100vh !important"]:has(iframe[style][title][sandbox][src*="safeframe.googlesyndication.com"])
 client.falixnodes.net##ins[id^="gpt_unit_/"][style*="width: 100vw !important; height: 100vh !important"]:has(iframe[style][title][sandbox][src*="safeframe.googlesyndication.com"])
+!#endif
 client.falixnodes.net##html:not([class]) > body[onload="window.avCallback();"][style]
 ||ups.analytics.yahoo.com^$image,important,domain=client.falixnodes.net
 ||facebook.com/tr/$image,important,domain=client.falixnodes.net
