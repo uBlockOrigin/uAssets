@@ -3009,17 +3009,18 @@ truyentranhfull.net##+js(rmnt, script, ai_adb)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/14108
 ! https://github.com/uBlockOrigin/uAssets/issues/16123
-@@||empire-streaming.*^$ghide
-empire-streaming.*##.direct-lads
-! https://www.reddit.com/r/uBlockOrigin/comments/14abzgw/
-empire-streaming.*##+js(no-xhr-if, googlesyndication.com)
 ! https://github.com/uBlockOrigin/uAssets/issues/18840
-empire-streaming.*##+js(rpnt, script, /data: \[.*\]\,/, data: []\,, condition, ads_num)
-empire-streaming.*##+js(nano-stb, (!1), *)
+@@*$ghide,domain=empire-stream.*|empire-streaming.*
+empire-stream.*,empire-streaming.*##.direct-lads
+empire-stream.*,empire-streaming.*##+js(rpnt, script, /data: \[.*\]\,/, data: []\,, condition, ads_num)
+empire-stream.*,empire-streaming.*##+js(nano-stb, (!1), *)
+||empire-stream.*/iframe_ad/$csp=sandbox allow-forms allow-same-origin allow-scripts allow-modals allow-orientation-lock allow-pointer-lock allow-presentation allow-top-navigation
 ||empire-streaming.*/iframe_ad/$csp=sandbox allow-forms allow-same-origin allow-scripts allow-modals allow-orientation-lock allow-pointer-lock allow-presentation allow-top-navigation
-empire-streaming.*#@##donation
-empire-streaming.*##+js(window.open-defuser)
-empire-streaming.*##+js(trusted-set-local-storage-item, donationtime, $currentDate$)
+empire-stream.*,empire-streaming.*#@##donation
+empire-stream.*,empire-streaming.*##[data-direct]:remove-attr(data-direct)
+empire-stream.*##+js(no-xhr-if, pagead2.googlesyndication.com)
+empire-stream.*###msg_ads
+empire-stream.*##body:style(overflow: auto !important;)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/11022
 steamcrackedgames.com##[href^="https://startgaming.net/"]
