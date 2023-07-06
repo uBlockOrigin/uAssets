@@ -1,7 +1,7 @@
 ! Title: uBlock₀ filters
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Expires: 5 days
-! Last modified: Thu, 06 Jul 2023 04:03:04 +0000
+! Last modified: Thu, 06 Jul 2023 09:28:07 +0000
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 !
@@ -1939,12 +1939,16 @@ hqq.*##a[onclick="openAuc();"]
 ! https://github.com/uBlockOrigin/uAssets/issues/10039
 ||ebd.cda-hd.cc^
 ! https://www.reddit.com/r/uBlockOrigin/comments/14r6074/
-hqq.*##+js(set, adblockcheck, false)
+! https://www.reddit.com/r/uBlockOrigin/comments/14r6074/adblock_blocked_netutvhqqto_site/jqv92vj/
+hqq.*,waaw.*##+js(set, adblockcheck, false)
 ! Redirecting
-hqq.*##^script:has-text(self == top)
+hqq.*,waaw.*##^script:has-text(self == top)
 !#if !cap_html_filtering
-hqq.*##+js(rmnt, script, self == top)
+hqq.*,waaw.*##+js(rmnt, script, self == top)
 !#endif
+! https://github.com/uBlockOrigin/uAssets/issues/14001
+*$script,3p,denyallow=google.com|gstatic.com|polyfill.io,domain=playdede.to
+waaw.*##+js(aopr, doSecondPop)
 
 ! https://forums.lanik.us/viewtopic.php?f=62&t=39244
 filescdn.com##+js(nowoif)
