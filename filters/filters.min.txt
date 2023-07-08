@@ -1,7 +1,7 @@
 ! Title: uBlock filters
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Expires: 5 days
-! Last modified: Sat, 08 Jul 2023 10:45:37 +0000
+! Last modified: Sat, 08 Jul 2023 10:56:59 +0000
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 !
@@ -21511,8 +21511,6 @@ compromath.com##+js(no-fetch-if, ads)
 */ads/autopromo/*$media,xhr,redirect=noopmp3-0.1s,domain=deezer.com
 ||cmodmedia*.live.streamtheworld.com/media/*.mp3$media,redirect=noopmp3-0.1s,domain=deezer.com
 deezer.com##+js(nostif, Ads)
-qtoptens.com##+js(aost, document.createElement, Admiral)
-qtoptens.com##^script:has-text(admiral)
 @@||wnacg.org/download$ghide
 streamcheck.link##+js(acs, setTimeout, admc)
 streamcheck.link##+js(set, count, 0)
@@ -23119,8 +23117,12 @@ an1me.*##+js(no-xhr-if, /doubleclick|googlesyndication/)
 an1me.*##+js(noeval-if, adsBlocked)
 an1me.*##ins.adsbygoogle
 isekaipalace.com##+js(set, showAds, true)
-qtoptens.com,liveandletsfly.com##+js(rmnt, script, -engaged)
+||qtoptens.com^$csp=worker-src 'none'
 qtoptens.com##+js(set, admiral, noopFunc)
+qtoptens.com,liveandletsfly.com##^script:has-text(-engaged)
+!#if !cap_html_filtering
+qtoptens.com,liveandletsfly.com##+js(rmnt, script, -engaged)
+!#endif
 sofmag.com##.adsBelowHeaderBannerContainer
 sofmag.com##.widget .adsSidebarContainer:upward(.widget)
 foodxor.com##+js(rpnt, script, /try.*finally.*?}/)
