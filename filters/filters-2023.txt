@@ -522,10 +522,6 @@ compromath.com##+js(no-fetch-if, ads)
 ! https://github.com/uBlockOrigin/uAssets/issues/17392
 deezer.com##+js(nostif, Ads)
 
-! https://www.reddit.com/r/uBlockOrigin/comments/10n2p0m/
-qtoptens.com##+js(aost, document.createElement, Admiral)
-qtoptens.com##^script:has-text(admiral)
-
 ! https://www.reddit.com/r/uBlockOrigin/comments/10n37i2/
 @@||wnacg.org/download$ghide
 
@@ -3315,10 +3311,14 @@ an1me.*##ins.adsbygoogle
 ! https://github.com/uBlockOrigin/uAssets/issues/18760
 isekaipalace.com##+js(set, showAds, true)
 
+! https://www.reddit.com/r/uBlockOrigin/comments/10n2p0m/
 ! https://liveandletsfly.com anti-adb
-! https://github.com/AdguardTeam/AdguardFilters/issues/155769
-qtoptens.com,liveandletsfly.com##+js(rmnt, script, -engaged)
+||qtoptens.com^$csp=worker-src 'none'
 qtoptens.com##+js(set, admiral, noopFunc)
+qtoptens.com,liveandletsfly.com##^script:has-text(-engaged)
+!#if !cap_html_filtering
+qtoptens.com,liveandletsfly.com##+js(rmnt, script, -engaged)
+!#endif
 
 ! https://www.reddit.com/r/uBlockOrigin/comments/14nkfum/
 sofmag.com##.adsBelowHeaderBannerContainer
