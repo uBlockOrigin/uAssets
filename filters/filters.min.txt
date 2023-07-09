@@ -1,7 +1,7 @@
 ! Title: uBlock filters
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Expires: 5 days
-! Last modified: Sun, 09 Jul 2023 15:45:42 +0000
+! Last modified: Sun, 09 Jul 2023 15:47:58 +0000
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 !
@@ -1137,7 +1137,10 @@ apkmirror.com##.downloadCountdown
 apkmirror.com##.OUTBRAIN
 apkmirror.com##[id^="adtester-container"]:style(position: absolute !important;)
 apkmirror.com##.ains
+apkmirror.com##^script:has-text(.adslot:empty)
+!#if !cap_html_filtering
 apkmirror.com##+js(rmnt, script, .adslot:empty)
+!#endif
 radio.at,radio.de,radio.dk,radio.es,radio.fr,radio.it,radio.net,radio.pl,radio.pt,radio.se##+js(nostif, .call(null), 10)
 radio.at,radio.de,radio.dk,radio.es,radio.fr,radio.it,radio.net,radio.pl,radio.pt,radio.se##^script:has-text(Inject=!)
 radio.*##.topAdSpacer
