@@ -1,7 +1,7 @@
 ! Title: uBlock filters
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Expires: 5 days
-! Last modified: Sun, 09 Jul 2023 10:47:56 +0000
+! Last modified: Sun, 09 Jul 2023 11:01:01 +0000
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 !
@@ -21515,6 +21515,12 @@ ntuplay.xyz##+js(nowoif)
 /adpup/*.js$script,3p
 /t.salamus1.lol/*$script
 ||cdn.salamus1.lol^
+||ntuplay.xyz^$badfilter
+||advertising.ntuplay.xyz^
+ntuplay.xyz##^script:has-text(window.top)
+!#if !cap_html_filtering
+ntuplay.xyz##+js(rmnt, script, window.top)
+!#endif
 bloginguru.xyz##+js(set, blurred, false)
 socialcounts.org##.container > .adsbygoogle:upward(.container)
 socialcounts.org##.container > div > .adsbygoogle:upward(div)
