@@ -1,6 +1,6 @@
 ! Title: uBlock₀ filters
 ! Description: Filters optimized for uBlock, to be used along EasyList
-! Last modified: Wed, 12 Jul 2023 07:35:35 +0000
+! Last modified: Wed, 12 Jul 2023 12:32:31 +0000
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 ! New filters from January 2022 to ->
@@ -5502,22 +5502,22 @@ snaptik.app##[onclick^="showAd"]:remove-attr(onclick)
 snaptik.app##+js(aost, $, openAdsModal)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/15805
-*$script,domain=blog.freeoseocheck.com|blog.cookinguide.net,redirect-rule=noopjs
-blog.cookinguide.net,blog.freeoseocheck.com##+js(acs, document.createElement, adsBlocked)
+*$script,domain=freeoseocheck.com|cookinguide.net|makeupguide.net,redirect-rule=noopjs
+freeoseocheck.com,cookinguide.net,makeupguide.net,coinsvalue.net##+js(acs, document.createElement, adsBlocked)
+freeoseocheck.com,cookinguide.net,makeupguide.net##+js(rmnt, script, /window.location|Adblock/)
 ! https://github.com/uBlockOrigin/uAssets/issues/16317
 ! https://github.com/uBlockOrigin/uAssets/issues/17166#issuecomment-1480649091
 ||blog.coinsvalue.net/post/$csp=style-src *
 ||blog.cookinguide.net/post/$csp=style-src *
 ||blog.freeoseocheck.com/post/$csp=style-src *
+||blog.makeupguide.net/post/$csp=style-src *
 blog.freeoseocheck.com##.floating-banner
-blog.freeoseocheck.com##a[href^="https://shortano.link"] ~ :not(center)
-blog.coinsvalue.net##+js(acs, document.createElement, adsBlocked)
-blog.coinsvalue.net,blog.cookinguide.net,blog.freeoseocheck.com##.fa-xmark
-coinsvalue.net,cookinguide.net,freeoseocheck.com##+js(aeld, load, htmls)
-coinsvalue.net,cookinguide.net,freeoseocheck.com##^script:has-text(htmls)
+blog.coinsvalue.net,blog.cookinguide.net,blog.freeoseocheck.com,blog.makeupguide.net##.fa-xmark
+coinsvalue.net,cookinguide.net,freeoseocheck.com,makeupguide.net##+js(aeld, load, htmls)
+coinsvalue.net,cookinguide.net,freeoseocheck.com,makeupguide.net##^script:has-text(htmls)
 coinsvalue.net,freeoseocheck.com##+js(acs, document.getElementById, adss)
 cookinguide.net##+js(acs, document.getElementById, add)
-coinsvalue.net,cookinguide.net,freeoseocheck.com###ad.js
+coinsvalue.net,cookinguide.net,freeoseocheck.com,makeupguide.net###ad.js
 
 ! https://github.com/uBlockOrigin/uAssets/issues/15809
 ! https://github.com/easylist/easylist/issues/14215
