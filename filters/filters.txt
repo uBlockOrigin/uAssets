@@ -1,7 +1,7 @@
 ! Title: uBlock₀ filters
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Expires: 5 days
-! Last modified: Wed, 12 Jul 2023 13:28:49 +0000
+! Last modified: Wed, 12 Jul 2023 20:23:18 +0000
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 !
@@ -7314,7 +7314,7 @@ ani-stream.com##+js(no-fetch-if, damoh.ani-stream.com)
 ||fairytail-tube.org/templates/caprica/amz$image,1p
 
 ! https://github.com/uBlockOrigin/uAssets/issues/9449
-smallseotools.com##+js(aeld, mouseleave, clientWidth)
+smallseotools.com##+js(aeld, mouseout, clientWidth)
 *$image,redirect-rule=1x1.gif,domain=smallseotools.com
 ||smallseotools.com/*.gif$image
 ||smallseotools.com/webimages/a1$image,1p
@@ -7327,6 +7327,7 @@ duplichecker.com##+js(no-xhr-if, ads)
 duplichecker.com##.container div > div[style]:has(.ads-pricing)
 duplichecker.com###home_before_buton > .adsbygoogle:upward(.data_inbox > div)
 duplichecker.com##div > span[id^="side_bar"] > .adsbygoogle:upward(div)
+duplichecker.com##.container > .clearfix + *:not(div, span, [class], [id])
 ! https://github.com/uBlockOrigin/uAssets/issues/17711
 ||plagiarismdetector.net/js/*bioep
 @@*$ghide,domain=duplichecker.com|plagiarismchecker.co|searchenginereports.net|smallseotools.com
@@ -7342,15 +7343,23 @@ duplichecker.com,plagiarismchecker.co,plagiarismdetector.net,searchenginereports
 duplichecker.com,plagiarismchecker.co,plagiarismdetector.net,searchenginereports.net,smallseotools.com##aside :is(ins, ._ap_apex_ad):upward(aside)
 duplichecker.com,plagiarismchecker.co,plagiarismdetector.net,searchenginereports.net###home_after_title
 duplichecker.com,plagiarismchecker.co,plagiarismdetector.net,searchenginereports.net,smallseotools.com##.container > div a[href].set-anchor:upward(.container > div)
+duplichecker.com,plagiarismchecker.co,plagiarismdetector.net,searchenginereports.net,smallseotools.com##ins.adsbygoogle:style(max-height: 1.25px !important;)
+||grammarly.com/*utm_source=$popup,domain=duplichecker.com|plagiarismchecker.co|plagiarismdetector.net|searchenginereports.net|smallseotools.com
 duplichecker.com##.adsbygoogle:upward([style]):upward([style])
 smallseotools.com##.show.g_popup.fade.modal
 smallseotools.com##.show.fade.modal-backdrop
 smallseotools.com##body:style(overflow: auto !important;)
 searchenginereports.net,plagiarismdetector.net##+js(no-xhr-if, /googlesyndication|adpushup|adrecover/)
+searchenginereports.net##+js(rmnt, script, /check_if_blocking|XMLHttpRequest|adkiller/)
+searchenginereports.net##+js(rpnt, script, max-height, width)
 searchenginereports.net##.adsbygoogle:upward(1)
 searchenginereports.net##.grammarly-overall
 searchenginereports.net##.clearfix + div[id][style*="width:"]
+searchenginereports.net##div[id^="showmeads_"], div[id^="imgy_imgy"], .showmeads, a[href="https://searchenginereports.net/for-gma-ad"]
+searchenginereports.net##div[id][style=""]:has(> a[href][target][rel])
 ||searchenginereports.net/newassets/images/semrush-banner$image,1p
+||searchenginereports.net/imgy_ig/$image,1p
+plagiarismchecker.co##+js(aeld, mouseout, [native code])
 
 ! https://github.com/uBlockOrigin/uAssets/issues/4104
 jagran.com##.ads
