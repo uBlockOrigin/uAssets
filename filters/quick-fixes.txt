@@ -1,7 +1,7 @@
 ! Title: uBlock₀ filters – Quick fixes
 ! Description: Immediate, temporary filters to fix websites
 ! Expires: 12 hours
-! Last modified: Sat, 15 Jul 2023 09:00:09 +0000
+! Last modified: Sun, 16 Jul 2023 06:26:00 +0000
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! Forums: https://github.com/uBlockOrigin/uAssets/issues
@@ -273,3 +273,11 @@ computerbild.de#@#^script:has-text(===):has-text(/[\w\W]{16000}/)
 ! https://github.com/uBlockOrigin/uAssets/discussions/17361#discussioncomment-5741055
 btcbitco.in,btcsatoshi.net,wiour.com##div.text-center[id]:style(height: 60px !important;)
 crypto4yu.com##+js(abort-current-script, addEventListener, ads)
+
+! https://github.com/uBlockOrigin/uAssets/commit/b04299eb34e90cae4b0af3428cd6952df0b78178
+youtube.com#@#+js(json-prune, playerResponse.adPlacements playerResponse.playerAds adPlacements playerAds, playerConfig)
+youtube.com##+js(json-prune, playerResponse.adPlacements playerResponse.playerAds adPlacements playerAds, playerConfig.audioConfig)
+youtube.com##+js(set, ytInitialPlayerResponse.auxiliaryUi.messageRenderers.bkaEnforcementMessageViewModel, undefined)
+youtube.com#@#+js(json-prune, [].playerResponse.adPlacements [].playerResponse.playerAds)
+youtube.com,youtubekids.com,youtube-nocookie.com##+js(json-prune, auxiliaryUi.messageRenderers.enforcementMessageViewModel)
+youtube.com,youtubekids.com,youtube-nocookie.com##+js(set, ytInitialPlayerResponse.auxiliaryUi.messageRenderers.enforcementMessageViewModel, undefined)
