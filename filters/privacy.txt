@@ -54,7 +54,7 @@
 
 ! https://www.reddit.com/r/ublock/comments/47o2ih/ublock_disabling_all_javascript_links/d0fhock
 ! Time to bring this filter out of experimental status
-||googletagservices.com/tag/js/gpt.js$script,redirect=googletagservices.com/gpt.js:5
+||googletagservices.com/tag/js/gpt.js$script,xhr,redirect=googletagservices.com/gpt.js:5
 ||securepubads.g.doubleclick.net/tag/js/gpt.js$script,redirect=googletagservices_gpt.js:5
 ||pagead2.googlesyndication.com/tag/js/gpt.js$script,redirect=googletagservices_gpt.js:5
 
@@ -105,8 +105,10 @@ reddit.com##+js(no-xhr-if, method:POST url:/^https:\/\/www\.reddit\.com$/)
 old.reddit.com##a.outbound[data-outbound-url]:remove-attr(data-outbound-url)
 !reddit.com##+js(set, Object.prototype.allowClickTracking, false)
 ! https://www.reddit.com/r/worldnews/
+! https://github.com/uBlockOrigin/uAssets/issues/18938
 reddit.com,~old.reddit.com##+js(rpnt, script, "outboundUrl", "outbound")
 reddit.com,~old.reddit.com##+js(json-prune, data.*.elements.edges.[].node.outboundLink)
+reddit.com,~old.reddit.com##+js(json-prune, data.children.[].data.outbound_link)
 
 ! https://github.com/uBlockOrigin/uAssets/pull/5578
 ||colpirio.com^$3p
