@@ -1,7 +1,7 @@
 ! Title: uBlock₀ filters
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Expires: 5 days
-! Last modified: Fri, 21 Jul 2023 13:26:58 +0000
+! Last modified: Fri, 21 Jul 2023 16:50:32 +0000
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 !
@@ -14660,10 +14660,16 @@ mynewsmedia.co##+js(set, count, 0)
 mynewsmedia.co,revadvert.com##+js(set, AdBlockerDetected, noopFunc)
 mynewsmedia.co,revadvert.com###VerifyBtn:style(display:block !important;)
 mynewsmedia.co,revadvert.com##+js(nano-sib, timer, *)
-mynewsmedia.co,revadvert.com###VerifyBtn, #myNextInst, #NextBtn, #NextInfo:others()
 mynewsmedia.co,revadvert.com##+js(no-fetch-if, googlesyndication)
 mynewsmedia.co,revadvert.com##+js(acs, navigator.brave)
 mynewsmedia.co,revadvert.com##^script:has-text(fakeAd)
+@@||g.doubleclick.net/tag/js/gpt.js$domain=mynewsmedia.co|revadvert.com
+@@||g.doubleclick.net/pagead/managed/js/gpt/*/pubads_impl.js$domain=mynewsmedia.co|revadvert.com
+@@||g.doubleclick.net/gampad/ads?$xhr,domain=mynewsmedia.co|revadvert.com
+@@||revadvert.com^$ghide
+@@||mynewsmedia.co^$ghide
+mynewsmedia.co,revadvert.com##iframe[id^="google_ads_iframe"]:style(height: 1px !important;)
+mynewsmedia.co,revadvert.com###footer-sticky-ad
 !#if !cap_html_filtering
 mynewsmedia.co,revadvert.com##+js(rmnt, script, fakeAd)
 !#endif
