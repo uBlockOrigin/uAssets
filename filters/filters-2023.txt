@@ -1,6 +1,6 @@
 ! Title: uBlock₀ filters
 ! Description: Filters optimized for uBlock, to be used along EasyList
-! Last modified: Thu, 20 Jul 2023 17:27:48 +0000
+! Last modified: Fri, 21 Jul 2023 03:28:40 +0000
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 ! New filters from January 2023 to ->
@@ -3616,3 +3616,10 @@ tobys.dk#@#.abMessage
 ! https://github.com/uBlockOrigin/uAssets/issues/19095
 automoto.it##+js(rmnt, script, app_checkext)
 automoto.it##+js(no-fetch-if, googlesyndication)
+
+! https://github.com/uBlockOrigin/uAssets/issues/19102
+sekaikomik.bio##+js(nowoif)
+sekaikomik.bio##^script:has-text(shown_at)
+!#if !cap_html_filtering
+sekaikomik.bio##+js(rmnt, script, shown_at)
+!#endif
