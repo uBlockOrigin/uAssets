@@ -4,7 +4,7 @@
 !   which purpose is to guarantee that a filter won't be overriden by
 !   exception filters.
 ! Expires: 7 days
-! Last modified: Thu, 20 Jul 2023 12:57:08 +0000
+! Last modified: Fri, 21 Jul 2023 00:35:05 +0000
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 !
@@ -649,6 +649,9 @@ lite.duckduckgo.com##+js(href-sanitizer, a[href^="//duckduckgo.com/l/?uddg="], ?
 !#if env_chromium
 *$permissions=browsing-topics=()
 !#endif
+
+! https://github.com/uBlockOrigin/uAssets/issues/19100
+/^https:\/\/kick\.com\/[0-9A-z]{16}\/[0-9A-z]{16}\?apiKey=/$script,1p,match-case,domain=kick.com
 
 ! Merge in resource-abuse.txt
 !#include resource-abuse.txt
