@@ -1,7 +1,7 @@
 ! Title: uBlock filters
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Expires: 5 days
-! Last modified: Wed, 26 Jul 2023 09:06:06 +0000
+! Last modified: Wed, 26 Jul 2023 11:16:35 +0000
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 !
@@ -8771,6 +8771,17 @@ updown.link##+js(nano-stb, startDownload, 8000)
 workink.click##+js(no-fetch-if, cloudfront)
 @@||doubleclick.net^$script,xhr,domain=work.ink
 work.ink##.no-overlay
+work.ink##+js(ra, href, [href*="jump"], stay)
+@@||cdn.thisiswaldo.com/static/js/$script,domain=work.ink
+work.ink##.waldo-display-unit
+@@||doubleverify.com^$xhr,domain=work.ink
+||nextmillmedia.com^
+*$popup,3p,domain=work.ink,to=~discord.*|~google.com|~workink.*|~youtu.be|~youtube.com
+workink.click##+js(nowoif, !direct)
+work.ink##+js(nosiif, a0b)
+work.ink##+js(no-fetch-if, /outbrain|criteo|thisiswaldo/)
+work.ink##body > div > a#link:upward(body > div)
+work.ink##.opera-container
 ||firefaucet.win/*.gif$image
 ||35.238.205.163^$all
 ||releinemaoff.pro^
@@ -11457,7 +11468,6 @@ atozmath.com##.videoDiscovery
 @@||biltag.bilsyndication.com^$script,domain=atozmath.com
 @@||assets.bilsyndication.com/prebid/default/*$script,domain=atozmath.com
 ||assets.bilsyndication.com/plugins/*$script,redirect=noopjs,domain=atozmath.com
-||imasdk.googleapis.com/js/sdkloader/ima3.js$script,redirect=noopjs,domain=atozmath.com
 ||a-mx.com^
 @@||ssl.google-analytics.com/ga.js$script,domain=atozmath.com
 *$image,redirect-rule=2x2.png,domain=atozmath.com
@@ -11468,6 +11478,14 @@ atozmath.com##.videoDiscovery
 @@||amazon-adsystem.com/aax2/apstag.js$script,domain=atozmath.com
 atozmath.com###vi-smartbanner
 atozmath.com##.adsbyvli:style(opacity: 0 !important; pointer-events: none !important;)
+atozmath.com##+js(set, googletag._vars_, {})
+atozmath.com##+js(set, googletag._loadStarted_, true)
+atozmath.com##+js(set, googletag._loaded_, true)
+atozmath.com##+js(set, google_unique_id, 1)
+atozmath.com##+js(set, google.javascript, {})
+atozmath.com##+js(set, google.javascript.ads, {})
+atozmath.com##+js(set, google_global_correlator, 1)
+||imasdk.googleapis.com/js/sdkloader/ima3.js$script,redirect-rule=google-ima.js:5,domain=atozmath.com
 planet-streaming1.com##+js(nosiif, visibility, 1000)
 @@||translatoruser-int.com^$ghide
 kangkimin.com##+js(nofab)

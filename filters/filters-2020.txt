@@ -1,6 +1,6 @@
 ! Title: uBlock₀ filters
 ! Description: Filters optimized for uBlock, to be used along EasyList
-! Last modified: Mon, 24 Jul 2023 12:47:26 +0000
+! Last modified: Wed, 26 Jul 2023 11:16:35 +0000
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 ! new filters from april 2020 to ->
@@ -2072,7 +2072,6 @@ atozmath.com##.videoDiscovery
 @@||biltag.bilsyndication.com^$script,domain=atozmath.com
 @@||assets.bilsyndication.com/prebid/default/*$script,domain=atozmath.com
 ||assets.bilsyndication.com/plugins/*$script,redirect=noopjs,domain=atozmath.com
-||imasdk.googleapis.com/js/sdkloader/ima3.js$script,redirect=noopjs,domain=atozmath.com
 ||a-mx.com^
 @@||ssl.google-analytics.com/ga.js$script,domain=atozmath.com
 *$image,redirect-rule=2x2.png,domain=atozmath.com
@@ -2083,6 +2082,15 @@ atozmath.com##.videoDiscovery
 @@||amazon-adsystem.com/aax2/apstag.js$script,domain=atozmath.com
 atozmath.com###vi-smartbanner
 atozmath.com##.adsbyvli:style(opacity: 0 !important; pointer-events: none !important;)
+! https://github.com/uBlockOrigin/uAssets/issues/15338
+atozmath.com##+js(set, googletag._vars_, {})
+atozmath.com##+js(set, googletag._loadStarted_, true)
+atozmath.com##+js(set, googletag._loaded_, true)
+atozmath.com##+js(set, google_unique_id, 1)
+atozmath.com##+js(set, google.javascript, {})
+atozmath.com##+js(set, google.javascript.ads, {})
+atozmath.com##+js(set, google_global_correlator, 1)
+||imasdk.googleapis.com/js/sdkloader/ima3.js$script,redirect-rule=google-ima.js:5,domain=atozmath.com
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/59828
 planet-streaming1.com##+js(nosiif, visibility, 1000)

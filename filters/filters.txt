@@ -1,7 +1,7 @@
 ! Title: uBlock₀ filters
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Expires: 5 days
-! Last modified: Wed, 26 Jul 2023 09:06:06 +0000
+! Last modified: Wed, 26 Jul 2023 11:16:35 +0000
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 !
@@ -14089,6 +14089,18 @@ updown.link##+js(nano-stb, startDownload, 8000)
 workink.click##+js(no-fetch-if, cloudfront)
 @@||doubleclick.net^$script,xhr,domain=work.ink
 work.ink##.no-overlay
+! https://github.com/uBlockOrigin/uAssets/issues/14676
+work.ink##+js(ra, href, [href*="jump"], stay)
+@@||cdn.thisiswaldo.com/static/js/$script,domain=work.ink
+work.ink##.waldo-display-unit
+@@||doubleverify.com^$xhr,domain=work.ink
+||nextmillmedia.com^
+*$popup,3p,domain=work.ink,to=~discord.*|~google.com|~workink.*|~youtu.be|~youtube.com
+workink.click##+js(nowoif, !direct)
+work.ink##+js(nosiif, a0b)
+work.ink##+js(no-fetch-if, /outbrain|criteo|thisiswaldo/)
+work.ink##body > div > a#link:upward(body > div)
+work.ink##.opera-container
 
 ! https://github.com/NanoMeow/QuickReports/issues/2645
 ||firefaucet.win/*.gif$image
