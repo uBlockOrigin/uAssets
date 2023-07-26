@@ -1,7 +1,7 @@
 ! Title: uBlock₀ filters – Quick fixes
 ! Description: Immediate, temporary filters to fix websites
 ! Expires: 12 hours
-! Last modified: Wed, 26 Jul 2023 09:04:56 +0000
+! Last modified: Wed, 26 Jul 2023 13:17:17 +0000
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! Forums: https://github.com/uBlockOrigin/uAssets/issues
@@ -273,3 +273,14 @@ dragontea.ink##+js(spoof-css, iframe[id^="google_ads_iframe_/"]\, ins[id^="gpt_u
 
 ! https://github.com/uBlockOrigin/uAssets/issues/19164
 ||adobe.com/newrelic.js$script,redirect-rule=noopjs,1p
+
+! Ad-Shield
+*$frame,redirect-rule=noopframe,domain=isplus.com
+*$script,xhr,redirect-rule=noopjs,domain=isplus.com
+*$image,redirect-rule=1x1.gif,domain=isplus.com
+@@||isplus.com^$ghide
+isplus.com##+js(set, dable, {})
+isplus.com##ad-shield-inventory
+isplus.com##div[id^="div-gpt-ad-"]
+isplus.com##.adsbyadop
+isplus.com##div[class="box banner"]
