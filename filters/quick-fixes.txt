@@ -1,7 +1,7 @@
 ! Title: uBlock₀ filters – Quick fixes
 ! Description: Immediate, temporary filters to fix websites
 ! Expires: 12 hours
-! Last modified: Tue, 01 Aug 2023 14:54:33 +0000
+! Last modified: Tue, 01 Aug 2023 15:04:08 +0000
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! Forums: https://github.com/uBlockOrigin/uAssets/issues
@@ -43,29 +43,6 @@ imgutiyu.online,imgutbbn.online,imgubfd.online,imgrei.online,imgqec.online##div[
 imgutiyu.online,imgutbbn.online,imgubfd.online,imgrei.online,imgqec.online##div[style="width:100%;height:110px"]
 imgutiyu.online,imgutbbn.online,imgubfd.online,imgrei.online,imgqec.online##+js(nowoif, !/prcf.fiyar|themes|pixsense|.jpg/)
 imgutiyu.online,imgutbbn.online,imgubfd.online,imgrei.online,imgqec.online##div[class][style="display: block;"]
-
-! https://github.com/uBlockOrigin/uAssets/issues/15338
-atozmath.com##+js(set, googletag._vars_, {})
-atozmath.com##+js(set, googletag._loadStarted_, true)
-atozmath.com##+js(set, googletag._loaded_, true)
-atozmath.com##+js(set, google_unique_id, 1)
-atozmath.com##+js(set, google.javascript, {})
-atozmath.com##+js(set, google.javascript.ads, {})
-atozmath.com##+js(set, google_global_correlator, 1)
-||imasdk.googleapis.com/js/sdkloader/ima3.js$script,redirect-rule=google-ima.js:5,domain=atozmath.com
-
-! https://github.com/uBlockOrigin/uAssets/issues/14676
-work.ink##+js(ra, href, [href*="jump"], stay)
-@@||cdn.thisiswaldo.com/static/js/$script,domain=work.ink
-work.ink##.waldo-display-unit
-@@||doubleverify.com^$xhr,domain=work.ink
-||nextmillmedia.com^
-*$popup,3p,domain=work.ink,to=~discord.*|~google.com|~workink.*|~youtu.be|~youtube.com
-workink.click##+js(nowoif, !direct)
-work.ink##+js(nosiif, a0b)
-work.ink##+js(no-fetch-if, /outbrain|criteo|thisiswaldo|media\.net/)
-work.ink##body > div > a#link:upward(body > div)
-work.ink##.opera-container
 
 ! https://github.com/uBlockOrigin/uAssets/issues/17054
 welt.de#@#+js(aost, Object, /gdpr.*inlineScript/)
@@ -161,39 +138,18 @@ soft98.ir,~forum.soft98.ir##+js(rpnt, script, /^/, if(typeof alreadyRun!=='undef
 ! soft98.ir,~forum.soft98.ir##+js(rmnt, aside, /(.*)[9][^\w]*[0][^\w]*[9][^\w]*[9][^\w]*[0][^\w]*[7][^\w]*[1][^\w]*[4][^\w]*[6][^\w]*[1][^\w]*(.*)/)
 ! soft98.ir,~forum.soft98.ir##+js(aeld, /contextmenu|mouseup|mousedown/, [native code])
 
-! https://github.com/uBlockOrigin/uAssets/issues/18731#issuecomment-1613121145
-||investing.com/*/ad-notification-popup
-! https://www.reddit.com/r/uBlockOrigin/comments/14djjud/just_to_let_developers_know_that_investingcom/jqdzkm7/
-investing.com##[class^="ad-notification"]
-! https://www.reddit.com/r/uBlockOrigin/comments/14r9m8a/
-investing.com##[id^="adNotification"]
-! https://github.com/uBlockOrigin/uAssets/issues/18917
-! https://github.com/uBlockOrigin/uAssets/issues/18966
-investing.com##+js(set, adNotificationDetected, false)
-investing.com##[class*="notification_notification"]
-investing.com##div[class] > :is(.ad-blockers-section, [class*="adNotification"]):upward(1)
-
 ! https://github.com/uBlockOrigin/uAssets/issues/19063
 autosport.com,motorsport.com##+js(cookie-remover, 45grw1567)
-autosport.com,motorsport.com##+js(acs, vardom)
-
-! adikanime anti-adb
-@@prebid.js$script,domain=adikhealth.xyz|bisnis.adigenius.com|mangindo.xyz|adikdrive.my.id
-@@*$ghide,domain=adikhealth.xyz|bisnis.adigenius.com|mangindo.xyz|adikdrive.my.id
 
 ! https://github.com/uBlockOrigin/uAssets/commit/b04299eb34e90cae4b0af3428cd6952df0b78178
 youtube.com,youtubekids.com,youtube-nocookie.com#@#+js(json-prune, playerResponse.adPlacements playerResponse.playerAds adPlacements playerAds, playerConfig.webPlayerConfig.webPlayerActionsPorting)
 youtube.com,youtubekids.com,youtube-nocookie.com#@#+js(json-prune, playerResponse.adPlacements playerResponse.playerAds adPlacements playerAds, playerConfig.webPlayerConfig)
 youtube.com,youtubekids.com,youtube-nocookie.com#@#+js(json-prune, playerResponse.adPlacements playerResponse.playerAds adPlacements playerAds, playerConfig.streamSelectionConfig)
 youtube.com,youtubekids.com,youtube-nocookie.com#@#+js(json-prune, playerResponse.adPlacements playerResponse.playerAds adPlacements playerAds, playerConfig.audioConfig)
-youtube.com,youtubekids.com,youtube-nocookie.com#@#+js(json-prune, playerResponse.adPlacements playerResponse.playerAds adPlacements playerAds, playerResponse.playerConfig)
 youtube.com,youtubekids.com,youtube-nocookie.com#@#+js(json-prune, playerResponse.adPlacements playerResponse.playerAds adPlacements playerAds, playerResponse.playerConfig.audioConfig)
 youtube.com,youtubekids.com,youtube-nocookie.com#@#+js(json-prune, playerResponse.adPlacements playerResponse.playerAds adPlacements playerAds, playerResponse.playerConfig.streamSelectionConfig)
 youtube.com,youtubekids.com,youtube-nocookie.com#@#+js(json-prune, playerResponse.adPlacements playerResponse.playerAds adPlacements playerAds, playerResponse.playerConfig.webPlayerConfig)
 youtube.com,youtubekids.com,youtube-nocookie.com#@#+js(json-prune, playerResponse.adPlacements playerResponse.playerAds adPlacements playerAds, playerResponse.playerConfig.webPlayerConfig.webPlayerActionsPorting)
-youtube.com,youtubekids.com,youtube-nocookie.com#@#+js(set, ytInitialPlayerResponse.auxiliaryUi.messageRenderers.bkaEnforcementMessageViewModel, undefined)
-youtube.com,youtubekids.com,youtube-nocookie.com#@#+js(json-prune, auxiliaryUi.messageRenderers.enforcementMessageViewModel)
-youtube.com,youtubekids.com,youtube-nocookie.com#@#+js(set, ytInitialPlayerResponse.auxiliaryUi.messageRenderers.enforcementMessageViewModel, undefined)
 youtube.com,youtubekids.com,youtube-nocookie.com##+js(json-prune, playerResponse.adPlacements playerResponse.playerAds adPlacements playerAds, playerConfig.streamSelectionConfig.maxBitrate)
 youtube.com,youtubekids.com,youtube-nocookie.com##+js(json-prune, playerResponse.adPlacements playerResponse.playerAds adPlacements playerAds, playerResponse.playerConfig.streamSelectionConfig.maxBitrate)
 ! https://www.reddit.com/r/uBlockOrigin/comments/154vtwy/getting_ads_on_youtube/jsu299l/
@@ -204,9 +160,6 @@ youtube.com,youtubekids.com,youtube-nocookie.com##+js(json-prune, playerResponse
 ! https://www.reddit.com/r/uBlockOrigin/comments/15ctytf/
 youtube.com,youtubekids.com,youtube-nocookie.com##+js(json-prune, playerResponse.adPlacements playerResponse.playerAds adPlacements playerAds, playabilityStatus.liveStreamability)
 youtube.com,youtubekids.com,youtube-nocookie.com##+js(json-prune, playerResponse.adPlacements playerResponse.playerAds adPlacements playerAds, playerResponse.playabilityStatus.liveStreamability)
-
-! https://github.com/uBlockOrigin/uAssets/issues/19093
-/v2/tracking/*$badfilter
 
 ! https://github.com/uBlockOrigin/uAssets/issues/18476
 ! VOE sites
@@ -242,20 +195,6 @@ client.falixnodes.net##html:not([class]) #ad_unit
 *gdpr_consent$3p,image,removeparam,domain=client.falixnodes.net
 ||pagead2.googlesyndication.com^$xhr,important,domain=client.falixnodes.net
 
-! https://github.com/uBlockOrigin/uAssets/discussions/17361#discussioncomment-6519124
-blog.carsmania.net,blog.carstopia.net,blog.coinsvalue.net,blog.cookinguide.net,blog.freeoseocheck.com,blog.makeupguide.net##+js(aopw, adBlockDetected)
-coinscap.info,cryptowidgets.net,greenenez.com,insurancegold.in,webfreetools.net,wiki-topia.com##+js(nostif, detected)
-
-! https://github.com/uBlockOrigin/uAssets/discussions/17361#discussioncomment-6518041
-@@||banner.infoey.com/adbanner.png$domain=allcryptoz.net|crewbase.net|phineypet.com|shinbhu.net|talkforfitness.com
-*$object,empty,domain=allcryptoz.net|crewbase.net|phineypet.com|shinbhu.net|talkforfitness.com
-#@##adsiframe
-
-! https://github.com/easylist/easylist/commit/9fc696ba71090d3788f59777d398f1ae939f42cb
-@@||analytics.digitalpfizer.com/js/prod/pcc/pf_appmeasurement.js$domain=pfizer-covid19-vaccine.jp
-
-! https://github.com/uBlockOrigin/uAssets/issues/17382#issuecomment-1648622635
-hulu.com#@#+js(xml-prune, xpath(//*[name()="MPD"]/@mediaPresentationDuration | //*[name()="Period"][starts-with(@id\, "Ad")] | //*[name()="Period"]/@start), Period[id^="Ad"], .mpd)
 ! https://www.reddit.com/r/uBlockOrigin/comments/158nvca/not_blocking_hulu_ads/jti29qk/
 hulu.com##+js(json-prune, breaks pause_ads video_metadata.end_credits_time, breaks)
 hulu.com##+js(xml-prune, xpath(//*[name()="MPD"]/@mediaPresentationDuration | //*[name()="Period"][.//*[name()="BaseURL" and contains(text()\,'/ads-')]] | //*[name()="Period"]/@start), Period[id^="Ad"i], .mpd)
@@ -269,9 +208,6 @@ dragontea.ink##+js(ra, style, body > div, stay)
 dragontea.ink##html, body:style(overflow: visible !important;)
 dragontea.ink##iframe[id^="google_ads_iframe"]
 dragontea.ink##+js(rpnt, script, "}});, "}}); window.setTimeout(function(){let t=document.querySelectorAll(".reading-content .page-break img");for(let e=0;e<t.length;e++){let a=t[e].getAttribute("id").toString()\,r=CryptoJSAesJson.decrypt(a\,"releasethestormy888");t[e].setAttribute("id"\,r)\,a=t[e].getAttribute("data-src").toString()\,t[e].setAttribute("data-src"\,CryptoJSAesJson.decrypt(a\,"releasethestormy888"))\,t[e].classList.add("wp-manga-chapter-img")\,t[e].classList.add("img-responsive")\,t[e].classList.add("lazyload")\,t[e].classList.add("effect-fade")}let i=document.querySelectorAll(".reading-content .page-break");for(let s=0;s<t.length;s++)i[t[s].getAttribute("id").replace("image-"\,"")].append(t[s])}\,1e3);)
-
-! https://github.com/uBlockOrigin/uAssets/issues/19164
-||adobe.com/newrelic.js$script,redirect-rule=noopjs,1p
 
 ! Ad-Shield
 *$frame,redirect-rule=noopframe,domain=isplus.com
