@@ -194,12 +194,6 @@ client.falixnodes.net##html:not([class]) #ad_unit
 *gdpr_consent$3p,image,removeparam,domain=client.falixnodes.net
 ||pagead2.googlesyndication.com^$xhr,important,domain=client.falixnodes.net
 
-! https://www.reddit.com/r/uBlockOrigin/comments/158nvca/not_blocking_hulu_ads/jti29qk/
-hulu.com##+js(json-prune, breaks pause_ads video_metadata.end_credits_time, breaks)
-hulu.com##+js(xml-prune, xpath(//*[name()="MPD"]/@mediaPresentationDuration | //*[name()="Period"][.//*[name()="BaseURL" and contains(text()\,'/ads-')]] | //*[name()="Period"]/@start), Period[id^="Ad"i], .mpd)
-hulu.com#@#+js(xml-prune, xpath(//*[name()="MPD"]/@mediaPresentationDuration | //*[name()="Period"][.//*[name()="BaseURL" and contains(text()\,'/ads-')]]), Period[id^="Ad"i], .mpd)
-hulu.com#@#+js(xml-prune, xpath(//*[name()="MPD"]/@mediaPresentationDuration | //*[name()="Period"][starts-with(@id\, "Ad")] | //*[name()="Period"][starts-with(@id\, "ad")] | //*[name()="Period"]/@start), Period[id^="Ad"i], .mpd)
-
 ! https://github.com/uBlockOrigin/uAssets/issues/16083
 @@||dragontea.ink^$ghide
 dragontea.ink##+js(ra, style, body > div, stay)
@@ -227,9 +221,6 @@ chip.de##a[href*="https://schneesommer.de/intern/dl/?url="] > img[src*="https://
 chip.de##.is-hidden-md[style*="min-height"] + div[class] > a[href*="/intern/dl/?url="] > img:upward(2)
 ||free.webcompanion.com/minime/de/index.php?partner=*&campaign=$popup,doc
 ||schneesommer.de^$image,3p
-
-! xh
-||cdn13.com/*.mp4?cdn_creation_time$badfilter
 
 ! https://github.com/easylist/easylist/issues/16874
 ||rebrand.ly^$badfilter
