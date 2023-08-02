@@ -1,7 +1,7 @@
 ! Title: uBlock₀ filters – Quick fixes
 ! Description: Immediate, temporary filters to fix websites
 ! Expires: 12 hours
-! Last modified: Wed, 02 Aug 2023 19:52:58 +0000
+! Last modified: Wed, 02 Aug 2023 19:59:16 +0000
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! Forums: https://github.com/uBlockOrigin/uAssets/issues
@@ -210,17 +210,6 @@ dragontea.ink##ins[id^="gpt_unit_/"][style*="height: 100vh"]:style(visibility: h
 dragontea.ink##div[id^="dragontea.ink_1000x100_anchor"]:style(visibility: hidden !important;)
 dragontea.ink##+js(spoof-css, iframe[id^="google_ads_iframe_/"]\, ins[id^="gpt_unit_/"][style*="height: 100vh"]\, div[id^="dragontea.ink_1000x100_anchor"], visibility, visible)
 
-! Ad-Shield
-*$frame,redirect-rule=noopframe,domain=isplus.com
-*$script,xhr,redirect-rule=noopjs,domain=isplus.com
-*$image,redirect-rule=1x1.gif,domain=isplus.com
-@@||isplus.com^$ghide
-isplus.com##+js(set, dable, {})
-isplus.com##ad-shield-inventory
-isplus.com##div[id^="div-gpt-ad-"]
-isplus.com##.adsbyadop
-isplus.com##div[class="box banner"]
-
 ! https://github.com/easylist/easylistgermany/issues/216
 chip.de##div[style*="min-height"] + div[class] > a[href*="https://x.chip.de/intern/dl/?url="] > img[src*="https://im.chip.de/"]:upward(2)
 chip.de##.sky1 > a[href*="https://x.chip.de/intern/dl/?url="] > img[src*="https://im.chip.de/"]:upward(2)
@@ -231,18 +220,8 @@ chip.de##.is-hidden-md[style*="min-height"] + div[class] > a[href*="/intern/dl/?
 ||free.webcompanion.com/minime/de/index.php?partner=*&campaign=$popup,doc
 ||schneesommer.de^$image,3p
 
-! https://github.com/easylist/easylist/issues/16874
-||rebrand.ly^$badfilter
-! https://github.com/easylist/easylist/commit/6b1c562ea9b166337caea996dd0e37056e60d4a5
-||rebrand.ly^$popup,badfilter
-
 ! https://github.com/AdguardTeam/AdguardFilters/issues/149595
 zefoy.com##+js(aost, atob, /zefoy\.com\S+:3:1/)
-
-! https://github.com/uBlockOrigin/uAssets/discussions/17361#discussioncomment-6582008
-earnhub.net##ins[style^="display:inline-block"]
-||bmcdn5.com^$script,redirect=noop.js
-||bmcdn6.com^
 
 ! https://github.com/uBlockOrigin/uAssets/discussions/17361#discussioncomment-6567326
 mdn.lol##+js(nostif, /\.innerHtml|offsetWidth/)
