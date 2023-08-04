@@ -1,6 +1,6 @@
 ! Title: uBlock₀ filters
 ! Description: Filters optimized for uBlock, to be used along EasyList
-! Last modified: Thu, 03 Aug 2023 19:49:05 +0000
+! Last modified: Fri, 04 Aug 2023 01:11:43 +0000
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 ! New filters from January 2023 to ->
@@ -3822,3 +3822,12 @@ paylaterin.com##+js(aost, decodeURIComponent, autoptimize)
 
 ! https://www.reddit.com/r/uBlockOrigin/comments/15gtlgy/site_detecting_ubo_httpswwwinterestconz/
 ||interest.co.nz/modules/custom/presspatron/js/pp-ablock-banner.js$script
+
+! https://www.reddit.com/r/uBlockOrigin/comments/dv0n5w/torrentgalaxy_ads/
+torrentgalaxy.to##+js(aost, String.prototype.charCodeAt, $)
+*$script,3p,denyallow=bootstrapcdn.com|disqus.com|disquscdn.com|jsdelivr.net|jwpcdn.com|fastly.net|fastlylb.net|jquery.com|hwcdn.net|recaptcha.net|cloudflare.com|cloudflare.net|google.com|googleapis.com|gstatic.com,domain=torrentgalaxy.*
+torrentgalaxy.to##.alert
+||wonkychickens.org/data/statics/sg/
+torrentgalaxy.to##a[href^="/hub.php?a=hotdea"]
+! https://www.reddit.com/r/uBlockOrigin/comments/15hcpfj/tgx_ads/
+torrentgalaxy.to##.hotpicks a[target="_blank"]:upward(.hotpicks)
