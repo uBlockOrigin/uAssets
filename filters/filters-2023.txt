@@ -1,6 +1,6 @@
 ! Title: uBlock₀ filters
 ! Description: Filters optimized for uBlock, to be used along EasyList
-! Last modified: Fri, 04 Aug 2023 13:49:58 +0000
+! Last modified: Sat, 05 Aug 2023 01:54:36 +0000
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 ! New filters from January 2023 to ->
@@ -2115,7 +2115,8 @@ tempumail.com##+js(nostif, detector)
 ! https://github.com/AdguardTeam/AdguardFilters/issues/149595
 zefoy.com##+js(aost, atob, /zefoy\.com\S+:3:1/)
 zefoy.com##^script[onerror^="$('body')"]
-/^https:\/\/zefoy\.com\/[^\/]+\.js/$redirect=noopjs
+/^https:\/\/zefoy\.com\/[^\/]+\?/$script,redirect=noopjs
+@@||zefoy.com/cdnjs$script,1p
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/140616
 alludemycourses.com##+js(aeld, DOMContentLoaded, adsBlocked)
