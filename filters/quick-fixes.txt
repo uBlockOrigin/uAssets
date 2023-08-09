@@ -1,7 +1,7 @@
 ! Title: uBlock₀ filters – Quick fixes
 ! Description: Immediate, temporary filters to fix websites
 ! Expires: 12 hours
-! Last modified: Tue, 08 Aug 2023 19:53:01 +0000
+! Last modified: Wed, 09 Aug 2023 04:00:35 +0000
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! Forums: https://github.com/uBlockOrigin/uAssets/issues
@@ -237,7 +237,7 @@ zefoy.com##+js(rmnt, script, /$(window)|Adblock|_0x/)
 @@||zefoy.com/assets/accc8f0345e264385213ffe12890ef85.js?$script,1p
 zefoy.com##.vfx-loader
 ! https://github.com/uBlockOrigin/uAssets/issues/18317
-igg-games.com##a[aria-label^="ad"]
+igg-games.com##div:not([class]):not([id]) > a[rel][aria-label]
 
 ! https://github.com/uBlockOrigin/uAssets/issues/14676
 work.ink#@#.waldo-display-unit
@@ -248,3 +248,9 @@ twitter.com,twitter3e4tixl4xyajtrzo62zg5vztmjuricljdp2c5kshju4avyoid.onion#@?#ar
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/158317
 ||rikiki.site^$all,badfilter
+
+! ! https://github.com/uBlockOrigin/uAssets/issues/14719
+apkmirror.com##^script:has-text(style:last-of-type)
+!#if !cap_html_filtering
+apkmirror.com##+js(rmnt, script, style:last-of-type)
+!#endif
