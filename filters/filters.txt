@@ -1,7 +1,7 @@
 ! Title: uBlock₀ filters
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Expires: 5 days
-! Last modified: Fri, 11 Aug 2023 10:14:48 +0000
+! Last modified: Fri, 11 Aug 2023 11:53:52 +0000
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 !
@@ -3255,7 +3255,10 @@ readmng.com##.sideways
 *$script,redirect-rule=noopjs,domain=next-episode.net
 next-episode.net##.adsbygoogle
 next-episode.net##[id=""]
-next-episode.net##+js(rmnt, script, /onerror|adsbygoogle/)
+next-episode.net##^script:has-text(/onerror|adsbygoogle|popup/)
+!#if !cap_html_filtering
+next-episode.net##+js(rmnt, script, /onerror|adsbygoogle|popup/)
+!#endif
 
 ! https://github.com/uBlockOrigin/uAssets/issues/1402
 movie4k.is##+js(aopr, urlToShow)
