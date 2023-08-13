@@ -1,6 +1,6 @@
 ! Title: uBlock₀ filters
 ! Description: Filters optimized for uBlock, to be used along EasyList
-! Last modified: Sat, 12 Aug 2023 17:49:29 +0000
+! Last modified: Sun, 13 Aug 2023 02:25:45 +0000
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 ! New filters from January 2023 to ->
@@ -3906,3 +3906,25 @@ eftacrypto.com##+js(aeld, load, htmls)
 
 ! https://jbbs.shitaraba.net/bbs/read.cgi/internet/25463/1618326670/196
 bethaniebu.com##+js(aost, document.getElementById, adsBlocked)
+
+! https://github.com/uBlockOrigin/uAssets/issues/8967
+play.history.com##+js(json-prune, data.reg)
+@@||play.history.com^$ghide
+||amazon-adsystem.com/*/apstag.js$script,redirect=noopjs,domain=aetv.com|aetnd.com|history.com
+||mssl.fwmrm.net/*/AdManager.js$script,redirect=noopjs,domain=history.com
+@@||mavencoalition.io^$xhr,domain=history.com
+@@||aetnd.com^$ghide
+||play.aetv.com/vendor/conviva-thePlatform-plugin.js$script
+||play.aetv.com/vendor/conviva-core-sdk.js$script
+||play.aetv.com/vendor/branch.js$script
+||play.aetv.com/vendor/Samba.min.js$script
+||play.aetv.com/vendor/amplitude.js$script
+||play.aetv.com/vendor/at.js$script
+||play.aetv.com/vendor/MediaSDK.min.js$script
+history.com#@#.m-header-ad
+history.com#@#.m-in-content-ad-row
+history.com##aside:has([class*="-ad-"])
+! https://www.reddit.com/r/uBlockOrigin/comments/15petgo/this_history_site_detects_ublock_origin_and/
+@@||imasdk.googleapis.com/js/sdkloader/ima3_dai.js$script,domain=history.com
+@@||pubads.g.doubleclick.net/ondemand/hls/content/*/streams$xhr,domain=history.com
+history.com##+js(no-xhr-if, time-events)
