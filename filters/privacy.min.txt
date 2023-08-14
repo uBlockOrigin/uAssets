@@ -4,7 +4,7 @@
 !   which purpose is to guarantee that a filter won't be overriden by
 !   exception filters.
 ! Expires: 7 days
-! Last modified: Mon, 14 Aug 2023 06:12:13 +0000
+! Last modified: Mon, 14 Aug 2023 06:34:05 +0000
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 !
@@ -320,15 +320,12 @@ mindbodygreen.com##+js(set-local-storage-item, segmentDeviceId, $remove$)
 ||pl.kukaj.to/kukac.js
 ! geoip.cdn.arkadiumhosted.com
 ||geoip.cdn.arkadiumhosted.com^$domain=bestforpuzzles.com|charlotteobserver.com|independent.co.uk|miamiherald.com|standard.co.uk|word.tips
-mozilla.org##+js(href-sanitizer, a[href^="https://app.adjust.com/"][href*="?redirect="], ?redirect)
 ! sites with beacons
 *$ping,domain=webnovel.com
 *$xhr,3p,denyallow=github.com|stripe.com|fpjs.pro,domain=fingerprint.com|~dev.fingerprint.com
 ||fingerprint.com^$strict3p,domain=fingerprint.com|~dev.fingerprint.com|~dashboard.fingerprint.com
 ||dashboard.fingerprint.com^$strict3p,xhr,domain=dashboard.fingerprint.com
 fingerprint.com,~dev.fingerprint.com##+js(no-xhr-if, method:POST)
-androidauthority.com##+js(href-sanitizer, a[href^="https://androidauth.wpengine.com/wp-json/api/advanced_redirect?ref="], ?ref)
-||androidauthority.com/api/locate/
 ! lightboxcdn.com
 ||lightboxcdn.com^$domain=androidauthority.com|variety.com
 ||lightboxcdn.com/*/digibox.gif?
@@ -337,8 +334,6 @@ androidauthority.com##+js(href-sanitizer, a[href^="https://androidauth.wpengine.
 /firebase-analytics.js$script,domain=zefoy.com
 zefoy.com##+js(set, firebase.analytics, noopFunc)
 ||firebase.googleapis.com^$domain=hotmediahub.com
-pcgamingwiki.com##+js(href-sanitizer, a[href^="https://www.dpbolvw.net/click-"][href*="?url="], ?url)
-pcgamingwiki.com##+js(href-sanitizer, a[href^="https://greenmangaming.sjv.io/c/"][href*="?u="], ?u)
 ! PMC-sites tracking
 /pmc-plugins/pmc-social-share-bar/*/tracking.js
 ! McClatchy-sites tracking
@@ -358,7 +353,6 @@ factable.com##+js(cookie-remover, hive_geoloc)
 ||eevblog.com/forum/fp.php
 ||2cnt.net/j0=$image,domain=s4c.cymru
 ||player-api.s4c-cdn.co.uk/analytics/$domain=s4c.cymru
-lite.duckduckgo.com##+js(href-sanitizer, a[href^="//duckduckgo.com/l/?uddg="], ?uddg)
 ||aas.medialaben.no/a/
 ||remp.nv.ua/assets/lib/js/remplib.js
 !#if env_chromium
@@ -376,14 +370,22 @@ watchporn.to##+js(cookie-remover, kt_ips)
 ||mps.nbcuni.com/images/MPS-STATISTIC-REPORTING.png
 bing.com##+js(cookie-remover, MicrosoftApplicationsTelemetryDeviceId)
 ||ab.blogs.es/abtest.png^$image,3p,domain=xataka.com|trendencias.com,redirect=1x1.gif,important
-nowinstock.net##+js(href-sanitizer, a[href^="https://click.linksynergy.com/deeplink?id="][href*="&murl="], ?murl)
-nowinstock.net##+js(href-sanitizer, a[href^="http://go.redirectingat.com"][href*="&url="], ?url)
-nowinstock.net##+js(href-sanitizer, a[href*="?"][href*="&u=http"], ?u)
-! [NSFW] https://fap18.net/video/88120176/danny-d-2-milfs-and-that-big-cock?c=milf - Click tracking
-fap18.net##+js(href-sanitizer, a[href^="/vp/player/to/?u="], ?u)
+! Click Trackers
+lite.duckduckgo.com##+js(href-sanitizer, a[href^="//duckduckgo.com/l/?uddg="], ?uddg)
+androidauthority.com##+js(href-sanitizer, a[href^="https://androidauth.wpengine.com/wp-json/api/advanced_redirect?ref="], ?ref)
+||androidauthority.com/api/locate/
+mozilla.org##+js(href-sanitizer, a[href^="https://app.adjust.com/"][href*="?redirect="], ?redirect)
+pcgamingwiki.com##+js(href-sanitizer, a[href^="https://www.dpbolvw.net/click-"][href*="?url="], ?url)
+pcgamingwiki.com##+js(href-sanitizer, a[href^="https://greenmangaming.sjv.io/c/"][href*="?u="], ?u)
+starstyle.com##+js(href-sanitizer, a[href^="https://go.skimresources.com/"][href*="&url=http"], ?url)
 insidehook.com##+js(href-sanitizer, a[href^="https://click.linksynergy.com/deeplink?id="][href*="&murl="], ?murl)
 insidehook.com##+js(href-sanitizer, a[href*="?"][href*="&url=http], ?url)
 insidehook.com##+js(href-sanitizer, a[href*="?"][href*="&u=http"], ?u)
+! [NSFW] https://fap18.net/video/88120176/danny-d-2-milfs-and-that-big-cock?c=milf
+fap18.net##+js(href-sanitizer, a[href^="/vp/player/to/?u="], ?u)
+nowinstock.net##+js(href-sanitizer, a[href^="https://click.linksynergy.com/deeplink?id="][href*="&murl="], ?murl)
+nowinstock.net##+js(href-sanitizer, a[href^="http://go.redirectingat.com"][href*="&url="], ?url)
+nowinstock.net##+js(href-sanitizer, a[href*="?"][href*="&u=http"], ?u)
 /detroitchicago/dpv.gif?$image
 /detroitchicago/imp.gif$ping
 ! Merge in resource-abuse.txt

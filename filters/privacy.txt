@@ -4,7 +4,7 @@
 !   which purpose is to guarantee that a filter won't be overriden by
 !   exception filters.
 ! Expires: 7 days
-! Last modified: Mon, 14 Aug 2023 06:12:13 +0000
+! Last modified: Mon, 14 Aug 2023 06:34:05 +0000
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 !
@@ -565,9 +565,6 @@ mindbodygreen.com##+js(set-local-storage-item, segmentDeviceId, $remove$)
 ! geoip.cdn.arkadiumhosted.com
 ||geoip.cdn.arkadiumhosted.com^$domain=bestforpuzzles.com|charlotteobserver.com|independent.co.uk|miamiherald.com|standard.co.uk|word.tips
 
-! https://github.com/uBlockOrigin/uBlock-issues/issues/2531#issuecomment-1512373333
-mozilla.org##+js(href-sanitizer, a[href^="https://app.adjust.com/"][href*="?redirect="], ?redirect)
-
 ! sites with beacons
 *$ping,domain=webnovel.com
 
@@ -576,10 +573,6 @@ mozilla.org##+js(href-sanitizer, a[href^="https://app.adjust.com/"][href*="?redi
 ||fingerprint.com^$strict3p,domain=fingerprint.com|~dev.fingerprint.com|~dashboard.fingerprint.com
 ||dashboard.fingerprint.com^$strict3p,xhr,domain=dashboard.fingerprint.com
 fingerprint.com,~dev.fingerprint.com##+js(no-xhr-if, method:POST)
-
-! https://www.androidauthority.com/third-party-reddit-apps-statement-3332238/ redirect links
-androidauthority.com##+js(href-sanitizer, a[href^="https://androidauth.wpengine.com/wp-json/api/advanced_redirect?ref="], ?ref)
-||androidauthority.com/api/locate/
 
 ! lightboxcdn.com
 ||lightboxcdn.com^$domain=androidauthority.com|variety.com
@@ -591,10 +584,6 @@ androidauthority.com##+js(href-sanitizer, a[href^="https://androidauth.wpengine.
 zefoy.com##+js(set, firebase.analytics, noopFunc)
 ! https://github.com/AdguardTeam/AdguardFilters/issues/156959
 ||firebase.googleapis.com^$domain=hotmediahub.com
-
-! https://www.pcgamingwiki.com/wiki/Grand_Theft_Auto_V
-pcgamingwiki.com##+js(href-sanitizer, a[href^="https://www.dpbolvw.net/click-"][href*="?url="], ?url)
-pcgamingwiki.com##+js(href-sanitizer, a[href^="https://greenmangaming.sjv.io/c/"][href*="?u="], ?u)
 
 ! PMC-sites tracking
 /pmc-plugins/pmc-social-share-bar/*/tracking.js
@@ -637,9 +626,6 @@ factable.com##+js(cookie-remover, hive_geoloc)
 ||2cnt.net/j0=$image,domain=s4c.cymru
 ||player-api.s4c-cdn.co.uk/analytics/$domain=s4c.cymru
 
-! https://www.reddit.com/r/uBlockOrigin/comments/14t3y1d/
-lite.duckduckgo.com##+js(href-sanitizer, a[href^="//duckduckgo.com/l/?uddg="], ?uddg)
-
 ! https://github.com/uBlockOrigin/uAssets/issues/18880
 ||aas.medialaben.no/a/
 
@@ -678,18 +664,29 @@ bing.com##+js(cookie-remover, MicrosoftApplicationsTelemetryDeviceId)
 ! https://github.com/uBlockOrigin/uAssets/issues/19221
 ||ab.blogs.es/abtest.png^$image,3p,domain=xataka.com|trendencias.com,redirect=1x1.gif,important
 
-! https://nowinstock.net/computers/videocards/nvidia/rtx4090/ - Click tracking
-nowinstock.net##+js(href-sanitizer, a[href^="https://click.linksynergy.com/deeplink?id="][href*="&murl="], ?murl)
-nowinstock.net##+js(href-sanitizer, a[href^="http://go.redirectingat.com"][href*="&url="], ?url)
-nowinstock.net##+js(href-sanitizer, a[href*="?"][href*="&u=http"], ?u)
-
-! [NSFW] https://fap18.net/video/88120176/danny-d-2-milfs-and-that-big-cock?c=milf - Click tracking
-fap18.net##+js(href-sanitizer, a[href^="/vp/player/to/?u="], ?u)
-
-! https://insidehook.com/deals - Click tracking
+! Click Trackers
+! https://reddit.com/r/uBlockOrigin/comments/14t3y1d/
+lite.duckduckgo.com##+js(href-sanitizer, a[href^="//duckduckgo.com/l/?uddg="], ?uddg)
+! https://androidauthority.com/third-party-reddit-apps-statement-3332238/
+androidauthority.com##+js(href-sanitizer, a[href^="https://androidauth.wpengine.com/wp-json/api/advanced_redirect?ref="], ?ref)
+||androidauthority.com/api/locate/
+! https://github.com/uBlockOrigin/uBlock-issues/issues/2531#issuecomment-1512373333
+mozilla.org##+js(href-sanitizer, a[href^="https://app.adjust.com/"][href*="?redirect="], ?redirect)
+! https://pcgamingwiki.com/wiki/Grand_Theft_Auto_V
+pcgamingwiki.com##+js(href-sanitizer, a[href^="https://www.dpbolvw.net/click-"][href*="?url="], ?url)
+pcgamingwiki.com##+js(href-sanitizer, a[href^="https://greenmangaming.sjv.io/c/"][href*="?u="], ?u)
+! https://starstyle.com
+starstyle.com##+js(href-sanitizer, a[href^="https://go.skimresources.com/"][href*="&url=http"], ?url)
+! https://insidehook.com/deals
 insidehook.com##+js(href-sanitizer, a[href^="https://click.linksynergy.com/deeplink?id="][href*="&murl="], ?murl)
 insidehook.com##+js(href-sanitizer, a[href*="?"][href*="&url=http], ?url)
 insidehook.com##+js(href-sanitizer, a[href*="?"][href*="&u=http"], ?u)
+! [NSFW] https://fap18.net/video/88120176/danny-d-2-milfs-and-that-big-cock?c=milf
+fap18.net##+js(href-sanitizer, a[href^="/vp/player/to/?u="], ?u)
+! https://nowinstock.net/computers/videocards/nvidia/rtx4090/
+nowinstock.net##+js(href-sanitizer, a[href^="https://click.linksynergy.com/deeplink?id="][href*="&murl="], ?murl)
+nowinstock.net##+js(href-sanitizer, a[href^="http://go.redirectingat.com"][href*="&url="], ?url)
+nowinstock.net##+js(href-sanitizer, a[href*="?"][href*="&u=http"], ?u)
 
 ! https://chataigpt.org
 /detroitchicago/dpv.gif?$image
