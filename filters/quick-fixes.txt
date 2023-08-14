@@ -1,7 +1,7 @@
 ! Title: uBlock₀ filters – Quick fixes
 ! Description: Immediate, temporary filters to fix websites
 ! Expires: 12 hours
-! Last modified: Mon, 14 Aug 2023 12:59:48 +0000
+! Last modified: Mon, 14 Aug 2023 13:04:52 +0000
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! Forums: https://github.com/uBlockOrigin/uAssets/issues
@@ -146,13 +146,7 @@ soft98.ir,~forum.soft98.ir##+js(rpnt, script, /^(.*)$/, if(typeof alreadyRun!=='
 ! soft98.ir,~forum.soft98.ir##+js(aeld, /contextmenu|mouseup|mousedown/, [native code])
 
 ! https://github.com/uBlockOrigin/uBlock-discussions/discussions/789#discussioncomment-6617546
-www.youtube.com,www.youtubekids.com,www.youtube-nocookie.com#@#+js(aost, JSON.parse, /doEnqueue.+?polymer/)
-www.youtube.com,www.youtubekids.com,www.youtube-nocookie.com#@#+js(aost, JSON.parse, Vgb)
 !#if ext_devbuild
-youtube.com,youtubekids.com,youtube-nocookie.com#@#+js(json-prune, playerResponse.adPlacements playerResponse.playerAds adPlacements playerAds, playabilityStatus.liveStreamability)
-youtube.com,youtubekids.com,youtube-nocookie.com#@#+js(json-prune, playerResponse.adPlacements playerResponse.playerAds adPlacements playerAds, playerResponse.playabilityStatus.liveStreamability)
-youtube.com,youtubekids.com,youtube-nocookie.com#@#+js(json-prune, playerResponse.adPlacements playerResponse.playerAds adPlacements playerAds, streamingData.adaptiveFormats.1)
-youtube.com,youtubekids.com,youtube-nocookie.com#@#+js(json-prune, playerResponse.adPlacements playerResponse.playerAds adPlacements playerAds, playerResponse.streamingData.adaptiveFormats.1)
 youtube.com,youtubekids.com,youtube-nocookie.com#@#+js(json-prune, playerResponse.adPlacements playerResponse.playerAds adPlacements playerAds, streamingData.adaptiveFormats.2)
 youtube.com,youtubekids.com,youtube-nocookie.com#@#+js(json-prune, playerResponse.adPlacements playerResponse.playerAds adPlacements playerAds, playerResponse.streamingData.adaptiveFormats.2)
 youtube.com,youtubekids.com,youtube-nocookie.com#@#+js(json-prune, playerResponse.adPlacements playerResponse.playerAds adPlacements playerAds, adPlacements.1)
@@ -163,18 +157,11 @@ youtube.com,youtubekids.com,youtube-nocookie.com#@#+js(json-prune, playerRespons
 youtube.com,youtubekids.com,youtube-nocookie.com##+js(json-prune, playerResponse.adPlacements playerResponse.playerAds adPlacements playerAds, , /^(?=.*\.js)(?!.*[A-z]hb \S+polymer).*/)
 !#endif
 ! https://github.com/uBlockOrigin/uBlock-discussions/discussions/789#discussioncomment-6640886
-youtube.com,youtubekids.com,youtube-nocookie.com#@#+js(json-prune, playerResponse.adPlacements playerResponse.playerAds adPlacements playerAds, playerConfig.streamSelectionConfig.maxBitrate)
-youtube.com,youtubekids.com,youtube-nocookie.com#@#+js(json-prune, playerResponse.adPlacements playerResponse.playerAds adPlacements playerAds, playerConfig.audioConfig.loudnessDb)
-youtube.com,youtubekids.com,youtube-nocookie.com#@#+js(json-prune, playerResponse.adPlacements playerResponse.playerAds adPlacements playerAds, playerResponse.playerConfig.streamSelectionConfig.maxBitrate)
-youtube.com,youtubekids.com,youtube-nocookie.com#@#+js(json-prune, playerResponse.adPlacements playerResponse.playerAds adPlacements playerAds, playerResponse.playerConfig.audioConfig.loudnessDb)
 youtube.com,youtubekids.com,youtube-nocookie.com#@#+js(json-prune, playerResponse.adPlacements playerResponse.playerAds adPlacements playerAds, streamingData.adaptiveFormats.1)
 youtube.com,youtubekids.com,youtube-nocookie.com#@#+js(json-prune, playerResponse.adPlacements playerResponse.playerAds adPlacements playerAds, playerResponse.streamingData.adaptiveFormats.1)
 youtube.com,youtubekids.com,youtube-nocookie.com#@#+js(json-prune, playerResponse.adPlacements playerResponse.playerAds adPlacements playerAds, streamingData.adaptiveFormats.2)
 youtube.com,youtubekids.com,youtube-nocookie.com#@#+js(json-prune, playerResponse.adPlacements playerResponse.playerAds adPlacements playerAds, playerResponse.streamingData.adaptiveFormats.2)
 www.youtube.com,www.youtubekids.com,www.youtube-nocookie.com#@#+js(aost, Promise.all, Wgb)
-youtube.com,youtubekids.com,youtube-nocookie.com#@#+js(json-prune, playerResponse.adPlacements playerResponse.playerAds adPlacements playerAds)
-youtube.com,youtubekids.com,youtube-nocookie.com##+js(json-prune, playerResponse.adPlacements playerResponse.playerAds adPlacements playerAds, playabilityStatus.liveStreamability)
-youtube.com,youtubekids.com,youtube-nocookie.com##+js(json-prune, playerResponse.adPlacements playerResponse.playerAds adPlacements playerAds, playerResponse.playabilityStatus.liveStreamability)
 youtube.com,youtubekids.com,youtube-nocookie.com##+js(json-prune, playerResponse.adPlacements playerResponse.playerAds adPlacements playerAds, adPlacements.1)
 youtube.com,youtubekids.com,youtube-nocookie.com##+js(json-prune, playerResponse.adPlacements playerResponse.playerAds adPlacements playerAds, playerResponse.adPlacements.1)
 youtube.com,youtubekids.com,youtube-nocookie.com##+js(json-prune, playerResponse.adPlacements playerResponse.playerAds adPlacements playerAds, responseContext.serviceTrackingParams.1)
@@ -261,16 +248,6 @@ zefoy.com##^script:has-text(/'.adsbygoogle'|text-danger|warning|Adblock|_0x/)
 !#if !cap_html_filtering
 zefoy.com##+js(rmnt, script, /'.adsbygoogle'|text-danger|warning|Adblock|_0x/)
 !#endif
-
-! https://github.com/uBlockOrigin/uAssets/issues/18317
-igg-games.com##div:not([class]):not([id]) > a[rel][aria-label]
-
-! https://github.com/uBlockOrigin/uAssets/issues/14676
-work.ink#@#.waldo-display-unit
-work.ink#@#.opera-container
-
-! https://github.com/AdguardTeam/AdguardFilters/issues/158317
-||rikiki.site^$all,badfilter
 
 ! ! https://github.com/uBlockOrigin/uAssets/issues/14719
 apkmirror.com##^script:has-text(style:last-of-type)
