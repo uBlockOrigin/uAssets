@@ -1,7 +1,7 @@
 ! Title: uBlock filters
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Expires: 5 days
-! Last modified: Wed, 16 Aug 2023 11:49:58 +0000
+! Last modified: Wed, 16 Aug 2023 12:33:07 +0000
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 !
@@ -20621,8 +20621,10 @@ jiocinema.com##ins[id^="jioads"]
 kpkuang.org##+js(nostif, _0x)
 kpkuang.org###sterra-ad-onmid
 chip.de###A.A[style="display: block;"]
-chip.de##.DetailPage__Right-Column > div[style*="min-height:"]:first-child
-chip.de##.mt-md > div[class] > #A.A[style="display: block;"]:upward(1)
+chip.de##div[style="display: none;"] + div[class] > div[class] > h2[style]:has-text(Gesponsert):upward(2)
+chip.de##div[style="display: none;"] + div > a[href*="https://x.chip.de/intern/dl/?url="]:has(img[src*="https://im.chip.de/"]):upward(1)
+chip.de##div[style="display: none;"] + div > div > a[href*="https://x.chip.de/intern/dl/?url="]:has(img[src*="https://im.chip.de/"]):upward(1)
+chip.de##div[style="display: none;"] + [name="randomString"] > [name="randomString"] a[href*="https://x.chip.de/intern/dl/?url="]:has(img[src*="https://im.chip.de/"]):upward(1)
 chip.de###aabhor
 chip.de##.aab3
 praxistipps.chip.de##div[data-bc-data-trackvars]
@@ -20631,7 +20633,9 @@ praxistipps.chip.de##div[data-bc-data-trackvars]
 ||mein-organizer.de^$3p
 ||schneesommer.de^$3p
 ||free.webcompanion.com/minime/de/index.php?partner=*&campaign=$popup,doc
+||bdu.bitdriverupdater.com/*&utm_source=$popup,doc
 chip.de##^script:has-text(/pushAdTag|link_click|getAds/)
+chip.de##+js(set, ubactive, 0)
 chip.de##:root:style(--topbanner-height-min:unset!important;--topbanner-height-max:unset!important;)
 praxistipps.chip.de,praxistipps.focus.de###G32:style(grid-template-rows: unset!important;)
 mega4upload.com##+js(ra, onclick, #direct_link > a[onclick])
