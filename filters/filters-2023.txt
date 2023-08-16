@@ -1,6 +1,6 @@
 ! Title: uBlock₀ filters
 ! Description: Filters optimized for uBlock, to be used along EasyList
-! Last modified: Wed, 16 Aug 2023 05:43:56 +0000
+! Last modified: Wed, 16 Aug 2023 07:22:46 +0000
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 ! New filters from January 2023 to ->
@@ -3967,3 +3967,9 @@ olarila.com##+js(nostif, adblock)
 ! https://uploadboy.com/f64c93jcxy0a timer
 uploadboy.com##+js(rpnt, script, self.location.href;, self.location.href; document.addEventListener('DOMContentLoaded'\,()=>{const button=document.querySelector('form > input#method_free');if(button){button.click()}});, sedCount, 1)
 uploadboy.com##+js(rpnt, script, //$('#btn_download').click();, $('#btn_download').click();, sedCount, 1)
+
+! https://github.com/uBlockOrigin/uAssets/issues/19360
+miniwebtool.com##^script:has-text(adblock)
+!#if !cap_html_filtering
+miniwebtool.com##+js(rmnt, script, adblock)
+!#endif
