@@ -1,7 +1,7 @@
 ! Title: uBlock₀ filters – Quick fixes
 ! Description: Immediate, temporary filters to fix websites
 ! Expires: 12 hours
-! Last modified: Thu, 17 Aug 2023 03:55:33 +0000
+! Last modified: Thu, 17 Aug 2023 04:08:52 +0000
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! Forums: https://github.com/uBlockOrigin/uAssets/issues
@@ -280,8 +280,9 @@ exactpay.online##+js(nostif, offsetWidth)
 igg-games.com##a[href^="https://igg-games.com/nfl"]
 
 ! https://www.reddit.com/r/uBlockOrigin/comments/15hcpfj/tgx_ads/
-torrentgalaxy.to###main a[href^="/hub.php?"]
-torrentgalaxy.to##.hotpicks [href^="/hub.php?"]:upward(.hotpicks)
+torrentgalaxy.to##div:is(.panel-body, [style]) > a[href^="/"] > img
+torrentgalaxy.to##div[style] > center > a[href^="/"] > img
+torrentgalaxy.to##.hotpicks a:not([onmouseover*="return overlib"]):upward(.hotpicks)
 
 ! https://github.com/easylist/easylist/commit/0429611abf62f5b24592b43f16b61476b25142e0
 /invoke.js$badfilter
