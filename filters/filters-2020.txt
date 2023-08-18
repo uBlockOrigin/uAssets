@@ -3289,9 +3289,13 @@ sinfoniarossini.com##+js(nowoif)
 thepoorcoder.com##+js(aopr, adblockDetector)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/7962
+! https://www.reddit.com/r/uBlockOrigin/comments/15uh8g0/city_tv_being_blocked_again/
 @@||citytv.com^$ghide
-||citytv.com^$xhr,redirect-rule=nooptext,1p
+@@||citytv.com/wp-json/rsm-adutil/v1/get_ad_targets_by_url/$xhr,1p
+citytv.com##+js(json-prune, *, ad_unit_path)
 !#if ext_devbuild
+||citytv.com/wp-json/rsm-adutil/v1/get_ad_targets_by_url/$xhr,1p,important
+citytv.com#@#+js(json-prune, *, ad_unit_path)
 citytv.com##+js(no-xhr-if, wp-json/rsm-adutil, true)
 !#endif
 
