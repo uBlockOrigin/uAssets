@@ -1,7 +1,7 @@
 ! Title: uBlock₀ filters – Quick fixes
 ! Description: Immediate, temporary filters to fix websites
 ! Expires: 12 hours
-! Last modified: Sat, 19 Aug 2023 04:50:03 +0000
+! Last modified: Sat, 19 Aug 2023 07:03:19 +0000
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! Forums: https://github.com/uBlockOrigin/uAssets/issues
@@ -282,8 +282,10 @@ exactpay.online##+js(nostif, offsetWidth)
 igg-games.com##a[href^="https://igg-games.com/nfl"]
 
 ! https://www.reddit.com/r/uBlockOrigin/comments/15hcpfj/tgx_ads/
-||img.wonkychickens.org/data/cover/imdb/db/$image,domain=torrentgalaxy.to
 ||startgaming.net/tienda/*/?$doc,removeparam=/^(?!offer_id=).*/
+/^https:\/\/img\.wonkychickens\.org\/data\/cover\/imdb\/[\/A-Za-z0-9]+_/$image,domain=torrentgalaxy.to
+torrentgalaxy.to##^responseheader(location)
+startgaming.net##+js(set-cookie, REFERER, OK)
 startgaming.net##+js(cookie-remover, REFERER)
 startgaming.net##+js(set-cookie, _monsterinsights_uj, OK, , reload, 1)
 
