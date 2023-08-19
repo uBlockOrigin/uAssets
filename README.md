@@ -33,7 +33,7 @@ Report issues with uBO in the [uBO issue tracker](https://github.com/uBlockOrigi
 
 #### uBO Lite (uBOL) Issues
 
-Report issues specific to the Manifest Version 3 (MV3) variant in the [uBOL issue tracker](https://github.com/uBlockOrigin/uBOL-issues/issues).
+Report issues specific to the Manifest Version 3 (MV3) variant in the [uBOL issue tracker](https://github.com/uBlockOrigin/uBOL-home/issues).
 
 #### Similarly-Purposed Blockers
 
