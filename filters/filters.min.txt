@@ -1,7 +1,7 @@
 ! Title: uBlock filters
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Expires: 5 days
-! Last modified: Sat, 19 Aug 2023 19:55:54 +0000
+! Last modified: Sun, 20 Aug 2023 03:48:25 +0000
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 !
@@ -1275,6 +1275,11 @@ yts.*##.vpn-link:upward(1)
 yts.*##.cborz-bordered
 yts.*##.madikf
 ||empied.com^
+yts.mx##.title ~ a[href] .button:upward(.container > div)
+yts.mx##^script:has-text(document.write)
+!#if !cap_html_filtering
+yts.mx##+js(rmnt, script, document.write)
+!#endif
 sarugbymag.co.za##+js(aopr, showAds)
 imgdrive.net,imgwallet.com##+js(acs, jQuery, TestAdBlock)
 imgadult.com,imgdrive.net,imgtaxi.com,imgwallet.com##+js(aopr, ExoLoader)
