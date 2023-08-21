@@ -1,7 +1,7 @@
 ! Title: uBlock₀ filters – Quick fixes
 ! Description: Immediate, temporary filters to fix websites
 ! Expires: 12 hours
-! Last modified: Mon, 21 Aug 2023 11:06:42 +0000
+! Last modified: Mon, 21 Aug 2023 11:33:00 +0000
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! Forums: https://github.com/uBlockOrigin/uAssets/issues
@@ -112,16 +112,19 @@ plagiarismdetector.net##[class^="my-"], [style^="min-height:"][class][id], #img1
 plagiarismdetector.net##a[id][class][rel] > img[class][src^="https://plagiarismdetector.net/"]:upward(1)
 plagiarismdetector.net##[rel]:matches-attr(/^/=/utm_source/)
 ||plagiarismchecker.co^$image,1p
-@@||plagiarismchecker.co/design_images/$image,1p
+@@||plagiarismchecker.co/design_images/*.svg$image,1p
+@@||plagiarismchecker.co/design_images/*.png$image,1p
+@@||plagiarismchecker.co/design_images/*.gif$image,1p
 @@||plagiarismchecker.co/favicon.ico$image,1p
 @@||plagiarismchecker.co/images/$image,1p
 @@||plagiarismchecker.co/blog/wp-content/$image,1p
 @@||plagiarismchecker.co/buttons_icon/$image,1p
-plagiarismchecker.co##p + [class*="-"][class*=" "]:matches-css(clear: both):has(img[src^="https://www.plagiarismchecker.co/"][class])
-plagiarismchecker.co##:is([class*="-1 "], [class*="-2 "], [class*="-3 "]):not([class*="col-"]):has(img[src^="https://www.plagiarismchecker.co/"][class])
-plagiarismchecker.co##[target="_blank"] > img[src^="https://www.plagiarismchecker.co/"][class="img-fluid"]
-plagiarismchecker.co##.baba:remove()
 plagiarismchecker.co##+js(rpnt, style, display:block!important, display:none!important)
+plagiarismchecker.co##+js(rpnt, style, {display:block;}, {display:none!important;})
+plagiarismchecker.co##p[class$="_heading"] + div[class]:has(img[src^="https://www.plagiarismchecker.co/"])
+plagiarismchecker.co##.side_image_remove + div > div > article[class]:has(img[src^="https://www.plagiarismchecker.co/"])
+plagiarismchecker.co##i[target="_blank"] > img[src^="https://www.plagiarismchecker.co/"]:upward(1)
+plagiarismchecker.co##section + p + article:has(img[src^="https://www.plagiarismchecker.co/"])
 searchenginereports.net##+js(rmnt, script, /check_if_blocking|XMLHttpRequest|adkiller/)
 ||searchenginereports.net/adoadoad/$image,1p
 searchenginereports.net##div[id^="showtheadsfatf_"], div[id^="imgyad"], .showtheadsfatf, a[href="https://searchenginereports.net/gmadads"]
