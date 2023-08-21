@@ -4,7 +4,7 @@
 !   which purpose is to guarantee that a filter won't be overriden by
 !   exception filters.
 ! Expires: 7 days
-! Last modified: Wed, 16 Aug 2023 14:07:50 +0000
+! Last modified: Mon, 21 Aug 2023 10:12:47 +0000
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 !
@@ -697,6 +697,100 @@ elotrolado.net##+js(href-sanitizer, a[href^="https://go.redirectingat.com?url=ht
 ! https://chataigpt.org
 /detroitchicago/dpv.gif?$image
 /detroitchicago/imp.gif$ping
+
+! Query parameter stripping
+! Google ads/analytics
+$removeparam=gbraid
+$removeparam=wbraid
+$removeparam=gclsrc
+$removeparam=gclid
+! https://developers.google.com/analytics/devguides/collection/protocol/v1/parameters
+$removeparam=dclid
+! Facebook analytics
+$removeparam=fbclid
+$removeparam=fb_action_ids
+$removeparam=fb_action_types
+$removeparam=fb_comment_id
+$removeparam=fb_ref
+$removeparam=fb_source
+! Yandex Metrika
+$removeparam=ysclid
+$removeparam=yclid
+! https://help.ads.microsoft.com/apex/index/3/en/60000
+$removeparam=msclkid
+! Wicked Reports click tracking
+$removeparam=wickedid
+! https://tsunen.team-lab.com/?twclid=2-3bhrj1ny7p11v5r9pap3anqge
+$removeparam=twclid
+! Hubspot tracking https://knowledge.hubspot.com/ads/ad-tracking-in-hubspot
+$removeparam=__hsfp
+$removeparam=__hssc
+$removeparam=__hstc
+$removeparam=_hsenc
+$removeparam=hsa_acc
+$removeparam=hsa_ad
+$removeparam=hsa_cam
+$removeparam=hsa_grp
+$removeparam=hsa_kw
+$removeparam=hsa_la
+$removeparam=hsa_mt
+$removeparam=hsa_net
+$removeparam=hsa_ol
+$removeparam=hsa_src
+$removeparam=hsa_tgt
+$removeparam=hsa_ver
+$removeparam=hsCtaTracking
+! MailChimp click tracking
+$removeparam=mc_eid
+! Adobe SiteCatalyst Campaign Tracking ID parameter
+$removeparam=s_cid
+! vero
+$removeparam=vero_conv
+$removeparam=vero_id
+! https://github.com/brave/brave-browser/issues/13644
+$removeparam=oly_anon_id
+$removeparam=oly_enc_id
+! https://github.com/brave/brave-browser/issues/11579
+$removeparam=_openstat
+! https://github.com/brave/brave-browser/issues/17451
+$removeparam=rb_clickid
+! https://github.com/brave/brave-browser/issues/17507
+$removeparam=ml_subscriber
+$removeparam=ml_subscriber_hash
+! https://github.com/brave/brave-browser/issues/22082
+$removeparam=oft_id
+$removeparam=oft_k
+$removeparam=oft_lk
+$removeparam=oft_d
+$removeparam=oft_c
+$removeparam=oft_ck
+$removeparam=oft_ids
+$removeparam=oft_sk
+! https://github.com/AdguardTeam/AdguardFilters/issues/89869
+! email subscriptions tracking
+$removeparam=bsft_clkid
+$removeparam=bsft_eid
+$removeparam=bsft_mid
+$removeparam=bsft_uid
+$removeparam=bsft_aaid
+$removeparam=bsft_ek
+! https://github.com/brave/brave-browser/issues/25691
+$removeparam=guce_referrer
+$removeparam=guce_referrer_sig
+! Matomo/Piwik
+$removeparam=mtm_campaign
+$removeparam=mtm_cid
+$removeparam=mtm_content
+$removeparam=mtm_group
+$removeparam=mtm_keyword
+$removeparam=mtm_medium
+$removeparam=mtm_placement
+$removeparam=mtm_source
+$removeparam=pk_campaign
+$removeparam=pk_medium
+$removeparam=pk_source
+! Exceptions
+@@||web.archive.org/*/http$removeparam
 
 ! Merge in resource-abuse.txt
 !#include resource-abuse.txt
