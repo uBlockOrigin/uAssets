@@ -4662,11 +4662,12 @@ upiapi.in##+js(set, detectAdBlock, noopFunc)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/15080
 ! https://github.com/uBlockOrigin/uAssets/issues/18244
+! https://github.com/uBlockOrigin/uAssets/issues/19433
 ||hbo.yspsvc-na.net/csm/*&caid=$xhr,removeparam=caid,domain=play.hbomax.com
 *&caid=$xhr,removeparam=caid,domain=max.com
 ! play.max.com##+js(json-prune, ssaiInfo fallback.ssaiInfo manifest.url)
 play.max.com##+js(json-prune, ssaiInfo fallback.ssaiInfo)
-play.max.com##+js(xml-prune, xpath(//*[name()="Period"][not(.//*[name()="SegmentTimeline"])]), , .mpd)
+play.max.com##+js(xml-prune, xpath(//*[name()="Period"][not(.//*[name()="SegmentTimeline"])][not(.//*[name()="ContentProtection"])]), , .mpd)
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/130913
 forexfactory.com##.adbit
