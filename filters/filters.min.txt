@@ -1,7 +1,7 @@
 ! Title: uBlock filters
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Expires: 5 days
-! Last modified: Wed, 23 Aug 2023 00:00:21 +0000
+! Last modified: Wed, 23 Aug 2023 02:33:58 +0000
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 !
@@ -20049,7 +20049,7 @@ upiapi.in##+js(set, detectAdBlock, noopFunc)
 *&caid=$xhr,removeparam=caid,domain=max.com
 ! play.max.com##+js(json-prune, ssaiInfo fallback.ssaiInfo manifest.url)
 play.max.com##+js(json-prune, ssaiInfo fallback.ssaiInfo)
-play.max.com##+js(xml-prune, xpath(//*[name()="Period"][not(.//*[name()="SegmentTimeline"])]), , .mpd)
+play.max.com##+js(xml-prune, xpath(//*[name()="Period"][not(.//*[name()="SegmentTimeline"])][not(.//*[name()="ContentProtection"])]), , .mpd)
 forexfactory.com##.adbit
 .popup_im.
 /vhdpoppingmodels/*$script
