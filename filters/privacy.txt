@@ -4,7 +4,7 @@
 !   which purpose is to guarantee that a filter won't be overriden by
 !   exception filters.
 ! Expires: 7 days
-! Last modified: Tue, 22 Aug 2023 19:34:55 +0000
+! Last modified: Thu, 24 Aug 2023 16:47:56 +0000
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 !
@@ -793,6 +793,11 @@ $removeparam=pk_medium
 $removeparam=pk_source
 ! Exceptions
 @@||web.archive.org/*/http$removeparam
+
+! https://github.com/easylist/easylist/issues/16468#issuecomment-1691717458
+natgeotv.com##+js(no-xhr-if, /VisitorAPI|AppMeasurement/)
+natgeotv.com##+js(set, Visitor, {})
+||fichub.com/plugins/adobe/lib/$xhr,domain=natgeotv.com,important
 
 ! Merge in resource-abuse.txt
 !#include resource-abuse.txt
