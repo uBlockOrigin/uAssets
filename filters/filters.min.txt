@@ -1,7 +1,7 @@
 ! Title: uBlock filters
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Expires: 5 days
-! Last modified: Thu, 24 Aug 2023 15:44:34 +0000
+! Last modified: Thu, 24 Aug 2023 15:52:56 +0000
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 !
@@ -22706,7 +22706,8 @@ actvid.*##^script:has-text(HTMLAllCollection)
 !#if !cap_html_filtering
 actvid.*##+js(rmnt, script, HTMLAllCollection)
 !#endif
-/^https:\/\/[a-z]{3,5}\.[a-z]{10,14}\.top\/[a-z]{10,16}\/[a-z]{5,6}$/$script,xhr,3p,match-case
+/^https:\/\/[a-z]{3,5}\.[a-z]{10,14}\.top\/[a-z]{10,16}\/[a-z]{5,6}(?:\?d=0)?$/$script,xhr,3p,match-case
+/^https:\/\/(?:[a-z]{2}\.)?[a-z]{10,14}\.(?:casa|com|guru|website)\/[a-z]{2,3}\/\d{5}\?md=[%0-9a-zA-Z]{900,}(?:&cr=\d{5})?$/$xhr,3p
 ||imasdk.googleapis.com/js/sdkloader/ima3.js$script,redirect-rule=google-ima.js,domain=24ur.com
 *$object,3p,redirect-rule=noopframe,domain=24ur.com
 @@||criptologico.com^$ghide
