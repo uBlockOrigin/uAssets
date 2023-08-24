@@ -48,9 +48,7 @@ imgutiyu.online,imgutbbn.online,imgubfd.online,imgrei.online,imgqec.online,imgpa
 welt.de,~dutyfarm.welt.de##div[id][style^="z-index: 21474"][style$="px; position: absolute;"][style*="background-color"]:remove()
 
 ! https://github.com/uBlockOrigin/uAssets/issues/17125
-megaup.net#@#body .metaRedirectWrapperBottomAds:style(width: 13006px !important;)
 megaup.net##body .metaRedirectWrapperBottomAds:style(width: 11306px !important;)
-megaup.net##+js(rpnt, script, /;\$\(_\S+?\):/, ;)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/17548
 ! @@*$ehide,domain=djxmaza.in|thecubexguide.com
@@ -174,72 +172,6 @@ youtube.com###masthead-ad > .ytd-rich-grid-renderer
 crownmakermacaronicism.com##+js(acs, $, /\.fadeIn|\.show\(.?\)/)
 crownmakermacaronicism.com##+js(nowoif)
 crownmakermacaronicism.com##+js(nostif, blocked)
-
-! https://github.com/uBlockOrigin/uAssets/issues/18260
-@@||falixnodes.net^$ghide
-@@||static.ads-twitter.com^$xhr,domain=mqrio.dev
-||analytics.twitter.com^$image,redirect-rule=1x1.gif
-@@*$image,script,xhr,domain=client.falixnodes.net
-@@||safeframe.googlesyndication.com/safeframe/$frame,domain=client.falixnodes.net
-client.falixnodes.net##html[amp4ads][i-amphtml-no-boilerplate]:has(script[src^="https://cdn.ampproject.org/rtv/"]) > body > *:style(opacity: 0 !important; pointer-events: none !important;)
-client.falixnodes.net##html:not([class]) > body[marginwidth="0"][marginheight="0"]
-client.falixnodes.net##html:not([class]) > body[onload="window.avCallback();"][style]
-client.falixnodes.net##html:not([class]) > body:not([class]) div[id^="ftdiv"]
-client.falixnodes.net##html:not([class]) #ad_unit
-||ups.analytics.yahoo.com^$image,important,domain=client.falixnodes.net
-||pr-bh.ybp.yahoo.com/sync/$image,important,domain=client.falixnodes.net
-||facebook.com/tr/$image,important,domain=client.falixnodes.net
-||securepubads.g.doubleclick.net^$image,removeparam,domain=client.falixnodes.net
-||track1.aniview.com/track?$image,removeparam,domain=client.falixnodes.net
-||cs.admanmedia.com^$image,important,domain=client.falixnodes.net
-||aax.amazon-adsystem.com^$image,important,domain=client.falixnodes.net
-||pagead2.googlesyndication.com/pagead/gen_204?$image,important,domain=client.falixnodes.net
-||pagead2.googlesyndication.com/pcs/activeview?xai=$image,important,domain=client.falixnodes.net
-||criteo.com/tpd?dd=$image,important,domain=client.falixnodes.net
-||static.criteo.net/images/pixel.gif?ch=$image,important,redirect=1x1.gif,domain=client.falixnodes.net
-||px.moatads.com^$image,important,redirect=1x1.gif,domain=client.falixnodes.net
-||3lift.com^$image,removeparam,domain=client.falixnodes.net
-||qvdt3feo.com^$important,domain=falixnodes.net
-*gdpr_consent$3p,image,removeparam,domain=client.falixnodes.net
-||pagead2.googlesyndication.com^$xhr,important,domain=client.falixnodes.net
-
-! https://github.com/uBlockOrigin/uAssets/issues/16083
-@@||dragontea.ink^$ghide
-@@*$image,script,xhr,domain=dragontea.ink
-*$frame,redirect-rule=noopframe,domain=dragontea.ink
-||securepubads.g.doubleclick.net/pagead/adview?$image,important,redirect=1x1.gif,domain=dragontea.ink
-||pagead2.googlesyndication.com/pcs/activeview?$image,redirect=1x1.gif,important,domain=dragontea.ink
-||googleads.g.doubleclick.net/pagead/interaction/?$image,important,redirect=1x1.gif,domain=dragontea.ink
-||cm.adform.net/pixel?adform_pid=$image,important,redirect=1x1.gif,domain=dragontea.ink
-||www.google.com/pagead/drt/ui|$image,important,redirect=1x1.gif,domain=dragontea.ink
-||match.adsby.bidtheatre.com/adformmatch?adform_id=$image,redirect=1x1.gif,important,domain=dragontea.ink
-||google.*/ads/ga-audiences?$image,redirect=1x1.gif,important,domain=dragontea.ink
-||google-analytics.com^$image,redirect=1x1.gif,important,domain=dragontea.ink
-||cdn.ampproject.org^$script,redirect=noopjs,important,domain=dragontea.ink
-!#if env_chromium
-dragontea.ink##+js(rpnt, script, /^(.*)$/, if(typeof alreadyRun!=='undefined'&&alreadyRun===true){}else{alreadyRun=true;(function(){'use strict';const safe={'log':window.console.log.bind(console)\,'getPropertyValue':CSSStyleDeclaration.prototype.getPropertyValue\,'setAttribute':Element.prototype.setAttribute\,'getAttribute':Element.prototype.getAttribute\,'appendChild':Element.prototype.appendChild\,'remove':Element.prototype.remove\,'Array_splice':Array.prototype.splice\,'Array_join':Array.prototype.join\,'createElement':document.createElement\,'getComputedStyle':window.getComputedStyle\,'Reflect':Reflect\,'Proxy':Proxy\,'crypto':window.crypto\,'Uint8Array':Uint8Array\,'Object_defineProperty':Object.defineProperty.bind(Object)\,'String_replace':String.prototype.replace\,'addEventListener':self.EventTarget.prototype.addEventListener\,};const getRandomValues=safe.crypto.getRandomValues.bind(safe.crypto);const genericGet=function(target\,thisArg\,args){if(thisArg==='toString'){return target.toString.bind(target)};return safe.Reflect.get(target\,thisArg\,args)};const generateID=function(len){const dec2hex=function(dec){return dec.toString(16).padStart(2\,'0')};const arr=new safe.Uint8Array((len||40)/2);getRandomValues(arr);const result=safe.String_replace.call(safe.Array_join.call(Array.from(arr\,dec2hex)\,'')\,/^\d+/g\,'');if(result.length<3){return generateID(len)};return result};const randomName=generateID(15);window.MutationObserver=new safe.Proxy(window.MutationObserver\,{construct:function(target\,args){const callback=args[0];const proxiedCallback=function(mutations\,observer){for(let len=mutations.length\,i=len-1;i>=0;--i){const mutation=mutations[i];if(mutation.type==='childList'&&mutation.addedNodes.length>0){const nodes=mutation.addedNodes;for(let j=0\,len2=nodes.length;j<len2;++j){const node=nodes[j];if(node.localName===randomName){safe.Array_splice.call(mutations\,i\,1);break}}}};if(mutations.length!==0){callback(mutations\,observer)}};args[0]=proxiedCallback;const observer=safe.Reflect.construct(target\,args);return observer}\,get:genericGet});window.getComputedStyle=new safe.Proxy(window.getComputedStyle\,{apply(target\,thisArg\,args){let style=safe.Reflect.apply(target\,thisArg\,args);if(safe.getPropertyValue.call(style\,'clip-path')==='none'){return style};const node=args[0];const clonedNode=safe.createElement.call(document\,randomName);safe.setAttribute.call(clonedNode\,'class'\,safe.getAttribute.call(node\,'class'));safe.setAttribute.call(clonedNode\,'id'\,safe.getAttribute.call(node\,'id'));safe.setAttribute.call(clonedNode\,'style'\,safe.getAttribute.call(node\,'style'));safe.appendChild.call(document.body\,clonedNode);const value=safe.getPropertyValue.call(safe.getComputedStyle.call(window\,clonedNode)\,'clip-path');safe.remove.call(clonedNode);safe.Object_defineProperty(style\,'clipPath'\,{get:function(){return value}});style.getPropertyValue=new safe.Proxy(style.getPropertyValue\,{apply(target\,thisArg\,args){if(args[0]!=='clip-path'){return safe.Reflect.apply(target\,thisArg\,args)};return value}\,get:genericGet});return style}\,get:genericGet});const replaceScripts=function(){const scripts=safe.querySelectorAll.call(document\,'script');for(let i=0\,len=scripts.length;i<len;++i){const script=scripts[i];script.textContent=safe.String_replace.call(script.textContent\,/if\(typeof alreadyRun(.*)}}\)\(\)};/g\,'')}};const main=function(){delete window.alreadyRun;replaceScripts()};if(document.readyState!=='loading'){main()}else{safe.addEventListener.call(document\,'DOMContentLoaded'\,main)}})()};$1)
-dragontea.ink##.dtaf:not(:empty):style(clip-path: circle(0) !important;)
-dragontea.ink##div[id^="google_ads_iframe_/"]:not(:empty):style(clip-path: circle(0) !important;)
-dragontea.ink###ins[id^="gpt_unit_/"]:not(:empty):style(clip-path: circle(0) !important;)
-!#endif
-!#if !env_chromium
-dragontea.ink##html:not(:has(link[href="https://dragontea.ink/xmlrpc.php"], link[href="/cdn-cgi/styles/challenges.css"])) > body:not(.page-template)
-dragontea.ink##[id$="ink_1000x100_anchor_top"][class="stpdr rendered"][data-google-query-id][style]:style(z-index: -2147483647 !important;)
-dragontea.ink##[id$="ink_1000x100_anchor"][class="stpdr rendered"][data-google-query-id][style]:style(z-index: -2147483647 !important;)
-dragontea.ink##+js(spoof-css, [id$="ink_1000x100_anchor_top"]\, [id$="ink_1000x100_anchor"], z-index, 2147483647)
-dragontea.ink###stpd_close:remove()
-dragontea.ink##ins[id^="gpt_unit_/"][style="display: block !important; width: 100vw !important; height: 100vh !important; inset: 0px auto auto 0px !important; clear: none !important; float: none !important; margin: 0px !important; max-height: none !important; max-width: none !important; opacity: 1 !important; overflow: visible !important; padding: 0px !important; position: fixed !important; vertical-align: baseline !important; visibility: visible !important; z-index: 2147483647 !important; background: transparent !important;"]
-!#endif
-
-! https://github.com/AdguardTeam/AdguardFilters/issues/149595
-zefoy.com##+js(rpnt, script, ({});, ({}); function showHideElements(t\,e){$(t).hide()\,$(e).show()}function disableBtnclc(){let t=document.querySelector(".submit-captcha");t.disabled=!0\,t.innerHTML="Loading..."}function refreshButton(){$(".refresh-capthca-btn").addClass("disabled")}function copyInput(){let t=document.querySelectorAll(".copy-input");t.forEach(t=>{navigator.clipboard.writeText(t.value)})\,Materialize.toast("Copied!"\,2e3)}function imgOnError(){$(".ua-check").html(window.atob("PGRpdiBjbGFzcz0idGV4dC1kYW5nZXIgZm9udC13ZWlnaHQtYm9sZCBoNSBtdC0xIj5DYXB0Y2hhIGltYWdlIGZhaWxlZCB0byBsb2FkLjxicj48YSBvbmNsaWNrPSJsb2NhdGlvbi5yZWxvYWQoKSIgc3R5bGU9ImNvbG9yOiM2MjcwZGE7Y3Vyc29yOnBvaW50ZXIiIGNsYXNzPSJ0ZXh0LWRlY29yYXRpb25lLW5vbmUiPlBsZWFzZSByZWZyZXNoIHRoZSBwYWdlLiA8aSBjbGFzcz0iZmEgZmEtcmVmcmVzaCI+PC9pPjwvYT48L2Rpdj4="))}$(window).on("load"\,function(){$("body").addClass("loaded")})\,window.history.replaceState&&window.history.replaceState(null\,null\,window.location.href)\,$(".remove-spaces").on("input"\,function(){this.value=this.value.replace(/\s/g\,"")})\,$(document).on("click"\,"#toast-container .toast"\,function(){$(this).fadeOut(function(){$(this).remove()})})\,$(".tktemizle").on("input propertychange"\,function(){let t=$(this).val().match("access_token=(.*?)&");t&&$(".tktemizle").val(t[1])})\,$(document).ready(function(){let t=[{button:$(".t-followers-button")\,menu:$(".t-followers-menu")}\,{button:$(".t-hearts-button")\,menu:$(".t-hearts-menu")}\,{button:$(".t-chearts-button")\,menu:$(".t-chearts-menu")}\,{button:$(".t-views-button")\,menu:$(".t-views-menu")}\,{button:$(".t-shares-button")\,menu:$(".t-shares-menu")}\,{button:$(".t-favorites-button")\,menu:$(".t-favorites-menu")}\,{button:$(".t-livestream-button")\,menu:$(".t-livestream-menu")}\,{button:$(".ig-followers-button")\,menu:$(".ig-followers-menu")}\,{button:$(".ig-likes-button")\,menu:$(".ig-likes-menu")}];$.each(t\,function(t\,e){e.button.click(function(){$(".colsmenu").addClass("nonec")\,e.menu.removeClass("nonec")})})});)
-@@||zefoy.com/assets/$script,1p,badfilter
-@@||zefoy.com/assets/accc8f0345e264385213ffe12890ef85.js?$script,1p
-zefoy.com##.vfx-loader
-zefoy.com##^script:has-text(/'.adsbygoogle'|text-danger|warning|Adblock|_0x/)
-!#if !cap_html_filtering
-zefoy.com##+js(rmnt, script, /'.adsbygoogle'|text-danger|warning|Adblock|_0x/)
-!#endif
 
 ! https://github.com/uBlockOrigin/uAssets/issues/19349
 ||siamzone.com^$badfilter
