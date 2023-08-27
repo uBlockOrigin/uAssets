@@ -1,7 +1,7 @@
 ! Title: uBlock filters
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Expires: 5 days
-! Last modified: Sun, 27 Aug 2023 12:30:18 +0000
+! Last modified: Sun, 27 Aug 2023 12:52:31 +0000
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 !
@@ -23119,20 +23119,6 @@ mayaremix.in##div#wpsafe-link:others()
 ||google.*/ads/ga-audiences?$image,redirect=1x1.gif,important,domain=dragontea.ink
 ||google-analytics.com^$image,redirect=1x1.gif,important,domain=dragontea.ink
 ||cdn.ampproject.org^$script,redirect=noopjs,important,domain=dragontea.ink
-!#if env_chromium
-dragontea.ink##+js(rpnt, script, /^(.*)$/, if(typeof alreadyRun!=='undefined'&&alreadyRun===true){}else{alreadyRun=true;(function(){'use strict';const safe={'log':window.console.log.bind(console)\,'getPropertyValue':CSSStyleDeclaration.prototype.getPropertyValue\,'setAttribute':Element.prototype.setAttribute\,'getAttribute':Element.prototype.getAttribute\,'appendChild':Element.prototype.appendChild\,'remove':Element.prototype.remove\,'Array_splice':Array.prototype.splice\,'Array_join':Array.prototype.join\,'createElement':document.createElement\,'getComputedStyle':window.getComputedStyle\,'Reflect':Reflect\,'Proxy':Proxy\,'crypto':window.crypto\,'Uint8Array':Uint8Array\,'Object_defineProperty':Object.defineProperty.bind(Object)\,'String_replace':String.prototype.replace\,'addEventListener':self.EventTarget.prototype.addEventListener\,};const getRandomValues=safe.crypto.getRandomValues.bind(safe.crypto);const genericGet=function(target\,thisArg\,args){if(thisArg==='toString'){return target.toString.bind(target)};return safe.Reflect.get(target\,thisArg\,args)};const generateID=function(len){const dec2hex=function(dec){return dec.toString(16).padStart(2\,'0')};const arr=new safe.Uint8Array((len||40)/2);getRandomValues(arr);const result=safe.String_replace.call(safe.Array_join.call(Array.from(arr\,dec2hex)\,'')\,/^\d+/g\,'');if(result.length<3){return generateID(len)};return result};const randomName=generateID(15);window.MutationObserver=new safe.Proxy(window.MutationObserver\,{construct:function(target\,args){const callback=args[0];const proxiedCallback=function(mutations\,observer){for(let len=mutations.length\,i=len-1;i>=0;--i){const mutation=mutations[i];if(mutation.type==='childList'&&mutation.addedNodes.length>0){const nodes=mutation.addedNodes;for(let j=0\,len2=nodes.length;j<len2;++j){const node=nodes[j];if(node.localName===randomName){safe.Array_splice.call(mutations\,i\,1);break}}}};if(mutations.length!==0){callback(mutations\,observer)}};args[0]=proxiedCallback;const observer=safe.Reflect.construct(target\,args);return observer}\,get:genericGet});window.getComputedStyle=new safe.Proxy(window.getComputedStyle\,{apply(target\,thisArg\,args){let style=safe.Reflect.apply(target\,thisArg\,args);if(safe.getPropertyValue.call(style\,'clip-path')==='none'){return style};const node=args[0];const clonedNode=safe.createElement.call(document\,randomName);safe.setAttribute.call(clonedNode\,'class'\,safe.getAttribute.call(node\,'class'));safe.setAttribute.call(clonedNode\,'id'\,safe.getAttribute.call(node\,'id'));safe.setAttribute.call(clonedNode\,'style'\,safe.getAttribute.call(node\,'style'));safe.appendChild.call(document.body\,clonedNode);const value=safe.getPropertyValue.call(safe.getComputedStyle.call(window\,clonedNode)\,'clip-path');safe.remove.call(clonedNode);safe.Object_defineProperty(style\,'clipPath'\,{get:function(){return value}});style.getPropertyValue=new safe.Proxy(style.getPropertyValue\,{apply(target\,thisArg\,args){if(args[0]!=='clip-path'){return safe.Reflect.apply(target\,thisArg\,args)};return value}\,get:genericGet});return style}\,get:genericGet});const replaceScripts=function(){const scripts=safe.querySelectorAll.call(document\,'script');for(let i=0\,len=scripts.length;i<len;++i){const script=scripts[i];script.textContent=safe.String_replace.call(script.textContent\,/if\(typeof alreadyRun(.*)}}\)\(\)};/g\,'')}};const main=function(){delete window.alreadyRun;replaceScripts()};if(document.readyState!=='loading'){main()}else{safe.addEventListener.call(document\,'DOMContentLoaded'\,main)}})()};$1)
-dragontea.ink##.dtaf:not(:empty):style(clip-path: circle(0) !important;)
-dragontea.ink##div[id^="google_ads_iframe_/"]:not(:empty):style(clip-path: circle(0) !important;)
-dragontea.ink###ins[id^="gpt_unit_/"]:not(:empty):style(clip-path: circle(0) !important;)
-!#endif
-!#if !env_chromium
-dragontea.ink##html:not(:has(link[href="https://dragontea.ink/xmlrpc.php"], link[href="/cdn-cgi/styles/challenges.css"])) > body:not(.page-template)
-dragontea.ink##[id$="ink_1000x100_anchor_top"][class="stpdr rendered"][data-google-query-id][style]:style(z-index: -2147483647 !important;)
-dragontea.ink##[id$="ink_1000x100_anchor"][class="stpdr rendered"][data-google-query-id][style]:style(z-index: -2147483647 !important;)
-dragontea.ink##+js(spoof-css, [id$="ink_1000x100_anchor_top"]\, [id$="ink_1000x100_anchor"], z-index, 2147483647)
-dragontea.ink###stpd_close:remove()
-dragontea.ink##ins[id^="gpt_unit_/"][style="display: block !important; width: 100vw !important; height: 100vh !important; inset: 0px auto auto 0px !important; clear: none !important; float: none !important; margin: 0px !important; max-height: none !important; max-width: none !important; opacity: 1 !important; overflow: visible !important; padding: 0px !important; position: fixed !important; vertical-align: baseline !important; visibility: visible !important; z-index: 2147483647 !important; background: transparent !important;"]
-!#endif
 @@||falixnodes.net^$ghide
 @@||static.ads-twitter.com^$xhr,domain=mqrio.dev
 ||analytics.twitter.com^$image,redirect-rule=1x1.gif
