@@ -1,7 +1,7 @@
 ! Title: uBlock₀ filters – Quick fixes
 ! Description: Immediate, temporary filters to fix websites
 ! Expires: 12 hours
-! Last modified: Wed, 30 Aug 2023 16:31:57 +0000
+! Last modified: Wed, 30 Aug 2023 16:35:23 +0000
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! Forums: https://github.com/uBlockOrigin/uAssets/issues
@@ -110,14 +110,6 @@ plagiarismchecker.co##section + p + article:has(img[src^="https://www.plagiarism
 ! https://github.com/uBlockOrigin/uBlock-discussions/discussions/789#discussioncomment-6617546
 !#if ext_devbuild
 youtube.com,youtubekids.com,youtube-nocookie.com#@#+js(rpnt, script, (function serverContract(), 'const pruner=text=>{const json=JSON.parse(text);for(k of["playerAds","adPlacements","adSlots"]){json[k]=[];}return JSON.stringify(json);};const urlFromArg=arg=>{if(typeof arg==="string"){return arg;}if(arg instanceof Request){return arg.url;}return String(arg);};const realFetch=window.fetch;window.fetch=new Proxy(window.fetch,{apply:function(target,thisArg,args){if(!(urlFromArg(args[0]).includes("player?key="))){return Reflect.apply(target,thisArg,args);}return realFetch(...args).then(realResponse=>realResponse.text().then(text=>new Response(pruner(text),{status:realResponse.status,statusText:realResponse.statusText,headers:realResponse.headers,})));}}); (function serverContract()')
-youtube.com,youtubekids.com,youtube-nocookie.com#@#+js(json-prune, playerResponse.adPlacements playerResponse.playerAds playerResponse.adSlots adPlacements playerAds adSlots, playabilityStatus.liveStreamability)
-youtube.com,youtubekids.com,youtube-nocookie.com#@#+js(json-prune, playerResponse.adPlacements playerResponse.playerAds playerResponse.adSlots adPlacements playerAds adSlots, playerResponse.playabilityStatus.liveStreamability)
-youtube.com,youtubekids.com,youtube-nocookie.com#@#+js(json-prune, playerResponse.adPlacements playerResponse.playerAds playerResponse.adSlots adPlacements playerAds adSlots, streamingData.adaptiveFormats.6)
-youtube.com,youtubekids.com,youtube-nocookie.com#@#+js(json-prune, playerResponse.adPlacements playerResponse.playerAds playerResponse.adSlots adPlacements playerAds adSlots, playerResponse.streamingData.adaptiveFormats.6)
-youtube.com,youtubekids.com,youtube-nocookie.com#@#+js(json-prune, playerResponse.adPlacements playerResponse.playerAds adPlacements playerAds, captions)
-youtube.com,youtubekids.com,youtube-nocookie.com#@#+js(json-prune, playerResponse.adPlacements playerResponse.playerAds adPlacements playerAds, playerResponse.captions)
-youtube.com,youtubekids.com,youtube-nocookie.com#@#+js(json-prune, playerResponse.adPlacements playerResponse.playerAds playerResponse.adSlots adPlacements playerAds adSlots, responseContext.serviceTrackingParams.2)
-youtube.com,youtubekids.com,youtube-nocookie.com#@#+js(json-prune, playerResponse.adPlacements playerResponse.playerAds playerResponse.adSlots adPlacements playerAds adSlots, playerResponse.responseContext.serviceTrackingParams.2)
 youtube.com,youtubekids.com,youtube-nocookie.com#@#+js(json-prune, playerResponse.adPlacements playerResponse.playerAds playerResponse.adSlots adPlacements playerAds adSlots, attestation.playerAttestationRenderer.botguardData.interpreterSafeUrl.privateDoNotAccessOrElseTrustedResourceUrlWrappedValue)
 youtube.com,youtubekids.com,youtube-nocookie.com#@#+js(json-prune, playerResponse.adPlacements playerResponse.playerAds playerResponse.adSlots adPlacements playerAds adSlots, playerResponse.attestation.playerAttestationRenderer.botguardData.interpreterSafeUrl.privateDoNotAccessOrElseTrustedResourceUrlWrappedValue)
 youtube.com,youtubekids.com,youtube-nocookie.com#@#+js(json-prune, playerResponse.adPlacements playerResponse.playerAds playerResponse.adSlots adPlacements playerAds adSlots, playabilityStatus.offlineability)
@@ -145,17 +137,6 @@ music.youtube.com##+js(json-prune, playerResponse.adPlacements playerResponse.pl
 generatesnitrosate.com##+js(acs, $, /\.fadeIn|\.show\(.?\)/)
 generatesnitrosate.com##+js(nowoif)
 generatesnitrosate.com##+js(nostif, blocked)
-
-! https://www.reddit.com/r/uBlockOrigin/comments/15vf9oj/problems_with_crunchyroll/
-! https://github.com/easylist/easylist/issues/17104
-||imasdk.googleapis.com/js/sdkloader/ima3.js$script,important,domain=crunchyroll.com
-||imasdk.googleapis.com/js/sdkloader/ima3.js$script,redirect-rule=google-ima.js,domain=crunchyroll.com
-
-! https://github.com/easylist/easylist/commit/64cc084635fa118186b23c4ca7360ab728dcde1d
-@@||stats.g.doubleclick.net/dc.js$script,domain=gyutoro.com
-
-! https://github.com/easylist/easylist/commit/c15796ac7ad7a9adba3be6eea5f9c2001f862223
-_prebid-$script,badfilter
 
 ! https://community.brave.com/t/unable-to-open-reddit-com-urls-in-private-tabs/503125/4
 ||reddit.com^$removeparam=rdt,badfilter
