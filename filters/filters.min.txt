@@ -1,7 +1,7 @@
 ! Title: uBlock filters
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Expires: 5 days
-! Last modified: Wed, 30 Aug 2023 16:05:51 +0000
+! Last modified: Wed, 30 Aug 2023 16:37:03 +0000
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 !
@@ -4788,6 +4788,20 @@ plagiarismchecker.co##+js(aeld, mouseout, [native code])
 plagiarismdetector.net##[class^="my-"], [style^="min-height:"][class][id], #img1, #img2, #img3, #img4, #img5
 plagiarismdetector.net##a[id][class][rel] > img[class][src^="https://plagiarismdetector.net/"]:upward(1)
 plagiarismdetector.net##[rel]:matches-attr(/^/=/utm_source/)
+||plagiarismchecker.co^$image,1p
+@@||plagiarismchecker.co/design_images/*.svg$image,1p
+@@||plagiarismchecker.co/design_images/*.png$image,1p
+@@||plagiarismchecker.co/design_images/*.gif$image,1p
+@@||plagiarismchecker.co/favicon.ico$image,1p
+@@||plagiarismchecker.co/images/$image,1p
+@@||plagiarismchecker.co/blog/wp-content/$image,1p
+@@||plagiarismchecker.co/buttons_icon/$image,1p
+plagiarismchecker.co##+js(rpnt, style, display:block!important, display:none!important)
+plagiarismchecker.co##+js(rpnt, style, {display:block;}, {display:none!important;})
+plagiarismchecker.co##p[class$="_heading"] + div[class]:has(img[src^="https://www.plagiarismchecker.co/"])
+plagiarismchecker.co##.side_image_remove + div > div > article[class]:has(img[src^="https://www.plagiarismchecker.co/"])
+plagiarismchecker.co##i[target="_blank"] > img[src^="https://www.plagiarismchecker.co/"]:upward(1)
+plagiarismchecker.co##section + p + article:has(img[src^="https://www.plagiarismchecker.co/"])
 jagran.com##.ads
 picbaron.com##+js(aeld, , popMagic)
 picbaron.com##+js(aeld, , _0x)
@@ -21497,6 +21511,7 @@ lightnovelpub.*,webnovelpub.com##li[class] > ins.adsbygoogle:upward(li[class])
 lightnovelworld.com,novelpub.com##div[class][data-mobid] > div[class="vm-placement"][data-id]:upward(div[class])
 lightnovelpub.com##div[class] > .cnx-player:upward(1)
 lightnovelspot.com,novelpub.com##*:matches-css-before(content: /Adv/)
+lightnovelpub.*,lightnovelspot.com,lightnovelworld.com,novelpub.com,webnovelpub.com##+js(nostif, =>)
 ! listen.tidal.com##+js(json-prune, countryCode, tidalId)
 @@||castracoin.com^$ghide
 castracoin.com##.cc_stickyadwrap
