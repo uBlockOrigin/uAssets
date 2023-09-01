@@ -1,6 +1,6 @@
 ! Title: uBlock₀ filters
 ! Description: Filters optimized for uBlock, to be used along EasyList
-! Last modified: Fri, 01 Sep 2023 11:18:07 +0000
+! Last modified: Fri, 01 Sep 2023 19:27:09 +0000
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 ! New filters from January 2023 to ->
@@ -4210,13 +4210,6 @@ techedubyte.com##+js(set, checkAdsStatus, noopFunc)
 techedubyte.com##.in-article
 techedubyte.com##[href^="https://betwinnerlive.com/"]
 
-! https://github.com/uBlockOrigin/uAssets/issues/19507
-rontymobile.in##+js(no-fetch-if, googlesyndication)
-@@||gplinks.in/track/js/main.js$script,domain=rontymobile.in
-@@||gplinks.in/track/data.php$xhr,domain=rontymobile.in
-rontymobile.in##+js(set, count, 0)
-rontymobile.in##.adb-overlay
-
 ! https://github.com/uBlockOrigin/uAssets/issues/19506
 fescrypto.com##+js(aeld, load, htmls)
 
@@ -4265,17 +4258,18 @@ czxxx.org##+js(set, adblockcheck, false)
 @@||ads.pubmatic.com/AdServer/*/pwt.js$script,domain=ondemandkorea.com
 
 ! https://github.com/uBlockOrigin/uAssets/issues/19554
-globlenews.in,rontymobile.in,mynewsmedia.co,revadvert.com###VerifyBtn, #myTimerDiv, .MagicBtn, .nxBtn, #myNextInst, #NextBtn, #NextInfo, iframe:others()
-@@||gplinks.in/track/*$script,xhr,domain=rontymobile.in|gplinks.co|globlenews.in
-@@||googlesyndication.com^$script,xhr,domain=rontymobile.in|gplinks.co|globlenews.in
-@@||doubleclick.net^$script,xhr,domain=rontymobile.in|gplinks.co|globlenews.in
-@@*$ghide,domain=gplinks.co|rontymobile.in|globlenews.in
-*$frame,redirect=noopframe,domain=rontymobile.in|globlenews.in,important
-*$image,redirect-rule=1x1.gif,domain=mynewsmedia.co|revadvert.com|gplinks.co|rontymobile.in|globlenews.in
-globlenews.in,rontymobile.in##+js(set, count, 0)
+! https://github.com/uBlockOrigin/uAssets/issues/19507
+jomeramankahe.in,globlenews.in,rontymobile.in##+js(no-fetch-if, googlesyndication)
+@@||gplinks.in/track/*$script,xhr,domain=rontymobile.in|gplinks.co|globlenews.in|jomeramankahe.in
+@@||googlesyndication.com^$script,xhr,domain=rontymobile.in|gplinks.co|globlenews.in|jomeramankahe.in
+@@||doubleclick.net^$script,xhr,domain=rontymobile.in|gplinks.co|globlenews.in|jomeramankahe.in
+@@*$ghide,domain=gplinks.co|rontymobile.in|globlenews.in|jomeramankahe.in
+*$frame,redirect=noopframe,important,domain=rontymobile.in|globlenews.in|jomeramankahe.in
+*$image,redirect-rule=1x1.gif,domain=mynewsmedia.co|revadvert.com|gplinks.co|rontymobile.in|globlenews.in|jomeramankahe.in
+jomeramankahe.in,globlenews.in,rontymobile.in##+js(set, count, 0)
+jomeramankahe.in,globlenews.in,rontymobile.in##center:others()
+jomeramankahe.in,globlenews.in,rontymobile.in##[id*="iframe"], [id*="gpt_unit"]:style(height: 0px !important; visibility: collapse;)
 gplinks.co##.bg-soft-primary, a.exclude-pop.smartlink
 gplinks.co#@##AdbModel
-rontymobile.in#@#.adb-overlay
 gplinks.co##+js(aopr, clickCount)
 gplinks.co#@#+js(no-setInterval-if, href)
-globlenews.in#@#+js(rmnt, script, fetch)
