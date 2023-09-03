@@ -23,6 +23,17 @@ uAssets will not address the following:
 - Paywalls
 - Porn Farms
 
+#### How to provide troubleshooting information
+- In options->Filter lists:
+  - "Purge all caches"
+  - "Update now"
+- Disable all other browser extensions and see if the problem it persists
+- If the problem presists, then please:
+  - On the problematic website, click the uBlock Origin icon
+  - Click the chat icon
+  - This will open a new tab.
+  - Click "Troubleshooting Information" to expand, and copy that information into the appropriate github issue.
+
 #### Support Forum
 
 For support, questions, or help, visit [/r/uBlockOrigin](https://www.reddit.com/r/uBlockOrigin/).
