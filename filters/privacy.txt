@@ -106,7 +106,7 @@ old.reddit.com##a.outbound[data-outbound-url]:remove-attr(data-outbound-url)
 reddit.com,~old.reddit.com##+js(rpnt, script, "outboundUrl", "outbound")
 reddit.com,~old.reddit.com##+js(json-prune, data.*.elements.edges.[].node.outboundLink)
 reddit.com,~old.reddit.com##+js(json-prune, data.children.[].data.outbound_link)
-/^https:\/\/www\.reddit\.com\/svc\/shreddit\/[0-9a-z]{8,14}$/$xhr,1p,method=post,match-case
+/^https:\/\/www\.reddit\.com\/svc\/shreddit\/[0-9A-z]{9,}$/$xhr,1p,method=post
 
 ! https://github.com/uBlockOrigin/uAssets/pull/5578
 ||colpirio.com^$3p
@@ -786,6 +786,11 @@ $removeparam=pk_medium
 $removeparam=pk_source
 ! https://www.wsj.com/livecoverage/tropical-storm-idalia-hurricane-florida?mod=hp_lead_pos7
 ||wsj.com^$removeparam=mod
+! https://github.com/uBlockOrigin/uAssets/issues/18938#issuecomment-1693238481
+! https://community.brave.com/t/unable-to-open-reddit-com-urls-in-private-tabs/503125/4
+!#if env_firefox
+||reddit.com^$doc,removeparam=rdt
+!#endif
 ! Exceptions
 @@||web.archive.org/*/http$removeparam
 
