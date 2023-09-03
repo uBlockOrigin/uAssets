@@ -31,6 +31,7 @@ uAssets will not address the following:
 - Disable all other browser extensions and see if the problem still persists
 
 - How to provide troubleshooting information:
+
   If the problem persists, then please:
   - On the problematic website, click the uBlock Origin icon
   - Click the chat icon
