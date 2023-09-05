@@ -1,7 +1,7 @@
 ! Title: uBlock₀ filters – Quick fixes
 ! Description: Immediate, temporary filters to fix websites
 ! Expires: 12 hours
-! Last modified: Tue, 05 Sep 2023 10:06:42 +0000
+! Last modified: Tue, 05 Sep 2023 13:01:32 +0000
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! Forums: https://github.com/uBlockOrigin/uAssets/issues
@@ -203,10 +203,10 @@ techacode.com#@#+js(nowoif, !mtraffics)
 ! https://github.com/easylist/easylist/commit/5abaf5b562ac484ff94733a35ed59282be8db484
 /ad-provider.js
 
-! https://www.chip.de/download/9232_Downloads/gesamt-charts/
-chip.de##div[style="display: none;"] + div[class] > div[class] > h2:has-text(/Gesponsert|Bezahlte Empfehlung/):upward(2)
-chip.de##div[style="display: none;"] + div > :is(a[href*="https://x.chip.de/intern/dl/?url="], a[href*="https://www.chip.de/downloads/"]):has(img[src*="https://im.chip.de/"]):upward(1)
-chip.de##div[style="display: none;"] + div > div > :is(a[href*="https://x.chip.de/intern/dl/?url="], a[href*="https://www.chip.de/downloads/"]):upward(1)
-chip.de##div[style="display: none;"] + [name="randomString"] > [name="randomString"] :is(a[href*="https://x.chip.de/intern/dl/?url="], a[href*="https://www.chip.de/downloads/"]):has(img[src*="https://im.chip.de/"]):upward(1)
+! https://github.com/easylist/easylistgermany/issues/216
+chip.de##div[class] .A > h2:has-text(/Gesponsert|Bezahlte Empfehlung/):upward(2)
+chip.de##div[class] > a:is(a[href*="https://x.chip.de/intern/dl/?url="], a[href*="https://www.chip.de/downloads/"]) > section:has(img[src*="https://im.chip.de/"]):upward(2)
 chip.de#@#.app_nexus_banners_common
-chip.de##.app_nexus_banners_common:not([style])
+chip.de##div > .app_nexus_banners_common
+/im\.chip\.de\/ii\/[0-9]{3}\/[0-9a-zA-Z\/\.]{54,57}\?im=AspectCrop.*&hash=[0-9a-z]{27}/$image,xhr,match-case,1p
+||im.chip.de/ii/*?im=AspectCrop%2Csize%3D%2816%2C9%29%2Cgravity%3DCenter%3BResize%3D%28620%2C349%29%2Caspect%3Dfit%3BBackgroundColor%2Ccolor%3Dffffff&hash=%3Cesi:vars%3E*(randomString)%3C/esi:vars%3E$image,1p
