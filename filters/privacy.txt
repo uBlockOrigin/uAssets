@@ -185,9 +185,6 @@ frogogo.ru##+js(aopw, ADMITAD)
 ! drtuber.desi analytics
 ||drtuber.*/ajax/track?track_type=
 
-! fastly click-through
-beaumontenterprise.com,chron.com,ctinsider.com,ctpost.com,expressnews.com,houstonchronicle.com,lmtonline.com,middletownpress.com,mrt.com,newstimes.com,nhregister.com,registercitizen.com,sfchronicle.com,stamfordadvocate.com,thehour.com,timesunion.com##+js(cookie-remover, realm.cookiesAndJavascript)
-
 ! dekki.com analytics
 ||playbrain.io/analytics/
 
@@ -465,12 +462,6 @@ ericdraken.com##^script[async]
 ! https://github.com/AdguardTeam/AdguardFilters/commit/4cebf73b405ef76c4f32fee4d5229908245c45e0
 ||rakuten.co.jp/com/js/omniture/
 
-! heavyfetish.com tracking
-heavyfetish.com##+js(set, flashvars.event_reporting, '')
-heavyfetish.com##+js(cookie-remover, kt_qparams)
-heavyfetish.com##+js(cookie-remover, kt_ips)
-heavyfetish.com##+js(cookie-remover, kt_referer)
-
 ! https://github.com/uBlockOrigin/uAssets/issues/16730#issuecomment-1427957300
 utreon.com##+js(no-xhr-if, utreon.com/pl/api/event method:POST)
 
@@ -594,22 +585,9 @@ zefoy.com##+js(set, firebase.analytics, noopFunc)
 ! https://github.com/uBlockOrigin/uAssets/issues/18562
 bikesales.com.au##^html > head > :is([name="canonical"], [rel="canonical"]):not([content*="/details/"]):upward(1) > script[src*="optimizely"]
 
-! https://github.com/uBlockOrigin/uAssets/issues/18588
-! https://github.com/uBlockOrigin/uAssets/commit/bae8d13992b1c754f83dc268060a8079973d3253#commitcomment-118856194
-nypost.com,pagesix.com##+js(json-prune, dataLayer.trackingId user.trackingId)
-columbian.com,nypost.com,pagesix.com##+js(cookie-remover, blaize_tracking_id)
-
 ! https://github.com/uBlockOrigin/uAssets/issues/7646
 ! https://github.com/AdguardTeam/AdguardFilters/issues/154632
 ||telemetry*.transcend.io^
-
-! https://capcom.fandom.com/wiki/Gallery:Bishamon tracking cookies
-fandom.com##+js(set-cookie, tracking_session_id, OK, , reload, 1)
-fandom.com##+js(set-cookie, Geo, OK)
-
-! https://www.factable.com/history/maps-that-show-us-a-new-perspective/3/ tracking cookies
-factable.com##+js(cookie-remover, akaclientip)
-factable.com##+js(cookie-remover, hive_geoloc)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/18794
 ||mitself.net^
@@ -647,14 +625,8 @@ factable.com##+js(cookie-remover, hive_geoloc)
 ||tags.tiqcdn.com^$domain=nickjr.com
 ||events.paramount.tech^$redirect=nooptext,domain=nickjr.com
 
-! https://github.com/uBlockOrigin/uAssets/issues/17149#issuecomment-1651198474
-watchporn.to##+js(cookie-remover, kt_ips)
-
 ! https://github.com/uBlockOrigin/uAssets/issues/19194
 ||mps.nbcuni.com/images/MPS-STATISTIC-REPORTING.png
-
-! https://www.bing.com/ - Tracking cookie
-bing.com##+js(cookie-remover, MicrosoftApplicationsTelemetryDeviceId)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/19221
 ||ab.blogs.es/abtest.png^$image,3p,domain=xataka.com|trendencias.com,redirect=1x1.gif,important
@@ -692,6 +664,31 @@ tube188.com##+js(href-sanitizer, a[href^="/check.php?"][href*="&url=http"], ?url
 ! https://chataigpt.org
 /detroitchicago/dpv.gif?$image
 /detroitchicago/imp.gif$ping
+
+! Tracking cookies
+! fastly click-through
+beaumontenterprise.com,chron.com,ctinsider.com,ctpost.com,expressnews.com,houstonchronicle.com,lmtonline.com,middletownpress.com,mrt.com,newstimes.com,nhregister.com,registercitizen.com,sfchronicle.com,stamfordadvocate.com,thehour.com,timesunion.com##+js(cookie-remover, realm.cookiesAndJavascript)
+! heavyfetish.com tracking
+heavyfetish.com##+js(set, flashvars.event_reporting, '')
+heavyfetish.com##+js(cookie-remover, kt_qparams)
+heavyfetish.com##+js(cookie-remover, kt_ips)
+heavyfetish.com##+js(cookie-remover, kt_referer)
+! https://github.com/uBlockOrigin/uAssets/issues/18588
+! https://github.com/uBlockOrigin/uAssets/commit/bae8d13992b1c754f83dc268060a8079973d3253#commitcomment-118856194
+nypost.com,pagesix.com##+js(json-prune, dataLayer.trackingId user.trackingId)
+columbian.com,nypost.com,pagesix.com##+js(cookie-remover, blaize_tracking_id)
+! https://www.factable.com/history/maps-that-show-us-a-new-perspective/3/
+factable.com##+js(cookie-remover, akaclientip)
+factable.com##+js(cookie-remover, hive_geoloc)
+! https://github.com/uBlockOrigin/uAssets/issues/17149#issuecomment-1651198474
+watchporn.to##+js(cookie-remover, kt_ips)
+! https://www.bing.com/
+bing.com##+js(cookie-remover, MicrosoftApplicationsTelemetryDeviceId)
+! https://capcom.fandom.com/wiki/Gallery:Bishamon
+fandom.com##+js(set-cookie, tracking_session_id, OK, , reload, 1)
+fandom.com##+js(set-cookie, Geo, OK)
+! https://www.clickorlando.com/weather/2023/09/06/cone-computer-models-more-lee-forecast-to-become-major-hurricane/
+clickorlando.com##+js(set-cookie, bitmovin_analytics_uuid, OK)
 
 ! Query parameter stripping
 ! Google ads/analytics
@@ -804,6 +801,9 @@ natgeotv.com##+js(set, Visitor, {})
 
 ! https://github.com/easylist/easylist/issues/17135
 ||googletagmanager.com/gtag/js$domain=starblast.io,important
+
+! https://github.com/easylist/easylist/commit/dc9a1794e74f34e486e39516658cdd5ee87122a4
+||imasdk.googleapis.com/js/sdkloader/ima3.js$script,redirect=google-ima.js,domain=clickorlando.com,important
 
 ! Merge in resource-abuse.txt
 !#include resource-abuse.txt
