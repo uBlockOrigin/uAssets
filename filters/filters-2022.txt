@@ -1,6 +1,6 @@
 ! Title: uBlock₀ filters
 ! Description: Filters optimized for uBlock, to be used along EasyList
-! Last modified: Thu, 07 Sep 2023 20:39:20 +0000
+! Last modified: Thu, 07 Sep 2023 20:45:27 +0000
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 ! New filters from January 2022 to ->
@@ -5528,17 +5528,21 @@ kpkuang.org##+js(nostif, _0x)
 kpkuang.org###sterra-ad-onmid
 
 ! https://github.com/easylist/easylistgermany/issues/216
-chip.de###A.A[style="display: block;"]
+chip.de###dlcharts-list + .mt-md > div > div > h2:has-text(/Gesponsert|Bezahlte Empfehlung/) + a[href^="https://www.chip.de/downloads/"]:upward(3)
+chip.de##div[class] > a:is(a[href*="https://x.chip.de/intern/dl/?url="], a[href*="https://www.chip.de/downloads/"]):has(section img[src*="https://im.chip.de/"]):upward(1)
 chip.de###aabhor
 chip.de##.aab3
-praxistipps.chip.de##div[data-bc-data-trackvars]
+chip.de##div > .app_nexus_banners_common
 ||nah-versorger.de^$3p
 ||stopundstart.de^$3p
 ||mein-organizer.de^$3p
 ||schneesommer.de^$3p
+/im\.chip\.de\/ii\/[0-9]{3}\/[0-9a-zA-Z\/\.]{54,59}\?im=AspectCrop.*&hash=[0-9a-z]{27}/$image,xhr,match-case,1p
+||im.chip.de/ii/*?im=AspectCrop%2Csize%3D%2816%2C9%29%2Cgravity%3DCenter%3BResize%3D%28620%2C349%29%2Caspect%3Dfit%3BBackgroundColor%2Ccolor%3Dffffff&hash=%3Cesi:vars%3E*(randomString)%3C/esi:vars%3E$image,xhr,1p
 ||free.webcompanion.com/minime/de/index.php?partner=*&campaign=$popup,doc
 ||bdu.bitdriverupdater.com/*&utm_source=$popup,doc
 chip.de##^script:has-text(/pushAdTag|link_click|getAds/)
+praxistipps.chip.de##div[data-bc-data-trackvars]
 ! https://github.com/orgs/uBlockOrigin/teams/ublock-filters-volunteers/discussions/448
 chip.de##:root:style(--topbanner-height-min:unset!important;--topbanner-height-max:unset!important;)
 praxistipps.chip.de,praxistipps.focus.de###G32:style(grid-template-rows: unset!important;)
