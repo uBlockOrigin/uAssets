@@ -4,7 +4,7 @@
 !   which purpose is to guarantee that a filter won't be overriden by
 !   exception filters.
 ! Expires: 7 days
-! Last modified: Thu, 07 Sep 2023 05:30:54 +0000
+! Last modified: Thu, 07 Sep 2023 09:01:38 +0000
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 !
@@ -115,8 +115,6 @@ frogogo.ru##+js(aopw, ADMITAD)
 ||hd21.com/ajax/track?
 ! drtuber.desi analytics
 ||drtuber.*/ajax/track?track_type=
-! fastly click-through
-beaumontenterprise.com,chron.com,ctinsider.com,ctpost.com,expressnews.com,houstonchronicle.com,lmtonline.com,middletownpress.com,mrt.com,newstimes.com,nhregister.com,registercitizen.com,sfchronicle.com,stamfordadvocate.com,thehour.com,timesunion.com##+js(cookie-remover, realm.cookiesAndJavascript)
 ! dekki.com analytics
 ||playbrain.io/analytics/
 tweakers.net##+js(aost, btoa, send)
@@ -256,11 +254,6 @@ ericdraken.com##^script[async]
 ||blozoo.info/js/ranktool/
 ||odsyms15.com/impression?
 ||rakuten.co.jp/com/js/omniture/
-! heavyfetish.com tracking
-heavyfetish.com##+js(set, flashvars.event_reporting, '')
-heavyfetish.com##+js(cookie-remover, kt_qparams)
-heavyfetish.com##+js(cookie-remover, kt_ips)
-heavyfetish.com##+js(cookie-remover, kt_referer)
 utreon.com##+js(no-xhr-if, utreon.com/pl/api/event method:POST)
 /^https:\/\/[0-9a-z]{7,25}\.com\/v2(?:\/0\/)?(?=[-_0-9a-z]{0,84}[A-Z])(?=[-_a-zA-Z]{0,84}[0-9])[-_0-9a-zA-Z]{54,85}(#\?v=[0-9a-f]{32})?$/$script,xhr,3p,match-case
 zhihu.com##+js(no-xhr-if, log-sdk.ksapisrv.com/rest/wd/common/log/collect method:POST)
@@ -339,13 +332,7 @@ zefoy.com##+js(set, firebase.analytics, noopFunc)
 !||analytics-sdk.yle.fi^$script,1p,important
 !yle.fi##+js(set, yleAnalytics, noopFunc)
 bikesales.com.au##^html > head > :is([name="canonical"], [rel="canonical"]):not([content*="/details/"]):upward(1) > script[src*="optimizely"]
-nypost.com,pagesix.com##+js(json-prune, dataLayer.trackingId user.trackingId)
-columbian.com,nypost.com,pagesix.com##+js(cookie-remover, blaize_tracking_id)
 ||telemetry*.transcend.io^
-fandom.com##+js(set-cookie, tracking_session_id, OK, , reload, 1)
-fandom.com##+js(set-cookie, Geo, OK)
-factable.com##+js(cookie-remover, akaclientip)
-factable.com##+js(cookie-remover, hive_geoloc)
 ||mitself.net^
 ||eevblog.com/forum/fp.php
 ||2cnt.net/j0=$image,domain=s4c.cymru
@@ -363,9 +350,7 @@ factable.com##+js(cookie-remover, hive_geoloc)
 ||simonzody.com^
 ||tags.tiqcdn.com^$domain=nickjr.com
 ||events.paramount.tech^$redirect=nooptext,domain=nickjr.com
-watchporn.to##+js(cookie-remover, kt_ips)
 ||mps.nbcuni.com/images/MPS-STATISTIC-REPORTING.png
-bing.com##+js(cookie-remover, MicrosoftApplicationsTelemetryDeviceId)
 ||ab.blogs.es/abtest.png^$image,3p,domain=xataka.com|trendencias.com,redirect=1x1.gif,important
 ! Click Trackers
 lite.duckduckgo.com##+js(href-sanitizer, a[href^="//duckduckgo.com/l/?uddg="], ?uddg)
@@ -389,6 +374,23 @@ elotrolado.net##+js(href-sanitizer, a[href^="https://go.redirectingat.com?url=ht
 tube188.com##+js(href-sanitizer, a[href^="/check.php?"][href*="&url=http"], ?url)
 /detroitchicago/dpv.gif?$image
 /detroitchicago/imp.gif$ping
+! Tracking cookies
+! fastly click-through
+beaumontenterprise.com,chron.com,ctinsider.com,ctpost.com,expressnews.com,houstonchronicle.com,lmtonline.com,middletownpress.com,mrt.com,newstimes.com,nhregister.com,registercitizen.com,sfchronicle.com,stamfordadvocate.com,thehour.com,timesunion.com##+js(cookie-remover, realm.cookiesAndJavascript)
+! heavyfetish.com tracking
+heavyfetish.com##+js(set, flashvars.event_reporting, '')
+heavyfetish.com##+js(cookie-remover, kt_qparams)
+heavyfetish.com##+js(cookie-remover, kt_ips)
+heavyfetish.com##+js(cookie-remover, kt_referer)
+nypost.com,pagesix.com##+js(json-prune, dataLayer.trackingId user.trackingId)
+columbian.com,nypost.com,pagesix.com##+js(cookie-remover, blaize_tracking_id)
+factable.com##+js(cookie-remover, akaclientip)
+factable.com##+js(cookie-remover, hive_geoloc)
+watchporn.to##+js(cookie-remover, kt_ips)
+bing.com##+js(cookie-remover, MicrosoftApplicationsTelemetryDeviceId)
+fandom.com##+js(set-cookie, tracking_session_id, OK, , reload, 1)
+fandom.com##+js(set-cookie, Geo, OK)
+clickorlando.com##+js(set-cookie, bitmovin_analytics_uuid, OK)
 ! Query parameter stripping
 ! Google ads/analytics
 $removeparam=gbraid
@@ -481,6 +483,7 @@ natgeotv.com##+js(set, Visitor, {})
 ||fichub.com/plugins/adobe/lib/$xhr,domain=natgeotv.com,important
 ||house.comikey.com/unw.gif?$image,1p
 ||googletagmanager.com/gtag/js$domain=starblast.io,important
+||imasdk.googleapis.com/js/sdkloader/ima3.js$script,redirect=google-ima.js,domain=clickorlando.com,important
 ! Merge in resource-abuse.txt
 ! *** uAssets:filters/resource-abuse.txt ***
 ! Title: uBlock₀ filters – Resource abuse
