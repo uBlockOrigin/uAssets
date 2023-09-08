@@ -1,6 +1,6 @@
 ! Title: uBlock₀ filters
 ! Description: Filters optimized for uBlock, to be used along EasyList
-! Last modified: Thu, 07 Sep 2023 21:04:58 +0000
+! Last modified: Fri, 08 Sep 2023 07:03:05 +0000
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 ! New filters from January 2022 to ->
@@ -1029,12 +1029,14 @@ bdnewszh.com,rainostreams.com##.billboard-banner
 bdnewszh.com,rainostreams.com##.left-sticky-banner
 bdnewszh.com,rainostreams.com##.right-sticky-banner
 bdnewszh.com,rainostreams.com##.content-banner
+bdnewszh.com##.vpn-wrapper
 ! http://rainostreams.com/soccer/stream10/?moment= popups, ads
 bdnewszh.com##+js(set, path, '')
 bdnewszh.com##^script:has-text("admc")
 bdnewszh.com##^script:has-text(\"admc\")
-bdnewszh.com##^script:has-text(decodeURIComponent)
-*$3p,denyallow=cloudflare.net|fastly.net|jsdelivr.net|raino.xyz,domain=bdnewszh.com
+bdnewszh.com,embed4u.xyz##^script:has-text(push)
+embed4u.xyz##+js(rmnt, script, /\[\'push\'\]/)
+embed4u.xyz##.smartlink
 
 ! https://github.com/uBlockOrigin/uAssets/issues/11896
 order-order.com##+js(acs, Math.random, bait)
