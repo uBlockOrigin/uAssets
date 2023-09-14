@@ -106,7 +106,8 @@ old.reddit.com##a.outbound[data-outbound-url]:remove-attr(data-outbound-url)
 reddit.com,~old.reddit.com##+js(rpnt, script, "outboundUrl", "outbound")
 reddit.com,~old.reddit.com##+js(json-prune, data.*.elements.edges.[].node.outboundLink)
 reddit.com,~old.reddit.com##+js(json-prune, data.children.[].data.outbound_link)
-/^https:\/\/www\.reddit\.com\/svc\/shreddit\/[-./0-9A-z]{9,}$/$xhr,1p,method=post
+/^https:\/\/www\.reddit\.com\/svc\/shreddit\/[-~./0-9A-z]{9,}$/$xhr,1p,method=post
+@@||reddit.com/svc/shreddit/more-comments/$xhr,1p,method=post
 ||www.reddit.com/|$xhr,1p,method=post
 
 ! https://github.com/uBlockOrigin/uAssets/pull/5578
