@@ -1,7 +1,7 @@
 ! Title: uBlock filters
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Expires: 5 days
-! Last modified: Wed, 13 Sep 2023 20:22:04 +0000
+! Last modified: Thu, 14 Sep 2023 01:15:24 +0000
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 !
@@ -5173,6 +5173,8 @@ hulu.com##+js(set, Object.prototype.isAdPeriod, falseFunc)
 @@||hulu.com^$ghide
 hulu.com###banner-ad-container
 hulu.com##.ad-choices
+hulu.com##+js(json-prune-fetch-response, breaks pause_ads video_metadata.end_credits_time, pause_ads)
+hulu.com##+js(json-prune-fetch-response, breaks pause_ads video_metadata.end_credits_time, breaks)
 hulu.com##+js(json-prune, breaks pause_ads video_metadata.end_credits_time, pause_ads)
 hulu.com##+js(json-prune, breaks pause_ads video_metadata.end_credits_time, breaks)
 hulu.com##+js(xml-prune, xpath(//*[name()="MPD"]/@mediaPresentationDuration | //*[name()="Period"][.//*[name()="BaseURL" and contains(text()\,'/ads-')]] | //*[name()="Period"]/@start), Period[id^="Ad"i], .mpd)
