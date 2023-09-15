@@ -1,6 +1,6 @@
 ! Title: uBlock₀ filters
 ! Description: Filters optimized for uBlock, to be used along EasyList
-! Last modified: Fri, 15 Sep 2023 10:36:44 +0000
+! Last modified: Fri, 15 Sep 2023 12:42:48 +0000
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 ! New filters from January 2023 to ->
@@ -2213,11 +2213,10 @@ fakaza.*,fakaza2018.com,fakazahouse.com,fakazamusic.co,samsonghiphop.org,zamusic
 ! https://github.com/uBlockOrigin/uAssets/issues/17909
 ||imasdk.googleapis.com/js/sdkloader/ima3.js$script,domain=rtl.be,redirect-rule=google-ima.js
 
-! https://github.com/easylist/easylist/issues/16724
-sharer.pm##+js(set, hadeh_ads, false)
-sharer.pm#@#.showads
-! https://github.com/uBlockOrigin/uAssets/issues/19162
-*$frame,3p,redirect-rule=noopframe,domain=sharer.pm
+! https://github.com/AdguardTeam/AdguardFilters/issues/161760
+reshare.pm#@#.showads
+reshare.pm##+js(nowoif)
+reshare.pm##+js(rpnt, script, /.*atOptions.*/, var AG_onLoad=function(func){if(document.readyState==="complete"||document.readyState==="interactive")func();else if(document.addEventListener)document.addEventListener("DOMContentLoaded"\,func);else if(document.attachEvent)document.attachEvent("DOMContentLoaded"\,func)}; AG_onLoad((function(){const t=document.querySelector("script");t&&t.classList.add("atScript_0")})))
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/149922
 ||googlesyndication.com^$script,redirect-rule=noopjs,domain=flysas.com
