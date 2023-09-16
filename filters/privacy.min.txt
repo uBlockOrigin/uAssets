@@ -4,7 +4,7 @@
 !   which purpose is to guarantee that a filter won't be overriden by
 !   exception filters.
 ! Expires: 7 days
-! Last modified: Fri, 15 Sep 2023 07:57:55 +0000
+! Last modified: Sat, 16 Sep 2023 14:44:00 +0000
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 !
@@ -73,8 +73,9 @@ old.reddit.com##a.outbound[data-outbound-url]:remove-attr(data-outbound-url)
 reddit.com,~old.reddit.com##+js(rpnt, script, "outboundUrl", "outbound")
 reddit.com,~old.reddit.com##+js(json-prune, data.*.elements.edges.[].node.outboundLink)
 reddit.com,~old.reddit.com##+js(json-prune, data.children.[].data.outbound_link)
-||www.reddit.com/svc/shreddit/$xhr,1p,method=post
-@@||reddit.com/svc/shreddit/more-comments/$xhr,1p,method=post
+||redditstatic.com/shreddit/sentry-$domain=reddit.com
+reddit.com##+js(aopw, STICKY_CANARY)
+reddit.com##+js(no-fetch-if, url:/svc/shreddit method:POST body:"data")
 ||www.reddit.com/|$xhr,1p,method=post
 ||colpirio.com^$3p
 docs.google.com##+js(no-xhr-if, method:POST url:/logImpressions)
