@@ -1,7 +1,7 @@
 ! Title: uBlock filters
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Expires: 5 days
-! Last modified: Mon, 18 Sep 2023 12:38:48 +0000
+! Last modified: Mon, 18 Sep 2023 14:08:54 +0000
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 !
@@ -23204,3 +23204,8 @@ flixscans.com##.teaser-buttom
 *$xhr,domain=darkino.online,redirect-rule=noopjs
 ||doubleclick.net^$important,domain=repretel.com
 repretel.com##+js(aeld, /adblock/i)
+!#if cap_html_filtering
+letsdopuzzles.com##^script:has-text(chkADB)
+!#else
+letsdopuzzles.com##+js(rmnt, script, chkADB)
+!#endif
