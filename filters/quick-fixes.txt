@@ -1,7 +1,7 @@
 ! Title: uBlock₀ filters – Quick fixes
 ! Description: Immediate, temporary filters to fix websites
 ! Expires: 12 hours
-! Last modified: Tue, 19 Sep 2023 10:00:46 +0000
+! Last modified: Tue, 19 Sep 2023 14:40:46 +0000
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! Forums: https://github.com/uBlockOrigin/uAssets/issues
@@ -139,7 +139,8 @@ photopea.com##a[href*="photopea.com"][href*="ads"]
 
 ! https://github.com/easylist/easylistgermany/issues/216
 chip.de##div[class] > a:is(a[href*="https://x.chip.de/intern/dl/?url="], a[href*="https://www.chip.de/downloads/"]):has(div img[src*="https://im.chip.de/ii/"]):upward(1)
-/im\.chip\.de\/ii\/[0-9\/]{14,17}\/[a-zA-Z0-9]{6,10}\-[a-zA-Z0-9]{8,16}\-[a-zA-Z0-9]{16}\..*&hash=[a-z0-9]{64}/$image,xhr,match-case,1p,domain=chip.de
+/im\.chip\.de\/ii\/[0-9\/]{14,17}\/[a-zA-Z0-8]{4,9}\-[a-zA-Z0-8]{3,6}\-[a-zA-Z0-8\-]{20,30}\..*&hash=[a-z0-9]{60,}/$image,xhr,match-case,1p,domain=chip.de
+@@/im\.chip\.de\/ii\/[0-9\/]{14,17}\/.*(logo|launcher|player|tool|messenger|game).*&hash=[a-z0-9]{64}/$image,xhr,1p,domain=chip.de
 ||im.chip.de/ii/*AspectCrop*gravity*&hash=*esi:vars%3E*(randomString)%3C/esi:vars$image,xhr,1p
 
 ! https://github.com/uBlockOrigin/uAssets/issues/19720
