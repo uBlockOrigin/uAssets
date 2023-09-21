@@ -1,7 +1,7 @@
 ! Title: uBlock filters
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Expires: 5 days
-! Last modified: Thu, 21 Sep 2023 05:54:48 +0000
+! Last modified: Thu, 21 Sep 2023 05:57:41 +0000
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 !
@@ -12506,7 +12506,9 @@ discoveryplus.*##+js(json-prune, data.attributes.config.freewheel data.attribute
 ||h264.io/a/x-goog-token=Expires$xhr,redirect=nooptext,domain=discoveryplus.*,important
 !#endif
 discoveryplus.*,go.discovery.com##+js(json-prune, data.attributes.ssaiInfo.forecastTimeline data.attributes.ssaiInfo.vendorAttributes.nonLinearAds data.attributes.ssaiInfo.vendorAttributes.videoView data.attributes.ssaiInfo.vendorAttributes.breaks.[].ads.[].adMetadata data.attributes.ssaiInfo.vendorAttributes.breaks.[].ads.[].adParameters data.attributes.ssaiInfo.vendorAttributes.breaks.[].timeOffset)
-discoveryplus.*,go.discovery.com##+js(xml-prune, xpath(//*[name()="MPD"][.//*[name()="BaseURL" and contains(text()\,'dash_clear_fmp4')]]/@mediaPresentationDuration | //*[name()="Period"][./*[name()="BaseURL" and contains(text()\,'dash_clear_fmp4')]]), , .mpd)
+!discoveryplus.*,go.discovery.com##+js(xml-prune, xpath(//*[name()="MPD"][.//*[name()="BaseURL" and contains(text()\,'dash_clear_fmp4')]]/@mediaPresentationDuration | //*[name()="Period"][./*[name()="BaseURL" and contains(text()\,'dash_clear_fmp4')]]), , .mpd)
+go.discovery.com##+js(xml-prune, xpath(//*[name()="MPD"][.//*[name()="BaseURL" and contains(text()\,'dash_clear_fmp4')]]/@mediaPresentationDuration | //*[name()="Period"][./*[name()="BaseURL" and contains(text()\,'dash_clear_fmp4')]]), , .mpd)
+discoveryplus.*##+js(xml-prune, xpath(//*[name()="Period"][starts-with(@duration\,"PT15")][./*[name()="BaseURL"]] | //*[name()="Period"][starts-with(@duration\,"PT30")][./*[name()="BaseURL"]] ), , .mpd)
 pureshort.*##+js(aopr, app_vars.force_disable_adblock)
 pureshort.*##+js(aopr, open)
 pureshort.*##+js(set, blurred, false)

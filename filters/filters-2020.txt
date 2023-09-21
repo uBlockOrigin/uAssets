@@ -1,6 +1,6 @@
 ! Title: uBlock₀ filters
 ! Description: Filters optimized for uBlock, to be used along EasyList
-! Last modified: Wed, 20 Sep 2023 08:50:57 +0000
+! Last modified: Thu, 21 Sep 2023 05:57:41 +0000
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 ! new filters from april 2020 to ->
@@ -3993,7 +3993,9 @@ discoveryplus.*##+js(json-prune, data.attributes.config.freewheel data.attribute
 !#endif
 ! https://github.com/uBlockOrigin/uAssets/issues/18875
 discoveryplus.*,go.discovery.com##+js(json-prune, data.attributes.ssaiInfo.forecastTimeline data.attributes.ssaiInfo.vendorAttributes.nonLinearAds data.attributes.ssaiInfo.vendorAttributes.videoView data.attributes.ssaiInfo.vendorAttributes.breaks.[].ads.[].adMetadata data.attributes.ssaiInfo.vendorAttributes.breaks.[].ads.[].adParameters data.attributes.ssaiInfo.vendorAttributes.breaks.[].timeOffset)
-discoveryplus.*,go.discovery.com##+js(xml-prune, xpath(//*[name()="MPD"][.//*[name()="BaseURL" and contains(text()\,'dash_clear_fmp4')]]/@mediaPresentationDuration | //*[name()="Period"][./*[name()="BaseURL" and contains(text()\,'dash_clear_fmp4')]]), , .mpd)
+!discoveryplus.*,go.discovery.com##+js(xml-prune, xpath(//*[name()="MPD"][.//*[name()="BaseURL" and contains(text()\,'dash_clear_fmp4')]]/@mediaPresentationDuration | //*[name()="Period"][./*[name()="BaseURL" and contains(text()\,'dash_clear_fmp4')]]), , .mpd)
+go.discovery.com##+js(xml-prune, xpath(//*[name()="MPD"][.//*[name()="BaseURL" and contains(text()\,'dash_clear_fmp4')]]/@mediaPresentationDuration | //*[name()="Period"][./*[name()="BaseURL" and contains(text()\,'dash_clear_fmp4')]]), , .mpd)
+discoveryplus.*##+js(xml-prune, xpath(//*[name()="Period"][starts-with(@duration\,"PT15")][./*[name()="BaseURL"]] | //*[name()="Period"][starts-with(@duration\,"PT30")][./*[name()="BaseURL"]] ), , .mpd)
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/67650
 pureshort.*##+js(aopr, app_vars.force_disable_adblock)
