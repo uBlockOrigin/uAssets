@@ -1,7 +1,7 @@
 ! Title: uBlock filters
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Expires: 5 days
-! Last modified: Fri, 22 Sep 2023 15:02:23 +0000
+! Last modified: Fri, 22 Sep 2023 15:21:58 +0000
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 !
@@ -31,9 +31,11 @@ youtube.com,youtubekids.com,youtube-nocookie.com##+js(json-prune-fetch-response,
 youtube.com,youtubekids.com,youtube-nocookie.com##+js(json-prune-xhr-response, [].playerResponse.adPlacements [].playerResponse.playerAds [].playerResponse.adSlots playerResponse.adPlacements playerResponse.playerAds playerResponse.adSlots adPlacements playerAds adSlots, , propsToMatch, url:/player\?key=|watch\?v=|youtubei\/v1\/player/)
 youtube.com,youtubekids.com,youtube-nocookie.com#@#+js(json-prune-xhr-response, [].playerResponse.adPlacements [].playerResponse.playerAds [].playerResponse.adSlots playerResponse.adPlacements playerResponse.playerAds playerResponse.adSlots adPlacements playerAds adSlots, , propsToMatch, url:/player\?key=|watch\?key=|youtubei\/v1\/player/)
 youtube.com,youtubekids.com,youtube-nocookie.com#@#+js(json-prune-xhr-response, [].playerResponse.adPlacements [].playerResponse.playerAds [].playerResponse.adSlots playerResponse.adPlacements playerResponse.playerAds playerResponse.adSlots adPlacements playerAds adSlots)
+!#if env_firefox
 youtube.com,youtubekids.com,youtube-nocookie.com##+js(trusted-replace-fetch-response, /\"adPlacements.*?\"\}\}\}\]\,/, , player?key=)
 youtube.com,youtubekids.com,youtube-nocookie.com##+js(trusted-replace-fetch-response, /\"adSlots.*?\}\]\}\}\]\,/, , player?key=)
 youtube.com,youtubekids.com,youtube-nocookie.com##+js(trusted-replace-fetch-response, /\"playerAds.*?\}\}\]\,/, , player?key=)
+!#endif
 youtube.com,youtubekids.com,youtube-nocookie.com##+js(set, ytInitialPlayerResponse.playerAds, undefined)
 youtube.com,youtubekids.com,youtube-nocookie.com##+js(set, ytInitialPlayerResponse.adPlacements, undefined)
 youtube.com,youtubekids.com,youtube-nocookie.com##+js(set, ytInitialPlayerResponse.adSlots, undefined)
