@@ -1,7 +1,7 @@
 ! Title: uBlock filters
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Expires: 5 days
-! Last modified: Fri, 22 Sep 2023 10:53:04 +0000
+! Last modified: Fri, 22 Sep 2023 13:02:23 +0000
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 !
@@ -4788,8 +4788,10 @@ plagiarismdetector.net##[class^="my-"], [style^="min-height:"][class][id], #img1
 plagiarismdetector.net##a[id][class][rel] > img[class][src^="https://plagiarismdetector.net/"]:upward(1)
 plagiarismdetector.net##[rel]:matches-attr(/^/=/utm_source/)
 plagiarismchecker.co##+js(rpnt, style, display:block!important, display:none!important)
-plagiarismchecker.co##+js(rpnt, style, {display:block;}, {display:none!important;})
-plagiarismchecker.co###topbox, #afterbox
+plagiarismchecker.co##+js(rpnt, style, /{display:block[;]?}/, {display:none!important;}, condition, grammarDisplay )
+plagiarismchecker.co##div[class^="lala-"], #topbox, #afterbox
+plagiarismchecker.co##[class$="-heading"] + div[class]:has(img[src^="https://www.plagiarismchecker.co/"])
+plagiarismchecker.co##p[class^="bbb"] + [class]:has(img[src^="https://www.plagiarismchecker.co/"])
 jagran.com##.ads
 picbaron.com##+js(aeld, , popMagic)
 picbaron.com##+js(aeld, , _0x)
