@@ -4,7 +4,7 @@
 !   which purpose is to guarantee that a filter won't be overriden by
 !   exception filters.
 ! Expires: 7 days
-! Last modified: Sat, 23 Sep 2023 03:00:21 +0000
+! Last modified: Sat, 23 Sep 2023 03:46:17 +0000
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 !
@@ -70,9 +70,9 @@ rediff.com##a[onmousedown^="return enc(this,'https://track.rediff.com"]:remove-a
 ||reddit.com/api/jail^$xhr,1p
 old.reddit.com##a.outbound[data-outbound-url]:remove-attr(data-outbound-url)
 !reddit.com##+js(set, Object.prototype.allowClickTracking, false)
-reddit.com,~old.reddit.com##+js(rpnt, script, "outboundUrl", "outbound")
-reddit.com,~old.reddit.com##+js(json-prune, data.*.elements.edges.[].node.outboundLink)
-reddit.com,~old.reddit.com##+js(json-prune, data.children.[].data.outbound_link)
+www.reddit.com##+js(rpnt, script, "outboundUrl", "outbound")
+www.reddit.com##+js(json-prune, data.*.elements.edges.[].node.outboundLink)
+www.reddit.com##+js(json-prune, data.children.[].data.outbound_link)
 ||redditstatic.com/shreddit/sentry-$domain=reddit.com
 reddit.com##+js(aopw, STICKY_CANARY)
 reddit.com##+js(no-fetch-if, url:/svc/shreddit method:POST)
