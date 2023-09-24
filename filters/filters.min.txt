@@ -1,7 +1,7 @@
 ! Title: uBlock filters
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Expires: 5 days
-! Last modified: Sun, 24 Sep 2023 16:47:13 +0000
+! Last modified: Sun, 24 Sep 2023 17:30:21 +0000
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 !
@@ -21012,6 +21012,11 @@ heavyfetish.com##.sponsor
 ! ads.snapchat.com anti-adb
 ads.snapchat.com#@#.banner_ad
 7xm.xyz##+js(acs, eval, replace)
+!#if cap_html_filtering
+7xm.xyz##^script:has-text(AdBlocker)
+!#else
+7xm.xyz##+js(rmnt, script, AdBlocker)
+!#endif
 ! ytms.one popup
 ytms.one##+js(aopr, BetterJsPop)
 ytms.one##+js(aopw, atOptions)
