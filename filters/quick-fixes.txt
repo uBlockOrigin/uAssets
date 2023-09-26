@@ -1,7 +1,7 @@
 ! Title: uBlock₀ filters – Quick fixes
 ! Description: Immediate, temporary filters to fix websites
 ! Expires: 12 hours
-! Last modified: Tue, 26 Sep 2023 17:34:58 +0000
+! Last modified: Tue, 26 Sep 2023 17:45:00 +0000
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! Forums: https://github.com/uBlockOrigin/uAssets/issues
@@ -184,3 +184,34 @@ philips-hue.com##+js(set, cockieConsentManagement, noopFunc)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/19872 - To be fixed by EasyList
 @@||web-ads.pulse.weatherbug.net/api/ads/targeting^$xhr,3p,domain=weatherbug.com
+
+! https://github.com/uBlockOrigin/uAssets/issues/14296 - Remove after 2023-10-01
+soft98.ir,~forum.soft98.ir##+js(aeld, click, [native code])
+||img.soft98.ir^$image,1p,redirect-rule=1x1.gif
+@@||soft98.ir^$ghide
+soft98.ir,~forum.soft98.ir##+js(window-close-if, /link-)
+linkdoni.soft98.ir##html:remove()
+!#if cap_html_filtering
+linkdoni.soft98.ir##^body,title
+!#endif
+sysban.ir##+js(window-close-if, /telephone-service)
+smostafa.ir##+js(window-close-if, /^/)
+coffeete.ir##+js(window-close-if, /soft98)
+||cdn.hostdl.com/goto/soft98^$doc,csp=script-src
+cdn.hostdl.com##^responseheader(location)
+cdn.hostdl.com##:matches-path(soft98) html:remove()
+||iranicard.ir^$doc,removeparam=utm_source
+||iranicard.ir^$doc,removeparam=utm_campaign
+||iranicard.ir/payments/shopping/amazon/?utm_medium=Banner^$doc,csp=script-src
+iranicard.ir##:matches-path(/utm_medium=Banner/i) html:remove()
+||faradars.org^$doc,removeparam=utm_source
+||faradars.org^$doc,removeparam=utm_campaign
+||faradars.org/explore?orderby=views&*&utm_medium=banner-kaprila^$doc,csp=script-src
+faradars.org##:matches-path(/utm_medium=banner-kaprila/i) html:remove()
+||cxchief.com^$doc,removeparam=utm_source
+||cxchief.com^$doc,removeparam=utm_campaign
+||cxchief.com^$doc,removeparam=utm_content
+||cxchief.com/fa/?utm_medium=adv^$doc,csp=script-src
+cxchief.com##:matches-path(/utm_medium=adv/i) html:remove()
+||smostafa.ir/?utm_source=footer^$doc,csp=script-src
+smostafa.ir##:matches-path(/utm_source=footer/i) html:remove()
