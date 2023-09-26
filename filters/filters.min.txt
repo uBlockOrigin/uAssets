@@ -1,7 +1,7 @@
 ! Title: uBlock filters
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Expires: 5 days
-! Last modified: Tue, 26 Sep 2023 17:34:58 +0000
+! Last modified: Tue, 26 Sep 2023 17:43:23 +0000
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 !
@@ -19736,34 +19736,35 @@ idnes.cz##body:style(background: none !important; overflow: auto !important;)
 tv.idnes.cz##.px-creative
 hokej.net##+js(nostif, blur)
 @@||shoop.de^$ghide
-*$script,domain=linkdoni.soft98.ir
-!soft98.ir,~forum.soft98.ir##+js(aeld, mousedown)
+soft98.ir,~forum.soft98.ir##+js(aeld, click, [native code])
+||img.soft98.ir^$image,1p,redirect-rule=1x1.gif
+@@||soft98.ir^$ghide
 soft98.ir,~forum.soft98.ir##+js(window-close-if, /link-)
+linkdoni.soft98.ir##html:remove()
+!#if cap_html_filtering
+linkdoni.soft98.ir##^body,title
+!#endif
 sysban.ir##+js(window-close-if, /telephone-service)
 smostafa.ir##+js(window-close-if, /^/)
-^utm_source=soft98^$doc,popup,domain=asiatech.ir|iranicard.ir|ok-ex.io|limoo.host
-.ir^$popup,domain=soft98.ir|~forum.soft98.ir,3p
-||iranicard.ir^$doc,popup,domain=soft98.ir
-||iranicard.ir^$removeparam=/utm_source|utm_campaign|utm_content/
-||asiatech.ir^$doc,popup,domain=soft98.ir
-||asiatech.ir^$removeparam=/utm_source|utm_campaign|utm_content/
-||hostdl.com^$doc,popup,domain=soft98.ir
+coffeete.ir##+js(window-close-if, /soft98)
+||cdn.hostdl.com/goto/soft98^$doc,csp=script-src
 cdn.hostdl.com##^responseheader(location)
-||limoo.host^$doc,popup,domain=soft98.ir
-||limoo.host^$removeparam=/utm_source|utm_campaign|utm_content|utm_term|wr/
-||smostafa.ir^$doc,popup,domain=soft98.ir
-||sysban.ir^$doc,popup,domain=soft98.ir
-||iranicard.ir/خرید-اکانت-اسپاتیفای-spotify-2/?utm_medium=banner^$csp=script-src
-||asiatech.ir/tabestan1401/?utm_medium=referral^$csp=script-src
-||limoo.host/?utm_medium=sidebar2-banner^$csp=script-src
-iranicard.ir##:matches-path(/utm_medium=banner/) html:remove()
-asiatech.ir##:matches-path(/utm_medium=referral/) html:remove()
-limoo.host##:matches-path(/utm_medium=sidebar2-banner/) html:remove()
-linkdoni.soft98.ir##html:remove()
-!#if env_firefox
-linkdoni.soft98.ir##^body, title
-!#endif
-@@||soft98.ir^$ghide
+cdn.hostdl.com##:matches-path(soft98) html:remove()
+||iranicard.ir^$doc,removeparam=utm_source
+||iranicard.ir^$doc,removeparam=utm_campaign
+||iranicard.ir/payments/shopping/amazon/?utm_medium=Banner^$doc,csp=script-src
+iranicard.ir##:matches-path(/utm_medium=Banner/i) html:remove()
+||faradars.org^$doc,removeparam=utm_source
+||faradars.org^$doc,removeparam=utm_campaign
+||faradars.org/explore?orderby=views&*&utm_medium=banner-kaprila^$doc,csp=script-src
+faradars.org##:matches-path(/utm_medium=banner-kaprila/i) html:remove()
+||cxchief.com^$doc,removeparam=utm_source
+||cxchief.com^$doc,removeparam=utm_campaign
+||cxchief.com^$doc,removeparam=utm_content
+||cxchief.com/fa/?utm_medium=adv^$doc,csp=script-src
+cxchief.com##:matches-path(/utm_medium=adv/i) html:remove()
+||smostafa.ir/?utm_source=footer^$doc,csp=script-src
+smostafa.ir##:matches-path(/utm_source=footer/i) html:remove()
 upiapi.in##+js(set, detectAdBlock, noopFunc)
 ||hbo.yspsvc-na.net/csm/*&caid=$xhr,removeparam=caid,domain=play.hbomax.com
 *&caid=$xhr,removeparam=caid,domain=max.com
