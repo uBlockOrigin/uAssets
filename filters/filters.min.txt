@@ -1,7 +1,7 @@
 ! Title: uBlock filters
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Expires: 5 days
-! Last modified: Thu, 28 Sep 2023 03:22:02 +0000
+! Last modified: Thu, 28 Sep 2023 05:11:16 +0000
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 !
@@ -23303,4 +23303,8 @@ fc-lc.xyz##+js(no-fetch-if, adsbygoogle)
 sigmalinks.in##+js(rmnt, script, antiAdBlockerHandler)
 !#if !env_mobile
 screenhub.com.au##header#masthead:style(top: -110px !important;)
+!#endif
+news.rediff.com##^script:has-text(Symbol.iterator)
+!#if cap_html_filtering
+news.rediff.com##+js(rmnt, script, Symbol.iterator)
 !#endif
