@@ -1,7 +1,7 @@
 ! Title: uBlock filters
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Expires: 5 days
-! Last modified: Sat, 30 Sep 2023 07:19:22 +0000
+! Last modified: Sat, 30 Sep 2023 07:30:52 +0000
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 !
@@ -7351,7 +7351,10 @@ skincarie.com##+js(nowoif)
 skincarie.com##+js(set, blurred, false)
 ufacw.com###wpsafe-generate, #wpsafe-link:style(display: block !important;)
 ufacw.com###wpsafe-generate, #wpsafe-link:others()
-exeo.app##+js(acs, XMLHttpRequest, break;case)
+exeo.app##^script:has-text(FingerprintJS)
+!#if !cap_html_filtering
+exeo.app##+js(rmnt, script, FingerprintJS)
+!#endif
 exeo.app##+js(set, blurred, false)
 nsfw247.to##+js(nostif, mdpDeBlocker)
 nsfw247.to##+js(acs, document.querySelectorAll, popMagic)
