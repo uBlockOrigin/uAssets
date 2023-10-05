@@ -1,7 +1,7 @@
 ! Title: uBlock₀ filters – Quick fixes
 ! Description: Immediate, temporary filters to fix websites
 ! Expires: 12 hours
-! Last modified: Thu, 05 Oct 2023 14:01:44 +0000
+! Last modified: Thu, 05 Oct 2023 23:35:10 +0000
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! Forums: https://github.com/uBlockOrigin/uAssets/issues
@@ -73,11 +73,15 @@ plagiarismchecker.co##[class][style*="width"][style*="margin"][style*="auto"]:ha
 ! https://old.reddit.com/r/uBlockOrigin/comments/16lmeri/youtube_antiadblock_and_ads_september_18_2023/k1uf2s1/
 youtube.com#@#+js(json-prune-fetch-response, [].playerResponse.adPlacements [].playerResponse.playerAds [].playerResponse.adSlots playerResponse.adPlacements playerResponse.playerAds playerResponse.adSlots adPlacements playerAds adSlots)
 youtube.com#@#+js(json-prune-fetch-response, [].playerResponse.adPlacements [].playerResponse.playerAds [].playerResponse.adSlots playerResponse.adPlacements playerResponse.playerAds playerResponse.adSlots adPlacements playerAds adSlots, , propsToMatch, url:player?key=)
-youtube.com##+js(json-prune-fetch-response, [].playerResponse.adPlacements [].playerResponse.playerAds [].playerResponse.adSlots playerResponse.adPlacements playerResponse.playerAds playerResponse.adSlots adPlacements playerAds adSlots, , propsToMatch, url:player?key= method:/post/i)
+youtube.com#@#+js(json-prune-fetch-response, [].playerResponse.adPlacements [].playerResponse.playerAds [].playerResponse.adSlots playerResponse.adPlacements playerResponse.playerAds playerResponse.adSlots adPlacements playerAds adSlots, , propsToMatch, url:player?key= method:/post/i)
+youtube.com##+js(json-prune-fetch-response, [].playerResponse.adPlacements [].playerResponse.playerAds [].playerResponse.adSlots playerResponse.adPlacements playerResponse.playerAds playerResponse.adSlots adPlacements playerAds adSlots, , propsToMatch, url:player?key= method:/post/i bodyUsed:true)
 youtubekids.com,youtube-nocookie.com##+js(json-prune, playerResponse.adPlacements playerResponse.playerAds playerResponse.adSlots adPlacements playerAds adSlots important)
-youtube.com##+js(trusted-replace-fetch-response, /\"adPlacements.*?\"\}\}\}\]\,/, , url:player?key= method:/post/i)
-youtube.com##+js(trusted-replace-fetch-response, /\"adSlots.*?\}\]\}\}\]\,/, , url:player?key= method:/post/i)
-youtube.com##+js(trusted-replace-fetch-response, /\"playerAds.*?\}\}\]\,/, , url:player?key= method:/post/i)
+youtube.com##+js(trusted-replace-fetch-response, /\"adPlacements.*?\"\}\}\}\]\,/, , url:player?key= method:/post/i bodyUsed:true)
+youtube.com##+js(trusted-replace-fetch-response, /\"adSlots.*?\}\]\}\}\]\,/, , url:player?key= method:/post/i bodyUsed:true)
+youtube.com##+js(trusted-replace-fetch-response, /\"playerAds.*?\}\}\]\,/, , url:player?key= method:/post/i bodyUsed:true)
+youtube.com#@#+js(trusted-replace-fetch-response, /\"adPlacements.*?\"\}\}\}\]\,/, , url:player?key= method:/post/i)
+youtube.com#@#+js(trusted-replace-fetch-response, /\"adSlots.*?\}\]\}\}\]\,/, , url:player?key= method:/post/i)
+youtube.com#@#+js(trusted-replace-fetch-response, /\"playerAds.*?\}\}\]\,/, , url:player?key= method:/post/i)
 youtube.com#@#+js(trusted-replace-fetch-response, /\"adPlacements.*?\"\}\}\}\]\,/, , player?key=)
 youtube.com#@#+js(trusted-replace-fetch-response, /\"adSlots.*?\}\]\}\}\]\,/, , player?key=)
 youtube.com#@#+js(trusted-replace-fetch-response, /\"playerAds.*?\}\}\]\,/, , player?key=)
