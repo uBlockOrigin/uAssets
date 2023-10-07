@@ -1,6 +1,6 @@
 ! Title: uBlock₀ filters (2023)
 ! Description: Filters optimized for uBlock, to be used along EasyList
-! Last modified: Sat, 07 Oct 2023 02:09:54 +0000
+! Last modified: Sat, 07 Oct 2023 02:41:46 +0000
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 ! New filters from January 2023 to ->
@@ -175,7 +175,10 @@ mysports.to,sportfacts.net###footy_post_extensions-2
 mysports.to,sportfacts.net##+js(aopr, document.oncontextmenu)
 ||mysports.to/sticky.html$frame
 ||sportfacts.net/sticky.html$frame
-topsporter.net##+js(rmnt, script, /ConsoleBan|alert/)
+topsporter.net,sportshub.to##^script:has-text(/ConsoleBan|alert|AdBlocker/)
+!#if cap_html_filtering
+topsporter.net,sportshub.to##+js(rmnt, script, /ConsoleBan|alert|AdBlocker/)
+!#endif
 @@||topsporter.net^$ghide
 
 ! https://github.com/uBlockOrigin/uAssets/issues/16320
