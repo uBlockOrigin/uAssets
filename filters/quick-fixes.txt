@@ -1,7 +1,7 @@
 ! Title: uBlock₀ filters – Quick fixes
 ! Description: Immediate, temporary filters to fix websites
 ! Expires: 12 hours
-! Last modified: Wed, 11 Oct 2023 19:39:21 +0000
+! Last modified: Wed, 11 Oct 2023 20:09:43 +0000
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! Forums: https://github.com/uBlockOrigin/uAssets/issues
@@ -46,6 +46,18 @@ dev.miuiflash.com,djxmaza.in,thecubexguide.com##+js(no-fetch-if, /adtrue\.com|en
 dev.miuiflash.com,djxmaza.in,thecubexguide.com##+js(no-xhr-if, /a-mo\.net|adnxs\.com|prebid|creativecdn\.com|e-planning\.net|quantumdex\.io/)
 dev.miuiflash.com,djxmaza.in,thecubexguide.com##iframe:upward(div)
 dev.miuiflash.com,djxmaza.in,thecubexguide.com##[id*="iframe"]:style(height:250px !important;left:-3000px !important;position:absolute !important)
+||devfiles.pages.dev/js/devtools.js$script
+!#if cap_html_filtering
+djxmaza.in,miuiflash.com,thecubexguide.com##^script:has-text(/\,\'gger\'\,/)
+!#else
+djxmaza.in,miuiflash.com,thecubexguide.com##+js(rmnt, script, /\,\'gger\'\,/)
+!#endif
+!#if env_chromium
+djxmaza.in,miuiflash.com,thecubexguide.com###featuredimage:style(visibility: hidden !important;)
+djxmaza.in,miuiflash.com,thecubexguide.com##+js(spoof-css, #featuredimage, visibility, visible)
+!#else
+djxmaza.in,miuiflash.com,thecubexguide.com###featuredimage:style(transform: translateX(10000px) !important;)
+!#endif
 
 ! https://github.com/uBlockOrigin/uAssets/issues/18036
 ! https://github.com/uBlockOrigin/uAssets/issues/19016
