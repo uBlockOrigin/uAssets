@@ -1,6 +1,6 @@
 ! Title: uBlock₀ filters (2023)
 ! Description: Filters optimized for uBlock, to be used along EasyList
-! Last modified: Wed, 11 Oct 2023 08:55:52 +0000
+! Last modified: Wed, 11 Oct 2023 12:14:08 +0000
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 ! New filters from January 2023 to ->
@@ -4576,9 +4576,10 @@ superembeds.com##+js(nowoif)
 superembeds.com###adStop
 
 ! https://github.com/uBlockOrigin/uAssets/pull/19704
-||imasdk.googleapis.com/js/sdkloader/ima3.js$script,domain=player.popfun.co.uk,redirect-rule=google-ima.js
-player.popfun.co.uk##+js(json-prune, response.ads)
-player.popfun.co.uk##+js(json-prune-fetch-response, response.ads)
+! https://github.com/uBlockOrigin/uAssets/pull/20040
+||imasdk.googleapis.com/js/sdkloader/ima3.js$script,3p,redirect-rule=google-ima.js,domain=player.pop.co.uk|player.popfun.co.uk
+player.pop.co.uk,player.popfun.co.uk##+js(json-prune, response.ads)
+player.pop.co.uk,player.popfun.co.uk##+js(json-prune-fetch-response, response.ads)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/19707
 cbr.com##+js(rmnt, script, admiral)
