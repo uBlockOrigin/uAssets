@@ -4943,3 +4943,9 @@ animesync.org##+js(no-fetch-if, googlesyndication)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/20006
 foxtel.com.au##+js(xml-prune, xpath(//*[name()="Period"][.//*[name()="BaseURL" and contains(text()\,'adease')]]), ,.mpd)
+
+! https://github.com/uBlockOrigin/uAssets/issues/20076
+bokugents.com##^script:has-text(onerror)
+!#if !cap_html_filtering
+bokugents.com##+js(rmnt, script, onerror)
+!#endif
