@@ -26,7 +26,7 @@ youtube.com#@#+js(json-prune-fetch-response, [].playerResponse.adPlacements [].p
 youtube.com#@#+js(json-prune-fetch-response, [].playerResponse.adPlacements [].playerResponse.playerAds [].playerResponse.adSlots playerResponse.adPlacements playerResponse.playerAds playerResponse.adSlots adPlacements playerAds adSlots, , propsToMatch, url:player?key= method:/post/i)
 youtube.com#@#+js(json-prune-fetch-response, [].playerResponse.adPlacements [].playerResponse.playerAds [].playerResponse.adSlots playerResponse.adPlacements playerResponse.playerAds playerResponse.adSlots adPlacements playerAds adSlots, , propsToMatch, url:player?key= method:/post/i bodyUsed:true)
 youtube.com##+js(json-prune-xhr-response, [].playerResponse.adPlacements [].playerResponse.playerAds [].playerResponse.adSlots playerResponse.adPlacements playerResponse.playerAds playerResponse.adSlots adPlacements playerAds adSlots, , propsToMatch, url:/player\?key=|watch\?v=|youtubei\/v1\/player/)
-youtube.com##+js(trusted-replace-fetch-response, /"adSlots.*?true.*?\}\]\}\}\]\,/, , url:player?key=)
+youtube.com##+js(trusted-replace-fetch-response, /(googlevideo.*?)"adSlots.*?\}\]\}\}\]\,/, $1, url:player?key=)
 youtube.com##+js(trusted-replace-fetch-response, /(googlevideo.*?)"adPlacements.*?"\}\}\}\]\,/, $1, url:player?key=)
 youtube.com##+js(trusted-replace-fetch-response, /(googlevideo.*?)"playerAds.*?\}\}\]\,/, $1, url:player?key=)
 youtube.com#@#+js(trusted-replace-fetch-response, /"adSlots.*?SLOT_TRIGGER_EVENT_BEFORE_CONTENT.*?\}\]\}\}\]\,/, , url:player?key=)
