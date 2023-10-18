@@ -1,7 +1,7 @@
 ! Title: uBlock₀ filters – Quick fixes
 ! Description: Immediate, temporary filters to fix websites
 ! Expires: 12 hours
-! Last modified: Tue, 17 Oct 2023 20:54:25 +0000
+! Last modified: Wed, 18 Oct 2023 02:40:35 +0000
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! Forums: https://github.com/uBlockOrigin/uAssets/issues
@@ -80,7 +80,6 @@ plagiarismchecker.co##.col-md-9 > section + span > section[class]
 plagiarismchecker.co##[class][style*="display"][style*="block"]:has(a img[src^="https://www.plagiarismchecker.co/"])
 
 ! https://old.reddit.com/r/uBlockOrigin/comments/16lmeri/youtube_antiadblock_and_ads_september_18_2023/k1uf2s1/
-youtube.com#@#+js(json-prune-fetch-response, [].playerResponse.adPlacements [].playerResponse.playerAds [].playerResponse.adSlots playerResponse.adPlacements playerResponse.playerAds playerResponse.adSlots adPlacements playerAds adSlots, , propsToMatch, url:player?key= method:/post/i)
 youtube.com#@#+js(json-prune, playerResponse.adPlacements playerResponse.playerAds playerResponse.adSlots adPlacements playerAds adSlots)
 www.youtube.com##+js(trusted-replace-fetch-response, /(source=.*?)"adSlots.*?\}\]\}\}\]\,/, $1, url:player?key=)
 www.youtube.com##+js(trusted-replace-fetch-response, /(source=.*?)"adPlacements.*?"\}\}\}\]\,/, $1, url:player?key=)
@@ -107,7 +106,6 @@ youtube.com#@#+js(trusted-replace-fetch-response, /(googlevideo.*?)"playerAds.*?
 youtube.com#@#+js(trusted-replace-fetch-response, /"adSlots.*?SLOT_TRIGGER_EVENT_BEFORE_CONTENT.*?\}\]\}\}\]\,/, , url:player?key=)
 youtube.com#@#+js(trusted-replace-fetch-response, /"adPlacements.*?AD_PLACEMENT_KIND_END.*?\"\}\}\}\]\,/, , url:player?key=)
 youtube.com#@#+js(trusted-replace-fetch-response, /"playerAds.*?gutParams":\{"tag":"\\.*?\}\}\]\,/, , url:player?key=)
-youtube.com#@#+js(json-prune-fetch-response, [].playerResponse.adPlacements [].playerResponse.playerAds [].playerResponse.adSlots playerResponse.adPlacements playerResponse.playerAds playerResponse.adSlots adPlacements playerAds adSlots, , propsToMatch, url:player?key= method:/post/i bodyUsed:true)
 youtube.com#@#+js(trusted-replace-fetch-response, /(youtubei.*?)"adSlots.*?\}\]\}\}\]\,/, $1, url:player?key=)
 youtube.com#@#+js(trusted-replace-fetch-response, /(youtubei.*?)"adPlacements.*?"\}\}\}\]\,/, $1, url:player?key=)
 youtube.com#@#+js(trusted-replace-fetch-response, /(youtubei.*?)"playerAds.*?\}\}\]\,/, $1, url:player?key=)
@@ -116,12 +114,6 @@ youtube.com#@#+js(trusted-replace-fetch-response, /\"adPlacements.*?ytimg.*?\"\}
 youtube.com#@#+js(trusted-replace-fetch-response, /\"playerAds.*?\"enabledEngageTypes\":\"\d.*?\}\}\]\,/, , url:player?key=)
 youtube.com#@#+js(trusted-replace-fetch-response, /\"adPlacements.*?true.*?\"\}\}\}\]\,/, , url:player?key= method:/post/i)
 youtube.com#@#+js(trusted-replace-fetch-response, /\"playerAds.*?true.*?\}\}\]\,/, , url:player?key= method:/post/i)
-youtube.com#@#+js(trusted-replace-fetch-response, /\"adPlacements.*?\"\}\}\}\]\,/, , url:player?key= method:/post/i bodyUsed:true)
-youtube.com#@#+js(trusted-replace-fetch-response, /\"adSlots.*?\}\]\}\}\]\,/, , url:player?key= method:/post/i bodyUsed:true)
-youtube.com#@#+js(trusted-replace-fetch-response, /\"playerAds.*?\}\}\]\,/, , url:player?key= method:/post/i bodyUsed:true)
-youtube.com#@#+js(trusted-replace-fetch-response, /\"adPlacements.*?\"\}\}\}\]\,/, , url:player?key= method:/post/i)
-youtube.com#@#+js(trusted-replace-fetch-response, /\"adSlots.*?\}\]\}\}\]\,/, , url:player?key= method:/post/i)
-youtube.com#@#+js(trusted-replace-fetch-response, /\"playerAds.*?\}\}\]\,/, , url:player?key= method:/post/i)
 www.youtube.com##+js(set, yt.config_.EXPERIMENT_FLAGS.ab_det_gen_re, false)
 m.youtube.com##+js(json-prune, playerResponse.adPlacements playerResponse.playerAds playerResponse.adSlots adPlacements playerAds adSlots important)
 ! https://www.reddit.com/r/uBlockOrigin/comments/16lmeri/youtube_antiadblock_and_ads_september_18_2023/k1wl8df/
@@ -152,10 +144,6 @@ sankaku.app##+js(no-xhr-if, googlesyndication)
 
 ! https://github.com/uBlockOrigin/uAssets/discussions/17361#discussioncomment-7251777
 @@||surfe.pro/net/teaser$xhr,domain=btcbitco.in|btcsatoshi.net|crypto4yu.com|readbitcoin.org
-
-! https://github.com/uBlockOrigin/uAssets/issues/19982
-unsplash.com#@#div[style^="--row-gutter"] > div a[href="/brands"]:upward(div[style^="--row-gutter"] > div):remove()
-unsplash.com##div[style^="--row-gutter"] > div a[href="/brands"]:upward(div[style^="--row-gutter"] > div)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/20013
 @@||adobedtm.com^*/satelliteLib-$script,domain=costco.*
