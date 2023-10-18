@@ -170,3 +170,12 @@ coinscap.info,cryptowidgets.net,greenenez.com,insurancegold.in,webfreetools.net,
 
 ! https://github.com/uBlockOrigin/uAssets/issues/20128 - remove until 22.10.2023
 @@||googletagmanager.com/gtag/js$script,redirect-rule=googletagmanager_gtm.js:5,domain=trovvve.com
+
+! https://github.com/uBlockOrigin/uAssets/issues/19808 - remove until 23.10.2023
+!#if cap_html_filtering
+teltarif.de##^script:has-text(/getAdUnitPath|\.then\(eval\)|DisplayAcceptableAdIfAdblocked|\,eval\)\)\)\;|\.join\(\'\'\)\}\;/)
+!#else
+teltarif.de##+js(rmnt, script, /getAdUnitPath|\.then\(eval\)|DisplayAcceptableAdIfAdblocked|\,eval\)\)\)\;|\.join\(\'\'\)\}\;/)
+!#endif
+.jpg|$script,xhr,1p,domain=teltarif.de
+teltarif.de##img[referrerpolicy="unsafe-url"][src^="/img/"][src$=".jpg"]
