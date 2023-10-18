@@ -1,7 +1,7 @@
 ! Title: uBlock filters
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Expires: 5 days
-! Last modified: Wed, 18 Oct 2023 16:12:43 +0000
+! Last modified: Wed, 18 Oct 2023 16:26:36 +0000
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 !
@@ -23283,3 +23283,8 @@ tvbanywherena.com##+js(rpnt, script, (hasBlocker), (false))
 y2down.cc##+js(nowoif)
 @@||cdn.fuseplatform.net/publift/$3p,script,xhr,domain=quackr.io
 haveibeenpwned.com##+js(rpnt, P, /\.[^.]+1Password[^.]+/)
+!#if cap_html_filtering
+pig69.com##^script:has-text(detectAdBlock)
+!#else
+pig69.com##+js(rmnt, script, detectAdBlock)
+!#endif
