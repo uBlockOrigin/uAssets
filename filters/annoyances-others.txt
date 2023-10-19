@@ -3,7 +3,7 @@
 !   Filters optimized for uBlock Origin, to be used with EasyList's
 !   and/or Adguard's "Other Annoyances" list(s)
 ! Expires: 7 days
-! Last modified: Wed, 18 Oct 2023 16:28:57 +0000
+! Last modified: Thu, 19 Oct 2023 10:28:20 +0000
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! Forums: https://github.com/uBlockOrigin/uAssets/issues
@@ -6917,3 +6917,11 @@ raenonx.cc##+js(nostif, show)
 
 ! https://deccanherald.com/india/delhi/people-detained-from-jantar-mantar-for-denouncing-israel-over-gaza-action-2728594 - Copy manipulation
 deccanherald.com##+js(aopr, document.oncopy)
+
+! https://github.com/uBlockOrigin/uAssets/issues/20156
+||mathcrave.com/core/modules/*/assets/vendor/js/content-protector.min.js
+!#if cap_html_filtering
+mathcrave.com##^script:has-text(disable_show_error)
+!#else
+mathcrave.com##+js(rmnt, script, disable_show_error)
+!#endif
