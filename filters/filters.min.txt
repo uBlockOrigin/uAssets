@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Version: %version%
-! Last modified: Thu, 19 Oct 2023 20:33:19 +0000
+! Last modified: Thu, 19 Oct 2023 22:09:32 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Expires: 5 days
 ! Homepage: https://github.com/uBlockOrigin/uAssets
@@ -23302,3 +23302,9 @@ pig69.com##+js(rmnt, script, detectAdBlock)
 ||mathcrave.com/core/modules/*/assets/vendor/js/abdetector.script.min.js
 ||mathcrave.com/core/modules/*/assets/vendor/css/abdetector.style.css
 mathcrave.com##+js(aeld, load, abDetectorPro)
+! fastupload.io anti adblock
+!#if cap_html_filtering
+fastupload.io##^script:has-text(AdBlocker)
+!#else
+fastupload.io##+js(rmnt, script, AdBlocker)
+!#endif
