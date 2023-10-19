@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Privacy
 ! Version: %version%
-! Last modified: Thu, 19 Oct 2023 18:16:01 +0000
+! Last modified: Thu, 19 Oct 2023 21:59:53 +0000
 ! Description: |
 !   Some of these filters make use of the `important` filter option,
 !   which purpose is to guarantee that a filter won't be overriden by
@@ -148,16 +148,23 @@ search.brave.com##+js(no-fetch-if, body:browser)
 /^\w+://[0-9a-z]{11}\.taxliencode\.com//$1p,script
 /^\w+://[0-9a-z]{12}\.www\.sidsplumbing\.ie//$1p,script
 /^\w+://[0-9a-z]{12}\.www\.kodalia\.com//$1p,script
-fjlaboratories.com,stoic.ai##+js(aost, Math.floor, injectedScript)
-stoic.ai##^script:has-text(\x3c)
+/^\w+://[0-9a-z]{12}\.quine\.sh//$1p,script
+/^\w+://[0-9a-z]{12}\.controlconceptsusa\.com//$1p,script
+/^\w+://[0-9a-z]{12}\.www\.emanualonline\.com//$1p,script
+/www\.eldorado\.gg\/[a-zA-Z]{10}\.js/$1p,script,domain=eldorado.gg
 ||ampl.cinotes.com^
 ||data-saver-cindi.herokuapp.com^
 ||cdn.cindicator.com/$script,3p
-botcomics.com,cefirates.com,chandlerorchards.com,comicleaks.com,filmustage.com,freecodecamp.org,mailfloss.com,marketdata.app,monumentmetals.com,nookgaming.com,ping.gg,tapmyback.com,revistaferramental.com.br,hawpar.com,accuretawealth.com,resourceya.com,camberlion.com,adaptive.marketing,datree.io,alpacafinance.org,enkeleksamen.no,adria.gg,kvest.ee,controlconceptsusa.com,tt.live,creatordrop.com,groove.so,cainthus.com,jaywilsonwebsolutions.com,tracktheta.com,panpots.com##+js(acs, String.fromCharCode, join)
-botcomics.com,cefirates.com,chandlerorchards.com,comicleaks.com,marketdata.app,monumentmetals.com,tapmyback.com,ping.gg,revistaferramental.com.br,hawpar.com,alpacafinance.org,nookgaming.com,enkeleksamen.no,kvest.ee,controlconceptsusa.com,creatordrop.com,panpots.com##^script:has-text(join(''))
-alpacafinance.org,tt.live##^script:has-text(join(""))
-botcomics.com,cefirates.com,chandlerorchards.com,comicleaks.com,marketdata.app,monumentmetals.com,tapmyback.com,ping.gg,revistaferramental.com.br,hawpar.com,alpacafinance.org,nookgaming.com,enkeleksamen.no,kvest.ee,controlconceptsusa.com,creatordrop.com,panpots.com##^script:has-text("join('')")
-alpacafinance.org,tt.live##^script:has-text('join("")')
+cefirates.com,freecodecamp.org,monumentmetals.com,nookgaming.com,ping.gg,resourceya.com,camberlion.com,alpacafinance.org,groove.so,jaywilsonwebsolutions.com,bitdomain.biz,madrigalmaps.com,tapmyback.com,revistaferramental.com.br,kvest.ee,creatordrop.com,cybernetman.com,adaptive.marketing,future-fortune.com,panprices.com,adria.gg##+js(acs, String.fromCharCode, join)
+!#if cap_html_filtering
+botcomics.com,cefirates.com,chandlerorchards.com,comicleaks.com,marketdata.app,monumentmetals.com,tapmyback.com,ping.gg,revistaferramental.com.br,hawpar.com,alpacafinance.org,nookgaming.com,enkeleksamen.no,kvest.ee,creatordrop.com,panpots.com,cybernetman.com,bitdomain.biz,gerardbosch.xyz,fort-shop.kiev.ua,accuretawealth.com,resourceya.com,tracktheta.com,adaptive.marketing##^script:has-text("join('')")
+alpacafinance.org,tt.live,future-fortune.com,abhijith.page,furucombo.app,madrigalmaps.com,adventuretix.com##^script:has-text('join("")')
+panprices.com,intercity.technology,freelancer.taxmachine.be,kodalia.com,adria.gg,fjlaboratories.com##^script:has-text(api.dataunlocker.com)
+!#else
+botcomics.com,cefirates.com,chandlerorchards.com,comicleaks.com,marketdata.app,monumentmetals.com,tapmyback.com,ping.gg,revistaferramental.com.br,hawpar.com,alpacafinance.org,nookgaming.com,enkeleksamen.no,kvest.ee,creatordrop.com,panpots.com,cybernetman.com,bitdomain.biz,gerardbosch.xyz,fort-shop.kiev.ua,accuretawealth.com,resourceya.com,tracktheta.com##+js(rmnt, script, /join\(\'\'\)/)
+alpacafinance.org,tt.live,future-fortune.com,abhijith.page,madrigalmaps.com,adventuretix.com##+js(rmnt, script, /join\(\"\"\)/)
+panprices.com,intercity.technology,freelancer.taxmachine.be,adria.gg,fjlaboratories.com##+js(rmnt, script, api.dataunlocker.com)
+!#endif
 ||washpost.nile.works^
 /p13n/batch/action/*$image
 ||da29e6b8-f018-490f-b25f-39a887fc95e7.xyz^
