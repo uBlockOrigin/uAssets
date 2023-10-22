@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Version: %version%
-! Last modified: Sun, 22 Oct 2023 18:47:24 +0000
+! Last modified: Sun, 22 Oct 2023 18:56:52 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Expires: 5 days
 ! Homepage: https://github.com/uBlockOrigin/uAssets
@@ -21842,6 +21842,10 @@ streamvid.net##+js(acs, document.documentElement, break;case $.)
 streamvid.net##+js(acs, globalThis, break;case)
 streamvid.net##+js(nano-stb, , , 0.02)
 streamvid.net##+js(set, googleAd, true)
+!#if !cap_html_filtering
+streamvid.net##+js(rmnt, script, adblock)
+!#endif
+streamvid.net##^script:has-text(adblock)
 *$script,3p,denyallow=cloudflare.com,domain=streamvid.net
  
 thichcode.net##+js(set, detectAdBlock, noopFunc)
