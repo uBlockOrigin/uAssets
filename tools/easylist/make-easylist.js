@@ -54,26 +54,31 @@ const commandLineArgs = (( ) => {
 
 /******************************************************************************/
 
-function expandIncludes(dirname, parts) {
+function expandTemplate(wd, parts) {
     const out = [];
     const reInclude = /^%include +(.+):(.+)%\s+/gm;
     for ( const part of parts ) {
+        if ( typeof part !== 'string' ) {
+            out.push(part);
+            continue;
+        }
         let lastIndex = 0;
         for (;;) {
             const match = reInclude.exec(part);
             if ( match === null ) { break; }
+            out.push(part.slice(lastIndex, match.index).trim());
             const repo = match[1].trim();
-            const fpath = match[2].trim();
-            const basename = path.basename(fpath);
-            expandedParts.add(basename);
-            console.info(`  Inserting ${basename}`);
-            out.push(
-                part.slice(lastIndex, match.index).trim(),
-                '',
-                `! *** ${repo}:${fpath} ***`,
-                fs.readFile(`${dirname}/${fpath}`, { encoding: 'utf8' })
-                    .then(text => text.trim()),
-            );
+            const fpath = `${match[2].trim()}`;
+            if ( expandedParts.has(fpath) === false ) {
+                console.info(`  Inserting ${fpath}`);
+                out.push(
+                    out.push({ file: `${fpath}` }),
+                    `! *** ${repo}:${fpath} ***`,
+                    fs.readFile(`${wd}/${fpath}`, { encoding: 'utf8' })
+                        .then(text => text.trim()),
+                );
+                expandedParts.add(fpath);
+            }
             lastIndex = reInclude.lastIndex;
         }
         out.push(part.slice(lastIndex).trim());
@@ -83,21 +88,39 @@ function expandIncludes(dirname, parts) {
 
 /******************************************************************************/
 
-function removeIncludeDirectives(text) {
-    const excludedParts = Array.from(expandedParts)
-        .map(s => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'))
-        .join('|');
-    const re = new RegExp(`^!#include +(${excludedParts}).*$`, 'm');
+function expandIncludeDirectives(wd, parts) {
     const out = [];
-    for (;;) {
-        const match = re.exec(text);
-        if ( match === null ) { break; }
-        console.info(`  Removing "!#include ${match[1]}"`);
-        out.push(text.slice(0, match.index).trim());
-        text = text.slice(match.index + match[0].length).trim();
+    const reInclude = /^!#include (.+)\s*/gm;
+    let parentPath = '';
+    for ( const part of parts ) {
+        if ( typeof part !== 'string' ) {
+            if ( typeof part === 'object' && part.file !== undefined ) {
+                parentPath = part.file;
+            }
+            out.push(part);
+            continue;
+        }
+        let lastIndex = 0;
+        for (;;) {
+            const match = reInclude.exec(part);
+            if ( match === null ) { break; }
+            out.push(part.slice(lastIndex, match.index).trim());
+            const fpath = `${path.dirname(parentPath)}/${match[1].trim()}`;
+            if ( expandedParts.has(fpath) === false ) {
+                console.info(`  Inserting ${fpath}`);
+                out.push(
+                    { file: fpath },
+                    `! *** ${fpath} ***`,
+                    fs.readFile(`${wd}/${fpath}`, { encoding: 'utf8' })
+                        .then(text => text.trim()),
+                );
+                expandedParts.add(fpath);
+            }
+            lastIndex = reInclude.lastIndex;
+        }
+        out.push(part.slice(lastIndex).trim());
     }
-    out.push(text.trim(), '\n');
-    return out.join('\n');
+    return out;
 }
 
 /******************************************************************************/
@@ -108,6 +131,17 @@ function minify(text) {
     // remove empty lines
     text = text.replace(/^[\n\r]+/gm, '');
     return text;
+}
+
+/******************************************************************************/
+
+function assemble(parts) {
+    const out = [];
+    for ( const part of parts ) {
+        if ( typeof part !== 'string' ) { continue; }
+        out.push(part);
+    }
+    return out.join('\n').trim() + '\n';
 }
 
 /******************************************************************************/
@@ -130,11 +164,15 @@ async function main() {
     let parts = [ inText ];
     do {
         parts = await Promise.all(parts);
-        parts = expandIncludes(workingDir, parts);
-    } while ( parts.some(v => typeof v !== 'string'));
+        parts = expandTemplate(workingDir, parts);
+    } while ( parts.some(v => v instanceof Promise) );
 
-    let afterText = parts.join('\n') + '\n';
-    afterText = removeIncludeDirectives(afterText);
+    do {
+        parts = await Promise.all(parts);
+        parts = expandIncludeDirectives(workingDir, parts);
+    } while ( parts.some(v => v instanceof Promise));
+
+    let afterText = assemble(parts);
 
     if ( commandLineArgs.get('minify') !== undefined ) {
         afterText = minify(afterText);
