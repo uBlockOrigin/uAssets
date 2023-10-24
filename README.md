@@ -23,6 +23,20 @@ uAssets will not address the following:
 - Paywalls
 - Porn Farms
 
+#### How to correctly report an issue
+
+- In options->Filter lists:
+  - "Purge all caches"
+  - "Update now"
+- Disable all other browser extensions and see if the problem still persists
+
+- How to provide troubleshooting information:
+
+  If the problem persists, then please:
+  - On the problematic website, click the uBlock Origin icon
+  - Click the chat icon
+  - Click "Troubleshooting Information" to expand, and copy that information into the appropriate github issue.
+
 #### Support Forum
 
 For support, questions, or help, visit [/r/uBlockOrigin](https://www.reddit.com/r/uBlockOrigin/).
@@ -33,7 +47,7 @@ Report issues with uBO in the [uBO issue tracker](https://github.com/uBlockOrigi
 
 #### uBO Lite (uBOL) Issues
 
-Report issues specific to the Manifest Version 3 (MV3) variant in the [uBOL issue tracker](https://github.com/uBlockOrigin/uBOL-issues/issues).
+Report issues specific to the Manifest Version 3 (MV3) variant in the [uBOL issue tracker](https://github.com/uBlockOrigin/uBOL-home/issues).
 
 #### Similarly-Purposed Blockers
 
