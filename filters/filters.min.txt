@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Version: %version%
-! Last modified: Tue, 24 Oct 2023 15:47:24 +0000
+! Last modified: Tue, 24 Oct 2023 17:30:36 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Expires: 5 days
 ! Homepage: https://github.com/uBlockOrigin/uAssets
@@ -20483,7 +20483,10 @@ infokik.com##^script:has-text(two_worker_data_js)
 infokik.com##+js(set, two_worker_data_js.js, [])
 !#endif
 @@||exeo.app^$ghide
-exeo.app##.actions
+exeo.app##.actions, .earning-steps ~*, .earning-steps, header, footer, .ad-element
+exeo.app##+js(trusted-click-element, .link-button.button)
+exeo.app##+js(trusted-click-element, #invisibleCaptchaShortlink)
+exeo.app##+js(trusted-click-element, .get-link.link-button.button, , 7500)
 /eropics\.to\/[a-zA-Z0-9]{8}\.js$/$script,1p,domain=eropics.to
 freepik.com##+js(aeld, click, adobeModalTestABenabled)
 freepik.com##.main-spr
@@ -20494,22 +20497,22 @@ dmcdn.xyz,dmcdn2.xyz##+js(nowoif)
 ddwloclawek.pl##+js(set, questpassGuard, noopFunc)
 ddwloclawek.pl##+js(set, isAdBlockerEnabled, false)
 /pl/js/detect-adblock/*$domain=pl,script,redirect-rule=noopjs
+privatemoviez.*##+js(nano-sib, count)
+writedroid.*##+js(nano-stb, shortConfig, 15000)
+writedroid.*###shortGoToCont.hidden:remove-class(hidden)
+writedroid.*###timerContainer > div:has(#timerPercentage)
+writedroid.*###timerContainer > div:not(:has(#timerPercentage)):style(display: flex !important;)
 writedroid.*##+js(aopw, akadb)
 writedroid.*##+js(nostif, _0x)
 @@||writedroid.*^$ghide
 writedroid.*##+js(no-xhr-if, ads)
+link4rev.site##+js(set, blurred, false)
+filepress.*##+js(aeld, blur, console.log)
 @@||thetimes.co.uk/assets/optimizely/custom/tnl_custom_snippet.js$script,1p
 thetimes.co.uk##[class*="responsive__NativeAd"]
 thetimes.co.uk##article > [class^="tc-view"] #ad-header:upward(article > [class^="tc-view"])
 thisisrussia.io##+js(nowoif)
 blog.textpage.xyz##+js(aopr, eazy_ad_unblocker)
-privatemoviez.best##+js(nano-sib, count)
-writedroid.*##+js(nano-stb, shortConfig, 15000)
-writedroid.*###shortGoToCont.hidden:remove-class(hidden)
-writedroid.*###timerContainer > div:has(#timerPercentage)
-writedroid.*###timerContainer > div:not(:has(#timerPercentage)):style(display: flex !important;)
-link4rev.site##+js(set, blurred, false)
-filepress.lol##+js(aeld, blur, console.log)
 additudemag.com##body:not(.home) #content:style(margin-top: 13px !important;)
 additudemag.com##.advertisement
 additudemag.com##.primary-sidebar-ad
