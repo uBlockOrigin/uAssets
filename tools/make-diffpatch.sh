@@ -46,7 +46,7 @@ for FILE in "${FILES[@]}"; do
         PATCH_NAME=$(grep -m 1 -oP '^! Diff-Name: \K.+' $FILE)
         echo "Info: Patch name for ${FILE} is ${PATCH_NAME}"
 
-        # We need to patch name to generate a valid patch
+        # We need a patch name to generate a valid patch
         if [[ -n $PATCH_NAME ]]; then
 
             # Compute relative patch path
