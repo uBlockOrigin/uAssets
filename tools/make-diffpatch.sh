@@ -88,4 +88,7 @@ done
 echo "Info: Staging ${PREVIOUS_PATCH_FILE}"
 git add $PREVIOUS_PATCH_FILE
 
+echo -n "$VERSION" > version
+git add version
+
 rm -f $PATCH
