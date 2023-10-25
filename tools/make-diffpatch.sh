@@ -15,9 +15,9 @@ if [[ -z $VERSION ]]; then
     exit 1
 fi
 
-PREVIOUS_VERSION=$(git describe --tags --abbrev=0)
+PREVIOUS_VERSION=$(<version)
 PREVIOUS_PATCH_FILE="patches/${PREVIOUS_VERSION}.patch"
-: > "${PREVIOUS_PATCH_FILE}"
+> "${PREVIOUS_PATCH_FILE}"
 
 NEXT_PATCH_FILE="patches/${VERSION}.patch"
 
