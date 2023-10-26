@@ -19,7 +19,7 @@
     Home: https://github.com/gorhill/uBlock
 */
 
-// jshint node:true, esversion:8
+// jshint node:true, esversion:9
 
 'use strict';
 
@@ -57,6 +57,7 @@ const commandLineArgs = (( ) => {
 function expandTemplate(wd, parts) {
     const out = [];
     const reInclude = /^%include +(.+):(.+)%\s+/gm;
+    const trim = text => trimSublist(text);
     for ( const part of parts ) {
         if ( typeof part !== 'string' ) {
             out.push(part);
@@ -75,7 +76,7 @@ function expandTemplate(wd, parts) {
                     out.push({ file: `${fpath}` }),
                     `! *** ${repo}:${fpath} ***`,
                     fs.readFile(`${wd}/${fpath}`, { encoding: 'utf8' })
-                        .then(text => text.trim()),
+                        .then(text => trim(text)),
                 );
                 expandedParts.add(fpath);
             }
@@ -91,6 +92,7 @@ function expandTemplate(wd, parts) {
 function expandIncludeDirectives(wd, parts) {
     const out = [];
     const reInclude = /^!#include (.+)\s*/gm;
+    const trim = text => trimSublist(text);
     let parentPath = '';
     for ( const part of parts ) {
         if ( typeof part !== 'string' ) {
@@ -112,7 +114,7 @@ function expandIncludeDirectives(wd, parts) {
                     { file: fpath },
                     `! *** ${fpath} ***`,
                     fs.readFile(`${wd}/${fpath}`, { encoding: 'utf8' })
-                        .then(text => text.trim()),
+                        .then(text => trim(text)),
                 );
                 expandedParts.add(fpath);
             }
@@ -125,11 +127,24 @@ function expandIncludeDirectives(wd, parts) {
 
 /******************************************************************************/
 
+function trimSublist(text) {
+    // Remove empty comment lines
+    text = text.replace(/^!\s*$(?:\r\n|\n)/gm, '');
+    // Remove sublist header information: the importing list will provide its
+    // own header.
+    text = text.trim().replace(/^(?:!\s+[^\r\n]+?(?:\r\n|\n))+/s, '');
+    return text;
+}
+
+/******************************************************************************/
+
 function minify(text) {
     // remove issue-related comments
-    text = text.replace(/^! https:\/\/[^\n\r]+[\n\r]+/gm, '');
+    text = text.replace(/^! https:\/\/.*?[\n\r]+/gm, '');
     // remove empty lines
     text = text.replace(/^[\n\r]+/gm, '');
+    // convert potentially present Windows-style newlines
+    text = text.replace(/\r\n/g, '\n');
     return text;
 }
 
