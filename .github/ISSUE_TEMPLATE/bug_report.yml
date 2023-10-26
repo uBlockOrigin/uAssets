@@ -1,35 +1,35 @@
 name: Filter Issue
 description: File a filter issue.
 body:
+  - type: markdown
+    attributes:
+      value: To avoid burdening **VOLUNTEERS** with invalid or duplicate reports, disregarding these steps **WILL** get your account blocked on this repository temporarily, then permanently, with repeated disregard for the template.
   - type: checkboxes
     attributes:
       label: Prerequisites
-      description: To rule out invalid issues, confirm and check each one of the checkboxes.
+      description: |
+        **IMPORTANT:** Answer carefully and truthfully.
       options:
-        - label: This is not a support issue or a question. For support, questions, or help, visit [/r/uBlockOrigin](https://www.reddit.com/r/uBlockOrigin/).
+        - label: I read and understand the [policy about what is a valid filter issue](https://github.com/uBlockOrigin/uAssets/blob/master/README.md#uassets).
           required: true
-        - label: I performed a [cursory search of the issue tracker](https://github.com/uBlockOrigin/uAssets/issues?q=is%3Aissue) to avoid opening a duplicate issue.
+        - label: This is NOT a [YouTube](https://www.github.com/uBlockOrigin/uAssets/issues/19976), [Facebook](https://www.github.com/uBlockOrigin/uAssets/issues/3367) or [Twitch](https://www.github.com/uBlockOrigin/uAssets/issues/5184) report.
           required: true
-        - label: I am running the latest version of uBlock Origin (uBO).
+        - label: I verified that this issue is not a duplicate. (Search [here](https://github.com/uBlockOrigin/uAssets/issues) to find out.)
           required: true
-
-  - type: checkboxes
-    attributes:
-      label: I tried to reproduce the issue when...
-      options:
-        - label: uBO is the only extension.
+        - label: I forced an update of my filter lists. (Click the ["Purge all caches"](https://github.com/gorhill/uBlock/wiki/Dashboard:-Filter-lists#purge-all-caches) button while holding the 'Shift' key, then click the ["Update now"](https://github.com/gorhill/uBlock/wiki/Dashboard:-Filter-lists#update-now) button.)
           required: true
-        - label: uBO uses default lists and settings.
+        - label: I did not remove any of the [default filter lists](https://github.com/uBlockOrigin/uAssets/assets/66517106/6e8d024a-5869-47cf-b142-b2357eb6c7d0), or I have verified that the issue was not caused by removing any of the default lists.
           required: true
-        - label: using a new, unmodified browser profile.
+        - label: I did not enable additional filter lists, or I have verified that the issue still occurs without enabling additional filter lists.
           required: true
-
-  - type: textarea
-    attributes:
-      label: Description
-      description: Provide a clear and concise description of this filter issue.
-    validations:
-      required: true
+        - label: I do not have custom filters/rules, or I have verified that the issue still occurs without custom filters/rules.
+          required: true
+        - label: I am not using uBlock Origin (uBO) along with other content blocker extensions.
+          required: true
+        - label: I have verified that the web browser's built-in blocker or [DNS blocking](https://en.wikipedia.org/wiki/DNS_blocking) (standalone or through a VPN) is not causing the issue.
+          required: true
+        - label: I did not answer truthfully to **ALL** the above checkpoints.
+          required: false
 
   - type: textarea
     attributes:
@@ -40,7 +40,21 @@ body:
       placeholder: |
         `https://example.com`
         `https://example.org`
-        `https://example.net`
+        `https://example.net`.
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: Description
+      description: Provide a clear and concise description of the issue.
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: Other extensions used
+      description: List other extensions you are using along uBO (write _none_ if no other extensions). This information helps volunteers investigate issues.
     validations:
       required: true
 
@@ -49,37 +63,23 @@ body:
       label: Screenshot(s)
       description: |
         Screenshot(s) are **MANDATORY** for hard-to-describe visual issues.
-        Post **LINKS** instead of inline images for screenshots containing **ADULT MATERIAL**.
+        🔴 Post **LINKS** instead of inline images for screenshots containing **ADULT MATERIAL**. Disregarding this directive **WILL** get your account blocked. 🔴
+      value: |
+        <details>
+        <summary>Screenshot(s)</summary>
+
+
+        <!-- drag-and-drop screenshot here -->
+
+
+        </details>
     validations:
       required: false
 
-  - type: input
-    attributes:
-      label: uBO version
-    validations:
-      required: true
-
-  - type: input
-    attributes:
-      label: Browser name and version
-    validations:
-      required: true
-
   - type: textarea
     attributes:
-      label: Settings
-      description: List all the changes you have made to uBO's default settings.
-      placeholder: |
-        - Change 1
-        - Change 2
-        - Change 3
+      label: Configuration
+      description: |
+        On the affected site: 🛡️ uBO's icon > 💬 Report > Click "Troubleshooting information" > Select all > Copy > Paste it below.
     validations:
       required: true
-
-  - type: textarea
-    attributes:
-      label: Notes
-      description: Please troubleshoot the issues you report. It prevents burdening volunteers, particularly when you change the default settings.
-      placeholder: Describe any troubleshooting you have performed.
-    validations:
-      required: false
