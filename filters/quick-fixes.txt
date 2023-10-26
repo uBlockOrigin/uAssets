@@ -1,6 +1,6 @@
 ! Title: uBlock₀ filters – Quick fixes
 ! Version: %version%
-! Last modified: Thu, 26 Oct 2023 16:31:54 +0000
+! Last modified: Thu, 26 Oct 2023 16:40:41 +0000
 ! Description: Immediate, temporary filters to fix websites
 ! Expires: 12 hours
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -76,6 +76,7 @@ www.youtube.com#@#+js(trusted-replace-fetch-response, /"adPlacements.*?\/(aclk\?
 www.youtube.com#@#+js(trusted-replace-fetch-response, /(itag=.*?)"adSlots.*?\}\]\}\}\]\,/, $1, url:player?key=)
 www.youtube.com#@#+js(trusted-replace-fetch-response, /(itag=.*?)"adPlacements.*?"\}\}\}\]\,/, $1, url:player?key=)
 www.youtube.com#@#+js(trusted-replace-fetch-response, /(itag=.*?)"playerAds.*?\}\}\]\,/, $1, url:player?key=)
+www.youtube.com#@#+js(aost, btoa, /[A-Za-z]lb \S+polymer/)
 !#endif
 www.youtube.com#@#+js(trusted-replace-fetch-response, /("lastModified":"[^"]{3}.*?)"adSlots.*?\}\]\}\}\]\,/, $1, url:player?key=)
 www.youtube.com#@#+js(trusted-replace-fetch-response, /("lastModified":"[^"]{3}.*?)"adPlacements.*?"\}\}\}\]\,/, $1, url:player?key=)
@@ -90,6 +91,7 @@ www.youtube.com#@#+js(trusted-replace-fetch-response, /(requiressl.*?)"adSlots.*
 www.youtube.com#@#+js(trusted-replace-fetch-response, /(requiressl.*?)"adPlacements.*?"\}\}\}\]\,/, $1, url:player?key=)
 www.youtube.com#@#+js(trusted-replace-fetch-response, /(requiressl.*?)"playerAds.*?\}\}\]\,/, $1, url:player?key=)
 www.youtube.com##+js(trusted-replace-xhr-response, /\"adPlacements.*?\"\}\}\}\]\,/, , /player\?key=|watch\?v=|youtubei\/v1\/player/)
+www.youtube.com##+js(rpnt, script, /(\(function serverContract\(\))/, '/*start*/(function(){let e=(e,t,n)=>{if(Array.isArray(n)){let r=n[0];r.adPlacements&&(r.adPlacements=[],r.playerAds=[],n[0]=JSON.parse(JSON.stringify(r)))}return Reflect.apply(e,t,n)};Object.getOwnPropertyNames=new Proxy(Object.getOwnPropertyNames,{apply:e});let t=function(){document.querySelectorAll("script").forEach(e=>{e.textContent=e.textContent.replace(/\/\*start\*\/(.*)\/\*end\*\//g,"")})};"loading"!==document.readyState?t():document.addEventListener("DOMContentLoaded",t)}());/*end*/ $1')
 ! https://www.reddit.com/r/uBlockOrigin/comments/16lmeri/youtube_antiadblock_and_ads_september_18_2023/k1wl8df/
 !#if !cap_html_filtering
 !#if env_firefox
