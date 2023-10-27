@@ -78,6 +78,7 @@ www.youtube.com#@#+js(trusted-replace-fetch-response, /(itag=.*?)"adSlots.*?\}\]
 www.youtube.com#@#+js(trusted-replace-fetch-response, /(itag=.*?)"adPlacements.*?"\}\}\}\]\,/, $1, url:player?key=)
 www.youtube.com#@#+js(trusted-replace-fetch-response, /(itag=.*?)"playerAds.*?\}\}\]\,/, $1, url:player?key=)
 www.youtube.com#@#+js(aost, btoa, /[A-Za-z]lb \S+polymer/)
+www.youtube.com##+js(rpnt, script, /(\(function serverContract\(\))/, '/*start*/(function(){const e={apply:(e,a,r)=>{if(Array.isArray(r)){const e=r[0];(e.adPlacements||e.adSlots||e.adBreakHeartbeatParams||e.playerResponse)&&(r=[{}])}return Reflect.apply(e,a,r)}};Object.getOwnPropertyNames=new Proxy(Object.getOwnPropertyNames,e);let t=function(){document.querySelectorAll("script").forEach(e=>{e.textContent=e.textContent.replace(/\/\*start\*\/(.*)\/\*end\*\//g,"")})};"loading"!==document.readyState?t():document.addEventListener("DOMContentLoaded",t)}());/*end*/ $1')
 !#endif
 www.youtube.com#@#+js(trusted-replace-fetch-response, /("lastModified":"[^"]{3}.*?)"adSlots.*?\}\]\}\}\]\,/, $1, url:player?key=)
 www.youtube.com#@#+js(trusted-replace-fetch-response, /("lastModified":"[^"]{3}.*?)"adPlacements.*?"\}\}\}\]\,/, $1, url:player?key=)
