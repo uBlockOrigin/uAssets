@@ -66,7 +66,7 @@ plagiarismchecker.co##[class][style*="display"][style*="block"]:has(a img[src^="
 
 ! https://old.reddit.com/r/uBlockOrigin/comments/16lmeri/youtube_antiadblock_and_ads_september_18_2023/k1uf2s1/ - 5a6ba9d1
 !#if env_firefox
-www.youtube.com##+js(json-prune, playerResponse.adPlacements playerResponse.playerAds playerResponse.adSlots adPlacements playerAds adSlots, , /^(?=.*\.js)(?!.*[A-z]lb \S+polymer).*/)
+www.youtube.com##+js(rpnt, script, /(\(function serverContract\(\))/, '/*start*/(function(){const e={req:globalThis.Request.prototype.clone},t=fetch;fetch=new Proxy(fetch,{apply:function(n,s,o){return(r=o[0],"string"==typeof r?r:r instanceof Request?e.req.call(r).url:String(r)).includes("player?key=")?t(...o).then((e=>e.text().then((t=>new Response((e=>{let t=JSON.parse(e);return t.adPlacements=[],JSON.stringify(t)})(t),{status:e.status,statusText:e.statusText,headers:e.headers}))))):Reflect.apply(n,s,o);var r}});const n=function(){document.querySelectorAll("script").forEach((e=>{e.textContent=e.textContent.replace(/\/\*start rpnt\*\/(.*)\/\*end rpnt\*\//g,"")}))};"loading"!==document.readyState?n():document.addEventListener("DOMContentLoaded",n)})();/*end*/ $1')
 !#else
 www.youtube.com##+js(trusted-replace-fetch-response, /"adPlacements.*?\/(aclk\?sa=L&ai=C(?!3QQpfbUyZYWKL_)[-_0-9A-Za-z]+__________|get_midroll_info\S+&token=ALHj).*?"\}\}\}\]\,/, , url:player?key=)
 www.youtube.com#@#+js(trusted-replace-fetch-response, /(maxAgeSeconds.*?"loggedOut":[ft].*?)"adPlacements.*?"\}\}\}\]\,/, $1, url:player?key=)
@@ -90,7 +90,6 @@ www.youtube.com#@#+js(trusted-replace-fetch-response, /(requiressl.*?)"adSlots.*
 www.youtube.com#@#+js(trusted-replace-fetch-response, /(requiressl.*?)"adPlacements.*?"\}\}\}\]\,/, $1, url:player?key=)
 www.youtube.com#@#+js(trusted-replace-fetch-response, /(requiressl.*?)"playerAds.*?\}\}\]\,/, $1, url:player?key=)
 www.youtube.com##+js(trusted-replace-xhr-response, /\"adPlacements.*?\"\}\}\}\]\,/, , /player\?key=|watch\?v=|youtubei\/v1\/player/)
-www.youtube.com##+js(rpnt, script, /(\(function serverContract\(\))/, '/*start*/(function(){let e=(e,t,n)=>{if(Array.isArray(n)){let r=n[0];r.adPlacements&&(r.adPlacements=[],r.playerAds=[],n[0]=JSON.parse(JSON.stringify(r)))}return Reflect.apply(e,t,n)};Object.getOwnPropertyNames=new Proxy(Object.getOwnPropertyNames,{apply:e});let t=function(){document.querySelectorAll("script").forEach(e=>{e.textContent=e.textContent.replace(/\/\*start\*\/(.*)\/\*end\*\//g,"")})};"loading"!==document.readyState?t():document.addEventListener("DOMContentLoaded",t)}());/*end*/ $1')
 ! https://www.reddit.com/r/uBlockOrigin/comments/16lmeri/youtube_antiadblock_and_ads_september_18_2023/k1wl8df/
 !#if !cap_html_filtering
 !#if env_firefox
