@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Quick fixes
-! Last modified: Sat, 28 Oct 2023 01:37:55 +0000
+! Last modified: Sat, 28 Oct 2023 04:18:03 +0000
 ! Expires: 12 hours
 ! Diff-Path: %diffpath%
 ! Diff-Name: ublock-quick-fixes
@@ -75,9 +75,6 @@ www.youtube.com#@#+js(trusted-replace-fetch-response, /(source=.*?)"playerAds.*?
 www.youtube.com#@#+js(trusted-replace-fetch-response, '/("mimeType":"[^"]{3,}".*?)"adSlots.*?\}\]\}\}\],/', $1, url:player?key=)
 www.youtube.com#@#+js(trusted-replace-fetch-response, '/("mimeType":"[^"]{3,}".*?)"adPlacements.*?"\}\}\}\],/', $1, url:player?key=)
 www.youtube.com#@#+js(trusted-replace-fetch-response, '/("mimeType":"[^"]{3,}".*?)"playerAds.*?\}\}\],/', $1, url:player?key=)
-www.youtube.com#@#+js(trusted-replace-fetch-response, /(requiressl.*?)"adSlots.*?\}\]\}\}\]\,/, $1, url:player?key=)
-www.youtube.com#@#+js(trusted-replace-fetch-response, /(requiressl.*?)"adPlacements.*?"\}\}\}\]\,/, $1, url:player?key=)
-www.youtube.com#@#+js(trusted-replace-fetch-response, /(requiressl.*?)"playerAds.*?\}\}\]\,/, $1, url:player?key=)
 www.youtube.com##+js(trusted-replace-xhr-response, /\"adPlacements.*?\"\}\}\}\]\,/, , /player\?key=|watch\?v=|youtubei\/v1\/player/)
 !#if !cap_html_filtering
 !#if env_firefox
@@ -85,7 +82,7 @@ youtube.com##+js(json-prune, playerResponse.adPlacements playerResponse.playerAd
 !#endif
 !#endif
 ||googlevideo.com/videoplayback?*&ctier=L&$xmlhttprequest,domain=m.youtube.com|music.youtube.com|www.youtube.com,badfilter
-*o097znze.googlevideo.com^$xhr,3p,method=get,domain=youtube.com
+*o097znze.googlevideo.com^$xhr,3p,method=get,domain=www.youtube.com
 ! VOE sites
 ||imasdk.googleapis.com/js/sdkloader/ima3.js$script,redirect=google-ima.js,domain=phenomenalityuniform.com,important
 phenomenalityuniform.com##+js(nowoif)
@@ -100,9 +97,6 @@ sankaku.app##+js(no-xhr-if, googlesyndication)
 btcbitco.in##+js(set, isRequestPresent, true)
 ||bmcdn6.com^$script,redirect-rule=noop.js
 coinscap.info,cryptowidgets.net,greenenez.com,insurancegold.in,webfreetools.net,wiki-topia.com##+js(nostif, /bait|detected/)
-/log_event?$badfilter
-/v1/log_event$badfilter
-||cloudfront.net^$script,domain=ynet.co.il,badfilter
 ||spotifycdn.com/audio/$media,redirect=noop-1s.mp4:10,domain=open.spotify.com
 washingtonpost.com#@#+js(rmnt, script, /adblock/)
 washingtonpost.com##+js(rmnt, script, /\badblock\b/)
