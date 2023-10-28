@@ -89,9 +89,6 @@ www.youtube.com#@#+js(trusted-replace-fetch-response, /(source=.*?)"playerAds.*?
 www.youtube.com#@#+js(trusted-replace-fetch-response, '/("mimeType":"[^"]{3,}".*?)"adSlots.*?\}\]\}\}\],/', $1, url:player?key=)
 www.youtube.com#@#+js(trusted-replace-fetch-response, '/("mimeType":"[^"]{3,}".*?)"adPlacements.*?"\}\}\}\],/', $1, url:player?key=)
 www.youtube.com#@#+js(trusted-replace-fetch-response, '/("mimeType":"[^"]{3,}".*?)"playerAds.*?\}\}\],/', $1, url:player?key=)
-www.youtube.com#@#+js(trusted-replace-fetch-response, /(requiressl.*?)"adSlots.*?\}\]\}\}\]\,/, $1, url:player?key=)
-www.youtube.com#@#+js(trusted-replace-fetch-response, /(requiressl.*?)"adPlacements.*?"\}\}\}\]\,/, $1, url:player?key=)
-www.youtube.com#@#+js(trusted-replace-fetch-response, /(requiressl.*?)"playerAds.*?\}\}\]\,/, $1, url:player?key=)
 www.youtube.com##+js(trusted-replace-xhr-response, /\"adPlacements.*?\"\}\}\}\]\,/, , /player\?key=|watch\?v=|youtubei\/v1\/player/)
 ! https://www.reddit.com/r/uBlockOrigin/comments/16lmeri/youtube_antiadblock_and_ads_september_18_2023/k1wl8df/
 !#if !cap_html_filtering
@@ -102,7 +99,7 @@ youtube.com##+js(json-prune, playerResponse.adPlacements playerResponse.playerAd
 ! https://github.com/uBlockOrigin/uAssets/issues/19976#issuecomment-1778718540
 ||googlevideo.com/videoplayback?*&ctier=L&$xmlhttprequest,domain=m.youtube.com|music.youtube.com|www.youtube.com,badfilter
 ! https://github.com/uBlockOrigin/uAssets/issues/19976#issuecomment-1783652842
-*o097znze.googlevideo.com^$xhr,3p,method=get,domain=youtube.com
+*o097znze.googlevideo.com^$xhr,3p,method=get,domain=www.youtube.com
 
 ! https://github.com/uBlockOrigin/uAssets/issues/18476
 ! VOE sites
@@ -126,13 +123,6 @@ btcbitco.in##+js(set, isRequestPresent, true)
 
 ! https://github.com/uBlockOrigin/uAssets/discussions/17361#discussioncomment-7246789
 coinscap.info,cryptowidgets.net,greenenez.com,insurancegold.in,webfreetools.net,wiki-topia.com##+js(nostif, /bait|detected/)
-
-! https://github.com/easylist/easylist/commit/a36aec86fcb8e505492fdb6385cb98a1432e1003
-/log_event?$badfilter
-/v1/log_event$badfilter
-
-! https://github.com/uBlockOrigin/uAssets/issues/20110
-||cloudfront.net^$script,domain=ynet.co.il,badfilter
 
 ! https://github.com/uBlockOrigin/uAssets/issues/20160
 ||spotifycdn.com/audio/$media,redirect=noop-1s.mp4:10,domain=open.spotify.com
