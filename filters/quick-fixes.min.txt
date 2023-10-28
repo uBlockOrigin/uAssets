@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Quick fixes
-! Last modified: Sat, 28 Oct 2023 10:10:50 +0000
+! Last modified: Sat, 28 Oct 2023 11:16:14 +0000
 ! Expires: 12 hours
 ! Diff-Path: %diffpath%
 ! Diff-Name: ublock-quick-fixes
@@ -53,7 +53,7 @@ plagiarismchecker.co##[class^="tata"], [class^="baba"], [class^="caca"], #top-ad
 plagiarismchecker.co##.col-md-9 > section + span > section[class]
 plagiarismchecker.co##[class][style*="display"][style*="block"]:has(a img[src^="https://www.plagiarismchecker.co/"])
 !#if env_firefox
-www.youtube.com##+js(rpnt, script, /(\(function serverContract\(\))/, '/*start*/(function(){const t=globalThis,e={JSON_parse:t.JSON.parse.bind(t.JSON),JSON_stringify:t.JSON.stringify.bind(t.JSON),req:t.Request.prototype.clone},n=t.fetch;t.fetch=new Proxy(t.fetch,{apply:function(t,r,s){return(a=s[0],"string"==typeof a?a:a instanceof Request?e.req.call(a).url:String(a)).includes("player?key=")?n(...s).then((t=>t.text().then((n=>new Response((t=>{let n=e.JSON_parse(t);return n.adPlacements=[],e.JSON_stringify(n)})(n),{status:t.status,statusText:t.statusText,headers:t.headers}))))):Reflect.apply(t,r,s);var a}});const r=function(){document.querySelectorAll("script").forEach((t=>{t.textContent=t.textContent.replace(/\/\*start\*\/(.*)\/\*end\*\//g,"")}))};"loading"!==document.readyState?r():document.addEventListener("DOMContentLoaded",r)})();/*end*/ $1')
+www.youtube.com##+js(rpnt, script, /(\(function serverContract\(\))/, '/*start*/(function(){const t=globalThis,e={JSON_parse:t.JSON.parse.bind(t.JSON),JSON_stringify:t.JSON.stringify.bind(t.JSON),req:t.Request.prototype.clone},n=t.fetch;t.fetch=new Proxy(t.fetch,{apply:function(t,r,a){var s;return("string"==typeof(s=a[0])?s:s instanceof Request?e.req.call(s).url:String(s)).includes("player?key=")?n(...a).then(t=>t.text().then(n=>{var r;let a;return new Response((r=n,(a=e.JSON_parse(r)).adPlacements=[],a.playerAds=[],a.adSlots=[],e.JSON_stringify(a)),{status:t.status,statusText:t.statusText,headers:t.headers})})):Reflect.apply(t,r,a)}});let r=function(){document.querySelectorAll("script").forEach(t=>{t.textContent.startsWith("/*start*/")&&(t.textContent=t.textContent.replace(/\/\*start\*\/(.*)\/\*end\*\//g,""))})};"loading"!==document.readyState?r():document.addEventListener("DOMContentLoaded",r)})();/*end*/ $1')
 www.youtube.com##+js(set, yt.config_.EXPERIMENT_FLAGS.service_worker_enabled, false)
 !#else
 www.youtube.com##+js(trusted-replace-fetch-response, /(trackingParam":"kx_fmPxh.*?)"adPlacements.*?"\}\}\}\]\,/, $1, player?key=)
