@@ -40,6 +40,7 @@ for FILE in "${FILES[@]}"; do
         sed -Ei "1,10s;^! Version: .+$;! Version: $VERSION;" $FILE
     fi
 
+    # Patches are for filter lists supporting differential updates
     if [[ -n $(grep '^! Diff-Path: ' <(head $FILE)) ]]; then
 
         # Extract patch name
