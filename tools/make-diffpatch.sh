@@ -22,7 +22,7 @@ PREVIOUS_PATCH_FILE="patches/${PREVIOUS_VERSION}.patch"
 NEXT_PATCH_FILE="patches/${VERSION}.patch"
 
 # Temporary file to receive the RCS patch data
-PATCH=$(mktemp)
+DIFF=$(mktemp)
 
 FILES=( $(git diff --name-only) )
 for FILE in "${FILES[@]}"; do
@@ -46,11 +46,11 @@ for FILE in "${FILES[@]}"; do
     if [[ -n $(grep '^! Diff-Path: ' <(head $FILE)) ]]; then
 
         # Extract patch name
-        PATCH_NAME=$(grep -m 1 -oP '^! Diff-Name: \K.+' $FILE)
-        echo "Info: Patch name for ${FILE} is ${PATCH_NAME}"
+        DIFF_NAME=$(grep -m 1 -oP '^! Diff-Name: \K.+' $FILE)
+        echo "Info: Diff name for ${FILE} is ${DIFF_NAME}"
 
         # We need a patch name to generate a valid patch
-        if [[ -n $PATCH_NAME ]]; then
+        if [[ -n $DIFF_NAME ]]; then
 
             # Compute relative patch path
             PATCH_PATH=$(realpath --relative-to=$(dirname $FILE) $NEXT_PATCH_FILE)
@@ -59,25 +59,22 @@ for FILE in "${FILES[@]}"; do
             sed -Ei "1,10s;^! Diff-Path: .+$;! Diff-Path: $PATCH_PATH;" $FILE
 
             # Compute the RCS diff between current version and new version
-            git show HEAD:$FILE | diff -n - $FILE > $PATCH || true
+            git show HEAD:$FILE | diff -n - $FILE > $DIFF || true
 
             FILE_CHECKSUM=$(sha1sum $FILE)
             FILE_CHECKSUM=${FILE_CHECKSUM:0:10}
 
-            PATCH_LINE_COUNT=$(wc -l < $PATCH)
-            echo "Info: Computed patch for ${FILE} has ${PATCH_LINE_COUNT} lines"
+            DIFF_LINES=$(wc -l < $DIFF)
+            echo "Info: Computed patch for ${FILE} has ${DIFF_LINES} lines"
 
             # Populate output file with patch information
             echo "Info: Adding patch data of ${FILE} to ${PREVIOUS_PATCH_FILE}"
-
-            # Patch header
-            echo "diff name:$PATCH_NAME lines:$PATCH_LINE_COUNT checksum:$FILE_CHECKSUM" >> $PREVIOUS_PATCH_FILE
-            # Patch data
-            cat $PATCH >> $PREVIOUS_PATCH_FILE
+            echo "diff name:$DIFF_NAME lines:$DIFF_LINES checksum:$FILE_CHECKSUM" >> $PREVIOUS_PATCH_FILE
+            cat $DIFF >> $PREVIOUS_PATCH_FILE
 
         else
 
-            echo "Error: Patch name not found, skipping"
+            echo "Error: Diff name not found, skipping"
 
         fi
     fi
@@ -94,4 +91,4 @@ git add $PREVIOUS_PATCH_FILE
 echo -n "$VERSION" > version
 git add version
 
-rm -f $PATCH
+rm -f $DIFF
