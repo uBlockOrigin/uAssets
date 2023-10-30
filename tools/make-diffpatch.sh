@@ -33,6 +33,8 @@ for FILE in "${FILES[@]}"; do
     # Skip if the only changes are the Diff-Path and/or Version fields
     if [[ -z $(git diff -I '^! (Diff-Path|Version): ' $FILE) ]]; then
         echo "Info: No change detected in $FILE, skipping"
+        # Important for update-diffpatches script to compute the proper diff
+        git checkout $FILE
         continue
     fi
 
