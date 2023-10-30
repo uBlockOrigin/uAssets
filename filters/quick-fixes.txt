@@ -76,7 +76,8 @@ www.youtube.com##+js(rpnt, script, /(\(function serverContract\(\))/, '/*start*/
 www.youtube.com##+js(json-prune, playerResponse.adPlacements playerResponse.playerAds playerResponse.adSlots adPlacements playerAds adSlots, , /base.js)
 www.youtube.com##+js(json-prune, playerResponse.adPlacements adPlacements, , /(\s{2}|Response[ \S]+?|Response.+?navigate[ \S]+?)https:\/\/www\S+?_polymer_[_a-z]+\.js:\d+:1$/)
 !#else
-www.youtube.com##+js(trusted-replace-fetch-response, /(trackingParam":"kx_fmPxh.*?)"adPlacements.*?"\}\}\}\]\,/, $1, player?key=)
+www.youtube.com##+js(trusted-replace-fetch-response, /"adPlacements.*?\/(aclk\?sa=L&ai=C(?!3OQpfbUyZYWKL_)[-_0-9A-Za-z]+__________[-_0-9A-Za-z]+A[A-Za-z]AA&|get_midroll_info\S+&token=ALHj).*?"\}\}\}\]\,/, , url:player?key=)
+www.youtube.com#@#+js(trusted-replace-fetch-response, /(trackingParam":"kx_fmPxh.*?)"adPlacements.*?"\}\}\}\]\,/, $1, player?key=)
 www.youtube.com#@#+js(trusted-replace-fetch-response, /"adPlacements.*?\/(aclk\?sa=L&ai=C(?!3QQpfbUyZYWKL_)[-_0-9A-Za-z]+__________|get_midroll_info\S+&token=ALHj).*?"\}\}\}\]\,/, , url:player?key=)
 www.youtube.com#@#+js(trusted-replace-fetch-response, /(maxAgeSeconds.*?"loggedOut":[ft].*?)"adPlacements.*?"\}\}\}\]\,/, $1, url:player?key=)
 www.youtube.com#@#+js(trusted-replace-fetch-response, /"adPlacements.*?\/(aclk\?sa=L&ai=C[-_0-9A-Za-z]+__________|get_midroll_info\S+&token=ALHj).*?"\}\}\}\]\,/, , url:player?key=)
