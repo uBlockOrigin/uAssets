@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Other Annoyances
-! Last modified: Sat, 28 Oct 2023 21:18:02 +0000
+! Last modified: Tue, 31 Oct 2023 03:11:16 +0000
 ! Expires: 7 days
 ! Description: |
 !   Filters optimized for uBlock Origin, to be used with EasyList's
@@ -6961,3 +6961,11 @@ lethalpanda.com##+js(aopr, b2a)
 
 ! https://www.reddit.com/r/uBlockOrigin/comments/17iihqp/anime_news_network_rolled_out_antiadblocker/
 animenewsnetwork.com##+js(set, ANN.ads.adblocked, false)
+
+! https://www.reddit.com/r/uBlockOrigin/comments/17k6qhp/need_to_block_right_clickselection_blockers/
+wikiofcelebs.com##+js(set, nocontext, trueFunc)
+wikiofcelebs.com##.unselectable:style(-webkit-touch-callout: default !important; -webkit-user-select: text !important; -moz-user-select: text !important; -ms-user-select: text !important; user-select: text !important; cursor: auto !important;)
+wikiofcelebs.com##^script:has-text(/nocontext|wccp/)
+!#if !cap_html_filtering
+wikiofcelebs.com##+js(rmnt, script, /nocontext|wccp/)
+!#endif
