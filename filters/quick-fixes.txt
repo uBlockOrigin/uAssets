@@ -73,8 +73,7 @@ plagiarismchecker.co##[class][style*="display"][style*="block"]:has(a img[src^="
 !#if env_firefox
 ! Prune ads keys/values from fetch responses
 www.youtube.com##+js(rpnt, script, /(\(function serverContract\(\))/, '/*start*/(function(){const self=globalThis;const safe={JSON:self.JSON,JSON_parseFn:self.JSON.parse,JSON_stringifyFn:self.JSON.stringify,JSON_parse:(...args)=>safe.JSON_parseFn.call(safe.JSON,...args),JSON_stringify:(...args)=>safe.JSON_stringifyFn.call(safe.JSON,...args),Request_clone:self.Request.prototype.clone};const pruner=text=>{let json=safe.JSON_parse(text);json.adPlacements=[];json.playerAds=[];json.adSlots=[];return safe.JSON_stringify(json)};const urlFromArg=arg=>{if(typeof arg==="string"){return arg}if(arg instanceof Request){return safe.Request_clone.call(arg).url}return String(arg)};const realFetch=self.fetch;self.fetch=new Proxy(self.fetch,{apply:function(target,thisArg,args){if(!(urlFromArg(args[0]).includes("player?key="))){return Reflect.apply(target,thisArg,args)}return realFetch(...args).then(realResponse=>realResponse.text().then(text=>new Response(pruner(text),{status:realResponse.status,statusText:realResponse.statusText,headers:realResponse.headers})))}});const cleanup=function(){const scripts=document.querySelectorAll("script");for(let i=scripts.length-1;i>=0;i--){if(scripts[i].textContent.startsWith("/*start*/")){scripts[i].textContent=scripts[i].textContent.replace(/\/\*start\*\/(.*)\/\*end\*\//g,"");break}}};if(document.readyState!=="loading"){cleanup()}else{document.addEventListener("DOMContentLoaded",cleanup)}})();/*end*/ $1')
-www.youtube.com##+js(json-prune, playerResponse.adPlacements playerResponse.playerAds playerResponse.adSlots adPlacements playerAds adSlots, , /base.js)
-www.youtube.com##+js(json-prune, playerResponse.adPlacements adPlacements, , /(\s{2}|Response[ \S]+?|Response.+?navigate[ \S]+?)https:\/\/www\S+?_polymer_[_a-z]+\.js:\d+:1$/)
+www.youtube.com##+js(json-prune, playerResponse.adPlacements adPlacements, , /(?!.+\/<)Response[ \S]+?https:\/\/www\S+?_polymer_/)
 !#else
 www.youtube.com##+js(trusted-replace-fetch-response, /"adPlacements.*?\/(aclk\?sa=L&ai=C(?!3OQpfbUyZYWKL_)[-_0-9A-Za-z]+__________[-_0-9A-Za-z]+A[A-Za-z]AA&|get_midroll_info\S+&token=ALHj).*?"\}\}\}\]\,/, , player?key=)
 www.youtube.com#@#+js(trusted-replace-fetch-response, /(trackingParam":"kx_fmPxh.*?)"adPlacements.*?"\}\}\}\]\,/, $1, player?key=)
@@ -95,7 +94,7 @@ youtube.com##+js(json-prune, playerResponse.adPlacements playerResponse.playerAd
 ! https://github.com/uBlockOrigin/uAssets/issues/19976#issuecomment-1778718540
 ||googlevideo.com/videoplayback?*&ctier=L&$xmlhttprequest,domain=m.youtube.com|music.youtube.com|www.youtube.com,badfilter
 ! https://github.com/uBlockOrigin/uAssets/issues/19976#issuecomment-1783652842
-||googlevideo.com/videoplayback$xhr,3p,method=get,domain=www.youtube.com
+||googlevideo.com/videoplayback$xhr,3p,method=get,domain=www.youtube.com,badfilter
 
 ! https://github.com/uBlockOrigin/uAssets/issues/18476
 ! VOE sites
@@ -142,16 +141,11 @@ megaup.net##+js(rpnt, script, /\$\(_\S+?\):/)
 loawa.com,ygosu.com,sportalkorea.com,algumon.com,hancinema.net,enetnews.co.kr,edaily.co.kr,economist.co.kr,etoday.co.kr,hankyung.com,isplus.com,hometownstation.com,kagit.kr,inven.co.kr,viva100.com,joongdo.co.kr,jjang0u.com,tenbizt.com,tvreport.co.kr,newautopost.co.kr,mememedia.co.kr,mobilitytv.co.kr,cboard.net,a-ha.io,interfootball.co.kr,fourfourtwo.co.kr##+js(no-xhr-if, /static\.criteo\.net|adsbygoogle/)
 a-ha.io,interfootball.co.kr,fourfourtwo.co.kr##ad-shield-inventory
 cboard.net,mobilitytv.co.kr,newautopost.co.kr,tvreport.co.kr,tenbizt.com,fourfourtwo.co.kr##ins.adsbygoogle:style(height: 0.1px !important; visibility: hidden !important;)
-loawa.com,ygosu.com,sportalkorea.com,algumon.com,hancinema.net,enetnews.co.kr,edaily.co.kr,economist.co.kr,etoday.co.kr,hankyung.com,isplus.com,hometownstation.com,kagit.kr,inven.co.kr,viva100.com,joongdo.co.kr,jjang0u.com,tenbizt.com,tvreport.co.kr,newautopost.co.kr,mememedia.co.kr,mobilitytv.co.kr,cboard.net,a-ha.io,interfootball.co.kr,fourfourtwo.co.kr##+js(set-local-storage-item, adshield-analytics-uuid, $remove$)
-
-! https://github.com/uBlockOrigin/uAssets/issues/20279
-/nielsen.js$badfilter
-
-! https://github.com/uBlockOrigin/uAssets/issues/20300
-@@||microsoft.com/*/aria-web-telemetry$script,1p
+loawa.com,ygosu.com,sportalkorea.com,algumon.com,hancinema.net,enetnews.co.kr,edaily.co.kr,economist.co.kr,etoday.co.kr,hankyung.com,isplus.com,hometownstation.com,kagit.kr,inven.co.kr,viva100.com,joongdo.co.kr,jjang0u.com,tenbizt.com,tvreport.co.kr,newautopost.co.kr,mememedia.co.kr,mobilitytv.co.kr,cboard.net,a-ha.io,interfootball.co.kr,fourfourtwo.co.kr,apkmirror.com##+js(set-local-storage-item, adshield-analytics-uuid, $remove$)
+apkmirror.com##+js(noeval-if, 07c225f3.online)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/20307 - Remove after 2023-11-02
 @@||googletagmanager.com/gtm.js$script,domain=tide.com
 
-! https://github.com/uBlockOrigin/uAssets/issues/20325
-@@||xfinity.com/stream/js/api/fingerprint.js$script,1p
+! https://github.com/uBlockOrigin/uAssets/issues/20382 - Remove after 5.11.2023
+@@||climateknowledgeportal.worldbank.org/themes/cckp/js/Map/GeoMap.js

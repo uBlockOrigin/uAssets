@@ -47,11 +47,6 @@ for PATCH_FILE in "${PATCH_FILES[@]}"; do
             continue
         fi
 
-        # Skip if the only changes are the Diff-Path and/or Version fields
-        if [[ -z $(diff -I '^! (Diff-Path|Version): ' $OLD_REPO/$FILTER_LIST $FILTER_LIST) ]]; then
-            continue
-        fi
-
         # Reference:
         # https://github.com/ameshkov/diffupdates
 
