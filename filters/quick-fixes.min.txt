@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Quick fixes
-! Last modified: Mon, 30 Oct 2023 21:12:20 +0000
+! Last modified: Tue, 31 Oct 2023 03:35:42 +0000
 ! Expires: 12 hours
 ! Diff-Path: %diffpath%
 ! Diff-Name: ublock-quick-fixes
@@ -68,7 +68,6 @@ www.youtube.com#@#+js(trusted-replace-fetch-response, /(trackingParam":"kx_fmPxh
 www.youtube.com#@#+js(trusted-replace-fetch-response, /"adPlacements.*?\/(aclk\?sa=L&ai=C(?!3QQpfbUyZYWKL_)[-_0-9A-Za-z]+__________|get_midroll_info\S+&token=ALHj).*?"\}\}\}\]\,/, , url:player?key=)
 www.youtube.com#@#+js(trusted-replace-fetch-response, /(maxAgeSeconds.*?"loggedOut":[ft].*?)"adPlacements.*?"\}\}\}\]\,/, $1, url:player?key=)
 www.youtube.com#@#+js(trusted-replace-fetch-response, /"adPlacements.*?\/(aclk\?sa=L&ai=C[-_0-9A-Za-z]+__________|get_midroll_info\S+&token=ALHj).*?"\}\}\}\]\,/, , url:player?key=)
-www.youtube.com#@#+js(trusted-replace-fetch-response, /"adPlacements.*?\/(aclk\?sa=L&ai=C[-_0-9A-Za-z]+__________|get_midroll_info\S+&token=ALH).*?"\}\}\}\]\,/, , url:player?key=)
 www.youtube.com#@#+js(aost, btoa, /[A-Za-z]lb \S+polymer/)
 ! Prune bait JSONs from Object.getOwnPropertyNames
 www.youtube.com##+js(rpnt, script, /(\(function serverContract\(\))/, '/*start*/(function(){const handler={apply:(target,thisArg,args)=>{if(Array.isArray(args)){const arr=args[0];if(arr.adPlacements||arr.adSlots||arr.adBreakHeartbeatParams||arr.playerResponse){args=[{}]}}return Reflect.apply(target,thisArg,args)}};Object.getOwnPropertyNames=new Proxy(Object.getOwnPropertyNames,handler);const cleanup=function(){const scripts=document.querySelectorAll("script");for(let i=scripts.length-1;i>=0;i--){if(scripts[i].textContent.startsWith("/*start*/")){scripts[i].textContent=scripts[i].textContent.replace(/\/\*start\*\/(.*)\/\*end\*\//g,"");break}}};if(document.readyState!=="loading"){cleanup()}else{document.addEventListener("DOMContentLoaded",cleanup)}}());/*end*/ $1')
@@ -95,7 +94,6 @@ sankaku.app##+js(no-xhr-if, googlesyndication)
 btcbitco.in##+js(set, isRequestPresent, true)
 ||bmcdn6.com^$script,redirect-rule=noop.js
 coinscap.info,cryptowidgets.net,greenenez.com,insurancegold.in,webfreetools.net,wiki-topia.com##+js(nostif, /bait|detected/)
-||spotifycdn.com/audio/$media,redirect=noop-1s.mp4:10,domain=open.spotify.com
 washingtonpost.com#@#+js(rmnt, script, /adblock/)
 washingtonpost.com##+js(rmnt, script, /\badblock\b/)
 as.com##+js(set, DTM.trackAsyncPV, noopFunc)
