@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Privacy
 ! Expires: 7 days
-! Last modified: Wed, 01 Nov 2023 14:02:14 +0000
+! Last modified: Wed, 01 Nov 2023 14:43:49 +0000
 ! Diff-Path: %diffpath%
 ! Diff-Name: ublock-privacy
 ! Diff-Expires: 6 hours
@@ -498,6 +498,13 @@ natgeotv.com##+js(set, Visitor, {})
 ||roshy.tv/wp-content/uploads/perfmatters/gtagv4.js
 www.lenovo.com##+js(aost, history.replaceState, injectedScript)
 !*$1p,strict3p,script,header=via:1.1 google
+! PersianBlocker filters
+! web.bale.ai - Tracking (OS and browser)
+!#if !env_mobile
+web.bale.ai##+js(trusted-set, navigator.userAgent, Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML\, like Gecko) Chrome/119.0.0.0 Safari/537.36)
+!#else
+web.bale.ai##+js(trusted-set, navigator.userAgent, Mozilla/5.0 (Linux; Android 10) AppleWebKit/537.36 (KHTML\, like Gecko) Chrome/119.0.6045.66 Mobile Safari/537.36)
+!#endif
 ! Merge in resource-abuse.txt
 ! *** uAssets:filters/resource-abuse.txt ***
 /edgemesh.*.js$script,domain=~edgemesh.com|~edgeno.de

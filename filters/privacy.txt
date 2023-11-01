@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Privacy
-! Last modified: Wed, 01 Nov 2023 14:02:14 +0000
+! Last modified: Wed, 01 Nov 2023 14:43:49 +0000
 ! Expires: 7 days
 ! Description: |
 !   Some of these filters make use of the `important` filter option,
@@ -845,6 +845,14 @@ www.lenovo.com##+js(aost, history.replaceState, injectedScript)
 ! https://developers.google.com/tag-platform/tag-manager/server-side/send-data
 ! https://simoahava.com/analytics/server-side-tagging-google-tag-manager
 !*$1p,strict3p,script,header=via:1.1 google
+
+! PersianBlocker filters
+! web.bale.ai - Tracking (OS and browser)
+!#if !env_mobile
+web.bale.ai##+js(trusted-set, navigator.userAgent, Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML\, like Gecko) Chrome/119.0.0.0 Safari/537.36)
+!#else
+web.bale.ai##+js(trusted-set, navigator.userAgent, Mozilla/5.0 (Linux; Android 10) AppleWebKit/537.36 (KHTML\, like Gecko) Chrome/119.0.6045.66 Mobile Safari/537.36)
+!#endif
 
 ! Merge in resource-abuse.txt
 !#include resource-abuse.txt
