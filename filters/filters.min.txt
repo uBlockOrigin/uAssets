@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Wed, 01 Nov 2023 11:30:09 +0000
+! Last modified: Wed, 01 Nov 2023 14:46:27 +0000
 ! Diff-Path: %diffpath%
 ! Diff-Name: ublock-filters
 ! Diff-Expires: 6 hours
@@ -22086,11 +22086,14 @@ freepublicporn.com##[href*="find-my-girl.com"]
 ! ads /remove filters when fixed in EL
 /sw.js$script,domain=lolabits.se|filechan.org|megaupload.nz|rapidshare.nu|share-online.is|openload.cc|hotfile.io
 @@||shaboysglobal.com^$ghide
-! These sites work fine on the desktop and Android but they only allow iPhone useragent
+! PersianBlocker filters
+! app.blubank.com, mobileweb.bankmellat.ir - These sites work fine on the desktop and Android but they only allow iPhone useragent
 app.blubank.com,mobileweb.bankmellat.ir##+js(trusted-set, navigator.userAgent, iPad; CPU OS 14_7_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML\, like Gecko) Version/14.1.2 Mobile/15E148 Safari)
 mobileweb.bankmellat.ir##+js(trusted-set, navigator.platform, iPhone)
 app.blubank.com##+js(set, navigator.standalone, true)
 app.blubank.com##div.fixed[style^="z-index:"]:has-text(گوشی خود را بچرخانید)
+uploadboy.com##+js(rpnt, script, self.location.href;, self.location.href; document.addEventListener('DOMContentLoaded'\,()=>{const button=document.querySelector('form > input#method_free');if(button){button.click()}});, sedCount, 1)
+uploadboy.com##+js(rpnt, script, //$('#btn_download').click();, $('#btn_download').click();, sedCount, 1)
 lifesurance.info##+js(set, showAdss, true)
 @@||sportdeutschland.tv/assets/*$script,1p
 @@||71i.de/*/loader.js$script,domain=sportdeutschland.tv
@@ -22654,8 +22657,6 @@ touguatize.monster##+js(rmnt, script, pop.target)
 txori.com##+js(nostif, adblock)
 olarila.com##+js(no-fetch-if, googlesyndication)
 olarila.com##+js(nostif, adblock)
-uploadboy.com##+js(rpnt, script, self.location.href;, self.location.href; document.addEventListener('DOMContentLoaded'\,()=>{const button=document.querySelector('form > input#method_free');if(button){button.click()}});, sedCount, 1)
-uploadboy.com##+js(rpnt, script, //$('#btn_download').click();, $('#btn_download').click();, sedCount, 1)
 miniwebtool.com##^script:has-text(adblock)
 !#if !cap_html_filtering
 miniwebtool.com##+js(rmnt, script, adblock)
