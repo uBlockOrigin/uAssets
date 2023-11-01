@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Quick fixes
 ! Expires: 12 hours
-! Last modified: Wed, 01 Nov 2023 03:40:16 +0000
+! Last modified: Wed, 01 Nov 2023 03:43:17 +0000
 ! Diff-Path: %diffpath%
 ! Diff-Name: ublock-quick-fixes
 ! Diff-Expires: 6 hours
@@ -70,7 +70,6 @@ www.youtube.com#@#+js(aost, btoa, /[A-Za-z]lb \S+polymer/)
 ! Prune bait JSONs from Object.getOwnPropertyNames
 www.youtube.com##+js(rpnt, script, /(\(function serverContract\(\))/, '/*start*/(function(){const handler={apply:(target,thisArg,args)=>{if(Array.isArray(args)){const arr=args[0];if(arr.adPlacements||arr.adSlots||arr.adBreakHeartbeatParams||arr.playerResponse){args=[{}]}}return Reflect.apply(target,thisArg,args)}};Object.getOwnPropertyNames=new Proxy(Object.getOwnPropertyNames,handler);const cleanup=function(){const scripts=document.querySelectorAll("script");for(let i=scripts.length-1;i>=0;i--){if(scripts[i].textContent.startsWith("/*start*/")){scripts[i].textContent=scripts[i].textContent.replace(/\/\*start\*\/(.*)\/\*end\*\//g,"");break}}};if(document.readyState!=="loading"){cleanup()}else{document.addEventListener("DOMContentLoaded",cleanup)}}());/*end*/ $1')
 !#endif
-www.youtube.com##+js(trusted-replace-xhr-response, /\"adPlacements.*?\"\}\}\}\]\,/, , /player\?key=|watch\?v=|youtubei\/v1\/player/)
 !#if !cap_html_filtering
 !#if env_firefox
 youtube.com##+js(json-prune, playerResponse.adPlacements playerResponse.playerAds playerResponse.adSlots adPlacements playerAds adSlots legacyImportant)
