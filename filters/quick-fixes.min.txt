@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Quick fixes
 ! Expires: 12 hours
-! Last modified: Thu, 02 Nov 2023 17:58:40 +0000
+! Last modified: Thu, 02 Nov 2023 23:04:33 +0000
 ! Diff-Path: %diffpath%
 ! Diff-Name: ublock-quick-fixes
 ! Diff-Expires: 6 hours
@@ -63,7 +63,8 @@ searchenginereports.net##div[id^="theAdsy"]
 www.youtube.com##+js(rpnt, script, /(\(function serverContract\(\))/, '/*start*/(function(){const self=globalThis;const safe={JSON:self.JSON,JSON_parseFn:self.JSON.parse,JSON_stringifyFn:self.JSON.stringify,JSON_parse:(...args)=>safe.JSON_parseFn.call(safe.JSON,...args),JSON_stringify:(...args)=>safe.JSON_stringifyFn.call(safe.JSON,...args),Request_clone:self.Request.prototype.clone};const pruner=text=>{let json=safe.JSON_parse(text);json.adPlacements=[];json.playerAds=[];json.adSlots=[];return safe.JSON_stringify(json)};const urlFromArg=arg=>{if(typeof arg==="string"){return arg}if(arg instanceof Request){return safe.Request_clone.call(arg).url}return String(arg)};const realFetch=self.fetch;self.fetch=new Proxy(self.fetch,{apply:function(target,thisArg,args){if(!(urlFromArg(args[0]).includes("player?key="))){return Reflect.apply(target,thisArg,args)}return realFetch(...args).then(realResponse=>realResponse.text().then(text=>new Response(pruner(text),{status:realResponse.status,statusText:realResponse.statusText,headers:realResponse.headers})))}});const cleanup=function(){const scripts=document.querySelectorAll("script");for(let i=scripts.length-1;i>=0;i--){if(scripts[i].textContent.startsWith("/*start*/")){scripts[i].textContent=scripts[i].textContent.replace(/\/\*start\*\/(.*)\/\*end\*\//g,"");break}}};if(document.readyState!=="loading"){cleanup()}else{document.addEventListener("DOMContentLoaded",cleanup)}})();/*end*/ $1')
 www.youtube.com##+js(json-prune, playerResponse.adPlacements adPlacements, , /(?!.+\/<)Response[ \S]+?https:\/\/www\S+?_polymer_/)
 !#else
-www.youtube.com##+js(trusted-replace-fetch-response, /"adPlacements.*?\/(aclk\?sa=L&ai=C(?!3OQpfbUyZYWKL_)[-_0-9A-Za-z]+__________[-_0-9A-Za-z]+A[A-Za-z]AA&|get_midroll_info\S+&token=ALHj).*?"\}\}\}\]\,/, , player?key=)
+www.youtube.com##+js(trusted-replace-fetch-response, /"adPlacements.*?privateDoNotAccessOrElseTrustedResourceUrlWrappedValue":"https:\/\/(www\.youtube\.com\/aboutthisad\?pf=web&source=youtube&reasons=A|fundingchoices).*?"\}\}\}\]\,/, , player?key=)
+www.youtube.com#@#+js(trusted-replace-fetch-response, /"adPlacements.*?\/(aclk\?sa=L&ai=C(?!3OQpfbUyZYWKL_)[-_0-9A-Za-z]+__________[-_0-9A-Za-z]+A[A-Za-z]AA&|get_midroll_info\S+&token=ALHj).*?"\}\}\}\]\,/, , player?key=)
 www.youtube.com#@#+js(trusted-replace-fetch-response, /(trackingParam":"kx_fmPxh.*?)"adPlacements.*?"\}\}\}\]\,/, $1, player?key=)
 www.youtube.com#@#+js(trusted-replace-fetch-response, /"adPlacements.*?\/(aclk\?sa=L&ai=C(?!3QQpfbUyZYWKL_)[-_0-9A-Za-z]+__________|get_midroll_info\S+&token=ALHj).*?"\}\}\}\]\,/, , url:player?key=)
 www.youtube.com#@#+js(trusted-replace-fetch-response, /(maxAgeSeconds.*?"loggedOut":[ft].*?)"adPlacements.*?"\}\}\}\]\,/, $1, url:player?key=)
