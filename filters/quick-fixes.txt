@@ -1,5 +1,5 @@
 ! Title: uBlock₀ filters – Quick fixes
-! Last modified: Thu, 02 Nov 2023 23:53:35 +0000
+! Last modified: Fri, 03 Nov 2023 00:18:50 +0000
 ! Expires: 12 hours
 ! Description: Immediate, temporary filters to fix websites
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -70,7 +70,7 @@ plagiarismdetector.net##[id][class] > a[rel*="nofollow"][style*="cursor"] > img[
 searchenginereports.net##div[class^="theAdsy"]
 searchenginereports.net##div[id^="theAdsy"]
 
-! https://old.reddit.com/r/uBlockOrigin/comments/16lmeri/youtube_antiadblock_and_ads_september_18_2023/k1uf2s1/ - 9e7f5697
+! https://old.reddit.com/r/uBlockOrigin/comments/16lmeri/youtube_antiadblock_and_ads_september_18_2023/k1uf2s1/ - 7ea5dfab
 !#if env_firefox
 ! Prune ads keys/values from fetch responses
 www.youtube.com##+js(rpnt, script, /(\(function serverContract\(\))/, '/*start*/(function(){const self=globalThis;const safe={JSON:self.JSON,JSON_parseFn:self.JSON.parse,JSON_stringifyFn:self.JSON.stringify,JSON_parse:(...args)=>safe.JSON_parseFn.call(safe.JSON,...args),JSON_stringify:(...args)=>safe.JSON_stringifyFn.call(safe.JSON,...args),Request_clone:self.Request.prototype.clone};const pruner=text=>{let json=safe.JSON_parse(text);json.adPlacements=[];json.playerAds=[];json.adSlots=[];return safe.JSON_stringify(json)};const urlFromArg=arg=>{if(typeof arg==="string"){return arg}if(arg instanceof Request){return safe.Request_clone.call(arg).url}return String(arg)};const realFetch=self.fetch;self.fetch=new Proxy(self.fetch,{apply:function(target,thisArg,args){if(!(urlFromArg(args[0]).includes("player?key="))){return Reflect.apply(target,thisArg,args)}return realFetch(...args).then(realResponse=>realResponse.text().then(text=>new Response(pruner(text),{status:realResponse.status,statusText:realResponse.statusText,headers:realResponse.headers})))}});const cleanup=function(){const scripts=document.querySelectorAll("script");for(let i=scripts.length-1;i>=0;i--){if(scripts[i].textContent.startsWith("/*start*/")){scripts[i].textContent=scripts[i].textContent.replace(/\/\*start\*\/(.*)\/\*end\*\//g,"");break}}};if(document.readyState!=="loading"){cleanup()}else{document.addEventListener("DOMContentLoaded",cleanup)}})();/*end*/ $1')
