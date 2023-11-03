@@ -37,8 +37,13 @@ for FILE in "${FILES[@]}"; do
     # Patches are for filter lists supporting differential updates
     if [[ -n $(grep '^! Diff-Path: ' <(head $FILE)) ]]; then
 
-        # Extract patch name
-        DIFF_NAME=$(grep -m 1 -oP '^! Diff-Name: \K.+' $FILE)
+        # Extract diff name from `! Diff-Path:` field
+        DIFF_NAME=$(grep -m 1 -oP '^! Diff-Path: [^#]+#?\K.*' $FILE)
+        # Fall back to `! Diff-Name:` field if no name found
+        # Remove once `! Diff-Name:` is no longer needed after transition
+        if [[ -z $DIFF_NAME ]]; then
+            DIFF_NAME=$(grep -m 1 -oP '^! Diff-Name: \K.+' $FILE)
+        fi
         echo "Info: Diff name for ${FILE} is ${DIFF_NAME}"
 
         # We need a patch name to generate a valid patch
@@ -47,8 +52,8 @@ for FILE in "${FILES[@]}"; do
             # Compute relative patch path
             PATCH_PATH=$(realpath --relative-to=$(dirname $FILE) $NEXT_PATCH_FILE)
 
-            # Fill in patch path to next version
-            sed -Ei "1,10s;^! Diff-Path: .+$;! Diff-Path: $PATCH_PATH;" $FILE
+            # Fill in patch path to next version (do not clobber hash portion)
+            sed -Ei "1,10s;^! Diff-Path: [^#]+(#.+)?$;! Diff-Path: $PATCH_PATH\1;" $FILE
 
             # Compute the RCS diff between current version and new version
             git show HEAD:$FILE | diff -n - $FILE > $DIFF || true

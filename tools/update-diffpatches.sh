@@ -50,12 +50,17 @@ for PATCH_FILE in "${PATCH_FILES[@]}"; do
         # Reference:
         # https://github.com/ameshkov/diffupdates
 
-        # Extract patch name
-        DIFF_NAME=$(grep -m 1 -oP '^! Diff-Name: \K.+' $OLD_REPO/$FILTER_LIST)
+        # Extract diff name from `! Diff-Path:` field
+        DIFF_NAME=$(grep -m 1 -oP '^! Diff-Path: [^#]+#?\K.*' $FILTER_LIST)
+        # Fall back to `! Diff-Name:` field if no name found
+        # Remove once `! Diff-Name:` is no longer needed after transition
+        if [[ -z $DIFF_NAME ]]; then
+            DIFF_NAME=$(grep -m 1 -oP '^! Diff-Name: \K.+' $FILTER_LIST)
+        fi
 
         # We need a patch name to generate a valid patch
         if [[ -z $DIFF_NAME ]]; then
-            echo "Info: $FILTER_LIST was missing a patch name, skipping"
+            echo "Info: $FILTER_LIST is missing a patch name, skipping"
             continue
         fi
 
