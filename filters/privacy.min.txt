@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Privacy
 ! Expires: 7 days
-! Last modified: Sat, 04 Nov 2023 10:56:23 +0000
+! Last modified: Sat, 04 Nov 2023 14:59:54 +0000
 ! Diff-Path: %diffpath%#ublock-privacy
 ! Diff-Name: ublock-privacy
 ! Diff-Expires: 6 hours
@@ -459,6 +459,8 @@ $removeparam=mtm_source
 $removeparam=pk_campaign
 $removeparam=pk_medium
 $removeparam=pk_source
+! ActiveCampaign
+$removeparam=vgo_ee
 ! Cxense clickthrough tracking
 $removeparam=cx_click
 $removeparam=cx_recsOrder
@@ -471,9 +473,16 @@ $removeparam=adjust_tracker_limit
 $removeparam=adjust_tracker
 $removeparam=adjust_adgroup
 $removeparam=adjust_campaign
+! impact.com
+$removeparam=ir_campaignid
+$removeparam=ir_adid
+$removeparam=irclickid
+$removeparam=ir_partnerid
 $removeparam=asc_campaign,domain=aboutamazon.com|amazon.*|amzn.to
 $removeparam=asc_refurl,domain=aboutamazon.com|amazon.*|amzn.to
 $removeparam=asc_source,domain=aboutamazon.com|amazon.*|amzn.to
+! youtube.com - Copy video URL at its search result via mouse right click.
+||youtube.com^$removeparam=pp
 ||wsj.com^$removeparam=mod
 !#if env_firefox
 ||reddit.com^$removeparam=rdt,doc
