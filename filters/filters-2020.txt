@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2020)
-! Last modified: Sat, 04 Nov 2023 15:51:48 +0000
+! Last modified: Sat, 04 Nov 2023 19:57:16 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -1668,19 +1668,7 @@ animeblkom.net##+js(aopw, _pop)
 vid4up.*###aoverlay
 vid4up.*##+js(nowoif)
 
-! https://github.com/uBlockOrigin/uAssets/issues/7638
-shrinkme.in##+js(aopr, app_vars.force_disable_adblock)
-*$3p,denyallow=googleapis.com|google.com|googleusercontent.com|gstatic.com|recaptcha.net|hcaptcha.com|ajax.cloudflare.com,domain=shrinkme.in
-shrinkme.in##[src^="https://shrinkme.in/"]
-shrinkme.in##^script:has-text('shift')
-shrinkme.in##^script:has-text(\'shift\')
-shrinkme.in##+js(aopr, AdservingModule)
-shrinkme.in##+js(ra, href, a[href][target="_blank"])
-shrinkme.in##+js(set, blurred, false)
-shrinkme.in##.box-main h3, [hight="250px"]
-
-! https://github.com/uBlockOrigin/uAssets/issues/7641
-flv2mp3.by##+js(nowoif)
+! https://github.com/uBlockOrigin/uAssets/issues/7641flv2mp3.by##+js(nowoif)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/7640
 convert2mp3.tv##[href="/banner.html"]
@@ -2598,9 +2586,22 @@ kabel-tv-plus.blogspot.com##+js(acs, addEventListener, google_ad_client)
 ! https://forums.lanik.us/viewtopic.php?p=156364#p156364
 videodotados.com##+js(acs, document.querySelectorAll, popMagic)
 
+! https://github.com/uBlockOrigin/uAssets/issues/7638
+https://github.com/uBlockOrigin/uAssets/issues/20447
+shrinke.*,shrinkme.*##+js(aopr, app_vars.force_disable_adblock)
+*$3p,denyallow=googleapis.com|google.com|googleusercontent.com|gstatic.com|recaptcha.net|hcaptcha.com|ajax.cloudflare.com,domain=shrinkme.*
+shrinkme.*##[src^="https://shrinkme.in/"]
+shrinke.*,shrinkme.*##^script:has-text('shift')
+shrinkme.*##^script:has-text(\'shift\')
+shrinkme.*##+js(aopr, AdservingModule)
+shrinkme.*##+js(ra, href, a[href][target="_blank"])
+shrinke.*,shrinkme.*##+js(set, blurred, false)
+shrinkme.*##.box-main h3, [hight="250px"]
+shrinkme.*##.clickbtnt.expop, .blog-item, footer, .col-md-offset-1.col-md-10 > center
+shrinkme.*##+js(rmnt, script, window.open)
+
 ! shrinke.me anti adb popup
 shrinke.*##+js(aopr, open)
-shrinke.*##+js(set, blurred, false)
 shrinke.*##.blog-item, .copyright-container, .col-md-offset-1.col-md-10 > center, .clickbtnt.expop, #imgAddDirectLink
 *$script,3p,denyallow=cloudflare.com|cloudflare.net|google.com|gstatic.com|hwcdn.net|jquery.com|recaptcha.net,domain=shrinke.*
 themezon.net###btn2, .tp-blue:style(display: block !important;)
