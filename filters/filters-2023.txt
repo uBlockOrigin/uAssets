@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2023)
-! Last modified: Sat, 04 Nov 2023 12:30:46 +0000
+! Last modified: Sat, 04 Nov 2023 12:43:09 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -4358,10 +4358,6 @@ hentai.tv##.max-w-screen
 cdrab.com,offerinfo.net###wpsafe-generate, #wpsafe-link:style(display: block !important;)
 viewfr.com##+js(set, blurred, false)
 
-! https://www.reddit.com/r/uBlockOrigin/comments/165uuaq/ublock_detected/
-animeszone.net##+js(set, detectAdBlock, noopFunc)
-animeszone.net##+js(no-fetch-if, googlesyndication)
-
 ! https://github.com/uBlockOrigin/uAssets/issues/19541
 heavy.com##+js(no-fetch-if, ads)
 
@@ -4531,32 +4527,14 @@ filmesdostorrenthd.net##+js(no-xhr-if, ads)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/19670
 guiasaude.info##+js(set-cookie, Ads, 2)
-guiasaude.info##+js(aeld, contextmenu)
-guiasaude.info##+js(acs, document.onkeydown, preventDefault)
-cozinhandofitness.com#@##ads2
-1i1.in##+js(set-cookie, clicked_ads, 2)
+guiasaude.info,felizemforma.com,financasdeouro.com##+js(aeld, contextmenu)
+guiasaude.info,felizemforma.com##+js(acs, document.onkeydown)
 1i1.in##+js(acs, disable_developer_mode)
-playerflix.com##+js(nano-sib, myInterval, *, 0.02)
-financasdeouro.com##+js(set-cookie, visited, yes)
-bolsadevalores.club##+js(set-cookie, Ads, 2)
-bolsadevalores.club##+js(nano-stb, document.link.submit, *, 0.02)
-felizemforma.com##+js(set-cookie, Ads, 2)
-felizemforma.com##+js(aeld, contextmenu)
-felizemforma.com##+js(acs, document.onkeydown)
-||mflix.vip/front/js/devtools-detector.js$script
-sabornutritivo.com##+js(set-cookie, visited, yes)
-sabornutritivo.com##+js(rmnt, script, hasAdblock)
-~blog.sabornutritivo.com,sabornutritivo.com##+js(nano-stb, "", *, 0.02)
-usandoapp.com##+js(set-cookie, LiberaFunctionAd, 1)
-usandoapp.com##+js(nano-stb, atualizar, *, 0.02)
-usandoapp.com##+js(rmnt, script, /adshow/ad)
-fazercurriculo.online##+js(set-cookie, LiberaFunctionAd, 1)
-fazercurriculo.online##+js(nano-stb, atualizar, *, 0.02)
-fazercurriculo.online##+js(rmnt, script, /adshow/ad)
-obaianinho.com##+js(nano-sib, atualizarCronometro, *, 0.02)
-guiacripto.online##+js(set-cookie, visited, yes)
-guiacripto.online##+js(nano-stb, player, *, 0.02)
-||ad.a-ads.com^$frame,redirect-rule=noopframe,from=guiacripto.online
+financasdeouro.com##[oncontextmenu="return false;"]:remove-attr(oncontextmenu)
+financasdeouro.com##+js(aopr, console.clear)
+||mflix.vip/front/js/devtools-detector.js$script,1p
+usandoapp.com,fazercurriculo.online##+js(rmnt, script, /adshow/ad)
+obaianinho.com##+js(nano-sib, atualizarCronometro, *, 0.001)
 
 ! nutraingredients-asia. com Interstitial
 nutraingredients-asia.com,nutraingredients-latam.com,nutraingredients-usa.com,nutraingredients.com##+js(set, displayInterstitialAdConfig, false)
