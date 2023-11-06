@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Quick fixes
 ! Expires: 12 hours
-! Last modified: Mon, 06 Nov 2023 23:12:14 +0000
+! Last modified: Mon, 06 Nov 2023 23:58:25 +0000
 ! Diff-Path: %diffpath%#ublock-quick-fixes
 ! Diff-Name: ublock-quick-fixes
 ! Diff-Expires: 5 hours
@@ -52,9 +52,6 @@ plagiarismdetector.net##[id][class] > a[rel*="nofollow"][style*="cursor"] > img[
 ||searchenginereports.net/theAdGMC/$image,1p
 searchenginereports.net##div[class^="theAdsy"]
 searchenginereports.net##div[id^="theAdsy"]
-!#if env_firefox
-www.youtube.com##+js(json-prune, playerResponse.adPlacements adPlacements, , /(?!.+\/<)Response[ \S]+?https:\/\/www\S+?_polymer_/)
-!#endif
 www.youtube.com##+js(trusted-replace-fetch-response, /"adPlacements.*?privateDoNotAccessOrElseTrustedResourceUrlWrappedValue":"https:\/\/www\.youtube\.com\/aboutthisad\?pf=web&source=youtube&reasons=A.*?"\}\}\}\]\,/, , player?key=)
 www.youtube.com#@#+js(trusted-replace-fetch-response, /"adPlacements.*?privateDoNotAccessOrElseTrustedResourceUrlWrappedValue":"https:\/\/(www\.youtube\.com\/aboutthisad\?pf=web&source=youtube&reasons=A|fundingchoices).*?"\}\}\}\]\,/, , player?key=)
 www.youtube.com##+js(trusted-replace-fetch-response, /"adPlacements.*?"getAdBreakUrl":"https:\/\/www\.youtube\.com\/get_midroll_info\S+&token=ALHj.*?"\}\}\}\]\,/, , player?key=)
