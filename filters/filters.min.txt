@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Tue, 07 Nov 2023 14:01:02 +0000
+! Last modified: Tue, 07 Nov 2023 14:29:03 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Name: ublock-filters
 ! Diff-Expires: 5 hours
@@ -4067,20 +4067,12 @@ file-upload.*##+js(aopw, Fingerprint2)
 ||file-upload.*^$frame
 /werbebanner-$badfilter
 streamdreams.org##+js(aopr, exoJsPop101)
-||2mdn.net^$media,redirect=noopmp4-1s,domain=wowescape.com
-||youtube.com/get_video$media,redirect=noopmp4-1s,domain=wowescape.com
-@@||wowescape.com^$ghide
-@@||g.doubleclick.net/dbm/vast?dbm_c=$xhr,domain=imasdk.googleapis.com
-@@||googleads.g.doubleclick.net/pagead/*wowescape.com$xhr,domain=imasdk.googleapis.com
-wowescape.com##[id^="aswift"]
-wowescape.com##embed:style(display:inherit!important)
-wowescape.com###adContainer
-wowescape.com##[id^="gdsdk_"]
-wowescape.com##div:has(> div:has(> .adsbygoogle))
+wowescape.com##+js(no-fetch-if, adsbygoogle)
+wowescape.com##iframe[src^="https://www.bigescapegames.com/"]:style(display: block !important;)
+wowescape.com##.col-12 > .adsbyvli:upward(1)
+wowescape.com##.col-12 > .adsbygoogle:upward(1)
 wowescape.com##div.border_radius:has-text(Advertisement)
-wowescape.com##.col-sm-4:has-text(Advertisement)
-wowescape.com##+js(ra, target)
-@@||api.adinplay.com/libs/$script,domain=wowescape.com
+wowescape.com###preroll
 duellinksmeta.com##+js(noeval)
 *$script,redirect-rule=noopjs,domain=duellinksmeta.com
 @@||cdn.intergi.com/hera/*$xhr,domain=duellinksmeta.com
