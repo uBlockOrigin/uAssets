@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Quick fixes
 ! Expires: 12 hours
-! Last modified: Tue, 07 Nov 2023 00:35:39 +0000
+! Last modified: Tue, 07 Nov 2023 02:23:20 +0000
 ! Diff-Path: %diffpath%#ublock-quick-fixes
 ! Diff-Name: ublock-quick-fixes
 ! Diff-Expires: 5 hours
@@ -59,7 +59,7 @@ www.youtube.com#@#+js(trusted-replace-fetch-response, /"adPlacements.*?get_midro
 www.youtube.com#@#+js(trusted-replace-fetch-response, /"adPlacements.*?\/(aclk\?sa=L&ai=C(?!3OQpfbUyZYWKL_)[-_0-9A-Za-z]+__________[-_0-9A-Za-z]+A[A-Za-z]AA&|get_midroll_info\S+&token=ALHj).*?"\}\}\}\]\,/, , player?key=)
 www.youtube.com#@#+js(trusted-replace-fetch-response, /(trackingParam":"kx_fmPxh.*?)"adPlacements.*?"\}\}\}\]\,/, $1, player?key=)
 www.youtube.com#@#+js(trusted-replace-fetch-response, /"adPlacements.*?\/(aclk\?sa=L&ai=C(?!3QQpfbUyZYWKL_)[-_0-9A-Za-z]+__________|get_midroll_info\S+&token=ALHj).*?"\}\}\}\]\,/, , url:player?key=)
-www.youtube.com##+js(rpnt, script, /(\(function serverContract\(\))/, '/*start*/(function(){const nativeArrayFilter=Array.prototype.filter;const wrapper=(target,thisArg,args)=>{const ads=["adPlacements","adSlots","adBreakHeartbeatParams","playerResponse","playerAds"];if(thisArg&&Array.isArray(thisArg)){thisArg=nativeArrayFilter.call(thisArg,e=>!ads.includes(e))}return Reflect.apply(target,thisArg,args)};const handler={apply:wrapper};Array.prototype.filter=new Proxy(Array.prototype.filter,handler);const cleanup=function(){const scripts=document.querySelectorAll("script");for(let i=scripts.length-1;i>=0;i--){if(scripts[i].textContent.startsWith("/*start*/")){scripts[i].textContent=scripts[i].textContent.replace(/\/\*start\*\/(.*)\/\*end\*\//g,"");break}}};if(document.readyState!=="loading"){cleanup()}else{document.addEventListener("DOMContentLoaded",cleanup)}}());/*end*/ $1')
+www.youtube.com##+js(rpnt, script, /(\(function serverContract\(\))/, '/*start*/(function(){const nativeArrayFilter=Array.prototype.filter;const wrapper=(target,thisArg,args)=>{const ads=["adPlacements","adSlots","adBreakHeartbeatParams","playerResponse","playerAds"];if(thisArg&&Array.isArray(thisArg)){thisArg=nativeArrayFilter.call(thisArg,e=>!ads.includes(e))}return Reflect.apply(target,thisArg,args)};const handler={apply:wrapper};Array.prototype.filter=new Proxy(Array.prototype.filter,handler);const cleanup=function(){const scripts=document.querySelectorAll("script");for(let i=scripts.length-1;i>=0;i--){if(scripts[i].textContent.startsWith("/*start*/")){scripts[i].textContent=scripts[i].textContent.replace(/\/\*start\*\/(.*)\/\*end\*\//g,"");break}}};if(document.readyState!=="loading"){cleanup()}else{document.addEventListener("DOMContentLoaded",cleanup)}}());/*end*/$1')
 !#if !cap_html_filtering
 !#if env_firefox
 youtube.com##+js(json-prune, playerResponse.adPlacements playerResponse.playerAds playerResponse.adSlots adPlacements playerAds adSlots legacyImportant)
