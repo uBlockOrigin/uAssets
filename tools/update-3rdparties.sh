@@ -2,7 +2,7 @@
 #
 # This script assumes a linux environment
 
-TEMPFILE=(mktemp)
+TEMPFILE=$(mktemp)
 
 echo "*** uAssets: updating remote assets..."
 
