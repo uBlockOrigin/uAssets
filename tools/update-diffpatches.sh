@@ -26,12 +26,12 @@ if [[ -z $FILTER_FILES ]]; then
     echo "Error: filter lists are not provided, aborting"
     exit 1
 fi
+FILTER_FILES=( "$FILTER_FILES" )
 
-read -ar PATCH_FILES < <(ls -1v "$PATCHES_DIR/*.patch" | head -n -1)
-export PATCH_FILES
+PATCH_FILES=( $(ls -1v "$PATCHES_DIR"/*.patch | head -n -1) )
 
 # Keep only the most recent (5-day x 4-per-day) patches
-read -ar OBSOLETE_PATCHES < <(ls -1v "$PATCHES_DIR/*.patch" | head -n -20)
+OBSOLETE_PATCHES=( $(ls -1v "$PATCHES_DIR"/*.patch | head -n -20) )
 for FILE in "${OBSOLETE_PATCHES[@]}"; do
     echo "Removing obsolete patch $FILE"
     git rm "$FILE"
