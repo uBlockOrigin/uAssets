@@ -82,13 +82,15 @@ for FILE in "${FILES[@]}"; do
         fi
     fi
 
+    git status
+
     # Stage changed file
     echo "Info: Staging ${FILE}"
     git add -u "$FILE"
 
 done
 
-echo "Info: Staging ${PREVIOUS_PATCH_FILE}"
+echo "Info: Staging $PREVIOUS_PATCH_FILE"
 git add "$PREVIOUS_PATCH_FILE"
 
 echo -n "$VERSION" > version
