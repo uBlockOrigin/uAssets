@@ -30,7 +30,7 @@ NEXT_PATCH_FILE="$PATCHES_DIR/$VERSION.patch"
 # Temporary file to receive the RCS patch data
 DIFF=$(mktemp)
 
-read -ar FILES < <(git diff --name-only)
+FILES=( $(git diff --name-only) )
 for FILE in "${FILES[@]}"; do
 
     # Reference:
@@ -82,10 +82,8 @@ for FILE in "${FILES[@]}"; do
         fi
     fi
 
-    git status
-
     # Stage changed file
-    echo "Info: Staging ${FILE}"
+    echo "Info: Staging $FILE"
     git add -u "$FILE"
 
 done
