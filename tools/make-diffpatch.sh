@@ -88,8 +88,11 @@ for FILE in "${FILES[@]}"; do
 
 done
 
-echo "Info: Staging $PREVIOUS_PATCH_FILE"
-git add "$PREVIOUS_PATCH_FILE"
+# Create a patch only if there was a previous version
+if [[ -n $PREVIOUS_VERSION ]]; then
+    echo "Info: Staging $PREVIOUS_PATCH_FILE"
+    git add "$PREVIOUS_PATCH_FILE"
+fi
 
 echo -n "$VERSION" > version
 git add version
