@@ -17,12 +17,12 @@ for i in "${!assets[@]}"; do
     localURL="$i"
     remoteURL="${assets[$i]}"
     echo "*** Downloading ${remoteURL}"
-    if wget -q -T 30 -O $TEMPFILE -- $remoteURL; then
-        if [ -s $TEMPFILE ]; then
-            if ! cmp -s $TEMPFILE $localURL; then
+    if wget -q -T 30 -O "$TEMPFILE" -- "$remoteURL"; then
+        if [ -s "$TEMPFILE" ]; then
+            if ! cmp -s "$TEMPFILE" "$localURL"; then
                 echo "    New version found: ${localURL}"
                 if [ "$1" != "dry" ]; then
-                    mv $TEMPFILE $localURL
+                    mv "$TEMPFILE" "$localURL"
                 fi
             fi
         fi
