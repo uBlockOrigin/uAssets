@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Other Annoyances
-! Last modified: Thu, 09 Nov 2023 14:23:19 +0000
+! Last modified: Thu, 09 Nov 2023 17:02:36 +0000
 ! Expires: 7 days
 ! Description: |
 !   Filters optimized for uBlock Origin, to be used with EasyList's
@@ -246,9 +246,6 @@ umterps.com##.single-ad
 ! https://forums.lanik.us/viewtopic.php?f=62&t=41339
 cars.com##.dialog
 cars.com##body:style(overflow: auto !important; position: initial !important;)
-
-! https://github.com/NanoAdblocker/NanoFilters/issues/161
-wyff4.com##+js(nostif, [native code], 500)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/2672
 peliculas24.me##+js(aopw, disableSelection)
@@ -2016,10 +2013,7 @@ kurosave.com##+js(aopr, document.body.setAttribute)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/7811
 ! https://github.com/uBlockOrigin/uAssets/issues/11335
-keybr.com##+js(nostif, , 5000)
-keybr.com##+js(nostif, [native code])
-keybr.com###keybr_728x90_970x90_ATF:upward(2)
-keybr.com###keybr_160x600_Left:upward(2)
+keybr.com##+js(nostif, (), 5000)
 
 ! https://github.com/NanoMeow/QuickReports/issues/2720
 mangaku.*##+js(acs, $, contextmenu)
@@ -4462,7 +4456,11 @@ juejin.cn##+js(aeld, copy, preventDefault)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/9626
 bbs.mihoyo.com##*:style(-webkit-touch-callout: default !important; -webkit-user-select: text !important; -moz-user-select: text !important; -ms-user-select: text !important; user-select: text !important;)
+!#if ext_devbuild
+bbs.mihoyo.com##+js(aeld, copy, throw)
+!#else
 bbs.mihoyo.com##+js(aeld, copy, [native code])
+!#endif
 
 ! https://github.com/uBlockOrigin/uAssets/issues/9627
 book.zhulang.com##+js(aeld, /contextmenu|selectstart/)
@@ -4505,11 +4503,6 @@ wpchen.net##*:style(-webkit-touch-callout: default !important; -webkit-user-sele
 ! https://github.com/uBlockOrigin/uAssets/issues/9647
 imooc.com##+js(aopr, addCopyright)
 
-! https://github.com/uBlockOrigin/uAssets/issues/9654
-time.geekbang.org##+js(aeld, /selectionchange|mousedown/, [native code])
-time.geekbang.org##+js(aeld, copy)
-time.geekbang.org##.RichContentPC_mask_16_RZ
-
 ! https://github.com/uBlockOrigin/uAssets/issues/9657
 apk1s.com##+js(aopr, disableEnterKey)
 apk1s.com##+js(aopw, document.ondragstart)
@@ -4522,9 +4515,6 @@ peekme.cc##*:style(-webkit-touch-callout: default !important; -webkit-user-selec
 
 ! https://github.com/uBlockOrigin/uAssets/issues/9666
 tiermaker.com##+js(nostif, &adslot)
-
-! https://github.com/uBlockOrigin/uAssets/issues/9680
-jianshu.com##+js(aeld, copy, [native code])
 
 ! https://github.com/uBlockOrigin/uAssets/issues/9683
 dushu.qq.com##+js(aopr, document.oncontextmenu)
@@ -4579,9 +4569,6 @@ audiobookcup.com##html,.unselectable:style(-webkit-touch-callout: default !impor
 
 ! https://www.reddit.com/r/uBlockOrigin/comments/p07z3m/
 oantagonista.com##.lightbox-push
-
-! https://github.com/uBlockOrigin/uAssets/issues/9732
-leetcode-cn.com##+js(aeld, copy, [native code])
 
 ! https://github.com/uBlockOrigin/uAssets/issues/9740
 aicesu.cn##+js(aopw, document.oncopy)
