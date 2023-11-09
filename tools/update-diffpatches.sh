@@ -53,7 +53,7 @@ for PATCH_FILE in "${PATCH_FILES[@]}"; do
 
     : > "$NEW_PATCH_FILE"
 
-    for FILTER_LIST in "${FILTER_FILES[@]}"; do
+    for FILTER_LIST in ${FILTER_FILES[@]}; do
 
         if [ ! -f "$OLD_REPO/$FILTER_LIST" ]; then continue; fi
 
@@ -80,7 +80,7 @@ for PATCH_FILE in "${PATCH_FILES[@]}"; do
         fi
 
         # Compute the RCS diff between current version and new version
-        diff -n "$OLD_REPO/$FILTER_LIST $FILTER_LIST" > "$DIFF_FILE" || true
+        diff -n "$OLD_REPO/$FILTER_LIST" "$FILTER_LIST" > "$DIFF_FILE" || true
 
         FILE_CHECKSUM=$(sha1sum "$FILTER_LIST")
         FILE_CHECKSUM=${FILE_CHECKSUM:0:10}
