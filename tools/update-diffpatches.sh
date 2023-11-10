@@ -46,15 +46,15 @@ for PATCH_FILE in "${PATCH_FILES[@]}"; do
     [[ ${PATCH_FILE} =~ ^$PATCHES_DIR/([0-9]+\.[0-9]+\.[0-9]+\.[0-9]+)\.patch$ ]] && \
         PREVIOUS_VERSION=${BASH_REMATCH[1]}
 
-    # Skip if version doesn't exist
-    if [[ -z $(git tag -l "$PREVIOUS_VERSION") ]]; then
-        continue;
-    fi
-
     # This will receive a clone of an old version of the current repo
     echo "Fetching repo at $PREVIOUS_VERSION version"
     OLD_REPO=$(mktemp -d)
-    git clone -q --single-branch --branch "$PREVIOUS_VERSION" --depth=1 "https://github.com/$REPO_DIR.git" "$OLD_REPO" 2>/dev/null
+    git clone -q --single-branch --branch "$PREVIOUS_VERSION" --depth=1 "https://github.com/$REPO_DIR.git" "$OLD_REPO" 2>/dev/null || true
+
+    # Skip if version doesn't exist
+    if [ -z "$(ls -A "$OLD_REPO" 2>/dev/null)" ]; then
+        continue;
+    fi
 
     : > "$NEW_PATCH_FILE"
 
