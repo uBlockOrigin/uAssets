@@ -67,7 +67,7 @@ for FILE in "${FILES[@]}"; do
             FILE_CHECKSUM="$(sha1sum "$FILE")"
             FILE_CHECKSUM=${FILE_CHECKSUM:0:10}
 
-            DIFF_LINES="$(wc -l < "$DIFF")"
+            DIFF_LINES=$(wc -l < "$DIFF")
             echo "Info: Computed patch for ${FILE} has ${DIFF_LINES} lines"
 
             # Populate output file with patch information
