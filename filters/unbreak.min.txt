@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Unbreak
 ! Expires: 5 days
-! Last modified: Thu, 09 Nov 2023 21:31:26 +0000
+! Last modified: Fri, 10 Nov 2023 03:07:49 +0000
 ! Diff-Path: %diffpath%#ublock-unbreak
 ! Diff-Name: ublock-unbreak
 ! Diff-Expires: 5 hours
@@ -1076,7 +1076,9 @@ hubblespacetelescope.blogspot.com#@#.vertical-ads
 @@||track.rundschau-online.de/*/api/$xhr,1p
 officedepot.co.cr##+js(set, mediator, noopFunc)
 officedepot.co.cr##+js(set, Object.prototype.subscribe, noopFunc)
-@@||cdn.groupbycloud.com^$script,domain=officedepot.co.cr
+||groupbycloud.com/gb-tracker-client-3.min.js$domain=officedepot.co.cr,important
+officedepot.co.cr##+js(set, gbTracker, {})
+officedepot.co.cr##+js(set, gbTracker.sendAutoSearchEvent, noopFunc)
 !#if env_firefox
 ||circularhub.com^$3p,badfilter
 !#endif

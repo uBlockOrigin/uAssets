@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Unbreak
-! Last modified: Thu, 09 Nov 2023 21:31:26 +0000
+! Last modified: Fri, 10 Nov 2023 03:07:49 +0000
 ! Expires: 5 days
 ! Description:
 !     Filters optimized for uBlock Origin, to unbreak sites broken as
@@ -2346,7 +2346,10 @@ hubblespacetelescope.blogspot.com#@#.vertical-ads
 ! https://github.com/NanoMeow/QuickReports/issues/4540
 officedepot.co.cr##+js(set, mediator, noopFunc)
 officedepot.co.cr##+js(set, Object.prototype.subscribe, noopFunc)
-@@||cdn.groupbycloud.com^$script,domain=officedepot.co.cr
+! https://github.com/uBlockOrigin/uAssets/issues/20525
+||groupbycloud.com/gb-tracker-client-3.min.js$domain=officedepot.co.cr,important
+officedepot.co.cr##+js(set, gbTracker, {})
+officedepot.co.cr##+js(set, gbTracker.sendAutoSearchEvent, noopFunc)
 
 ! https://www.reddit.com/r/uBlockOrigin/comments/ifvbor/
 !#if env_firefox
