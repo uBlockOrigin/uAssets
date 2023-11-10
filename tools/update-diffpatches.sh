@@ -90,7 +90,7 @@ for PATCH_FILE in "${PATCH_FILES[@]}"; do
         FILE_CHECKSUM=$(sha1sum "$FILTER_LIST")
         FILE_CHECKSUM=${FILE_CHECKSUM:0:10}
 
-        DIFF_LINE_COUNT=$(wc -l "$DIFF_FILE")
+        DIFF_LINE_COUNT=$(wc -l < "$DIFF_FILE")
 
         # Patch header
         DIFF_HEAD="diff name:$DIFF_NAME lines:$DIFF_LINE_COUNT checksum:$FILE_CHECKSUM"
