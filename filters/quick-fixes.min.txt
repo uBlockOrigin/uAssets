@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Quick fixes
 ! Expires: 12 hours
-! Last modified: Sun, 12 Nov 2023 12:58:54 +0000
+! Last modified: Sun, 12 Nov 2023 13:12:50 +0000
 ! Diff-Path: %diffpath%#ublock-quick-fixes
 ! Diff-Name: ublock-quick-fixes
 ! Diff-Expires: 5 hours
@@ -114,10 +114,11 @@ zive.cz##div.sky-wrapper:style(min-height: 0px !important; height: 0px !importan
 zive.cz##.cnc-ads--rectangle_480_1
 *$script,redirect-rule=noopjs,domain=zive.cz
 zive.cz##+js(set, cpexAddCMPCloseButton, noopFunc)
-megaup.net#@#body .metaRedirectWrapperBottomAds:style(visibility: hidden !important;)
 megaup.net##.metaRedirectWrapperBottomAds:style(visibility: hidden !important;)
-megaup.net##+js(spoof-css, .metaRedirectWrapperBottomAds, visibility, visible)
+megaup.net##.metaRedirectWrapperTopAds:style(visibility: hidden !important;)
+megaup.net##+js(spoof-css, .metaRedirectWrapperBottomAds\, .metaRedirectWrapperTopAds, visibility, visible)
 megaup.net##+js(rpnt, script, /;\$.+?:/, ;)
+@@||download.megaup.net/openads.js$script,1p
 @@||src.litix.io/videojs/$script,domain=nasa.gov
 ||wsj.com^$removeparam=mod,badfilter
 airtel.in##+js(no-xhr-if, analytics/bulk-pixel)
