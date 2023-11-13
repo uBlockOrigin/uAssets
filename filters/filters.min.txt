@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Mon, 13 Nov 2023 16:45:33 +0000
+! Last modified: Mon, 13 Nov 2023 17:19:56 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Name: ublock-filters
 ! Diff-Expires: 5 hours
@@ -22847,7 +22847,13 @@ di.fm##+js(set, di.app.WebplayerApp.Ads.Supervisor.eligibleForMidroll, trueFunc)
 audiotools.pro,audizine.com,blackenterprise.com,cheatsheet.com,cwtv.com,esportstales.com,forums.hfboards.com,hancinema.net,hemmings.com,informazionefiscale.it,magesy.*,magesypro.pro,money.it,motorbiscuit.com,movieweb.com,omg.blog,pastes.io,thegamer.com,thenerdstash.com,titantv.com,twinfinite.net,wnd.com,worldpopulationreview.com,wral.com##+js(acs, document.createElement, admiral)
 familyminded.com,foxvalleyfoodie.com,merriam-webster.com,news.com.au,playstationlifestyle.net,sportsnaut.com,toledoblade.com##+js(aopr, __cmpGdprAppliesGlobally)
 qtoptens.com,reuters.com,today.com,videogamer.com,wrestlinginc.com##+js(set, admiral, noopFunc)
-cheatsheet.com##^script:has-text(admiral-engaged)
+!#if cap_html_filtering
+chaptercheats.com##^script:has-text(.pubads())
+cheatsheet.com,gamerant.com,cbr.com##^script:has-text(admiral)
+!#else
+chaptercheats.com##+js(rmnt, script, .pubads())
+cheatsheet.com,gamerant.com,cbr.com##+js(rmnt, script, admiral)
+!#endif
 yt2conv.com##+js(ra, onclick, a#downloadbtn[onclick^="window.open"], stay)
 yt2conv.com##+js(nowoif)
 blogtruyenmoi.com##+js(aeld, click, alink)
@@ -22997,7 +23003,6 @@ superembeds.com###adStop
 ||imasdk.googleapis.com/js/sdkloader/ima3.js$script,3p,redirect-rule=google-ima.js,domain=player.pop.co.uk|player.popfun.co.uk
 player.pop.co.uk,player.popfun.co.uk##+js(json-prune, response.ads)
 player.pop.co.uk,player.popfun.co.uk##+js(json-prune-fetch-response, response.ads)
-cbr.com##+js(rmnt, script, admiral)
 gulio.site##+js(rmnt, script, RegExp)
 filmoviplex.com##+js(aopr, BetterJsPop)
 filmoviplex.com##+js(aopr, doSecondPop)
@@ -23173,7 +23178,6 @@ rl6mans.com##+js(rmnt, script, /adblock/i)
 kimcilonly.link##+js(rmnt, script, /$.*open/)
 memedroid.com##+js(nostif, /adScriptPath|MMDConfig/)
 @@||imasdk.googleapis.com/js/sdkloader/ima3.js$script,domain=polsatboxgo.pl
-gamerant.com##+js(rmnt, script, admiral)
 idol69.net##^script:has-text(/adblock/i)
 !#if !cap_html_filtering
 idol69.net##+js(rmnt, script, /adblock/i)
