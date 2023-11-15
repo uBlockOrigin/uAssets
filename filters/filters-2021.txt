@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2021)
-! Last modified: Tue, 14 Nov 2023 06:44:25 +0000
+! Last modified: Wed, 15 Nov 2023 06:56:39 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -5507,9 +5507,8 @@ dirp.me##[id]:has-text(Provider)
 boainformacao.com.br##+js(no-xhr-if, adsbygoogle)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/18612
-!pinterest.*##:xpath('//*[(contains(text(),"P") and contains(text(),"r") and contains(text(),"m") and contains(text(),"o") and contains(text(),"t") and contains(text(),"e") and contains(text(),"d") and contains(text(),"b") and contains(text(),"y")) ]'):upward([data-grid-item])
-pinterest.*##+js(rpnt, script, /web_hide_epik_param_in_promoted_urls.*?enabled"/, web_hide_epik_param_in_promoted_urls":"disabled")
 pinterest.*##a[href*="&epik="]:upward([data-grid-item])
+pinterest.*##[data-grid-item]:has([aria-label]:not([aria-label*="pinterest"])[href]:not([href^="/pin"]))
 
 ! https://github.com/uBlockOrigin/uAssets/issues/10848
 distrowatch.org##[href*="3cx"]:upward(tbody)
