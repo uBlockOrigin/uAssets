@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Wed, 15 Nov 2023 11:52:36 +0000
+! Last modified: Wed, 15 Nov 2023 11:56:55 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Name: ublock-filters
 ! Diff-Expires: 5 hours
@@ -23314,14 +23314,18 @@ biletomat.pl##+js(set, toggleAdBlockInfo, falseFunc)
 ||biletomat.pl/en/api/process_order_lite^$xhr,1p,removeparam=http_referer
 @@||matchendirect.fr^$ghide
 nishankhatri.xyz##+js(rmnt, script, adblock)
-sugarona.com,nishankhatri.xyz##^script:has-text(AdbModel)
+!#if cap_html_filtering
+sugarona.com,nishankhatri.xyz,highkeyfinance.com##^script:has-text(AdbModel)
+!#else
+sugarona.com,nishankhatri.xyz,highkeyfinance.com##+js(rmnt, script, AdbModel)
+!#endif
 nishankhatri.xyz###pro-continue, #pro-btn, #my-btn:style(display: block !important;)
 nishankhatri.xyz###pro-continue, #pro-btn, #my-btn:others()
 sugarona.com###my-btn, #my-btn2:style(display: block !important;)
 sugarona.com###my-btn, #my-btn2:others()
-reminimod.co##+js(no-fetch-if, ads)
-reminimod.co###wpsafe-link:style(display: block !important;)
-reminimod.co###wpsafe-link:others()
+reminimod.co,highkeyfinance.com##+js(no-fetch-if, ads)
+reminimod.co,highkeyfinance.com###wpsafe-link:style(display: block !important;)
+reminimod.co,highkeyfinance.com###wpsafe-link:others()
 blog.disheye.com###gourl:style(display: block !important;)
 blog.disheye.com###gourl:others()
 cutsy.net,cutyurls.com,cutty.app##.steps-to-earn, .flex.share-icons-container, .register-banner, fieldset, .partners-container, .actions
