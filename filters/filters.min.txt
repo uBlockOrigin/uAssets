@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Wed, 15 Nov 2023 16:26:47 +0000
+! Last modified: Wed, 15 Nov 2023 18:19:39 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Name: ublock-filters
 ! Diff-Expires: 5 hours
@@ -10934,8 +10934,6 @@ metro.co.uk##.metro__ad_area_left
 metro.co.uk##.metro__ad_area_right
 metro.co.uk###taboola-feed-container
 metro.co.uk###taboola-below-article-thumbnails
-oxy.st##[href*=".info"]
-oxy.st##+js(acs, $, localStorage)
 javmvp.com##+js(aopr, __Y)
 cracking.org##+js(acs, $, samAdBlockAction)
 cracking.org##+js(acs, RegExp, googlebot)
@@ -19727,8 +19725,6 @@ repelishd.com.ar##+js(nowoif)
 @@||vod.tvp.pl^$ghide
 vod.tvp.pl#@#[class^="ad-"]
 saint.to##+js(acs, document.querySelectorAll, popMagic)
-oxy.st##+js(nosiif, .hide)
-oxy.st###divdownload > div[data-template][data-source_url]
 ! infinitehentai.com ad, popup
 infinitehentai.com##+js(nowoif)
 ||infinitehentai.com/uploads/banners/
@@ -20739,7 +20735,14 @@ lightsnovel.com##+js(set, pandaAdviewValidate, true)
 n.fcd.su###submitbutton[disabled]:remove-attr(disabled)
 n.fcd.su##a#gobutton[onclick]:remove-attr(onclick)
 n.fcd.su##+js(acs, $, push-allow-modal)
-oxy.cloud##+js(acs, $, window.open)
+oxy.*##+js(acs, $, window.open)
+oxy.*##+js(nosiif, .hide)
+oxy.*##+js(acs, $, localStorage)
+oxy.*###divdownload > div[data-template][data-source_url]
+oxy.*##[href*=".info"]
+oxy.*##.group_viewport, .page__viewport:style(display: initial !important;)
+oxy.*###izobrazhenie-1:style(padding-bottom: 0px !important;)
+*$script,3p,denyallow=yastatic.net,domain=oxy.*
 mobilkulup.com##+js(nostif, show)
 wnynewsnow.com##.g
 eltiempo.es##.cls-publi-height-city
