@@ -1,5 +1,5 @@
 ! Title: uBlock₀ filters – Quick fixes
-! Last modified: Thu, 16 Nov 2023 15:06:26 +0000
+! Last modified: Thu, 16 Nov 2023 17:10:50 +0000
 ! Expires: 12 hours
 ! Description: Immediate, temporary filters to fix websites
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -20,32 +20,6 @@ imgwelt.sbs,imgbuner.sbs,imgqasz.sbs,imgbbbx.sbs,imgwqaf.sbs,imgcdfd.sbs##div[id
 imgwelt.sbs,imgbuner.sbs,imgqasz.sbs,imgbbbx.sbs,imgwqaf.sbs,imgcdfd.sbs##div[style="width:100%;height:110px"]
 imgwelt.sbs,imgbuner.sbs,imgqasz.sbs,imgbbbx.sbs,imgwqaf.sbs,imgcdfd.sbs##+js(nowoif, !/prcf.fiyar|themes|pixsense|.jpg/)
 imgwelt.sbs,imgbuner.sbs,imgqasz.sbs,imgbbbx.sbs,imgwqaf.sbs,imgcdfd.sbs##div[class][style="display: block;"]
-
-! https://github.com/uBlockOrigin/uAssets/issues/17548
-@@*$ghide,domain=dev.miuiflash.com|djxmaza.in|thecubexguide.com
-*$image,redirect-rule=32x32.png:5,domain=djxmaza.in|thecubexguide.com|dev.miuiflash.com
-*$frame,redirect=noopframe,domain=djxmaza.in|dev.miuiflash.com|thecubexguide.com
-*$xhr,domain=djxmaza.in|dev.miuiflash.com|thecubexguide.com,redirect-rule=nooptext
-*$script,redirect-rule=noopjs,domain=djxmaza.in|thecubexguide.com|dev.miuiflash.com
-@@||devfiles.pages.dev/fonts/wp-content/plugins/best-ads-block-detector/main.js
-@@||googlesyndication.com^$script,xhr,domain=djxmaza.in|dev.miuiflash.com|thecubexguide.com
-@@||doubleclick.net^$script,xhr,domain=djxmaza.in|dev.miuiflash.com|thecubexguide.com
-dev.miuiflash.com,djxmaza.in,thecubexguide.com##+js(no-fetch-if, /adtrue\.com|eningspon\.com|freychang\.fun|orquideassp\.com|popunder/)
-dev.miuiflash.com,djxmaza.in,thecubexguide.com##+js(no-xhr-if, /a-mo\.net|adnxs\.com|prebid|creativecdn\.com|e-planning\.net|quantumdex\.io/)
-dev.miuiflash.com,djxmaza.in,thecubexguide.com##iframe:upward(div)
-dev.miuiflash.com,djxmaza.in,thecubexguide.com##[id*="iframe"]:style(height:250px !important;left:-3000px !important;position:absolute !important)
-||devfiles.pages.dev/js/devtools.js$script
-!#if cap_html_filtering
-djxmaza.in,miuiflash.com,thecubexguide.com##^script:has-text(/\,\'gger\'\,/)
-!#else
-djxmaza.in,miuiflash.com,thecubexguide.com##+js(rmnt, script, /\,\'gger\'\,/)
-!#endif
-!#if env_chromium
-djxmaza.in,miuiflash.com,thecubexguide.com###featuredimage:style(visibility: hidden !important;)
-djxmaza.in,miuiflash.com,thecubexguide.com##+js(spoof-css, #featuredimage, visibility, visible)
-!#else
-djxmaza.in,miuiflash.com,thecubexguide.com###featuredimage:style(transform: translateX(10000px) !important;)
-!#endif
 
 ! https://old.reddit.com/r/uBlockOrigin/comments/16lmeri/youtube_antiadblock_and_ads_september_18_2023/k1uf2s1/ - 432433e9
 www.youtube.com##+js(trusted-replace-fetch-response, /(contextParams":"Q0F[A-Z]U.*?)"adPlacements.*?([^=]"\}\}|"\}\}\})\]\,/, $1, player?key=)
