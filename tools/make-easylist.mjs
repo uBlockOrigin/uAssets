@@ -76,7 +76,7 @@ function expandTemplate(wd, parts) {
                     out.push({ file: `${fpath}` }),
                     `! *** ${repo}:${fpath} ***`,
                     fs.readFile(`${wd}/${fpath}`, { encoding: 'utf8' })
-                        .then(text => trim(text)),
+                        .then(text => fpath.includes('header') ? text : trim(text)),
                 );
                 expandedParts.add(fpath);
             }
@@ -114,7 +114,7 @@ function expandIncludeDirectives(wd, parts) {
                     { file: fpath },
                     `! *** ${fpath} ***`,
                     fs.readFile(`${wd}/${fpath}`, { encoding: 'utf8' })
-                        .then(text => trim(text)),
+                        .then(text => fpath.includes('header') ? text : trim(text)),
                 );
                 expandedParts.add(fpath);
             }
