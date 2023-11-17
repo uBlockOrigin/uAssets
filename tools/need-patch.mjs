@@ -54,7 +54,7 @@ async function main() {
     const MS_PER_HOUR = 60 * 60 * 1000;
     const targetDelayInHours = parseInt(commandLineArgs.get('delay') || '5', 10);
 
-    const hoursSinceEpoch = Math.round(Date.now() / MS_PER_HOUR);
+    const hoursSinceEpoch = Math.floor(Date.now() / MS_PER_HOUR);
     if ( (hoursSinceEpoch % targetDelayInHours) === 0 ) {
         console.log('yes');
         process.exit(0);
