@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2020)
-! Last modified: Sun, 19 Nov 2023 16:09:26 +0000
+! Last modified: Mon, 20 Nov 2023 20:52:19 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -214,7 +214,6 @@ desktophut.com###loading-ad
 *$frame,redirect-rule=noopframe,domain=desktophut.com
 *$xhr,redirect-rule=nooptext,domain=desktophut.com
 
-! https://github.com/uBlockOrigin/uAssets/issues/7488
 ! https://github.com/uBlockOrigin/uAssets/issues/8373
 *$script,redirect-rule=noopjs,domain=dropgalaxy.*
 *$xhr,redirect-rule=nooptext,domain=dropgalaxy.*
@@ -2584,9 +2583,7 @@ kabel-tv-plus.blogspot.com##+js(acs, addEventListener, google_ad_client)
 ! https://forums.lanik.us/viewtopic.php?p=156364#p156364
 videodotados.com##+js(acs, document.querySelectorAll, popMagic)
 
-! https://github.com/uBlockOrigin/uAssets/issues/7638
 ! https://github.com/uBlockOrigin/uAssets/issues/20447
-! shrinke.me anti adb popup
 *$3p,denyallow=googleapis.com|google.com|googleusercontent.com|gstatic.com|recaptcha.net|hcaptcha.com|ajax.cloudflare.com,domain=shrinkme.*
 *$script,3p,denyallow=cloudflare.com|cloudflare.net|google.com|gstatic.com|hwcdn.net|jquery.com|recaptcha.net,domain=shrinke.*
 shrinke.*,shrinkme.*##+js(aopr, app_vars.force_disable_adblock)
@@ -2595,13 +2592,11 @@ shrinke.*,shrinkme.*##^script:has-text(\'shift\')
 shrinke.*,shrinkme.*##+js(aopr, AdservingModule)
 shrinke.*,shrinkme.*##+js(ra, href, a[href][target="_blank"])
 shrinke.*,shrinkme.*##+js(set, blurred, false)
-shrinke.*,shrinkme.*##.clickbtnt.expop, .blog-item, footer, [src^="https://shrinkme.in/"], .box-main h3, [hight="250px"]
+shrinke.*,shrinkme.*##.expop, .blog-item, footer, [src*="shrinkme."], .box-main h3, [hight="250px"]
 shrinke.*,shrinkme.*##+js(rmnt, script, window.open)
+mrproblogger.com,themezon.net##+js(aeld, load, doTest)
 themezon.net###btn2, .tp-blue:style(display: block !important;)
 themezon.net###btn2, .tp-blue:others()
-
-! https://github.com/uBlockOrigin/uAssets/discussions/17361#discussioncomment-6472505
-mrproblogger.com,themezon.net##+js(aeld, load, doTest)
 
 ! gratispaste.com popup
 gratispaste.com##+js(aopr, AdservingModule)
