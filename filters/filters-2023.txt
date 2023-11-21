@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2023)
-! Last modified: Tue, 21 Nov 2023 15:04:00 +0000
+! Last modified: Tue, 21 Nov 2023 17:01:11 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -71,6 +71,34 @@ exeo.app##.actions, .earning-steps ~*, .earning-steps, header, footer, .ad-eleme
 exeo.app##+js(trusted-click-element, .link-button.button)
 exeo.app##+js(trusted-click-element, #invisibleCaptchaShortlink.link-button.button)
 exeo.app##+js(trusted-click-element, .get-link.link-button.button, , 7500)
+
+! https://github.com/uBlockOrigin/uAssets/issues/20799
+! LinkShortify
+bookszone.in##+js(nano-sib, timer, *)
+bookszone.in###tp98, #jatinbtn-continue:style(display: block !important;)
+bookszone.in###tp98, #jatinbtn-continue:others()
+graphicuv.com##+js(aost, setTimeout, adsBlocked)
+graphicuv.com##+js(nano-sib, /.?/, *)
+graphicuv.com###popup, #blur-background
+graphicuv.com###btn6:style(display: block !important;)
+graphicuv.com###btn6:others()
+
+! owllink.net & birdurls.com
+uptechnologys.com,sevenjournals.com###yuidea-snp, #btn6:style(display: block !important;)
+uptechnologys.com,sevenjournals.com###yuidea-snp, #btn6, center, [src*="google.com/recaptcha"]:others()
+uptechnologys.com##+js(nano-sib, /.?/, *, 0.02)
+uptechnologys.com###yuidea-snp, #btn6, #yuidea, #countdown:others()
+uptechnologys.com,sevenjournals.com##+js(acs, eval, replace)
+sevenjournals.com##+js(nobab)
+
+! cut.lc Shortner
+yalifin.xyz,lrncook.xyz###makingdifferenttimer:style(display: block !important;)
+yalifin.xyz,lrncook.xyz##+js(nano-sib, /.?/, *, 0.02)
+yalifin.xyz,lrncook.xyz##center:others()
+
+! vlsshort.com,V2links,vzu.us
+gadgetsreview27.com,newsbawa.com##center:others()
+gadgetsreview27.com,newsbawa.com##+js(nano-sib, /.?/, *, 0.02)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/16269
 ! https://shahid4uu. cam => player guccihide. com popups
@@ -5499,6 +5527,3 @@ jornadaperfecta.com##+js(rmnt, script, ad-block-activated)
 ! https://github.com/uBlockOrigin/uAssets/issues/20802
 greentumble.com##.cp-module
 greentumble.com##html:style(overflow: auto !important)
-
-! https://github.com/uBlockOrigin/uAssets/issues/20799
-graphicuv.com##+js(aost, setTimeout, adsBlocked)
