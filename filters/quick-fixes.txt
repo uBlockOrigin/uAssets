@@ -1,5 +1,5 @@
 ! Title: uBlock₀ filters – Quick fixes
-! Last modified: Thu, 23 Nov 2023 15:29:37 +0000
+! Last modified: Thu, 23 Nov 2023 15:33:07 +0000
 ! Expires: 12 hours
 ! Description: Immediate, temporary filters to fix websites
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -104,6 +104,10 @@ chip.de##.js_download_button > a.Download-Button--Free[href*="withinstaller"][hr
 
 ! https://github.com/uBlockOrigin/uAssets/issues/20792
 twitter.com##[data-testid="primaryColumn"] [data-testid="cellInnerDiv"] > div:has([data-testid$="-impression-pixel"]):remove()
+! https://github.com/easylist/easylist/commit/7cb8b866a9bcd23d4125b8aad62d6fb5ff460361
+twitter.com##div[data-testid="cellInnerDiv"] > div > div[class] > div[class][data-testid="placementTracking"]
+! https://github.com/easylist/easylist/commit/6d32dcea3c63819d582652278bffffda5dc2b551
+twitter.com#?#div[data-testid="placementTracking"]:-abp-has(div[data-testid$="-impression-pixel"])
 
 ! Ad-Shield
 ! https://github.com/uBlockOrigin/uAssets/issues/12163
@@ -139,9 +143,6 @@ techcyan.com,kiktu.com,upshrink.com,trangchu.news,banaraswap.in##+js(spoof-css, 
 
 ! https://www.reddit.com/r/uBlockOrigin/comments/17rxlfr/block_randomlygenerated_class_with_specific/
 /^https:\/\/[0-9a-z]+\.cloudfront\.net\/([a-z]\/)?[0-9a-f]{6,}-[-0-9a-f]+\.js$/$script,3p,match-case,to=cloudfront.net,from=marketwatch.com|wsj.com
-
-! https://github.com/easylist/easylist/commit/7cb8b866a9bcd23d4125b8aad62d6fb5ff460361
-twitter.com##div[data-testid="cellInnerDiv"] > div > div[class] > div[class][data-testid="placementTracking"]
 
 ! https://github.com/AdguardTeam/AdguardFilters/commit/c69c2dd360a16f06652c5b14c735e75e96eb9a87
 sekai-kabuka.com#@#ins.adsbygoogle:upward(1):style(visibility: hidden !important;)
