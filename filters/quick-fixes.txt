@@ -81,6 +81,11 @@ zive.cz##+js(trusted-set, window.cpexCMPVersion, 2.0 TCF 2.2)
 megaup.net#@#+js(rpnt, script, /;\$.+?:/, ;)
 download.megaup.net#@#+js(rpnt, script, ===undefined, ===0)
 download.megaup.net##+js(rpnt, script, /if\(\S+?\)\{document/gms, if(false){document)
+!#if cap_html_filtering
+megaup.net##^script:has-text(FingerprintJS)
+!#else
+megaup.net##+js(rmnt, script, FingerprintJS)
+!#endif
 
 ! https://github.com/easylist/easylistgermany/issues/216
 ! https://github.com/uBlockOrigin/uAssets/issues/20710
