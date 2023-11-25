@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Quick fixes
 ! Expires: 12 hours
-! Last modified: Sat, 25 Nov 2023 10:17:56 +0000
+! Last modified: Sat, 25 Nov 2023 11:37:33 +0000
 ! Diff-Path: %diffpath%#ublock-quick-fixes
 ! Diff-Name: ublock-quick-fixes
 ! Diff-Expires: 317 minutes
@@ -65,6 +65,11 @@ zive.cz##+js(trusted-set, window.cpexCMPVersion, 2.0 TCF 2.2)
 megaup.net#@#+js(rpnt, script, /;\$.+?:/, ;)
 download.megaup.net#@#+js(rpnt, script, ===undefined, ===0)
 download.megaup.net##+js(rpnt, script, /if\(\S+?\)\{document/gms, if(false){document)
+!#if cap_html_filtering
+megaup.net##^script:has-text(FingerprintJS)
+!#else
+megaup.net##+js(rmnt, script, FingerprintJS)
+!#endif
 chip.de#@#a[href^="https://www.chip.de/downloads/"][href$=".html"] div > figure > img
 chip.de##body > ul > li > a[href^="https://www.chip.de/downloads/"]:upward(2)
 chip.de##a[href^="https://www.chip.de/downloads/"]:not(.Listing-Teaser.fb[title]):has(figure > img[src^="https://im.chip.de/"]:not([alt]))
