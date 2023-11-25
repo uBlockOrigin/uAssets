@@ -3878,6 +3878,11 @@ megaup.net##+js(spoof-css, .metaRedirectWrapperBottomAds\, .metaRedirectWrapperT
 @@||megaup.net/imageads/$image,1p
 @@||download.megaup.net^$script,1p
 download.megaup.net##+js(rpnt, script, /if\(\S+?\)\{document/gms, if(false){document)
+!#if cap_html_filtering
+megaup.net##^script:has-text(FingerprintJS)
+!#else
+megaup.net##+js(rmnt, script, FingerprintJS)
+!#endif
 
 ! https://www.reddit.com/r/uBlockOrigin/comments/hxzp5h/ublock_fails_to_block_ads_after_clicking_video/
 player.theplatform.com##+js(disable-newtab-links)
