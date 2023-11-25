@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Sat, 25 Nov 2023 10:17:56 +0000
+! Last modified: Sat, 25 Nov 2023 11:38:09 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Name: ublock-filters
 ! Diff-Expires: 317 minutes
@@ -22515,6 +22515,11 @@ megaup.net##+js(spoof-css, .metaRedirectWrapperBottomAds\, .metaRedirectWrapperT
 @@||megaup.net/imageads/$image,1p
 @@||download.megaup.net^$script,1p
 download.megaup.net##+js(rpnt, script, /if\(\S+?\)\{document/gms, if(false){document)
+!#if cap_html_filtering
+megaup.net##^script:has-text(FingerprintJS)
+!#else
+megaup.net##+js(rmnt, script, FingerprintJS)
+!#endif
 player.theplatform.com##+js(disable-newtab-links)
 ! breakage https://github.com/uBlockOrigin/uAssets/issues/16216
 !||player.theplatform.com^$frame,removeparam=params,domain=nbc.com
