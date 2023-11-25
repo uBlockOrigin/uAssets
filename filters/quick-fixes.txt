@@ -78,7 +78,9 @@ zive.cz##+js(trusted-set, window.cpexCMPVersion, 2.0 TCF 2.2)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/20505 - remove after 22.11.2023
 @@||download.megaup.net^$script,1p
-download.megaup.net##+js(rpnt, script, ===undefined, ===0)
+megaup.net#@#+js(rpnt, script, /;\$.+?:/, ;)
+download.megaup.net#@#+js(rpnt, script, ===undefined, ===0)
+download.megaup.net##+js(rpnt, script, /if\(\S+?\)\{document/gms, if(false){document)
 
 ! https://github.com/easylist/easylistgermany/issues/216
 ! https://github.com/uBlockOrigin/uAssets/issues/20710
