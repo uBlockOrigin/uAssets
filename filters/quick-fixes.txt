@@ -1,5 +1,5 @@
 ! Title: uBlock₀ filters – Quick fixes
-! Last modified: Sat, 25 Nov 2023 11:53:03 +0000
+! Last modified: Sun, 26 Nov 2023 06:16:52 +0000
 ! Expires: 12 hours
 ! Description: Immediate, temporary filters to fix websites
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -164,3 +164,9 @@ check-host.net###content > div > div[class*="-"]:has(div:has-text(/^.{1,2}$/)):h
 
 ! https://www.reddit.com/r/uBlockOrigin/comments/183dw7h/ublockorigin_crashing_firefox_on_uncommongoodscom/
 @@||cdns.brsrvr.com/v1/br-trk-*.js^$script,3p,domain=uncommongoods.com
+
+! https://github.com/uBlockOrigin/uAssets/issues/20401
+!infinityscans.xyz##+js(no-fetch-if, ads)
+!infinityscans.xyz##+js(rmnt, script, /function.*charAt|_0x/)
+!infinityscans.xyz##+js(aost, document.documentElement.innerHTML, inlineScript)
+@@*$xhr,domain=infinityscans.xyz
