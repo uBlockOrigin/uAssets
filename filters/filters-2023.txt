@@ -10,16 +10,16 @@
 
 ! gplinks all domains
 ! https://github.com/uBlockOrigin/uAssets/issues/20140
-*$frame,redirect-rule=noopframe,domain=gplinks.co|extraking.in|host2news.com
-@@||gplinks.in/track/$script,xhr,domain=gplinks.co|extraking.in|host2news.com
-@@||googlesyndication.com^$script,xhr,domain=gplinks.co|extraking.in|host2news.com
-@@||doubleclick.net^$script,xhr,domain=extraking.in|host2news.com
-@@*$ghide,domain=gplinks.co|extraking.in|host2news.com
-!host2news.com,extraking.in###VerifyBtn:style(display: block !important;)
-host2news.com,extraking.in##center:others()
-host2news.com,extraking.in##+js(aopw, AdBDetected)
-host2news.com,extraking.in##+js(set, count, 0)
-host2news.com,extraking.in##[id*="iframe"], [id*="gpt_unit"], [id*="div-gpt-"]:style(height:0.0001px !important;)
+*$frame,redirect-rule=noopframe,domain=gplinks.co|extraking.in|host2news.com|myfirstname.in
+@@||gplinks.in/track/$script,xhr,domain=gplinks.co|extraking.in|host2news.com|myfirstname.in
+@@||googlesyndication.com^$script,xhr,domain=gplinks.co|extraking.in|host2news.com|myfirstname.in
+@@||doubleclick.net^$script,xhr,domain=extraking.in|host2news.com|myfirstname.in
+@@*$ghide,domain=gplinks.co|extraking.in|host2news.com|myfirstname.in
+!myfirstname.in,host2news.com,extraking.in###VerifyBtn:style(display: block !important;)
+myfirstname.in,host2news.com,extraking.in##center:others()
+myfirstname.in,host2news.com,extraking.in##+js(aopw, AdBDetected)
+myfirstname.in,host2news.com,extraking.in##+js(set, count, 0)
+myfirstname.in,host2news.com,extraking.in##[id*="iframe"], [id*="gpt_unit"], [id*="div-gpt-"]:style(height:0.0001px !important;)
 gplinks.co##.bg-soft-primary, a.exclude-pop.smartlink, .exclude-pop.quiz-container, #PlayQuiz, #quiz-frame
 
 ! https://github.com/uBlockOrigin/uAssets/issues/19688
@@ -31,6 +31,7 @@ bhojpurimeet.in##p, h3, h1, ul, .breadcrumbs, .creditInner, .mainWrapper > .head
 ! https://github.com/uBlockOrigin/uAssets/issues/20600
 go.publicearn.com##.page-header > h3, .banner, .bg-soft-primary
 @@*$ghide,domain=iisfvirtual.in|starxinvestor.com
+iisfvirtual.in,starxinvestor.com##+js(aopw, AdBDetected)
 iisfvirtual.in,starxinvestor.com##+js(nano-sib, timer, *)
 iisfvirtual.in,starxinvestor.com##[id*="-Ads"], [id*="-gpt-ad"], center > h3, #skull, #content, #btnx, .mh-clearfix.mh-wrapper:remove()
 iisfvirtual.in,starxinvestor.com###tp98, #btn6:style(display: block !important;)
@@ -122,6 +123,20 @@ fansonlinehub.com,hotmediahub.com,terabox.fun##+js(nano-sib, clearInterval, *)
 ! https://github.com/uBlockOrigin/uAssets/issues/19284
 4funbox.com,nephobox.com,1024tera.com,terabox.*##+js(set, Object.prototype.isAllAdClose, true)
 4funbox.com,nephobox.com,1024tera.com,terabox.*##.ad-eggplant
+
+! https://github.com/uBlockOrigin/uAssets/issues/20872
+@@||linkvertise.com^$ghide
+linkvertise.com##+js(acs, addEventListener, DOMNodeRemoved)
+linkvertise.com##+js(acs, document.dispatchEvent, CustomEvent)
+linkvertise.com##+js(acs, onload, adsbygoogle)
+linkvertise.com##+js(aeld, load, nextFunction)
+linkvertise.com##+js(json-prune, data.meta.require_addon data.meta.require_captcha data.meta.require_notifications data.meta.require_og_ads data.meta.require_video data.meta.require_web data.meta.require_related_topics data.meta.require_custom_ad_step data.meta.og_ads_offers data.meta.addon_url data.displayAds data.linkCustomAdOffers)
+linkvertise.com##+js(json-prune, data.getDetailPageContent.linkCustomAdOffers)
+linkvertise.com##+js(json-prune, data.getTaboolaAds.*)
+linkvertise.com##+js(nano-sib)
+linkvertise.com##+js(set, isAdBlockActive, false)
+linkvertise.com##.skeleton__image > ngx-skeleton-loader[appearance="line"] > span.progress:empty
+||streamrail.com^$script,domain=linkvertise.*
 
 ! https://github.com/uBlockOrigin/uAssets/issues/16269
 ! https://shahid4uu. cam => player guccihide. com popups
