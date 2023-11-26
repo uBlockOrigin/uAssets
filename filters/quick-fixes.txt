@@ -1,5 +1,5 @@
 ! Title: uBlock₀ filters – Quick fixes
-! Last modified: Sun, 26 Nov 2023 13:24:06 +0000
+! Last modified: Sun, 26 Nov 2023 18:17:41 +0000
 ! Expires: 12 hours
 ! Description: Immediate, temporary filters to fix websites
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -158,7 +158,8 @@ check-host.net##div[id]:matches-css(position: relative):has(a img:matches-css(wi
 @@||cdns.brsrvr.com/v1/br-trk-*.js^$script,3p,domain=uncommongoods.com
 
 ! https://github.com/uBlockOrigin/uAssets/issues/20401
-!infinityscans.xyz##+js(no-fetch-if, ads)
-!infinityscans.xyz##+js(rmnt, script, /function.*charAt|_0x/)
-!infinityscans.xyz##+js(aost, document.documentElement.innerHTML, inlineScript)
-@@*$xhr,domain=infinityscans.xyz
+*$frame,domain=infinityscans.xyz,redirect-rule=noopframe
+*$image,domain=infinityscans.xyz,redirect-rule=1x1.gif
+@@||infinityscans.xyz^$ghide
+@@*$script,xhr,domain=infinityscans.xyz
+infinityscans.xyz##+js(nowoif)
