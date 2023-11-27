@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2023)
-! Last modified: Mon, 27 Nov 2023 18:14:22 +0000
+! Last modified: Mon, 27 Nov 2023 19:53:36 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -5593,3 +5593,10 @@ tronxminer.com##+js(aeld, load, htmls)
 
 ! https://sousou-no-frieren.com/ - popup
 sousou-no-frieren.com##+js(rmnt, script, pop.doEvent)
+
+! https://github.com/uBlockOrigin/uAssets/issues/20909
+tikmate.app##+js(set, powerAPITag, emptyObj)
+tikmate.app##+js(set, detectAdBlock, noopFunc)
+tikmate.app##+js(rpnt, script, /(function downloadHD\(obj\) {)[\s\S]*?(datahref.*)[\s\S]*?(window.location.href = datahref;)[\s\S]*/, $1$2$3})
+tikmate.app##.dl-details
+tikmate.app##div.ad-container
