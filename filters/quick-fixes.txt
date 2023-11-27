@@ -157,6 +157,10 @@ check-host.net##div[id]:matches-css(position: relative):has(a img:matches-css(wi
 ! https://github.com/uBlockOrigin/uAssets/issues/20401
 *$frame,domain=infinityscans.xyz,redirect-rule=noopframe
 @@||infinityscans.xyz^$ghide
+!#if env_chromium
 @@*$script,xhr,domain=infinityscans.xyz
+!#endif
 infinityscans.xyz##+js(nowoif)
 infinityscans.xyz##+js(rmnt, script, /charAt|_0x/)
+infinityscans.xyz##^script:has-text(throw Error)
+infinityscans.xyz##+js(nostif, stop)
