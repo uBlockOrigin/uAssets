@@ -163,27 +163,25 @@ check-host.net##div[id]:matches-css(position: relative):has(a img:matches-css(wi
 @@||cdns.brsrvr.com/v1/br-trk-*.js^$script,3p,domain=uncommongoods.com
 
 ! https://github.com/uBlockOrigin/uAssets/issues/20401
-infinityscans.xyz##+js(nowoif)
+*$script,redirect-rule=noopjs,domain=infinityscans.xyz
+*$xhr,domain=infinityscans.xyz,redirect-rule=nooptext
+*$frame,redirect-rule=noopframe,domain=infinityscans.xyz
+@@||infinityscans.xyz^$ghide
+@@||googlesyndication.com^$xhr,domain=infinityscans.xyz
+@@||intelligenceadx.com^$xhr,domain=infinityscans.xyz
+@@||prplads.com^$script,domain=infinityscans.xyz
+@@||api.purpleads.io^$xhr,domain=infinityscans.xyz
+infinityscans.xyz##+js(nostif, stop)
 infinityscans.xyz##+js(acs, String.prototype.charAt, .join)
-infinityscans.xyz##+js(acs, setTimeout, \x)
-!#if ext_devbuild
-infinityscans.xyz##+js(no-fetch-if, pagead2.googlesyndication.com/pagead/js/adsbygoogle.js, war:googlesyndication_adsbygoogle.js)
-!#endif
-infinityscans.xyz##+js(no-fetch-if, intelligenceadx.com, true)
+infinityscans.xyz##+js(aost, getElementsByTagName, handler)
+infinityscans.xyz##+js(trusted-set, result_status, success)
+infinityscans.xyz##+js(trusted-set, res.result.adblocker, false)
+infinityscans.xyz##+js(trusted-set, xhr.status, 200)
+infinityscans.xyz##+js(rmnt, script, /await\fetch|navigator\.userAgent/)
+infinityscans.xyz##+js(rmnt, script, /charAt|_0x/)
 infinityscans.xyz##+js(rpnt, script, === true, === false)
-||infinityscans.xyz^$replace=/\(res\.result\.block === true \|\| res\.result\.adblock === true\)/(false)/
-infinityscans.xyz##^script:has-text(throw Error)
-infinityscans.xyz##^script:has-text(setTimeout)
-||intelligenceadx.com/sequence-diagram-min.css$xhr,domain=infinityscans.xyz,redirect=nooptext
-||infinityscans.xyz/sw.js$script,1p
-!*$frame,redirect-rule=noopframe,domain=infinityscans.xyz
-!@@||infinityscans.xyz^$ghide
-!@@||googlesyndication.com^$xhr,domain=infinityscans.xyz
-!@@||intelligenceadx.com^$xhr,domain=infinityscans.xyz
-!infinityscans.xyz##+js(trusted-set, result_status, success)
-!infinityscans.xyz##+js(trusted-set, res.result.adblocker, false)
-!infinityscans.xyz##+js(trusted-set, xhr.status, 200)
-!infinityscans.xyz##+js(rmnt, script, /await\fetch|navigator\.userAgent/)
-!infinityscans.xyz##+js(rmnt, script, /charAt|_0x/)
-!infinityscans.xyz##+js(rpnt, script, error";, success";)
-!infinityscans.xyz##+js(rpnt, script, !== 0, !== 200)
+infinityscans.xyz##+js(rpnt, script, error";, success";)
+infinityscans.xyz##+js(rpnt, script, !== 0, !== 200)
+infinityscans.xyz##+js(nowoif)
+infinityscans.xyz##^script:has-text(/throw\ Error/)
+!@@*$script,xhr,domain=infinityscans.xyz
