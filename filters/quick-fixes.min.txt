@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Quick fixes
 ! Expires: 12 hours
-! Last modified: Tue, 28 Nov 2023 17:28:27 +0000
+! Last modified: Tue, 28 Nov 2023 18:09:06 +0000
 ! Diff-Path: %diffpath%#ublock-quick-fixes
 ! Diff-Name: ublock-quick-fixes
 ! Diff-Expires: 317 minutes
@@ -83,14 +83,19 @@ twitter.com##[data-testid="primaryColumn"] [data-testid="cellInnerDiv"] > div:ha
 twitter.com##div[data-testid="cellInnerDiv"] > div > div[class] > div[class][data-testid="placementTracking"]
 twitter.com#?#div[data-testid="placementTracking"]:-abp-has(div[data-testid$="-impression-pixel"])
 ! Ad-Shield
-*$image,1p,domain=css-load.com
-*$image,3p,redirect=1x1.gif,domain=css-load.com
-*$doc,ping,font,css,domain=css-load.com
-thephoblographer.com,newdaily.co.kr,dogdrip.net,golf-live.at,mlbpark.donga.com##+js(noeval-if, /07c225f3\.online|content-loader\.com/)
+||07c225f3.online^$doc,ping,font,css,popup
+||content-loader.com^$doc,ping,font,css,popup
+||css-load.com^$doc,ping,font,css,popup
+||html-load.com^$doc,ping,font,css,popup
+||07c225f3.online^$image,3p,redirect=1x1.gif
+||content-loader.com^$image,3p,redirect=1x1.gif
+||css-load.com^$image,3p,redirect=1x1.gif
+||html-load.com^$image,3p,redirect=1x1.gif
+thephoblographer.com,newdaily.co.kr,dogdrip.net,golf-live.at,mlbpark.donga.com,gamingdeputy.com##+js(noeval-if, /07c225f3\.online|content-loader\.com|css-load\.com|html-load\.com/)
 !#if cap_html_filtering
-meconomynews.com,brandbrief.co.kr,thephoblographer.com,newdaily.co.kr,dogdrip.net,golf-live.at,mlbpark.donga.com##^script:has-text(KCgpPT57bGV0IGU)
+meconomynews.com,brandbrief.co.kr,thephoblographer.com,newdaily.co.kr,dogdrip.net,golf-live.at,mlbpark.donga.com,gamingdeputy.com##^script:has-text(KCgpPT57bGV0IGU)
 !#else
-meconomynews.com,brandbrief.co.kr,thephoblographer.com,newdaily.co.kr,dogdrip.net,golf-live.at,mlbpark.donga.com##+js(rmnt, script, KCgpPT57bGV0IGU)
+meconomynews.com,brandbrief.co.kr,thephoblographer.com,newdaily.co.kr,dogdrip.net,golf-live.at,mlbpark.donga.com,gamingdeputy.com##+js(rmnt, script, KCgpPT57bGV0IGU)
 !#endif
 *$frame,redirect-rule=noopframe,domain=honkailab.com|warcraftrumbledeck.com
 *$script,xhr,redirect-rule=noopjs,domain=honkailab.com|warcraftrumbledeck.com
