@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Annoyances
 ! Expires: 7 days
-! Last modified: Wed, 29 Nov 2023 21:45:43 +0000
+! Last modified: Wed, 29 Nov 2023 23:48:34 +0000
 ! Diff-Path: %diffpath%#ublock-annoyances
 ! Diff-Name: ublock-annoyances
 ! Diff-Expires: 317 minutes
@@ -44,8 +44,11 @@ consent.google.*##+js(trusted-click-element, form[action] button[jsname="tWT92d"
 facebook.com##+js(trusted-set-cookie, datr, __GMZCgwVF5BbyvAtfJojQwg, 1year, , reload, 1)
 instagram.com##+js(trusted-set-cookie, ig_did, 0C826C21-17C3-444A-ABB7-EBABD37214D7, 1year, , reload, 1)
 ! Sample page: https://www.bloomberg.com/live/europe
-bloomberg.com##+js(trusted-set-cookie, euconsent-v2, CPtgasAPtgasAAGABCENDECgAAAAAAAAAApAAAAAAAAA.YAAAAAAAAAAA, 1year)
-bloomberg.co.jp,bloomberg.com##+js(trusted-set-cookie, consentUUID, dde2fbcb-0722-417a-92be-67407ba369de_20, 1year)
+bloomberg.com,bloomberg.co.jp##+js(trusted-click-element, [title="Manage Cookies"])
+bloomberg.com,bloomberg.co.jp##+js(trusted-click-element, [title="Reject All"], , 500)
+bloomberg.com,bloomberg.co.jp##html.sp-message-open:style(width: initial !important)
+bloomberg.com,bloomberg.co.jp##html.sp-message-open > body:style(position: unset !important; overflow: unset !important; margin-top: 0 !important)
+bloomberg.com,bloomberg.co.jp##[title="SP Consent Message"]
 ! Sample page: https://www.fandom.com/articles/hgt-wow-wrath-of-the-lich-king
 fandom.com##+js(trusted-set-cookie, euconsent-v2, CPt3fQAPt3fQACNAFAENDLCgAAAAAAAAACiQAAAOCgDAB-AIsAZ8A6QDBAHBAAAA.YAAAAAAAAAAA, 1year)
 fandom.com##+js(trusted-set-cookie, tracking-opt-in-status, rejected, 1year)
