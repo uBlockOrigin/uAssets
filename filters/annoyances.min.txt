@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Annoyances
 ! Expires: 7 days
-! Last modified: Wed, 29 Nov 2023 23:48:34 +0000
+! Last modified: Wed, 29 Nov 2023 23:57:51 +0000
 ! Diff-Path: %diffpath%#ublock-annoyances
 ! Diff-Name: ublock-annoyances
 ! Diff-Expires: 317 minutes
@@ -3782,8 +3782,9 @@ bestx.stream##+js(set, devtoolsDetector, {})
 ! oploverz anti right click & text selection, etc
 oploverz.*##+js(rmnt, script, contextmenu)
 oploverz.*##+js(rmnt, style, user-select)
-lapresse.ca##+js(set-local-storage-item, lp.message.wall.active, $remove$)
-lapresse.ca##body > div[style^="position"]:not([class]):not([id])
+lapresse.ca##.brz_msg_wall_body
+lapresse.ca##body > div[style]:has(.brz_msg_wall_body)
+lapresse.ca##body:style(overflow: auto !important)
 zelka.org###description:style(user-select: initial !important;)
 sekaikomik.bio##+js(rmnt, script, nocontextmenu)
 playertv.net##^script:has-text(/contextmenu|devtool/)

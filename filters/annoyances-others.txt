@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Other Annoyances
-! Last modified: Wed, 29 Nov 2023 18:34:41 +0000
+! Last modified: Wed, 29 Nov 2023 23:57:51 +0000
 ! Expires: 7 days
 ! Description: |
 !   Filters optimized for uBlock Origin, to be used with EasyList's
@@ -6635,8 +6635,9 @@ oploverz.*##+js(rmnt, script, contextmenu)
 oploverz.*##+js(rmnt, style, user-select)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/19015
-lapresse.ca##+js(set-local-storage-item, lp.message.wall.active, $remove$)
-lapresse.ca##body > div[style^="position"]:not([class]):not([id])
+lapresse.ca##.brz_msg_wall_body
+lapresse.ca##body > div[style]:has(.brz_msg_wall_body)
+lapresse.ca##body:style(overflow: auto !important)
 
 ! https://www.reddit.com/r/uBlockOrigin/comments/154wyb0/
 zelka.org###description:style(user-select: initial !important;)
