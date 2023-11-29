@@ -160,12 +160,14 @@ check-host.net##div[id]:matches-css(position: relative):has(a img:matches-css(wi
 *$frame,redirect-rule=noopframe,domain=infinityscans.xyz
 *$image,redirect-rule=1x1.gif,domain=infinityscans.xyz
 @@||infinityscans.xyz^$ghide
-@@||googlesyndication.com^$xhr,domain=infinityscans.xyz
-@@||intelligenceadx.com^$xhr,domain=infinityscans.xyz
-@@||prplads.com^$script,domain=infinityscans.xyz
-@@||api.purpleads.io^$xhr,domain=infinityscans.xyz
+infinityscans.xyz##^script:has-text(/async.*?const.*?fetch.*?\\x/)
 infinityscans.xyz##+js(nowoif)
-!@@*$script,xhr,domain=infinityscans.xyz
+!#if env_chromium
+||intelligenceadx.com^$xhr,domain=infinityscans.xyz,redirect=nooptext
+infinityscans.xyz##+js(no-fetch-if, pagead2.googlesyndication.com/pagead/js/adsbygoogle.js, war:googlesyndication_adsbygoogle.js)
+infinityscans.xyz##+js(no-fetch-if, intelligenceadx.com, true)
+infinityscans.xyz##+js(aopr, console.clear)
+!#endif
 
 ! https://github.com/uBlockOrigin/uAssets/issues/20941
 *$removeparam=t,from=twitter.com|x.com,badfilter
