@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Quick fixes
 ! Expires: 12 hours
-! Last modified: Wed, 29 Nov 2023 14:13:57 +0000
+! Last modified: Wed, 29 Nov 2023 14:21:26 +0000
 ! Diff-Path: %diffpath%#ublock-quick-fixes
 ! Diff-Name: ublock-quick-fixes
 ! Diff-Expires: 317 minutes
@@ -129,12 +129,11 @@ check-host.net##div[id]:matches-css(position: relative):has(a img:matches-css(wi
 *$frame,redirect-rule=noopframe,domain=infinityscans.xyz
 *$image,redirect-rule=1x1.gif,domain=infinityscans.xyz
 @@||infinityscans.xyz^$ghide
-infinityscans.xyz##^script:has-text(/async.*?const.*?fetch.*?\\x/)
 infinityscans.xyz##+js(nowoif)
-!#if env_chromium
-||intelligenceadx.com^$xhr,domain=infinityscans.xyz,redirect=nooptext
-infinityscans.xyz##+js(no-fetch-if, pagead2.googlesyndication.com/pagead/js/adsbygoogle.js, war:googlesyndication_adsbygoogle.js)
-infinityscans.xyz##+js(no-fetch-if, intelligenceadx.com, true)
-infinityscans.xyz##+js(rpnt, script, G-S3F27NTCDJ');, G-S3F27NTCDJ'); !function(){"use strict";if(!document.getElementById("psdn-slot")){var e=document.createElement("div");e.id="psdn-slot"\,document.body.appendChild(e)}}();)
+!#if cap_html_filtering
+infinityscans.xyz##^script:has-text(/async.*?const.*?fetch.*?\\x/)
+!#else
+infinityscans.xyz##+js(rmnt, script, /async.*?const.*?fetch.*?\\x/)
 !#endif
+||infinityscans.xyz/sw.js$script,1p
 *$removeparam=t,from=twitter.com|x.com,badfilter
