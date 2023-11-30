@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Quick fixes
 ! Expires: 12 hours
-! Last modified: Thu, 30 Nov 2023 00:59:10 +0000
+! Last modified: Thu, 30 Nov 2023 06:12:50 +0000
 ! Diff-Path: %diffpath%#ublock-quick-fixes
 ! Diff-Name: ublock-quick-fixes
 ! Diff-Expires: 317 minutes
@@ -132,9 +132,11 @@ check-host.net##a img:matches-css(width: /^[2-46-8]{1}[0-9]{2}(\.[0-9]+)?px$/):m
 @@||infinityscans.xyz^$ghide
 infinityscans.xyz##+js(nowoif)
 ||infinityscans.xyz/sw.js$script,1p
+@@||platform.bidgear.com/pubbidgear-ad.js$xhr,domain=infinityscans.xyz
 !#if ext_devbuild
 infinityscans.xyz##+js(no-fetch-if, pagead2.googlesyndication.com/pagead/js/adsbygoogle.js, war:googlesyndication_adsbygoogle.js)
 !#else
 infinityscans.xyz##+js(rpnt, script, /\(async function\(\).*\(\)\;\}/)
+infinityscans.xyz##+js(no-fetch-if, platform.bidgear.com, true)
 !#endif
 *$removeparam=t,from=twitter.com|x.com,badfilter
