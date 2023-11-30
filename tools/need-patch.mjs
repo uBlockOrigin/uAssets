@@ -51,9 +51,16 @@ const commandLineArgs = (( ) => {
 /******************************************************************************/
 
 async function main() {
+    const MS_PER_HOUR = 60 * 60 * 1000;
     const targetDelayInHours = parseInt(commandLineArgs.get('delay') || '5', 10);
-    const version = await fs.readFile('version', { encoding: 'utf8' });
 
+    const hoursSinceEpoch = Math.floor(Date.now() / MS_PER_HOUR);
+    if ( (hoursSinceEpoch % targetDelayInHours) === 0 ) {
+        console.log('yes');
+        process.exit(0);
+    }
+
+    const version = await fs.readFile('version', { encoding: 'utf8' });
     const match = /^(\d+)\.(\d+)\.(\d+)\.(\d+)$/.exec(version);
     if ( match === null ) {
         console.log('yes');
@@ -67,7 +74,7 @@ async function main() {
         parseInt(match[3], 10)
     );
     date.setUTCHours(0, parseInt(match[4], 10), 0, 0);
-    const expiredTimeInHours = (Date.now() - date.getTime()) / 1000 / 60 / 60;
+    const expiredTimeInHours = (Date.now() - date.getTime()) / MS_PER_HOUR;
     console.log(expiredTimeInHours >= targetDelayInHours ? 'yes' : 'no');
 }
 
