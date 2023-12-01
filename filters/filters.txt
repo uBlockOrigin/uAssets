@@ -1,5 +1,5 @@
 ! Title: uBlock filters
-! Last modified: Fri, 01 Dec 2023 05:50:56 +0000
+! Last modified: Fri, 01 Dec 2023 13:22:58 +0000
 ! Expires: 5 days
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
@@ -23,6 +23,7 @@ youtube.com##ytd-video-masthead-ad-advertiser-info-renderer,ytm-promoted-sparkle
 ! https://github.com/uBlockOrigin/uAssets/pull/18106/
 www.youtube.com##+js(trusted-replace-xhr-response, /"adPlacements.*?([A-Z]"\}|"\}{2})\}\]\,/, , /player\?key=|watch\?v=|youtubei\/v1\/player/)
 www.youtube.com##+js(trusted-replace-xhr-response, /"adPlacements.*?("adSlots"|"adBreakHeartbeatParams")/gms, $1, youtubei/v1/player)
+tv.youtube.com##+js(trusted-replace-xhr-response, '"adPlacements"', '"no_ads"', /player\?key=|watch\?v=|youtubei\/v1\/player/)
 www.youtube.com##+js(trusted-replace-fetch-response, /"adPlacements.*?([A-Z]"\}|"\}{2})\}\]\,/, , player?key=)
 www.youtube.com#@#+js(trusted-replace-fetch-response, /((?:(?:&|%26)id(?:=|%3D)o-A[A-Z]|yt_live_broadcast).*?)"adPlacements.*?([A-Z]"\}|"\}{2})\}\]\,/, $1, player?key=)
 www.youtube.com#@#+js(trusted-replace-fetch-response, /(contextParams":"Q0F[A-Z]U.*?)"adPlacements.*?([A-Z]"\}|"\}{2})\}\]\,/, $1, player?key=)
