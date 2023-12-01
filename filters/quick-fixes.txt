@@ -1,5 +1,5 @@
 ! Title: uBlock₀ filters – Quick fixes
-! Last modified: Fri, 01 Dec 2023 18:55:46 +0000
+! Last modified: Fri, 01 Dec 2023 19:06:19 +0000
 ! Expires: 12 hours
 ! Description: Immediate, temporary filters to fix websites
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -134,11 +134,7 @@ check-host.net##img[onclick^="window.location = '/"]
 @@||infinityscans.xyz^$ghide
 infinityscans.xyz##+js(nowoif)
 ||infinityscans.xyz/sw.js$script,1p
-!#if ext_devbuild
-infinityscans.xyz##+js(no-fetch-if, pagead2.googlesyndication.com/pagead/js/adsbygoogle.js, war:googlesyndication_adsbygoogle.js)
-!#else
-infinityscans.xyz##+js(rpnt, script, /fetch\(.*\)/, fetch("https://infinityscans.xyz/img/logo.png"))
-!#endif
+@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$xhr,domain=infinityscans.xyz
 
 ! https://github.com/uBlockOrigin/uAssets/issues/20941
 *$removeparam=t,from=twitter.com|x.com,badfilter
