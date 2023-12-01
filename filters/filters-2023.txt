@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2023)
-! Last modified: Thu, 30 Nov 2023 17:49:39 +0000
+! Last modified: Fri, 01 Dec 2023 05:13:22 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -10,16 +10,16 @@
 
 ! gplinks all domains
 ! https://github.com/uBlockOrigin/uAssets/issues/20140
-*$frame,redirect-rule=noopframe,domain=gplinks.co|examhubz.com|myfirstname.in
-@@||gplinks.in/track/$script,xhr,domain=gplinks.co|examhubz.com|myfirstname.in
-@@||googlesyndication.com^$script,xhr,domain=gplinks.co|examhubz.com|myfirstname.in
-@@||doubleclick.net^$script,xhr,domain=examhubz.com|myfirstname.in
-@@*$ghide,domain=gplinks.co|examhubz.com|myfirstname.in
-!myfirstname.in,examhubz.com###VerifyBtn:style(display: block !important;)
-myfirstname.in,examhubz.com##center:others()
-myfirstname.in,examhubz.com##+js(aopw, AdBDetected)
-myfirstname.in,examhubz.com##+js(set, count, 0)
-myfirstname.in,examhubz.com##[id*="iframe"], [id*="gpt_unit"], [id*="div-gpt-"]:style(height:0.0001px !important;)
+*$frame,redirect-rule=noopframe,domain=gplinks.co|examhubz.com|myfirstname.in|ojasnew.in
+@@||gplinks.in/track/$script,xhr,domain=gplinks.co|examhubz.com|myfirstname.in|ojasnew.in
+@@||googlesyndication.com^$script,xhr,domain=gplinks.co|examhubz.com|myfirstname.in|ojasnew.in
+@@||doubleclick.net^$script,xhr,domain=examhubz.com|myfirstname.in|ojasnew.in
+@@*$ghide,domain=gplinks.co|examhubz.com|myfirstname.in|ojasnew.in
+!ojasnew.in,myfirstname.in,examhubz.com###VerifyBtn:style(display: block !important;)
+ojasnew.in,myfirstname.in,examhubz.com##center:others()
+ojasnew.in,myfirstname.in,examhubz.com##+js(aopw, AdBDetected)
+ojasnew.in,myfirstname.in,examhubz.com##+js(set, count, 0)
+ojasnew.in,myfirstname.in,examhubz.com##[id*="iframe"], [id*="gpt_unit"], [id*="div-gpt-"]:style(height:0.0001px !important;)
 gplinks.co##.bg-soft-primary, a.exclude-pop.smartlink, .exclude-pop.quiz-container, #PlayQuiz, #quiz-frame
 
 ! https://github.com/uBlockOrigin/uAssets/issues/19688
@@ -137,6 +137,10 @@ linkvertise.com##+js(nano-sib)
 linkvertise.com##+js(set, isAdBlockActive, false)
 linkvertise.com##.skeleton__image > ngx-skeleton-loader[appearance="line"] > span.progress:empty
 ||streamrail.com^$script,domain=linkvertise.*
+
+! link.vipurl.in
+androidquest.com##+js(no-fetch-if, ads)
+androidquest.com##+js(nano-sib, /.?/, *, 0.02)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/16269
 ! https://shahid4uu. cam => player guccihide. com popups
@@ -3652,9 +3656,10 @@ bangpremier.com###my-content:style(display: block !important;)
 ! https://erotikclub1.pw/movies/annemle-tatil-anilari/ popup
 ! https://www.reddit.com/r/uBlockOrigin/comments/14wpihr/
 ! https://github.com/uBlockOrigin/uAssets/issues/19271
-animesaga.in,bestx.stream,moviesapi.club##+js(set, S_Popup, 10)
 moviesapi.club##+js(aopr, my_pop)
 bestx.stream,moviesapi.club##+js(nowoif)
+moviesapi.club,bestx.stream,watchx.top##+js(no-fetch-if, googlesyndication)
+animesaga.in,moviesapi.club,bestx.stream,watchx.top##+js(set, S_Popup, 10)
 
 ! https://github.com/uBlockOrigin/uAssets/discussions/17361#discussioncomment-6417241
 #@#.ad-box
