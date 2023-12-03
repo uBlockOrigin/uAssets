@@ -11,15 +11,14 @@
 ! gplinks all domains
 ! https://github.com/uBlockOrigin/uAssets/issues/20140
 *$frame,redirect-rule=noopframe,domain=gplinks.co|examhubz.com|myfirstname.in|ojasnew.in
-@@||gplinks.in/track/$script,xhr,domain=gplinks.co|examhubz.com|myfirstname.in|ojasnew.in
-@@||googlesyndication.com^$script,xhr,domain=gplinks.co|examhubz.com|myfirstname.in|ojasnew.in
-@@||doubleclick.net^$script,xhr,domain=examhubz.com|myfirstname.in|ojasnew.in
-@@*$ghide,domain=gplinks.co|examhubz.com|myfirstname.in|ojasnew.in
-!ojasnew.in,myfirstname.in,examhubz.com###VerifyBtn:style(display: block !important;)
-ojasnew.in,myfirstname.in,examhubz.com##center:others()
-ojasnew.in,myfirstname.in,examhubz.com##+js(aopw, AdBDetected)
-ojasnew.in,myfirstname.in,examhubz.com##+js(set, count, 0)
-ojasnew.in,myfirstname.in,examhubz.com##[id*="iframe"], [id*="gpt_unit"], [id*="div-gpt-"]:style(height:0.0001px !important;)
+@@||gplinks.in/track/$script,xhr,domain=gplinks.co|examhubz.com|myfirstname.in|ojasnew.in|techsotta.com
+@@||googlesyndication.com^$script,xhr,domain=gplinks.co|examhubz.com|myfirstname.in|ojasnew.in|techsotta.com
+@@||doubleclick.net^$script,xhr,domain=examhubz.com|myfirstname.in|ojasnew.in|techsotta.com
+@@*$ghide,domain=gplinks.co|examhubz.com|myfirstname.in|ojasnew.in|techsotta.com
+techsotta.com,ojasnew.in,myfirstname.in,examhubz.com##center:others()
+techsotta.com,ojasnew.in,myfirstname.in,examhubz.com##+js(aopw, AdBDetected)
+techsotta.com,ojasnew.in,myfirstname.in,examhubz.com##+js(set, count, 0)
+techsotta.com,ojasnew.in,myfirstname.in,examhubz.com##[id*="iframe"], [id*="gpt_unit"], [id*="div-gpt-"]:style(height:0.0001px !important;)
 gplinks.co##.bg-soft-primary, a.exclude-pop.smartlink, .exclude-pop.quiz-container, #PlayQuiz, #quiz-frame
 
 ! https://github.com/uBlockOrigin/uAssets/issues/19688
@@ -2190,9 +2189,6 @@ leviathanmanga.com##+js(aopr, popns)
 besargaji.com##button[onclick^="window.open"]:remove-attr(onclick)
 besargaji.com##+js(nowoif)
 
-! https://github.com/AdguardTeam/AdguardFilters/issues/143871
-upzone.ga#@#.sponsorad
-
 ! https://github.com/uBlockOrigin/uAssets/issues/17683
 kunmanga.com##+js(aopw, _pop)
 
@@ -3894,8 +3890,8 @@ sotwe.com##.tweet-card .v-responsive.media-carousel-image .v-responsive__content
 ! https://github.com/uBlockOrigin/uAssets/issues/19188
 ! https://github.com/uBlockOrigin/uAssets/issues/20505
 *$frame,redirect-rule=noopframe,domain=megaup.net
-megaup.net##.metaRedirectWrapperBottomAds, .metaRedirectWrapperTopAds, .metaRedirectWrapperTopAd, a[href^="https://tm-offers.gamingadult.com/"]:style(visibility: hidden !important;)
-megaup.net##+js(spoof-css, .metaRedirectWrapperBottomAds\, .metaRedirectWrapperTopAds\, .metaRedirectWrapperTopAd\, a[href^="https://tm-offers.gamingadult.com/"], visibility, visible)
+megaup.net##.metaRedirectWrapperBottomAds, [class^="metaRedirectWrapperTopAd"], a[href^="https://tm-offers.gamingadult.com/"]:style(visibility: hidden !important;)
+megaup.net##+js(spoof-css, .metaRedirectWrapperBottomAds\, [class^="metaRedirectWrapperTopAd"]\, a[href^="https://tm-offers.gamingadult.com/"], visibility, visible)
 ! https://github.com/uBlockOrigin/uAssets/issues/17125
 @@||megaup.net/imageads/$image,1p
 @@||download.megaup.net^$script,1p
@@ -5120,7 +5116,7 @@ fastupload.io,azmath.info##+js(rmnt, script, AdBlocker)
 3dporndude.com##+js(aopw, _pop)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/20177
-cheatnetwork.eu##+js(nostif, /ads|adb/)
+cheatnetwork.eu##+js(nostif, /(\$emit|show)/)
 
 ! https://www.reddit.com/r/uBlockOrigin/comments/17c2b2e/ublock_detected/
 porninblack.com##+js(rmnt, script, deblocker)
@@ -5655,3 +5651,15 @@ supercomputingonline.com##[class^="ad_prev"]
 
 ! https://github.com/uBlockOrigin/uAssets/issues/21019
 dudestream.com##+js(noeval-if, ads)
+
+! https://github.com/uBlockOrigin/uAssets/issues/21023
+filmweb.pl##+js(rmnt, script, window.open)
+filmweb.pl###mainSkyBanner-pl_PL
+filmweb.pl##[href*="smartadserver.com/click"]
+filmweb.pl##.HomePromotedSection
+filmweb.pl##[style*="-ad-"]
+filmweb.pl##.faScreening--clickable
+filmweb.pl##.faDesktopBillboard__content
+fwcdn.pl###clickArea
+fwcdn.pl###link-container-all
+fwcdn.pl##[id*="banner"]
