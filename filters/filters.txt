@@ -1,5 +1,5 @@
 ! Title: uBlock filters
-! Last modified: Wed, 06 Dec 2023 08:32:23 +0000
+! Last modified: Wed, 06 Dec 2023 08:56:31 +0000
 ! Expires: 5 days
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
@@ -8652,7 +8652,7 @@ hubzter.com##+js(aopr, adsanity_ad_block_vars)
 
 ! sport stuff 
 /adu.php$frame,3p
-allfeeds.*,daddylive.*,sporting77.*,teleriumtv.*,wstream.to##+js(nowoif)
+allfeeds.*,daddylive.*,sporting77.*,teleriumtv.*##+js(nowoif)
 allfeeds.*,teleriumtv.*###overlay
 
 ! lewdzone. com popups
@@ -12070,24 +12070,6 @@ sombex.com##+js(nosiif, visibility, 1000)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/2745
 ultimate-catch.eu##+js(nostif, undefined)
-
-! https://github.com/NanoMeow/QuickReports/issues/2206
-wstream.*##+js(aopr, AaDetector)
-wstream.*##+js(nostif, eval)
-wstream.*##+js(nowoif, /^/, 1)
-wstream.*##+js(ra, onclick)
-wstream.to##+js(aopw, _pop)
-wstream.video###container > div[id] > div[id][style*="z-index:"]
-wstream.video##div > div[id] > br ~ h2:has-text(disable ad-block):upward(1)
-@@||wstream.*^$ghide
-@@||wstream.*^$script,1p
-@@*$image,domain=wstream.video
-@@|*ads.$script,domain=wstream.video
-@@||akvideo.stream^$script,domain=wstream.*
-*$script,redirect-rule=noopjs,domain=wstream.video
-*$script,3p,denyallow=cloudflare.net|fastly.net|jsdelivr.net|jwpcdn.com|zencdn.net,domain=wstream.video
-cb01.*##[href*="/4k"]
-@@||add.fastcdn.stream/popunder4.js
 
 ! lampungway .com anti adb
 lampungway.com##+js(aopw, adBlockDetected)
