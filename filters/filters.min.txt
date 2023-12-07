@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Thu, 07 Dec 2023 03:46:09 +0000
+! Last modified: Thu, 07 Dec 2023 03:51:25 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Name: ublock-filters
 ! Diff-Expires: 317 minutes
@@ -25,6 +25,9 @@ m.youtube.com,music.youtube.com,youtubekids.com,youtube-nocookie.com##+js(json-p
 youtube.com##.ytlr-horizontal-list-renderer__items > .yt-virtual-list__container > .yt-virtual-list__item--visible.yt-virtual-list__item--selected.yt-virtual-list__item:has-text(Ad)
 youtube.com###player [class*="suggested-action-badge-icon"]:upward(.ytp-suggested-action)
 ||googlevideo.com/initplayback?source=youtube*&c=TVHTML5&oad=$xhr,domain=youtube.com
+!#if env_firefox
+||youtube.com/s/desktop/*/jsbin/desktop_polymer.vflset/desktop_polymer.js$urltransform=/desktop\/\w+\/jsbin/desktop\/1f2ae858\/jsbin/,domain=www.youtube.com
+!#endif
 ! AdDefend
 !#if env_chromium
 lablue.*##+js(nostif, push, 500)
