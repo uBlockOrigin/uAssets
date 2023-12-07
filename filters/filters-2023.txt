@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2023)
-! Last modified: Wed, 06 Dec 2023 21:46:07 +0000
+! Last modified: Thu, 07 Dec 2023 07:23:01 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -5727,3 +5727,10 @@ skai.gr###taboola-alternating-below-article:remove()
 
 ! storefront. com.ng anti-adb
 storefront.com.ng##+js(nostif, show)
+
+! https://github.com/uBlockOrigin/uAssets/issues/21157
+!#if cap_html_filtering
+unite-guide.com##^script:has-text(detect)
+!#else
+unite-guide.com##+js(rmnt, script, detect)
+!#endif
