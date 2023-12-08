@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Other Annoyances
-! Last modified: Fri, 08 Dec 2023 19:29:52 +0000
+! Last modified: Fri, 08 Dec 2023 20:07:11 +0000
 ! Expires: 7 days
 ! Description: |
 !   Filters optimized for uBlock Origin, to be used with EasyList's
@@ -7106,3 +7106,11 @@ firescans.xyz##+js(acs, jQuery, hmwp_is_devtool)
 ! https://github.com/uBlockOrigin/uAssets/issues/21255
 *$image,domain=peacocktv.com,redirect-rule=1x1.gif
 peacocktv.com##.playback-ad-blocker-notice
+
+! cespun. eu anti right click, select, f-keys
+!#if cap_html_filtering
+cespun.eu##^script:has-text(contextmenu)
+!#else
+cespun.eu##+js(rmnt, script, contextmenu)
+!#endif
+cespun.eu##*:style(-webkit-touch-callout: default !important; -webkit-user-select: text !important; -moz-user-select: text !important; -ms-user-select: text !important; user-select: text !important;)
