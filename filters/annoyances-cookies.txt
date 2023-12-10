@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Cookie Notices
-! Last modified: Sun, 10 Dec 2023 12:15:36 +0000
+! Last modified: Sun, 10 Dec 2023 15:51:02 +0000
 ! Expires: 7 days
 ! Description: |
 !   Filters optimized for uBlock Origin, to be used with EasyList's
@@ -672,3 +672,11 @@ rtl.de##+js(trusted-set-cookie, consentUUID, accee7b2-0121-45d7-aa34-4d457257712
 ! https://github.com/uBlockOrigin/uAssets/issues/21280
 fortune.com##+js(trusted-click-element, button.trustarc-agree-btn)
 fortune.com#@##teconsent
+
+! dpgmedia consentwall - Necessary + Social media
+! Sample pages: ad.nl,hln.be,trouw.nl
+cmp.dpgmedia.nl,cmp.dpgmedia.be##+js(trusted-click-element, .pg-configure-button[title="Instellen"], , 500)
+cmp.dpgmedia.nl,cmp.dpgmedia.be##+js(trusted-click-element, 'button[aria-checked="false"][aria-label="Sociale media cookies"], button.sp_choice_type_SAVE_AND_EXIT[title="Voorkeuren opslaan"]', , 500)
+myprivacy.dpgmedia.nl,myprivacy.dpgmedia.be##[title="SP Consent Message"]
+! https://github.com/easylist/easylist/pull/17976
+@@||cmp.trouw.nl/unified/wrapperMessagingWithoutDetection.js$script,domain=trouw.nl
