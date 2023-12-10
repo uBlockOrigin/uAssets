@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2021)
-! Last modified: Sun, 10 Dec 2023 08:51:31 +0000
+! Last modified: Sun, 10 Dec 2023 09:34:01 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -781,7 +781,7 @@ embedstream.me##+js(nostif, (), 150)
 embedstream.me##^script:has-text(FingerprintJS)
 embedstream.me##^script:has-text("admc")
 embedstream.me##^script:has-text(\"admc\")
-embedstream.me##^script[data-cfasync]:has-text(h=decodeURIComponent)
+embedstream.me##^script[data-cfasync]:has-text(/h=decodeURIComponent|popundersPerIP/)
 *$script,3p,denyallow=cloudflare.net|fastly.net|gstatic.com|jsdelivr.net,domain=nolive.me
 embedstream.me##body > .position-absolute
 embedstream.me###aff-click
@@ -1035,7 +1035,7 @@ tucsitupdate.blogspot.com##+js(acs, addEventListener, google_ad_client)
 ! toonanime. cc popunder
 toonanime.*##+js(acs, document.querySelectorAll, popMagic)
 toonanime.*##+js(acs, atob, /h=decodeURIComponent|_pop/)
-toonanime.*##^script[data-cfasync]:has-text(h=decodeURIComponent)
+toonanime.*##^script[data-cfasync]:has-text(/h=decodeURIComponent|popundersPerIP/)
 ! https://github.com/AdguardTeam/AdguardFilters/issues/78608
 toopl.xyz##+js(nowoif)
 *$script,3p,denyallow=cloudflare.com|cloudfront.net|fastly.net|googleapis.com|gstatic.com|jwpcdn.com|sharethis.com|sharethis.net,domain=toonanime.*
@@ -1604,7 +1604,7 @@ xnxx.com##.videoad-title
 ! https://github.com/AdguardTeam/AdguardFilters/issues/78240
 *$script,3p,denyallow=arc.io|cloudflare.com|cloudflare.net|disqus.com|disquscdn.com|fastlylb.net|unpkg.com,domain=hatsukimanga.com
 hatsukimanga.com##+js(acs, atob, /h=decodeURIComponent|_pop/)
-hatsukimanga.com##^script[data-cfasync]:has-text(h=decodeURIComponent)
+hatsukimanga.com##^script[data-cfasync]:has-text(/h=decodeURIComponent|popundersPerIP/)
 hatsukimanga.com##.cookies
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/78265
@@ -1972,7 +1972,7 @@ cutearn.net##[src^="https://i.ibb.co/"]
 
 ! https://github.com/uBlockOrigin/uAssets/issues/8881
 hiperdex.com##+js(acs, atob, /h=decodeURIComponent|_pop/)
-hiperdex.com##^script[data-cfasync]:has-text(h=decodeURIComponent)
+hiperdex.com##^script[data-cfasync]:has-text(/h=decodeURIComponent|popundersPerIP/)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/17027
 porntn.com##+js(set, flashvars.protect_block, '')
@@ -2509,7 +2509,7 @@ gamingbible.co.uk##.css-1dgm0zi-Advert
 
 ! hxfile. co popups
 hxfile.co##+js(acs, atob, /h=decodeURIComponent|_pop/)
-hxfile.co##^script[data-cfasync]:has-text(h=decodeURIComponent)
+hxfile.co##^script[data-cfasync]:has-text(/h=decodeURIComponent|popundersPerIP/)
 hxfile.co##a.btn-block
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/83658
@@ -3864,7 +3864,7 @@ celebjared.net###text-10
 1tamilmv.*##+js(acs, document.createElement, cookie)
 1tamilmv.*##+js(acs, atob, /h=decodeURIComponent|_pop/)
 1tamilmv.*##+js(aopr, mm)
-1tamilmv.*##^script[data-cfasync]:has-text(h=decodeURIComponent)
+1tamilmv.*##^script[data-cfasync]:has-text(/h=decodeURIComponent|popundersPerIP/)
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/94160
 beingtek.com##+js(aopr, app_vars.force_disable_adblock)
@@ -4323,7 +4323,7 @@ straatosphere.com##html:style(overflow: auto !important;)
 
 ! https://www.reddit.com/r/uBlockOrigin/comments/q515et/anti_ad_block_message_on/
 animotvslashz.blogspot.com##+js(aopr, _pop)
-animotvslashz.blogspot.com##^script[data-cfasync]:has-text(h=decodeURIComponent)
+animotvslashz.blogspot.com##^script[data-cfasync]:has-text(/h=decodeURIComponent|popundersPerIP/)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/10170
 liveonsat.com##+js(acs, document.getElementById, 'No')
@@ -4477,7 +4477,7 @@ systopedia.com##+js(aost, String.prototype.charCodeAt, ai_)
 ! https://github.com/uBlockOrigin/uAssets/issues/10277
 dofusports.xyz##+js(acs, atob, /h=decodeURIComponent|_pop/)
 dofusports.xyz##+js(nostif, debugger)
-dofusports.xyz##^script[data-cfasync]:has-text(h=decodeURIComponent)
+dofusports.xyz##^script[data-cfasync]:has-text(/h=decodeURIComponent|popundersPerIP/)
 
 ! https://www.reddit.com/r/uBlockOrigin/comments/qdmg9y/muvibg_dot_com_blocking_my_ublock/
 muvibg.com##+js(set, noAdBlock, true)
@@ -4491,7 +4491,7 @@ watchdoge.xyz##+js(nano-sib, sec)
 
 ! https://www.reddit.com/r/uBlockOrigin/comments/qdpslz/bestnhl_block_multiple_tabs_opening/
 bestnhl.com##+js(acs, atob, /h=decodeURIComponent|_pop/)
-bestnhl.com##^script[data-cfasync]:has-text(h=decodeURIComponent)
+bestnhl.com##^script[data-cfasync]:has-text(/h=decodeURIComponent|popundersPerIP/)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/10293
 fapcat.com##+js(nowoif)
@@ -4683,7 +4683,7 @@ buffstream.*##+js(aopr, mm)
 ! https://github.com/AdguardTeam/AdguardFilters/issues/98479
 ! https://github.com/uBlockOrigin/uAssets/issues/13749
 ytmp3eu.*##+js(acs, atob, /h=decodeURIComponent|_pop/)
-ytmp3eu.*##^script[data-cfasync]:has-text(h=decodeURIComponent)
+ytmp3eu.*##^script[data-cfasync]:has-text(/h=decodeURIComponent|popundersPerIP/)
 *$script,3p,denyallow=cloudflare.com,domain=ytmp3eu.net
 
 ! https://www.reddit.com/r/uBlockOrigin/comments/qjxtzk/antiadblock_subedlc/
@@ -4732,7 +4732,7 @@ kinas.tv##+js(nowoif)
 1stream.*##+js(acs, atob, /h=decodeURIComponent|_pop/)
 1stream.*##+js(nostif, "admc")
 1stream.*##^script[type]:has-text(c=document.createElement)
-1stream.*##^script[data-cfasync]:has-text(h=decodeURIComponent)
+1stream.*##^script[data-cfasync]:has-text(/h=decodeURIComponent|popundersPerIP/)
 ||pagath.com^$3p
 
 ! https://www.reddit.com/r/uBlockOrigin/comments/qlir5v/annoying_ad_on_stocktwits_no_longer_being_blocked/
@@ -5186,7 +5186,7 @@ glotorrents.fr-proxy.com,glotorrents.theproxy.ws##+js(aopr, String.prototype.cha
 tutele.sx##+js(aopr, Overlayer)
 tutele.sx##+js(acs, atob, /h=decodeURIComponent|_pop/)
 tutele.sx##+js(nostif, "admc")
-tutele.sx##^script[data-cfasync]:has-text(h=decodeURIComponent)
+tutele.sx##^script[data-cfasync]:has-text(/h=decodeURIComponent|popundersPerIP/)
 /script/ncsu.js$3p
 /script/nbsu.js$3p
 /script/ndsu.js$3p
