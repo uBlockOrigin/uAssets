@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Quick fixes
 ! Expires: 12 hours
-! Last modified: Mon, 11 Dec 2023 14:38:02 +0000
+! Last modified: Mon, 11 Dec 2023 16:49:42 +0000
 ! Diff-Path: %diffpath%#ublock-quick-fixes
 ! Diff-Name: ublock-quick-fixes
 ! Diff-Expires: 317 minutes
@@ -99,3 +99,10 @@ perchance.org##+js(rmnt, script, usingAdPoweredPlugin)
 @@||cheatnetwork.eu^$ghide
 mapchart.net#@#.row:has-text(Adv)
 mapchart.net##.row:has-text(Advertisement)
+thesaurus.net##+js(noeval-if, /07c225f3\.online|content-loader\.com|css-load\.com|html-load\.com/)
+!#if cap_html_filtering
+thesaurus.net##^script:has-text(KCgpPT57bGV0IGU)
+!#else
+thesaurus.net##+js(rmnt, script, KCgpPT57bGV0IGU)
+!#endif
+thesaurus.net##.grammarly-bnr
