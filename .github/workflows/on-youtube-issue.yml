@@ -1,0 +1,29 @@
+name: Triage Youtube issues
+
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  check-if-youtube:
+    if: startsWith(github.event.issue.title, 'youtube.com:') == 'true'
+    name: Close as duplicate
+    steps:
+      - name: Add label
+        uses: actions-cool/issues-helper@v3
+        with:
+          actions: 'add-labels'
+          labels: 'duplicate'
+      - name: Add comment
+        uses: actions-cool/issues-helper@v3
+        with:
+          actions: 'create-comment'
+          body: |
+            Please respect what is asked in the issue template to not unduly burden volunteers.
+            
+            This is a `youtube.com` issue, see <https://github.com/uBlockOrigin/uAssets/issues/20586>.
+      - name: Close issue
+        uses: actions-cool/issues-helper@v3
+        with:
+          actions: 'close-issue'
+          close-reason: completed
