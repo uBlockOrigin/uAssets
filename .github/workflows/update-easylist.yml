@@ -10,20 +10,12 @@ permissions:
 
 jobs:
   publish:
+    if: github.repository_owner == 'uBlockOrigin'
     permissions:
       contents: write  # for Git to git push
     name: Update Easylist assets
     runs-on: ubuntu-latest
     steps:
-      - name: Repo check
-        run: |
-          if [[ "$GITHUB_REPOSITORY_OWNER" != "uBlockOrigin" ]]; then
-            echo "This GitHub Action is meant to deliver filter lists for uBO."
-            echo "You shouldn't need to run this GitHub Action in your fork."
-            echo "If you do, please customize the cron expression above."
-            exit 1
-          fi
-          exit 0
       - name: Clone uAssets
         uses: actions/checkout@v3
       - name: Assemble Easylist assets
