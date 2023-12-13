@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Other Annoyances
-! Last modified: Wed, 13 Dec 2023 18:01:51 +0000
+! Last modified: Wed, 13 Dec 2023 19:42:34 +0000
 ! Expires: 7 days
 ! Description: |
 !   Filters optimized for uBlock Origin, to be used with EasyList's
@@ -2832,8 +2832,9 @@ iwanichi.co.jp##body:style(user-select: auto !important; -webkit-user-select: au
 ! https://github.com/uBlockOrigin/uAssets/issues/7493
 photobank.mainichi.co.jp##+js(set, commonUtil.openToast, null)
 
-! https://github.com/uBlockOrigin/uAssets/issues/7308 right click annoyance
+! https://github.com/uBlockOrigin/uAssets/issues/7308 right click annoyance, anti devtools
 strcloud.in,streamtape.*##+js(aeld, contextmenu)
+streamtape.*##+js(rmnt, script, /parseInt.*push.*setTimeout.*try.*catch/)
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/56652
 poedb.tw##+js(aopr, adBlockDetected)
@@ -7139,3 +7140,12 @@ zippyupload.com##+js(aeld, contextmenu, preventDefault)
 
 ! ndtvprofit. com copy manipulation
 ndtvprofit.com##+js(aopr, document.oncopy)
+
+! tuborstb.co anti devtools
+tuborstb.co##+js(nostif, debugger)
+
+! vembed.org anti devtools
+vembed.*##+js(rmnt, script, devtools)
+
+! stbnetu.xyz anti devtools
+stbnetu.xyz##+js(set, devtoolsDetector.launch, noopFunc)
