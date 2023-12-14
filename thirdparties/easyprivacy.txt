@@ -1,7 +1,7 @@
 [Adblock Plus 1.1]
 ! Title: EasyPrivacy
 ! Expires: 6 days (update frequency)
-! Last modified: Wed, 13 Dec 2023 13:08:15 +0000
+! Last modified: Thu, 14 Dec 2023 02:45:51 +0000
 ! Diff-Path: %diffpath%#easyprivacy
 ! Diff-Expires: 317 minutes
 ! *** easylist:template_header.txt ***
@@ -70,7 +70,6 @@
 .php?tracking=
 .sharecounter.$third-party
 .skimlinks.js
-.snowplowanalytics.$domain=~snowplowanalytics.com
 .stats?action=
 .svc/?tracking_id=
 .v4.analytics.
@@ -277,6 +276,7 @@
 /analytics/embed/*
 /analytics/event
 /analytics/ga.js
+/analytics/google.js
 /analytics/layer
 /analytics/metric/*
 /analytics/pageview
@@ -312,6 +312,7 @@
 /api-insights/log?
 /api/0/stats
 /api/adplogger/*
+/api/async.php?t=user&m=pagehits&
 /api/cmp_tracker|
 /api/drpStats
 /api/event-rfkj/*
@@ -622,6 +623,7 @@
 /collector/v1/event
 /collector?report=
 /collectsysteminfo?
+/com.snowplowanalytics.snowplow/*
 /com_joomlawatch/img.php
 /common/analytics.js
 /common/ga.js
@@ -859,7 +861,8 @@
 /facebookproductad/views/js/pixel.
 /faciliti-tag.min.js
 /fairfax_tracking.js
-/fb-pixel-$script
+/fb-pixel-dsgvo/*
+/fb-pixel-tracking.js
 /fb-tracking.js
 /fb_pixel_page_view
 /fbanalytics.js
@@ -916,7 +919,7 @@
 /frontend-gtag.min.js
 /frontend-metrics/*
 /frontend-sentry-
-/fsrscripts/*
+/fsrscripts/triggerParams.js
 /fusion/lucid/data/*
 /g_track.php?
 /ga-events.js
@@ -1022,8 +1025,7 @@
 /global_analytics/s_code.js
 /global_tracking.js
 /goAnalytics.js
-/google-analyticator/*
-/google-analytics/*$domain=~stackexchange.com|~superuser.com
+/google-analyticator/external-tracking.min.js
 /google-nielsen-analytics.js
 /google/analytics.js
 /google/autotrack.custom.js
@@ -1045,14 +1047,13 @@
 /googleAnalyticsDataLayer.v1.0.min.js
 /GoogleAnalyticsEvents.js
 /GoogleAnalyticsModule.min.js
-/GoogleAnalyticsPlus/*
+/GoogleAnalyticsPlus/distilled.FirstTouch.js
 /googleAnalyticsTracking.js
 /googleEventTracking.js
 /googletag.js
 /googletagmanageranalytics.js
 /googletrack.js
 /googleTracker.js
-/googletracker/*
 /googleTracking.js
 /grumi-ip.js
 /gs-analytics-init.js
@@ -1069,17 +1070,16 @@
 /gtm/gtm-
 /gtmTracking.js
 /gv-analytics/riveted.js
-/gweb/analytics/*
+/gweb/analytics/autotrack.js
 /h.gif?
 /hc/activity
-/HeatmapSessionRecording/*$domain=~plugins.matomo.org|~shop.matomo.org
+/HeatmapSessionRecording/configs.php
+/HeatmapSessionRecording/tracker.min.js
 /hg?hc=&hb=*&vjs=
 /hgct?hc=&hb=*&vjs=
 /hints.netflame.cc/*
 /histats.js
-/histats/*
 /hit-counter.
-/hit-counter/*
 /Hit.ashx?
 /hit.asp?
 /Hit.aspx?
@@ -1257,7 +1257,6 @@
 /leage.google.tracker.js
 /lhnhelpouttab-current.min.js
 /lib/analytics.js
-/lib/snowplow-
 /library/svy/broker.js
 /libs/tracker.js
 /liferay-analytics-api.js
@@ -1390,20 +1389,18 @@
 /marfeelanalytics.js
 /marketing-analytics.js
 /martypixel?
-/matomo-tracking.
+/matomo-tracking.js
 /matomo.js$domain=~github.com
 /matomo.php
 /matomo/*$domain=~github.com|~hub.docker.com|~matomo.org|~wordpress.org
 /mcookie.aspx
 /mcount.cgi?
-/mcounter/*
 /measure/pixel/*
 /measure/visit/*
-/media-analytics.min.
 /medialaanUniversalTracker.js
 /mediametrie.js
 /mediateGA.js
-/megacounter/*
+/megacounter.php
 /mendelstats.js
 /metatraffic/track.asp?
 /metric/?mid=
@@ -1436,20 +1433,15 @@
 /mixpanel-init.js
 /mixpanel.$domain=~mixpanel.com
 /mlb-ml-analytics.min.js
-/mlopen_track.
+/mlopen_track.html
 /mmclient.js
 /mmcore.js
-/mmetrix.mobi/*
 /mms.*/pv?
 /mms/get_loaders?
 /mn-collector.php
-/mngi/tracking/*
 /mnppixellibrary.min.js
 /mnt/imp?
 /moat/yield.js
-/moatanalytics-
-/mobileanalytics.
-/module/analytics/*
 /moksa.js
 /monetate.js
 /mongoose.fp.js
@@ -1567,11 +1559,8 @@
 /pageCounter.adp?
 /pagedot.gif?
 /PageHit.ashx
-/pagehits/*
 /pagelogger/connector.php?
-/pagestat/*
 /pagestat?
-/PageStatistics/*
 /PageStats.asp
 /PageStats.js
 /pagestats/*
@@ -1608,7 +1597,6 @@
 /perf-vitals_
 /perfmatters/js/analytics.js
 /perfmetrics.js
-/performance-logger.
 /performance-metrics.js
 /performance.fcgi?
 /performance/metrics
@@ -1641,7 +1629,6 @@
 /pinger.cgi?
 /pingServerAction?
 /pinterest-pixels.js
-/pistats/cgi-bin/*
 /piwik-$domain=~github.com|~matomo.org|~piwik.org|~piwik.pro|~piwikpro.de
 /piwik.$image,script,domain=~matomo.org|~piwik.org|~piwik.pro|~piwikpro.de
 /piwik/*$domain=~github.com|~matomo.org|~piwik.org|~piwik.pro
@@ -1655,6 +1642,7 @@
 /pixall.min.js
 /pixel-caffeine/build/frontend.js
 /pixel-manager.js?
+/pixel-tracker.js
 /pixel-tracking.
 /pixel.*/track/*
 /pixel.cgi?
@@ -1683,9 +1671,10 @@
 /pixelstats/*
 /pixeltag.js
 /pixeltrack.
-/pixeltracker.
+/pixeltracker.bundle.js
+/pixeltracker.js
 /PixelTracking.js
-/pixeltracking/*
+/pixeltracking/sdk-worker.js
 /pixelyoursite/dist/scripts/public.js
 /pixy.gif?
 /planetstat.php
@@ -1694,7 +1683,6 @@
 /player-test-impression?
 /player/stats.php?
 /plog?id
-/plogger/*
 /plugins/catman/*
 /plugins/duracelltomi-google-tag-manager/*
 /plugins/exactmetrics-
@@ -1718,6 +1706,7 @@
 /pphlogger.php
 /ppms.js
 /pr.php?
+/prebid.pro.js
 /preparecookies?callback=$domain=~mirapodo.de|~mytoys.de|~yomonda.de
 /prepixel?
 /presslabs.js$script,~third-party
@@ -1906,7 +1895,7 @@
 /screencount?vcid=
 /scribd_events?
 /script/pixel.js
-/scriptAnalytics.
+/scriptAnalytics.js
 /scripts.kissmetrics.com/*
 /scripts/clickjs.php
 /scripts/hbx.js
@@ -1939,6 +1928,7 @@
 /sentry-logger.js
 /sentry/bundle.min.js
 /seo.taCo.min.js
+/seo/pageStat/*
 /seostats.php
 /seotracking-v3.js
 /server.php?request=track&output=
@@ -1950,15 +1940,13 @@
 /session/preparecookies?$domain=~mirapodo.de|~mytoys.de|~yomonda.de
 /session/referer
 /session/update-beacon
+/sessioncam.js
 /sessioncam.min.$script
 /sessioncam.recorder.js
-/sessioncam/*
 /set-cookie.gif?
 /set_cookie.php?
 /set_optimizely_cookie.js
 /set_tracking.js
-/setAdStatEV?
-/setTDUID.do?
 /sfCounter/*
 /sgtracker.js
 /shared/sentry/*
@@ -1967,9 +1955,10 @@
 /shinystat_
 /shopify-boomerang-
 /shopify-event.gif?
-/shopify/track$domain=~github.com
+/shopify/track.js
 /shopify_stats.js
-/showcounter.$domain=~showcounter.com
+/showcounter.js
+/showcounter.php
 /showhits.php?
 /shreddit/perfMetrics
 /silveregg/js/cookie_lib.js
@@ -2000,7 +1989,7 @@
 /smartpixel.$domain=~smartpixel.com|~smartpixel.tv
 /smartserve-
 /smarttag-prod.
-/smartTag.bundle.
+/smartTag.bundle.js
 /smarttag/smarttag-
 /smetrics.*/b/ss/*
 /smetrics.*/id?
@@ -2008,10 +1997,9 @@
 /smmch-mine.js
 /smmch-own.js
 /snowman.gif?p=
-/snowplow.js$script,third-party
+/snowplow.js
 /snowplow/*$script
 /snowplow_$script
-/snowplowjs.
 /social_tracking.js
 /socialTracking.js
 /socialtracking.min.js
@@ -2211,9 +2199,10 @@
 /tagmanager/pptm.js
 /tags.js?org_id=
 /tailtarget.js
-/talpa-analytics-
-/TargetAnalyticsAPI-
-/tc_analytics.
+/talpa-analytics-pro/*
+/tatari-shopify/tracker-snippet-latest.min.js
+/tc_analytics.js
+/tc_analytics.min.js
 /tc_imp.gif?
 /tccl.min.js
 /tck/gif/*
@@ -2224,13 +2213,11 @@
 /TeaLeafCfg.js
 /TealeafSDK.js
 /TealeafSDKConfig.js
-/TealeafTarget.
 /tealeaftarget?
-/tealium-analytics.
 /tealium-external/utag.js
-/tealium-utag-
-/tealiumAnalytics.
-/tealiumTagsData.
+/tealium-utag-set.js
+/tealiumAnalytics.js
+/tealiumTagsData.js
 /tenant.min.js
 /thermostat.js
 /thixel.js
@@ -2238,20 +2225,16 @@
 /ticimax/analytics.js
 /tide_stat.js
 /tilda-stat-
-/timingcg.
-/tjp_beacon.
-/tjx-tracking-
+/timingcg.min.js
+/tjp_beacon.js
+/tjx-tracking-data.js
 /tking/ajax_track_stats?
-/tms/metrics.
 /tncms/tracking.js
-/tnsCounter.
-/tnsmetrix/*
 /token?referer=
 /tongji.js
 /toplytics.js
-/touch-clarity.
-/TouchClarity.
-/touchclarity/*
+/TouchClarity.js
+/touchclarity/logging.js
 /tr.gif?
 /tr/pageview/*
 /trace-Update.php?
@@ -2263,12 +2246,10 @@
 /track-event.
 /track-focus.min.js
 /track-imp?
-/track-internal-links.
+/track-internal-links.js
 /track-opening/*
-/track-page-view.
 /track-pixel.
-/track-the-click/*
-/track-visit-event?
+/track-the-click-public.js
 /track-visit?
 /track.ads/*
 /track.ashx?*=http
@@ -5114,6 +5095,8 @@ omni.soundestlink.com$image
 ||pixelinteractivemedia.com^$third-party
 ||pixelpop.co^$third-party
 ||pixelrevenue.com^$third-party
+||pixeltracker.co^$third-party
+||pixeltracker.im^$third-party
 ||pixfuture.com^$third-party
 ||pjatr.com^$third-party
 ||pjtra.com^$third-party
@@ -10955,6 +10938,7 @@ $third-party,xmlhttprequest,domain=opensubtitles.org
 ||snapkit.com/v1/sdk/metrics/
 ||snaps.vidiemi.com^$third-party
 ||snowplow.swm.digital^
+||snowplowjs.darwin.cx^
 ||soccer.ru/counter/
 ||socialannex.com/c-sale-track/$script
 ||solutions.invocacdn.com^
@@ -12479,6 +12463,7 @@ $third-party,xmlhttprequest,domain=opensubtitles.org
 ||pia.jp/akam/$script
 ||pia.jp/images/pt.gif$image
 ||popin.cc/iframe/piuid.html
+||popin.cc/js/pixel.js
 ||popin.cc/PopinService/Logs/
 ||popin.cc/retarget/
 ||popin.cc/test/popin_img_m.js
@@ -13681,6 +13666,7 @@ $third-party,xmlhttprequest,domain=opensubtitles.org
 ||nordstrom.com/api/cake/
 ||nordstrom.com/api/cupcake/
 ||norton.com/service/norton/head?
+||notion.so/api/v*/teV1
 ||novanthealth.org/v1/tagular/beam
 ||novelcool.com/files/js/yh_tj.js
 ||ntvid.online/cdn-cgi/trace
