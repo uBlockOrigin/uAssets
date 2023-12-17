@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2023)
-! Last modified: Sun, 17 Dec 2023 14:03:26 +0000
+! Last modified: Sun, 17 Dec 2023 15:27:23 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -34,9 +34,9 @@ xpshort.com##.banner
 go.publicearn.com##.page-header > h3, .banner, .bg-soft-primary
 @@*$ghide,domain=iisfvirtual.in|starxinvestor.com
 iisfvirtual.in,starxinvestor.com##+js(rmnt, script, googlesyndication)
-iisfvirtual.in,starxinvestor.com##+js(set, countdown, 0)
+iisfvirtual.in,starxinvestor.com##+js(set, count, 0)
 iisfvirtual.in,starxinvestor.com###tp98, #btn6:style(display: block !important;)
-iisfvirtual.in,starxinvestor.com##div[id$="-Ads"]
+iisfvirtual.in,starxinvestor.com##[id$="-Ads"], [id*="-gpt-ad"], center > h3, #skull, #content, #btnx, .mh-clearfix.mh-wrapper:remove()
 
 ! earn2me.com (earn2me.com/kVFvyX)
 recipese.com,easyworldbusiness.com###yuidea-snp, #yuidea-btn-after, a[href]:style(display: block !important;)
@@ -68,6 +68,26 @@ shareus.io,shrs.link##.button-texts:others()
 ! https://github.com/uBlockOrigin/uAssets/issues/16217
 @@||exeo.app^$ghide
 exeo.app##.actions, .earning-steps ~*, .earning-steps, header, footer, .ad-element
+
+! https://github.com/uBlockOrigin/uAssets/issues/21430
+||iili.io^$image,domain=theforyou.in|gyanitheme.com|hipsonyc.com
+gyanitheme.com,hipsonyc.com##+js(rpnt, script, /^window\.location\.href.*\'$/gms)
+tech.hipsonyc.com,hostadviser.net,theforyou.in###waiting, #pop-button:style(display: block !important;)
+tech.hipsonyc.com,hostadviser.net,theforyou.in###waiting, #pop-button, .modal-content:others()
+gyanitheme.com,hipsonyc.com##+js(nano-stb, gotoo, *)
+hipsonyc.com###notarobot, #gotolink:style(display: block !important;)
+hipsonyc.com,~tech.hipsonyc.com###notarobot, #gotolink:others()
+hipsonyc.com###adtera
+hipsonyc.com###getlink[disabled]:remove-attr(disabled)
+hipsonyc.com###gotolink[disabled]:remove-attr(disabled)
+hipsonyc.com##+js(nano-sib, countDown)
+@@*$ghide,domain=theforyou.in|gyanitheme.com|hipsonyc.com
+theforyou.in,gyanitheme.com,hipsonyc.com##+js(no-xhr-if, adsbygoogle)
+go.gyanitheme.com,go.theforyou.in,go.hipsonyc.com##+js(set, blurred, false)
+go.gyanitheme.com,go.theforyou.in,go.hipsonyc.com##.blog-item, .banner-inner, footer
+gyanitheme.com#@##ad-top
+theforyou.in,gyanitheme.com,hipsonyc.com,hostadviser.net##.getox
+||buoydeparturediscontent.com^$all
 
 ! https://github.com/uBlockOrigin/uAssets/issues/20799
 ! LinkShortify
@@ -777,32 +797,6 @@ diyphotography.net##+js(aeld, , AdB)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/16692
 ||tilersforums.com/js/xf/$script,1p
-
-! https://github.com/uBlockOrigin/uAssets/issues/16699
-gyanitheme.com,hipsonyc.com##+js(rpnt, script, /^window\.location\.href.*\'$/gms)
-hipsonyc.com##.close-sticky-ad
-hipsonyc.com###footer-sticky-ad
-||iili.io^$image,domain=hipsonyc.com
-hipsonyc.com###adtera
-hipsonyc.com###getlink,#verify,#pop-button,#gotolink:style(display: block !important;)
-hipsonyc.com###getlink[disabled]:remove-attr(disabled)
-hipsonyc.com###gotolink[disabled]:remove-attr(disabled)
-hipsonyc.com##+js(nano-sib, countDown)
-tech.hipsonyc.com,www.hipsonyc.com###verify, #getlink, #pop-button, #gotolink, #notarobot:others()
-go.hipsonyc.com##+js(set, blurred, false)
-go.hipsonyc.com##.blog-item
-*$popunder,domain=go.theforyou.in
-||buoydeparturediscontent.com^$all
-! https://github.com/uBlockOrigin/uAssets/issues/16884
-gyanitheme.com,hipsonyc.com##+js(no-xhr-if, adsbygoogle)
-gyanitheme.com##+js(nano-stb, gotoo, *)
-gyanitheme.com##+js(nano-stb, , 30000, 0.02)
-gyanitheme.com###getlink:style(display: block !important;)
-gyanitheme.com#@##ad-top
-@@||gyanitheme.com^$ghide
-@@||hipsonyc.com^$ghide
-go.gyanitheme.com##.blog-item
-tech.gyanitheme.com##.getox
 
 ! https://github.com/uBlockOrigin/uAssets/issues/10703
 ||uploadhaven.com/sw.js$script,1p
