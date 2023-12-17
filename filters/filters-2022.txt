@@ -8,6 +8,55 @@
 ! GitHub issues: https://github.com/uBlockOrigin/uAssets/issues
 ! GitHub pull requests: https://github.com/uBlockOrigin/uAssets/pulls
 
+! https://github.com/uBlockOrigin/uAssets/issues/8373
+*$script,redirect-rule=noopjs,domain=dropgalaxy.*
+*$xhr,redirect-rule=nooptext,domain=dropgalaxy.*
+*$frame,redirect-rule=noopframe,domain=dropgalaxy.*
+*$image,redirect-rule=32x32.png,domain=dropgalaxy.*
+@@||dropgalaxy.*^$ghide
+@@||challenges.cloudflare.com^$subdocument,domain=dropgalaxy.*
+@@||adoto.net^$script,xhr,domain=dropgalaxy.*
+@@||a2zapk.com^$script,xhr,3p,domain=dropgalaxy.*
+@@||login.popmonetizer.com^$script,domain=dropgalaxy.*
+@@||popads.net/js/adblock.js$script,xhr,domain=dropgalaxy.*
+||assets.isavetube.com/images/dgpromo.jpg
+||assets-7pb.pages.dev/images/dgpromo.jpg
+||js.mobileoffers-ep-download.com^$domain=dropgalaxy.*
+dropgalaxy.*##+js(acs, document.createElement, /break;case \$\.|popunder/)
+dropgalaxy.*##+js(aeld, DOMContentLoaded, handler)
+dropgalaxy.*##+js(aeld, , loadScripts)
+dropgalaxy.*##+js(set, window.isAdblockActive, false)
+dropgalaxy.*##+js(trusted-set, document.visibilityState, visible)
+dropgalaxy.*##+js(rpnt, script, true;, false;)
+dropgalaxy.*##+js(rpnt, script, /none|hidden/, 0, condition, getComputedStyle)
+dropgalaxy.*##+js(rpnt, script, /s.src =|s.src/i)
+!dropgalaxy.*##+js(rpnt, script, /script1.src|script2.src/, lol.noop)
+dropgalaxy.*,financemonk.net##+js(nowoif)
+@@||financemonk.net^$ghide
+financemonk.net###vipada
+
+! https://github.com/uBlockOrigin/uAssets/issues/17548
+@@*$ghide,domain=dev.miuiflash.com|djxmaza.in|thecubexguide.com
+*$script,redirect-rule=noopjs,domain=djxmaza.in|thecubexguide.com|dev.miuiflash.com
+*$frame,redirect=noopframe,domain=djxmaza.in|dev.miuiflash.com|thecubexguide.com
+*$xhr,domain=djxmaza.in|dev.miuiflash.com|thecubexguide.com,redirect-rule=nooptext
+*$image,redirect-rule=32x32.png:5,domain=djxmaza.in|thecubexguide.com|dev.miuiflash.com
+@@||devfiles.pages.dev/fonts/wp-content/plugins/best-ads-block-detector/main.js
+@@||googlesyndication.com^$script,xhr,domain=djxmaza.in|dev.miuiflash.com|thecubexguide.com
+@@||doubleclick.net^$script,xhr,domain=djxmaza.in|dev.miuiflash.com|thecubexguide.com
+@@||adoto.net/dashboard/common/js/common.js$3p,script,domain=dev.miuiflash.com|djxmaza.in|thecubexguide.com
+||google.com/ads/*$image,domain=djxmaza.in|dev.miuiflash.com|thecubexguide.com
+!dev.miuiflash.com,djxmaza.in,thecubexguide.com##iframe:upward(div)
+dev.miuiflash.com,djxmaza.in,thecubexguide.com##[id*=google_ads_]:style(height:250px !important;left:-3000px !important;position:absolute !important)
+djxmaza.in,miuiflash.com,thecubexguide.com###featuredimage
+djxmaza.in,miuiflash.com,thecubexguide.com##+js(rpnt, script, featuredimage', container', condition, getComputedStyle)
+djxmaza.in,miuiflash.com,thecubexguide.com##+js(rmnt, script, checkifscript)
+djxmaza.in,miuiflash.com,thecubexguide.com##+js(rpnt, script, IFRAME", CONTAINER")
+dev.miuiflash.com,djxmaza.in,thecubexguide.com##+js(rpnt, script, iframe., form.)
+dev.miuiflash.com,djxmaza.in,thecubexguide.com##+js(rpnt, script, /none'|hidden'|, false')
+dev.miuiflash.com,djxmaza.in,thecubexguide.com##+js(rpnt, script, /none"|hidden"/, false")
+dev.miuiflash.com,djxmaza.in,thecubexguide.com##+js(rpnt, script, /undefined|null/, false)
+
 ! https://github.com/uBlockOrigin/uAssets/issues/16533
 ! https://github.com/uBlockOrigin/uAssets/discussions/17361#discussioncomment-6895297
 techcyan.com,kiktu.com,upshrink.com,trangchu.news,banaraswap.in##+js(acs, $, google_ads_iframe_)
@@ -83,55 +132,6 @@ veganab.co,camdigest.com##+js(nano-sib, /wpsafe|wait/, *, 0.001)
 veganab.co,camdigest.com###wpsafe-link, #section2:style(display: block !important;)
 veganab.co,camdigest.com###wpsafe-link, #section2:others()
 techy.veganab.co##.text-left, div.inst.box, .banner-inner
-
-! https://github.com/uBlockOrigin/uAssets/issues/8373
-*$script,redirect-rule=noopjs,domain=dropgalaxy.*
-*$xhr,redirect-rule=nooptext,domain=dropgalaxy.*
-*$frame,redirect-rule=noopframe,domain=dropgalaxy.*
-*$image,redirect-rule=32x32.png,domain=dropgalaxy.*
-@@||dropgalaxy.*^$ghide
-@@||challenges.cloudflare.com^$subdocument,domain=dropgalaxy.*
-@@||adoto.net^$script,xhr,domain=dropgalaxy.*
-@@||a2zapk.com^$script,xhr,3p,domain=dropgalaxy.*
-@@||login.popmonetizer.com^$script,domain=dropgalaxy.*
-@@||popads.net/js/adblock.js$script,xhr,domain=dropgalaxy.*
-||assets.isavetube.com/images/dgpromo.jpg
-||assets-7pb.pages.dev/images/dgpromo.jpg
-||js.mobileoffers-ep-download.com^$domain=dropgalaxy.*
-dropgalaxy.*##+js(acs, document.createElement, /break;case \$\.|popunder/)
-dropgalaxy.*##+js(aeld, DOMContentLoaded, handler)
-dropgalaxy.*##+js(aeld, , loadScripts)
-dropgalaxy.*##+js(set, window.isAdblockActive, false)
-dropgalaxy.*##+js(trusted-set, document.visibilityState, visible)
-dropgalaxy.*##+js(rpnt, script, true;, false;)
-dropgalaxy.*##+js(rpnt, script, /none|hidden/, 0, condition, getComputedStyle)
-dropgalaxy.*##+js(rpnt, script, /s.src =|s.src/i)
-!dropgalaxy.*##+js(rpnt, script, /script1.src|script2.src/, lol.noop)
-dropgalaxy.*,financemonk.net##+js(nowoif)
-@@||financemonk.net^$ghide
-financemonk.net###vipada
-
-! https://github.com/uBlockOrigin/uAssets/issues/17548
-@@*$ghide,domain=dev.miuiflash.com|djxmaza.in|thecubexguide.com
-*$script,redirect-rule=noopjs,domain=djxmaza.in|thecubexguide.com|dev.miuiflash.com
-*$frame,redirect=noopframe,domain=djxmaza.in|dev.miuiflash.com|thecubexguide.com
-*$xhr,domain=djxmaza.in|dev.miuiflash.com|thecubexguide.com,redirect-rule=nooptext
-*$image,redirect-rule=32x32.png:5,domain=djxmaza.in|thecubexguide.com|dev.miuiflash.com
-@@||devfiles.pages.dev/fonts/wp-content/plugins/best-ads-block-detector/main.js
-!@@||googlesyndication.com^$script,xhr,domain=djxmaza.in|dev.miuiflash.com|thecubexguide.com
-!@@||doubleclick.net^$script,xhr,domain=djxmaza.in|dev.miuiflash.com|thecubexguide.com
-@@||adoto.net/dashboard/common/js/common.js$3p,script,domain=dev.miuiflash.com|djxmaza.in|thecubexguide.com
-!dev.miuiflash.com,djxmaza.in,thecubexguide.com##iframe:upward(div)
-!dev.miuiflash.com,djxmaza.in,thecubexguide.com##[id*=google_ads_]:style(height:250px !important;left:-3000px !important;position:absolute !important)
-dev.miuiflash.com,djxmaza.in,thecubexguide.com##+js(no-xhr-if, ads, true)
-djxmaza.in,miuiflash.com,thecubexguide.com###featuredimage
-djxmaza.in,miuiflash.com,thecubexguide.com##+js(rpnt, script, featuredimage', container', condition, getComputedStyle)
-djxmaza.in,miuiflash.com,thecubexguide.com##+js(rmnt, script, checkifscript)
-djxmaza.in,miuiflash.com,thecubexguide.com##+js(rpnt, script, IFRAME", CONTAINER")
-dev.miuiflash.com,djxmaza.in,thecubexguide.com##+js(rpnt, script, iframe., form.)
-dev.miuiflash.com,djxmaza.in,thecubexguide.com##+js(rpnt, script, /none'|hidden'|, false')
-dev.miuiflash.com,djxmaza.in,thecubexguide.com##+js(rpnt, script, /none"|hidden"/, false")
-dev.miuiflash.com,djxmaza.in,thecubexguide.com##+js(rpnt, script, /undefined|null/, false)
 
 ! https://www.reddit.com/r/uBlockOrigin/comments/rr818d/
 akoam.*##+js(nowoif)
