@@ -6,8 +6,9 @@ on:
 
 jobs:
   check-if-youtube:
-    if: startsWith(github.event.issue.title, 'youtube.com:') == 'true'
     name: Close as duplicate
+    runs-on: ubuntu-latest
+    if: startsWith(github.event.issue.title, 'youtube.com:') == 'true'
     steps:
       - name: Add label
         uses: actions-cool/issues-helper@v3
