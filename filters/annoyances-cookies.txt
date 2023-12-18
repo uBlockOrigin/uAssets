@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Cookie Notices
-! Last modified: Mon, 18 Dec 2023 17:24:53 +0000
+! Last modified: Mon, 18 Dec 2023 21:17:23 +0000
 ! Expires: 7 days
 ! Description: |
 !   Filters optimized for uBlock Origin, to be used with EasyList's
@@ -230,7 +230,19 @@ festool.*,festoolcanada.com###focus-lock-id
 cc.com##+js(trusted-set-cookie, OptanonAlertBoxClosed, $currentDate$, 1year)
 ! https://www.resursbank.fi/
 resursbank.fi##+js(trusted-set-cookie, cookie_consent, necessary%3A1%2Cstatistics%3A0%2Cmarketing%3A0)
-
+! LADbiblegroup, broken videos. Sample page: https://www.unilad.com/celebrity/news/big-bang-theory-kate-micucci-cancer-free-950283-20231218
+consent.ladbible.com,consent.unilad.com,consent.gamingbible.com,consent.sportbible.com,consent.tyla.com,consent.ladbiblegroup.com##+js(trusted-click-element, button.sp_choice_type_12[title$="Settings"])
+consent.ladbible.com,consent.unilad.com,consent.gamingbible.com,consent.sportbible.com,consent.tyla.com,consent.ladbiblegroup.com##+js(trusted-click-element, button[title="REJECT ALL"], , 1000)
+ladbible.com,unilad.com,gamingbible.com,sportbible.com,tyla.com,ladbiblegroup.com##html.sp-message-open:style(width: initial !important)
+ladbible.com,unilad.com,gamingbible.com,sportbible.com,tyla.com,ladbiblegroup.com##html.sp-message-open > body:style(position: unset !important; overflow: unset !important)
+ladbible.com,unilad.com,gamingbible.com,sportbible.com,tyla.com,ladbiblegroup.com##[title="SP Consent Message"]
+! Temp filters:
+! https://github.com/easylist/easylist/pull/18054
+! https://github.com/easylist/easylist/pull/18053
+||consent.unilad.com^$badfilter
+sportbible.com#@#+js(remove-class, sp-message-open, html, stay)
+sportbible.com#@#div[id^="sp_message_container_"]
+@@||consent.sportbible.com^$domain=sportbible.com
 
 !! Needs additional cookies
 
