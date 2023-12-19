@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Annoyances
 ! Expires: 7 days
-! Last modified: Tue, 19 Dec 2023 05:26:44 +0000
+! Last modified: Tue, 19 Dec 2023 06:04:52 +0000
 ! Diff-Path: %diffpath%#ublock-annoyances
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -416,11 +416,6 @@ ab.gr##+js(trusted-set-cookie, CookieConsent, 1.0.0.0.0)
 ! Reject-all meteored sites
 tameteo.com,tempo.pt,yourweather.co.uk,meteored.cl,meteored.mx,tempo.com,ilmeteo.net,meteored.com.ar,daswetter.com##+js(trusted-set-cookie, euconsent-v2, CP2APYAP2APYADtACBDEAcEgAAAAAAAAACiQAAAAAAAA)
 tameteo.com,tempo.pt,yourweather.co.uk,meteored.cl,meteored.mx,tempo.com,ilmeteo.net,meteored.com.ar,daswetter.com##+js(set-cookie, euconsent-v2-addtl, 0)
-! quotidiano. net cookies + (FA / AA unbreaking videos https://www.quotidiano.net/video/parigi-arrestato-guru-di-atman-yoga-federation-e-altre-41-persone-jgbapomp)
-quotidiano.net##+js(trusted-click-element, button#pt-accept-all)
-@@||cmp-assets.pubtech.ai/*.json$xhr
-@@||cmp.pubtech.ai/*/pubtech-cmp-v2.js$script,domain=quotidiano.net
-quotidiano.net#@##pubtech-cmp
 glamour.com##+js(trusted-set-cookie, OptanonConsent, groups=C0003%3A0%2CC0002%3A0%2CC0004%3A1%2CC0001%3A1%2CC0009%3A0, 1year)
 ! repubblica.it accept and reload
 repubblica.it##+js(trusted-click-element, button.iubenda-cs-accept-btn, , 500)
@@ -448,8 +443,9 @@ tobis.de##+js(trusted-set-cookie, tarteaucitron, !tarteaucitron=true!website=tru
 manta.net##+js(trusted-set-local-storage-item, cookie_setting, '{"analytical_cookies":false,"functional_cookies":true}')
 ! chip.de functional + social
 chip.de##+js(trusted-set-cookie, consentUUID, 5b13fb0e-6264-4bfa-bd0c-20f35140a634_26)
-@@||cmp.pubtech.ai/*/pubtech-cmp-v2.js$script,from=ilrestodelcarlino.it
-ilrestodelcarlino.it##+js(trusted-click-element, #pubtech-cmp #pt-close)
+! quotidiano. net cookies + (FA / AA unbreaking videos https://www.quotidiano.net/video/parigi-arrestato-guru-di-atman-yoga-federation-e-altre-41-persone-jgbapomp)
+@@||cmp.pubtech.ai/*/pubtech-cmp-v2.js$script,from=ilrestodelcarlino.it|quotidiano.net|lanazione.it|ilgiorno.it|iltelegrafolivorno.it
+ilrestodelcarlino.it,quotidiano.net,lanazione.it,ilgiorno.it,iltelegrafolivorno.it##+js(trusted-click-element, #pubtech-cmp #pt-close)
 lekarnaave.cz##+js(trusted-set-cookie, cookiesSettings, %7B%22necessary%22%3Atrue%2C%22preferential%22%3Atrue%7D, , , reload, 1)
 ! reject marketing/analytics
 algarvevacation.net##+js(set-cookie, acepta_cookie, acepta)
