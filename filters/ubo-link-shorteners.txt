@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Link shorteners
-! Last modified: Wed, 20 Dec 2023 05:12:24 +0000
+! Last modified: Wed, 20 Dec 2023 05:48:28 +0000
 ! Expires: 5 days
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
@@ -410,6 +410,31 @@ satoshi-win.xyz##^responseheader(refresh)
 ||id5-sync.com^$image,redirect-rule=1x1.gif,domain=satoshi-win.xyz
 |about:blank$popup,domain=satoshi-win.xyz
 ||funuzai.ru^$popup
+
+! https://github.com/uBlockOrigin/uAssets/issues/18745
+encurtandourl.com##+js(nostif, getComputedStyle, 250)
+encurtandourl.com##+js(nostif, nextFunction)
+encurtandourl.com##+js(set, blurred, false)
+encurtandourl.com##.banner
+overgal.com##+js(no-fetch-if, googlesyndication)
+
+! https://github.com/uBlockOrigin/uAssets/issues/18747
+suaurl.com##+js(rmnt, script, /window\.open|window\.location\.href|document\.addEventListener|\$\(document\)\.ready.*show/)
+suaurl.com##+js(rpnt, script, /document\.querySelector\('div\.textads\.banner-ads.banner_ads\.ad-unit\.ad-zone\.ad-space\.adsbox'\)/, document)
+suaurl.com##+js(aopr, document.oncontextmenu)
+suaurl.com##+js(aopr, shortcut)
+suaurl.com##+js(aost, document.querySelector, suaads)
+suaurl.com##+js(nano-sib, cont, *, 0.001)
+suaurl.com##+js(aopw, confCapcha)
+suaurl.com###btn-capcha > button:remove-attr(disabled)
+||suaurl.com^$csp=style-src *
+
+! https://www.reddit.com/r/uBlockOrigin/comments/18irmvf/i_was_detected/
+mamahawa.com##+js(rpnt, script, /window\.location\.href='.*';/, , condition, openLink)
+forextrader.site##+js(set, blurred, false)
+forextrader.site##+js(aopr, scriptUrls)
+10short.pro,mamahawa.com##+js(nano-sib, timer, *, 0.001)
+10short.pro,mamahawa.com##.text-left
 
 ! https://www.reddit.com/r/uBlockOrigin/comments/18mhh9o/help_i_was_identified/
 @@||postazap.com^$ghide
