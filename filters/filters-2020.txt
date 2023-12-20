@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2020)
-! Last modified: Wed, 20 Dec 2023 13:48:58 +0000
+! Last modified: Wed, 20 Dec 2023 14:55:30 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -166,7 +166,7 @@ skymovieshd.*##+js(set, D4zz, noopFunc)
 flickr.com##+js(set, appContext.adManager.context.current.adFriendly, false)
 flickr.com##.sub-photo-submoola-view
 flickr.com##section:has([href*="istockphoto.com"])
-flickr.com##.sub-photo-right-view > div:has([href^="/account/upgrade"])
+flickr.com##.sub-photo-right-view [href^="/account/upgrade"]:upward(.sub-photo-right-view > div)
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/53762
 linkshrnk.com##+js(nosiif, visibility, 1000)
@@ -759,7 +759,7 @@ talkceltic.net##+js(set, samDetected, false)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/7365
 @@||splitshire.com^$ghide
-splitshire.com##.row-container:has(.adsbygoogle)
+splitshire.com##.adsbygoogle:upward(.row-container)
 splitshire.com##.ezoic-ad
 
 ! https://github.com/uBlockOrigin/uAssets/issues/7366
@@ -2656,14 +2656,14 @@ ohentai.org##+js(nowoif)
 youngpornvideos.com##+js(acs, url)
 youngpornvideos.com##.ads
 youngpornvideos.com##.ads-mobile
-youngpornvideos.com##.outer-item:has(.ads-thumb-list)
+youngpornvideos.com##.ads-thumb-list:upward(.outer-item)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/8988
 hentaicloud.com##+js(set, decodeURI, noopFunc)
 hentaicloud.com##+js(aopr, TotemToolsObject)
 hentaicloud.com##+js(aopr, AaDetector)
 hentaicloud.com##.vertical-ads-content
-hentaicloud.com##.horizontal-ads-content:has(.ad)
+hentaicloud.com##.ad:upward(.horizontal-ads-content)
 hentaicloud.com##section.videos-content:has(.thumbnail > a[href^="https://www.nutaku.net/signup/landing/"])
 
 ! javdoe.to/javtc.fun popup ads
@@ -4216,10 +4216,10 @@ forexforum.co##+js(acs, $, .test)
 21porno.com##+js(nostif, window.location.href, 50)
 
 ! rule34.paheal.net PH
-rule34.paheal.net##section[id]:has(script[src$="ads.js"])
+rule34.paheal.net##script[src$="ads.js"]:upward(section[id])
 
 ! palcomix.com ads
-palcomix.com##td:has(center > font[size="3"][face="ARIAL"]:has-text(ADVERTISING))
+palcomix.com##center > font[size="3"][face="ARIAL"]:has-text(ADVERTISING):upward(td)
 palcomix.com##table[width="800"]:has(img[src^="../ads/"])
 /\.com\/(full)?ad[0-9a-z]+\.(?:gif|jpg)$/$image,1p,domain=palcomix.com
 
@@ -4311,7 +4311,7 @@ hentaihd.net##.active-item
 *$script,redirect-rule=noopjs,domain=konnoznet.xyz
 
 ! nypost.com PH
-nypost.com##.widget_text:has(img[src$="/knewz_300x250.png"])
+nypost.com##img[src$="/knewz_300x250.png"]:upward(.widget_text)
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/69639
 fappee.com##+js(acs, doMyStuff)
