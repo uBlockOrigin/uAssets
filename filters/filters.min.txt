@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Wed, 20 Dec 2023 15:03:28 +0000
+! Last modified: Wed, 20 Dec 2023 15:10:45 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -16791,7 +16791,7 @@ blu-ray.com##+js(nowoif)
 rosefile.net##+js(acs, document.addEventListener, nextFunction)
 ac-illust.com,photo-ac.com##+js(set, enable_dl_after_countdown, true)
 ac-illust.com,photo-ac.com##+js(set, isGGSurvey, true)
-ac-illust.com,photo-ac.com###eachDownloadedModal .ac-btn[href^="https://premium."]:upward(#eachDownloadedModal)
+ac-illust.com,photo-ac.com###eachDownloadedModal:has(.ac-btn[href^="https://premium."])
 ac-illust.com,photo-ac.com##.modal-backdrop
 ac-illust.com,photo-ac.com##body.modal-open *:style(filter: none!important;)
 ! PopAds-sites
@@ -16976,7 +16976,7 @@ victor-mochere.com##+js(nostif, ai_)
 ! buondua.com leftover
 buondua.com##+js(acs, document.querySelectorAll, popMagic)
 buondua.com##.main-body > div > div[class]:not([class^="item"]):not([class^="article"]):has-text(/^Sponsored ads$/)
-buondua.com##.main-body div[class] > .adsbyexoclick:upward(1)
+buondua.com##.main-body div[class]:has(> .adsbyexoclick)
 buondua.com##.pagination + br + div[class]
 buondua.com##div[class*="article"] > div:not([class]) > div[class]:has-text(/^Sponsored ads$/)
 likuoo.video##+js(acs, document.querySelectorAll, popMagic)
@@ -18117,7 +18117,7 @@ apkmaven.*###wpsafe-generate, #wpsafe-link:style(display: block !important;)
 apkmaven.*##div[id^="wpsafe-wait"]
 apkmaven.*###countdown
 apkmaven.*###download_link:style(display: block !important;)
-photopea.com##div[style] > a[href*="photopea.com"][href*="ads"]:upward(1)
+photopea.com##div[style]:has(> a[href*="photopea.com"][href*="ads"])
 !photopea.com##+js(rpnt, script, /^.*?(function gtag).*$/, document.documentElement.setAttribute('onreset'\,(function addCustomEvent(){document.addEventListener('resizecanvas'\,()=>{window.innerWidth=document.documentElement.clientWidth+(window.screen.width<1600?180:320)})})());document.documentElement.dispatchEvent(new CustomEvent('reset'));document.documentElement.removeAttribute('onreset');function resize(event={}){if(!event.skip){document.dispatchEvent(new CustomEvent('resizecanvas'));const resizeEvent=new Event('resize');resizeEvent.skip=true;window.dispatchEvent(resizeEvent)}}let debounce;window.addEventListener('resize'\,event=>{clearTimeout(debounce);debounce=setTimeout(()=>resize(event)\,100)});resize();)
 ||pagead2.googlesyndication.com^$3p,xhr,method=head,redirect-rule=noop.js,domain=photopea.com
 @@||cmp.uniconsent.com^$3p,xhr,domain=photopea.com
@@ -18375,7 +18375,7 @@ gratflix.org##+js(nowoif)
 ||matystudios.github.io/banner_ad.png$image,redirect-rule=2x2.png
 @@||top-faucet.com^$ghide
 top-faucet.com###ads2
-top-faucet.com##div[style] > span[id^="ezoic"]:upward(1)
+top-faucet.com##div[style]:has(> span[id^="ezoic"])
 zertalious.xyz##+js(aopr, onAdblockerDetected)
 sushiscan.*##+js(nosiif, daadb)
 tech-story.net##+js(no-xhr-if, adsbygoogle)
@@ -18413,7 +18413,7 @@ illimite-streaming.com##+js(aopr, BetterJsPop)
 illimite-streaming.com##^script:has-text(BetterJsPop.add)
 ! wowroms.com timer, PH
 wowroms.com##+js(nano-sib, second)
-wowroms.com##.ulromlist > .element > ul > li > .adsbygoogle:upward(3)
+wowroms.com##.ulromlist > .element:has(> ul > li > .adsbygoogle)
 ! 'undefined' leftover e.g. chintpurni.angelfire.com
 ! doesn't work on Fireofx e.g. zhra.angelfire.com but no big matter
 angelfire.com##+js(acs, document.write, lycos_ad)
@@ -18624,7 +18624,7 @@ mplayer.sbs##+js(aopr, AaDetector)
 austiblox.net##+js(aopr, document.body.innerHTML)
 austiblox.net##+js(set, detectAdBlock, noopFunc)
 austiblox.net##+js(rmnt, script, /adblock|location\.replace/)
-javrank.com##.text-center > div.koukoku_1:upward(1)
+javrank.com##.text-center:has(> div.koukoku_1)
 ||adspy.javrank.com^
 palixi.net##+js(no-fetch-if, adsbygoogle)
 xxxxsx.com##^responseheader(location)
@@ -19887,18 +19887,18 @@ jiocinema.com##ins[id^="jioads"]
 *$script,domain=koamnewsnow.com,redirect-rule=noopjs
 kpkuang.org##+js(nostif, _0x)
 kpkuang.org###sterra-ad-onmid
-chip.de###dlcharts-list + .mt-md > div > h2:has-text(/Gesponsert|Bezahlte Empfehlung/) + a[href^="https://www.chip.de/downloads/"]:upward(2)
-chip.de##.fb > .Listing > div > h2:has-text(/Gesponsert|Bezahlte Empfehlung/) + a[href^="https://www.chip.de/downloads/"]:upward(1)
+chip.de###dlcharts-list + .mt-md:has(> div > h2:has-text(/Gesponsert|Bezahlte Empfehlung/) + a[href^="https://www.chip.de/downloads/"])
+chip.de##.fb > .Listing > div:has(> h2:has-text(/Gesponsert|Bezahlte Empfehlung/) + a[href^="https://www.chip.de/downloads/"])
 chip.de##+js(rpnt, style, /\{\smin-height:\s.*\s\}/, {display: none !important;}, condition, padding-top:0!important;)
 chip.de##+js(rpnt, style, /\{\smin-height:.*!important\;\s?\}/, {display: none !important;}, condition, min-height:0!important;)
 chip.de###R1C3[role="complementary"]
 chip.de###R1C2[role="complementary"]:not(:has(> .Hero))
 chip.de###R1C1[role="complementary"]
-chip.de##.ButtonAuswahl + div > div[class] > a[class][style="display:flex;"][href^="https://www.chip.de/downloads/"][href$=".html"]:upward(1)
+chip.de##.ButtonAuswahl + div > div[class]:has(> a[class][style="display:flex;"][href^="https://www.chip.de/downloads/"][href$=".html"])
 chip.de###aabhor
 chip.de##.ob-ad-carousel-layout
 chip.de##.Ad-hor-height
-chip.de##tr > td[style][colspan] > a.js-antivirusclick[href]:upward(2)
+chip.de##tr:has(> td[style][colspan] > a.js-antivirusclick[href])
 chip.de##.FC__Container.min-height-250px-mu:style(max-height: 0.1px !important; height: 0.1px !important; min-height: 0px !important;)
 chip.de##.app_nexus_banners_common
 chip.de###banner_top_table
