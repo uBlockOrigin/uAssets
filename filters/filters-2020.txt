@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2020)
-! Last modified: Mon, 18 Dec 2023 19:09:01 +0000
+! Last modified: Wed, 20 Dec 2023 13:48:58 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -166,7 +166,7 @@ skymovieshd.*##+js(set, D4zz, noopFunc)
 flickr.com##+js(set, appContext.adManager.context.current.adFriendly, false)
 flickr.com##.sub-photo-submoola-view
 flickr.com##section:has([href*="istockphoto.com"])
-flickr.com##.sub-photo-right-view [href^="/account/upgrade"]:upward(.sub-photo-right-view>div)
+flickr.com##.sub-photo-right-view > div:has([href^="/account/upgrade"])
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/53762
 linkshrnk.com##+js(nosiif, visibility, 1000)
@@ -759,7 +759,7 @@ talkceltic.net##+js(set, samDetected, false)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/7365
 @@||splitshire.com^$ghide
-splitshire.com##.adsbygoogle:upward(.row-container)
+splitshire.com##.row-container:has(.adsbygoogle)
 splitshire.com##.ezoic-ad
 
 ! https://github.com/uBlockOrigin/uAssets/issues/7366
@@ -2481,7 +2481,7 @@ dl.3dmodelshare.org##+js(acs, document.addEventListener, google_ad_client)
 
 ! https://github.com/NanoMeow/QuickReports/issues/4598
 thingiverse.com##+js(nano-sib)
-thingiverse.com##[class^="CardGrid__cardGridItem"] > [class^="AdCard"]:upward(1)
+thingiverse.com##[class^="CardGrid__cardGridItem"]:has(> [class^="AdCard"])
 thingiverse.com##[class*="ThingPage__topAd"]
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/62686
@@ -2649,21 +2649,21 @@ ladsnbastands.com##.row-hover
 ! ohentai.org popup ads
 ohentai.org##[class^="detail"][class*="iframecontainer"]
 ohentai.org##[class^="listleaderboardcontainer"]
-ohentai.org##.videobrick > .videoadintro:upward(1)
+ohentai.org##.videobrick:has(> .videoadintro)
 ohentai.org##+js(nowoif)
 
 ! youngpornvideos.com popup ads
 youngpornvideos.com##+js(acs, url)
 youngpornvideos.com##.ads
 youngpornvideos.com##.ads-mobile
-youngpornvideos.com##.ads-thumb-list:upward(.outer-item)
+youngpornvideos.com##.outer-item:has(.ads-thumb-list)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/8988
 hentaicloud.com##+js(set, decodeURI, noopFunc)
 hentaicloud.com##+js(aopr, TotemToolsObject)
 hentaicloud.com##+js(aopr, AaDetector)
 hentaicloud.com##.vertical-ads-content
-hentaicloud.com##.ad:upward(.horizontal-ads-content)
+hentaicloud.com##.horizontal-ads-content:has(.ad)
 hentaicloud.com##section.videos-content:has(.thumbnail > a[href^="https://www.nutaku.net/signup/landing/"])
 
 ! javdoe.to/javtc.fun popup ads
@@ -3650,7 +3650,7 @@ top.gg###rewarded-video
 ! https://github.com/uBlockOrigin/uAssets/issues/18878
 top.gg###parent_nn_player
 top.gg##.chakra-stack[data-testid="p-p"]
-top.gg##div[class^="css-"]:not(.chakra-stack) > #parent_nn_player:upward(1)
+top.gg##div[class^="css-"]:not(.chakra-stack):has(> #parent_nn_player)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/8163
 @@||arrowos.net/js/*$script,1p
@@ -4216,10 +4216,10 @@ forexforum.co##+js(acs, $, .test)
 21porno.com##+js(nostif, window.location.href, 50)
 
 ! rule34.paheal.net PH
-rule34.paheal.net##script[src$="ads.js"]:upward(section[id])
+rule34.paheal.net##section[id]:has(script[src$="ads.js"])
 
 ! palcomix.com ads
-palcomix.com##center > font[size="3"][face="ARIAL"]:has-text(ADVERTISING):upward(td)
+palcomix.com##td:has(center > font[size="3"][face="ARIAL"]:has-text(ADVERTISING))
 palcomix.com##table[width="800"]:has(img[src^="../ads/"])
 /\.com\/(full)?ad[0-9a-z]+\.(?:gif|jpg)$/$image,1p,domain=palcomix.com
 
@@ -4311,7 +4311,7 @@ hentaihd.net##.active-item
 *$script,redirect-rule=noopjs,domain=konnoznet.xyz
 
 ! nypost.com PH
-nypost.com##img[src$="/knewz_300x250.png"]:upward(.widget_text)
+nypost.com##.widget_text:has(img[src$="/knewz_300x250.png"])
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/69639
 fappee.com##+js(acs, doMyStuff)
@@ -4736,7 +4736,7 @@ f2movies.to##+js(nosiif, _0x)
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/70843
 //images\/(?:Banner\d{1,2}\.|[a-z]{3}\/)/$image,1p,domain=thesquarshers.com
-thesquarshers.com##img[src*="/Banner"]:upward(a)
+thesquarshers.com##a:has(img[src*="/Banner"])
 thesquarshers.com##.table
 thesquarshers.com##.video-holder
 
