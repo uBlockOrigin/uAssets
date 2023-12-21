@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2022)
-! Last modified: Thu, 21 Dec 2023 14:03:29 +0000
+! Last modified: Thu, 21 Dec 2023 16:42:42 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -4564,23 +4564,22 @@ bitcotasks.com##[class^="floating-banner"]
 ! https://github.com/uBlockOrigin/uAssets/issues/15428
 *$script,redirect-rule=noopjs,domain=bitcotasks.com
 bitcotasks.com##+js(acs, document.createElement, adsBlocked)
-bitcotasks.com##+js(set, time, 0)
 bitcotasks.com##[src^="https://cryptocoinsad.com/ads/"]
 ! https://github.com/uBlockOrigin/uAssets/issues/15428#issuecomment-1479046908
 bitcotasks.com##+js(aeld, load, htmls)
 bitcotasks.com##^script:has-text(htmls)
 /files/banners/*.gif$image,domain=bitcotasks.com
 bitcotasks.com##+js(aopr, adBlockDetected)
-bitcotasks.com##+js(aopr, PerformanceObserver)
 bitcotasks.com##+js(refresh-defuser)
 bitcotasks.com##+js(nostif, , 2500)
-bitcotasks.com##+js(aost, HTMLBodyElement.prototype.removeChild, onload)
+bitcotasks.com##+js(nostif, , 3000)
 bitcotasks.com##+js(set, window_focus, true)
 bitcotasks.com##body > iframe#frame
 ||bcgame.top/*&utm_source=$frame,domain=bitcotasks.com
 !#if cap_html_filtering
-||bitcotasks.com^$script,1p,replace=/window\.location\.assign\("\/detected\.html"\);/""/g
+||bitcotasks.com^$script,1p,replace=/window\.location\..*="\/detected.html"/""/g
 !#endif
+/bitcotasks\.com\/[a-z0-9]{64}\/$/$script,1p,strict1p,domain=bitcotasks.com
 ! https://github.com/uBlockOrigin/uAssets/issues/16207
 hatecoin.me###wcfloatDiv4
 ||hbagency.it^
