@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Quick fixes
 ! Expires: 12 hours
-! Last modified: Fri, 22 Dec 2023 12:14:54 +0000
+! Last modified: Fri, 22 Dec 2023 12:36:30 +0000
 ! Diff-Path: %diffpath%#ublock-quick-fixes
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -84,9 +84,10 @@ check-host.net###content > * > div[class^="mt-"]:has(img[class])
 check-host.net###content > * > div:not([class], [id] > [id][class]:has(a img))
 !#if ext_devbuild
 infinityscans.xyz##+js(no-fetch-if, /googlesyndication|bidgear|marreerouens/, true)
+!#else
+@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$xhr,domain=infinityscans.xyz
 !#endif
-infinityscans.xyz##+js(rmnt, script, /Blocker|stop|fetch/, condition, /^\s*\(.*function/)
-infinityscans.xyz##+js(rmnt, script, shift, condition, /^\s*.*function\s_0x/)
+infinityscans.xyz##+js(rmnt, script, [_, condition, /^\s*\(.*function/)
 infinityscans.xyz##+js(nowoif)
 *$script,redirect-rule=noopjs,domain=infinityscans.xyz
 *$xhr,domain=infinityscans.xyz,redirect-rule=nooptext
