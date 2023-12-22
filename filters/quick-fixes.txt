@@ -1,5 +1,5 @@
 ! Title: uBlock₀ filters – Quick fixes
-! Last modified: Fri, 22 Dec 2023 11:51:14 +0000
+! Last modified: Fri, 22 Dec 2023 12:14:54 +0000
 ! Expires: 12 hours
 ! Description: Immediate, temporary filters to fix websites
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -76,33 +76,29 @@ techcyan.com,kiktu.com,upshrink.com,trangchu.news,banaraswap.in##+js(spoof-css, 
 *$image,domain=techcyan.com|kiktu.com|upshrink.com|trangchu.news|banaraswap.in,redirect-rule=2x2.png:5
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/165624
-||check-host.net/images/dh2-ale-en.png$image,1p
-||check-host.net/images/dh--en.png$image,1p
-check-host.net##div[class*="self-end"]:has(a:has-text(/website protection/i))
-check-host.net###hostikq, a[href^="/estgo/"], a[href$="/prmtn"], a[href^="/estgo/"], a[href$="/dg/en/wep"], #antkwbtchampalexhost, .pq-e-lative, #antkwbtchamptk-juuaryt, #antkwbtchamptk-juuaryt2, #ddhtk-juuaryt, #ddhtk-juuaryt2, .coffee
-check-host.net##.alka_n:upward(1)
+||check-host.net^$image,1p
+@@||check-host.net/checkhost-favicon.png|$image,1p
+@@||check-host.net/favicon.ico|$image,1p
+@@||check-host.net/images/mainlogo.png|$image,1p
+@@||check-host.net/images/uk-lang.png|$image,1p
+@@||check-host.net/images/ru-lang.png|$image,1p
+@@||check-host.net/images/tw2.png|$image,1p
+@@||check-host.net/images/tg2.png|$image,1p
+@@||check-host.net/images/preloader.gif|$image,1p
+@@||check-host.net/images/mail.png|$image,1p
+@@/check-host\.net\/images\/flags/[a-z]{2}\.png$/$image,1p,domain=check-host.net
+check-host.net##.bg-ch-blue.text-white:has(a:has-text(/website pro𝅺tection/i))
+check-host.net###hostakq, a[href^="/edtgo/"], a[href$="/prmqtn"], a[href^="/edtgo/"], a[href$="/dh/en/wep"], #sntkwbtchampalexhost, .pw-e-lative, #sntkwbtchamppp-juiaryt, #sntkwbtchamppp-juiaryt2, #aajpp-juiaryt, #aajpp-juiaryt2, .tea-cup
+check-host.net##.alla_n:upward(1)
 check-host.net##img:matches-css(width: /^([2-46-8]{1}[0-9]{2}(\.[0-9]+)?px|0px)$/):matches-css(height: /^([3-57-9]{1}[0-9]{1}(\.[0-9]+)?px|0px)$/):upward(1):remove()
 check-host.net##body > * > * > * > * *:matches-css(background-image: /url/):matches-css(width: /^[2-46-8]{1}[0-9]{2}(\.[0-9]+)?px$/):matches-css(height: /^[3-57-9]{1}[0-9]{1}(\.[0-9]+)?px$/):upward(2):remove()
 check-host.net##body > * > * > * > * *:has(> * > svg image)
 check-host.net##.w-full.max-h-fit.bg-cover.bg-no-repeat:matches-css(background-image: /url/)
-check-host.net##[style*="background-repeat"][style*="no-repeat"][style*="cursor"][style*="pointer"], [style*="%"][style*="height"]
-check-host.net##:matches-path(/^(\/contacts|\/about\/api|\/articles|\/about\/faq|\/news)/) #content > [class] > [class]:not([class=""]) > [class]:has(a img)
-!#if env_firefox
-check-host.net###content > section > div[class^="mt-"]:has(img[class])
-check-host.net###content > section > div:not([class], [id] > [id][class]:has(a img))
-check-host.net###yourip > *:not(#insideyourip)
-!#else
-check-host.net##div[id][class]:has(> div[id][class] > a[href*="/dg/"] > img[src^="/"])
-check-host.net##div[id][class*="-e-lative"]:has(> .axz)
-check-host.net##div[id][class$="bg-ch-blue text-white font-semibold whitespace-nowrap"]:has(> a[href^="/"])
-!#endif
-!#if env_mobile
-||check-host.net/images/*-ale-en.png$image,1p
-||check-host.net/images/*--en.png$image,1p
-||check-host.net/images/alexhost.png$image,1p
-||check-host.net/images/aezalogo.svg$image,1p
-check-host.net##[id*="juua"], [id^="antkwbt"], [id^="hosti"].bg-ch-blue.text-white
-!#endif
+check-host.net##[style="width: 24px;"]:remove()
+check-host.net##:matches-path(/^\/[a-z0-9]/) #content > [class] > [class]:not([class=""]) > [class]:has(a img)
+check-host.net###youripa > *:not(#insideyourip)
+check-host.net###content > * > div[class^="mt-"]:has(img[class])
+check-host.net###content > * > div:not([class], [id] > [id][class]:has(a img))
 
 ! https://github.com/uBlockOrigin/uAssets/issues/20401
 !#if ext_devbuild
