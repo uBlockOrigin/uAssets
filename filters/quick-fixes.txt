@@ -103,9 +103,10 @@ check-host.net###content > * > div:not([class], [id] > [id][class]:has(a img))
 ! https://github.com/uBlockOrigin/uAssets/issues/20401
 !#if ext_devbuild
 infinityscans.xyz##+js(no-fetch-if, /googlesyndication|bidgear|marreerouens/, true)
+!#else
+@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$xhr,domain=infinityscans.xyz
 !#endif
-infinityscans.xyz##+js(rmnt, script, /Blocker|stop|fetch/, condition, /^\s*\(.*function/)
-infinityscans.xyz##+js(rmnt, script, shift, condition, /^\s*.*function\s_0x/)
+infinityscans.xyz##+js(rmnt, script, [_, condition, /^\s*\(.*function/)
 infinityscans.xyz##+js(nowoif)
 *$script,redirect-rule=noopjs,domain=infinityscans.xyz
 *$xhr,domain=infinityscans.xyz,redirect-rule=nooptext
