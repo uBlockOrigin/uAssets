@@ -25,9 +25,6 @@ uAssets will not address the following:
 
 #### How to correctly report an issue
 
-- In options->Filter lists:
-  - "Purge all caches"
-  - "Update now"
 - Disable all other browser extensions and see if the problem still persists
 
 - How to provide troubleshooting information:
