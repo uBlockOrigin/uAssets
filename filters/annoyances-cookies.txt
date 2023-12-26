@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Cookie Notices
-! Last modified: Sun, 24 Dec 2023 14:06:51 +0000
+! Last modified: Tue, 26 Dec 2023 14:27:20 +0000
 ! Expires: 7 days
 ! Description: |
 !   Filters optimized for uBlock Origin, to be used with EasyList's
@@ -758,3 +758,11 @@ trezor.io##+js(trusted-set-cookie, userConsent, %7B%22essential%22%3Atrue%2C%22a
 
 ! rejected cookies
 rb.cz##+js(trusted-set-cookie, rwc, %7B%22data%22%3A%5B%7B%22code%22%3A%22analytics%22%2C%22permissions%22%3A%5B%5D%7D%2C%7B%22code%22%3A%22marketing%22%2C%22permissions%22%3A%5B%5D%7D%5D%2C%22common%22%3A%7B%22accepted%22%3A1703366235541%7D%7D)
+
+! Necessary + Marketing (to fix embedded content): https://mesta.net/selviytyjat-suomi-ohjelmasta-tutun-ramin-postaus-reissun-rankasta-luonteesta-nain-paljon-paino-putosi-vetaa-lahelle-painiuran-kovimpia-painonpudotuksia/
+mesta.net##+js(trusted-set-cookie, OptanonConsent, groups=C0001%3A1%2CC0005%3A1%2CC0002%3A0%2CC0004%3A0%2CC0003%3A0, 1year, , reload, 1, domain, mesta.net)
+mesta.net##+js(trusted-set-cookie, OptanonAlertBoxClosed, $currentDate$, 1year)
+! temp filters: https://github.com/easylist/easylist/pull/18111
+@@||cdn.cookielaw.org^$domain=mesta.net
+mesta.net#@##onetrust-consent-sdk
+mesta.net#@##onetrust-banner-sdk
