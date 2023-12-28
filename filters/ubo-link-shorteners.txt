@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Link shorteners
-! Last modified: Thu, 28 Dec 2023 09:46:37 +0000
+! Last modified: Thu, 28 Dec 2023 10:13:11 +0000
 ! Expires: 5 days
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
@@ -25,6 +25,28 @@ gplinks.co##.bg-soft-primary, a.exclude-pop.smartlink, .exclude-pop.quiz-contain
 gplinks.co##+js(set, blurred, false)
 gplinks.co##+js(aopr, clickCount)
 *$script,3p,denyallow=cloudflare.com|github.io|google.com|googleapis.com|gstatic.com|hwcdn.net|jquery.com|recaptcha.net|tipsforce.com|unpkg.com,domain=gplinks.co
+
+! https://github.com/uBlockOrigin/uAssets/issues/17548
+@@*$ghide,domain=dev.miuiflash.com|djxmaza.in|thecubexguide.com
+*$script,redirect-rule=noopjs,domain=djxmaza.in|thecubexguide.com|dev.miuiflash.com
+*$frame,redirect=noopframe,domain=djxmaza.in|dev.miuiflash.com|thecubexguide.com
+*$xhr,domain=djxmaza.in|dev.miuiflash.com|thecubexguide.com,redirect-rule=nooptext
+*$image,redirect-rule=32x32.png:5,domain=djxmaza.in|thecubexguide.com|dev.miuiflash.com
+@@||devfiles.pages.dev/fonts/wp-content/plugins/best-ads-block-detector/main.js
+@@||googlesyndication.com^$script,xhr,domain=djxmaza.in|dev.miuiflash.com|thecubexguide.com
+@@||doubleclick.net^$script,xhr,domain=djxmaza.in|dev.miuiflash.com|thecubexguide.com
+@@||adoto.net/dashboard/common/js/common.js$3p,script,domain=dev.miuiflash.com|djxmaza.in|thecubexguide.com
+||google.com/ads/*$image,domain=djxmaza.in|dev.miuiflash.com|thecubexguide.com
+!dev.miuiflash.com,djxmaza.in,thecubexguide.com##iframe:upward(div)
+dev.miuiflash.com,djxmaza.in,thecubexguide.com##[id*=google_ads_]:style(height:250px !important;left:-3000px !important;position:absolute !important)
+djxmaza.in,miuiflash.com,thecubexguide.com###featuredimage
+djxmaza.in,miuiflash.com,thecubexguide.com##+js(rpnt, script, featuredimage', container', condition, getComputedStyle)
+djxmaza.in,miuiflash.com,thecubexguide.com##+js(rmnt, script, checkifscript)
+djxmaza.in,miuiflash.com,thecubexguide.com##+js(rpnt, script, IFRAME", CONTAINER")
+dev.miuiflash.com,djxmaza.in,thecubexguide.com##+js(rpnt, script, iframe., form.)
+dev.miuiflash.com,djxmaza.in,thecubexguide.com##+js(rpnt, script, /none'|hidden'|, false')
+dev.miuiflash.com,djxmaza.in,thecubexguide.com##+js(rpnt, script, /none"|hidden"/, false")
+dev.miuiflash.com,djxmaza.in,thecubexguide.com##+js(rpnt, script, /undefined|null/, false)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/19688
 ! XpShort New
