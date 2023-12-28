@@ -2,13 +2,15 @@ name: Triage Youtube issues
 
 on:
   issues:
-    types: [opened]
+    types: opened
 
 jobs:
   check-if-youtube:
     name: Close as duplicate
     runs-on: ubuntu-latest
     if: startsWith(github.event.issue.title, 'youtube.com:') == 'true'
+    permissions:
+      issues: write
     steps:
       - name: Add label
         uses: actions-cool/issues-helper@v3
