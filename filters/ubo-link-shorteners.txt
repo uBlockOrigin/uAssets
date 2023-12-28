@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Link shorteners
-! Last modified: Thu, 28 Dec 2023 07:59:10 +0000
+! Last modified: Thu, 28 Dec 2023 08:55:32 +0000
 ! Expires: 5 days
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
@@ -493,11 +493,12 @@ aduzz.com,bitcrypto.info##+js(set, wpsafelinkCount, 0)
 
 ! https://go.tinys.click/jzEDHsQHbNTokEJrRorG
 tinys.click##+js(noeval-if, adsBlocked)
+tinys.click##+js(rmnt, script, antiAdBlockerHandler)
 tinys.click##+js(set, blurred, false)
 tinys.click##+js(set, go_popup, {})
+tinys.click##.text-left, .banner-inner, .separator, .gmr-box-content
 tinys.click###wpsafe-generate, #wpsafe-link:style(display: block !important)
 tinys.click##div[id^="wpsafe-wait"]
-tinys.click##.banner-inner, .fixed-leftSd, .fixed-rightSd, .separator > a[target="_blank"], .banner-captcha ~ .text-left
 
 ! https://github.com/uBlockOrigin/uAssets/issues/21531
 ! https://github.com/uBlockOrigin/uAssets/discussions/17361#discussioncomment-6583759
@@ -516,8 +517,7 @@ bitzite.com##form > div[id], [id*="wpsafe"]:style(display: block !important;)
 cpmlink.pro##+js(ra, data-ppcnt_ads, , stay)
 cpmlink.pro##+js(nowoif, php)
 cpmlink.pro##+js(nano-sib)
-cpmlink.pro###toasts
-cpmlink.pro##.alternative-ad
+cpmlink.pro###toasts, .alternative-ad
 bildirim.link##+js(set, Notification, undefined)
 
 ! https://github.com/uBlockOrigin/uAssets/discussions/17361#discussioncomment-7144221
