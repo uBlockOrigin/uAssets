@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Link shorteners
-! Last modified: Thu, 28 Dec 2023 05:04:57 +0000
+! Last modified: Thu, 28 Dec 2023 05:30:09 +0000
 ! Expires: 5 days
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
@@ -309,40 +309,12 @@ btcbitco.in,btcsatoshi.net,crypto4yu.com,readbitcoin.org,wiour.com##div.text-cen
 btcbitco.in##+js(set, isRequestPresent, true)
 ||bmcdn6.com^$script,redirect-rule=noop.js
 
-! https://www.reddit.com/r/uBlockOrigin/comments/x44olo/
-! https://www.reddit.com/r/uBlockOrigin/comments/x4ptim/
-@@||browser.sentry-cdn.com/*/bundle.min.js$script,domain=blog.cryptowidgets.net|blog.wiki-topia.com
-*$script,redirect-rule=noopjs,domain=cryptowidgets.net|wiki-topia.com
-cryptowidgets.net,wiki-topia.com##.floating-banner
-! https://github.com/uBlockOrigin/uAssets/issues/15071
-*$script,redirect-rule=noopjs,domain=insurancegold.in
-! https://github.com/uBlockOrigin/uAssets/issues/15778
-! https://github.com/uBlockOrigin/uAssets/issues/17330
-coinscap.info,cryptowidgets.net,greenenez.com,insurancegold.in,webfreetools.net,wiki-topia.com##^script:has-text(adsBlocked)
-coinscap.info,cryptowidgets.net,greenenez.com,insurancegold.in,webfreetools.net,wiki-topia.com##+js(acs, document.createElement, adsBlocked)
-coinscap.info,cryptowidgets.net,greenenez.com,insurancegold.in,webfreetools.net,wiki-topia.com##+js(ra, disabled, .btn-primary)
-coinscap.info,cryptowidgets.net,greenenez.com,insurancegold.in,webfreetools.net,wiki-topia.com##input[type="hidden"]:style(display: block !important;)
-! https://github.com/uBlockOrigin/uAssets/issues/17166#issuecomment-1475715113
-coinscap.info,cryptowidgets.net,greenenez.com,insurancegold.in,webfreetools.net,wiki-topia.com##+js(acs, document.getElementById, location.replace)
-coinscap.info,cryptowidgets.net,greenenez.com,insurancegold.in,webfreetools.net,wiki-topia.com##+js(aeld, load, htmls)
-coinscap.info,cryptowidgets.net,greenenez.com,insurancegold.in,webfreetools.net,wiki-topia.com##^script:has-text(htmls)
-coinscap.info,cryptowidgets.net,greenenez.com,insurancegold.in,webfreetools.net,wiki-topia.com##+js(aost, document.createElement, onload)
-coinscap.info,cryptowidgets.net,greenenez.com,insurancegold.in,webfreetools.net,wiki-topia.com##+js(nostif, replaceHTMLWithMessage)
-coinscap.info,cryptowidgets.net,greenenez.com,insurancegold.in,webfreetools.net,wiki-topia.com##+js(aopr, PerformanceObserver)
-! coinscap.info,cryptowidgets.net,greenenez.com,insurancegold.in,webfreetools.net,wiki-topia.com##+js(refresh-defuser)
-coinscap.info,cryptowidgets.net,greenenez.com,insurancegold.in,webfreetools.net,wiki-topia.com##+js(nostif, , 2500)
-coinscap.info,cryptowidgets.net,greenenez.com,insurancegold.in,webfreetools.net,wiki-topia.com##+js(aost, HTMLBodyElement.prototype.removeChild, onload)
-cryptowidgets.net##+js(nostif, check, 1)
-cryptowidgets.net##+js(rmnt, script, adBlockDetected)
-cryptowidgets.net##^script[data-script='CallAdBlock-script']:has-text(adBlockDetected)
-coinscap.info,cryptowidgets.net,greenenez.com,insurancegold.in,webfreetools.net,wiki-topia.com##+js(nostif, /bait|detected/)
-coinscap.info,cryptowidgets.net,greenenez.com,insurancegold.in,webfreetools.net,wiki-topia.com##+js(set, navigator.brave, undefined)
-!#if cap_html_filtering
-*$script,1p,replace=/window\.location\.assign\("\/detected\.html"\);/""/g,domain=coinscap.info|cryptowidgets.net|greenenez.com|insurancegold.in|webfreetools.net|wiki-topia.com
-!#endif
-coinscap.info,cryptowidgets.net,greenenez.com,insurancegold.in,webfreetools.net,wiki-topia.com###countdown ~ :not(center)
-coinscap.info,cryptowidgets.net,greenenez.com,insurancegold.in,webfreetools.net,wiki-topia.com##.fa-xmark
-*$csp=style-src *,domain=blog.coinscap.info|blog.cryptowidgets.net|blog.insurancegold.in|blog.wiki-topia.com
+! https://github.com/uBlockOrigin/uAssets/issues/21549#issuecomment-1869871771
+@@||cdn.bmcdn6.com^$script,xhr,domain=cryptowidgets.net|wiki-topia.com|insurancegold.in
+cryptowidgets.net,insurancegold.in,wiki-topia.com##+js(rpnt, script, window.location.href = "/detected.html";)
+blog.cryptowidgets.net,blog.insurancegold.in,blog.wiki-topia.com##.col,.form-group,._hide
+blog.cryptowidgets.net,blog.insurancegold.in,blog.wiki-topia.com##center > [style] > [id]:style(display: block !important;)
+blog.cryptowidgets.net,blog.insurancegold.in,blog.wiki-topia.com##form[id][method="post"] :is(h2,h3:not(#click),h4,p,ul)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/15805
 *$script,domain=carsmania.net|carstopia.net|coinsvalue.net|cookinguide.net|freeoseocheck.com|makeupguide.net,redirect-rule=noopjs
