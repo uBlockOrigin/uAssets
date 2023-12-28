@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Thu, 28 Dec 2023 10:19:53 +0000
+! Last modified: Thu, 28 Dec 2023 11:30:37 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -19011,7 +19011,15 @@ ewrc-results.com##+js(set, canGetAds, true)
 *$3p,script,redirect-rule=noop.js,domain=ksk.moe
 ! *$popunder,domain=ksk.moe
 @@||yt2save.com^$ghide
-theappstore.org##+js(set, detectAB1, noopFunc)
+@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$xhr,domain=theappstore.org
+!#if ext_devbuild
+theappstore.org##+js(no-fetch-if, adsbygoogle, length:11000)
+!#else
+!#if cap_html_filtering
+||theappstore.org/script.js?v=$script,1p,replace=/result\.length \> 10000/result.length < 10000/g
+theappstore.org##+js(no-fetch-if, adsbygoogle)
+!#endif
+!#endif
 dzeko11.net##+js(nostif, keepChecking)
 *$script,redirect-rule=noopjs,domain=sprawdzwegiel.pl
 ier.ai##+js(nowoif)

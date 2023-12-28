@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2022)
-! Last modified: Thu, 28 Dec 2023 10:19:53 +0000
+! Last modified: Thu, 28 Dec 2023 11:30:37 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -3709,7 +3709,15 @@ ewrc-results.com##+js(set, canGetAds, true)
 @@||yt2save.com^$ghide
 
 ! https://github.com/uBlockOrigin/uAssets/issues/14237
-theappstore.org##+js(set, detectAB1, noopFunc)
+@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$xhr,domain=theappstore.org
+!#if ext_devbuild
+theappstore.org##+js(no-fetch-if, adsbygoogle, length:11000)
+!#else
+!#if cap_html_filtering
+||theappstore.org/script.js?v=$script,1p,replace=/result\.length \> 10000/result.length < 10000/g
+theappstore.org##+js(no-fetch-if, adsbygoogle)
+!#endif
+!#endif
 
 ! https://github.com/uBlockOrigin/uAssets/issues/14238
 dzeko11.net##+js(nostif, keepChecking)
