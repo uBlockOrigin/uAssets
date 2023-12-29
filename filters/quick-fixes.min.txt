@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Quick fixes
 ! Expires: 12 hours
-! Last modified: Fri, 29 Dec 2023 11:46:17 +0000
+! Last modified: Fri, 29 Dec 2023 12:22:43 +0000
 ! Diff-Path: %diffpath%#ublock-quick-fixes
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -79,17 +79,23 @@ check-host.net##a:has(img[loading="lazy"][class]):remove()
 check-host.net###insideyourip + [id]
 check-host.net##a:has(img[src*="/images/flags/"][style]):remove()
 !#if ext_devbuild
-infinityscans.xyz##+js(no-fetch-if, /googlesyndication|bidgear|marreerouens/, true)
+infinityscans.xyz##+js(no-fetch-if, /googlesyndication|bidgear|marreerouens|pubfuture/, true)
 !#else
 @@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$xhr,domain=infinityscans.xyz
+infinityscans.xyz##+js(rmnt, script, $fetch())
+infinityscans.xyz##+js(rpnt, script, https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js, https://infinityscans.xyz/ajax/images)
 !#endif
-infinityscans.xyz##+js(rmnt, script, [_, condition, /^\s*\(.*function/)
 infinityscans.xyz##+js(nowoif)
 *$script,redirect-rule=noopjs,domain=infinityscans.xyz
 *$xhr,domain=infinityscans.xyz,redirect-rule=nooptext
 *$frame,redirect-rule=noopframe,domain=infinityscans.xyz
 *$image,redirect-rule=1x1.gif,domain=infinityscans.xyz
 ||infinityscans.xyz/sw.js$script,1p
+!#if cap_html_filtering
+infinityscans.xyz##^script:has-text(;break;case $.)
+!#else
+infinityscans.xyz##+js(rmnt, script, ;break;case $.)
+!#endif
 www.chip.de##+js(rpnt, script, /if \([a-zA-Z]+ && [a-zA-Z]+ === (0|\[\]\.length|\([0-9\-\+\+\/]+\)) && [a-zA-Z]+ !== 1\) \{/, if(true){, condition, publisherAdsRp)
 www.chip.de##+js(rpnt, style,  a {margin:0 auto;width:100%;max-width:970px;padding-top:10px;}, {display: none !important;}, condition, /aspect-ratio:\s?auto/)
 www.chip.de##+js(rpnt, style,  @media screen and (max-width: 659.99px), @media screen and (max-width: 10000px), condition, /aspect-ratio:\s?auto/)
