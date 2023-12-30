@@ -1,5 +1,5 @@
 ! Title: uBlock₀ filters – Quick fixes
-! Last modified: Sat, 30 Dec 2023 06:43:25 +0000
+! Last modified: Sat, 30 Dec 2023 08:09:09 +0000
 ! Expires: 12 hours
 ! Description: Immediate, temporary filters to fix websites
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -7,22 +7,33 @@
 ! Forums: https://github.com/uBlockOrigin/uAssets/issues
 
 ! dropgalaxy
+! https://github.com/uBlockOrigin/uAssets/issues/8373
+*$script,redirect-rule=noopjs,domain=dropgalaxy.*
+*$xhr,redirect-rule=nooptext,domain=dropgalaxy.*
+*$frame,redirect-rule=noopframe,domain=dropgalaxy.*
+*$image,redirect-rule=32x32.png,domain=dropgalaxy.*
+@@||dropgalaxy.*^$ghide
+
 ||d1rp4yowwe587e.cloudfront.net^$script,domain=dropgalaxy.*,important
 ||imasdk.googleapis.com/js/sdkloader/ima3.js$script,redirect-rule=google-ima.js,domain=dropgalaxy.*
-dropgalaxy.*##html.i-amphtml-inabox
-@@||googlesyndication.com^$script,xhr,domain=dropgalaxy.*
-@@||doubleclick.net^$script,xhr,domain=dropgalaxy.*
-@@||rsc.cdn77.org^$script,xhr,domain=dropgalaxy.*
-@@||vlitag.com^$script,xhr,domain=dropgalaxy.*
+||js.mobileoffers-ep-download.com^$domain=dropgalaxy.*
+@@||popads.net/js/adblock.js$script,xhr,domain=dropgalaxy.*
 @@||cdn.jsdelivr.net/gh/prebid/*$script,domain=dropgalaxy.*
-dropgalaxy.*##+js(nostif, , 12000)
-dropgalaxy.*##+js(nostif, , 5000)
+@@*$script,from=dropgalaxy.*,to=googlesyndication.com|doubleclick.net|rsc.cdn77.org|vlitag.com|adoto.net|a2zapk.com|challenges.cloudflare.com|login.popmonetizer.com
+
+dropgalaxy.*##+js(set, window.isAdblockActive, false)
+dropgalaxy.*##+js(acs, document.createElement, break;case $.)
+dropgalaxy.*##+js(trusted-set, document.visibilityState, visible)
+dropgalaxy.*##+js(nowoif)
+dropgalaxy.*##+js(nostif, *, 12000)
+dropgalaxy.*##+js(nostif, *, 5000)
 dropgalaxy.*##+js(rpnt, script, /none|hidden|null|undefined/, false, condition, getComputedStyle)
 dropgalaxy.*##+js(rpnt, script, /\.onerror|document.write/, noop)
-dropgalaxy.*##[id^="TR-"][tr-id][style*="z-index: 9999"]
 ||tmp.isavetube.com/js/*$script,replace=/Error\(\);/""/g,domain=dropgalaxy.*
 ||tmp.isavetube.com/js/*$script,replace=/\.onerror|asfgfga|userTimezoneOffset|fetch/noop/g,domain=dropgalaxy.*
-! dropgalaxy.*##+js(rpnt, script, /iframe|img|image/, noop)
+
+dropgalaxy.*##html.i-amphtml-inabox
+dropgalaxy.*##[id^="TR-"][tr-id][style*="z-index: 9999"]
 
 ! aternos anti adb
 aternos.org##.header-center:style(margin-top:-5000px !important;)
