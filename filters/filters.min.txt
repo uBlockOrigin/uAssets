@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Sun, 31 Dec 2023 18:13:20 +0000
+! Last modified: Sun, 31 Dec 2023 18:15:30 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -19924,10 +19924,6 @@ www.walmart.com##[data-testid="skyline-ad"]
 diyphotography.net##+js(aeld, , AdB)
 ||tilersforums.com/js/xf/$script,1p
 ||uploadhaven.com/sw.js$script,1p
-uploadhaven.com##^script:has-text(FingerprintJS)
-!#if !cap_html_filtering
-uploadhaven.com##+js(acs, navigator, FingerprintJS)
-!#endif
 arealgamer.org##+js(nano-sib, counter)
 arealgamer.org##a[href="javascript:void(0)"][onclick^="window.open"]
 thefileslocker.net###countdown
@@ -21625,11 +21621,6 @@ download.megaup.net##+js(spoof-css, body > div[id]:not([id="download"][class="do
 @@||megaup.net/imageads/$image,1p
 @@||download.megaup.net^$script,1p
 download.megaup.net##+js(rpnt, script, /if\(\S+?\)\{document/gms, if(false){document)
-!#if cap_html_filtering
-megaup.net##^script:has-text(FingerprintJS)
-!#else
-megaup.net##+js(rmnt, script, FingerprintJS)
-!#endif
 player.theplatform.com##+js(disable-newtab-links)
 ! breakage https://github.com/uBlockOrigin/uAssets/issues/16216
 !||player.theplatform.com^$frame,removeparam=params,domain=nbc.com
