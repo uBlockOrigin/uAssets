@@ -1686,7 +1686,6 @@ moviestars.to##+js(set, count, 1)
 
 ! https://www.reddit.com/r/uBlockOrigin/comments/txnoqu/ads_breakthrough_on_coloredmangacom/
 coloredmanga.com##+js(aost, Math.random, inlineScript)
-coloredmanga.com##^script:has-text(FingerprintJS)
 
 ! https://www.reddit.com/r/uBlockOrigin/comments/ty0glu/web_page_using_a_antiublock_script/
 softwaretotal.net##+js(no-xhr-if, googlesyndication)
@@ -5230,9 +5229,15 @@ javchill.com##+js(ra, href, [onclick^="pop"])
 javchill.com##.thumb:style(cursor:pointer !important)
 
 ! FingerprintJS popups
-bluemedialink.online,game3rb.com,manhwalist.com,nflstreams.me,s2dfree.to,secretlink.xyz,soap2day.*##+js(acs, navigator, FingerprintJS)
+bluemedialink.online,buffstreams.*,crackstreams.*,game3rb.com,igg-games.com,igg-games.g3g.ink,manhwalist.com,miraculous.*,nflstreams.me,s2dfree.to,secretlink.xyz,soap2day.*,tennisstreams.*,tv247.us,vidsrc.*,vipboxtv.*,worldcupstream.pm##+js(acs, navigator, FingerprintJS)
 manhwalist.com##+js(aost, btoa, /https|stackDepth:3/)
+!#if cap_html_filtering
+bowfile.com,cloudvideo.tv,cloudvideotv.*,coloredmanga.com,embedstream.me,exeo.app,hiphopa.net,tv247.us,uploadhaven.com,userscloud.com,vidsrc.*##^script:has-text(FingerprintJS)
+soap2day.*##^script:has-text(Reflect)
+!#else
+bowfile.com,cloudvideo.tv,cloudvideotv.*,coloredmanga.com,embedstream.me,exeo.app,hiphopa.net,tv247.us,uploadhaven.com,userscloud.com,vidsrc.*##+js(rmnt, script, FingerprintJS)
 soap2day.*##+js(rmnt, script, Reflect)
+!#endif
 
 ! FingerprintJS servers
 /^https?:\/\/[a-z]{7,18}\.buzz\/[+\/0-9a-zA-Z]{140,}$/$image,3p,match-case
@@ -5293,9 +5298,6 @@ filepress.*##+js(nowoif)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/15993
 uberhumor.com##+js(nowoif)
-
-! https://github.com/uBlockOrigin/uAssets/issues/15994
-miraculous.*##+js(acs, navigator, FingerprintJS)
 
 ! artribune. com lcickable background
 artribune.com##+js(set, td_ad_background_click_link, undefined)
