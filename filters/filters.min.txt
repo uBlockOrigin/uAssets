@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Sun, 31 Dec 2023 17:41:03 +0000
+! Last modified: Sun, 31 Dec 2023 18:09:39 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -17289,7 +17289,6 @@ iptvjournal.com###wpsafe-generate, #wpsafe-link:style(display: block !important;
 iptvjournal.com##div[id^="wpsafe-wait"]
 moviestars.to##+js(set, count, 1)
 coloredmanga.com##+js(aost, Math.random, inlineScript)
-coloredmanga.com##^script:has-text(FingerprintJS)
 softwaretotal.net##+js(no-xhr-if, googlesyndication)
 ||desirefx.com^$frame,redirect=noopframe,domain=uploadcloud.pro
 uploadcloud.pro##+js(nano-stb, show, 4000)
@@ -19382,9 +19381,15 @@ hqporner.com##.uvb_wrapper
 javchill.com##+js(ra, href, [onclick^="pop"])
 javchill.com##.thumb:style(cursor:pointer !important)
 ! FingerprintJS popups
-bluemedialink.online,game3rb.com,manhwalist.com,nflstreams.me,s2dfree.to,secretlink.xyz,soap2day.*##+js(acs, navigator, FingerprintJS)
+bluemedialink.online,buffstreams.*,crackstreams.*,game3rb.com,igg-games.com,igg-games.g3g.ink,manhwalist.com,miraculous.*,nflstreams.me,s2dfree.to,secretlink.xyz,soap2day.*,tennisstreams.*,tv247.us,vidsrc.*,vipboxtv.*,worldcupstream.pm##+js(acs, navigator, FingerprintJS)
 manhwalist.com##+js(aost, btoa, /https|stackDepth:3/)
+!#if cap_html_filtering
+bowfile.com,cloudvideo.tv,cloudvideotv.*,coloredmanga.com,embedstream.me,exeo.app,hiphopa.net,tv247.us,uploadhaven.com,userscloud.com,vidsrc.*##^script:has-text(FingerprintJS)
+soap2day.*##^script:has-text(Reflect)
+!#else
+bowfile.com,cloudvideo.tv,cloudvideotv.*,coloredmanga.com,embedstream.me,exeo.app,hiphopa.net,tv247.us,uploadhaven.com,userscloud.com,vidsrc.*##+js(rmnt, script, FingerprintJS)
 soap2day.*##+js(rmnt, script, Reflect)
+!#endif
 ! FingerprintJS servers
 /^https?:\/\/[a-z]{7,18}\.buzz\/[+\/0-9a-zA-Z]{140,}$/$image,3p,match-case
 /^https?:\/\/[a-z]{7,18}\.buzz\/[+\/0-9a-zA-Z]{400,}$/$frame,3p,match-case
@@ -19422,7 +19427,6 @@ smgplaza.com##+js(acs, eval, replace)
 @@||reyada-365.com^$ghide
 filepress.*##+js(nowoif)
 uberhumor.com##+js(nowoif)
-miraculous.*##+js(acs, navigator, FingerprintJS)
 ! artribune. com lcickable background
 artribune.com##+js(set, td_ad_background_click_link, undefined)
 artribune.com##+js(rc, td-ad-background-link)
