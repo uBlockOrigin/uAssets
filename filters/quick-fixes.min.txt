@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Quick fixes
 ! Expires: 12 hours
-! Last modified: Thu, 04 Jan 2024 02:57:22 +0000
+! Last modified: Thu, 04 Jan 2024 02:57:41 +0000
 ! Diff-Path: %diffpath%#ublock-quick-fixes
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -18,12 +18,13 @@
 @@*$script,xhr,from=dropgalaxy.*,to=googlesyndication.com|doubleclick.net|rsc.cdn77.org|vlitag.com|adoto.net|a2zapk.com|challenges.cloudflare.com|login.popmonetizer.com
 dropgalaxy.*##+js(nowoif)
 dropgalaxy.*##+js(set, isAdblockActive, false)
-dropgalaxy.*##+js(acs, document.createElement, break;case $.)
 dropgalaxy.*##+js(trusted-set, document.visibilityState, visible)
-dropgalaxy.*##+js(nostif, *, 12000)
-dropgalaxy.*##+js(nostif, *, 5000)
 dropgalaxy.*##+js(rpnt, script, true;, false;)
 dropgalaxy.*##+js(rpnt, script, /none|hidden|null|undefined/, false, condition, getComputedStyle)
+dropgalaxy.*##+js(trusted-set, navigator.userAgent, Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML\, like Gecko) Chrome/119.0.0.0 Safari/537.36)
+dropgalaxy.com#@#+js(abort-current-script, parseInt, break;case $.)
+dropgalaxy.*#@#+js(abort-current-script, document.createElement, break;case $.)
+dropgalaxy.com#@#+js(abort-current-script, document.onkeydown)
 dropgalaxy.*##html.i-amphtml-inabox
 dropgalaxy.*##[id^="TR-"][tr-id][style*="z-index: 9999"]
 ! aternos anti adb
