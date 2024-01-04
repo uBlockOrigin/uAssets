@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Quick fixes
 ! Expires: 12 hours
-! Last modified: Thu, 04 Jan 2024 13:03:06 +0000
+! Last modified: Thu, 04 Jan 2024 13:48:57 +0000
 ! Diff-Path: %diffpath%#ublock-quick-fixes
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -141,14 +141,15 @@ gamedrive.org##+js(aost, document.querySelector, /showModal|chooseAction|doActio
 gamedrive.org##+js(acs, eval, replace)
 ||foxsports.com/static/orion/js/segment-analytics.js$badfilter
 @@||assets.msn.com/bundles/v1/homepage/latest/libs_ad-service_dist_index_js$script,1p
-bitcotasks.com##+js(aeld, , adsurfebe)
+bitcotasks.com##+js(rpnt, script, window_paused = false;, window_paused = false; window.setTimeout(function(){showadbar()}\, 2000))
 !#if cap_html_filtering
+||bitcotasks.com/assets/js/main$script,1p,replace=/if\s?\(\![a-zA-z0-9]+\.[a-zA-z0-9]+\([a-zA-z0-9]+\)\)\s?\{/if(false){/g
 ||bitcotasks.com/assets/js/main$script,1p,replace=/if \(\!(?!tutorialCookie)[a-zA-Z0-9]+\) \{/if(false){/g
 bitcotasks.com##^script:has-text(AdblockRegixFinder)
 !#else
 bitcotasks.com##+js(rmnt, script, AdblockRegixFinder)
-@@||ourtecads.com/iframe.html$frame,domain=bitcotasks.com
-ourtecads.com##+js(rpnt, script, !allowedAttributes.includes(attributeName), false)
+@@||ourtecads.com^$frame,domain=bitcotasks.com
+*$frame,redirect=noopframe,domain=ourtecads.com
 !#endif
 ! paste. fo ads
 paste.fo##+js(rpnt, style, display: flex, display: none)
