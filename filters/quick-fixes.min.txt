@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Quick fixes
 ! Expires: 12 hours
-! Last modified: Thu, 04 Jan 2024 12:48:29 +0000
+! Last modified: Thu, 04 Jan 2024 13:03:06 +0000
 ! Diff-Path: %diffpath%#ublock-quick-fixes
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -150,3 +150,13 @@ bitcotasks.com##+js(rmnt, script, AdblockRegixFinder)
 @@||ourtecads.com/iframe.html$frame,domain=bitcotasks.com
 ourtecads.com##+js(rpnt, script, !allowedAttributes.includes(attributeName), false)
 !#endif
+! paste. fo ads
+paste.fo##+js(rpnt, style, display: flex, display: none)
+paste.fo##+js(rpnt, style, /display:\s*var\(--.*?\);/, display: none !important;)
+paste.fo##a:has-text(Free:)
+paste.fo##a:matches-css-after(content:/Free:/)
+||imgur.com/GFcm2wO.gif$image,3p
+||imgur.com/Hf3Hp59.gif$image,3p
+||imgur.com/PpAlOJn.gif$image,3p
+||external-content.duckduckgo.com/iu/?u=*gifyu.com*.gif$image,domain=paste.fo
+||paste.fo/assets/img/default4.png$image,1p
