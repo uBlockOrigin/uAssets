@@ -177,14 +177,15 @@ gamedrive.org##+js(acs, eval, replace)
 @@||assets.msn.com/bundles/v1/homepage/latest/libs_ad-service_dist_index_js$script,1p
 
 ! https://github.com/uBlockOrigin/uAssets/issues/15428
-bitcotasks.com##+js(aeld, , adsurfebe)
+bitcotasks.com##+js(rpnt, script, window_paused = false;, window_paused = false; window.setTimeout(function(){showadbar()}\, 2000))
 !#if cap_html_filtering
+||bitcotasks.com/assets/js/main$script,1p,replace=/if\s?\(\![a-zA-z0-9]+\.[a-zA-z0-9]+\([a-zA-z0-9]+\)\)\s?\{/if(false){/g
 ||bitcotasks.com/assets/js/main$script,1p,replace=/if \(\!(?!tutorialCookie)[a-zA-Z0-9]+\) \{/if(false){/g
 bitcotasks.com##^script:has-text(AdblockRegixFinder)
 !#else
 bitcotasks.com##+js(rmnt, script, AdblockRegixFinder)
-@@||ourtecads.com/iframe.html$frame,domain=bitcotasks.com
-ourtecads.com##+js(rpnt, script, !allowedAttributes.includes(attributeName), false)
+@@||ourtecads.com^$frame,domain=bitcotasks.com
+*$frame,redirect=noopframe,domain=ourtecads.com
 !#endif
 
 ! paste. fo ads
