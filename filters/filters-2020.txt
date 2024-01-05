@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2020)
-! Last modified: Fri, 05 Jan 2024 17:00:43 +0000
+! Last modified: Fri, 05 Jan 2024 17:21:25 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -421,7 +421,6 @@ bg-gledai.*###casing > center
 
 ! https://github.com/NanoMeow/QuickReports/issues/3718
 @@||lesechos.fr^$ghide
-lesechos.fr##.adunitContainer:upward(1)
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/54722
 coinxfaucet.com##+js(aopr, adBlockDetected)
@@ -799,9 +798,6 @@ vosfemmes.com,voyeurfrance.net##+js(set, is_adblocked, false)
 sms-anonyme.net##+js(nowebrtc)
 @@||sms-anonyme.net^$ghide
 sms-anonyme.net##ins.adsbygoogle
-
-! https://github.com/NanoMeow/QuickReports/issues/3851
-homeworklib.com##.title:has-text(/^Ads$/):upward(1)
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/55582
 portable4pc.com##+js(nosiif, visibility, 1000)
@@ -1688,7 +1684,7 @@ forumdz.com##+js(nostif, offsetHeight)
 
 ! https://momzr.com popups/ads
 ! https://www.reddit.com/r/uBlockOrigin/comments/1466pw5/
-momzr.com##.item > iframe:upward(1)
+momzr.com##.item:has(> iframe)
 *$script,3p,denyallow=fluidplayer.com|google.com|gstatic.com|googleapis.com|recaptcha.net|hcaptcha.com|hwcdn.net,domain=momzr.com
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/59292
@@ -2166,7 +2162,6 @@ familyrenders.com##+js(aopr, adBlockDetected)
 hentaifreak.org##+js(aopr, decodeURI)
 hentaifreak.org##+js(aopw, onpopstate)
 hentaifreak.org##+js(nostif, popState)
-hentaifreak.org##.post-thumbnail-container:has-text(AD):upward(1)
 *.gif$image,domain=hentaifreak.org
 
 ! moneycontrol.com ad interstitial
@@ -4222,7 +4217,7 @@ sanoybonito.club##+js(set, blurred, false)
 
 ! https://github.com/easylist/easylist/issues/6710
 @@||unilad.co.uk^$ghide
-unilad.co.uk##.dfp-ad-unit:upward(1)
+unilad.co.uk##div:has(> .dfp-ad-unit)
 ||adsafeprotected.com/vans-adapter-google-ima.js^$redirect-rule=noopjs,script,domain=unilad.co.uk
 ! https://github.com/AdguardTeam/AdguardFilters/issues/110352
 @@||micro.rubiconproject.com/prebid/dynamic/*$script,domain=unilad.co.uk
