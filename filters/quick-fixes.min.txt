@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Quick fixes
 ! Expires: 12 hours
-! Last modified: Fri, 05 Jan 2024 12:54:02 +0000
+! Last modified: Fri, 05 Jan 2024 13:09:04 +0000
 ! Diff-Path: %diffpath%#ublock-quick-fixes
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -149,15 +149,11 @@ bitcotasks.com##+js(rmnt, script, AdblockRegixFinder)
 !#endif
 ! paste. fo ads
 paste.fo##+js(rpnt, style, display: flex, display: none)
-paste.fo##+js(rpnt, style, /display:\s*var\(--.*?\);/, display: none !important;)
+paste.fo##+js(rpnt, style, /display:\s*var\(--.*?\);/, visibility: hidden !important; max-height: 0px !important;)
 paste.fo##a:has-text(Free:)
-paste.fo##a:matches-css-after(content:/Free:/)
-||imgur.com/GFcm2wO.gif$image,3p
-||imgur.com/Hf3Hp59.gif$image,3p
-||imgur.com/PpAlOJn.gif$image,3p
-||ibb.co/YyX9k9v/BannerC.gif$image,3p
-||external-content.duckduckgo.com/iu/?u=*gifyu.com*.gif$image,domain=paste.fo
-||paste.fo/assets/img/default4.png$image,1p
+paste.fo##a[href^="https://anonsmm.com/?utm_source"], a[href="https://cryptochanger.to/"]
+paste.fo##a *:matches-css-after(content:/Free:/)
+/paste\.fo\/[A-Z0-9]{70,100}\.gif$/$image,1p,domain=paste.fo
 blog.cryptowidgets.net,blog.insurancegold.in,blog.wiki-topia.com##+js(set, isRequestPresent, true)
 carsmania.net,carstopia.net,coinsvalue.net,cookinguide.net,freeoseocheck.com,makeupguide.net##+js(set, isRequestPresent, true)
 syracuse.com#@#^script:has-text(/typeof [a-z]\.cmd\.unshift/)
