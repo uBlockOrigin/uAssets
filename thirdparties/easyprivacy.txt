@@ -1,7 +1,7 @@
 [Adblock Plus 1.1]
 ! Title: EasyPrivacy
 ! Expires: 6 days (update frequency)
-! Last modified: Sat, 06 Jan 2024 01:57:53 +0000
+! Last modified: Sat, 06 Jan 2024 09:42:10 +0000
 ! Diff-Path: %diffpath%#easyprivacy
 ! Diff-Expires: 317 minutes
 ! *** easylist:template_header.txt ***
@@ -11882,6 +11882,7 @@ $third-party,xmlhttprequest,domain=opensubtitles.org
 ||data.econa.com^
 ||data.kameleoon.io^
 ||datacomm.ch^*/count.cgi?
+||djuf7jb483wz1.cloudfront.net/p/l.jpg
 ||et.twyn.com^
 ||events.onet.pl^
 ||export.newscube.de^$~subdocument
@@ -12087,6 +12088,7 @@ $third-party,xmlhttprequest,domain=opensubtitles.org
 ||tracking.lqm.io^
 ||tracking.netvigie.com^
 ||trjs.mediafin.be/loader/trmfn-loader.js
+||trk.a-dsp.com^
 ||trk.adbutter.net^
 ||tsphone.biz/pixelvoleur.jpg?
 ||veoxa.com/get_trackingcode.
@@ -14542,8 +14544,11 @@ $csp=child-src 'none'; frame-src *; worker-src 'none',domain=thepiratebay.org|vi
 !-----------------Extension specific systems-----------------!
 ! *** easylist:easyprivacy/easyprivacy_specific_uBO.txt ***
 !#if ext_ublock
-
-
+!#if cap_html_filtering
+abema.tv##^script:has-text(NREUM)
+!#else
+abema.tv##+js(rmnt, script, NREUM)
+!#endif
 !#endif
 !-----------------Individual cname tracking systems-----------------!
 ! *** easylist:easyprivacy/easyprivacy_specific_cname_dataunlocker.txt ***
