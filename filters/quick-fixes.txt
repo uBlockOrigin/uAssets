@@ -1,5 +1,5 @@
 ! Title: uBlock₀ filters – Quick fixes
-! Last modified: Sat, 06 Jan 2024 00:37:49 +0000
+! Last modified: Sat, 06 Jan 2024 05:13:30 +0000
 ! Expires: 12 hours
 ! Description: Immediate, temporary filters to fix websites
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -208,3 +208,10 @@ syracuse.com#@#+js(rmnt, script, /typeof [a-z]\.cmd\.unshift/, condition, cmd.un
 
 ! https://github.com/uBlockOrigin/uAssets/issues/21791
 ||d3e54v103j8qbb.cloudfront.net^$badfilter
+
+! https://github.com/easylist/easylist/issues/18198
+!#if cap_html_filtering
+abema.tv##^script:has-text(NREUM)
+!#else
+abema.tv##+js(rmnt, script, NREUM)
+!#endif
