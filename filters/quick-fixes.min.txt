@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Quick fixes
 ! Expires: 12 hours
-! Last modified: Sat, 06 Jan 2024 09:42:10 +0000
+! Last modified: Sat, 06 Jan 2024 16:04:51 +0000
 ! Diff-Path: %diffpath%#ublock-quick-fixes
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -154,10 +154,12 @@ bitcotasks.com##+js(rmnt, script, AdblockRegixFinder)
 paste.fo##+js(rpnt, style, display: flex, display: none)
 paste.fo##+js(rpnt, style, /display:\s*var\(--.*?\);/, visibility: hidden !important; max-height: 0px !important;)
 paste.fo##a:has-text(Free:)
-paste.fo##a[href^="https://anonsmm.com/?utm_source"], a[href="https://cryptochanger.to/"]
+paste.fo##a[href^="https://anonsmm.com/?utm_source"], a[href="https://cryptochanger.to/"], a[href="https://sellsn.io/"]
 paste.fo##a *:matches-css-after(content:/Free:/)
-/paste\.fo\/[A-Z0-9]{70,100}\.gif$/$image,1p,domain=paste.fo
+paste.fo##a *:matches-css-before(content:/Free:/)
+/paste\.fo\/[A-Z0-9]{70,100}\.(gif|jpeg)$/$image,1p,domain=paste.fo
 ||paste.fo/clk.php?as=$xhr
+paste.fo##a[href] img:not([src$=".php"])
 blog.cryptowidgets.net,blog.insurancegold.in,blog.wiki-topia.com##+js(set, isRequestPresent, true)
 blog.cryptowidgets.net,blog.insurancegold.in,blog.wiki-topia.com##+js(rpnt, script, = false;, = true;, condition, innerHTML)
 carsmania.net,carstopia.net,coinsvalue.net,cookinguide.net,freeoseocheck.com,makeupguide.net##+js(set, isRequestPresent, true)
