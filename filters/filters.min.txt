@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Sat, 06 Jan 2024 12:00:46 +0000
+! Last modified: Sat, 06 Jan 2024 12:52:05 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -22315,6 +22315,11 @@ dirtyvideo.fun##+js(set, arrvast, [])
 tronxminer.com##+js(aeld, load, htmls)
 @@||cursomecanet.com^$ghide
 cursomecanet.com##+js(aost, document.getElementById, /detect/i)
+!#if cap_html_filtering
+cursomecanet.com##^script:has-text(/detect/i)
+!#else
+cursomecanet.com##+js(rmnt, script, /detect/i)
+!#endif
 sousou-no-frieren.com##+js(rmnt, script, pop.doEvent)
 tikmate.app##+js(set, powerAPITag, emptyObj)
 tikmate.app##+js(set, detectAdBlock, noopFunc)
