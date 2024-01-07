@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2021)
-! Last modified: Fri, 05 Jan 2024 17:12:30 +0000
+! Last modified: Sun, 07 Jan 2024 01:39:02 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -2727,12 +2727,14 @@ drop.download##.row > .col-md-8
 ! https://github.com/AdguardTeam/AdguardFilters/issues/85794
 ! https://github.com/uBlockOrigin/uAssets/issues/12709
 ! https://github.com/uBlockOrigin/uAssets/issues/18053
+! ! https://github.com/uBlockOrigin/uAssets/issues/21816
 flightsim.to##+js(acs, fetch, status)
 flightsim.to##+js(acs, document.getElementById, adsblock)
-flightsim.to##+js(nano-sib, timer)
+flightsim.to##+js(nano-sib, timer, 1000, 0.001)
 flightsim.to##+js(no-xhr-if, pub.network)
 @@||flightsim.to^$script,1p
 @@||pub.network/flightsim-to/pubfig.min.js$script,xhr,domain=flightsim.to
+@@||flightsim.to^$ghide
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/85820
 moviemakeronline.com##+js(nosiif, adsbygoogle)
