@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Quick fixes
 ! Expires: 12 hours
-! Last modified: Mon, 08 Jan 2024 13:56:55 +0000
+! Last modified: Mon, 08 Jan 2024 14:06:40 +0000
 ! Diff-Path: %diffpath%#ublock-quick-fixes
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -95,6 +95,9 @@ infinityscans.xyz,infinityscans.net##^script:has-text(;break;case $.)
 !#else
 infinityscans.xyz,infinityscans.net##+js(rmnt, script, ;break;case $.)
 !#endif
+www.chip.de##+js(rpnt, style, /a\s?\{\s?margin:\s?0\s?auto;\s?width:\s?100%;\s?max-width:\s?970px;padding-top:\s?10px;\s?\}/, {display: none !important;}, condition, /aspect-ratio:\s?auto/)
+www.chip.de##+js(rpnt, style, @media screen and (min-width: 697px), @media screen and (max-width: 1px), condition, /aspect-ratio:\s?auto/)
+www.chip.de##+js(rpnt, style, img {padding:0;width:auto;}, {display: none !important;}, condition, /aspect-ratio:\s?auto/)
 www.chip.de##+js(rpnt, script, !=typeof global?global:this);, !=typeof global?global:this); window.addEventListener("DOMContentLoaded"\,function(){let e=Object.getOwnPropertyNames(publisherAdsRp);for(let t=0;t<e.length;t++){let l=document.getElementsByClassName(e[t]);l.length>0&&(l[0].style.display="none")}});)
 ! Ad-Shield
 tweaksforgeeks.com##+js(noeval-if, /07c225f3\.online|content-loader\.com|css-load\.com|html-load\.com/)
