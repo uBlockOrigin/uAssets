@@ -324,7 +324,6 @@ jetpunk.com##.support-beg
 ! https://www.reddit.com/r/uBlockOrigin/comments/ksla7v/imgur_blocking_uploads_again_unless_whitelisted/
 imgur.com##+js(set, ADBLOCKED, false)
 ! https://www.reddit.com/r/uBlockOrigin/comments/m1iib6/imgur_ads_still_making_it_through/
-imgur.com##.Post-item--interactions:upward(1)
 ! reported
 imgur.com##+js(set-cookie, WHITELISTED_CLOSED, 1)
 
@@ -336,7 +335,7 @@ thodkyaat.com##pp
 comidoc.net#@#.googlead
 @@||doubleclick.net^$xhr,domain=comidoc.net
 comidoc.net##div[style="text-align: center; margin-left: auto; margin-right: auto; min-height: 266px; max-width: 100vw;"]
-comidoc.net##.adsbygoogle:upward(1)
+comidoc.net##div:has(> .adsbygoogle)
 comidoc.net##div[style="text-align:center;margin-left:auto;margin-right:auto;min-height:266px;max-width:90vw"]
 
 ! https://www.reddit.com/r/uBlockOrigin/comments/ktkw6p/proboards_based_forums_deploying_antiadblock/
@@ -711,7 +710,6 @@ winaero.com##[href^="/idx.php"]
 ! taxidrivermovie.com PH
 taxidrivermovie.com###scroll-div
 taxidrivermovie.com##.adboard-top
-taxidrivermovie.com##.thumb-holder[style="height:250px;"]:upward(1)
 taxidrivermovie.com##[href="/category/taxi-fares/"]:upward(.thumb)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/15622
@@ -1224,7 +1222,6 @@ speedostream.*##+js(aost, JSON.parse, computed)
 @@||nnaa66.xyz^$ghide
 
 ! https://github.com/uBlockOrigin/uAssets/issues/8674
-discovermagazine.com##.adunitContainer:upward(1)
 discovermagazine.com##a > img + div[class]:last-of-type:has-text(Sponsored):upward(div[sizes])
 discovermagazine.com##div[sizes] > span[class]:has-text(Sponsored):upward(div[sizes])
 
@@ -1581,7 +1578,7 @@ kaotic.com##.track_outbound_post.grid-item
 
 ! https://www.reddit.com/r/uBlockOrigin/comments/mf5rd0/help_blocking_sponsored_classified_on_cargurus/
 cargurus.com##[data-cg-ft="sponsored-listing-badge"]:upward(3)
-cargurus.com##[id^="bannerAdLEADERBOARD_INLINE_"]:upward(1)
+cargurus.com##div:has(> [id^="bannerAdLEADERBOARD_INLINE_"])
 
 ! Anti-adblock https://community.brave.com/t/metro-style-anti-adblock/224281
 @@||metro.style^$ghide
@@ -2628,7 +2625,6 @@ pix4link.com##+js(set, blurred, false)
 ! https://www.reddit.com/r/uBlockOrigin/comments/ntpfum/streaming_site_is_detecting_adblocker/
 liveschauen.com##.banner
 liveschauen.com###werbung
-liveschauen.com##pjsdiv[style="position: absolute; top: -7px; left: -111px; pointer-events: none; opacity: 1; transition: opacity 0.1s linear 0s, transform 0.1s linear 0s; color: rgb(255, 255, 255); font-size: 15px; font-family: Tahoma; letter-spacing: 0.5px; padding: 0px 3px; white-space: nowrap; font-weight: bold; transform: scale(1);"]:upward(1)
 
 ! https://www.reddit.com/r/uBlockOrigin/comments/ntq1av/antiadblocker_therokuchannel/
 @@||therokuchannel.roku.com/$xhr,1p
@@ -3855,7 +3851,7 @@ notformembersonly.com###post-separate > p > .local-link
 ! https://www.reddit.com/r/uBlockOrigin/comments/pufp7v/unsplashcom_sponsored_ads/
 unsplash.com##div[style^="--row-gutter"] > div a[href="/brands"]:upward(div[style^="--row-gutter"] > div)
 unsplash.com##div[data-test="SearchInFeedAd-AffiliateFallback-Container"]
-unsplash.com##div[data-affiliates-grid-container]:upward(1)
+unsplash.com##div:has(> div[data-affiliates-grid-container])
 
 ! https://github.com/uBlockOrigin/uAssets/issues/10053
 surfline.com##+js(nano-stb, adFreePopup, 15000, 0.02)
@@ -4293,7 +4289,7 @@ crazytechgo.com##+js(acs, eval, replace)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/10321
 *$image,redirect-rule=1x1.gif,domain=freevpn4you.net
-freevpn4you.net##.adsbygoogle:upward(1)
+freevpn4you.net##*:has(> .adsbygoogle)
 @@||freevpn4you.net^$ghide
 
 ! https://github.com/uBlockOrigin/uAssets/issues/10320
@@ -4395,7 +4391,7 @@ dvdgayonline.com##+js(aost, setTimeout, ads)
 dotadostube.com,taradinhos.com##+js(noeval-if, ads)
 dvdgayporn.com##+js(aeld, DOMContentLoaded, adsBlocked)
 dvdgayporn.com##+js(ra, href, #clickfakeplayer)
-dotadostube.com,taradinhos.com##.video-block-happy:upward(1)
+dotadostube.com,taradinhos.com##div:has(> .video-block-happy)
 dotadostube.com##.happy-player-beside
 dvdgayporn.com,taradinhos.com##.widget_custom_html
 taradinhos.com##.under-player-ad
@@ -4462,7 +4458,7 @@ stocktwits.com##div:has(> div > [class*="BackgroundLoaderAd_container"])
 stocktwits.com##p[class^="Disclosure_disclosure"]:has-text(3rd Party Ad)
 
 ! genius.com PH
-genius.com##div[class^="TopContentdesktop__PromoContainer-"]:upward(1)
+genius.com##div:has(> div[class^="TopContentdesktop__PromoContainer-"])
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/98990
 xxxdl.net##.banners
