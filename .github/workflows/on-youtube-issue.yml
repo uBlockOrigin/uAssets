@@ -8,16 +8,17 @@ jobs:
   check-if-youtube:
     name: Close as duplicate
     runs-on: ubuntu-latest
-    if: startsWith(github.event.issue.title, 'youtube.com:') == 'true'
     permissions:
       issues: write
     steps:
       - name: Add label
+        if: startsWith(github.event.issue.title, 'youtube.com:') == 'true'
         uses: actions-cool/issues-helper@v3
         with:
           actions: 'add-labels'
           labels: 'duplicate'
       - name: Add comment
+        if: startsWith(github.event.issue.title, 'youtube.com:') == 'true'
         uses: actions-cool/issues-helper@v3
         with:
           actions: 'create-comment'
@@ -26,6 +27,7 @@ jobs:
             
             This is a `youtube.com` issue, see <https://github.com/uBlockOrigin/uAssets/issues/20586>.
       - name: Close issue
+        if: startsWith(github.event.issue.title, 'youtube.com:') == 'true'
         uses: actions-cool/issues-helper@v3
         with:
           actions: 'close-issue'
