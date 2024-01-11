@@ -12,13 +12,13 @@ jobs:
       issues: write
     steps:
       - name: Add label
-        if: startsWith(github.event.issue.title, 'youtube.com:') == 'true'
+        if: startsWith(github.event.issue.title, 'youtube.com:')
         uses: actions-cool/issues-helper@v3
         with:
           actions: 'add-labels'
           labels: 'duplicate'
       - name: Add comment
-        if: startsWith(github.event.issue.title, 'youtube.com:') == 'true'
+        if: startsWith(github.event.issue.title, 'youtube.com:')
         uses: actions-cool/issues-helper@v3
         with:
           actions: 'create-comment'
@@ -27,7 +27,7 @@ jobs:
             
             This is a `youtube.com` issue, see <https://github.com/uBlockOrigin/uAssets/issues/20586>.
       - name: Close issue
-        if: startsWith(github.event.issue.title, 'youtube.com:') == 'true'
+        if: startsWith(github.event.issue.title, 'youtube.com:')
         uses: actions-cool/issues-helper@v3
         with:
           actions: 'close-issue'
