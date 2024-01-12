@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2020)
-! Last modified: Fri, 12 Jan 2024 02:13:38 +0000
+! Last modified: Fri, 12 Jan 2024 02:16:38 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -2150,8 +2150,11 @@ chronicle.com##.GoogleDfpAd-container
 ! https://github.com/NanoMeow/QuickReports/issues/4510
 @@||vix.com^$ghide
 ! https://www.reddit.com/r/uBlockOrigin/comments/16309vm/doesnt_work_for_vixcom/
+! https://github.com/uBlockOrigin/uAssets/issues/21920
 vix.com##+js(json-prune, breaks interstitials info, interstitials)
-vix.com##+js(xml-prune, xpath(//*[name()="Period"][.//*[name()="AdaptationSet"][@contentType="video"]]), , .mpd)
+vix.com##+js(xml-prune, xpath(//*[name()="Period"][.//*[name()="AdaptationSet"][@contentType="video"][not(@bitstreamSwitching="true")]]), , .mpd)
+||imasdk.googleapis.com/js/sdkloader/ima3.js$script,3p,redirect=google-ima.js,domain=vix.com
+@@||imasdk.googleapis.com/js/sdkloader/ima3_dai.js$script,3p,domain=vix.com
 
 ! https://github.com/NanoMeow/QuickReports/issues/4512
 animepahe.*##+js(aopw, __C)
