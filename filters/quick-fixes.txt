@@ -1,5 +1,5 @@
 ! Title: uBlock₀ filters – Quick fixes
-! Last modified: Fri, 12 Jan 2024 03:36:45 +0000
+! Last modified: Fri, 12 Jan 2024 11:16:50 +0000
 ! Expires: 12 hours
 ! Description: Immediate, temporary filters to fix websites
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -91,8 +91,18 @@ infinityscans.xyz,infinityscans.net##+js(rmnt, script, ;break;case $.)
 
 ! https://github.com/easylist/easylistgermany/issues/216
 ! https://github.com/uBlockOrigin/uAssets/issues/21504
-www.chip.de##+js(rpnt, style, a {padding-top:0;padding-bottom:0;}, {display: none !important;}, condition, /aspect-ratio:\s?auto/)
-www.chip.de##+js(rpnt, script, !=typeof global?global:this);, !=typeof global?global:this); window.addEventListener("DOMContentLoaded"\,function(){if("undefined"!=typeof publisherAdsRp){let e=Object.getOwnPropertyNames(publisherAdsRp);for(let t=0;t<e.length;t++){let n=document.getElementsByClassName(e[t]);n.length>0&&n[0].remove()}}});)
+www.chip.de##+js(rpnt, style, /a > div \{ width:auto;\s?padding-right:0;\s?padding-left:0; \}/, {display: none !important;}, condition, /aspect-ratio:\s?auto/)
+www.chip.de##body.l-DownloadListing > div:has(> div > ul a[href^="https://www.chip.de/downloads/"] img[src^="https://im.chip.de/"])
+www.chip.de##body.l-DownloadListing .wrapper-safe.mt-sm > .fb > section:not(.Listing) ul:has(> li a[href^="https://www.chip.de/downloads/"] img[src^="https://im.chip.de/"])
+www.chip.de###CR.Downloads-Detail > #G32 > #M1 > [class="wrapper-safe"] > [class="fb mt-lg"] > [class="fb-col-lg-4 is-hidden-sm is-hidden-md"] > *:has(a img[src^="https://im.chip.de/ii/"])
+www.chip.de###CR.Downloads-Detail > #G32 > #M1 > [class]:matches-attr(class="/.*[A-Z]/"):has(a img[src^="https://im.chip.de/ii/"])
+www.chip.de###CR.Downloads-Detail > #G32 > #M1 > [class]:has(> main > ul[class="List is-separated"] a img[src^="https://im.chip.de/ii/"])
+www.chip.de##body[class="l-DownloadListing is-sticky"] > [class="Main Main--Skyscraper"] > .Main__Container > main[class="Downloads DownloadListing bg-white mt-xs"] > [class="mt-sm wrapper-bleed bg-blue"] + [class="wrapper-safe"]:has(a img[src^="https://im.chip.de/ii/"])
+www.chip.de##body[class="l-DownloadListing is-sticky"] > [class="Main Main--Skyscraper"] > .Main__Container > main:not(.DownloadListing) > *:only-child > *:only-child:has(a img[src^="https://im.chip.de/ii/"])
+www.chip.de##body[class="l-DownloadListing is-sticky"] > [class]:has(> main > ul[class="List is-separated"] a img[src^="https://im.chip.de/ii/"])
+www.chip.de###CR:is(.Downloads-Select, .Downloads-Getfile) > #G32 > #M1 > [class="wrapper-safe"] > [class^="fb mt-"] > div[class="fb-col-lg-4 is-hidden-sm is-hidden-md"] > div[class]:has(a img[src^="https://im.chip.de/ii/"])
+www.chip.de###CR:is(.Downloads-Select, .Downloads-Getfile) > #G32 > #M1 > [class="wrapper-safe"] > [class^="fb mt-"] > section > [class]:has(ul[class="List is-separated"] a img[src^="https://im.chip.de/ii/"])
+www.chip.de###CR:is(.Downloads-Select, .Downloads-Getfile) > #G32 > #M1 > [class]:has(> * > ul[class="List is-separated"])
 
 ! Ad-Shield
 ! https://github.com/uBlockOrigin/uAssets/issues/21346
