@@ -1,5 +1,5 @@
 ! Title: uBlock₀ filters – Quick fixes
-! Last modified: Tue, 16 Jan 2024 08:25:15 +0000
+! Last modified: Tue, 16 Jan 2024 10:18:32 +0000
 ! Expires: 12 hours
 ! Description: Immediate, temporary filters to fix websites
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -168,4 +168,7 @@ amazon.ae,amazon.ca,amazon.cn,amazon.co.jp,amazon.co.uk,amazon.com,amazon.com.au
 bild.de##+js(set, __NUXT__.state.advertisement.adBlockWallEnabled, false)
 
 ! ytlarge detection
-||ytlarge.com/youtube/css/youtubetoolsx.js$script,1p,important
+@@||ytlarge.com^$ghide
+ytlarge.com##+js(no-fetch-if, doubleclick)
+ytlarge.com##+js(rmnt, script, /adblock|_0x/i)
+@@*.js|$script,3p,domain=ytlarge.com
