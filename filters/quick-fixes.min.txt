@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Quick fixes
 ! Expires: 12 hours
-! Last modified: Wed, 17 Jan 2024 10:31:58 +0000
+! Last modified: Wed, 17 Jan 2024 10:49:04 +0000
 ! Diff-Path: %diffpath%#ublock-quick-fixes
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -127,9 +127,10 @@ paste.fo##a *:matches-css-before(content:/Free:/)
 /paste\.fo\/[A-Z0-9]{70,100}\.(gif|jpeg)$/$image,1p,domain=paste.fo
 ||paste.fo/clk*.php?as=$xhr
 paste.fo##a[href] img:not([src$=".php"])
-perchance.org##+js(trusted-rpnt, script, /['"`]\s*\+\s*['"`]/)
-perchance.org##+js(trusted-rpnt, script, /\x24\{.*?(?:['"`]{2}|empty).*?\}/)
-perchance.org##+js(nostif, locat$)
+!perchance.org##+js(trusted-rpnt, script, /['"`]\s*\+\s*['"`]/)
+!perchance.org##+js(trusted-rpnt, script, /\x24\{.*?(?:['"`]{2}|empty).*?\}/)
+!perchance.org##+js(nostif, locat$)
+perchance.org##+js(set, String.prototype.includes, trueFunc)
 amazon.ae,amazon.ca,amazon.cn,amazon.co.jp,amazon.co.uk,amazon.com,amazon.com.au,amazon.com.be,amazon.com.br,amazon.com.mx,amazon.com.tr,amazon.de,amazon.eg,amazon.es,amazon.fr,amazon.in,amazon.it,amazon.nl,amazon.pl,amazon.sa,amazon.se,amazon.sg#@#[data-card-metrics-id]
 @@||agoda.com/*/book/$removeparam
 bild.de##+js(set, __NUXT__.state.advertisement.adBlockWallEnabled, false)
