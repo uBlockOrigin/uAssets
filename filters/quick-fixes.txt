@@ -95,8 +95,8 @@ infinityscans.xyz,infinityscans.net##+js(rmnt, script, ;break;case $.)
 
 ! https://github.com/easylist/easylistgermany/issues/216
 ! https://github.com/uBlockOrigin/uAssets/issues/21504
-www.chip.de##+js(rpnt, style, { padding-right: 0; padding-left: 0; width: auto; }, {display: none !important;}, condition, /aspect-ratio:\s?auto/)
-www.chip.de##+js(rpnt, style, a {padding-top:0; padding-bottom:0;}, {display: none !important;}, condition, /aspect-ratio:\s?auto/)
+www.chip.de##+js(rpnt, style, ) { margin-left: 0; margin-right: 0; }, ){display: none !important;}, condition, /aspect-ratio:\s?auto/)
+www.chip.de##+js(rpnt, style, a { margin: 0 auto; padding-top: 10px; width: 100%; max-width: 970px; }, {display: none !important;}, condition, /aspect-ratio:\s?auto/)
 www.chip.de##+js(rpnt, style, img {padding:0;width:auto;}, {display: none !important;}, condition, /aspect-ratio:\s?auto/)
 www.chip.de##body.l-DownloadListing > div:has(> div > ul a[href^="https://www.chip.de/downloads/"] img[src^="https://im.chip.de/"])
 www.chip.de##body.l-DownloadListing .wrapper-safe.mt-sm > .fb > section:not(.Listing) ul:has(> li a[href^="https://www.chip.de/downloads/"] img[src^="https://im.chip.de/"])
@@ -132,10 +132,13 @@ gamedrive.org##+js(acs, eval, replace)
 ! https://github.com/uBlockOrigin/uAssets/issues/15428
 !#if cap_html_filtering
 bitcotasks.com##^script:has-text(AdblockRegixFinder)
+||bitcotasks.com/assets/js/mainjs.php$script,1p,replace=/entry.duration > 0/entry.duration < 10/
+.js|$script,redirect-rule=none:10,domain=bitcotasks.com
 !#else
 bitcotasks.com##+js(rmnt, script, AdblockRegixFinder)
-!#endif
 @@||static.ads-twitter.com/uwt.js$script,domain=bitcotasks.com
+@@||coinzillatag.com/lib/fp.js$script,domain=bitcotasks.com
+!#endif
 bitcotasks.com##+js(aeld, blur, event.triggered)
 ||bitcotasks.com/assets/ads.php$frame,1p
 
@@ -153,6 +156,7 @@ paste.fo##a[href] img:not([src$=".php"])
 ! perchance.org##+js(trusted-rpnt, script, /\x24\{.*?(?:['"`]{2}|empty).*?\}/)
 perchance.org##+js(set, String.prototype.includes, trueFunc)
 perchance.org##+js(rpnt, script, 'throw')
+perchance.org##+js(rpnt, script, /if\(".*"\.includes\("."\)\).\{([\s\S]*?)\}/gms, )
 
 ! https://github.com/uBlockOrigin/uAssets/issues/21944
 amazon.ae,amazon.ca,amazon.cn,amazon.co.jp,amazon.co.uk,amazon.com,amazon.com.au,amazon.com.be,amazon.com.br,amazon.com.mx,amazon.com.tr,amazon.de,amazon.eg,amazon.es,amazon.fr,amazon.in,amazon.it,amazon.nl,amazon.pl,amazon.sa,amazon.se,amazon.sg#@#[data-card-metrics-id]
