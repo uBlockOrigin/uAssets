@@ -1,5 +1,5 @@
 ! Title: uBlock₀ filters – Quick fixes
-! Last modified: Thu, 18 Jan 2024 11:16:37 +0000
+! Last modified: Thu, 18 Jan 2024 11:38:43 +0000
 ! Expires: 8 hours
 ! Description: Immediate, temporary filters to fix websites
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -130,24 +130,14 @@ gamedrive.org##+js(aost, document.querySelector, /showModal|chooseAction|doActio
 gamedrive.org##+js(acs, eval, replace)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/15428
-*$image,redirect-rule=1x1.gif,domain=bitcotasks.com
-@@||cdn.bmcdn6.com/js/*.js?v=$script,domain=bitcotasks.com
-@@||cdn.bmcdn6.com/p/$frame,domain=bitcotasks.com
-@@||ourtecads.com^$frame,domain=bitcotasks.com
-@@||bmcdn6.com^$xhr,domain=bitcotasks.com
-bitcotasks.com#@#[class^="floating-banner"]
-bitcotasks.com##[class^="floating-banner"]:style(visibility: hidden !important; pointer-events: none !important;)
 !#if cap_html_filtering
 bitcotasks.com##^script:has-text(AdblockRegixFinder)
 !#else
 bitcotasks.com##+js(rmnt, script, AdblockRegixFinder)
 !#endif
+@@||static.ads-twitter.com/uwt.js$script,domain=bitcotasks.com
 bitcotasks.com##+js(aeld, blur, event.triggered)
-!#if env_chromium
-@@||media.bmcdn6.com/gif/$image,domain=bitcotasks.com
-bitcotasks.com##img[src*="media.bmcdn6.com/gif/"]:not([style*="hidden"]):style(visibility: hidden !important;)
-bitcotasks.com##+js(spoof-css, img[src*="media.bmcdn6.com/gif/"]:not([style*="hidden"]), visibility, visible)
-!#endif
+||bitcotasks.com/assets/ads.php$frame,1p
 
 ! paste. fo ads
 paste.fo##a:has-text(Free:)
