@@ -1,5 +1,5 @@
 ! Title: uBlock filters
-! Last modified: Wed, 17 Jan 2024 06:43:19 +0000
+! Last modified: Thu, 18 Jan 2024 01:57:27 +0000
 ! Expires: 5 days
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
@@ -1713,26 +1713,29 @@ mp4upload.com###lay.lay
 *$script,3p,denyallow=cloudflare.com|cloudflare.net|fontawesome.com|gstatic.com|hwcdn.net|jquery.com|jsdelivr.net,domain=mp4upload.com
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/133530
-@@||userupload.net^$ghide
-userupload.net##+js(ra, checked, #addon)
-userupload.net##.mb-4.custom-checkbox.text-center.custom-control
-userupload.net##ins.adsbygoogle
-userupload.net##[href^="https://xn--r1a.click/useruploadofficial"]
-userupload.net##+js(aeld, , _0x)
+@@||userupload.*^$ghide
+userupload.*##+js(ra, checked, #addon)
+userupload.*##.mb-4.custom-checkbox.text-center.custom-control
+userupload.*##ins.adsbygoogle
+userupload.*##[href^="https://xn--r1a.click/useruploadofficial"]
+userupload.*##+js(aeld, , _0x)
 userupload.*##.btn-danger:has-text(/download/i)
-userupload.net##.ads
+userupload.*##a[href*="hotstar"]
+userupload.*##.ads
 ||tgwidget.com^$3p
 
 ! https://github.com/uBlockOrigin/uAssets/issues/5674
 uploadrar.*##+js(acs, Math, _0x)
 uploadrar.*##+js(aopr, popns)
-uploadrar.com##+js(acs, eval, replace)
-uploadrar.com##+js(nobab)
-uploadrar.com##+js(nano-stb, tick, 1000)
-uploadrar.com##[class^="banner"]:not(:has(#commonId))
-uploadrar.com##div.download0page:not(:has(.mngez-free-download))
-uploadrar.com##ins
-uploadrar.com###wrapper:style(display: initial !important;)
+uploadrar.*##+js(acs, eval, replace)
+uploadrar.*##+js(nobab)
+uploadrar.*##+js(nano-stb, tick, 1000)
+uploadrar.*##[class^="banner"]:not(:has(#commonId))
+uploadrar.*##div.download0page:not(:has(.mngez-free-download))
+uploadrar.*##ins
+uploadrar.*##a[href][target="_blank"][class]
+uploadrar.*###wrapper, .banner2:style(display: initial !important;)
+uploadrar.*##.desc:style(width:auto! important;)
 ||uploadrar.*/sw.js$script
 
 ! https://github.com/reek/anti-adblock-killer/issues/3723
