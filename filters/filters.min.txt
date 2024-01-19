@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Fri, 19 Jan 2024 17:33:44 +0000
+! Last modified: Fri, 19 Jan 2024 17:38:22 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -18885,7 +18885,7 @@ upiapi.in##+js(set, detectAdBlock, noopFunc)
 *&caid=$xhr,removeparam=caid,domain=max.com
 ! play.max.com##+js(json-prune, ssaiInfo fallback.ssaiInfo manifest.url)
 play.max.com##+js(json-prune, ssaiInfo fallback.ssaiInfo)
-play.max.com##+js(xml-prune, xpath(//*[name()="Period"][not(.//*[name()="SegmentTimeline"])][not(.//*[name()="ContentProtection"])]), , .mpd)
+play.max.com##+js(xml-prune, xpath(//*[name()="Period"][not(.//*[name()="SegmentTimeline"])][not(.//*[name()="ContentProtection"])] | //*[name()="Period"][./*[name()="BaseURL"]][not(.//*[name()="ContentProtection"])]), , .mpd)
 play.max.com##+js(json-prune, adtech-brightline adtech-google-pal adtech-iab-om)
 forexfactory.com##.adbit
 .popup_im.
