@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Sun, 21 Jan 2024 03:10:33 +0000
+! Last modified: Sun, 21 Jan 2024 03:38:59 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -17217,10 +17217,9 @@ jardima.com##.g1-slideup-wrap
 ||amazon-adsystem.com^$object,redirect-rule=noopjs
 fox.com##+js(no-xhr-if, googlesyndication)
 fox.com,foxsports.com##+js(json-prune, ads)
-fox.com,foxsports.com##+js(m3u-prune, /\,ad\n.+?(?=#UPLYNK-SEGMENT)/gm, .m3u8)
-fox.com,foxsports.com#@#+js(m3u-prune, /is_ad|ohash=\w{300}/, .m3u8)
+fox.com,foxsports.com##+js(m3u-prune, /\,ad\n.+?(?=#UPLYNK-SEGMENT)/gm, /uplynk\.com\/.*?\.m3u8/)
 ||link.theplatform.com/s/*/media/*=m3u&*_webdesktop_vod*$xhr,domain=foxsports.com,removeparam=/^((?!formats|profile).)*$/
-://foxvideo-sports.$xhr,3p,removeparam=ad.prof,domain=foxsports.com
+://foxvideo-sports$xhr,3p,removeparam=ad.prof,domain=foxsports.com
 ! movieswatch24.pk,watchonlinemovies15.pk popup
 movieswatch24.pk,watchonlinemovies15.pk##+js(nowoif)
 cue-vana.com##+js(nano-sib, count)
