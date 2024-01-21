@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Sun, 21 Jan 2024 10:46:12 +0000
+! Last modified: Sun, 21 Jan 2024 10:57:58 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -9520,8 +9520,13 @@ flixscans.org##+js(no-fetch-if, googlesyndication)
 mhn.quest##+js(nostif, adblock)
 bonsaiprolink.shop##+js(noeval-if, ads)
 ! paste. fo ads
-paste.fo##+js(rpnt, style, display: flex, display: none)
 paste.fo##a:has-text(Free:)
+paste.fo##a[href^="https://anonsmm.com/?utm_source"], a[href="https://cryptochanger.to/"], a[href="https://sellsn.io/"]
+paste.fo##a *:matches-css-after(content:/Free:/)
+paste.fo##a *:matches-css-before(content:/Free:/)
+/paste\.fo\/[A-Z0-9]{70,110}\.(gif|jpeg)$/$image,1p,domain=paste.fo
+||paste.fo/clk*.php?as=$xhr
+paste.fo##a[href] img:not([src$=".php"])
 ! bharathwick .com anti-adb
 bharathwick.com##+js(rmnt, script, deblocker)
 @@||easyupload.io/cdn-cgi/zaraz/s.js$1p
