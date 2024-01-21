@@ -6,7 +6,7 @@ on:
       - master
 
 # https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#example-only-cancel-in-progress-jobs-or-runs-for-the-current-workflow
-concurrency: 
+concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
@@ -33,6 +33,7 @@ jobs:
           popd > /dev/null
           cp $TMPDIR/filters/*.txt filters/
           cp $TMPDIR/thirdparties/easylist/easy*.txt thirdparties/
+          cp $TMPDIR/dnr/*.json dnr/
       - name: Patch last-updated field
         run: |
           DATE=$(date -Ru)
@@ -51,6 +52,7 @@ jobs:
             git config user.email "<>"
             git add -u filters/
             git add -u thirdparties/
+            git add -u dnr/
             git commit -m "Update modified filter lists"
             git push origin gh-pages
           fi
