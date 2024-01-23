@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Tue, 23 Jan 2024 11:22:20 +0000
+! Last modified: Tue, 23 Jan 2024 12:09:34 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -14880,7 +14880,11 @@ uprot.net##*[style="display:none;"]:style(display:block !important)
 @@||ads.host-cdn.net/ads2.js$script,domain=maxstream.video|maxlinks.online|uprot.net
 ||ragsbxhchr.xyz^
 videoseyred.in##+js(nowoif)
-listendata.com##+js(acs, onload)
+!#if !cap_html_filtering
+listendata.com##+js(rmnt, script, AdBlocker)
+!#else
+listendata.com##^script:has-text(AdBlocker)
+!#endif
 spleaks.org##+js(acs, $, test)
 ! antiblock.org sites
 ads-ti9ni4.blogspot.com,bouamra.blogspot.com,cintateknologi.com,este-walks.net,funnymadworld.blogspot.com,gfilex.blogspot.com,intest.tv,irasutoya.blogspot.com,laurasia.info,pramejarab.blogspot.com,thelibrarydigital.blogspot.com,tienganhedu.com,tienichdienthoai.net,xbox360torrent.com,xn--k9ja7fb0161b5jtgfm.jp##+js(acs, document.addEventListener, google_ad_client)
