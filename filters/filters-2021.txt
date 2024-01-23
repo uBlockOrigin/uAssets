@@ -2870,8 +2870,13 @@ uprot.net##*[style="display:none;"]:style(display:block !important)
 ! https://github.com/AdguardTeam/AdguardFilters/issues/86746
 videoseyred.in##+js(nowoif)
 
+! https://github.com/uBlockOrigin/uAssets/issues/13556
 ! https://github.com/AdguardTeam/AdguardFilters/issues/86812
-listendata.com##+js(acs, onload)
+!#if !cap_html_filtering
+listendata.com##+js(rmnt, script, AdBlocker)
+!#else
+listendata.com##^script:has-text(AdBlocker)
+!#endif
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/86837
 spleaks.org##+js(acs, $, test)
