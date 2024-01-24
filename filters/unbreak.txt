@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Unbreak
-! Last modified: Tue, 23 Jan 2024 10:45:48 +0000
+! Last modified: Wed, 24 Jan 2024 00:32:20 +0000
 ! Expires: 5 days
 ! Description:
 !     Filters optimized for uBlock Origin, to unbreak sites broken as
@@ -5181,7 +5181,4 @@ thethings.com##.adsninja-ad-zone:not(.adsninja-valstream)
 helpster.de#@##ad_sidebar_left_container
 
 ! https://github.com/uBlockOrigin/uAssets/issues/22152
-sklep.trzynastkaplus.pl##^script[src^="https://www.googletagmanager.com/gtag/js"]
-!#if !cap_html_filtering
-@@||googletagmanager.com/gtag/js$script,3p,domain=sklep.trzynastkaplus.pl
-!#else
+sklep.trzynastkaplus.pl##[onclick$="return !ga.loaded;"]:remove-attr(onclick)
