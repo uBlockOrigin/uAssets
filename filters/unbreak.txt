@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Unbreak
-! Last modified: Wed, 24 Jan 2024 06:06:52 +0000
+! Last modified: Wed, 24 Jan 2024 07:17:28 +0000
 ! Expires: 5 days
 ! Description:
 !     Filters optimized for uBlock Origin, to unbreak sites broken as
@@ -5185,3 +5185,9 @@ sklep.trzynastkaplus.pl##[onclick$="return !ga.loaded;"]:remove-attr(onclick)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/22172
 @@||st.dynamicyield.com/st$script,3p,domain=thewarehouse.co.nz
+
+! https://github.com/uBlockOrigin/uAssets/issues/22160
+!#if env_firefox
+foxnews.com##+js(set, Taplytics, {})
+foxnews.com##+js(set, Taplytics.featureFlagEnabled, noopFunc)
+!#endif
