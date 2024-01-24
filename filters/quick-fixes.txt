@@ -1,5 +1,5 @@
 ! Title: uBlock₀ filters – Quick fixes
-! Last modified: Wed, 24 Jan 2024 20:23:42 +0000
+! Last modified: Wed, 24 Jan 2024 20:34:48 +0000
 ! Expires: 8 hours
 ! Description: Immediate, temporary filters to fix websites
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -145,18 +145,8 @@ bitcotasks.com##+js(aeld, blur, event.triggered)
 ||bitcotasks.com/assets/ads.php$frame,1p
 
 ! perchance - broken by its dev
-!perchance.org##+js(set, String.prototype.includes, trueFunc)
-!perchance.org##+js(rpnt, script, '/if(\n){1,}.*\.*\("."\)\).\{([\s\S]*?)\}/gms', )
-!perchance.org##+js(rpnt, script, '/if\(([^;]+)\)[^{]+{\s+throw.*\(".*"\);\s+.*;\s+}/gm', )
-!perchance.org##+js(rpnt, script, '/if\(..*\[\`.*\`\]\("."\)\) \{([\s\S]*?\}){2}/gm', )
-perchance.org##+js(rpnt, script, '/if\s\(..*\[\`.*\`\]\("."\)\) \{([\s\S]*?\}){2,}/gm', 'if (location.href.indexOf("ai-") !== -1) {String.prototype.includes=function (){return true};};riot.mount(\'app\', {generator: window.generatorData,dependencies: window.generatorDependenciesData,});window.successfulPageLoad = true;')
 perchance.org##+js(rpnt, script, '/if(\s){0,}\(..*\[\`.*\`\]\("."\)\) \{([\s\S]*?\}){2,}/gm', 'if (location.href.indexOf("ai-") !== -1) {String.prototype.includes=function (){return true};};riot.mount(\'app\', {generator: window.generatorData,dependencies: window.generatorDependenciesData,});window.successfulPageLoad = true;')
-perchance.org##+js(nostif, document.body.innerHTML)
-perchance.org##+js(rmnt, script, /Promise.*successfulPageLoad/gms)
-perchance.org##+js(rmnt, script, /await.*successfulPageLoad/gms)
-perchance.org##+js(rmnt, script, /await.*\${""}/gms)
-perchance.org##+js(rmnt, script, /await.*\$.*""}/g)
-perchance.org#@#+js()
+perchance.org##+js(rmnt, script, '/^(\s){0,}\(.*[Promise].*set.*[successful]PageLoad/gs')
 
 ! https://github.com/uBlockOrigin/uAssets/commit/453b544f310c39c7d2512391c3c02838143ad999
 @@||agoda.com/*/book/$removeparam
