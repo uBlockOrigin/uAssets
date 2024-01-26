@@ -1,5 +1,5 @@
 ! Title: uBlock filters
-! Last modified: Fri, 26 Jan 2024 13:20:19 +0000
+! Last modified: Fri, 26 Jan 2024 23:31:09 +0000
 ! Expires: 5 days
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
@@ -8199,11 +8199,9 @@ couchtuner.*##+js(acs, RegExp, 0x)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/10701
 dutchycorp.*##+js(acs, eval, replace)
-dutchycorp.*##+js(aopr, NoAdBlock)
 dutchycorp.*##center > .hide-on-med-and-down
 dutchycorp.*##[class^="bmadblock"]
 dutchycorp.*##div[class][style="width:468px;height:60px;display: inline-block;margin: 0 auto"]
-dutchycorp.*##+js(aopr, adBlockDetected)
 dutchycorp.*##+js(nano-sib, time.html, 1000)
 dutchycorp.*##+js(set, blurred, false)
 @@||dutchycorp.*^$ghide
@@ -8225,12 +8223,13 @@ dutchycorp.*###boxes
 dutchycorp.*###link-view > center > br
 *$frame,denyallow=cloudflare.com|facebook.com|google.com|hcaptcha.com|youtube.com|jungleofferwall.com,domain=dutchycorp.*
 ! https://github.com/uBlockOrigin/uAssets/issues/17166#issuecomment-1477414313
-dutchycorp.*##+js(acs, console.log, blockAdBlock)
 *$script,redirect-rule=noopjs,from=dutchycorp.*,to=~sentry-cdn.com
 autofaucet.dutchycorp.space##.show-on-medium
 @@||googletagmanager.com/gtag/js$script,domain=autofaucet.dutchycorp.*
 @@||cdnjs.cloudflare.com^$script,domain=autofaucet.dutchycorp.*
 @@||imasdk.googleapis.com^$script,domain=autofaucet.dutchycorp.*
+! https://github.com/uBlockOrigin/uAssets/discussions/17361#discussioncomment-8262172
+dutchycorp.*##+js(rmnt, script, /adblock.php)
 
 ! https://forums.lanik.us/viewtopic.php?p=145148#p145148
 sexgalaxy.net##+js(nowoif)
