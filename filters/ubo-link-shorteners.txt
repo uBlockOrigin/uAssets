@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Link shorteners
-! Last modified: Sat, 27 Jan 2024 15:15:49 +0000
+! Last modified: Sun, 28 Jan 2024 04:28:41 +0000
 ! Expires: 5 days
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
@@ -666,16 +666,15 @@ investorveda.com###hometimerstartbtn, #hometimer, #yuidea-btmbtn, #btn6:others()
 
 ! revcut.net (go.revcut.net/OW71rahtyb4)
 ! https://github.com/uBlockOrigin/uAssets/discussions/17361#discussioncomment-7478083
+! https://github.com/uBlockOrigin/uAssets/discussions/17361#discussioncomment-8241937
 !#if cap_html_filtering
-coingraph.us##^script:has-text(AdBlock)
+coingraph.us,impact24.us##^script:has-text(/checkAdBlocker|AdblockRegixFinder/)
 !#else
-coingraph.us##+js(rmnt, script, AdBlock)
+coingraph.us,impact24.us##+js(rmnt, script, /checkAdBlocker|AdblockRegixFinder/)
 !#endif
 coingraph.us##+js(aeld, contextmenu)
-coingraph.us##+js(rpnt, script, totalTime < 240000, false)
-coingraph.us###form > [id], #wpsafe-link3, .wpsafelink-button, #wpsafelinkhuman, #wpsafe-link4, [src*="google.com/recaptcha/"]:style(display: block !important;)
-coingraph.us###form > [id], #wpsafe-link3, .wpsafelink-button, #wpsafelinkhuman, #wpsafe-link4, [src*="google.com/recaptcha/"]:others()
-coingraph.us##.base-timer
+coingraph.us,impact24.us###form > [id], [id^="wpsafe-link"], [id^="plan"], .wpsafelink-button, #wpsafelinkhuman, [id][style="display: none;"]:style(display: block !important;)
+coingraph.us,impact24.us###form > [id], [id^="wpsafe-link"], [id^="plan"], .wpsafelink-button, #wpsafelinkhuman, [id][style="display: none;"]:others()
 
 ! onepagelink.in (onepagelink.in/fn0O)
 techkeshri.com###tp-snp2:style(display: block !important;)
