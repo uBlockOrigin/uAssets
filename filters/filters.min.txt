@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Sun, 28 Jan 2024 18:55:30 +0000
+! Last modified: Sun, 28 Jan 2024 19:02:43 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -9563,6 +9563,7 @@ soninow.com##+js(nosiif, adsbygoogle)
 bailiwickexpress.com##+js(acs, $, load_banner)
 @@||dotnet.guide^$ghide
 twitchmetrics.net##+js(set-cookie, npabp, 1)
+/nyaa\.land\/static\/[a-z0-9]{32}\.jpg$/$image,1p,domain=nyaa.land
 nyaa.land##+js(nowoif)
 nyaa.land##[href*="iptv.cat"]
 nyaa.land##[href*="tiny.cc"]
@@ -9597,6 +9598,8 @@ x-x-x.tube##+js(aopr, popns)
 pornx.to##+js(nowoif)
 pornx.to##[href="https://pornx.to/go/icegirlsai"]
 qwant.com##.result__ext:has([data-testid="adResult"]):style(max-height: 1px !important; opacity: 0 !important; pointer-events: none !important;)
+qwant.com#@#div[data-testid="pam.container"]
+qwant.com##div[data-testid="pam.container"]:style(max-height: 1px !important; opacity: 0 !important; pointer-events: none !important;)
 @@||spite.cz^$ghide
 civitai.com##+js(no-fetch-if, googlesyndication)
 ! civitai.com##.mantine-Paper-root:has(a:has-text(Remove ads))
@@ -9619,6 +9622,19 @@ fullboys.com##+js(nowoif, ?key=)
 madaradex.org##+js(rmnt, script, deblocker)
 vanillatweaks.net##.banner-spot
 vanillatweaks.net##+js(nano-sib, downloadTimer)
+infinityscans.xyz,infinityscans.net##+js(no-fetch-if, googlesyndication, length:150000-150200)
+infinityscans.xyz,infinityscans.net##+js(no-fetch-if, bidgear, length:8132)
+infinityscans.xyz,infinityscans.net##+js(nowoif)
+*$script,redirect-rule=noopjs,domain=infinityscans.xyz|infinityscans.net
+*$xhr,domain=infinityscans.xyz|infinityscans.net,redirect-rule=nooptext
+*$frame,redirect-rule=noopframe,domain=infinityscans.xyz|infinityscans.net
+*$image,redirect-rule=1x1.gif,domain=infinityscans.xyz|infinityscans.net
+||infinityscans.xyz/sw.js$script,1p
+!#if cap_html_filtering
+infinityscans.xyz,infinityscans.net##^script:has-text(;break;case $.)
+!#else
+infinityscans.xyz,infinityscans.net##+js(rmnt, script, ;break;case $.)
+!#endif
 ! Link shortener filters go into their own dedicated list
 ! *** filters/ubo-link-shorteners.txt ***
 ! gplinks all domains (gplinks.co/EWu8)
