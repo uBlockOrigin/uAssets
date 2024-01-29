@@ -1,5 +1,5 @@
 ! Title: uBlock₀ filters – Quick fixes
-! Last modified: Mon, 29 Jan 2024 11:45:29 +0000
+! Last modified: Mon, 29 Jan 2024 15:47:58 +0000
 ! Expires: 8 hours
 ! Description: Immediate, temporary filters to fix websites
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -77,21 +77,6 @@ techcyan.com,kiktu.com,upshrink.com,trangchu.news,banaraswap.in##+js(spoof-css, 
 .click/?s=$popup,domain=techcyan.com|kiktu.com|upshrink.com|trangchu.news|banaraswap.in
 *$image,domain=techcyan.com|kiktu.com|upshrink.com|trangchu.news|banaraswap.in,redirect-rule=2x2.png:5
 
-! https://github.com/uBlockOrigin/uAssets/issues/20401
-infinityscans.xyz,infinityscans.net##+js(no-fetch-if, googlesyndication, length:150530)
-infinityscans.xyz,infinityscans.net##+js(no-fetch-if, bidgear, length:8132)
-infinityscans.xyz,infinityscans.net##+js(nowoif)
-*$script,redirect-rule=noopjs,domain=infinityscans.xyz|infinityscans.net
-*$xhr,domain=infinityscans.xyz|infinityscans.net,redirect-rule=nooptext
-*$frame,redirect-rule=noopframe,domain=infinityscans.xyz|infinityscans.net
-*$image,redirect-rule=1x1.gif,domain=infinityscans.xyz|infinityscans.net
-||infinityscans.xyz/sw.js$script,1p
-!#if cap_html_filtering
-infinityscans.xyz,infinityscans.net##^script:has-text(;break;case $.)
-!#else
-infinityscans.xyz,infinityscans.net##+js(rmnt, script, ;break;case $.)
-!#endif
-
 ! https://github.com/easylist/easylistgermany/issues/216
 ! https://github.com/uBlockOrigin/uAssets/issues/21504
 www.chip.de##+js(rpnt, style, { display: block; }, {display: none !important;}, condition, /aspect-ratio:\s?auto/)
@@ -157,11 +142,6 @@ ytlarge.com##+js(aopr, onload)
 ! https://github.com/uBlockOrigin/uAssets/issues/21385
 /loader.min.js$xhr,script,domain=loawa.com|ygosu.com|sportalkorea.com|algumon.com|hancinema.net|enetnews.co.kr|edaily.co.kr|economist.co.kr|etoday.co.kr|hankyung.com|isplus.com|hometownstation.com|kagit.kr|inven.co.kr|honkailab.com|warcraftrumbledeck.com|genshinlab.com|thestockmarketwatch.com|thephoblographer.com,replace=/\)\]\(\(function [a-zA-Z0-9]{2}\([a-zA-Z0-9\,]{2,5}\){var/)]((function neutralized(){var/g
 
-! https://github.com/uBlockOrigin/uAssets/pull/22131
-nyaa.land##[href*="tiny.cc"]
-nyaa.land##html > body > center
-/nyaa\.land\/static\/[a-z0-9]{32}\.jpg$/$image,1p,domain=nyaa.land
-
 ! https://old.reddit.com/r/uBlockOrigin/comments/19dqlkp/
 @@||alliptvlinks.com^$1p,script
 @@||alliptvlinks.com^$ghide
@@ -171,12 +151,6 @@ alliptvlinks.com##+js(no-xhr-if, googlesyndication)
 ! https://github.com/uBlockOrigin/uBlock-issues/issues/3091#issuecomment-1909622763
 alliptvlinks.com,daneiakartes.info##+js(aopr, eazyAdUnBlockerHttp) 
 /plugins/eazy-ad-unblocker/*$script,css
-
-! https://github.com/uBlockOrigin/uAssets/issues/22175
-qwant.com#@#.result__ext:has([data-testid="adResult"])
-qwant.com#@#div[data-testid="pam.container"]
-qwant.com##.result__ext:has([data-testid="adResult"]):style(max-height: 1px !important; opacity: 0 !important; pointer-events: none !important;)
-qwant.com##div[data-testid="pam.container"]:style(max-height: 1px !important; opacity: 0 !important; pointer-events: none !important;)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/22198
 ||scdn.co/mp3-ad/$media,redirect=noop-1s.mp4:10,domain=open.spotify.com
