@@ -50,7 +50,11 @@ youtube.com##+js(json-prune, playerResponse.adPlacements playerResponse.playerAd
 !#endif
 !#endif
 ||youtube.com/s/desktop/*/jsbin/desktop_polymer.vflset/desktop_polymer.js$~doc,uritransform=/desktop\/\w+\/jsbin/desktop\/53970d6d\/jsbin/,domain=www.youtube.com
+!#if ext_devbuild
+www.youtube.com##+js(remove-cache-storage-item, yt-appshell-assets, /\/jsbin\/desktop_polymer\.vflset\/desktop_polymer\.js$/)
+!#else
 www.youtube.com##+js(trusted-rpnt, script, /^(\(function serverContract\(\))/s, "caches.open('yt-appshell-assets').then(a=>['87786692','697254fd','53970d6d'].forEach(i=>a.delete(`/s/desktop/${i}/jsbin/desktop_polymer.vflset/desktop_polymer.js`)));$1")
+!#endif
 
 ! https://github.com/uBlockOrigin/uAssets/issues/18476
 ! VOE sites
