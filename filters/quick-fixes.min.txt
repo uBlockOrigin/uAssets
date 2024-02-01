@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Quick fixes
 ! Expires: 12 hours
-! Last modified: Thu, 01 Feb 2024 20:44:49 +0000
+! Last modified: Thu, 01 Feb 2024 21:36:20 +0000
 ! Diff-Path: %diffpath%#ublock-quick-fixes
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -145,3 +145,8 @@ free-mp3-download.net##ins.adsbygoogle:style(max-height: 1px !important; visibil
 apkmirror.com#@#^script:has-text(/style:last-of-type|:empty|APKM\..+?\.innerHTML/)
 apkmirror.com#@#+js(rmnt, script, /style:last-of-type|:empty|APKM\..+?\.innerHTML/)
 @@||cxense.com/document/search?
+!#if cap_html_filtering
+infinityscans.xyz,infinityscans.net##^script:has-text(throw Error)
+!#else
+infinityscans.xyz,infinityscans.net##+js(rmnt, script, ;break;case $.)
+!#endif
