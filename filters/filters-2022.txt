@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2022)
-! Last modified: Sat, 03 Feb 2024 06:04:33 +0000
+! Last modified: Sun, 04 Feb 2024 11:43:01 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -4401,9 +4401,20 @@ bitcotasks.com##+js(aeld, load, htmls)
 bitcotasks.com##^script:has-text(htmls)
 /files/banners/*.gif$image,domain=bitcotasks.com
 bitcotasks.com##+js(refresh-defuser)
-@@||cdn.bmcdn6.com/js/652919f176fed96a395737d0.js?v=1698803324956$script,domain=bitcotasks.com
 bitcotasks.com##+js(no-xhr-if, bmcdn6)
+bitcotasks.com##+js(no-fetch-if, bmcdn6)
 bitcotasks.com##body > iframe#frame
+!#if cap_html_filtering
+bitcotasks.com##^script:has-text(AdblockRegixFinder)
+||bitcotasks.com/assets/js/mainjs.php$script,1p,replace=/entry.duration > 0/entry.duration < 10/
+.js|$script,redirect-rule=none:10,domain=bitcotasks.com
+!#else
+bitcotasks.com##+js(rmnt, script, AdblockRegixFinder)
+@@||static.ads-twitter.com/uwt.js$script,domain=bitcotasks.com
+@@||coinzillatag.com/lib/fp.js$script,domain=bitcotasks.com
+!#endif
+bitcotasks.com##+js(aeld, blur, event.triggered)
+||bitcotasks.com/assets/ads.php$frame,1p
 ||bcgame.top/*&utm_source=$frame,domain=bitcotasks.com
 ! https://github.com/uBlockOrigin/uAssets/issues/16207
 hatecoin.me###wcfloatDiv4
