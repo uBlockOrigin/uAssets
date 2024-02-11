@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Link shorteners
-! Last modified: Sun, 11 Feb 2024 16:58:09 +0000
+! Last modified: Sun, 11 Feb 2024 19:55:58 +0000
 ! Expires: 5 days
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
@@ -433,14 +433,10 @@ overgal.com##+js(nano-sib, timeLeft, *, 0.001)
 ||ad.tradertimerz.media^
 
 ! https://github.com/uBlockOrigin/uAssets/issues/18747
-suaurl.com##+js(rmnt, script, /window\.open|window\.location\.href|document\.addEventListener|\$\(document\)\.ready.*show/)
-suaurl.com##+js(rpnt, script, /document\.querySelector\('div\.textads\.banner-ads.banner_ads\.ad-unit\.ad-zone\.ad-space\.adsbox'\)/, document)
 suaurl.com##+js(aopr, document.oncontextmenu)
 suaurl.com##+js(aopr, shortcut)
 suaurl.com##+js(aost, document.querySelector, suaads)
-suaurl.com##+js(aopw, confCapcha)
-suaurl.com###btn-capcha > button:remove-attr(disabled)
-||suaurl.com^$csp=style-src *
+suaurl.com##+js(rpnt, script, typeof cdo == 'undefined' || document.querySelector('div.textads.banner-ads.banner_ads.ad-unit.ad-zone.ad-space.adsbox') == undefined, false)
 
 ! https://www.reddit.com/r/uBlockOrigin/comments/18irmvf/i_was_detected/
 mamahawa.com##+js(rpnt, script, /window\.location\.href='.*';/, , condition, openLink)
