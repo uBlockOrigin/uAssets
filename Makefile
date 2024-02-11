@@ -5,6 +5,7 @@
 	validate-filters-2021 \
 	validate-filters-2022 \
 	validate-filters-2023 \
+	validate-filters-2024 \
 	validate-privacy \
 	validate-annoyances \
 	validate-badware \
@@ -41,6 +42,11 @@ build/validate/results/filters-2023.results.txt: build/validate/uBlock build/val
 		in=filters/filters-2023.txt \
 		out=build/validate/results
 
+build/validate/results/filters-2024.results.txt: build/validate/uBlock build/validate/validate.js
+	node build/validate/validate.js \
+		in=filters/filters-2024.txt \
+		out=build/validate/results
+
 build/validate/results/privacy.results.txt: build/validate/uBlock build/validate/validate.js
 	node build/validate/validate.js \
 		in=filters/privacy.txt \
@@ -70,6 +76,8 @@ validate-filters-2021: build/validate/results/filters-2021.results.txt
 validate-filters-2022: build/validate/results/filters-2022.results.txt
 
 validate-filters-2023: build/validate/results/filters-2023.results.txt
+
+validate-filters-2024: build/validate/results/filters-2024.results.txt
 
 validate-privacy: build/validate/results/privacy.results.txt
 
