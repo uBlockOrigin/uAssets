@@ -195,12 +195,5 @@ $removeparam=si,doc,domain=open.spotify.com|soundcloud.com|youtube.com|youtu.be|
 @@||cloudfront.net^$xhr,domain=dailymotion.com
 
 ! https://github.com/uBlockOrigin/uAssets/issues/14204
-!#if cap_html_filtering
-||es.ylilauta.org^$media
-||es.ylilauta.org^$image,redirect=1x1.gif
-||es.ylilauta.org/t/$xhr,1p
-||es.ylilauta.org^$frame,1p,replace=/<script.*?\/script>/<script>window.addEventListener('message', (msg) => {if (msg.data === 'PING') {top.postMessage('PONG', '*');}});<\/script>/g
-!#else
 ylilauta.org##html:not([lang], [class]):has(> head > base[href="https://es.ylilauta.org"]) a :is(video, img)
-!#endif
 ||es.ylilauta.org^$doc,popup,ping
