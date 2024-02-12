@@ -190,12 +190,4 @@ $removeparam=si,doc,domain=open.spotify.com|soundcloud.com|youtube.com|youtu.be|
 ! https://github.com/uBlockOrigin/uAssets/issues/14204
 ||es.ylilauta.org^$doc,popup,ping
 @@||es.ylilauta.org/files/ad/$image
-!#if cap_html_filtering
-||es.ylilauta.org^$frame,1p,replace=/<\/a>/<\/a><div id="a"><\/div>/g
-es.ylilauta.org###a:style(position: absolute !important; display: block !important; height: 100% !important; width: 100% !important; background-color: white !important; top: 0 !important; z-index: 2147483647 !important;)
-!#else
-ylilauta.org##iframe.a:style(visibility: hidden !important;)
-ylilauta.org##+js(spoof-css, iframe.a, visibility, visible)
-ylilauta.org##+js(set, window.getComputedStyle.caller, noopFunc)
-ylilauta.org##+js(set, window.getComputedStyle.arguments, noopFunc)
-!#endif
+es.ylilauta.org##html:style(margin-left: -10000px !important;)
