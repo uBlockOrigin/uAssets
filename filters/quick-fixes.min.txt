@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Quick fixes
 ! Expires: 12 hours
-! Last modified: Mon, 12 Feb 2024 13:55:29 +0000
+! Last modified: Mon, 12 Feb 2024 14:15:50 +0000
 ! Diff-Path: %diffpath%#ublock-quick-fixes
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -124,12 +124,9 @@ infinityscans.xyz,infinityscans.net##+js(rpnt, script, /\(function\(.*\(\);\}/, 
 !next-episode.net##+js(rpnt, script, '/.then[\s\S]{0,}?;/g')
 !next-episode.net##+js(rmnt, script, '/\d+\+\d|64|\+\+|\+1|adbl|ablk|[\s\S]{0,}(\.\.|function)[\s\S]{1800,}|document\[/i')
 @@||pagead2.googlesyndication.com^$script,domain=next-episode.net
-||d3nn82uaxijpm6.cloudfront.net^$script,badfilter
 www.wp.pl#@#[src^="https://v.wpimg.pl/"]:not([alt]):upward(3)
 benchmark.pl,dom.wp.pl,facet.wp.pl,film.wp.pl,finanse.wp.pl,fitness.wp.pl,gry.wp.pl,gwiazdy.wp.pl,kafeteria.pl,ksiazki.wp.pl,kuchnia.wp.pl,moto.wp.pl,nerwica.com,open.fm,opinie.wp.pl,pogoda.wp.pl,smaczneblogi.pl,teleshow.wp.pl,turystyka.wp.pl,wawalove.wp.pl,wroclaw.wp.pl#@#[src^="https://v.wpimg.pl/"]:not([alt]):upward(3)
 autocentrum.pl,autokult.pl,dobreprogramy.pl,fotoblogia.pl,gadzetomania.pl,genialne.pl,jastrzabpost.pl,kobieta.wp.pl,komorkomania.pl,o2.pl,polygamia.pl,pudelek.pl,pysznosci.pl,tech.wp.pl#@?#div:-abp-has(>[src^="https://v.wpimg.pl/"]:not([alt]))
-androidauthority.com#@#.--_-___Sb
-androidauthority.com#@#.--_-___Jg
 cookomix.com##+js(nostif, detected, 5000)
 cookomix.com##.AdMB
 ||startgaming.net/*&utm_*=Torrentgalaxy$doc,popup
@@ -155,4 +152,12 @@ $removeparam=si,doc,domain=open.spotify.com|soundcloud.com|youtube.com|youtu.be|
 @@||cloudfront.net^$xhr,domain=dailymotion.com
 ||es.ylilauta.org^$doc,popup,ping
 @@||es.ylilauta.org/files/ad/$image
-es.ylilauta.org##a::after:style(content: ""; display: block !important; position: absolute !important; width: 100% !important; height: 100% !important; background-color: white !important; top: 0 !important; z-index: 2147483647 !important;)
+!#if cap_html_filtering
+||es.ylilauta.org^$frame,1p,replace=/<\/a>/<\/a><div id="a"><\/div>/g
+es.ylilauta.org###a:style(position: absolute !important; display: block !important; height: 100% !important; width: 100% !important; background-color: white !important; top: 0 !important; z-index: 2147483647 !important;)
+!#else
+ylilauta.org##iframe.a:style(visibility: hidden !important;)
+ylilauta.org##+js(spoof-css, iframe.a, visibility, visible)
+ylilauta.org##+js(set, window.getComputedStyle.caller, noopFunc)
+ylilauta.org##+js(set, window.getComputedStyle.arguments, noopFunc)
+!#endif
