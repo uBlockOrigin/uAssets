@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Annoyances
 ! Expires: 7 days
-! Last modified: Mon, 12 Feb 2024 17:00:44 +0000
+! Last modified: Tue, 13 Feb 2024 02:59:36 +0000
 ! Diff-Path: %diffpath%#ublock-annoyances
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -333,7 +333,10 @@ saniweb.nl##+js(trusted-set-cookie, cookiepreferences, necessary#true|marketing#
 uswitch.com##+js(trusted-set-cookie, cookie-preferences, '{"performance":false,"marketing":false,"functionality":true,"social":true,"essential":true}')
 ! Necessary + social
 ferienpiraten.ch,holidaypirates.com,piratinviaggio.it,travelpirates.com,urlaubspiraten.at,urlaubspiraten.de,vakantiepiraten.nl,viajerospiratas.es,voyagespirates.fr,wakacyjnipiraci.pl##+js(trusted-set-cookie, hp__gdpr_consent, !demographics=false!googletagmanager=false!facebook=true!twitter=true!instagram=true!youtube=true!optimize=false!helphero=false!fbpixel=false!iterable=false!kayakWidget=false!vimeo=true!lastminute=false!apple=true!google=true!hotjar=false!getYourGuide=false!gad=false, 1year)
-formula1.com##+js(trusted-set-cookie, consentUUID, b2d83b78-26f0-4f90-b370-0380404c660a_24_27)
+! hide popup
+formula1.com##[id^="sp_message_container_"]
+! reject consent
+formula1.com##+js(trusted-click-element, [aria-label="REJECT ALL"], , 500)
 ! Necessary + Marketing - for maps, sample page: rhein-ruhr.stadtmobil.de
 stadtmobil.de##+js(trusted-set-cookie, CookieConsent, {stamp:%27Uv9YOAVP5djCBw71lxhE4rNAfTObaGck2Sn3rKWf9dPCYpqcWvAlpA==%27%2Cnecessary:true%2Cpreferences:false%2Cstatistics:false%2Cmarketing:true%2Cmethod:%27explicit%27%2Cver:1}, 1year)
 coinbase.com##+js(trusted-set-cookie, cm_default_preferences, {%22consent%22:[%22necessary%22%2C%22functional%22]%2C%22region%22:%22DEFAULT%22})
