@@ -1,5 +1,5 @@
 ! Title: uBlock₀ filters – Quick fixes
-! Last modified: Mon, 12 Feb 2024 23:14:21 +0000
+! Last modified: Tue, 13 Feb 2024 00:50:39 +0000
 ! Expires: 8 hours
 ! Description: Immediate, temporary filters to fix websites
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -191,3 +191,7 @@ $removeparam=si,doc,domain=open.spotify.com|soundcloud.com|youtube.com|youtu.be|
 ||es.ylilauta.org^$doc,popup,ping
 ||es.ylilauta.org^
 ylilauta.org##iframe.a
+
+! https://github.com/uBlockOrigin/uAssets/issues/3367#issuecomment-1939784618
+facebook.com#@#div[aria-describedby]:not([aria-posinset]) :is(h3, h4) span > a[href]:not([href^="/groups/"]):not([href*="section_header_type"]):matches-attr(href="/__cft__\[0\]=[-\w]{270,}/"):upward(div[aria-describedby])
+facebook.com##div[aria-describedby]:not([aria-posinset]) :is(h3, h4) span > a[href]:not([href^="/groups/"]):not([href*="section_header_type"]):matches-attr(href="/__cft__\[0\]=[-\w]{270,}/"):upward(div[aria-describedby]):style(height: 0 !important; overflow: hidden !important;)
