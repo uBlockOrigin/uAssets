@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2022)
-! Last modified: Wed, 14 Feb 2024 11:31:28 +0000
+! Last modified: Wed, 14 Feb 2024 11:46:49 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -5359,9 +5359,13 @@ artribune.com##+js(rc, td-ad-background-link)
 ! https://www.reddit.com/r/uBlockOrigin/comments/147qio5/issues_all_the_time_with_motorsportcom/
 ! https://www.reddit.com/r/uBlockOrigin/comments/16fq6mu/adblock_detected_forces_to_disable/
 ||mstm.motorsport.com^$script,1p,redirect-rule=noopjs
+@@||mstm.motorsport.com/mstm.js^$script,xhr,1p
+autosport.com,motorsport.com#@#.ms-hapb
+autosport.com,motorsport.com##.ms-hapb:style(min-height: 1px !important; height: 1px !important;)
+autosport.com,motorsport.com##^.ms-hapb
 autosport.com,motorsport.com##+js(noeval-if, interactionCount)
 !#if !ext_devbuild
-autosport.com,motorsport.com##+js(set, DOMTokenList.prototype.contains, trueFunc)
+! autosport.com,motorsport.com##+js(set, DOMTokenList.prototype.contains, trueFunc)
 !#else
 autosport.com,motorsport.com##+js(trusted-replace-argument, document.querySelector, 0, noopFunc, condition, adblock)
 !#endif
