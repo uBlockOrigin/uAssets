@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Wed, 14 Feb 2024 11:57:13 +0000
+! Last modified: Wed, 14 Feb 2024 12:31:08 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -19656,9 +19656,7 @@ autosport.com,motorsport.com#@#.ms-hapb
 autosport.com,motorsport.com##.ms-hapb:style(min-height: 1px !important; height: 1px !important;)
 autosport.com,motorsport.com##^.ms-hapb
 autosport.com,motorsport.com##+js(noeval-if, interactionCount)
-!#if !ext_devbuild
-! autosport.com,motorsport.com##+js(set, DOMTokenList.prototype.contains, trueFunc)
-!#else
+!#if ext_devbuild
 autosport.com,motorsport.com##+js(trusted-replace-argument, document.querySelector, 0, noopFunc, condition, adblock)
 !#endif
 autosport.com,motorsport.com##+js(cookie-remover, '/^\d{2,}/')
