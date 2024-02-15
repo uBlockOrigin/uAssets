@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Other Annoyances
-! Last modified: Thu, 15 Feb 2024 18:40:30 +0000
+! Last modified: Thu, 15 Feb 2024 20:13:40 +0000
 ! Expires: 7 days
 ! Description: |
 !   Filters optimized for uBlock Origin, to be used with EasyList's
@@ -7403,3 +7403,10 @@ animefire.*##+js(ra, oncontextmenu|ondragstart)
 ! ohli365. vip anti devtools, contextmenu, f-keys
 ||ohli365.vip/js/apms.db.js$script
 ohli365.vip##+js(ra, oncontextmenu|onselectstart|ondragstart)
+
+! https://github.com/uBlockOrigin/uAssets/issues/22507
+!#if cap_html_filtering
+inattvcom117.xyz##^script:has-text(detectDevTool)
+!#else
+inattvcom117.xyz##+js(rmnt, script, detectDevTool)
+!#endif
