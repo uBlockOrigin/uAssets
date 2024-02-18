@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Privacy
-! Last modified: Sun, 18 Feb 2024 12:28:01 +0000
+! Last modified: Sun, 18 Feb 2024 13:00:33 +0000
 ! Expires: 7 days
 ! Description: |
 !   Some of these filters make use of the `important` filter option,
@@ -218,7 +218,7 @@ search.brave.com##+js(no-fetch-if, body:browser)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/9932
 /\/[a-z0-9]{12}\/[a-zA-Z0-9\/\+\-]{97,106}$/$match-case,script,1p,strict1p
-!/^https?:\/\/(?:[0-9a-z]{10,13}|[0-9a-z]{6})\.[^\/]*\/[a-zA-Z0-9\/\+\-]{80,106}$/$script,1p,match-case,strict3p
+/^https?:\/\/(?!assets|script|static)(?:[0-9a-z]{10,13}|[0-9a-z]{6})\.[0-9A-Za-z.\-_]+\/(?=[0-9a-z+\/\-]*[A-Z])[0-9A-Za-z+\/\-]{80,106}$/$script,1p,match-case,strict3p
 /dataunlocker$script,1p,domain=~dataunlocker.com
 /www\.eldorado\.gg\/[a-zA-Z0-9]{10,13}\.js/$1p,script,domain=eldorado.gg
 ||ampl.cinotes.com^
