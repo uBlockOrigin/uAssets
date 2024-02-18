@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Unbreak
 ! Expires: 5 days
-! Last modified: Fri, 16 Feb 2024 17:55:06 +0000
+! Last modified: Sun, 18 Feb 2024 02:26:51 +0000
 ! Diff-Path: %diffpath%#ublock-unbreak
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -2192,10 +2192,6 @@ metastats.net###page-wrapper > div.row:nth-of-type(1)
 ||siteintercept.qualtrics.com^$badfilter
 *$script,domain=abcya.com,redirect-rule=noopjs
 ||googletagmanager.com/gtag/js$script,redirect-rule=noop.js:10,domain=scobel.pasaz24.pl
-@@||googletagmanager.com/gtm.js$script,domain=nj.com
-@@||apps.sophi.io/latest/al-nj.segments.min.js$script,domain=nj.com
-@@||nj.com/DG/DEFAULT/rest/rpc/$xhr,1p
-www.nj.com##^html > head > :is(meta[name="subscriber_only"][content="false"], meta[property="og:url"]:not([content*=".html"])):upward(html) script:has-text(/googletagmanager|window\.sophi/)
 goku.sx##.st-hidden:remove-class(st-hidden)
 goku.sx##.st-btn:not(.st-first):style(display: inline-block !important; min-width: 50px !important; width: 50px !important;)
 goku.sx##.st-btn > img:style(margin: auto !important; display: block !important;)
@@ -2444,9 +2440,10 @@ commande.rhinov.pro##+js(set, Sentry.init, noopFunc)
 thethings.com##.adsninja-ad-zone:not(.adsninja-valstream)
 ||awswaf.com^*/telemetry$badfilter
 @@||cdn.pendo.io/agent/static/*/pendo.js$script,domain=netsecure.adp.com
-@@||googletagmanager.com/gtm.js$script,3p,domain=syracuse.com
-@@||apps.sophi.io/latest/al-syracuse.segments.min.js$script,3p,domain=syracuse.com
-@@||syracuse.com/DG/DEFAULT/rest/rpc/$script,1p
+@@||googletagmanager.com/gtm.js$script,3p,domain=al.com|cleveland.com|lehighvalleylive.com|masslive.com|mlive.com|nj.com|oregonlive.com|pennlive.com|silive.com|syracuse.com
+@@||apps.sophi.io/latest/*.segments.min.js$script,3p,domain=al.com|cleveland.com|lehighvalleylive.com|masslive.com|mlive.com|nj.com|oregonlive.com|pennlive.com|silive.com|syracuse.com
+@@/DG/DEFAULT/rest/rpc/*$script,1p,domain=al.com|cleveland.com|lehighvalleylive.com|masslive.com|mlive.com|nj.com|oregonlive.com|pennlive.com|silive.com|syracuse.com
+www.al.com,www.cleveland.com,www.lehighvalleylive.com,www.masslive.com,www.mlive.com,www.nj.com,www.oregonlive.com,www.pennlive.com,www.silive.com,www.syracuse.com##^html > head > :is(meta[name="subscriber_only"][content="false"], meta[property="og:url"]:not([content*=".html"])):upward(html) script:has-text(/googletagmanager|window\.sophi/)
 !#if env_chromium
 ||community.ipinfo.io^$csp=worker-src 'none'
 !#endif
