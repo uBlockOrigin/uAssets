@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2022)
-! Last modified: Sun, 18 Feb 2024 04:18:23 +0000
+! Last modified: Sun, 18 Feb 2024 11:54:35 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -3772,6 +3772,16 @@ genshinlab.com,fourfourtwo.co.kr,interfootball.co.kr,a-ha.io,cboard.net,jjang0u.
 allthetests.com##+js(rmnt, script, error-report.com)
 !#endif
 motorbikecatalog.com##+js(rmnt, script, KCgpPT57bGV0IGU)
+
+! https://github.com/uBlockOrigin/uAssets/issues/22540
+worldhistory.org##+js(no-fetch-if, /static\.criteo\.net|adsbygoogle/, length:150000-150200)
+@@||securepubads.g.doubleclick.net/tag/js/gpt.js$script,domain=worldhistory.org
+*$frame,redirect-rule=noopframe,domain=worldhistory.org
+*$script,xhr,redirect-rule=noopjs,domain=worldhistory.org
+*$image,redirect-rule=1x1.gif,domain=worldhistory.org
+@@*$ghide,domain=worldhistory.org
+worldhistory.org##[src="about:blank"]
+worldhistory.org##.ad_header
 
 ! https://github.com/uBlockOrigin/uAssets/issues/21346
 ||thesaurus.net/public/desktop/images/grammarly-ads$image,1p
