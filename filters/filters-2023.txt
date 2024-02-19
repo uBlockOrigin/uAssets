@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2023)
-! Last modified: Sun, 18 Feb 2024 23:39:26 +0000
+! Last modified: Mon, 19 Feb 2024 01:39:39 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -170,7 +170,8 @@ topsporter.net,sportshub.to##^script:has-text(/ConsoleBan|alert|AdBlocker/)
 !#if !cap_html_filtering
 topsporter.net,sportshub.to##+js(rmnt, script, /ConsoleBan|alert|AdBlocker/)
 !#endif
-@@||topsporter.net^$ghide
+@@*$ghide,domain=sportshub.to|topsporter.net
+sportshub.to##+js(no-fetch-if, googlesyndication)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/16320
 seznam.cz##.banner-wrapper:upward(2):remove()
