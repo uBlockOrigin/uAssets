@@ -50,13 +50,29 @@ youtube.com##+js(json-prune, playerResponse.adPlacements playerResponse.playerAd
 !#endif
 !#endif
 !#if ext_devbuild
-||youtube.com/s/desktop/*/cssbin/$css,xhr,uritransform=/desktop\/[0-9a-f]{8}\/cssbin/desktop\/87423d78\/cssbin/,domain=www.youtube.com
-||youtube.com/s/desktop/*/jsbin/$script,xhr,uritransform=/desktop\/[0-9a-f]{8}\/jsbin/desktop\/87423d78\/jsbin/,domain=www.youtube.com
-@@||youtube.com/s/desktop/*/jsbin/serviceworker-kevlar-appshell.vflset/$script,xhr,uritransform=/desktop\/[0-9a-f]{8}\/jsbin/desktop\/87423d78\/jsbin/,domain=www.youtube.com
+||youtube.com/s/desktop/*/cssbin/$css,xhr,uritransform=/desktop\/[0-9a-f]{8}\/cssbin/desktop\/09f82e1d\/cssbin/,domain=www.youtube.com
+||youtube.com/s/desktop/*/jsbin/$script,xhr,uritransform=/desktop\/[0-9a-f]{8}\/jsbin/desktop\/09f82e1d\/jsbin/,domain=www.youtube.com
+@@||youtube.com/s/desktop/*/jsbin/serviceworker-kevlar-appshell.vflset/$script,xhr,uritransform=/desktop\/[0-9a-f]{8}\/jsbin/desktop\/09f82e1d\/jsbin/,domain=www.youtube.com
 www.youtube.com##+js(remove-cache-storage-item, yt-appshell-assets, /\/s\/desktop\/[0-9a-f]{8}\/(?:cs|j)sbin\//)
 !#else
-||youtube.com/s/desktop/*/jsbin/desktop_polymer.vflset/desktop_polymer.js$script,xhr,uritransform=/desktop\/[0-9a-f]{8}\/jsbin/desktop\/87423d78\/jsbin/,domain=www.youtube.com
-www.youtube.com##+js(trusted-rpnt, script, /^(\(function serverContract\(\))/s, "caches.open('yt-appshell-assets').then(a=>['691ad9c2','bdb59273','87423d78'].forEach(i=>a.delete(`/s/desktop/${i}/jsbin/desktop_polymer.vflset/desktop_polymer.js`)));$1")
+||youtube.com/s/desktop/*/jsbin/desktop_polymer.vflset/desktop_polymer.js$script,xhr,uritransform=/desktop\/[0-9a-f]{8}\/jsbin/desktop\/09f82e1d\/jsbin/,domain=www.youtube.com
+www.youtube.com##+js(trusted-rpnt, script, /^(\(function serverContract\(\))/s, "caches.open('yt-appshell-assets').then(a=>['bdb59273','87423d78','09f82e1d'].forEach(i=>a.delete(`/s/desktop/${i}/jsbin/desktop_polymer.vflset/desktop_polymer.js`)));$1")
+!#endif
+www.youtube.com##+js(trusted-replace-fetch-response, /"adPlacements.*?([A-Z]"\}|"\}{2})\}\]\,/, , player?)
+www.youtube.com##+js(trusted-replace-fetch-response, /\"adSlots.*?\}\]\}\}\]\,/, , player?)
+!#if env_firefox
+||www.youtube.com/playlist?list=$xhr,1p,replace=/"adPlacements.*?([A-Z]"\}|"\}{2})\}\]\,//
+||www.youtube.com/playlist?list=$xhr,1p,replace=/"adSlots.*?\}\]\}\}\]\,//
+||www.youtube.com/watch?v=$doc,xhr,1p,replace=/"adPlacements.*?([A-Z]"\}|"\}{2})\}\]\,//
+||www.youtube.com/watch?v=$doc,xhr,1p,replace=/"adSlots.*?\}\]\}\}\]\,//
+||www.youtube.com/youtubei/v1/player?$xhr,1p,replace=/"adPlacements.*?([A-Z]"\}|"\}{2})\}\]\,//
+||www.youtube.com/youtubei/v1/player?$xhr,1p,replace=/"adSlots.*?\}\]\}\}\]\,//
+||www.youtube.com/playlist?list=$xhr,1p,replace=/"auxiliaryUi":\{"messageRenderers":\{"bkaEnforcementMessageViewModel.*?e\}\}\}\,//
+||www.youtube.com/playlist?list=$xhr,1p,replace=/("trackingParam":"kx_fmPxhoPZR)[-_0-9A-Za-z]{150}[-_0-9A-Za-z]+?([-_0-9A-Za-z]{43}BwOcCE59TDtslLKPQ-SS"\})/\$1\$2/
+||www.youtube.com/watch?v=$doc,xhr,1p,replace=/"auxiliaryUi":\{"messageRenderers":\{"bkaEnforcementMessageViewModel.*?e\}\}\}\,//
+||www.youtube.com/watch?v=$doc,xhr,1p,replace=/("trackingParam":"kx_fmPxhoPZR)[-_0-9A-Za-z]{150}[-_0-9A-Za-z]+?([-_0-9A-Za-z]{43}BwOcCE59TDtslLKPQ-SS"\})/\$1\$2/
+||www.youtube.com/youtubei/v1/player?$xhr,1p,replace=/"auxiliaryUi":\{"messageRenderers":\{"bkaEnforcementMessageViewModel.*?e\}\}\}\,//
+||www.youtube.com/youtubei/v1/player?$xhr,1p,replace=/("trackingParam":"kx_fmPxhoPZR)[-_0-9A-Za-z]{150}[-_0-9A-Za-z]+?([-_0-9A-Za-z]{43}BwOcCE59TDtslLKPQ-SS"\})/\$1\$2/
 !#endif
 
 ! https://github.com/uBlockOrigin/uAssets/issues/18476
