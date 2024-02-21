@@ -14,24 +14,24 @@
 ! @@||youtube.com/get_video_info?*timedtext_editor$xhr,1p
 ! https://redd.it/ggcmkp https://redd.it/gx03e0
 ! https://github.com/uBlockOrigin/uAssets/pull/18106/
-www.youtube.com##+js(trusted-replace-xhr-response, /"adPlacements.*?([A-Z]"\}|"\}{2})\}\]\,/, , /playlist\?list=|player\?key=|watch\?v=|youtubei\/v1\/player/)
+www.youtube.com##+js(trusted-replace-xhr-response, /"adPlacements.*?([A-Z]"\}|"\}{2})\}\]\,/, , /playlist\?list=|player\?|watch\?v=|youtubei\/v1\/player/)
 www.youtube.com##+js(trusted-replace-xhr-response, /"adPlacements.*?("adSlots"|"adBreakHeartbeatParams")/gms, $1, youtubei/v1/player)
-tv.youtube.com##+js(trusted-replace-xhr-response, '"adPlacements"', '"no_ads"', /playlist\?list=|player\?key=|watch\?v=|youtubei\/v1\/player/)
-www.youtube.com##+js(trusted-replace-fetch-response, /"adPlacements.*?([A-Z]"\}|"\}{2})\}\]\,/, , player?key=)
-www.youtube.com##+js(trusted-replace-fetch-response, /\"adSlots.*?\}\]\}\}\]\,/, , player?key=)
+tv.youtube.com##+js(trusted-replace-xhr-response, '"adPlacements"', '"no_ads"', /playlist\?list=|player\?|watch\?v=|youtubei\/v1\/player/)
+www.youtube.com##+js(trusted-replace-fetch-response, /"adPlacements.*?([A-Z]"\}|"\}{2})\}\]\,/, , player?)
+www.youtube.com##+js(trusted-replace-fetch-response, /\"adSlots.*?\}\]\}\}\]\,/, , player?)
 !#if env_firefox
 ||www.youtube.com/playlist?list=$xhr,1p,replace=/"adPlacements.*?([A-Z]"\}|"\}{2})\}\]\,//
 ||www.youtube.com/playlist?list=$xhr,1p,replace=/"adSlots.*?\}\]\}\}\]\,//
 ||www.youtube.com/watch?v=$doc,xhr,1p,replace=/"adPlacements.*?([A-Z]"\}|"\}{2})\}\]\,//
 ||www.youtube.com/watch?v=$doc,xhr,1p,replace=/"adSlots.*?\}\]\}\}\]\,//
-||www.youtube.com/youtubei/v1/player?key=$xhr,1p,replace=/"adPlacements.*?([A-Z]"\}|"\}{2})\}\]\,//
-||www.youtube.com/youtubei/v1/player?key=$xhr,1p,replace=/"adSlots.*?\}\]\}\}\]\,//
+||www.youtube.com/youtubei/v1/player?$xhr,1p,replace=/"adPlacements.*?([A-Z]"\}|"\}{2})\}\]\,//
+||www.youtube.com/youtubei/v1/player?$xhr,1p,replace=/"adSlots.*?\}\]\}\}\]\,//
 ||www.youtube.com/playlist?list=$xhr,1p,replace=/"auxiliaryUi":\{"messageRenderers":\{"bkaEnforcementMessageViewModel.*?e\}\}\}\,//
 ||www.youtube.com/playlist?list=$xhr,1p,replace=/("trackingParam":"kx_fmPxhoPZR)[-_0-9A-Za-z]{150}[-_0-9A-Za-z]+?([-_0-9A-Za-z]{43}BwOcCE59TDtslLKPQ-SS"\})/\$1\$2/
 ||www.youtube.com/watch?v=$doc,xhr,1p,replace=/"auxiliaryUi":\{"messageRenderers":\{"bkaEnforcementMessageViewModel.*?e\}\}\}\,//
 ||www.youtube.com/watch?v=$doc,xhr,1p,replace=/("trackingParam":"kx_fmPxhoPZR)[-_0-9A-Za-z]{150}[-_0-9A-Za-z]+?([-_0-9A-Za-z]{43}BwOcCE59TDtslLKPQ-SS"\})/\$1\$2/
-||www.youtube.com/youtubei/v1/player?key=$xhr,1p,replace=/"auxiliaryUi":\{"messageRenderers":\{"bkaEnforcementMessageViewModel.*?e\}\}\}\,//
-||www.youtube.com/youtubei/v1/player?key=$xhr,1p,replace=/("trackingParam":"kx_fmPxhoPZR)[-_0-9A-Za-z]{150}[-_0-9A-Za-z]+?([-_0-9A-Za-z]{43}BwOcCE59TDtslLKPQ-SS"\})/\$1\$2/
+||www.youtube.com/youtubei/v1/player?$xhr,1p,replace=/"auxiliaryUi":\{"messageRenderers":\{"bkaEnforcementMessageViewModel.*?e\}\}\}\,//
+||www.youtube.com/youtubei/v1/player?$xhr,1p,replace=/("trackingParam":"kx_fmPxhoPZR)[-_0-9A-Za-z]{150}[-_0-9A-Za-z]+?([-_0-9A-Za-z]{43}BwOcCE59TDtslLKPQ-SS"\})/\$1\$2/
 !#endif
 ! https://www.reddit.com/r/uBlockOrigin/comments/154vtwy/getting_ads_on_youtube/jsu299l/
 ! https://github.com/uBlockOrigin/uBlock-issues/issues/3083#issuecomment-1899349892
@@ -494,7 +494,7 @@ nmac.to##+js(aopr, open)
 ||googlesyndication.com^$script,redirect=noopjs,important,domain=sc2casts.com
 
 ! https://github.com/uBlockOrigin/uAssets/issues/3573
-*$3p,denyallow=cdnjs.cloudflare.com|googleapis.com|gstatic.com|support.send.cm|userscloud.net,domain=userscloud.com
+*$3p,denyallow=cloudflare.com|googleapis.com|gstatic.com|support.send.cm|userscloud.net,domain=userscloud.com
 @@||userscloud.com^$ghide
 userscloud.com##+js(aeld, /contextmenu|keydown/)
 userscloud.com##+js(set, console.clear, trueFunc)
