@@ -49,14 +49,14 @@ pixnbrqw.sbs,picmsh.sbs,imgpke.sbs,picuenr.sbs##div[class][style="display: block
 youtube.com##+js(json-prune, playerResponse.adPlacements playerResponse.playerAds playerResponse.adSlots adPlacements playerAds adSlots legacyImportant)
 !#endif
 !#endif
+www.youtube.com##+js(remove-cache-storage-item, yt-appshell-assets, /\/s\/desktop\/[0-9a-f]{8}\/(?:cs|j)sbin\//)
 !#if ext_devbuild
 ! ||youtube.com/s/desktop/*/cssbin/$css,xhr,uritransform=/desktop\/[0-9a-f]{8}\/cssbin/desktop\/09f82e1d\/cssbin/,domain=www.youtube.com
 ! ||youtube.com/s/desktop/*/jsbin/$script,xhr,uritransform=/desktop\/[0-9a-f]{8}\/jsbin/desktop\/09f82e1d\/jsbin/,domain=www.youtube.com
 ! @@||youtube.com/s/desktop/*/jsbin/serviceworker-kevlar-appshell.vflset/$script,xhr,uritransform=/desktop\/[0-9a-f]{8}\/jsbin/desktop\/09f82e1d\/jsbin/,domain=www.youtube.com
-www.youtube.com##+js(remove-cache-storage-item, yt-appshell-assets, /\/s\/desktop\/[0-9a-f]{8}\/(?:cs|j)sbin\//)
 !#else
 ! ||youtube.com/s/desktop/*/jsbin/desktop_polymer.vflset/desktop_polymer.js$script,xhr,uritransform=/desktop\/[0-9a-f]{8}\/jsbin/desktop\/09f82e1d\/jsbin/,domain=www.youtube.com
-www.youtube.com##+js(trusted-rpnt, script, /^(\(function serverContract\(\))/s, "caches.open('yt-appshell-assets').then(a=>['bdb59273','87423d78','09f82e1d'].forEach(i=>a.delete(`/s/desktop/${i}/jsbin/desktop_polymer.vflset/desktop_polymer.js`)));$1")
+www.youtube.com##+js(trusted-rpnt, script, /^(\(function serverContract\(\))/s, "caches.open('yt-appshell-assets').then(a=>a.keys().then((iList)=>{iList.forEach((i)=>{if(i.url.includes('/s/desktop/')){a.delete(i.url)}})}));$1")
 !#endif
 www.youtube.com##+js(trusted-replace-fetch-response, /"adPlacements.*?([A-Z]"\}|"\}{2})\}\]\,/, , player?)
 www.youtube.com##+js(trusted-replace-fetch-response, /\"adSlots.*?\}\]\}\}\]\,/, , player?)
