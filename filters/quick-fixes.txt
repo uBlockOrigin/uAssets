@@ -75,18 +75,11 @@ jayservicestuff.com##+js(set, console.clear, undefined)
 
 ! perchance - broken by its dev
 ||perchance.org/api/count?key=abp$xhr,1p
-*$script,redirect-rule=noopjs,domain=perchance.org
-@@||securepubads.g.doubleclick.net/tag/js/gpt.js$script,domain=perchance.org
-@@||securepubads.g.doubleclick.net/pagead/managed/js/gpt/$script,domain=perchance.org
-@@||googletagmanager.com/gtag/js?$script,domain=perchance.org
-@@||securepubads.g.doubleclick.net/tag/js/gpt.js$script,domain=perchance.org
-@@||a.pub.network/perchance-org/pubfig.min.js$script,domain=perchance.org
-@@||a.pub.network/core/pubfig/*/pubfig.engine.js$script,domain=perchance.org
-@@||a.pub.network/core/prebid-analytics-*.js$script,domain=perchance.org
-@@||pub.network/v2/sites/perchance-org/configs?$xhr,domain=perchance.org
-@@||cdn.snigelweb.com/adengine/perchance.org/loader.js$xhr,domain=perchance.org
-@@||perchance.org^$ghide
-perchance.org##+js(no-fetch-if, google-analytics)
+!#if cap_html_filtering
+perchance.org##^script:has-text(/hasAnalytics|google-analytics|error123|adProviderName =|\/\/ anti-adblock|\|ad\$\{/)
+!#else
+perchance.org##+js(rmnt, script, /hasAnalytics|google-analytics|error123|adProviderName =|\/\/ anti-adblock|\|ad\$\{/)
+!#endif
 
 ! ytlarge detection
 @@||ytlarge.com^$ghide
