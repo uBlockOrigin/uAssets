@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Sun, 25 Feb 2024 08:30:05 +0000
+! Last modified: Sun, 25 Feb 2024 10:35:20 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -21491,6 +21491,8 @@ reymit.ir##+js(trusted-rpnt, script, /reymit_ads_for_categories\.length>0|reymit
 reymit.ir##div.featured-holder > div.owl-carousel > div.owl-stage-outer > div.owl-stage > div.owl-item:has(> div.item > div > div.placeholder > iframe[src^="https://a.reymit.ir/"]):remove()
 ! "Download app" on my.irancell.ir
 my.irancell.ir##+js(trusted-click-element, div[class^="css-"][style="transition-duration: 0s;"] > div[dir="auto"][data-testid="needDownloadPS"])
+! Detection on farsroid.com
+||farsroid.com/wp-content/themes/farsroid/assets/js/custom.js^$script,1p,replace=/== "none"/== "done"/g
 @@||sportdeutschland.tv/assets/*$script,1p
 @@||71i.de/*/loader.js$script,domain=sportdeutschland.tv
 sportdeutschland.tv##+js(set, google.ima.settings.setDisableFlashAds, noopFunc)
