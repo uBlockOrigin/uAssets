@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Unbreak
-! Last modified: Sat, 24 Feb 2024 01:13:45 +0000
+! Last modified: Sun, 25 Feb 2024 20:23:23 +0000
 ! Expires: 5 days
 ! Description:
 !     Filters optimized for uBlock Origin, to unbreak sites broken as
@@ -5262,3 +5262,8 @@ purepeople.com##+js(nano-stb, logEvent, *, 0.001)
 ! https://github.com/uBlockOrigin/uAssets/issues/22629
 ioe.vn##+js(set, fingerprint, {})
 ioe.vn##+js(set, fingerprint.getCookie, noopFunc)
+
+! https://github.com/uBlockOrigin/uAssets/issues/22665
+!#if env_firefox
+@@||fundingchoicesmessages.google.com^$script,domain=bazar.bg
+!#endif
