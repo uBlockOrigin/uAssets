@@ -3890,34 +3890,11 @@ crictracker.com##div[id^="div-ad-desk-"]
 crictracker.com##article > div[style="height:270px"]
 
 ! https://github.com/uBlockOrigin/uAssets/issues/18260
-@@||falixnodes.net^$ghide
-@@||static.ads-twitter.com^$xhr,domain=mqrio.dev
-||analytics.twitter.com^$image,redirect-rule=1x1.gif
-@@*$image,script,xhr,domain=client.falixnodes.net
-client.falixnodes.net##html[amp4ads][i-amphtml-no-boilerplate]:has(script[src^="https://cdn.ampproject.org/rtv/"]) > body > *:style(opacity: 0 !important; pointer-events: none !important;)
-client.falixnodes.net##html:not([class]) > body[marginwidth="0"][marginheight="0"]
-client.falixnodes.net##html:not([class]) > body[onload="window.avCallback();"][style]
-client.falixnodes.net##html:not([class]) > body:not([class]) div[id^="ftdiv"]
-client.falixnodes.net##html:not([class]) #ad_unit
-client.falixnodes.net##html:not([class], [id]) > body:not([class], [id])
-client.falixnodes.net##ins[id^="gpt_unit_/"][style="display: block !important; width: 100vw !important; height: 100vh !important; inset: 0px auto auto 0px !important; clear: none !important; float: none !important; margin: 0px !important; max-height: none !important; max-width: none !important; opacity: 1 !important; overflow: visible !important; padding: 0px !important; position: fixed !important; vertical-align: baseline !important; visibility: visible !important; z-index: 2147483647 !important; background: transparent !important;"]
-client.falixnodes.net##+js(rmnt, script, showadblock)
-||ups.analytics.yahoo.com^$image,important,domain=client.falixnodes.net
-||pr-bh.ybp.yahoo.com/sync/$image,important,domain=client.falixnodes.net
-||facebook.com/tr/$image,important,domain=client.falixnodes.net
-||securepubads.g.doubleclick.net^$image,removeparam,domain=client.falixnodes.net
-||track1.aniview.com/track?$image,removeparam,domain=client.falixnodes.net
-||cs.admanmedia.com^$image,important,domain=client.falixnodes.net
-||aax.amazon-adsystem.com^$image,important,domain=client.falixnodes.net
-||pagead2.googlesyndication.com/pagead/gen_204?$image,important,domain=client.falixnodes.net
-||pagead2.googlesyndication.com/pcs/activeview?xai=$image,important,domain=client.falixnodes.net
-||criteo.com/tpd?dd=$image,important,domain=client.falixnodes.net
-||static.criteo.net/images/pixel.gif?ch=$image,important,redirect=1x1.gif,domain=client.falixnodes.net
-||px.moatads.com^$image,important,redirect=1x1.gif,domain=client.falixnodes.net
-||3lift.com^$image,removeparam,domain=client.falixnodes.net
-||qvdt3feo.com^$important,domain=falixnodes.net
-*gdpr_consent$3p,image,removeparam,domain=client.falixnodes.net
-||pagead2.googlesyndication.com^$xhr,important,domain=client.falixnodes.net
+!#if cap_html_filtering
+client.falixnodes.net##^script:has-text(/showadblock|_0x/)
+!#else
+client.falixnodes.net##+js(rmnt, script, /showadblock|_0x/)
+!#endif
 
 ! https://www.reddit.com/r/uBlockOrigin/comments/15wqphp/anti_ad_block_needed/
 ||shroomers.app/static/modules/base/js/shr-ads-enforcer.js
