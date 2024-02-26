@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Quick fixes
 ! Expires: 12 hours
-! Last modified: Mon, 26 Feb 2024 13:50:18 +0000
+! Last modified: Mon, 26 Feb 2024 14:10:32 +0000
 ! Diff-Path: %diffpath%#ublock-quick-fixes
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -116,9 +116,16 @@ infinityscans.xyz,infinityscans.net##+js(rpnt, script, /\(function\(.*\(\);\}/, 
 !next-episode.net##+js(rpnt, script, '/.then[\s\S]{0,}?;/g')
 !next-episode.net##+js(rmnt, script, '/\d+\+\d|64|\+\+|\+1|adbl|ablk|[\s\S]{0,}(\.\.|function)[\s\S]{1800,}|document\[/i')
 @@||pagead2.googlesyndication.com^$script,domain=next-episode.net
-||es.ylilauta.org^$doc,popup,ping
-||es.ylilauta.org^
-ylilauta.org##iframe.a
+ylilauta.org##header + div.card.a:remove()
+ylilauta.org##.style-new_replies > div:first-child.card.a:remove()
+ylilauta.org##.thread-replies > div.card.a:remove()
+||es.ylilauta.org^$ping,popup
+||es.ylilauta.org/t/$xhr
+!#if cap_html_filtering
+||ylilauta.org/api/community/board/load-threads|$xhr,replace=/card a/card nnn/g
+ylilauta.org##div.card.nnn
+ylilauta.org##div.card.nnn + a[href="/user/gold"]
+!#endif
 iwb.jp##+js(alert-buster)
 iwb.jp##body:style(display: block !important;)
 iwb.jp###main:style(display: block !important;)
