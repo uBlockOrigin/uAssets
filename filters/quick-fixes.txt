@@ -85,18 +85,11 @@ jayservicestuff.com##+js(set, console.clear, undefined)
 ! perchance - broken by its dev
 ||perchance.org/api/count?key=abp$xhr,1p
 ||perchance.org/api/count?key=abt$xhr,1p
-*$script,redirect-rule=noopjs,domain=perchance.org
-@@||securepubads.g.doubleclick.net/tag/js/gpt.js$script,domain=perchance.org
-@@||securepubads.g.doubleclick.net/pagead/managed/js/gpt/$script,domain=perchance.org
-@@||googletagmanager.com/gtag/js?$script,domain=perchance.org
-@@||securepubads.g.doubleclick.net/tag/js/gpt.js$script,domain=perchance.org
-@@||a.pub.network/perchance-org/pubfig.min.js$script,domain=perchance.org
-@@||a.pub.network/core/pubfig/*/pubfig.engine.js$script,domain=perchance.org
-@@||a.pub.network/core/prebid-analytics-*.js$script,domain=perchance.org
-@@||pub.network/v2/sites/perchance-org/configs?$xhr,domain=perchance.org
-@@||cdn.snigelweb.com/adengine/perchance.org/loader.js$xhr,domain=perchance.org
-@@||perchance.org^$ghide
-perchance.org##+js(no-fetch-if, google-analytics)
+!#if cap_html_filtering
+perchance.org##^script:has-text(/has4Variables|__id5_finalization_registry|already1AddedAdve3rtIfNeeded =|window.freestar.config = |scripts =|iframes =|cookies =|hasIfr6ame|has3Anal6ytics|quantserve|checkResLoad|return new Promise|cdn\.sni\$|document\.head\.appendChild\(el\);|document\.querySelector\("#main"\)/)
+!#else
+perchance.org##+js(rmnt, script, /has4Variables|__id5_finalization_registry|already1AddedAdve3rtIfNeeded =|window.freestar.config = |scripts =|iframes =|cookies =|hasIfr6ame|has3Anal6ytics|quantserve|checkResLoad|return new Promise|cdn\.sni\$|document\.head\.appendChild\(el\);|document\.querySelector\("#main"\)/)
+!#endif
 
 ! ytlarge detection
 @@||ytlarge.com^$ghide
