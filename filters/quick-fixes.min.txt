@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Quick fixes
 ! Expires: 12 hours
-! Last modified: Mon, 26 Feb 2024 13:39:31 +0000
+! Last modified: Mon, 26 Feb 2024 13:43:26 +0000
 ! Diff-Path: %diffpath%#ublock-quick-fixes
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -74,11 +74,18 @@ jayservicestuff.com##+js(set, console.clear, undefined)
 ! perchance - broken by its dev
 ||perchance.org/api/count?key=abp$xhr,1p
 ||perchance.org/api/count?key=abt$xhr,1p
-!#if cap_html_filtering
-perchance.org##^script[type="module"] + script + script
-!#else
-perchance.org##+js(rmnt, script, /di__s_a__b_le|check1Script3Load|!!window|has3Iframe|has3Variables|has3Anal4ytics|ad1dAdvert =|ad1Provider4Name =|===\s*\(?\s*`|\= async \(\) \=\> \{|\/\/\s*adngin|\."\./)
-!#endif
+*$script,redirect-rule=noopjs,domain=perchance.org
+@@||securepubads.g.doubleclick.net/tag/js/gpt.js$script,domain=perchance.org
+@@||securepubads.g.doubleclick.net/pagead/managed/js/gpt/$script,domain=perchance.org
+@@||googletagmanager.com/gtag/js?$script,domain=perchance.org
+@@||securepubads.g.doubleclick.net/tag/js/gpt.js$script,domain=perchance.org
+@@||a.pub.network/perchance-org/pubfig.min.js$script,domain=perchance.org
+@@||a.pub.network/core/pubfig/*/pubfig.engine.js$script,domain=perchance.org
+@@||a.pub.network/core/prebid-analytics-*.js$script,domain=perchance.org
+@@||pub.network/v2/sites/perchance-org/configs?$xhr,domain=perchance.org
+@@||cdn.snigelweb.com/adengine/perchance.org/loader.js$xhr,domain=perchance.org
+@@||perchance.org^$ghide
+perchance.org##+js(no-fetch-if, google-analytics)
 ! ytlarge detection
 @@||ytlarge.com^$ghide
 @@||googlesyndication.com^$script,xhr,domain=ytlarge.com
