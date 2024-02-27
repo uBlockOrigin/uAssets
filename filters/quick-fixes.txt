@@ -1,5 +1,5 @@
 ! Title: uBlock₀ filters – Quick fixes
-! Last modified: Tue, 27 Feb 2024 10:53:52 +0000
+! Last modified: Tue, 27 Feb 2024 10:55:17 +0000
 ! Expires: 8 hours
 ! Description: Immediate, temporary filters to fix websites
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -85,11 +85,19 @@ jayservicestuff.com##+js(set, console.clear, undefined)
 ! perchance - broken by its dev
 ||perchance.org/api/count?key=abp$xhr,1p
 ||perchance.org/api/count?key=abt$xhr,1p
-!#if cap_html_filtering
-perchance.org##^script:has-text(/ariables\(\)|to keep this generator|ation_registry|already1AddedAdve5rtIfNeeded =|window\s*.\s*freestar\s*.\s*config\s*= |scripts\s*=|iframes\s*=|cookies\s*=|hasIfr9ame|has3Anal9ytics|quant|checkRes1Load|return\s*new\s*Promise|snigelweb|document\s*\.\s*head\s*\.\s*appendChild\s*\(\s*el\s*\)\s*;|document\s*\.\s*querySelector\s*\(\s*"#main"\s*\)|\$\s*\{\s*"\s*"\}\s*s/)
-!#else
-perchance.org##+js(rmnt, script, /ariables\(\)|to keep this generator|ation_registry|already1AddedAdve5rtIfNeeded =|window\s*.\s*freestar\s*.\s*config\s*= |scripts\s*=|iframes\s*=|cookies\s*=|hasIfr9ame|has3Anal9ytics|quant|checkRes1Load|return\s*new\s*Promise|snigelweb|document\s*\.\s*head\s*\.\s*appendChild\s*\(\s*el\s*\)\s*;|document\s*\.\s*querySelector\s*\(\s*"#main"\s*\)|\$\s*\{\s*"\s*"\}\s*s/)
-!#endif
+*$script,redirect-rule=noopjs,domain=perchance.org
+@@||securepubads.g.doubleclick.net/tag/js/gpt.js$script,domain=perchance.org
+@@||securepubads.g.doubleclick.net/pagead/managed/js/gpt/$script,domain=perchance.org
+@@||googletagmanager.com/gtag/js?$script,domain=perchance.org
+@@||securepubads.g.doubleclick.net/tag/js/gpt.js$script,domain=perchance.org
+@@||a.pub.network/perchance-org/pubfig.min.js$script,domain=perchance.org
+@@||a.pub.network/core/pubfig/*/pubfig.engine.js$script,domain=perchance.org
+@@||a.pub.network/core/prebid-analytics-*.js$script,domain=perchance.org
+@@||pub.network/v2/sites/perchance-org/configs?$xhr,domain=perchance.org
+@@||cdn.snigelweb.com/adengine/perchance.org/loader.js$xhr,domain=perchance.org
+@@||perchance.org^$ghide
+perchance.org##+js(no-fetch-if, google-analytics)
+perchance.org##+js(set, window.__id5_finalization_registry, {})
 
 ! ytlarge detection
 @@||ytlarge.com^$ghide
