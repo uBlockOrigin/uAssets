@@ -136,7 +136,16 @@ infinityscans.xyz,infinityscans.net##+js(rpnt, script, Apache)
 @@||pagead2.googlesyndication.com^$script,domain=next-episode.net
 
 ! https://github.com/uBlockOrigin/uAssets/issues/14204
-||es.ylilauta.org^$frame,redirect=noopframe
+!#if cap_html_filtering
+||ylilauta.org/api/community/board/load-threads$xhr,replace=/card a/card bbb/g
+ylilauta.org##div.card.bbb
+ylilauta.org##div.card.bbb + a[href="/user/gold"]
+!#if !env_mobile
+||ylilauta.org^$doc,xhr,replace=/\<div class\="card a"\>/<div id="hdewafdwaf"><\/div><div class="card a">/g
+ylilauta.org###hdewafdwaf:has(+ iframe.a):style(background-color: black !important; position: relative !important; height: 416px !important; width: 100.5% !important; margin-top: -416px !important; top: 430px !important; grid-column: 1 / -1;)
+ylilauta.org###hdewafdwaf:has(+ div.card.bbb)
+!#endif
+!#endif
 
 ! https://github.com/uBlockOrigin/uAssets/issues/21578
 iwb.jp##+js(alert-buster)
