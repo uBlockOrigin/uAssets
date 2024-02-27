@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Tue, 27 Feb 2024 06:39:55 +0000
+! Last modified: Tue, 27 Feb 2024 11:21:00 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -68,10 +68,15 @@ ze.tt,zeit.de##+js(nostif, .call(null), 10)
 meineorte.com,osthessen-news.de,techadvisor.com,focus.de##+js(nostif, .call(null))
 airliners.de,auszeit.bio,autorevue.at,bafoeg-aktuell.de,berliner-kurier.de,berliner-zeitung.de,bikerszene.de,boersennews.de,bonedo.de,chefkoch.de,clever-tanken.de,deine-tierwelt.de,dhd24.com,digitalfernsehen.de,donnerwetter.de,e-hausaufgaben.de,express.de,fanfiktion.de,formel1.de,fremdwort.de,frustfrei-lernen.de,gameswelt.*,gartendialog.de,gartenlexikon.de,gewinnspiele.tv,gut-erklaert.de,haus-garten-test.de,iban-rechner.de,inside-handy.de,kicker.de,kindergeld.org,ksta.de,liga3-online.de,lz.de,messen.de,moviejones.de,mt.de,musiker-board.de,mz-web.de,naumburger-tageblatt.de,news.de,nickles.de,nordbayern.de,nw.de,oeffentlicher-dienst.info,onlinemarketing.de,prad.de,psychic.de,quoka.de,rennrad-news.de,rheinische-anzeigenblaetter.de,rimondo.com,rundschau-online.de,spielen.de,spieletipps.de,spielfilm.de,tichyseinblick.de,torgranate.de,truckscout24.*,unicum.de,unsere-helden.com,webfail.com,weltfussball.at,weristdeinfreund.de,wieistmeineip.*##^script:has-text(===):has-text(/[\w\W]{16000}/)
 !#if cap_html_filtering
-giga.de,kino.de,desired.de,chip.de,focus.de##^script:has-text(DisplayAcceptableAdIfAdblocked)
+giga.de,kino.de,desired.de,chip.de,focus.de,teltarif.de##^script:has-text(DisplayAcceptableAdIfAdblocked)
 !#else
-giga.de,kino.de,desired.de,chip.de,focus.de##+js(rmnt, script, DisplayAcceptableAdIfAdblocked)
+giga.de,kino.de,desired.de,chip.de,focus.de,teltarif.de##+js(rmnt, script, DisplayAcceptableAdIfAdblocked)
 !#endif
+||giga.de/special/gutscheine/*.png$script,1p
+||desired.de/image/*.gif$script,1p
+||kino.de/mages/*.png$script,1p
+||teltarif.de/img/$script,1p
+teltarif.de,kino.de,desired.de,giga.de##img[referrerpolicy="unsafe-url"][src^="/img/"][src$=".jpg"]
 wetter.*##+js(nostif, (null), 10)
 tagesspiegel.de##+js(aopr, Notification)
 newsbreak24.de##^script:has-text(===):has-text(/[\w\W]{14000}/)
@@ -135,17 +140,11 @@ dcdirtylaundry.com,ipatriot.com,newser.com,politicalcowboy.com##+js(aost, Math, 
 ! aupetitparieur.com,allthingsvegas.com,beforeitsnews.com,concomber.com,conservativebrief.com,conservativefiringline.com,dailylol.com,funnyand.com,letocard.fr,mamieastuce.com,meilleurpronostic.fr,patriotnationpress.com,toptenz.net,vitamiiin.com,writerscafe.org,populist.press,dailytruthreport.com,livinggospeldaily.com,first-names-meanings.com,welovetrump.com,thehayride.com,thelibertydaily.com,thepoke.co.uk,thepolitistick.com,theblacksphere.net,shark-tank.com,naturalblaze.com,greatamericanrepublic.com,dailysurge.com,truthlion.com,flagandcross.com,westword.com,republicbrief.com,freedomfirstnetwork.com,phoenixnewtimes.com,clashdaily.com,madworldnews.com,reviveusa.com,sonsoflibertymedia.com,videogamesblogger.com,topminceur.fr,lovezin.fr,protrumpnews.com,thepalmierireport.com,kresy.pl,thepatriotjournal.com,gellerreport.com,wltreport.com,miaminewtimes.com,politicalsignal.com,rightwingnews.com,bigleaguepolitics.com,comicallyincorrect.com##+js(aost, Math.random, injectedScript)
 telexplorer.com.ar##+js(aost, Math.random, /injectedScript.*inlineScript/)
 designbump.com,thedesigninspiration.com##+js(aost, Math.random, /(?=.*onerror)(?=^(?!.*(https)))/)
-teltarif.de##+js(nostif, null), 10)
 !#if cap_html_filtering
-teltarif.de##^script:has-text(/getAdUnitPath|\.then\(eval\)|DisplayAcceptableAdIfAdblocked|\,eval\)\)\)\;|\.join\(\'\'\)\}\;/)
 aupetitparieur.com,allthingsvegas.com,100percentfedup.com,beforeitsnews.com,concomber.com,conservativebrief.com,conservativefiringline.com,dailylol.com,funnyand.com,letocard.fr,mamieastuce.com,meilleurpronostic.fr,patriotnationpress.com,toptenz.net,vitamiiin.com,writerscafe.org,populist.press,dailytruthreport.com,livinggospeldaily.com,first-names-meanings.com,welovetrump.com,thehayride.com,thelibertydaily.com,thepoke.co.uk,thepolitistick.com,theblacksphere.net,shark-tank.com,naturalblaze.com,greatamericanrepublic.com,dailysurge.com,truthlion.com,flagandcross.com,westword.com,republicbrief.com,freedomfirstnetwork.com,phoenixnewtimes.com,designbump.com,clashdaily.com,madworldnews.com,reviveusa.com,sonsoflibertymedia.com,thedesigninspiration.com,videogamesblogger.com,protrumpnews.com,thepalmierireport.com,kresy.pl,thepatriotjournal.com,gellerreport.com,thegatewaypundit.com,wltreport.com,miaminewtimes.com,politicalsignal.com,rightwingnews.com,bigleaguepolitics.com,comicallyincorrect.com##^script:has-text(/==undefined.*body/)
 !#else
-teltarif.de##+js(rmnt, script, /getAdUnitPath|\.then\(eval\)|DisplayAcceptableAdIfAdblocked|\,eval\)\)\)\;|\.join\(\'\'\)\}\;/)
 aupetitparieur.com,allthingsvegas.com,100percentfedup.com,beforeitsnews.com,concomber.com,conservativebrief.com,conservativefiringline.com,dailylol.com,funnyand.com,letocard.fr,mamieastuce.com,meilleurpronostic.fr,patriotnationpress.com,toptenz.net,vitamiiin.com,writerscafe.org,populist.press,dailytruthreport.com,livinggospeldaily.com,first-names-meanings.com,welovetrump.com,thehayride.com,thelibertydaily.com,thepoke.co.uk,thepolitistick.com,theblacksphere.net,shark-tank.com,naturalblaze.com,greatamericanrepublic.com,dailysurge.com,truthlion.com,flagandcross.com,westword.com,republicbrief.com,freedomfirstnetwork.com,phoenixnewtimes.com,designbump.com,clashdaily.com,madworldnews.com,reviveusa.com,sonsoflibertymedia.com,thedesigninspiration.com,videogamesblogger.com,protrumpnews.com,thepalmierireport.com,kresy.pl,thepatriotjournal.com,gellerreport.com,thegatewaypundit.com,wltreport.com,miaminewtimes.com,politicalsignal.com,rightwingnews.com,bigleaguepolitics.com,comicallyincorrect.com##+js(rmnt, script, /==undefined.*body/)
 !#endif
-.jpg|$script,xhr,1p,domain=teltarif.de
-||teltarif.de/img/$script,1p
-teltarif.de##img[referrerpolicy="unsafe-url"][src^="/img/"][src$=".jpg"]
 whatfinger.com##+js(set, oeo, noopFunc)
 @@*$ghide,domain=themattwalshblog.com
 ||rddywd.com^$image,redirect-rule=1x1.gif
