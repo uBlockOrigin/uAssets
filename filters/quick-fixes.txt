@@ -1,5 +1,5 @@
 ! Title: uBlock₀ filters – Quick fixes
-! Last modified: Thu, 29 Feb 2024 19:04:02 +0000
+! Last modified: Thu, 29 Feb 2024 19:10:12 +0000
 ! Expires: 8 hours
 ! Description: Immediate, temporary filters to fix websites
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -103,6 +103,11 @@ perchance.org##+js(set, window.Criteo, {})
 perchance.org##+js(set, window.Criteo.PubTag, {})
 perchance.org##+js(set, window.freestar.analytics, {})
 perchance.org##+js(set, window.freestar.analytics.track, {})
+!#if cap_html_filtering
+perchance.org##^script:has-text(/di__s_a_b_le|chec3kRes1Load|has7Variab4les|ntserve|__id5_finaliz|PubTag|__halo_loaded__|hasI3fr9ame|has3Analy0tics|already1AddedAd3vertIfNeeded\s*=|ad1Provider6Name\s*===|\/\/\s*CMP|let\s*script\s*=|scri3pts\s*=|ifra2mes\s*=|coo1kies\s*=|clasi\s*=|snige|window\s*\.\s*freestar\s*\?|userGaveAdConsent\s*\|\||i > 10|`abp/)
+!#else
+perchance.org##+js(rmnt, script, /di__s_a_b_le|chec3kRes1Load|has7Variab4les|ntserve|__id5_finaliz|PubTag|__halo_loaded__|hasI3fr9ame|has3Analy0tics|already1AddedAd3vertIfNeeded\s*=|ad1Provider6Name\s*===|\/\/\s*CMP|let\s*script\s*=|scri3pts\s*=|ifra2mes\s*=|coo1kies\s*=|clasi\s*=|snige|window\s*\.\s*freestar\s*\?|userGaveAdConsent\s*\|\||i > 10|`abp/)
+!#endif
 
 ! ytlarge detection
 @@||ytlarge.com^$ghide
