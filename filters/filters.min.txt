@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Thu, 29 Feb 2024 10:32:32 +0000
+! Last modified: Thu, 29 Feb 2024 11:19:51 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -923,6 +923,7 @@ msn.com##cs-native-ad-card-no-hover
 msn.com##msft-article-card:not(.contentCard)
 !#endif
 msn.com##+js(json-prune-fetch-response, properties.componentConfigs.slideshowConfigs.interstitialNativeAds)
+www.msn.com##+js(json-prune-fetch-response, *, list.*.link.ad list.*.link.kicker, appconfig/default/config.json)
 knowyourmeme.com##.bodycopy > div[style]:not([class])
 !#if env_mobile
 knowyourmeme.com##.content-unit-refresh-wrapper
@@ -4557,26 +4558,22 @@ ani-stream.com##+js(no-fetch-if, damoh.ani-stream.com)
 ||amazonaws.com/homad-global-configs.schneevonmorgen.com/global_config.json$xhr,redirect=nooptext,domain=ani-stream.com
 !#endif
 ||fairytail-tube.org/templates/caprica/amz$image,1p
+||grammarly.com/*utm_source=$popup,domain=duplichecker.com|plagiarismchecker.co|plagiarismdetector.net|searchenginereports.net|smallseotools.com
 duplichecker.com,plagiarismchecker.co,plagiarismdetector.net,searchenginereports.net,smallseotools.com##[href*="grammarly.com"]
-duplichecker.com,plagiarismchecker.co,plagiarismdetector.net,searchenginereports.net,smallseotools.com##+js(nostif, showPopup)
-duplichecker.com##.container > div[style*="margin-top:"]:has(a[href^="https://www.duplichecker.com/linksmgm"])
-duplichecker.com##ccc, cc, .dfdfdf, .jetdew, .moiid, .plkane, .vvdsd, .vvefv, .st_dd, #img0000, a[onclick*="grmly_"]
-plagiarismchecker.co##body *:matches-css(margin: /auto/):matches-css(width: /^[2-3]{1}[0-9]{2}(\.[0-9]+)?px$/):matches-css(height: /^[2-3]{1}[0-9]{2}(\.[0-9]+)?px$/):matches-css(display: /block|table/):remove()
-plagiarismchecker.co##[class^="papa-"], #topbox, #afterbox, #top-ad, #before-ad, #after-ad, ins.adsbygoogle
-plagiarismdetector.net##a[id][class][rel]:has(> img[class][src^="https://plagiarismdetector.net/"])
-plagiarismdetector.net##[id][class] > a[rel*="nofollow"][class] > img[class][src^="https://plagiarismdetector.net"]
-plagiarismdetector.net##[id][class] > a[rel*="nofollow"][style*="cursor"] > img[class][src^="https://plagiarismdetector.net"]
+duplichecker.com,plagiarismchecker.co,plagiarismdetector.net,searchenginereports.net##+js(nostif, showPopup)
+duplichecker.com##[class^="atasifub"], .jetdew
+plagiarismchecker.co###topbox, #afterbox
+plagiarismchecker.co##.col-md[style]:has(.img-fluid)
+||plagiarismchecker.co/imgimg$image,1p
+plagiarismdetector.net##a[rel*="nofollow"][rel*="noopener"]:has(> img.img-fluid[src^="https://plagiarismdetector.net/pd-imgs/"])
 plagiarismdetector.net##a[onclick*="PC_Home_gra"][rel="nofollow noopener"][target="_blank"]
-searchenginereports.net##.grammarly-overall
 searchenginereports.net##div[class^="theBdsy"], div[id^="theBdsy_"]
+searchenginereports.net##.grammarly-overall
+||searchenginereports.net/theAdGMC/$image,1p
 smallseotools.com##+js(aeld, mouseout, clientWidth)
 smallseotools.com##.mx-auto.d-block
 smallseotools.com##span[onclick*="https://smallseotools.com/deep_grammar.html"]
 smallseotools.com##span[onclick*="https://smallseotools.com/deep_pcgrammar.html"]
-||duplichecker.com/*.php|$image,1p
-||grammarly.com/*utm_source=$popup,domain=duplichecker.com|plagiarismchecker.co|plagiarismdetector.net|searchenginereports.net|smallseotools.com
-||plagiarismdetector.net/bb_cc/_grammarly_popup.svg$image,1p
-||searchenginereports.net/theAdGMC/$image,1p
 ||smallseotools.com/webimages/a12/$image,1p
 jagran.com##.ads
 picbaron.com##+js(aeld, , _0x)
@@ -9765,6 +9762,7 @@ petri.com##body:style(overflow: auto !important;)
 @@||custommapposter.com^$ghide
 custommapposter.com##.adsbygoogle
 custommapposter.com##+js(no-fetch-if, googlesyndication)
+ creepypasta.com##[data-pid^="ad-"]:remove()
 ! Link shortener filters go into their own dedicated list
 ! *** filters/ubo-link-shorteners.txt ***
 ! gplinks all domains (gplinks.co/EWu8)
