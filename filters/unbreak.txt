@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Unbreak
-! Last modified: Mon, 11 Mar 2024 06:05:16 +0000
+! Last modified: Mon, 11 Mar 2024 06:07:58 +0000
 ! Expires: 5 days
 ! Description:
 !     Filters optimized for uBlock Origin, to unbreak sites broken as
@@ -5059,12 +5059,16 @@ help.cashctrl.com##+js(set, Origami.fastclick, noopFunc)
 ||imasdk.googleapis.com/js/sdkloader/ima3.js$script,redirect-rule=google-ima.js,domain=moviesandtv.myvi.in
 @@||moviesandtv.myvi.in/videojs/videojs-contrib-ads.min.js$script,domain=moviesandtv.myvi.in
 
+! getjad-issue sites
 ! https://github.com/uBlockOrigin/uAssets/issues/20579
-@@||cdn.lib.getjad.io/library/$script,domain=vidaextra.com
-@@||c.amazon-adsystem.com/aax2/apstag.js$script,redirect-rule,domain=vidaextra.com
-@@||securepubads.g.doubleclick.net/tag/js/gpt.js$script,domain=vidaextra.com
-@@||securepubads.g.doubleclick.net/pagead/managed/js/gpt/*/pubads_impl.js$script,domain=vidaextra.com
-@@||securepubads.g.doubleclick.net/gampad/ads$xhr,domain=vidaextra.com
+! https://www.reddit.com/r/uBlockOrigin/comments/1bbhc60/videos_from_the_site_httpsle10sportcom_do_not/
+! https://www.reddit.com/r/uBlockOrigin/comments/1axy3om/videos_from_the_site_httpswwwpurepeoplecom_do_not/
+! https://www.purepeople.com/article/kate-middleton-et-le-prince-harry-ont-ils-repris-contact-une-experte-en-est-persuadee_a520086/1
+@@||cdn.lib.getjad.io/library/$script,3p,domain=le10sport.com|purepeople.com|vidaextra.com
+@@||securepubads.g.doubleclick.net/tag/js/gpt.js$script,3p,domain=le10sport.com|purepeople.com|vidaextra.com
+@@||securepubads.g.doubleclick.net/pagead/managed/js/gpt/*/pubads_impl$script,3p,domain=le10sport.com|purepeople.com|vidaextra.com
+@@||securepubads.g.doubleclick.net/gampad/ads$xhr,3p,domain=le10sport.com|purepeople.com|vidaextra.com
+@@||amazon-adsystem.com/*/apstag.js$script,3p,redirect-rule,domain=le10sport.com|purepeople.com|vidaextra.com
 @@||vidaextra.com^$ghide
 vidaextra.com##.ad
 
@@ -5249,16 +5253,6 @@ mobile.de##+js(set, optimizelyDatafile.featureFlags, [])
 
 ! https://github.com/uBlockOrigin/uAssets/issues/22580
 ||cj.com^$badfilter
-
-! getjad-issue sites
-! https://www.reddit.com/r/uBlockOrigin/comments/1bbhc60/videos_from_the_site_httpsle10sportcom_do_not/
-! https://www.reddit.com/r/uBlockOrigin/comments/1axy3om/videos_from_the_site_httpswwwpurepeoplecom_do_not/
-! https://www.purepeople.com/article/kate-middleton-et-le-prince-harry-ont-ils-repris-contact-une-experte-en-est-persuadee_a520086/1
-@@||cdn.lib.getjad.io/library/$script,3p,domain=le10sport.com|purepeople.com
-@@||securepubads.g.doubleclick.net/tag/js/gpt.js$script,3p,domain=le10sport.com|purepeople.com
-@@||securepubads.g.doubleclick.net/pagead/managed/js/gpt/*/pubads_impl$script,3p,domain=le10sport.com|purepeople.com
-@@||securepubads.g.doubleclick.net/gampad/ads$xhr,3p,domain=le10sport.com|purepeople.com
-@@||amazon-adsystem.com/*/apstag.js$script,3p,redirect-rule,domain=le10sport.com|purepeople.com
 
 ! https://github.com/uBlockOrigin/uAssets/issues/22604
 @@||web-assets.tapfiliate.com^$domain=affiliates.groovehq.com
