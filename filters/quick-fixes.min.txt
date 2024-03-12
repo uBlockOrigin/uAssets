@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Quick fixes
 ! Expires: 12 hours
-! Last modified: Tue, 12 Mar 2024 16:56:01 +0000
+! Last modified: Tue, 12 Mar 2024 22:14:28 +0000
 ! Diff-Path: %diffpath%#ublock-quick-fixes
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -71,8 +71,9 @@ vincentincludesuccessful.com##+js(set, console.clear, undefined)
 ||eu-1-id5-sync.com^
 ||perchance.org/api/count?key=abp$xhr,1p
 ||perchance.org/api/count?key=abt$xhr,1p
-perchance.org##+js(rpnt, script, count?key=abpr");, count?key=abpr"); return;)
-perchance.org##div[style*="does-not-exist"]
+perchance.org##+js(rpnt, script, /count\?key\=abpr\s*"\s*\)\s*;/, count?key=abpr"); return;)
+perchance.org##+js(rpnt, script, /if\s*\(\s*\!\s*\(\s*await/, if((await)
+perchance.org##div[style*="var"][style*="min-height"]:has([data-freestar-ad])
 ! ytlarge detection
 @@||ytlarge.com^$ghide
 @@||googlesyndication.com^$script,xhr,domain=ytlarge.com
