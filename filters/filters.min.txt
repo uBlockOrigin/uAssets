@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Tue, 12 Mar 2024 21:14:55 +0000
+! Last modified: Tue, 12 Mar 2024 23:07:40 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -9765,20 +9765,6 @@ jazbaat.in##+js(rmnt, script, deblocker)
 ||my.optikservers.com/assets/AdsenseInit.$script,1p
 tainguyenmienphi.com##+js(noeval-if, /chp_?ad/)
 tainguyenmienphi.com##+js(acs, document.addEventListener, randomNumber)
-@@||free-mp3-download.net^$script,1p
-!#if cap_html_filtering
-||free-mp3-download.net/js/app.js$script,1p,replace=/\(function\(\)\{const.*?\}\(\)\)\);/(function(){}()));/
-||free-mp3-download.net/js/app.js$script,1p,replace=/;const \S+?=>\{var \S+?!!.+?return;\}\x24/;$/
-!#else
-@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$xhr,script,domain=free-mp3-download.net
-@@||pagead2.googlesyndication.com/pagead/managed/js/adsense/*/show_ads_impl_$script,domain=free-mp3-download.net
-free-mp3-download.net##+js(set, HTMLScriptElement.prototype.onerror, noopFunc)
-free-mp3-download.net##+js(aeld, error)
-free-mp3-download.net#@#.adsbygoogle-noablate
-free-mp3-download.net#@#ins.adsbygoogle
-free-mp3-download.net##.adsbygoogle-noablate:style(max-height: 1px !important; visibility: hidden !important;)
-free-mp3-download.net##ins.adsbygoogle:style(max-height: 1px !important; visibility: hidden !important;)
-!#endif
 lewdcorner.com##+js(acs, $, btoa)
 statisticsanddata.org##.cmplz-blocked-content-container:remove-class(cmplz-blocked-content-container)
 statisticsanddata.org##+js(set-attr, iframe[data-src-cmplz][src="about:blank"], src, [data-src-cmplz])
