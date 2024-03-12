@@ -901,22 +901,6 @@ jazbaat.in##+js(rmnt, script, deblocker)
 tainguyenmienphi.com##+js(noeval-if, /chp_?ad/)
 tainguyenmienphi.com##+js(acs, document.addEventListener, randomNumber)
 
-! https://github.com/uBlockOrigin/uAssets/issues/22067
-@@||free-mp3-download.net^$script,1p
-!#if cap_html_filtering
-||free-mp3-download.net/js/app.js$script,1p,replace=/\(function\(\)\{const.*?\}\(\)\)\);/(function(){}()));/
-||free-mp3-download.net/js/app.js$script,1p,replace=/;const \S+?=>\{var \S+?!!.+?return;\}\x24/;$/
-!#else
-@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$xhr,script,domain=free-mp3-download.net
-@@||pagead2.googlesyndication.com/pagead/managed/js/adsense/*/show_ads_impl_$script,domain=free-mp3-download.net
-free-mp3-download.net##+js(set, HTMLScriptElement.prototype.onerror, noopFunc)
-free-mp3-download.net##+js(aeld, error)
-free-mp3-download.net#@#.adsbygoogle-noablate
-free-mp3-download.net#@#ins.adsbygoogle
-free-mp3-download.net##.adsbygoogle-noablate:style(max-height: 1px !important; visibility: hidden !important;)
-free-mp3-download.net##ins.adsbygoogle:style(max-height: 1px !important; visibility: hidden !important;)
-!#endif
-
 ! https://github.com/uBlockOrigin/uAssets/issues/22870
 lewdcorner.com##+js(acs, $, btoa)
 
