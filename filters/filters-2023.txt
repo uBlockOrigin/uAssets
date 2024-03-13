@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2023)
-! Last modified: Tue, 12 Mar 2024 08:41:08 +0000
+! Last modified: Wed, 13 Mar 2024 03:00:57 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -2862,9 +2862,10 @@ freepublicporn.com##[href*="find-my-girl.com"]
 
 ! PersianBlocker filters
 ! app.blubank.com, mobileweb.bankmellat.ir - These sites work fine on the desktop and Android but they only allow iPhone useragent
-mobileweb.bankmellat.ir##+js(trusted-set, navigator.platform, iPhone)
-app.blubank.com##+js(set, navigator.standalone, true)
+app.blubank.com,mobileweb.bankmellat.ir##+js(trusted-set, navigator.userAgent, '{"value": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1"}')
+app.blubank.com,mobileweb.bankmellat.ir##+js(set, navigator.standalone, true)
 app.blubank.com##div.fixed[style^="z-index:"]:has-text(گوشی خود را بچرخانید)
+mobileweb.bankmellat.ir##+js(trusted-set, navigator.platform, {"value": "iPhone"})
 ! https://uploadboy.com/f64c93jcxy0a - Timer
 uploadboy.com##+js(rpnt, script, self.location.href;, self.location.href; document.addEventListener('DOMContentLoaded'\,()=>{const button=document.querySelector('form > input#method_free');if(button){button.click()}});, sedCount, 1)
 uploadboy.com##+js(rpnt, script, //$('#btn_download').click();, $('#btn_download').click();, sedCount, 1)
