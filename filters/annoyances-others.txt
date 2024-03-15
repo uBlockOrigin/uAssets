@@ -411,6 +411,12 @@ searchenginewatch.com##+js(acs, jQuery, #sign-up-popup)
 ! popular on FB
 facebook.com,facebookcorewwwi.onion,facebookwkhpilnemxj7asaniu7vnjjbiltxjqhye3mhbshg7kx5tfyd.onion##.fbUserStory:has-text(Popular Across Facebook)
 facebook.com,facebookcorewwwi.onion,facebookwkhpilnemxj7asaniu7vnjjbiltxjqhye3mhbshg7kx5tfyd.onion##.userContentWrapper:has-text(Popular Across Facebook)
+! https://github.com/uBlockOrigin/uAssets/issues/3367#issuecomment-1993620105 - "Suggested for you" posts
+!#if cap_html_filtering
+||www.facebook.com/api/graphql/$xhr,replace=/\{"brs_content_label":[^,]+,"category":"ENGAGEMENT[^\n]+"cursor":"[^"]+"\}/{}/g
+!#else
+www.facebook.com##+js(trusted-replace-xhr-response, '/\{"brs_content_label":[^,]+,"category":"ENGAGEMENT[^\n]+"cursor":"[^"]+"\}/g', {}, /api/graphql)
+!#endif
 
 ! right click, select, copy => http://www.oggiscuola.com/web/2018/09/22/alzarsi-in-piedi-quando-entra-il-professore-e-una-forma-di-saluto-che-va-recuperata/
 oggiscuola.com##+js(acs, jQuery, overlay)
@@ -3326,6 +3332,8 @@ katosatoshi.jp##body:style(-webkit-user-select:text!important;-moz-user-select:t
 
 ! https://www.phoronix.com/scan.php?page=news_item&px=Linux-5.9-AMDGPU-Stats
 phoronix.com##+js(acs, onload, setTimeout)
+! https://github.com/uBlockOrigin/uAssets/issues/16716#issuecomment-1998210794
+@@||phoronix.com^$ghide
 
 ! https://fandomwire.com/spider-man-3-tobey-maguire-andrew-garfield-signed-on/
 fandomwire.com##.g1-popup
@@ -6401,7 +6409,7 @@ cool-etv.net##+js(set, console.clear, noopFunc)
 ||cool-etv.net/ch/suppy.js$script,1p
 
 ! Soft Anti-Blocker
-jsfiddle.net##+js(nostif, support-jsfiddle)
+jsfiddle.net##+js(nostif, modal)
 regexr.com##div.hello
 
 ! https://freemcserver.net/ anti devtools
@@ -6888,8 +6896,10 @@ sportando.basketball##.select-none:style(-webkit-touch-callout: default !importa
 ! https://www.reddit.com/r/uBlockOrigin/comments/17hcflr/ymoviesvip_devtools_detector_embedded_into_app/
 ! https://github.com/uBlockOrigin/uAssets/issues/20492
 ! https://github.com/uBlockOrigin/uAssets/issues/22899
-ymovies.vip,aniwatch.to,megacloud.tv,hianime.to,rapid-cloud.co##+js(set, devtoolsDetector.launch, noopFunc)
+ymovies.vip,aniwatch.to,megacloud.tv,hianime.to,rapid-cloud.co,rabbitstream.net##+js(set, devtoolsDetector.launch, noopFunc)
 ||9animetv.to/js/safe.ob.min.js$script
+myflixerz.to##+js(nostif, 0x)
+movie4kto.net##+js(nosiif, /DevTools|_0x/)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/20341
 lethalpanda.com##+js(aopr, b2a)
