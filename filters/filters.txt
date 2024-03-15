@@ -483,6 +483,7 @@ facebook.com,facebookwkhpilnemxj7asaniu7vnjjbiltxjqhye3mhbshg7kx5tfyd.onion###wa
 ! https://github.com/uBlockOrigin/uAssets/issues/3367#issuecomment-1993620105
 ! https://github.com/uBlockOrigin/uAssets/issues/3367#issuecomment-1999029976
 !#if cap_html_filtering
+||www.facebook.com^$doc,replace=/\{"brs_content_label":[^,]+,"category":"SPONSORED"[^\n]+"cursor":"[^"]+"\}/{}/
 ||www.facebook.com/api/graphql/$xhr,replace=/\{"brs_content_label":[^,]+,"category":"SPONSORED"[^\n]+"cursor":"[^"]+"\}/{}/
 !#else
 ! www.facebook.com##+js(trusted-replace-xhr-response, '/\{"brs_content_label":[^,]+,"category":"SPONSORED"[^\n]+"cursor":"[^"]+"\}/', {}, /api/graphql)
