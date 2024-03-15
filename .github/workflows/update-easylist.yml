@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Clone uAssets
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Assemble Easylist assets
         run: |
           ./tools/make-easylist.sh
@@ -28,5 +28,6 @@ jobs:
             git config user.email "<>"
             git add -u thirdparties/
             git commit -m "Update Easylist assets"
+            git pull --rebase origin master
             git push origin master
           fi
