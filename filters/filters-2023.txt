@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2023)
-! Last modified: Fri, 15 Mar 2024 15:28:18 +0000
+! Last modified: Sat, 16 Mar 2024 04:24:09 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -4708,10 +4708,12 @@ javhdo.net##.preload
 
 ! https://github.com/uBlockOrigin/uAssets/issues/20219
 ! https://www.reddit.com/r/uBlockOrigin/comments/1b6g96i/royal_road_user_ads_arent_blocked/
+! https://www.reddit.com/r/uBlockOrigin/comments/1bfx7k8/how_do_i_allow_user_ads_on_rr/
 royalroad.com##+js(set, isPremium, true)
 royalroad.com##.t-center:has(> .bold.uppercase, #Content_Top_Desktop)
 royalroad.com##.portlet:has(> h6)
-||royalroad.com/a$frame,1p
+royalroad.com##.portlet[style]:has(> span.bold.uppercase)
+||royalroad.com/*fictionId=$frame,1p
 
 ! https://github.com/uBlockOrigin/uAssets/issues/20220
 iprima.cz##+js(json-prune-fetch-response, plugins.adService)
