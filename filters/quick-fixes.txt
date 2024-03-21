@@ -1,5 +1,5 @@
 ! Title: uBlock₀ filters – Quick fixes
-! Last modified: Thu, 21 Mar 2024 22:18:21 +0000
+! Last modified: Thu, 21 Mar 2024 22:20:44 +0000
 ! Expires: 8 hours
 ! Description: Immediate, temporary filters to fix websites
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -101,13 +101,6 @@ perchance.org##div[style*="var"][style*="min-height"]:has([data-freestar-ad])
 .com/adz/$badfilter
 @@*$script,domain=ytlarge.com,denyallow=googletagmanager.com|googlesyndication.com|topcreativeformat.com
 
-! https://github.com/uBlockOrigin/uAssets/issues/20401
-infinityscans.xyz,infinityscans.net##+js(rmnt, script, throw Error, condition, /^\s*\(?function.*\);\}\}\(\)\)\);/)
-infinityscans.xyz,infinityscans.net##+js(rpnt, script, /function .*\(\);\}/, , condition, \x74\x72)
-infinityscans.xyz,infinityscans.net##+js(rpnt, script, /\(function\(.*\(\);\}/, , condition, throw Error)
-infinityscans.xyz,infinityscans.net##+js(rpnt, script, '||!, '||)
-infinityscans.xyz,infinityscans.net##+js(rpnt, script, )||!, )||)
-
 ! next-episode .net
 !next-episode.net##+js(rmnt, script, '/[\s\S]{0,}head[\s\S]{1900,}/')
 !next-episode.net##+js(rpnt, script, '/.then[\s\S]{0,}?;/g')
@@ -158,9 +151,6 @@ youtube.com##body > ytd-app > #content.ytd-app.style-scope > ytd-page-manager#pa
 youtube.com##body > ytd-app > #content.ytd-app.style-scope > ytd-page-manager#page-manager.ytd-app.style-scope > ytd-browse.ytd-page-manager.style-scope > ytd-two-column-browse-results-renderer.grid-disabled.grid.ytd-browse.style-scope > #primary.ytd-two-column-browse-results-renderer.style-scope > ytd-rich-grid-renderer.ytd-two-column-browse-results-renderer.style-scope > #masthead-ad.ytd-rich-grid-renderer.style-scope > ytd-banner-promo-renderer.ytd-rich-grid-renderer.style-scope
 ! https://github.com/uBlockOrigin/uAssets/issues/20586#issuecomment-2002022488
 youtube.com##body > ytd-app > #content.ytd-app.style-scope > ytd-page-manager#page-manager.ytd-app.style-scope > ytd-watch-flexy.ytd-page-manager.style-scope > #columns.ytd-watch-flexy.style-scope > #secondary.ytd-watch-flexy.style-scope > #secondary-inner.ytd-watch-flexy.style-scope > #related.ytd-watch-flexy.style-scope > ytd-watch-next-secondary-results-renderer.ytd-watch-flexy.style-scope > #items.ytd-watch-next-secondary-results-renderer.style-scope > ytd-item-section-renderer > #contents > ytd-ad-slot-renderer
-
-! https://github.com/AdguardTeam/AdguardFilters/issues/175113
-moovitapp.com#@#.ads-banner
 
 ! https://github.com/uBlockOrigin/uAssets/issues/22961
 deezer.com#@#.chakra-portal:has(> .chakra-modal__overlay)
