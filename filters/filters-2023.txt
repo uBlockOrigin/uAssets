@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2023)
-! Last modified: Fri, 22 Mar 2024 05:09:42 +0000
+! Last modified: Fri, 22 Mar 2024 08:45:33 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -5228,10 +5228,17 @@ realmadryt.pl##+js(no-fetch-if, method:GET)
 mirroshu.top##[id^="div-gpt-ad-"]
 
 ! https://github.com/uBlockOrigin/uAssets/issues/21064
-veev.to##+js(rmnt, script, constructor)
+veev.to##+js(nosiif, checkBait)
 veev.to##+js(nowoif)
-veev.to##+js(rmnt, script, popunder)
+veev.to##+js(rmnt, script, popundersPerIP)
 veev.to##.player-video-av
+veev.to#@#.sponsored-container
+!#if env_chromium
+@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$xhr,domain=veev.to
+!#endif
+!#if env_firefox
+||veev.to/assets/videoplayer/*.js$script,replace=/\bhttps:\/\/pagead2\.googlesyndication\.com\/pagead\/js\/adsbygoogle\.js/https:\/\/veev.to\/assets\/videoplayer\/17c088d.js/
+!#endif
 
 ! filmydown .site/fast-dl .co popups
 fast-dl.co,filmydown.*##+js(nowoif)
