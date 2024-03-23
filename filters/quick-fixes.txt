@@ -116,8 +116,12 @@ farsroid.com##div.site-middle-banners:style(position: absolute !important; top: 
 farsroid.com##div.single-text-ads:style(position: absolute !important; top: -10000px !important;)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/22840
+!#if ext_devbuild
 decrypt.day##ins.adsbygoogle:style(clip-path: circle(0) !important;)
 decrypt.day##+js(spoof-css, ins.adsbygoogle, clip-path, none)
+!#else
+decrypt.day##ins.adsbygoogle > *:style(position: absolute !important; left: -10000px !important;)
+!#endif
 decrypt.day##+js(no-fetch-if, adsbygoogle)
 @@||decrypt.day^$ghide
 @@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$script,domain=decrypt.day
