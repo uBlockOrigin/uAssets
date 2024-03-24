@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2024)
-! Last modified: Sat, 23 Mar 2024 19:49:11 +0000
+! Last modified: Sun, 24 Mar 2024 01:01:39 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -135,6 +135,35 @@ x1337x.eu##.mgbox
 @@||torrage.info/torrent.php$popup,domain=1337x.to
 ! https://github.com/uBlockOrigin/uAssets/issues/23025
 1337x.*##+js(aeld, popstate)
+
+! https://github.com/uBlockOrigin/uAssets/issues/7273
+cheatcloud.cc,cheater.ninja,cheatermad.com,cheatsquad.gg##+js(nano-sib, clearInterval)
+cheatsquad.gg##+js(nosiif, visibility, 1000)
+cheatermad.com##+js(nostif, offset)
+@@||cheatsquad.gg^$script,xhr,1p
+cheatsquad.gg##.tooltip::before
+cheatsquad.gg##.tooltip::after
+updown.link##+js(nano-stb, startDownload, 8000)
+! https://github.com/uBlockOrigin/uAssets/issues/7273#issuecomment-966551769
+@@||work.ink^$ghide
+*$frame,redirect-rule=noopframe,domain=work.ink
+! https://zodhacks.com/pet-simulator-x-saza-hub-easter/ timer
+*$script,domain=work.ink,redirect-rule=noopjs
+@@||work.ink^$xhr,1p
+! https://www.reddit.com/r/uBlockOrigin/comments/zu2myx/
+workink.click##+js(no-fetch-if, cloudfront)
+work.ink##.no-overlay
+! https://github.com/uBlockOrigin/uAssets/issues/14676
+work.ink##+js(ra, href, [href*="jump"], stay)
+@@||cdn.thisiswaldo.com/static/js/$script,domain=work.ink
+@@||doubleverify.com^$xhr,domain=work.ink
+||nextmillmedia.com^
+workink.click##+js(nowoif, !direct)
+work.ink##+js(nosiif, a0b)
+work.ink##+js(no-fetch-if, /outbrain|criteo|thisiswaldo|media\.net|ohbayersbur|adligature|quantserve|\.css|\.js/)
+work.ink##body > div:has(> a#link)
+work.ink##.opera-container:style(visibility: collapse !important;)
+work.ink##img[alt="Buff Banner"]:style(visibility: collapse !important;)
 
 ! END: Rules from filters.txt
 
