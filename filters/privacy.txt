@@ -95,6 +95,12 @@ reddit.com##reddit-breadcrumbs
 docs.google.com##+js(no-xhr-if, method:POST url:/logImpressions)
 ! https://github.com/uBlockOrigin/uAssets/issues/7960
 www.google.*##+js(set, rwt, noopFunc)
+! https://github.com/uBlockOrigin/uAssets/issues/7960#issuecomment-2018914258
+!#if !env_mobile
+www.google.*###main a[href][data-sb^="/url?"]:remove-attr(data-sb)
+!#else
+www.google.*##+js(href-sanitizer, #main a[href^="/url?q=http"], ?q)
+!#endif
 
 ! https://github.com/uBlockOrigin/uAssets/issues/6538
 liberation.fr,officedepot.fr,oui.sncf##+js(acs, document.createElement, '.js')
