@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Privacy
 ! Expires: 7 days
-! Last modified: Mon, 25 Mar 2024 03:29:20 +0000
+! Last modified: Thu, 28 Mar 2024 04:35:38 +0000
 ! Diff-Path: %diffpath%#ublock-privacy
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -47,6 +47,11 @@ reddit.com##reddit-breadcrumbs
 ||www.reddit.com/|$xhr,1p,method=post
 docs.google.com##+js(no-xhr-if, method:POST url:/logImpressions)
 www.google.*##+js(set, rwt, noopFunc)
+!#if !env_mobile
+www.google.*###main a[href][data-sb^="/url?"]:remove-attr(data-sb)
+!#else
+www.google.*##+js(href-sanitizer, #main a[href^="/url?q=http"], ?q)
+!#endif
 liberation.fr,officedepot.fr,oui.sncf##+js(acs, document.createElement, '.js')
 sfr.fr##+js(aopr, _oEa)
 brillen.de##+js(acs, document.createElement, 'script')
