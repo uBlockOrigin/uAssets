@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2024)
-! Last modified: Sat, 30 Mar 2024 22:41:54 +0000
+! Last modified: Sat, 30 Mar 2024 22:50:48 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -1113,3 +1113,11 @@ pesmodding.com#@#.button-ad
 
 ! https://github.com/uBlockOrigin/uAssets/issues/23111
 maos4alaw.online##+js(noeval-if, ads)
+
+! https://github.com/uBlockOrigin/uAssets/issues/23115
+!#if cap_html_filtering
+cnpics.org##^script:has-text(pop1stp)
+!#else
+cnpics.org##+js(rmnt, script, pop1stp)
+!#endif
+cnpics.org##+js(aopr, detectAdBlock)

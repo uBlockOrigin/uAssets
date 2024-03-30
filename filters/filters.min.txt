@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Sat, 30 Mar 2024 22:41:54 +0000
+! Last modified: Sat, 30 Mar 2024 22:50:48 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -9811,6 +9811,12 @@ gurusiana.id##+js(no-fetch-if, googlesyndication)
 pesmodding.com#@#.button-ad
 ||tlh.gedidigital.it/tlh.js$script,domain=lastampa.it
 maos4alaw.online##+js(noeval-if, ads)
+!#if cap_html_filtering
+cnpics.org##^script:has-text(pop1stp)
+!#else
+cnpics.org##+js(rmnt, script, pop1stp)
+!#endif
+cnpics.org##+js(aopr, detectAdBlock)
 ! Link shortener filters go into their own dedicated list
 ! *** filters/ubo-link-shorteners.txt ***
 ! gplinks all domains (gplinks.co/EWu8)
