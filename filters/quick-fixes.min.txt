@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Quick fixes
 ! Expires: 12 hours
-! Last modified: Sat, 30 Mar 2024 17:20:45 +0000
+! Last modified: Sat, 30 Mar 2024 21:54:50 +0000
 ! Diff-Path: %diffpath%#ublock-quick-fixes
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -97,6 +97,9 @@ decrypt.day##+js(no-fetch-if, adsbygoogle)
 @@||fundingchoicesmessages.google.com^$script,domain=decrypt.day
 @@||googleads.g.doubleclick.net/pagead/ads?gdpr=$frame,domain=decrypt.day
 @@||pagead2.googlesyndication.com/pagead/$xhr,domain=decrypt.day
+!#if env_chromium
+@@||tpc.googlesyndication.com/generate_204$xhr,domain=decrypt.day
+!#endif
 *$frame,redirect-rule=noopframe,domain=decrypt.day
 ||www.facebook.com^$doc,replace=/\{"brs_content_label":[^,]+,"category":"SPONSORED"[^\n]+"cursor":"[^"]+"\}/{}/,badfilter
 /\/common\/images\/[a-z0-9]+\-[a-z0-9]+\.png$/$image,1p,domain=torrentgalaxy.to|tgx.rs
