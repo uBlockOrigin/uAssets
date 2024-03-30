@@ -52,9 +52,12 @@ youtube.com##+js(json-prune, playerResponse.adPlacements playerResponse.playerAd
 !#endif
 !#endif
 ||googlevideo.com/videoplayback*&ctier=L&*%2Cctier%2C$xhr,3p,domain=m.youtube.com|music.youtube.com|www.youtube.com
-m.youtube.com,music.youtube.com,www.youtube.com##+js(set, ytInitialPlayerResponse.playerConfig.ssapConfig, undefined)
+m.youtube.com,music.youtube.com,www.youtube.com##+js(set, ytInitialPlayerResponse.playerConfig.ssapConfig.ssapPrerollEnabled, false)
 m.youtube.com,music.youtube.com,www.youtube.com##+js(set, ytInitialPlayerResponse.streamingData.serverAbrStreamingUrl, undefined)
-m.youtube.com,music.youtube.com,www.youtube.com##+js(json-prune, playerResponse.playerConfig.ssapConfig playerResponse.streamingData.serverAbrStreamingUrl playerConfig.ssapConfig streamingData.serverAbrStreamingUrl)
+m.youtube.com,music.youtube.com,www.youtube.com##+js(json-prune, playerResponse.streamingData.serverAbrStreamingUrl streamingData.serverAbrStreamingUrl)
+m.youtube.com,music.youtube.com,www.youtube.com##+js(trusted-replace-fetch-response, "ssapPrerollEnabled":true, "ssapPrerollEnabled":false, player?)
+m.youtube.com,music.youtube.com,www.youtube.com##+js(trusted-replace-xhr-response, "ssapPrerollEnabled":true, "ssapPrerollEnabled":false, player?)
+
 
 ! https://github.com/uBlockOrigin/uAssets/issues/18476
 ! VOE sites
