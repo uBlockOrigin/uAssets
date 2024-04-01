@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2024)
-! Last modified: Sun, 31 Mar 2024 19:08:18 +0000
+! Last modified: Mon, 01 Apr 2024 00:58:27 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -1127,3 +1127,12 @@ pupupul.site##+js(aopr, popUrl)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/23119
 cuervotv.me##+js(nowoif)
+
+! https://www.reddit.com/r/uBlockOrigin/comments/1bse0c8/popup_not_being_blocked/
+!#if cap_html_filtering
+andhrafriends.com##^script:has-text(popunder)
+!#else
+andhrafriends.com##+js(rmnt, script, popunder)
+!#endif
+andhrafriends.com##+js(set, one_time, 1)
+andhrafriends.com##+js(set-cookie, popunder, yes)
