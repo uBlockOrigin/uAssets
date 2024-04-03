@@ -1,5 +1,5 @@
 ! Title: uBlock₀ filters – Quick fixes
-! Last modified: Tue, 02 Apr 2024 19:29:58 +0000
+! Last modified: Wed, 03 Apr 2024 12:07:49 +0000
 ! Expires: 8 hours
 ! Description: Immediate, temporary filters to fix websites
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -115,13 +115,11 @@ perchance.org##div[style*="var"][style*="min-height"]:has([data-freestar-ad])
 @@||pagead2.googlesyndication.com^$script,domain=next-episode.net
 
 ! https://github.com/uBlockOrigin/uAssets/issues/22840
-decrypt.day##ins.adsbygoogle > *:style(position: relative !important; left: -10000px !important;)
-!#if ext_devbuild
 !#if env_chromium
-decrypt.day#@#ins.adsbygoogle > *:style(position: relative !important; left: -10000px !important;)
 decrypt.day##ins.adsbygoogle:style(clip-path: circle(0) !important;)
 decrypt.day##+js(spoof-css, ins.adsbygoogle, clip-path, none)
-!#endif
+!#else
+decrypt.day##ins.adsbygoogle > *:style(position: relative !important; left: -10000px !important;)
 !#endif
 decrypt.day##+js(no-fetch-if, adsbygoogle)
 @@||decrypt.day^$ghide
@@ -134,6 +132,9 @@ decrypt.day##+js(no-fetch-if, adsbygoogle)
 @@||pagead2.googlesyndication.com/pagead/$xhr,domain=decrypt.day
 !#if env_chromium
 @@*$xhr,3p,method=head,domain=decrypt.day
+@@||googlesyndication.com^$xhr,domain=decrypt.day
+@@/favicon.ico$xhr,domain=decrypt.day
+||pagead2.googlesyndication.com/getconfig/sodar?$xhr,important,domain=decrypt.day
 !#endif
 *$frame,redirect-rule=noopframe,domain=decrypt.day
 
