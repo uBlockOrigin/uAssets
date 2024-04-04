@@ -1,5 +1,5 @@
 ! Title: uBlock₀ filters – Quick fixes
-! Last modified: Thu, 04 Apr 2024 15:33:25 +0000
+! Last modified: Thu, 04 Apr 2024 17:55:55 +0000
 ! Expires: 8 hours
 ! Description: Immediate, temporary filters to fix websites
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -75,13 +75,6 @@ m.youtube.com,music.youtube.com,www.youtube.com##+js(json-prune, playerResponse.
 ||www.youtube.com/youtubei/v1/player?$xhr,1p,replace=/"auxiliaryUi":\{"messageRenderers":\{"bkaEnforcementMessageViewModel.*?e\}\}\}\,//,badfilter
 ||www.youtube.com/youtubei/v1/player?$xhr,1p,replace=/("trackingParam":"kx_fmPxhoPZR)[-_0-9A-Za-z]{50}[-_0-9A-Za-z]+?([-_0-9A-Za-z]{55}lLKPQ-SS"\})/\$1\$2/,badfilter
 ||www.youtube.com/youtubei/v1/player?$xhr,1p,replace=/("trackingParam":"k5DfmPxhoXpR)[-_0-9A-Za-z]{50}[-_0-9A-Za-z]+?([-_0-9A-Za-z]{151}lLKPQGiS"\})/\$1\$2/,badfilter
-!#else
-www.youtube.com##+js(trusted-replace-fetch-response, '/"auxiliaryUi":\{"messageRenderers":\{"bkaEnforcementMessageViewModel.*?e\}\}\}\,/', , player?)
-www.youtube.com##+js(trusted-replace-fetch-response, '/("trackingParam":"kx_fmPxhoPZR)[-_0-9A-Za-z]{50}[-_0-9A-Za-z]+?([-_0-9A-Za-z]{55}lLKPQ-SS"\})/', $1$2, player?)
-www.youtube.com##+js(trusted-replace-fetch-response, '/("trackingParam":"k5DfmPxhoXpR)[-_0-9A-Za-z]{50}[-_0-9A-Za-z]+?([-_0-9A-Za-z]{151}lLKPQGiS"\})/', $1$2, player?)
-www.youtube.com##+js(trusted-replace-xhr-response, '/"auxiliaryUi":\{"messageRenderers":\{"bkaEnforcementMessageViewModel.*?e\}\}\}\,/', , /playlist\?list=|player\?|watch\?v=/)
-www.youtube.com##+js(trusted-replace-xhr-response, '/("trackingParam":"kx_fmPxhoPZR)[-_0-9A-Za-z]{50}[-_0-9A-Za-z]+?([-_0-9A-Za-z]{55}lLKPQ-SS"\})/', $1$2, /playlist\?list=|player\?|watch\?v=/)
-www.youtube.com##+js(trusted-replace-xhr-response, '/("trackingParam":"k5DfmPxhoXpR)[-_0-9A-Za-z]{50}[-_0-9A-Za-z]+?([-_0-9A-Za-z]{151}lLKPQGiS"\})/', $1$2, /playlist\?list=|player\?|watch\?v=/)
 !#endif
 
 
