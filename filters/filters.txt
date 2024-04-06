@@ -1,5 +1,5 @@
 ! Title: uBlock filters
-! Last modified: Sat, 06 Apr 2024 08:59:52 +0000
+! Last modified: Sat, 06 Apr 2024 22:38:32 +0000
 ! Expires: 5 days
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
@@ -604,6 +604,10 @@ web.de##.iba-acceptable:has-text(/Anzeige|Info/)
 @@*$ghide,domain=web.de|gmx.*
 web.de#@#.ad
 web.de##.ad:style(position:absolute !important; left:-10000px !important; display:block !important; pointer-events: none !important;)
+! https://github.com/uBlockOrigin/uAssets/issues/22834
+||web.de/*/nonfriendlyiframe.html$frame,1p
+web.de##+js(rmnt, script, '"Anzeige"')
+web.de##div[data-service-slot-initialized]
 
 ! https://github.com/uBlockOrigin/uAssets/issues/8047
 ! https://github.com/uBlockOrigin/uAssets/issues/5532
