@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Sat, 06 Apr 2024 17:35:46 +0000
+! Last modified: Sat, 06 Apr 2024 18:19:59 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -19438,11 +19438,9 @@ www.chip.de###CR:is(.Downloads-Select, .Downloads-Getfile) > #G32 > #M1 > [class
 www.chip.de###CR.Downloads-Select > #G32 > #M1 > [class="wrapper-safe"] > [class^="fb mt-"] > section[class="fb-col-12 fb-col-lg-8"] > [class]:not(.ButtonAuswahl):has(> a[href^="https://www.chip.de/downloads/"])
 ! restore speed (the anti adblock script causing lag spikes)
 !#if cap_html_filtering
-www.chip.de##^script:has-text(.slice(0, -1); })
-www.chip.de##^script:has-text((Math.PI).toFixed(10).slice(0, -1);)
+www.chip.de##^script:has-text(.pop(); })
 !#else
-www.chip.de##+js(rmnt, script, .slice(0\, -1); })
-www.chip.de##+js(rmnt, script, (Math.PI).toFixed(10).slice(0\, -1);)
+www.chip.de##+js(rmnt, script, .pop(); })
 !#endif
 ||nah-versorger.de^$3p
 ||stopundstart.de^$3p
