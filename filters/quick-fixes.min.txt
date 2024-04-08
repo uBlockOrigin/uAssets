@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Quick fixes
 ! Expires: 12 hours
-! Last modified: Mon, 08 Apr 2024 11:09:03 +0000
+! Last modified: Mon, 08 Apr 2024 15:03:13 +0000
 ! Diff-Path: %diffpath%#ublock-quick-fixes
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -100,8 +100,8 @@ perchance.org##div[style*="var"][style*="min-height"]:has([data-freestar-ad])
 !next-episode.net##+js(rmnt, script, '/\d+\+\d|64|\+\+|\+1|adbl|ablk|[\s\S]{0,}(\.\.|function)[\s\S]{1800,}|document\[/i')
 @@||pagead2.googlesyndication.com^$script,domain=next-episode.net
 !#if env_chromium
-decrypt.day##ins.adsbygoogle[data-adsbygoogle-status][style*="display"]:has(> [id^="aswift_"]):style(clip-path: circle(0) !important;)
-decrypt.day##+js(spoof-css, ins.adsbygoogle[data-adsbygoogle-status][style*="display"]:has(> [id^="aswift_"]), clip-path, none)
+decrypt.day##ins.adsbygoogle:has(iframe[src]):style(clip-path: circle(0) !important;)
+decrypt.day##+js(spoof-css, ins.adsbygoogle:has(iframe[src]), clip-path, none)
 !#else
 decrypt.day##ins.adsbygoogle > *:style(position: relative !important; left: -10000px !important;)
 !#endif

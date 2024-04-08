@@ -1,5 +1,5 @@
 ! Title: uBlock₀ filters – Quick fixes
-! Last modified: Mon, 08 Apr 2024 11:09:03 +0000
+! Last modified: Mon, 08 Apr 2024 15:03:13 +0000
 ! Expires: 8 hours
 ! Description: Immediate, temporary filters to fix websites
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -115,8 +115,8 @@ perchance.org##div[style*="var"][style*="min-height"]:has([data-freestar-ad])
 
 ! https://github.com/uBlockOrigin/uAssets/issues/22840
 !#if env_chromium
-decrypt.day##ins.adsbygoogle[data-adsbygoogle-status][style*="display"]:has(> [id^="aswift_"]):style(clip-path: circle(0) !important;)
-decrypt.day##+js(spoof-css, ins.adsbygoogle[data-adsbygoogle-status][style*="display"]:has(> [id^="aswift_"]), clip-path, none)
+decrypt.day##ins.adsbygoogle:has(iframe[src]):style(clip-path: circle(0) !important;)
+decrypt.day##+js(spoof-css, ins.adsbygoogle:has(iframe[src]), clip-path, none)
 !#else
 decrypt.day##ins.adsbygoogle > *:style(position: relative !important; left: -10000px !important;)
 !#endif
