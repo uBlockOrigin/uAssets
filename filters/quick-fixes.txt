@@ -1,5 +1,5 @@
 ! Title: uBlock₀ filters – Quick fixes
-! Last modified: Wed, 10 Apr 2024 08:06:12 +0000
+! Last modified: Thu, 11 Apr 2024 00:15:14 +0000
 ! Expires: 8 hours
 ! Description: Immediate, temporary filters to fix websites
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -179,4 +179,9 @@ copilot.microsoft.com##.b_ad
 ! https://github.com/uBlockOrigin/uAssets/issues/23234
 !#if !ext_devbuild
 svt.se#@#+js(trusted-set-cookie, cookie-consent-1, '{"optedIn":true,"functionality":false,"statistics":false}')
+!#endif
+
+! https://github.com/uBlockOrigin/uAssets/issues/3367#issuecomment-2048528598
+!#if env_chromium
+www.facebook.com#@#+js(json-prune, require.0.3.0.__bbox.require.[].3.[-].__bbox.result.data.node.sponsored_data.ad_id)
 !#endif
