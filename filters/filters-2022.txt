@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2022)
-! Last modified: Fri, 12 Apr 2024 12:14:14 +0000
+! Last modified: Fri, 12 Apr 2024 12:31:05 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -3350,6 +3350,11 @@ theporngod.com##.banners
 theporngod.com##.table
 theporngod.com##[id^="cw-"]
 theporngod.com##.closebox
+!#if cap_html_filtering
+theporngod.com##^script:has-text(popMagic)
+!#else
+theporngod.com##+js(rmnt, script, popMagic)
+!#endif
 
 ! leaknud.com popup
 leaknud.com##+js(aopw, afStorage)
