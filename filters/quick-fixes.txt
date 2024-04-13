@@ -1,5 +1,5 @@
 ! Title: uBlock₀ filters – Quick fixes
-! Last modified: Sat, 13 Apr 2024 10:54:42 +0000
+! Last modified: Sat, 13 Apr 2024 11:30:25 +0000
 ! Expires: 8 hours
 ! Description: Immediate, temporary filters to fix websites
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -71,19 +71,6 @@ m.youtube.com,music.youtube.com,tv.youtube.com,www.youtube.com,youtubekids.com,y
 jasonresponsemeasure.com##+js(nowoif)
 jasonresponsemeasure.com##+js(set, console.clear, undefined)
 
-! perchance - broken by its dev
-||eu-1-id5-sync.com^
-||perchance.org/api/count?key=abp$xhr,1p
-||perchance.org/api/count?key=abt$xhr,1p
-perchance.org##+js(rpnt, script, /api/count?key=abt");, /api/count?key=abt"); return;)
-perchance.org##+js(rpnt, script,/api/count?key=${""}abpr` + "");, /api/count?key=${""}abpr` + ""); return;)
-perchance.org##+js(rpnt, script, scri12pts && ifra2mes && coo1kies, true)
-perchance.org##+js(rpnt, script, /sessionToken\s*\)/, sessionToken || true))
-perchance.org##+js(rpnt, script, /sessionToken\s*\|\|/, sessionToken || true ||)
-perchance.org##+js(rpnt, script, /\]\s*\|\|\s*w/, ] || true || w)
-perchance.org##+js(rpnt, script, /\(?\s*"1"\s*\)?\s*;/, "1"; return;)
-perchance.org##div[style*="var"][style*="min-height"]:has([data-freestar-ad])
-
 ! ytlarge detection
 @@||ytlarge.com^$ghide
 @@||googlesyndication.com^$script,xhr,domain=ytlarge.com
@@ -124,16 +111,6 @@ decrypt.day##+js(no-fetch-if, adsbygoogle)
 !#endif
 *$frame,redirect-rule=noopframe,domain=decrypt.day
 
-! https://github.com/uBlockOrigin/uAssets/issues/19729
-/\/common\/images\/[a-z0-9]+\-[a-z0-9]+\.png$/$image,1p,domain=torrentgalaxy.to|tgx.rs
-torrentgalaxy.to,tgx.rs##a[href^="/hx?r0ff3r="][href$="&tfh"], #stopad, .kdguszftmyrvenilh, a[onmouseout="#"][href], img[src^="/common/images/"][alt="wide"][data-src="bin"]
-torrentgalaxy.to,tgx.rs##body > [id] > div:first-child > div:first-child > div:first-child > div:first-child:has(a img[src^="/common/"]):not(.panel.txlight.panel-primary.outer)
-torrentgalaxy.to,tgx.rs##.panel.txlight.panel-primary.outer > [class*="slidingDivb-"] > *:not([class="panel panel-primary txlight"]):has(a img)
-torrentgalaxy.to,tgx.rs##.panel.txlight.panel-primary.outer > [class*="slidingDivf-"] > [position="relative"][align="center"][style*="margin"]:has(a img)
-torrentgalaxy.to,tgx.rs##.panel.txlight.panel-primary.outer > [class*="slidingDivf-"] > div[style="margin-bottom:10px;"]:has(a img)
-torrentgalaxy.to,tgx.rs##.confluids[style*="overflow"] > [class] > div:last-child > div[style*="padding"]:has(a img)
-torrentgalaxy.to,tgx.rs##legend.txlight[style*="margin"] + center > div[style*="margin"]:has(a img)
-
 ! https://github.com/uBlockOrigin/uAssets/issues/20505
 download.megaup.net##+js(rpnt, script, /\]\s*\!\s*\=/g, ]==)
 download.megaup.net##+js(rpnt, script, /!=\s*_/, ==_)
@@ -151,21 +128,6 @@ download.megaup.net##+js(rpnt, script, /!=\s*_/, ==_)
 @@/^https:\/\/[a-z]\.pussyspace\.(?:com|net)\/sb\/t\/\d{6,8}\/\d\/\d\/w:300\/t\d{1,2}-enh\/(?:[0-9a-z]+-)*[0-9a-z]+\.jpg$/$image,1p,domain=pussyspace.*
 *$image,3p,denyallow=cdn77.org|fpbns.net|others-cdn.com|rncdn7.com|sb-cd.com|stream.highwebmedia.com|upsiloncdn.net|xvideos-cdn.com|youjizz.com|ypncdn.com,from=pussyspace.com|pussyspace.net,badfilter
 *$image,3p,denyallow=cdn77.org|fpbns.net|globalcdn.co|others-cdn.com|rncdn7.com|sb-cd.com|stream.highwebmedia.com|upsiloncdn.net|xvideos-cdn.com|youjizz.com|ypncdn.com,from=pussyspace.com|pussyspace.net
-
-! https://github.com/uBlockOrigin/uAssets/issues/22175
-@@||qwant.com/apm/intake/v2/rum/events$xhr,1p
-@@||qwant.com/action/$ping,1p
-
-! https://github.com/uBlockOrigin/uAssets/issues/515#issuecomment-2040558778
-@@||sephora.com/js/ufe/isomorphic/thirdparty/VisitorAPI.js$script,1p
-
-! https://github.com/uBlockOrigin/uAssets/issues/23200
-copilot.microsoft.com##.b_ad
-
-! https://github.com/uBlockOrigin/uAssets/issues/23234
-!#if !ext_devbuild
-svt.se#@#+js(trusted-set-cookie, cookie-consent-1, '{"optedIn":true,"functionality":false,"statistics":false}')
-!#endif
 
 ! https://github.com/uBlockOrigin/uAssets/issues/3367#issuecomment-2048528598
 !#if env_chromium
