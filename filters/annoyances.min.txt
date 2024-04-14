@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Annoyances
 ! Expires: 7 days
-! Last modified: Sun, 14 Apr 2024 15:36:44 +0000
+! Last modified: Sun, 14 Apr 2024 15:39:06 +0000
 ! Diff-Path: %diffpath%#ublock-annoyances
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -727,6 +727,7 @@ milwaukeetool.eu##+js(trusted-set-cookie, OptanonConsent, groups=C1%3A1%2CC2%3A0
 saseurobonusmastercard.se##+js(trusted-click-element, .button--necessary-approve, , 4000)
 ! barrons.com cookie banner
 cdn.privacy-mgmt.com##+js(trusted-click-element, button.agree-btn, , 2000)
+tver.jp##+js(trusted-click-element, .ReactModal__Overlay button[class*="terms-modal_done__"])
 ! *** filters/annoyances-others.txt ***
 mimaletadepeliculas.blogspot.com##+js(aopr, document.oncontextmenu)
 mimaletadepeliculas.blogspot.com##+js(acs, document.onselectstart)
@@ -4622,4 +4623,7 @@ techcrunch-com.translate.goog##.loading-text:remove-class(loading-text)
 xanimu.com,cosxplay.com##^script:has-text(adblock)
 !#else
 xanimu.com,cosxplay.com##+js(rmnt, script, adblock)
+!#endif
+!#if cap_html_filtering
+||tver.jp/_next/static/chunks/$replace=/e\?(e\(\):\(n\.play\(\))/!1?\$1/,script
 !#endif
