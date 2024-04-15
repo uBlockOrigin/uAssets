@@ -1,5 +1,5 @@
 ! Title: uBlock filters
-! Last modified: Sun, 14 Apr 2024 08:29:32 +0000
+! Last modified: Mon, 15 Apr 2024 08:38:25 +0000
 ! Expires: 5 days
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
@@ -476,7 +476,10 @@ facebook.com,facebookwkhpilnemxj7asaniu7vnjjbiltxjqhye3mhbshg7kx5tfyd.onion###wa
 ! https://github.com/uBlockOrigin/uAssets/issues/3367#issuecomment-1999029976
 ! https://www.reddit.com/r/uBlockOrigin/comments/1bjfs9x/facebook_loading_slow/kvraphx/
 ! https://github.com/uBlockOrigin/uAssets/issues/3367#issuecomment-2048528598
-!#if !env_chromium
+! https://github.com/uBlockOrigin/uAssets/issues/3367#issuecomment-2054573634
+!#if env_chromium
+www.facebook.com##+js(json-prune, require.0.3.0.__bbox.require.[].3.1.__bbox.result.data.node, require.0.3.0.__bbox.require.[].3.1.__bbox.result.data.node.sponsored_data.ad_id)
+!#else
 www.facebook.com##+js(json-prune, require.0.3.0.__bbox.require.[].3.[-].__bbox.result.data.node.sponsored_data.ad_id)
 !#endif
 !#if cap_html_filtering
