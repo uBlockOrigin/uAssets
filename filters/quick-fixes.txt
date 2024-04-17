@@ -1,5 +1,5 @@
 ! Title: uBlock₀ filters – Quick fixes
-! Last modified: Wed, 17 Apr 2024 02:47:49 +0000
+! Last modified: Wed, 17 Apr 2024 10:00:10 +0000
 ! Expires: 8 hours
 ! Description: Immediate, temporary filters to fix websites
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -165,8 +165,11 @@ lastmile.lt#@#+js(set-cookie, __consent, %5B%22required%22%5D)
 ! https://github.com/uBlockOrigin/uAssets/issues/21353
 raenonx.cc##body > div[class] > style:first-child + .w-full:has(> .button-clickable-bg-opaque > .transform-smooth > svg)
 raenonx.cc##div[class^="flex flex-row w-full "]:has(> style + div > style + div .adsbygoogle)
-raenonx.cc##div[class^="flex flex-row w-full "]:has(> style + div > style + div:has-text(advertisements))
-raenonx.cc##[id^="headlessui-"] .z-popup-common:has-text(/ad-blocker|ad blocker|adblocker|広告ブロック/i)
+raenonx.cc##div[class^="flex flex-row w-full "]:has(> style + div > style + div:has-text(/advertisements|広告/))
+raenonx.cc##[id^="headlessui-"] .z-popup-common:has-text(/ad-blocker|ad blocker|adblocker|広告/i)
+raenonx.cc##.\[\&_a\]\:text-link:has([href$="/ads-and-credits"])
+@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$xhr,domain=raenonx.cc
+raenonx.cc##+js(trusted-replace-fetch-response, /.*/, , adsbygoogle.js?)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/22220
 ! https://github.com/uBlockOrigin/uAssets/issues/22492
