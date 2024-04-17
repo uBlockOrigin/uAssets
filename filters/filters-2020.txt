@@ -10,9 +10,12 @@
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/53254
 *$script,redirect-rule=noopjs,domain=arcai.com
-! https://github.com/uBlockOrigin/uAssets/issues/19325
-arcai.com##+js(no-fetch-if, googlesyndication)
-arcai.com##+js(set, Object.prototype.m_nLastTimeAdBlock, undefined)
+! https://github.com/uBlockOrigin/uAssets/issues/23307
+arcai.com##+js(set, pubAdsService, trueFunc)
+@@||doubleclick.net^$script,xhr,domain=arcai.com
+@@||fundingchoicesmessages.google.com^$script,domain=arcai.com
+@@||googletagservices.com/tag/js/gpt.js$script,domain=arcai.com
+@@*$ghide,domain=arcai.com
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/53287
 de-baystars.doorblog.jp##+js(acs, document.addEventListener, google_ad_client)
