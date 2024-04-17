@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Wed, 17 Apr 2024 03:40:20 +0000
+! Last modified: Wed, 17 Apr 2024 06:42:09 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -9642,6 +9642,12 @@ uiiumovies.net##+js(rmnt, script, deblocker)
 spontacts.com##+js(nostif, detectAdBlocker)
 tutorialspoint.com##^#east[data-options*="Advertisement"]
 thehackernews.com##a[href^="https://thehackernews.uk/"]:matches-attr(href=/https:\/\/thehackernews\.uk\/[a-zA-Z0-9]{4,}/):not([href*="-"]):not([class*="button"]):not([class*="latest"])
+thehackernews.com##body:has(article) .cf > a[href^="https://thehackernews.uk/"][target="_blank"]
+!#if cap_html_filtering
+thehackernews.com##^script:has-text(imgSrc)
+!#else
+thehackernews.com##+js(rmnt, script, imgSrc)
+!#endif
 mielec.pl##+js(rmnt, script, document.createElement("script"))
 @@||ddzswov1e84sp.cloudfront.net^$script,domain=free-content.pro
 @@||onasider.top/tc$xhr,domain=free-content.pro
