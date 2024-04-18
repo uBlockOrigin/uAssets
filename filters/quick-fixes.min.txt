@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Quick fixes
 ! Expires: 12 hours
-! Last modified: Thu, 18 Apr 2024 08:48:26 +0000
+! Last modified: Thu, 18 Apr 2024 09:06:57 +0000
 ! Diff-Path: %diffpath%#ublock-quick-fixes
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -139,9 +139,10 @@ lastmile.lt#@#+js(set-cookie, __consent, %5B%22required%22%5D)
 @@||cxense.com/cx.js$domain=str.toyokeizai.net
 @@||googletagmanager.com/gtm.js$domain=str.toyokeizai.net
 raenonx.cc##body > div[class] > style:first-child + .w-full:has(> .button-clickable-bg-opaque > .transform-smooth > svg)
-raenonx.cc##div[class^="flex flex-row w-full "]:has(> style + div > style + div .adsbygoogle)
-raenonx.cc##div[class^="flex flex-row w-full "]:has(> style + div > style + div:has-text(/advertisements|広告/))
-raenonx.cc##[id^="headlessui-"] .z-popup-common:has-text(/ad-blocker|ad blocker|adblocker|広告/i)
+raenonx.cc##.w-full:has(> style + div > style + div .adsbygoogle)
+raenonx.cc##.w-full > style + div[tabindex]:has(> style + div > style + div > p:has-text(advertisements))
+raenonx.cc##.w-full > div:has(> style + div > style + div > p:has-text(advertisements))
+raenonx.cc##[id^="headlessui-"] [role="dialog"]:has-text(/ad-blocker|ad blocker|adblocker|広告/i)
 raenonx.cc##a[href$="/ads-and-credits"]:upward(1)
 @@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$xhr,domain=raenonx.cc
 raenonx.cc##+js(trusted-replace-fetch-response, /.*/, , adsbygoogle.js?)
