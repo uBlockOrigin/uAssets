@@ -986,3 +986,17 @@ lootdest.com##+js(nowoif, , 5)
 
 ! https://github.com/uBlockOrigin/uAssets/discussions/17361#discussioncomment-9140520
 investcrust.com##+js(no-fetch-if, googlesyndication)
+
+! https://github.com/uBlockOrigin/uAssets/issues/21451
+! https://github.com/uBlockOrigin/uAssets/issues/23386
+@@*$ghide,domain=bluemediadownload.*|bluemediafile.*|bluemedialink.*|bluemediastorage.*|bluemediaurls.*|urlbluemedia.*
+.gif$image,domain=bluemediadownload.*|bluemediafile.*|bluemedialink.*|bluemediastorage.*|bluemediaurls.*|urlbluemedia.*
+bluemediadownload.*,bluemediafile.*,bluemedialink.*,bluemediastorage.*,bluemediaurls.*,urlbluemedia.*##+js(aopr, decodeURI)
+bluemediadownload.*,bluemediafile.*,bluemedialink.*,bluemediastorage.*,bluemediaurls.*,urlbluemedia.*##+js(aopr, open)
+bluemediadownload.*,bluemediafile.*,bluemedialink.*,bluemediastorage.*,bluemediaurls.*,urlbluemedia.*###ads-centter
+/fhbdhf.jpg$image,1p,domain=bluemediadownload.*|bluemediafile.*|bluemedialink.*|bluemediastorage.*|bluemediaurls.*|urlbluemedia.*
+!#if cap_html_filtering
+bluemediadownload.*,bluemediafile.*,bluemedialink.*,bluemediastorage.*,bluemediaurls.*,urlbluemedia.*##^script:has-text(FingerprintJS)
+!#else
+bluemediadownload.*,bluemediafile.*,bluemedialink.*,bluemediastorage.*,bluemediaurls.*,urlbluemedia.*##+js(rmnt, script, FingerprintJS)
+!#endif
