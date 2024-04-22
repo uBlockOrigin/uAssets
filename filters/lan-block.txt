@@ -25,12 +25,12 @@
 !                    |             |            |           |192.168.
 !                    |             |            |           |    |169.254.
 !                    |             |            |           |    |     |0-255.0-255
-/^\w+:\/\/\[::ffff:(?:7f[0-9a-f]{2}|a[0-9a-f]{2}|ac1[0-9a-f]|c0a8|a9fe):[0-9a-f]{1,4}\][:/]/$third-party,domain=~localhost|~127.0.0.1|~[::1]|~0.0.0.0|~[::]|~local
+/^\w+:\/\/\[::ffff:(?:7f[0-9a-f]{2}|a[0-9a-f]{2}|ac1[0-9a-f]|c0a8|a9fe):[0-9a-f]{1,4}\][:/]/$3p,domain=~localhost|~127.0.0.1|~[::1]|~0.0.0.0|~[::]|~local
 !
 ! ——— localhost
 ! https://en.wikipedia.org/wiki/Localhost
 !
-/^\w+:\/\/127\.(?:(?:[1-9]?\d|1\d\d|2(?:[0-4]\d|5[0-5]))\.){2}(?:[1-9]?\d|1\d\d|2(?:[0-4]\d|5[0-5]))[:/]/$3p,domain=~0.0.0.0|~127.0.0.1|~[::1]|~[::]|~intel.cn|~intel.co.id|~intel.co.jp|~intel.co.kr|~intel.com|~intel.com.br|~intel.com.tw|~intel.de|~intel.fr|~intel.la|~intel.vn|~local|~localhost|~mega.nz
+/^\w+:\/\/127\.(?:(?:[1-9]?\d|1\d\d|2(?:[0-4]\d|5[0-5]))\.){2}(?:[1-9]?\d|1\d\d|2(?:[0-4]\d|5[0-5]))[:/]/$3p,domain=~localhost|~127.0.0.1|~[::1]|~0.0.0.0|~[::]|~local
 ||[::1]^$3p,domain=~localhost|~127.0.0.1|~[::1]|~0.0.0.0|~[::]|~local
 ||localhost^$3p,domain=~localhost|~127.0.0.1|~[::1]|~0.0.0.0|~[::]|~local
 !
@@ -96,6 +96,8 @@
 ||web.setup^$3p,domain=~localhost|~127.0.0.1|~[::1]|~0.0.0.0|~[::]|~local
 ||web.setup.home^$3p,domain=~localhost|~127.0.0.1|~[::1]|~0.0.0.0|~[::]|~local
 !
+! ——— EXCEPTIONS
+!
 ! https://github.com/uBlockOrigin/uAssets/issues/19005
 @@||127.0.0.1^$xhr,domain=battlelog.battlefield.com
 !
@@ -104,5 +106,11 @@
 !
 ! https://github.com/uBlockOrigin/uAssets/pull/22475
 @@||127.0.0.1^$domain=client.foldingathome.org
+!
+! https://github.com/uBlockOrigin/uAssets/issues/21960
+@@||127.0.0.1^$domain=mega.nz
+!
+! https://github.com/uBlockOrigin/uAssets/commit/b0e28ffe
+@@||127.0.0.1^$domain=~intel.cn|~intel.co.id|~intel.co.jp|~intel.co.kr|~intel.com|~intel.com.br|~intel.com.tw|~intel.de|~intel.fr|~intel.la|~intel.vn
 !
 ! ——— END
