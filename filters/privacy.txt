@@ -970,8 +970,8 @@ coursera.org##+js(no-fetch-if, eventing)
 ||svc.eu01.miro.com^$badfilter
 
 ! https://github.com/uBlockOrigin/uBlock-issues/issues/2531#issuecomment-2042755608
-!#if ext_devbuild
-twitter.com,~platform.twitter.com##+js(trusted-replace-xhr-response, '/,"expanded_url":"([^"]+)","url":"[^"]+"/g', ',"expanded_url":"$1","url":"$1"', /api/graphql)
+!#if env_firefox
+twitter.com,~platform.twitter.com##+js(trusted-replace-xhr-response, '/,"expanded_url":"([^"]+)","url":"[^"]+"/g', ',"expanded_url":"$1","url":"$1"', /graphql)
 platform.twitter.com##+js(trusted-replace-xhr-response, '/,"expanded_url":"([^"]+)","indices":([^"]+)"url":"[^"]+"/g', ',"expanded_url":"$1","indices":$2"url":"$1"', /tweet-result)
 !#endif
 
