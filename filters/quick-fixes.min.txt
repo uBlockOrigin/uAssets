@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Quick fixes
 ! Expires: 12 hours
-! Last modified: Tue, 23 Apr 2024 15:56:20 +0000
+! Last modified: Tue, 23 Apr 2024 16:18:03 +0000
 ! Diff-Path: %diffpath%#ublock-quick-fixes
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -136,14 +136,14 @@ puzzle-loop.com,puzzle-words.com,puzzle-chess.com,puzzle-thermometers.com,puzzle
 ||xth.jp^$inline-script,badfilter
 in-jpn.com,oninet.ne.jp,xth.jp#@#+js(aopr, Node.prototype.appendChild)
 in-jpn.com,oninet.ne.jp,xth.jp#@#+js(aopr, Element.prototype.insertAdjacentHTML)
-in-jpn.com###staki:remove-attr(id)
+in-jpn.com##body > p[id]:remove-attr(id)
 in-jpn.com,oninet.ne.jp,xth.jp##body:style(color: #000 !important;)
 in-jpn.com#@#[style]:empty
 in-jpn.com,oninet.ne.jp,xth.jp##body div:matches-css(position: fixed):matches-css(background-color: /rgb/):matches-css(z-index: /\d+/)
 !#if cap_html_filtering
-||in-jpn.com^$script,replace=/function myFunc[\s\S\n]+?false;[\s\S\n]+?\}//
+||in-jpn.com^$script,replace=/function myFunc[\s\S\n]+?false;[\s\S\n]+?\}[\s\S\n]+?myFunc\(\); \}[\s\S\n]+?\}//
 !#endif
-@@||oninet.ne.jp/sakigakesoft/s/holmes-geojson.js$script,1p,strict1p
+@@||oninet.ne.jp/sakigakesoft/s/holmes-geojson.js$1p,strict1p
 @@||impact-ad.jp/fh/showad_$script,domain=famitsu.com
 ||yimg.com/aaq/benji/$badfilter
 @@||googletagmanager.com/gtm.js$domain=online-shop.mb.softbank.jp
