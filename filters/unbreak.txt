@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Unbreak
-! Last modified: Wed, 24 Apr 2024 12:03:31 +0000
+! Last modified: Fri, 26 Apr 2024 03:18:10 +0000
 ! Expires: 5 days
 ! Description:
 !     Filters optimized for uBlock Origin, to unbreak sites broken as
@@ -5377,3 +5377,8 @@ moneycontrol.com##.advSlotsGrayBox
 
 ! https://www.etonline.com/michael-strahans-daughter-isabella-strahan-has-best-response-to-fan-asking-if-shes-still-alive - video breakage
 ||imasdk.googleapis.com/js/sdkloader/ima3.js^$script,3p,redirect=google-ima.js,domain=etonline.com,important
+
+! https://github.com/uBlockOrigin/uAssets/issues/23446
+||yieldlove.com/v2/yieldlove.js$script,domain=whatismyip.com,important
+whatismyip.com##+js(set, yieldlove_cmd, {})
+whatismyip.com##+js(set, yieldlove_cmd.push, noopFunc)
