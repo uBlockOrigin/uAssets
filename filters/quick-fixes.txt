@@ -143,11 +143,13 @@ in-jpn.com,oninet.ne.jp,xth.jp##body:style(color: #000 !important;)
 in-jpn.com#@#[style]:empty
 in-jpn.com,oninet.ne.jp,xth.jp##body div:matches-css(position: fixed):matches-css(background-color: /rgb/):matches-css(z-index: /\d+/)
 in-jpn.com##+js(trusted-replace-xhr-response, /.*/, , pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?)
+in-jpn.com##img:style(visibility: visible !important;)
 @@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$xhr,domain=in-jpn.com
 xth.jp##body:style(background: none !important;)
 xth.jp###ggH1:style(height: 50px !important; position: absolute !important; left:-4000px !important;)
 !#if cap_html_filtering
-||in-jpn.com^$script,replace=/var w_status[\s\S\n]+?doSakigake\(\);[\s\S\n]+?\}//
+||in-jpn.com^$script,replace=/var w_status[\s\S\n]+?doSakigake\(\);[\s\S\n]+?\}//,badfilter
+||in-jpn.com^$script,replace=/var w_stat[\s\S\n]+?doSakigake\(\);[\s\S\n]+?\}//
 xth.jp##^script:has-text(ブロックをオフにして下さい)
 !#endif
 @@||oninet.ne.jp/sakigakesoft/s/holmes-geojson.js$1p,strict1p
