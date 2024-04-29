@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Mon, 29 Apr 2024 16:57:23 +0000
+! Last modified: Mon, 29 Apr 2024 17:25:30 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -21114,6 +21114,7 @@ bondagevalley.cc##+js(rmnt, script, innerHTML)
 @@||xth.jp^$ghide
 in-jpn.com,oninet.ne.jp,xth.jp##body:style(color: #000 !important;)
 in-jpn.com,oninet.ne.jp,xth.jp##body div:matches-css(position: fixed):matches-css(background-color: /rgb/):matches-css(z-index: /\d+/)
+in-jpn.com,oninet.ne.jp##img:style(visibility: visible !important;)
 oninet.ne.jp##a[href^="https://hb.afl.rakuten.co.jp/hsc/"]
 oninet.ne.jp##a[href^="https://hb.afl.rakuten.co.jp/hsc/"] ~ img[src="qr-rakuten-travel-logo.png"]
 oninet.ne.jp##a[href^="https://www.amazon.co.jp/dp/"]
@@ -21122,6 +21123,9 @@ xth.jp##body:style(background: none !important;)
 xth.jp###ggH1:style(height: 50px !important; position: absolute !important; left:-4000px !important;)
 in-jpn.com##+js(trusted-replace-xhr-response, /.*/, , pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?)
 @@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$xhr,domain=in-jpn.com
+!#if cap_html_filtering
+xth.jp##^script:has-text(ブロックをオフにして下さい)
+!#endif
 azaleasdolls.com##td[height="279"]
 azaleasdolls.com##td[width^="34"][height^="29"]
 azaleasdolls.com##td[width="164"][bgcolor="#FCDCE4"]
