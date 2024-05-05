@@ -3697,8 +3697,9 @@ oltacidergisi.com##+js(acs, atob, minimalDrainValue)
 ! phishing
 ! https://infosec.exchange/@urldna/112143355675099806
 ! https://www.virustotal.com/gui/url/38ad38ba67efdd42656b489e4df678ee065cad109cd1c9dbacf4632d356250d9
-/^https:\/\/dienmayxanh[-a-z0-9]+\.com\//$doc,domain=com|~dienmayxanh.com
+/^https?:\/\/dienmayxanh[-a-z0-9]+\.com\//$doc,domain=com|~dienmayxanh.com
 /^https:\/\/vietg[a-z]v[0-9]*\.cc\//$doc,domain=cc
+/^https:\/\/dich-vu(?:-[a-z0-9]+){2,3}\.com\//$doc,domain=com
 ||vietgcv.cc^$all
 ||midwestfinestbb.com^$all
 ||linea.baby^$all
@@ -3740,15 +3741,21 @@ oltacidergisi.com##+js(acs, atob, minimalDrainValue)
 ! https://infosec.exchange/@urldna/112186648791862292
 ||acir.postofficeweb.com/grupoacir/$all
 ||interface-git-parallel-cypress-uniswap.vercel.app^$doc,domain=~uniswap.org
-! https://dichvucong[.]vsgov[.]com/ - gov phishing site
-||dichvucong.$doc,domain=~gov.vn
 ! https://infosec.exchange/@urldna/112294350751277558
 ||datahub.center^$all
+
+! https://dichvucong[.]vsgov[.]com/ - gov phishing site
+||dichvucong.$doc,domain=~gov.vn
+||m.thuecn.top^$all
+||m.vncongthue.top^$all
 
 ! bank
 ||chamsocthekhachhang-thang4.com.vn^$all
 ||sotuyenvcb.vietcombanker.com^$all
 ||vdbank.com.vn^$all,to=~vdb.gov.vn
+||canhantpb.com^$all,to=~tpb.vn
+||finacehoisomb.com^$all,to=~mbbank.com.vn
+||mbdkb.com^$all,to=~mbbank.com.vn
 /^https:\/\/hdsaison-?[a-z]{2,}\.(?:cc|com|vip)\//$doc,domain=cc|com|vip|~hdsaison.com.vn
 /^https:\/\/tpbank\.[-a-z0-9]{5,}\.[a-z]{3}(?:\.vn)?\//$doc,domain=~edu|~gov|~gov.vn|~tpb.vn
 
@@ -3766,7 +3773,7 @@ oltacidergisi.com##+js(acs, atob, minimalDrainValue)
 ||emailfacebooksecurity.pages.dev^$all
 ||haryanaaffordableshops.net/market-public-profile$all
 
-! shopee + tiki
+! shopee / tiki / lazada / sendo
 ||s33788.com^$all,to=~shopee.vn
 ||sp77888.com^$all,to=~shopee.vn
 *$doc,domain=tikimall.*|~tiki.vn
@@ -3775,9 +3782,12 @@ oltacidergisi.com##+js(acs, atob, minimalDrainValue)
 ||tdkd00.com^$all,to=~tiki.vn
 ||nhanvientiki.info^$all,to=~tiki.vn
 ||tuyendungtiki2024.vn^$all,to=~tiki.vn
-/^https:\/\/tdkd0[0-9]\.com\//$document,domain=~tiki.vn
-/^https:\/\/[st][a-z0-9]{2,4}[0-9][a-z0-9]\.com\/api\/user\/do_login$/$xhr,1p,strict1p,method=post,from=com,to=com,header=access-control-allow-headers:/authorization\,content-type\,if-match\,if-modified-since\,if-none-match\,if-unmodified-since\,x-requested-with/i
-/^https:\/\/[st][a-z0-9]{2,4}[0-9][a-z0-9]\.com\/api\/user\/do_login$/$xhr,1p,strict1p,method=post,from=com,to=com,header=Access-Control-Allow-Headers:/authorization\,content-type\,if-match\,if-modified-since\,if-none-match\,if-unmodified-since\,x-requested-with/i
+||lazd8.com^$all
+||vnsendo.shop^$all,to=~sendo.vn
+/^https:\/\/sp\d{2,3}88(?:vn)?\.com\//$doc,domain=com|~shopee.vn
+/^https:\/\/tdkd0[0-9]\.com\//$doc,domain=~tiki.vn
+/^https:\/\/[st][a-z0-9]{2,4}[0-9][a-z0-9]\.com\/api\/user\/do_login$/$xhr,1p,strict1p,method=post,header=access-control-allow-headers:/authorization\,content-type\,if-match\,if-modified-since\,if-none-match\,if-unmodified-since\,x-requested-with/i
+/^https:\/\/[st][a-z0-9]{2,4}[0-9][a-z0-9]\.com\/api\/user\/do_login$/$xhr,1p,strict1p,method=post,header=Access-Control-Allow-Headers:/authorization\,content-type\,if-match\,if-modified-since\,if-none-match\,if-unmodified-since\,x-requested-with/i
 
 ! steam
 /^https:\/\/steamproxy\.[a-z]+\//$all,domain=cc|co|net|vip
