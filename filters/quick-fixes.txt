@@ -1,5 +1,5 @@
 ! Title: uBlock₀ filters – Quick fixes
-! Last modified: Sun, 05 May 2024 16:25:43 +0000
+! Last modified: Mon, 06 May 2024 09:46:25 +0000
 ! Expires: 8 hours
 ! Description: Immediate, temporary filters to fix websites
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -141,27 +141,11 @@ puzzle-loop.com,puzzle-words.com,puzzle-chess.com,puzzle-thermometers.com,puzzle
 ||statics.1mv.xyz/statics/*.js|$script,3p,replace=/;if\(null!==\(_0x[a-z0-9]+=this\['[_a-z]+'\]\)[^)]+\)return;/;if(true)return;/
 
 ! in-jpn.com anti-adb
-in-jpn.com##+js(trusted-replace-xhr-response, /.*/, , pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?)
-in-jpn.com##+js(aost, HTMLElement.prototype.remove, HTMLBodyElement.get injectedScript)
-in-jpn.com,oninet.ne.jp##img:style(visibility: visible !important;)
-@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$xhr,domain=in-jpn.com
-xth.jp##body:style(background: none !important;)
-xth.jp#@##ggH1:style(height: 50px !important; position: absolute !important; left:-4000px !important;)
 xth.jp##[id]:has(> ins.adsbygoogle):style(height: 100px !important; position: absolute !important; left: -4000px !important;)
 !#if cap_html_filtering
-||in-jpn.com^$script,replace=/var w_status[\s\S\n]+?doSakigake\(\);[\s\S\n]+?\}//,badfilter
 ||in-jpn.com^$script,replace=/w_mode==1/1/
 ||in-jpn.com^$script,replace=/function myFunc[\s\S\n]+?doSakigake\(\);[\s\S\n]+?\}//
-xth.jp##^script:has-text(ブロックをオフにして下さい)
 !#endif
-@@||oninet.ne.jp/sakigakesoft/s/leaf_main.js$script,1p,strict1p
-
-! https://github.com/easylist/easylist/commit/592c83ac745a4519ca80e472b4fee558a6a6e2d4
-@@||googletagmanager.com/gtag/js$domain=showroom-live.com
-
-! https://github.com/AdguardTeam/AdguardFilters/commit/7da6363c0f407997be3a0435afdc96532d5ef01a
-ad-contents.jp#@#.large-banner
-ad-contents.jp##.ui-main-body > div.large-banner
 
 ! https://github.com/easylist/easylist/issues/19092
 @@||keytiles.com/tracking/$script,domain=blikk.hu
