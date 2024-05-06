@@ -1563,3 +1563,20 @@ cheater.ninja##+js(rpnt, script, /catch[\s\S]*?}/, , condition, fetch)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/23576
 blocklayer.com##+js(nostif, getComputedStyle)
+
+! Promoted products and stores on search page (/search), find page (/find), product page (/p), and cart page (/cart)
+!#if cap_html_filtering
+||tokopedia.com/graphql/$xhr,replace=/("(?:TopAdsProducts|displayAdsV3|topads)":\{"data":)\[.+?\]((?:,"header":\{.+\})?(?:,"template":\[.*\])?,"__typename":"DisplayAdsV3"\})/\$1[]\$2/g
+||tokopedia.com/graphql/$xhr,replace=/\{"category_id"(?:(?!"ads":\{"id":"").)+?"ads":\{"id":"\d+".+?"__typename":"ProductCarouselV2"\},?//g
+||tokopedia.com/graphql/$xhr,replace=/\{"(?:productS|s)lashedPrice"(?:(?!"isTopads":false).)+?"isTopads":true.+?"__typename":"recommendationItem"\},?//g
+!#else
+tokopedia.com##+js(trusted-replace-fetch-response, '/("(?:TopAdsProducts|displayAdsV3|topads)":\{"data":)\[.+?\]((?:,"header":\{.+\})?(?:,"template":\[.*\])?,"__typename":"DisplayAdsV3"\})/g', $1[]$2, /graphql)
+tokopedia.com##+js(trusted-replace-fetch-response, '/\{"category_id"(?:(?!"ads":\{"id":"").)+?"ads":\{"id":"\d+".+?"__typename":"ProductCarouselV2"\},?/g', , /graphql)
+tokopedia.com##+js(trusted-replace-fetch-response, '/\{"(?:productS|s)lashedPrice"(?:(?!"isTopads":false).)+?"isTopads":true.+?"__typename":"recommendationItem"\},?/g', , /graphql)
+!#endif
+! Promoted products cache on search page (/search), find page (/find), and product page (/p)
+!#if cap_html_filtering
+tokopedia.com##^script:has-text(displayAdsV3)
+!#else
+tokopedia.com##+js(rmnt, script, displayAdsV3)
+!#endif
