@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Tue, 07 May 2024 11:01:22 +0000
+! Last modified: Tue, 07 May 2024 11:04:58 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -10639,20 +10639,23 @@ segurosdevida.site##[id^="wpsafe-wait"], #content-wrapper
 cookad.net,pmkisanlists.in,shramikcard.in,shareus.io##+js(aopr, antiAdBlockerHandler)
 cookad.net,pmkisanlists.in,shramikcard.in###bottomNewButton, #bottomButton:remove-attr(disabled)
 cookad.net,pmkisanlists.in,shramikcard.in##div#shrs_main_container, .tag, .link-open-modal:others()
-@@*$ghide,domain=tii.la|oko.sh|ckk.ai
-tii.la,oko.sh,ckk.ai##+js(no-fetch-if, /googlesyndication|inklinkor/)
-tii.la,oko.sh,ckk.ai##+js(no-xhr-if, /pagead2\.googlesyndication\.com|inklinkor\.com/)
-tii.la,oko.sh,ckk.ai##+js(nowoif)
-tii.la,oko.sh,ckk.ai##+js(rmnt, script, ;break;case $.)
-tii.la,oko.sh,ckk.ai##^script:has-text(;break;case $.)
-tii.la,oko.sh,ckk.ai##+js(rmnt, script, adb_detected)
-tii.la,oko.sh,ckk.ai##+js(set, blurred, false)
-tii.la,oko.sh,ckk.ai##a[href][target="_blank"]
-tii.la,oko.sh,ckk.ai##.banner-inner
-tii.la,oko.sh,ckk.ai##.td-post-template-default.td-container
-blogtechh.com##+js(nowoif)
-blogtechh.com##+js(set, timeSec, 0)
-blogtechh.com##.box-main, #getmylink:others()
+@@*$ghide,domain=tii.la|oko.sh|ckk.ai|oei.la
+tii.la,oko.sh,ckk.ai,oei.la##+js(no-fetch-if, /googlesyndication|inklinkor/)
+tii.la,oko.sh,ckk.ai,oei.la##+js(no-xhr-if, /pagead2\.googlesyndication\.com|inklinkor\.com/)
+!#if cap_html_filtering
+tii.la,oko.sh,ckk.ai,oei.la##^script:has-text(;break;case $.)
+tii.la,oko.sh,ckk.ai,oei.la##^script:has-text(adb_detected)
+!#else
+tii.la,oko.sh,ckk.ai,oei.la##+js(rmnt, script, ;break;case $.)
+tii.la,oko.sh,ckk.ai,oei.la##+js(rmnt, script, adb_detected)
+!#endif
+tii.la,oko.sh,ckk.ai,oei.la##+js(set, blurred, false)
+tii.la,oko.sh,ckk.ai,oei.la##a[href][target="_blank"]
+tii.la,oko.sh,ckk.ai,oei.la##.banner-inner
+tii.la,oko.sh,ckk.ai,oei.la##.td-post-template-default.td-container
+tii.la,oko.sh,ckk.ai,oei.la,blogtechh.com,lnbz.la##+js(nowoif)
+blogtechh.com,lnbz.la##+js(set, timeSec, 0)
+blogtechh.com,lnbz.la##.box-main, #getmylink:others()
 ! http://go.megafly.in/znj2u7olam
 techacode.com##+js(nostif, nextFunction, 250)
 techacode.com##+js(nobab)
