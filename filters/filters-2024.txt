@@ -1566,16 +1566,16 @@ blocklayer.com##+js(nostif, getComputedStyle)
 
 ! https://github.com/uBlockOrigin/uAssets/pull/23587
 ! Promoted products and stores on search page (/search), find page (/find), product page (/p)
-tokopedia.com##+js(json-prune-fetch-response, 0.data.TopAdsProducts.data.[-].__typename)
-tokopedia.com##+js(json-prune-fetch-response, 0.data.displayAdsV3.data.[-].__typename)
-tokopedia.com##+js(json-prune-fetch-response, 0.data.topads.data.[-].__typename)
-! Promoted products on search page (/search) carousels and cart page (/cart)
+tokopedia.com##+js(json-prune, 0.data.TopAdsProducts.data.[-].__typename)
+tokopedia.com##+js(json-prune, 0.data.displayAdsV3.data.[-].__typename)
+tokopedia.com##+js(json-prune, 0.data.topads.data.[-].__typename)
+! Promoted products on search page (/search) carousels; product page (/p) carousels and cart page (/cart)
 !#if cap_html_filtering
 ||tokopedia.com/graphql/$xhr,replace=/(?<!"shop":)\{(?:"category_id"|"id":\d+)(?:(?!"ads":\{"id":"").)+?"ads":\{"id":"\d+".+?"__typename":"ProductCarouselV2"\},?//g
-||tokopedia.com/graphql/$xhr,replace=/\{"(?:productS|s)lashedPrice"(?:(?!"isTopads":false).)+?"isTopads":true.+?"__typename":"recommendationItem"\},?//g
+||tokopedia.com/graphql/$xhr,replace=/(?<!"shop":)\{"(?:id|productSlashedPrice|slashedPrice)"(?:(?!"isTopads":false).)+?"isTopads":true.+?"__typename":"recommendationItem"\},?//g
 !#else
 tokopedia.com##+js(trusted-replace-fetch-response, '/(?<!"shop":)\{(?:"category_id"|"id":\d+)(?:(?!"ads":\{"id":"").)+?"ads":\{"id":"\d+".+?"__typename":"ProductCarouselV2"\},?/g', , /graphql)
-tokopedia.com##+js(trusted-replace-fetch-response, '/\{"(?:productS|s)lashedPrice"(?:(?!"isTopads":false).)+?"isTopads":true.+?"__typename":"recommendationItem"\},?/g', , /graphql)
+tokopedia.com##+js(trusted-replace-fetch-response, '/(?<!"shop":)\{"(?:id|productSlashedPrice|slashedPrice)"(?:(?!"isTopads":false).)+?"isTopads":true.+?"__typename":"recommendationItem"\},?/g', , /graphql)
 !#endif
 ! Promoted products cache on search page (/search), find page (/find), and product page (/p)
 !#if cap_html_filtering
