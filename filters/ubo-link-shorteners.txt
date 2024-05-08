@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Link shorteners
-! Last modified: Wed, 08 May 2024 16:05:27 +0000
+! Last modified: Wed, 08 May 2024 19:41:18 +0000
 ! Expires: 5 days
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
@@ -837,7 +837,7 @@ segurosdevida.site##[id^="wpsafe-wait"], #content-wrapper
 @@||shareus.io^$ghide
 cookad.net,pmkisanlists.in,shramikcard.in,shareus.io##+js(aopr, antiAdBlockerHandler)
 cookad.net,pmkisanlists.in,shramikcard.in###bottomNewButton, #bottomButton:remove-attr(disabled)
-cookad.net,pmkisanlists.in,shramikcard.in##div#shrs_main_container, .tag, .link-open-modal:others()
+cookad.net,pmkisanlists.in,shramikcard.in##.timer, .shrs_btn, .tag, .link-open-modal:others()
 
 ! https://tii.la/qczmBQKd
 ! https://github.com/uBlockOrigin/uAssets/issues/18944
@@ -971,29 +971,25 @@ choiceappstore.xyz##div[id^="wpsafe-wait"]
 du-link.in##+js(set, blurred, false)
 du-link.in##.banner
 
-! technicalatg.com New
+! https://f.technicalatg.in/SNAnLfdZd
 ! https://github.com/uBlockOrigin/uAssets/issues/22548
-atglinks.com##.blog-item, ._th_times, .separator, .blog-item, .banner-inner, .box-main > [href], #footer
+atglinks.com##.blog-item, ._th_times, .separator, .banner-inner, .box-main > [href], #footer
+!#if !cap_html_filtering
+atglinks.com##+js(rmnt, script, /aclib|break;}}}/)
+!#else
+atglinks.com##^script:has-text(/aclib|break;}}}/)
+!#endif
 atglinks.com##+js(set, blurred, false)
-djqunjab.in,foodxor.com,geniussolutions.co,mealcold.com,mixrootmods.com,fartechy.com##+js(no-fetch-if, googlesyndication)
-foodxor.com,mealcold.com,mixrootmods.com,fartechy.com###wpsafe-link:others()
-foodxor.com,geniussolutions.co,mealcold.com,mixrootmods.com,fartechy.com###wpsafe-link:style(display:block !important;)
+djpunjab2.in,djqunjab.in,foodxor.com,geniussolutions.co,mealcold.com,mixrootmods.com,fartechy.com##+js(no-fetch-if, googlesyndication)
+djpunjab2.in,djqunjab.in,foodxor.com,geniussolutions.co,mealcold.com,mixrootmods.com,fartechy.com###wpsafe-link:others()
+djpunjab2.in,djqunjab.in,foodxor.com,geniussolutions.co,mealcold.com,mixrootmods.com,fartechy.com###wpsafe-link:style(display:block !important;)
 geniussolutions.co###interstitial-container
 geniussolutions.co##+js(aost, document.getElementById, adsBlocked)
 djqunjab.in##+js(rmnt, script, deblocker)
-djpunjab2.in###wpsafe-link:style(display: block !important;)
-djpunjab2.in###wpsafe-link:others()
-djqunjab.in###wpsafe-generate:style(display: block !important;)
 djqunjab.in###interstitial-container
 
 ! https://github.com/uBlockOrigin/uAssets/discussions/17361#discussioncomment-8650815
 hosty.uprwssp.org###btnfianl:style(display: block !important;)
-
-! https://github.com/uBlockOrigin/uAssets/discussions/17361#discussioncomment-8763769 (urls.cx/DVxgfufi?src=PSA)
-jobzspk.xyz##+js(aopw, checkAdsStatus)
-jobzspk.xyz###rtg, #btn4:style(display: block !important;)
-jobzspk.xyz###rtg-generate, .step-info, #rtg, #btn4:others()
-urls.cx##.footer-section
 
 ! https://github.com/uBlockOrigin/uAssets/issues/22963
 lootdest.com##+js(nowoif, , 5)
@@ -1019,14 +1015,15 @@ bluemediadownload.*,bluemediafile.*,bluemedialink.*,bluemediastorage.*,bluemedia
 !#endif
 
 ! https://github.com/uBlockOrigin/uAssets/issues/23540
-thevouz.in,tejtime24.com##+js(no-fetch-if, ads)
+! https://lksfy.com/DzGXInOnJ
+cinedesi.in,thevouz.in,tejtime24.com##+js(no-fetch-if, ads)
 !#if env_firefox
-thevouz.in,tejtime24.com##+js(rmnt, script, /AdbModel|showPopup/)
+cinedesi.in,thevouz.in,tejtime24.com##+js(rmnt, script, /AdbModel|showPopup/)
 !#else
-thevouz.in,tejtime24.com##^script:has-text(/AdbModel|showPopup/)
+cinedesi.in,thevouz.in,tejtime24.com##^script:has-text(/AdbModel|showPopup/)
 !#endif
-thevouz.in,tejtime24.com##+js(nano-sib, interval, *)
-thevouz.in,tejtime24.com##.remove-sticky
-thevouz.in,tejtime24.com#@#.quads-location
-thevouz.in,tejtime24.com##.quads-location:others()
-||youtube.com^$domain=tejtime24.com|thevouz.in
+cinedesi.in,thevouz.in,tejtime24.com##+js(nano-sib, interval, *)
+cinedesi.in,thevouz.in,tejtime24.com##.remove-sticky
+cinedesi.in,thevouz.in,tejtime24.com#@#.quads-location
+cinedesi.in,thevouz.in,tejtime24.com##.quads-location:others()
+||youtube.com^$domain=tejtime24.com|thevouz.in|cinedesi.in
