@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Wed, 08 May 2024 11:55:00 +0000
+! Last modified: Wed, 08 May 2024 11:56:45 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -21163,10 +21163,12 @@ bondagevalley.cc##+js(rmnt, script, innerHTML)
 ||in-jpn.com^$script,redirect=noop.js
 ||xth.jp^$script,redirect=noop.js
 ||oninet.ne.jp^$script,redirect=noop.js
-*$script,3p,domain=in-jpn.com|oninet.ne.jp|xth.jp
+*$script,3p,domain=in-jpn.com|xth.jp
+*$script,3p,denyallow=ampproject.org,domain=oninet.ne.jp
 @@/^https:\/\/[a-z]*\.?in-jpn\.com\/wp-includes\/js\/jquery\/jquery(-migrate)?\.min\.js\?ver=\d\.\d\.\d{1,2}$/$script,1p,strict1p,match-case,domain=in-jpn.com
 @@/^https:\/\/[a-z]*\.?in-jpn\.com\/wp-includes\/js\/wp-emoji-release\.min\.js\?(?:ver=\?)?ver=\d\.\d\.\d{1,2}$/$script,1p,strict1p,match-case,domain=in-jpn.com
 @@/^https:\/\/[a-z]*\.?in-jpn\.com\/wp-content\/themes\/amphibious\/js\/(?:custom|enquire|fitvids|hover-intent|superfish)\.js\?ver=(?:\d\.\d(?:\.\d{1,2})?|r\d)$/$script,1p,strict1p,match-case,domain=in-jpn.com
+@@/\.oninet\.ne\.jp\/sakigakesoft\/(?!sakigake)[a-z]{5,}-[a-z]{4,}-?[a-z]?\.js$/$script,1p,strict1p,domain=oninet.ne.jp
 @@||oninet.ne.jp/sakigakesoft/s/holmes-geojson.js$1p,strict1p
 @@||oninet.ne.jp/sakigakesoft/s/leaf_main.js$script,1p,strict1p
 @@||in-jpn.com^$ghide
@@ -21182,9 +21184,6 @@ oninet.ne.jp##a[href^="https://www.amazon.co.jp/dp/"] ~ img[src="qr-amazon-logo.
 xth.jp##body:style(background: none !important;)
 in-jpn.com##+js(trusted-replace-xhr-response, /.*/, , pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?)
 @@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$xhr,domain=in-jpn.com
-!#if cap_html_filtering
-xth.jp##^script:has-text(ブロックをオフにして下さい)
-!#endif
 azaleasdolls.com##td[height="279"]
 azaleasdolls.com##td[width^="34"][height^="29"]
 azaleasdolls.com##td[width="164"][bgcolor="#FCDCE4"]

@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Quick fixes
 ! Expires: 12 hours
-! Last modified: Wed, 08 May 2024 08:45:21 +0000
+! Last modified: Wed, 08 May 2024 11:56:45 +0000
 ! Diff-Path: %diffpath%#ublock-quick-fixes
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -120,7 +120,13 @@ puzzle-loop.com,puzzle-words.com,puzzle-chess.com,puzzle-thermometers.com,puzzle
 oninet.ne.jp,xth.jp##[id]:has(> ins.adsbygoogle):style(height: 100px !important; position: absolute !important; left: -4000px !important;)
 oninet.ne.jp##table:style(visibility: visible !important;)
 oninet.ne.jp##^script[defer]:has-text(.clientHeight <)
+in-jpn.com,xth.jp##+js(set, myFunc, noopFunc)
+/blocker.css$domain=in-jpn.com|xth.jp
+@@/\.oninet\.ne\.jp\/sakigakesoft\/(?!sakigake)[a-z]{5,}-[a-z]{4,}-?[a-z]?\.js$/$script,1p,strict1p,domain=oninet.ne.jp
+*$script,3p,from=oninet.ne.jp,badfilter
+*$script,3p,denyallow=ampproject.org,domain=oninet.ne.jp
 !#if cap_html_filtering
+in-jpn.com,xth.jp##^script:has-text(/フィルタリングを無効|myFunc/)
 ||in-jpn.com^$script,replace=/w_mode==1/1/
 ||in-jpn.com^$script,replace=/function myFunc[\s\S\n]+?doSakigake\(\);[\s\S\n]+?\}//
 !#endif
