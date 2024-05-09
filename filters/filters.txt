@@ -12871,12 +12871,16 @@ imgbaron.com###fadeinbox
 ! https://github.com/uBlockOrigin/uAssets/issues/16372
 ! https://github.com/uBlockOrigin/uAssets/issues/16427
 ! https://github.com/uBlockOrigin/uAssets/issues/20520
-@@||ads.hausbau-forum.de/openad.js$script,1p
 ##.samBannerUnit, .samCodeUnit
-hausbau-forum.de##+js(set, checkAdsBlocked, noopFunc)
-hausbau-forum.de##^script:has-text(adsBlocked)
-*$script,redirect-rule=noopjs,domain=hausbau-forum.de
+@@||ads.hausbau-forum.de/openad.js$script,1p
 hausbau-forum.de##+js(no-xhr-if, adsbygoogle)
+hausbau-forum.de##+js(set, detectAdblock, noopFunc)
+*$script,redirect-rule=noopjs,domain=hausbau-forum.de
+!#if cap_html_filtering
+hausbau-forum.de##^script:has-text(Adblock)
+!#else
+hausbau-forum.de##+js(rmnt, script, Adblock)
+!#endif
 
 ! https://github.com/NanoMeow/QuickReports/issues/2878
 ||googlesyndication.com/pagead/js/adsbygoogle.js$script,redirect=noopjs:10,domain=adnan-tech.com
