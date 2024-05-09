@@ -85,29 +85,6 @@ cindyeyefinal.com##+js(set, console.clear, undefined)
 !next-episode.net##+js(rmnt, script, '/\d+\+\d|64|\+\+|\+1|adbl|ablk|[\s\S]{0,}(\.\.|function)[\s\S]{1800,}|document\[/i')
 @@||pagead2.googlesyndication.com^$script,domain=next-episode.net
 
-! https://github.com/uBlockOrigin/uAssets/issues/22840
-!#if env_chromium
-decrypt.day##[id="aswift_0_host"], [id="aswift_1_host"], [id="aswift_2_host"], [id="aswift_3_host"], [id="aswift_4_host"], [id="aswift_5_host"]:style(clip-path: clircle(0) !important;)
-decrypt.day##+js(spoof-css, [id="aswift_0_host"]\, [id="aswift_1_host"]\, [id="aswift_2_host"]\, [id="aswift_3_host"]\, [id="aswift_4_host"]\, [id="aswift_5_host"], clip-path, none)
-!#else
-decrypt.day##ins.adsbygoogle > *:style(position: relative !important; left: -10000px !important;)
-!#endif
-decrypt.day##+js(no-fetch-if, adsbygoogle)
-@@||decrypt.day^$ghide
-@@||decrypt.day^$xhr,1p
-@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$script,domain=decrypt.day
-@@||pagead2.googlesyndication.com/pagead/managed/js/adsense/*/show_ads_impl$script,domain=decrypt.day
-@@||googletagmanager.com/gtag/js$script,domain=decrypt.day
-@@||fundingchoicesmessages.google.com^$script,domain=decrypt.day
-@@||googleads.g.doubleclick.net/pagead/ads?gdpr=$frame,domain=decrypt.day
-@@||pagead2.googlesyndication.com/pagead/$xhr,domain=decrypt.day
-!#if env_chromium
-@@*$xhr,domain=decrypt.day
-||pagead2.googlesyndication.com/getconfig/sodar?$xhr,important,domain=decrypt.day
-||fundingchoicesmessages.google.com^$xhr,important,domain=decrypt.day
-!#endif
-*$frame,redirect-rule=noopframe,domain=decrypt.day
-
 ! https://github.com/uBlockOrigin/uAssets/issues/20505
 download.megaup.net##+js(rpnt, script, &&, && false &&, condition, attribute)
 download.megaup.net##+js(rpnt, script, ==![], ==![] && false, condition, attribute)
@@ -155,16 +132,6 @@ in-jpn.com,xth.jp##^script:has-text(/フィルタリングを無効|document\.he
 ||in-jpn.com^$script,replace=/w_mode==1/1/
 ||in-jpn.com^$script,replace=/function myFunc[\s\S\n]+?doSakigake\(\);[\s\S\n]+?\}//
 !#endif
-
-! https://github.com/easylist/easylist/issues/19092
-@@||keytiles.com/tracking/$script,domain=blikk.hu
-
-! EL mistake
-||ygosu.com^$document,popup,badfilter
-||bamgosu.site^$document,popup,badfilter
-
-! https://github.com/uBlockOrigin/uAssets/issues/23562
-pixiv.net#@#+js(set-cookie-reload, privacy_policy_agreement, 5)
 
 ! breaking
 bloomberg.com,bloomberg.co.jp#@#[title="SP Consent Message"]
