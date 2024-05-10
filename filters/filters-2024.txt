@@ -57,6 +57,10 @@ vidsrc.*##+js(aopr, __Y)
 vidsrc.*###pop_asdf
 ||katebugs.com^
 embed.smashystream.com###addiv
+! https://github.com/uBlockOrigin/uAssets/issues/23610
+streambucket.net##+js(acs, EventTarget.prototype.addEventListener, /runPop|aclib|window\.open/)
+streambucket.net##+js(acs, atob, /popundersPerIP[\s\S]*?Date[\s\S]*?getElementsByTagName[\s\S]*?insertBefore/)
+kokostream.net##+js(nowoif)
 *$script,3p,denyallow=gstatic.com,domain=streambucket.net
 ! https://github.com/uBlockOrigin/uAssets/issues/22762#issuecomment-1977984428
 player.smashy.stream##.react-responsive-modal-root
@@ -722,6 +726,7 @@ sunci.net,yoykp.com##+js(acs, navigator, FingerprintJS)
 
 ! trigonevo .com anti-adb
 trigonevo.com##+js(acs, eval, replace)
+trigonevo.com##+js(rmnt, script, deblocker)
 
 ! https://pastetot.com/view/tDFmzEQWEn popups
 pastetot.com##+js(nowoif)
@@ -1223,6 +1228,8 @@ doomovie-hd.*##[class^="horizontal-ad"]
 
 ! https://github.com/uBlockOrigin/uAssets/issues/23055
 @@||koyso.com^$ghide
+! https://github.com/uBlockOrigin/uAssets/issues/23616
+koyso.com##+js(nowoif, !koyso.com)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/23061
 @@*$ghide,domain=fplstatistics.com
@@ -1464,10 +1471,14 @@ totalsportek.to,eztvx.to,topstreams.info##^script:has-text(adserverDomain)
 !#else
 totalsportek.to,eztvx.to,topstreams.info##+js(rmnt, script, adserverDomain)
 !#endif
+! https://github.com/uBlockOrigin/uAssets/issues/23616
 !/^https:\/\/[a-z]{7}\.com\/[0-9a-h]{1,15}\?[0-9a-zA-Z]{1,15}=[0-9a-zA-Z]{300,1300}(?:%3D){0,2}$/$xhr,3p,match-case,domain=totalsportek.to|eztvx.to|nepu.to|methstreams.com|topstreams.info
-/\/z-[a-z0-9]{7,10}(\.js)?$/$script,domain=nepu.to|methstreams.com
+/\/z-[a-z0-9]{7,10}(\.js)?$/$script,domain=embedflix.online|koyso.com|nepu.to|methstreams.com
+!#if env_firefox
+/^https:\/\/[a-z]{4,}\.(?:com|to)\/z-[a-z0-9]{7,10}(\.js)?$/$script,1p,strict1p,domain=com|to,header=etag:/^"[a-f0-9]{4,}-[a-f0-9]{4,}"$/
+!#endif
 ! https://github.com/uBlockOrigin/uAssets/issues/23459
-/^https?:\/\/[a-z]{5,7}\.com\/[0-9a-h]{1,15}\?[0-9a-zA-Z]{1,15}=[0-9a-zA-Z]{300,1300}/$xhr,3p,match-case,to=com,method=get,header=via:1.1 google
+/^https?:\/\/[a-z]{5,12}\.com\/[0-9a-h]{1,15}\?[0-9a-zA-Z]{1,15}=[0-9a-zA-Z]{300,1300}/$xhr,3p,match-case,to=com,method=get,header=via:1.1 google
 
 ! cricket sites popups
 crictime.is,freehit.eu,mobilecric.com##[href*="?key"][target="_blank"]:remove-attr(href)
@@ -1601,3 +1612,39 @@ tokopedia.com##+js(rmnt, script, displayAdsV3)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/23595
 modescanlator.com##+js(no-fetch-if, googlesyndication)
+
+! https://github.com/uBlockOrigin/uAssets/issues/23608
+||zee5.com/*/displayAds$xhr
+zee5.com##+js(json-prune-fetch-response, adDetails, , propsToMatch, /secure?)
+zee5.com##.vjs-control-bar:style(display: flex !important;)
+
+! https://www.thejakartapost.com/business/2024/05/07/idx-composite-drops-0-17-following-daylong-fluctuations.html - ads placeholders
+thejakartapost.com##.tjp-single__content-ads:remove()
+
+! https://www.reddit.com/r/uBlockOrigin/comments/1cmanh5/nosnl_videos_show_ads_suddenly/
+||adconfig.ster.nl/adurl$xhr,3p,domain=nos.nl
+
+! https://github.com/uBlockOrigin/uBlock-discussions/discussions/790#discussioncomment-9352585
+!#if env_firefox
+$frame,csp=sandbox allow-downloads allow-forms allow-same-origin allow-scripts,to=~cloudflare.com|~dailymotion.com|~disqus.com|~facebook.com|~google.*|~hcaptcha.com|~ok.ru|~recaptcha.net|~twitter.com|~youtu.be|~youtube.com,from=animeunity.to|hianime.to|kipflix.vercel.app|kissanime.*
+!#endif
+
+! redecanais.dev & redecanaistv.dev popups on iframe
+xn-----0b4asja7ccgu2b4b0gd0edbjm2jpa1b1e9zva7a0347s4da2797e8qri.xn--1ck2e1b##+js(rmnt, script, ;}}};break;case $.)
+xn-----0b4asja7ccgu2b4b0gd0edbjm2jpa1b1e9zva7a0347s4da2797e8qri.xn--1ck2e1b##[style="position: fixed; inset: 0px; z-index: 2147483647; pointer-events: auto;"]
+
+! Popping Tool sites
+asianlbfm.net,schoolgirls-asia.org##+js(aopr, loadTool)
+
+! https://github.com/uBlockOrigin/uAssets/issues/23626
+||happymod.com/*/appx.php$frame,1p
+
+! https://github.com/uBlockOrigin/uAssets/issues/23634
+@@||paktech2.com^$ghide
+
+! timer to show image
+pimpandhost.com##+js(nano-stb, count)
+
+! https://github.com/uBlockOrigin/uAssets/issues/23635
+||imasdk.googleapis.com/js/sdkloader/ima3.js$script,domain=tv.okezone.com,redirect-rule=google-ima.js
+@@||cdnjs.cloudflare.com/ajax/libs/videojs-contrib-ads/6.9.0/videojs-contrib-ads.min.js$script,domain=tv.okezone.com

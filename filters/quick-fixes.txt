@@ -85,33 +85,11 @@ cindyeyefinal.com##+js(set, console.clear, undefined)
 !next-episode.net##+js(rmnt, script, '/\d+\+\d|64|\+\+|\+1|adbl|ablk|[\s\S]{0,}(\.\.|function)[\s\S]{1800,}|document\[/i')
 @@||pagead2.googlesyndication.com^$script,domain=next-episode.net
 
-! https://github.com/uBlockOrigin/uAssets/issues/22840
-!#if env_chromium
-decrypt.day##[id="aswift_0_host"], [id="aswift_1_host"], [id="aswift_2_host"], [id="aswift_3_host"], [id="aswift_4_host"], [id="aswift_5_host"]:style(clip-path: clircle(0) !important;)
-decrypt.day##+js(spoof-css, [id="aswift_0_host"]\, [id="aswift_1_host"]\, [id="aswift_2_host"]\, [id="aswift_3_host"]\, [id="aswift_4_host"]\, [id="aswift_5_host"], clip-path, none)
-!#else
-decrypt.day##ins.adsbygoogle > *:style(position: relative !important; left: -10000px !important;)
-!#endif
-decrypt.day##+js(no-fetch-if, adsbygoogle)
-@@||decrypt.day^$ghide
-@@||decrypt.day^$xhr,1p
-@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$script,domain=decrypt.day
-@@||pagead2.googlesyndication.com/pagead/managed/js/adsense/*/show_ads_impl$script,domain=decrypt.day
-@@||googletagmanager.com/gtag/js$script,domain=decrypt.day
-@@||fundingchoicesmessages.google.com^$script,domain=decrypt.day
-@@||googleads.g.doubleclick.net/pagead/ads?gdpr=$frame,domain=decrypt.day
-@@||pagead2.googlesyndication.com/pagead/$xhr,domain=decrypt.day
-!#if env_chromium
-@@*$xhr,domain=decrypt.day
-||pagead2.googlesyndication.com/getconfig/sodar?$xhr,important,domain=decrypt.day
-||fundingchoicesmessages.google.com^$xhr,important,domain=decrypt.day
-!#endif
-*$frame,redirect-rule=noopframe,domain=decrypt.day
-
 ! https://github.com/uBlockOrigin/uAssets/issues/20505
 download.megaup.net##+js(rpnt, script, &&, && false &&, condition, attribute)
 download.megaup.net##+js(rpnt, script, ==![], ==![] && false, condition, attribute)
 download.megaup.net##+js(rpnt, script, ==false, ==true, condition, attribute)
+download.megaup.net##+js(rpnt, script, =!![], =false, condition, attribute)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/21353
 raenonx.cc##body > div[class] > style:first-child + .w-full:has(> .button-clickable-bg-opaque > .transform-smooth > svg)
@@ -144,20 +122,16 @@ puzzle-loop.com,puzzle-words.com,puzzle-chess.com,puzzle-thermometers.com,puzzle
 oninet.ne.jp,xth.jp##[id]:has(> ins.adsbygoogle):style(height: 100px !important; position: absolute !important; left: -4000px !important;)
 oninet.ne.jp##table:style(visibility: visible !important;)
 oninet.ne.jp##^script[defer]:has-text(.clientHeight <)
+in-jpn.com,xth.jp##+js(set, xmlr, noopFunc)
+/_nece.css$domain=in-jpn.com|xth.jp
+@@/\.oninet\.ne\.jp\/sakigakesoft\/(?!sakigake)[a-z]{5,}-[a-z]{4,}-?[a-z]?\.js$/$script,1p,strict1p,domain=oninet.ne.jp
+*$script,3p,from=oninet.ne.jp,badfilter
+*$script,3p,denyallow=ampproject.org,domain=oninet.ne.jp
 !#if cap_html_filtering
+in-jpn.com,xth.jp##^script:has-text(/フィルタリングを無効|document\.head\.appendChild/)
 ||in-jpn.com^$script,replace=/w_mode==1/1/
 ||in-jpn.com^$script,replace=/function myFunc[\s\S\n]+?doSakigake\(\);[\s\S\n]+?\}//
 !#endif
-
-! https://github.com/easylist/easylist/issues/19092
-@@||keytiles.com/tracking/$script,domain=blikk.hu
-
-! EL mistake
-||ygosu.com^$document,popup,badfilter
-||bamgosu.site^$document,popup,badfilter
-
-! https://github.com/uBlockOrigin/uAssets/issues/23562
-pixiv.net#@#+js(set-cookie-reload, privacy_policy_agreement, 5)
 
 ! breaking
 bloomberg.com,bloomberg.co.jp#@#[title="SP Consent Message"]
@@ -165,9 +139,21 @@ bloomberg.com,bloomberg.co.jp#@#[title="SP Consent Message"]
 ! https://github.com/uBlockOrigin/uAssets/issues/3367#issuecomment-2094725581
 facebook.com,facebookwkhpilnemxj7asaniu7vnjjbiltxjqhye3mhbshg7kx5tfyd.onion#@#:not(:matches-path(/groups/)) div[aria-posinset] :is(h3, h4) span > a[href]:not([href^="/groups/"]):not([href*="section_header_type"]):matches-attr(href="/__cft__\[0\]=[-\w]{270,}/"):upward(div[aria-posinset]):style(height: 0 !important; overflow: hidden !important;)
 facebook.com,facebookwkhpilnemxj7asaniu7vnjjbiltxjqhye3mhbshg7kx5tfyd.onion#@#div[aria-describedby]:not([aria-posinset]) :is(h3, h4) span > a[href]:not([href^="/groups/"]):not([href*="section_header_type"]):matches-attr(href="/__cft__\[0\]=[-\w]{270,}/"):upward(div[aria-describedby]):style(height: 0 !important; overflow: hidden !important;)
+facebook.com#@#.m[data-status-bar-color] > .m[data-type="vscroller"] > .m[data-mcomponent="MContainer"]:has-text(/(Sponsored|Gesponsert|Sponsorlu|Sponsorowane|Ispoonsara godhameera|Geborg|Bersponsor|Ditaja|Disponsori|Giisponsoran|Sponzorováno|Sponsoreret|Publicidad|May Sponsor|Sponsorisée|Oipytyvôva|Ɗaukar Nayin|Sponzorirano|Uterwa inkunga|Sponsorizzato|Imedhaminiwa|Hirdetés|Misy Mpiantoka|Gesponsord|Sponset|Patrocinado|Patrocinado|Sponsorizat|Sponzorované|Sponsoroitu|Sponsrat|Được tài trợ|Χορηγούμενη|Спонсорирано|Спонзорирано|Ивээн тэтгэсэн|Реклама|Спонзорисано|במימון|سپانسرڈ|دارای پشتیبانی مالی|ስፖንሰር የተደረገ|प्रायोजित|ተደረገ|प|प्रायोजित|স্পনসর্ড|ਪ੍ਰਯੋਜਿਤ|પ્રાયોજિત|ପ୍ରାୟୋଜିତ|செய்யப்பட்ட செய்யப்பட்ட|చేయబడినది చేయబడినది|ಪ್ರಾಯೋಜಿಸಲಾಗಿದೆ|ചെയ്‌തത് ചെയ്‌തത്|ලද ලද ලද|สนับสนุน สนับสนุน รับ สนับสนุน สนับสนุน|ကြော်ငြာ ကြော်ငြာ|ឧបត្ថម្ភ ឧបត្ថម្ភ ឧបត្ថម្ភ|광고|贊助|赞助内容|広告|സ്‌പോൺസർ ചെയ്‌തത്)/) + .m:is(.bg-s2, .bg-s3, .bg-s4):has(+ .m:is(.bg-s2, .bg-s3, .bg-s4) + .m:not(:has(.m:empty)))
 
 ! https://github.com/uBlockOrigin/uAssets/issues/23600
 ||spotlightstores.com^$badfilter
 
 ! https://github.com/easylist/easylist/commit/40f4f0237567476075b46df73e63ef29e2a78b61
 drc1bk94f7rq8.cloudfront.net#@##ad_link
+
+! https://github.com/easylist/easylist/commit/f81fab1f6739258f00b47beb8608a9e2e7f8b761
+||go.oracle.com^$badfilter
+
+! https://github.com/uBlockOrigin/uAssets/issues/23617
+watson.de#@#+js(set, _sp_.config, undefined)
+||watson.de/image/$script,1p
+@@||googletagmanager.com/gtm.js$script,domain=watson.ch
+
+! https://github.com/AdguardTeam/AdguardFilters/commit/a048a091c48a89689e3ca5fdc543e1b4900e4abf#commitcomment-141838956
+item.rakuten.co.jp#@##pagebody > table[width][border]:has(td[align="center"] > table[cellpadding="5"])
