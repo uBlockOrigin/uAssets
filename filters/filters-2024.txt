@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2024)
-! Last modified: Sat, 11 May 2024 21:46:01 +0000
+! Last modified: Sun, 12 May 2024 11:53:15 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -1575,6 +1575,39 @@ cheater.ninja##+js(rpnt, script, /catch[\s\S]*?}/, , condition, fetch)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/23576
 blocklayer.com##+js(nostif, getComputedStyle)
+
+! https://github.com/uBlockOrigin/uAssets/pull/23587
+! Promoted products and stores on search page (/search), product page (/p), and find page (/find)
+tokopedia.com##+js(json-prune, 0.data.displayAdsV3.data.[-].__typename)
+tokopedia.com##+js(json-prune, 0.data.TopAdsProducts.data.[-].__typename)
+tokopedia.com##+js(json-prune, 0.data.topads.data.[-].__typename)
+!#if cap_html_filtering
+! Promoted products on search page (/search) carousels
+||tokopedia.com/graphql/InspirationCarousel$xhr,replace=/\{"id":\d{9,11}(?:(?!"ads":\{"id":"").)+?"ads":\{"id":"\d+".+?"__typename":"ProductCarouselV2"\},?//g
+||tokopedia.com/graphql/InspirationalCarousel$xhr,replace=/\{"category_id"(?:(?!"ads":\{"id":"").)+?"ads":\{"id":"\d+".+?"__typename":"ProductCarouselV2"\},?//g
+! Promoted products on mobile carousels of product page (/p) and cart page (/cart)
+||tokopedia.com/graphql/productRecommendation$xhr,replace=/\{"id":\d{9,11}(?:(?!"isTopads":false).)+?"isTopads":true.+?"__typename":"recommendationItem"\},//g
+||tokopedia.com/graphql/productRecommendation$xhr,replace=/,\{"id":\d{9,11}(?:(?!"isTopads":false).)+?"isTopads":true(?:(?!"__typename":"recommendationItem").)+?"__typename":"recommendationItem"\}(?=\])//
+! Promoted products on cart page (/cart)
+||tokopedia.com/graphql/RecomWidget$xhr,replace=/\{"(?:productS|s)lashedPrice"(?:(?!"isTopads":false).)+?"isTopads":true.+?"__typename":"recommendationItem"\},?//g
+||tokopedia.com/graphql/ProductRecommendationQuery$xhr,replace=/\{"appUrl"(?:(?!"isTopads":false).)+?"isTopads":true.+?"__typename":"recommendationItem"\},?//g
+!#else
+! Promoted products on search page (/search) carousels
+tokopedia.com##+js(trusted-replace-fetch-response, '/\{"id":\d{9,11}(?:(?!"ads":\{"id":"").)+?"ads":\{"id":"\d+".+?"__typename":"ProductCarouselV2"\},?/g', , /graphql/InspirationCarousel)
+tokopedia.com##+js(trusted-replace-fetch-response, '/\{"category_id"(?:(?!"ads":\{"id":"").)+?"ads":\{"id":"\d+".+?"__typename":"ProductCarouselV2"\},?/g', , /graphql/InspirationalCarousel)
+! Promoted products on mobile carousels of product page (/p) and cart page (/cart)
+tokopedia.com##+js(trusted-replace-fetch-response, '/\{"id":\d{9,11}(?:(?!"isTopads":false).)+?"isTopads":true.+?"__typename":"recommendationItem"\},/g', , /\/graphql\/productRecommendation/i)
+tokopedia.com##+js(trusted-replace-fetch-response, '/,\{"id":\d{9,11}(?:(?!"isTopads":false).)+?"isTopads":true(?:(?!"__typename":"recommendationItem").)+?"__typename":"recommendationItem"\}(?=\])/', , /\/graphql\/productRecommendation/i)
+! Promoted products on cart page (/cart)
+tokopedia.com##+js(trusted-replace-fetch-response, '/\{"(?:productS|s)lashedPrice"(?:(?!"isTopads":false).)+?"isTopads":true.+?"__typename":"recommendationItem"\},?/g', , /graphql/RecomWidget)
+tokopedia.com##+js(trusted-replace-fetch-response, '/\{"appUrl"(?:(?!"isTopads":false).)+?"isTopads":true.+?"__typename":"recommendationItem"\},?/g', , /graphql/ProductRecommendationQuery)
+!#endif
+! Promoted products cache on search page (/search), find page (/find), and product page (/p)
+!#if cap_html_filtering
+tokopedia.com##^script:has-text(displayAdsV3)
+!#else
+tokopedia.com##+js(rmnt, script, displayAdsV3)
+!#endif
 
 ! https://github.com/uBlockOrigin/uAssets/issues/23608
 ||zee5.com/*/displayAds$xhr
