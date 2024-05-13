@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2024)
-! Last modified: Mon, 13 May 2024 01:36:36 +0000
+! Last modified: Mon, 13 May 2024 09:46:38 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -1579,9 +1579,9 @@ blocklayer.com##+js(nostif, getComputedStyle)
 
 ! https://github.com/uBlockOrigin/uAssets/pull/23587
 ! Promoted products and stores on search page (/search), product page (/p), and find page (/find)
-tokopedia.com##+js(json-prune, 0.data.displayAdsV3.data.[-].__typename)
-tokopedia.com##+js(json-prune, 0.data.TopAdsProducts.data.[-].__typename)
-tokopedia.com##+js(json-prune, 0.data.topads.data.[-].__typename)
+tokopedia.com##+js(json-prune, [].data.displayAdsV3.data.[-].__typename)
+tokopedia.com##+js(json-prune, [].data.TopAdsProducts.data.[-].__typename)
+tokopedia.com##+js(json-prune, [].data.topads.data.[-].__typename)
 !#if cap_html_filtering
 ! Promoted products on search page (/search) carousels
 ||tokopedia.com/graphql/InspirationCarousel$xhr,replace=/\{"id":\d{9,11}(?:(?!"ads":\{"id":"").)+?"ads":\{"id":"\d+".+?"__typename":"ProductCarouselV2"\},?//g
