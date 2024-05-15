@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2024)
-! Last modified: Wed, 15 May 2024 04:03:02 +0000
+! Last modified: Wed, 15 May 2024 22:37:07 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -1669,3 +1669,13 @@ cenoteka.rs##.sponsorship:remove-class(sponsorship)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/13976
 defenseone.com,govexec.com,nextgov.com,route-fifty.com##+js(set, GEMG.GPT.Interstitial, noopFunc)
+
+! https://github.com/uBlockOrigin/uAssets/issues/23718
+!#if cap_html_filtering
+remixsearch.net,remixsearch.es,onlineweb.tools,sharing.wtf##^script:has-text(adblocker)
+!#else
+remixsearch.net,remixsearch.es,onlineweb.tools,sharing.wtf##+js(rmnt, script, adblocker)
+!#endif
+sharing.wtf##+js(set, amiblock, 0)
+sharing.wtf##+js(nobab)
+sharing.wtf##.metaRedirectWrapperTopAds

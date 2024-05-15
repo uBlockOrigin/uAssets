@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Wed, 15 May 2024 17:49:42 +0000
+! Last modified: Wed, 15 May 2024 22:37:07 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -10060,6 +10060,14 @@ flvto.com.co##.add-block
 cenoteka.rs##.banner
 cenoteka.rs##.sponsorship:remove-class(sponsorship)
 defenseone.com,govexec.com,nextgov.com,route-fifty.com##+js(set, GEMG.GPT.Interstitial, noopFunc)
+!#if cap_html_filtering
+remixsearch.net,remixsearch.es,onlineweb.tools,sharing.wtf##^script:has-text(adblocker)
+!#else
+remixsearch.net,remixsearch.es,onlineweb.tools,sharing.wtf##+js(rmnt, script, adblocker)
+!#endif
+sharing.wtf##+js(set, amiblock, 0)
+sharing.wtf##+js(nobab)
+sharing.wtf##.metaRedirectWrapperTopAds
 ! Link shortener filters go into their own dedicated list
 ! *** filters/ubo-link-shorteners.txt ***
 ! gplinks all domains (gplinks.co/EWu8)
