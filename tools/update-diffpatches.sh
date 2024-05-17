@@ -28,14 +28,14 @@ if [[ -z $FILTER_FILES ]]; then
 fi
 FILTER_FILES=( "$FILTER_FILES" )
 
-PATCH_FILES=( $(ls -1v "$PATCHES_DIR"/*.patch | head -n -1) )
-
 # Keep only the most recent (5-day x 4-per-day) patches
 OBSOLETE_PATCHES=( $(ls -1v "$PATCHES_DIR"/*.patch | head -n -20) )
 for FILE in "${OBSOLETE_PATCHES[@]}"; do
     echo "Removing obsolete patch $FILE"
     git rm "$FILE"
 done
+
+PATCH_FILES=( $(ls -1v "$PATCHES_DIR"/*.patch | head -n -1) )
 
 NEW_PATCH_FILE=$(mktemp)
 DIFF_FILE=$(mktemp)
