@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2023)
-! Last modified: Sun, 19 May 2024 02:00:27 +0000
+! Last modified: Mon, 20 May 2024 08:32:17 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -2119,6 +2119,15 @@ oninet.ne.jp##a[href^="https://www.amazon.co.jp/dp/"] ~ img[src="qr-amazon-logo.
 xth.jp##body:style(background: none !important;)
 in-jpn.com##+js(trusted-replace-xhr-response, /.*/, , pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?)
 @@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$xhr,domain=in-jpn.com
+oninet.ne.jp,xth.jp##[id]:has(> ins.adsbygoogle):style(height: 100px !important; position: absolute !important; left: -4000px !important;)
+oninet.ne.jp##table:style(visibility: visible !important;)
+in-jpn.com,oninet.ne.jp,xth.jp##+js(set, myFunc, noopFunc)
+!#if cap_html_filtering
+in-jpn.com,xth.jp##^script:has-text(フィルタリングを無効)
+oninet.ne.jp##^script[defer]:has-text(.clientHeight <)
+||in-jpn.com^$script,replace=/w_mode==1/1/
+||in-jpn.com^$script,replace=/function myFunc[\s\S\n]+?doSakigake\(\);[\s\S\n]+?\}//
+!#endif
 
 ! https://github.com/NanoMeow/QuickReports/issues/21
 ! https://github.com/uBlockOrigin/uAssets/issues/9578

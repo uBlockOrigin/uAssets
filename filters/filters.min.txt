@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Sun, 19 May 2024 22:08:19 +0000
+! Last modified: Mon, 20 May 2024 08:32:17 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -21304,6 +21304,15 @@ oninet.ne.jp##a[href^="https://www.amazon.co.jp/dp/"] ~ img[src="qr-amazon-logo.
 xth.jp##body:style(background: none !important;)
 in-jpn.com##+js(trusted-replace-xhr-response, /.*/, , pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?)
 @@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$xhr,domain=in-jpn.com
+oninet.ne.jp,xth.jp##[id]:has(> ins.adsbygoogle):style(height: 100px !important; position: absolute !important; left: -4000px !important;)
+oninet.ne.jp##table:style(visibility: visible !important;)
+in-jpn.com,oninet.ne.jp,xth.jp##+js(set, myFunc, noopFunc)
+!#if cap_html_filtering
+in-jpn.com,xth.jp##^script:has-text(フィルタリングを無効)
+oninet.ne.jp##^script[defer]:has-text(.clientHeight <)
+||in-jpn.com^$script,replace=/w_mode==1/1/
+||in-jpn.com^$script,replace=/function myFunc[\s\S\n]+?doSakigake\(\);[\s\S\n]+?\}//
+!#endif
 azaleasdolls.com##td[height="279"]
 azaleasdolls.com##td[width^="34"][height^="29"]
 azaleasdolls.com##td[width="164"][bgcolor="#FCDCE4"]
