@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2024)
-! Last modified: Sat, 25 May 2024 02:01:10 +0000
+! Last modified: Sat, 25 May 2024 02:47:08 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -1425,7 +1425,10 @@ hianime.to##[href="https://1flix.to/"]
 ! https://github.com/uBlockOrigin/uAssets/issues/22877
 nextdoor.com##+js(json-prune, data.searchClassifiedFeed.searchResultView.0.searchResultItemsV2.edges.[-].node.item.content.creative.clickThroughEvent.adsTrackingMetadata.metadata.adRequestId)
 nextdoor.com##.feed-container:not(.wide-layout-feed-container) > div:not([class]) > div[class^="blocks-"] > div[class^="blocks-"] > div[class^="blocks-"] > div:not([class]) > div[class^="blocks-"] > div[class]:has(> .fsf-gam-ad)
-nextdoor.com##div.gam-ad-inner-container
+! https://www.reddit.com/r/uBlockOrigin/comments/1cz4jpf/blocking_sponsored_posts_on_nextdoor/
+nextdoor.com##+js(json-prune, data.me.personalizedFeed.feedItems.[-].promo.creative.clickThroughUrl.adsTrackingMetadata.metadata.adRequestId)
+! sidebar ad
+nextdoor.com##+js(json-prune, data.me.rhrFeed.feedItems.[-].promo.creative.clickThroughUrl.adsTrackingMetadata.metadata.sponsor)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/23290
 buffsports.me##+js(no-fetch-if, pogo)
