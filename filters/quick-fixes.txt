@@ -1,5 +1,5 @@
 ! Title: uBlock₀ filters – Quick fixes
-! Last modified: Sun, 26 May 2024 11:17:06 +0000
+! Last modified: Sun, 26 May 2024 13:22:43 +0000
 ! Expires: 8 hours
 ! Description: Immediate, temporary filters to fix websites
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -109,18 +109,6 @@ in-jpn.com,xth.jp##^script:has-text(フィルタリングを無効)
 ||in-jpn.com^$script,replace=/function myFunc[\s\S\n]+?doSakigake\(\);[\s\S\n]+?\}//
 !#endif
 in-jpn.com,oninet.ne.jp,xth.jp##+js(set, myFunc, noopFunc)
-
-! https://github.com/AdguardTeam/AdguardFilters/issues/179614
-kotobank.jp##+js(nostif, return, 7400)
-
-! https://github.com/AdguardTeam/AdguardFilters/issues/179577
-/affiliate.js$badfilter
-
-! https://x.com/seeki1/status/1792799838893195743
-||peraichi.com^$doc,badfilter
-
-! https://github.com/AdguardTeam/AdguardFilters/commit/053585b5fb4708d6d2ab3d9875b45dac03326583
-famitsu.com##+js(set, TagProvider.cleanup, noopFunc)
 
 ! https://forums.lanik.us/viewtopic.php?p=167211-olx-ua
 olx.bg,olx.com.br,olx.kz,olx.pl,olx.pt,olx.ro,olx.ua,olx.uz#@#[data-cy="l-card"]:has([data-testid="adCard-featured"])
