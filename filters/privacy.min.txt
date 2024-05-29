@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Privacy
 ! Expires: 7 days
-! Last modified: Tue, 28 May 2024 11:34:02 +0000
+! Last modified: Wed, 29 May 2024 07:08:35 +0000
 ! Diff-Path: %diffpath%#ublock-privacy
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -599,6 +599,8 @@ twitter.com,x.com,~platform.twitter.com##+js(trusted-replace-xhr-response, '/,"e
 platform.twitter.com##+js(trusted-replace-xhr-response, '/,"expanded_url":"([^"]+)","indices":([^"]+)"url":"[^"]+"/g', ',"expanded_url":"$1","indices":$2"url":"$1"', /tweet-result)
 !#endif
 streamin.me##^responseheader(set-cookie)
+||brilliant.org/amplitude/$1p
+||analytics-prod-alb-*.amazonaws.com^$domain=brilliant.org
 ! Merge in resource-abuse.txt
 ! *** uAssets:filters/resource-abuse.txt ***
 /edgemesh.*.js$script,domain=~edgemesh.com|~edgeno.de
