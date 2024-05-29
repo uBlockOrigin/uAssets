@@ -48,4 +48,4 @@ Report issues specific to the Manifest Version 3 (MV3) variant in the [uBOL issu
 
 #### Similarly-Purposed Blockers
 
-Do **NOT** use any other [similarly-purposed blockers](https://twitter.com/gorhill/status/1033706103782170625) concurrently with uBO. It can result in website breakage or undefined results.
+Do **NOT** use any other [similarly-purposed blockers](https://x.com/gorhill/status/1033706103782170625) concurrently with uBO. It can result in website breakage or undefined results.
