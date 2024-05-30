@@ -1,5 +1,5 @@
 ! Title: uBlock₀ filters – Quick fixes
-! Last modified: Wed, 29 May 2024 23:41:51 +0000
+! Last modified: Thu, 30 May 2024 00:53:15 +0000
 ! Expires: 8 hours
 ! Description: Immediate, temporary filters to fix websites
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -105,16 +105,13 @@ in-jpn.com,oninet.ne.jp,xth.jp##+js(set, myFunc, noopFunc)
 ! Can be removed on 31th of May, 2024.
 www.google.*#@#+js(trusted-set-cookie, SOCS, CAESHAgBEhJnd3NfMjAyMzA2MTItMF9SQzIaAmZpIAEaBgiAzK6kBg, 1year)
 
-! https://github.com/AdguardTeam/AdguardFilters/commit/cc3b5cb7851b9d93b6b67b32809a1a400abc9af8#r142361108
-finance.yahoo.co.jp#@#div[class] > section[class][id] > div[class*=" "]:has(span[style^="padding-top:"])
-
 ! https://github.com/uBlockOrigin/uAssets/issues/23806
 japscan.lol#@#+js(acs, EventTarget.prototype.addEventListener, '/((ad-img|banner)-|interstitial|getComputedStyle)[\s\S]{1,5000}$/')
 japscan.lol##+js(acs, EventTarget.prototype.addEventListener, /mgid_iframe|ad_/)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/23491
 www.ebay.*##[id^="placement"][style]:has(> div > [id] > .ads-berries)
-www.ebay.*###srp-river-results > .srp-results > .s-item:has(.s-item__detail > span.s-item__sep > div > span[aria-labelledby][style*="transform: matrix3d("]:not([style*="matrix3d(1,0,0,0,0,0.00"]):not([style*=",0,0,0.99"]):not([style*=",0,0,-0.99"]))
+! www.ebay.*###srp-river-results > .srp-results > .s-item:has(.s-item__detail > span.s-item__sep > div > span[aria-labelledby][style*="transform: matrix3d("]:not([style*="matrix3d(1,0,0,0,0,0.00"]):not([style*=",0,0,0.99"]):not([style*=",0,0,-0.99"]))
 www.ebay.*##.srp-results > .s-item:has(.s-item__detail > span > span[aria-labelledby]:matches-css(filter: invert(1)) > div:matches-css(color: rgb(255, 255, 255)):matches-css(filter: none))
 www.ebay.*##.srp-results > .s-item:has(.s-item__detail > span > span[aria-labelledby]:matches-css(filter: invert(1)) > div:matches-css(color: rgb(0, 0, 0)):matches-css(filter: invert(1)))
 www.ebay.*##.srp-results > .s-item:has(.s-item__detail > span > span[aria-labelledby]:matches-css(filter: none) > div:matches-css(color: rgb(255, 255, 255)):matches-css(filter: invert(1)))
