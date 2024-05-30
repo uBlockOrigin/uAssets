@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2024)
-! Last modified: Thu, 30 May 2024 06:19:50 +0000
+! Last modified: Thu, 30 May 2024 10:06:54 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -382,6 +382,16 @@ torrentdownload.*##[href^="https://goo.gl/"]
 torrentdownload.*##TR:has-text(Stream:)
 torrentdownload.*##.table2:has-text(Sponsored)
 ||torrentdownload.*/*.gif$image
+
+! https://github.com/uBlockOrigin/uAssets/issues/1634
+! https://github.com/uBlockOrigin/uAssets/issues/6749
+katfile.com##+js(acs, document.createElement, onerror)
+katfile.com##+js(nano-stb)
+katfile.com##+js(nowoif)
+katfile.com##+js(set, adblock, false)
+! https://github.com/uBlockOrigin/uAssets/issues/23909
+katfile.com###container > p > a[href*="?"]:has(> img)
+||katfile.com/images/dlli.png$image
 
 ! END: Rules from filters.txt
 
