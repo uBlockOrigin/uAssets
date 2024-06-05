@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Quick fixes
 ! Expires: 12 hours
-! Last modified: Wed, 05 Jun 2024 02:57:42 +0000
+! Last modified: Wed, 05 Jun 2024 10:52:24 +0000
 ! Diff-Path: %diffpath%#ublock-quick-fixes
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -75,6 +75,7 @@ ytlarge.com##ins.adsbygoogle[data-ad-slot]
 !next-episode.net##+js(rmnt, script, '/\d+\+\d|64|\+\+|\+1|adbl|ablk|[\s\S]{0,}(\.\.|function)[\s\S]{1800,}|document\[/i')
 @@||pagead2.googlesyndication.com^$script,domain=next-episode.net
 download.megaup.net##+js(rpnt, script, /for\s*\(\s*(const|let|var).*?return;}}.*?;return;\}/g, , condition, attribute)
+raenonx.cc##div[class*="main_announcement-animation"]:has(> [class*="announcement"] > .markdown > p > a[href$="/docs/view/site/ads-and-credits"])
 raenonx.cc##body > div[class] > style:first-child + .w-full:has(> .button-clickable-bg-opaque > .transform-smooth > svg)
 raenonx.cc##.w-full:has(> style + div > style + div .adsbygoogle)
 raenonx.cc##[id^="headlessui-"] [role="dialog"]:has(.w-full > .w-full > .markdown > p > a[href="https://pks.raenonx.cc/en/docs/view/help/disable-adblock"])
@@ -84,7 +85,6 @@ raenonx.cc##html[style*="hidden"]:style(overflow: visible !important;)
 @@*$xhr,3p,method=head,domain=raenonx.cc
 @@||googlesyndication.com/|$xhr,domain=raenonx.cc
 @@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$xhr,domain=raenonx.cc
-||raenonx.cc/api/analytics
 ||raenonx.cc/api/scripts
 japscan.lol#@#+js(acs, EventTarget.prototype.addEventListener, '/((ad-img|banner)-|interstitial|getComputedStyle)[\s\S]{1,5000}$/')
 japscan.lol##+js(acs, EventTarget.prototype.addEventListener, /mgid_iframe|ad[_-]/)
