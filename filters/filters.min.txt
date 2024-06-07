@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Fri, 07 Jun 2024 21:05:51 +0000
+! Last modified: Fri, 07 Jun 2024 21:13:42 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -10178,7 +10178,12 @@ mp3y.info##+js(nowoif)
 ||mp3y.info/*.php^$frame
 @@||fx545.site^$ghide
 raidrush.net##+js(nostif, getComputedStyle(el))
-raidrush.net###hihihi
+!#if env_firefox
+raidrush.net#@#.funbox
+raidrush.net#@##top_ga
+raidrush.net##.funbox:style(position: absolute !important; left: -10000px !important;)
+raidrush.net###top_ga:style(position: absolute !important; left: -10000px !important;)
+!#endif
 ! Link shortener filters go into their own dedicated list
 ! *** filters/ubo-link-shorteners.txt ***
 ! gplinks all domains (gplinks.co/EWu8)
