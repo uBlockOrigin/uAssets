@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2023)
-! Last modified: Thu, 06 Jun 2024 10:24:54 +0000
+! Last modified: Fri, 07 Jun 2024 14:47:46 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -3189,9 +3189,10 @@ merlininkazani.com##+js(nostif, onDetected)
 
 ! https://www.reddit.com/r/uBlockOrigin/comments/14l1nyq/
 actvid.*##.block_area iframe:upward(.block_area)
-actvid.*##^script:has-text(HTMLAllCollection)
-!#if !cap_html_filtering
-actvid.*##+js(rmnt, script, HTMLAllCollection)
+!#if cap_html_filtering
+actvid.*,zoechip.com##^script:has-text(HTMLAllCollection)
+!#else
+actvid.*,zoechip.com##+js(rmnt, script, HTMLAllCollection)
 !#endif
 ! https://github.com/uBlockOrigin/uBlock-discussions/discussions/790#discussioncomment-6303745
 ! https://github.com/AdguardTeam/AdguardFilters/issues/161092

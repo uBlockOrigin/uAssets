@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Fri, 07 Jun 2024 13:59:07 +0000
+! Last modified: Fri, 07 Jun 2024 14:47:46 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -21987,9 +21987,10 @@ bitsmagic.fun,ourcoincash.xyz,hynews.biz##+js(rmnt, script, htmls)
 apnews.com##.Page-header-leaderboardAd:remove()
 merlininkazani.com##+js(nostif, onDetected)
 actvid.*##.block_area iframe:upward(.block_area)
-actvid.*##^script:has-text(HTMLAllCollection)
-!#if !cap_html_filtering
-actvid.*##+js(rmnt, script, HTMLAllCollection)
+!#if cap_html_filtering
+actvid.*,zoechip.com##^script:has-text(HTMLAllCollection)
+!#else
+actvid.*,zoechip.com##+js(rmnt, script, HTMLAllCollection)
 !#endif
 /^https:\/\/[a-z]{3,5}\.[a-z]{10,14}\.top\/[a-z]{10,16}\/[a-z]{5,6}(?:\?d=\d)?$/$script,xhr,3p,match-case
 ||imasdk.googleapis.com/js/sdkloader/ima3.js$script,redirect-rule=google-ima.js,domain=24ur.com
