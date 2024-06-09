@@ -1,5 +1,5 @@
 ! Title: uBlock₀ filters – Quick fixes
-! Last modified: Sun, 09 Jun 2024 14:34:34 +0000
+! Last modified: Sun, 09 Jun 2024 14:38:09 +0000
 ! Expires: 8 hours
 ! Description: Immediate, temporary filters to fix websites
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -58,13 +58,13 @@ youtube.com##+js(json-prune, playerResponse.adPlacements playerResponse.playerAd
 ||googlevideo.com/videoplayback*&ctier=L&*%2Cctier%2C$xhr,3p,domain=m.youtube.com|music.youtube.com|www.youtube.com
 !#if cap_html_filtering
 m.youtube.com,music.youtube.com,www.youtube.com##+js(trusted-rpnt, script, window.Polymer=, /*start*/(function(){const e={apply:(e\,t\,o)=>{if(!window.yt?.config_?.EXPERIMENT_FLAGS?.html5_enable_ssap_entity_id||!o[0]||"X-Goog-Visitor-Id"!==o[0]||!o[1])return Reflect.apply(e\,t\,o)}};window.XMLHttpRequest.prototype.setRequestHeader=new Proxy(window.XMLHttpRequest.prototype.setRequestHeader\,e)})();(function(){const e={construct:(e\,t\,o)=>{if(window.yt?.config_?.EXPERIMENT_FLAGS?.html5_enable_ssap_entity_id){const c=t[0]\,s=t[1];if("https://www.youtube.com/"!==location.href&&c&&c.includes?.("/youtubei/"))try{delete s.headers["X-Goog-Visitor-Id"]}catch(e){}if(s&&s.body?.includes("visitorData"))try{t[1].body=t[1].body.replace(/"visitorData":".*?"\,/\,"")}catch(e){}}return Reflect.construct(e\,t\,o)}};window.Request=new Proxy(window.Request\,e)})();document.currentScript.textContent=document.currentScript.textContent.replace(/\/\*start\*\/(.*)\/\*end\*\//g\,"");/*end*/window.Polymer=)
-||youtube.com/watch?v=$doc,domain=m.youtube.com|music.youtube.com|www.youtube.com,replace=/sabr=1(.+ssapPrerollEnabled)/\$1/s
+||youtube.com/watch?v=$doc,domain=m.youtube.com|music.youtube.com|www.youtube.com,replace=/sabr=1(.+?ssapPrerollEnabled)/\$1/s
 !#else
 m.youtube.com,music.youtube.com,www.youtube.com##+js(trusted-rpnt, script, window.Polymer=, /*start*/(function(){const e={apply:(e\,t\,o)=>{if(!window.yt?.config_?.EXPERIMENT_FLAGS?.html5_enable_ssap_entity_id||!o[0]||"X-Goog-Visitor-Id"!==o[0]||!o[1])return Reflect.apply(e\,t\,o)}};window.XMLHttpRequest.prototype.setRequestHeader=new Proxy(window.XMLHttpRequest.prototype.setRequestHeader\,e)})();(function(){const e={construct:(e\,t\,o)=>{if(window.yt?.config_?.EXPERIMENT_FLAGS?.html5_enable_ssap_entity_id){const c=t[0]\,s=t[1];if("https://www.youtube.com/"!==location.href&&c&&c.includes?.("/youtubei/"))try{delete s.headers["X-Goog-Visitor-Id"]}catch(e){}if(s&&s.body?.includes("visitorData"))try{t[1].body=t[1].body.replace(/"visitorData":".*?"\,/\,"")}catch(e){}if(c&&c.includes?.("&sabr=1"))try{t[0]=t[0].replace("&sabr=1"\,"")}catch(e){}}return Reflect.construct(e\,t\,o)}};window.Request=new Proxy(window.Request\,e)})();document.currentScript.textContent=document.currentScript.textContent.replace(/\/\*start\*\/(.*)\/\*end\*\//g\,"");/*end*/window.Polymer=)
 m.youtube.com,music.youtube.com,www.youtube.com##+js(trusted-rpnt, script, sabr=1, , condition, serverAbrStreamingUrl)
 !#endif
 m.youtube.com,music.youtube.com,www.youtube.com##+js(trusted-replace-fetch-response, "useServerDrivenAbr":true, "useServerDrivenAbr":false, /playlist?)
-||youtube.com/watch?v=$doc,domain=m.youtube.com|music.youtube.com|www.youtube.com,replace=/sabr=1(.+ssapPrerollEnabled)/\$1/s
+||youtube.com/watch?v=$doc,domain=m.youtube.com|music.youtube.com|www.youtube.com,replace=/sabr=1(.+?ssapPrerollEnabled)/\$1/s
 m.youtube.com,music.youtube.com,www.youtube.com##+js(set, ytcfg.data_.INNERTUBE_CONTEXT.client.visitorData, undefined)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/20586#issuecomment-2144781835
