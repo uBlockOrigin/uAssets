@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Mon, 10 Jun 2024 14:33:24 +0000
+! Last modified: Mon, 10 Jun 2024 15:24:01 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -22226,6 +22226,11 @@ download.megaup.net##a img:not([src="images/main_logo_inverted.png"]):matches-cs
 download.megaup.net##+js(spoof-css, a img:not([src="images/main_logo_inverted.png"]), visibility, visible)
 @@||megaup.net/imageads/$image,1p
 @@||download.megaup.net^$script,1p
+!#if !cap_html_filtering
+download.megaup.net##+js(trusted-rpnt, script, /\[\'innerHTML\'\]=\'<img\\x20src=\\x22images\/primary\.png\\x22>\';return;/g)
+!#else
+||download.megaup.net^$doc,replace=/\[\'innerHTML\'\]=\'<img\\x20src=\\x22images\/primary\.png\\x22>\';return;//g
+!#endif
 player.theplatform.com##+js(disable-newtab-links)
 ! breakage https://github.com/uBlockOrigin/uAssets/issues/16216
 !||player.theplatform.com^$frame,removeparam=params,domain=nbc.com
