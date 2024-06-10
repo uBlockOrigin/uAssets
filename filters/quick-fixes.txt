@@ -1,5 +1,5 @@
 ! Title: uBlock₀ filters – Quick fixes
-! Last modified: Mon, 10 Jun 2024 15:34:37 +0000
+! Last modified: Mon, 10 Jun 2024 15:36:22 +0000
 ! Expires: 8 hours
 ! Description: Immediate, temporary filters to fix websites
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -95,11 +95,10 @@ ytlarge.com##ins.adsbygoogle[data-ad-slot]
 @@||pagead2.googlesyndication.com^$script,domain=next-episode.net
 
 ! https://github.com/uBlockOrigin/uAssets/issues/20505
-download.megaup.net##+js(rpnt, script, /for\s*\(\s*(const|let|var).*?return;}}.*;return;\}\s*_/g, _, condition, attribute)
 !#if !cap_html_filtering
-download.megaup.net##+js(trusted-rpnt, script, /\[\'innerHTML\'\]=\'<img\\x20src=\\x22images\/primary\.png\\x22>\';return;/g)
+download.megaup.net##+js(rpnt, script, /for\s*\(\s*(const|let|var).*?return;\}\}.*;return;\}\s*_/g, _, condition, attribute)
 !#else
-||download.megaup.net^$doc,replace=/\[\'innerHTML\'\]=\'<img\\x20src=\\x22images\/primary\.png\\x22>\';return;//g
+||download.megaup.net^$doc,replace=/for\s*\(\s*(const|let|var).*?return;\}\}.*;return;\}\s*_//g
 !#endif
 
 ! https://github.com/uBlockOrigin/uAssets/issues/21353

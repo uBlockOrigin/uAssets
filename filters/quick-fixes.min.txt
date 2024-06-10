@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Quick fixes
 ! Expires: 12 hours
-! Last modified: Mon, 10 Jun 2024 15:34:37 +0000
+! Last modified: Mon, 10 Jun 2024 15:36:22 +0000
 ! Diff-Path: %diffpath%#ublock-quick-fixes
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -79,11 +79,10 @@ ytlarge.com##ins.adsbygoogle[data-ad-slot]
 !next-episode.net##+js(rpnt, script, '/.then[\s\S]{0,}?;/g')
 !next-episode.net##+js(rmnt, script, '/\d+\+\d|64|\+\+|\+1|adbl|ablk|[\s\S]{0,}(\.\.|function)[\s\S]{1800,}|document\[/i')
 @@||pagead2.googlesyndication.com^$script,domain=next-episode.net
-download.megaup.net##+js(rpnt, script, /for\s*\(\s*(const|let|var).*?return;}}.*;return;\}\s*_/g, _, condition, attribute)
 !#if !cap_html_filtering
-download.megaup.net##+js(trusted-rpnt, script, /\[\'innerHTML\'\]=\'<img\\x20src=\\x22images\/primary\.png\\x22>\';return;/g)
+download.megaup.net##+js(rpnt, script, /for\s*\(\s*(const|let|var).*?return;\}\}.*;return;\}\s*_/g, _, condition, attribute)
 !#else
-||download.megaup.net^$doc,replace=/\[\'innerHTML\'\]=\'<img\\x20src=\\x22images\/primary\.png\\x22>\';return;//g
+||download.megaup.net^$doc,replace=/for\s*\(\s*(const|let|var).*?return;\}\}.*;return;\}\s*_//g
 !#endif
 raenonx.cc##div[class*="main_announcement-animation"]:has(> [class*="announcement"] > .markdown > p > a[href$="/docs/view/site/ads-and-credits"])
 raenonx.cc##div[class="fixed bottom-0 z-anchor w-full bg-slate-500"]:has(> div[class="flex flex-col w-full"] > button.button-clickable-bg-opaque > .transform-smooth > svg)
