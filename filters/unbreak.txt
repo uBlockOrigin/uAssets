@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Unbreak
-! Last modified: Wed, 12 Jun 2024 06:55:22 +0000
+! Last modified: Wed, 12 Jun 2024 07:26:53 +0000
 ! Expires: 5 days
 ! Description:
 !     Filters optimized for uBlock Origin, to unbreak sites broken as
@@ -17,6 +17,13 @@
 @@||akamaihd.net/player/*/akamai/amp/prebid/*$script,domain=static.foxnews.com
 @@||global.fncstatic.com^*/ads.js$script,domain=foxnews.com
 @@||imasdk.googleapis.com/js/sdkloader/ima3.js$script,domain=insider.foxnews.com
+! https://github.com/uBlockOrigin/uAssets/issues/22160
+! https://github.com/uBlockOrigin/uAssets/issues/22385
+!#if env_firefox
+foxbusiness.com,foxnews.com##+js(set, Taplytics, {})
+foxbusiness.com,foxnews.com##+js(set, Taplytics.featureFlagEnabled, noopFunc)
+foxbusiness.com,foxnews.com##+js(set, Taplytics.runningExperiments, noopFunc)
+!#endif
 
 ! Chrome store feedback
 ! To counter `top.mail.ru` in Peter Lowe's
@@ -5169,13 +5176,6 @@ sklep.trzynastkaplus.pl##[onclick$="return !ga.loaded;"]:remove-attr(onclick)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/22172
 @@||st.dynamicyield.com/st$script,3p,domain=thewarehouse.co.nz
-
-! https://github.com/uBlockOrigin/uAssets/issues/22160
-! https://github.com/uBlockOrigin/uAssets/issues/22385
-!#if env_firefox
-foxbusiness.com,foxnews.com##+js(set, Taplytics, {})
-foxbusiness.com,foxnews.com##+js(set, Taplytics.featureFlagEnabled, noopFunc)
-!#endif
 
 ! https://github.com/uBlockOrigin/uAssets/issues/22204
 @@||engine.monetate.net/api/$xhr,domain=dunelm.com
