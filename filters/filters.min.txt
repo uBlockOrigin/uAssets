@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Fri, 14 Jun 2024 12:20:15 +0000
+! Last modified: Fri, 14 Jun 2024 12:40:45 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -9782,9 +9782,10 @@ sexempire.xyz###video_player ~ div[id]:has(> div[style^="position:fixed;inset:0p
 poki.com##div[class]:has(> div > div[style*="height"][style*="width"][style$="px; overflow: hidden;"] > [id*="_gp_"])
 web.businessuniqueidea.com##+js(aopr, b2a)
 !#if cap_html_filtering
-||tmailor.com/js/main_new.js$script,1p,replace=/if\(blocked\)/if(false)/g
+||tmailor.com/js/main_new.js^$script,1p,replace=/callback\(true\)/callback(false)/g
 !#else
 @@||pagead2.googlesyndication.com^$xhr,3p,domain=tmailor.com
+@@||tmailor.com^$ghide
 !#endif
 bgmateriali.com##+js(no-fetch-if, googlesyndication)
 ||bgmateriali.com/js/detector.js$script,1p
