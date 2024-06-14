@@ -1,5 +1,5 @@
 ! Title: uBlock filters
-! Last modified: Fri, 14 Jun 2024 09:00:39 +0000
+! Last modified: Fri, 14 Jun 2024 19:32:21 +0000
 ! Expires: 5 days
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
@@ -7783,10 +7783,12 @@ topflix.*##+js(aopr, console.clear)
 @@||uflash.tv^$ghide
 uflash.tv#@#.ad
 @@||exosrv.com/popunder1000.js$script,domain=uflash.tv
-uflash.tv##+js(aopr, open)
 uflash.tv##+js(aopw, ads_priv)
 uflash.tv##.advertisement
 uflash.tv##[id^="ad-float"]
+! https://github.com/uBlockOrigin/uAssets/issues/24103
+uflash.tv##+js(nowoif, adblock, 1, obj)
+uflash.tv##+js(no-fetch-if, ujsmediatags method:HEAD)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/4776
 jizzbunker.com,xxxdan.com##+js(aopw, spot)
