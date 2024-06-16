@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Annoyances
 ! Expires: 7 days
-! Last modified: Sun, 16 Jun 2024 02:50:27 +0000
+! Last modified: Sun, 16 Jun 2024 09:20:40 +0000
 ! Diff-Path: %diffpath%#ublock-annoyances
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -3951,4 +3951,7 @@ pronews.gr##.wrap-banner
 !#if env_firefox
 twitter.com,x.com,~platform.twitter.com##+js(trusted-replace-xhr-response, '/,"expanded_url":"([^"]+)","url":"[^"]+"/g', ',"expanded_url":"$1","url":"$1"', /graphql)
 platform.twitter.com##+js(trusted-replace-xhr-response, '/,"expanded_url":"([^"]+)","indices":([^"]+)"url":"[^"]+"/g', ',"expanded_url":"$1","indices":$2"url":"$1"', /tweet-result)
+!#endif
+!#if env_mobile
+bing.com##+js(aopr, SAContinueSearch)
 !#endif
