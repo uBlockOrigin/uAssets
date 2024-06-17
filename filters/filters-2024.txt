@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2024)
-! Last modified: Mon, 17 Jun 2024 04:40:09 +0000
+! Last modified: Mon, 17 Jun 2024 04:44:01 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -428,6 +428,12 @@ oploverz.*##+js(nostif, popup)
 oploverz.*###overplay
 *.gif$domain=oploverz.*,image
 *$script,3p,denyallow=cloudflare.com|disqus.com|disquscdn.com|facebook.com|fastlylb.net|fbcdn.net|facebook.net|googleapis.com|jsdelivr.net|statically.io|githack.com|gitcdn.xyz|gitcdn.link|gitcdn.herokuapp.com|arc.io|fluidplayer.com,domain=oploverz.*
+
+! https://github.com/AdguardTeam/AdguardFilters/issues/50179
+*$xhr,redirect-rule=noop.txt,domain=tunein.com
+! https://github.com/uBlockOrigin/uAssets/issues/22351
+||imasdk.googleapis.com/js/sdkloader/ima3.js$script,3p,redirect=google-ima.js,domain=tunein.com,important
+||imasdk.googleapis.com/pal/sdkloader/pal.js$script,3p,redirect=noopjs,domain=tunein.com,important
 
 ! END: Rules from filters.txt
 
