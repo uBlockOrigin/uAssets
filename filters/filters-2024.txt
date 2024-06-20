@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2024)
-! Last modified: Thu, 20 Jun 2024 06:12:09 +0000
+! Last modified: Thu, 20 Jun 2024 08:46:29 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -2166,8 +2166,15 @@ arenascan.com###floatcenter
 rizzfables.com,mgeko.cc,flamecomics.me###radio_content.abierto
 
 ! https://github.com/uBlockOrigin/uAssets/issues/24185
+!#if cap_html_filtering
+xnxxcom.xyz##^script:has-text(/interceptClickEvent|onbeforeunload|popMagic|location\.replace/)
+!#else
+xnxxcom.xyz##+js(rmnt, script, /interceptClickEvent|onbeforeunload|popMagic|location\.replace/)
 xnxxcom.xyz##+js(acs, onbeforeunload, ask)
 xnxxcom.xyz##+js(acs, document.querySelectorAll, popMagic)
+xnxxcom.xyz##+js(acs, addEventListener, location.replace)
+xnxxcom.xyz##+js(acs, navigator, interceptClickEvent)
+!#endif
 xnxxcom.xyz##+js(nostif, location.replace)
 xnxxcom.xyz##+js(set-cookie, clicked, 1, , reload, 1)
 xnxxcom.xyz##.fluid-spots
