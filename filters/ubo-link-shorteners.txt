@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Link shorteners
-! Last modified: Wed, 19 Jun 2024 12:28:04 +0000
+! Last modified: Thu, 20 Jun 2024 22:56:31 +0000
 ! Expires: 5 days
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
@@ -1122,3 +1122,11 @@ megaurl.in,megafly.in##+js(set, blurred, false)
 ||vidcrunch.com^$domain=aztravels.net|downfile.site
 @@*$ghide,domain=aztravels.net|downfile.site
 *$image,domain=app.trangchu.news|azmath.info,redirect-rule=1x1.gif
+
+! https://github.com/uBlockOrigin/uAssets/issues/24199
+!#if cap_html_filtering
+simana.online##^script:has-text(openPopup)
+!#else
+simana.online##+js(rmnt, script, openPopup)
+!#endif
+simana.online##+js(set, blurred, false)
