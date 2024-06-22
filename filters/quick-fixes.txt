@@ -1,5 +1,5 @@
 ! Title: uBlock₀ filters – Quick fixes
-! Last modified: Sat, 22 Jun 2024 15:28:56 +0000
+! Last modified: Sat, 22 Jun 2024 19:37:32 +0000
 ! Expires: 8 hours
 ! Description: Immediate, temporary filters to fix websites
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -13,21 +13,30 @@
 *$image,redirect-rule=32x32.png,domain=dropgalaxy.*|financemonk.net
 @@*$ghide,domain=dropgalaxy.*|financemonk.net
 ||d1rp4yowwe587e.cloudfront.net^$script,domain=dropgalaxy.*|financemonk.net,important
-||imasdk.googleapis.com/js/sdkloader/ima3.js$script,redirect-rule=google-ima.js,domain=dropgalaxy.*|financemonk.net
+||imasdk.googleapis.com/js/sdkloader/ima3.js$script,redirect-rule=google-ima.js,domain=dropgalaxy.*|financemonk.net,important
 ||pocpoc.io^$domain=dropgalaxy.*|financemonk.net
 ||mobileoffers-ep-download.com^$domain=dropgalaxy.*|financemonk.net
-@@||histats.com/js.js$script,domain=dropgalaxy.*|financemonk.net
 @@||popads.net/js/adblock.js$script,domain=dropgalaxy.*|financemonk.net
 @@||cdn.jsdelivr.net/gh/prebid/*$script,domain=dropgalaxy.*|financemonk.net
-@@||fundingchoicesmessages.google.com^$script,domain=dropgalaxy.*|financemonk.net
+@@||fundingchoicesmessages.google.com^$script,xhr,domain=dropgalaxy.*|financemonk.net
 @@||googlesyndication.com^$frame,image,domain=dropgalaxy.*|financemonk.net
-@@||s10.histats.com/js15_as.js$script,domain=dropgalaxy.*|financemonk.net
+@@||histats.com^$script,xhr,domain=dropgalaxy.*|financemonk.net
+@@||srtb.msn.com/auction$xhr,domain=dropgalaxy.*|financemonk.net
+/images/dgpromo.jpg$image,domain=dropgalaxy.*|financemonk.net,important
 @@*$script,xhr,from=dropgalaxy.*|financemonk.net,to=googlesyndication.com|doubleclick.net|rsc.cdn77.org|vlitag.com|adoto.net|a2zapk.com|login.popmonetizer.com
 dropgalaxy.*,financemonk.net##+js(nowoif)
-dropgalaxy.*,financemonk.net##+js(trusted-set, document.visibilityState, visible)
 dropgalaxy.*,financemonk.net##+js(set, supportedBrowsers, )
+dropgalaxy.*,financemonk.net##+js(set, supportedTimezoness, [])
+dropgalaxy.*,financemonk.net##+js(set, userTimezoneOffset, )
+dropgalaxy.*,financemonk.net##+js(aeld, visibilitychange)
+dropgalaxy.*,financemonk.net##+js(set-local-storage-item, rateLimitData, $remove$)
+dropgalaxy.*,financemonk.net##+js(set, ads, yes)
+dropgalaxy.*,financemonk.net##+js(rpnt, script, /\.cloudfront\.net|window\.open/g, false)
+dropgalaxy.*,financemonk.net##[id*="gpt_unit"], [id*="div-gpt-"], [id*="google_ads_"], [id*="ad_"], [class*="Google"], [alt*="Advertisement"], [class*="ads"]:style(display: block !important; visibility: visible !important;)
 dropgalaxy.*,financemonk.net##html.i-amphtml-inabox
-dropgalaxy.*,financemonk.net##[id^="TR-"][tr-id][style*="z-index: 9999"]
+dropgalaxy.*,financemonk.net##[id^="TR-"][tr-id][style*="z-index: 2147483647"]
+||financemonk.net/js/countd.js$script,domain=dropgalaxy.*|financemonk.net,replace=/throw\s+new\s+Error\(\);?//g
+||financemonk.net/adgpt.js$script,1p,domain=dropgalaxy.*|financemonk.net,replace=/none/block/g
 
 ! aternos anti adb
 @@||hb.vntsm.com/v3/live/ad-manager-bundle.min.js$script,domain=aternos.org
