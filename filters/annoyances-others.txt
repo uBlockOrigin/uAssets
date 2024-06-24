@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Other Annoyances
-! Last modified: Mon, 24 Jun 2024 04:37:06 +0000
+! Last modified: Mon, 24 Jun 2024 04:51:36 +0000
 ! Expires: 7 days
 ! Description: |
 !   Filters optimized for uBlock Origin, to be used with EasyList's
@@ -7607,3 +7607,8 @@ prompthero.com##body:style(overflow:initial!important)
 
 ! https://www.reddit.com/r/uBlockOrigin/comments/1dmthrd/strange_thing_ive_been_noticing_not_sure_how_it/
 ||web.archive.org/web/*/http://rpc.blogrolling.com/display.php?r=$1p,script
+
+! https://github.com/AdguardTeam/AdguardFilters/issues/182108
+!#if env_mobile
+zutool.jp##+js(trusted-set-local-storage-item, zutoolweb_appbanner_close, $now$)
+!#endif
