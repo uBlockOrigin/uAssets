@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Unbreak
-! Last modified: Mon, 24 Jun 2024 12:17:30 +0000
+! Last modified: Tue, 25 Jun 2024 05:50:55 +0000
 ! Expires: 5 days
 ! Description:
 !     Filters optimized for uBlock Origin, to unbreak sites broken as
@@ -9,6 +9,16 @@
 !
 ! GitHub issues: https://github.com/uBlockOrigin/uAssets/issues
 ! GitHub pull requests: https://github.com/uBlockOrigin/uAssets/pulls
+
+! START: Email trackings
+
+! password reset link broken on coindesk.com
+@@||awstrack.me/*auth.coindesk.com$doc,popup
+
+! swagbucks.com - restore inactive
+@@||awstrack.me/*cmd=ac-inactive-restore$doc,popup
+
+! END: Email trackings
 
 ! https://github.com/uBlockOrigin/uAssets/issues/729
 ! https://github.com/NanoMeow/QuickReports/issues/1636
@@ -5450,9 +5460,6 @@ optimum.net##+js(set, s.tl, noopFunc)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/23910
 @@||usabilla.com^$script,domain=nos.nl
-
-! password reset link broken on coindesk.com
-@@||awstrack.me/*auth.coindesk.com$doc,popup
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/179845
 @@||jssdkcdns.mparticle.com/js/*/mparticle.js^$script,3p,domain=syfy.com
