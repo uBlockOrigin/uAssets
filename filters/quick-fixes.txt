@@ -129,3 +129,14 @@ apkmirror.com#@#.listWidget > .appRow
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/180973
 kotobank.jp##+js(nostif, return)
+
+! https://github.com/uBlockOrigin/uAssets/issues/18260
+!#if cap_html_filtering
+client.falixnodes.net#@#^script:has-text(/adblock|_0x|onloadcheck|typeof adngin/)
+client.falixnodes.net##^script:has-text(/detectAdBlock|_0x|appelislekker|'\/func'/)
+!#else
+client.falixnodes.net#@#+js(rmnt, script, /adblock|_0x|onloadcheck|typeof adngin/)
+client.falixnodes.net##+js(rmnt, script, /detectAdBlock|_0x|appelislekker|'\/func'/)
+!#endif
+client.falixnodes.net##+js(rpnt, script, typeof window.googlescriptloaded, typeof window.googlescriptloaded === true && typeof window.googlescriptloaded)
+client.falixnodes.net##+js(rpnt, script, (window.googlescriptloaded, (window.googlescriptloaded === undefined || true || window.googlescriptloaded)
