@@ -1,5 +1,5 @@
 ! Title: uBlock₀ filters – Quick fixes
-! Last modified: Sat, 29 Jun 2024 11:41:42 +0000
+! Last modified: Sat, 29 Jun 2024 15:51:07 +0000
 ! Expires: 8 hours
 ! Description: Immediate, temporary filters to fix websites
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -131,9 +131,9 @@ kotobank.jp##+js(nostif, return)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/18260
 !#if cap_html_filtering
-client.falixnodes.net##^script:has-text(/detectAdBlock|\(typeof .+? \=\=\=? "undefined"\)|typeof adngin|_0x|'\/func'/)
+client.falixnodes.net##^script:has-text(/detectAdBlock|\(typeof .+? \=\=\=? ("undefined"|"function")\)|typeof adngin|_0x|'\/func'/)
 !#else
-client.falixnodes.net##+js(rmnt, script, /detectAdBlock|\(typeof .+? \=\=\=? "undefined"\)|typeof adngin|_0x|'\/func'/)
+client.falixnodes.net##+js(rmnt, script, /detectAdBlock|\(typeof .+? \=\=\=? ("undefined"|"function")\)|typeof adngin|_0x|'\/func'/)
 !#endif
 client.falixnodes.net##+js(rpnt, script, typeof window.googlescriptloaded, typeof window.googlescriptloaded === true && typeof window.googlescriptloaded)
 client.falixnodes.net##+js(rpnt, script, (window.googlescriptloaded, (window.googlescriptloaded === undefined || true || window.googlescriptloaded)
