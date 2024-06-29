@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Quick fixes
 ! Expires: 12 hours
-! Last modified: Sat, 29 Jun 2024 01:25:33 +0000
+! Last modified: Sat, 29 Jun 2024 02:04:25 +0000
 ! Diff-Path: %diffpath%#ublock-quick-fixes
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -91,7 +91,7 @@ raenonx.cc##html[style*="hidden"]:style(overflow: visible !important;)
 ||raenonx.cc/api/scripts
 japscan.lol#@#+js(acs, EventTarget.prototype.addEventListener, '/((ad-img|banner)-|interstitial|getComputedStyle|\)break;else)[\s\S]{1,5000}$/')
 japscan.lol##+js(acs, EventTarget.prototype.addEventListener, /mgid_iframe|ad[_-]|sessionStorage/)
-japscan.lol##+js(rmnt, script, /while \(!!\[\]\)|String\(\)\.fromCharCode/)
+japscan.lol##+js(rmnt, script, /while \(!!\[\]\)|String\(\)\.fromCharCode|\.join\(\w+\)\.split\(\w+\)/)
 japscan.lol##+js(aeld, load, /function.{1\,3000}$/)
 japscan.lol##+js(aost, onload, inlineScript)
 @@||japscan.lol^$ghide
@@ -116,4 +116,4 @@ client.falixnodes.net##+js(rpnt, script, typeof window.googlescriptloaded, typeo
 client.falixnodes.net##+js(rpnt, script, (window.googlescriptloaded, (window.googlescriptloaded === undefined || true || window.googlescriptloaded)
 matsukiyococokara-online.com#@#.storyblock-wrapper
 @@||fireworkapi1.com^$domain=matsukiyococokara-online.com
-kimcartoon.*##+js(aost, XMLHttpRequest, Scripts)
+kimcartoon.*##+js(rmnt, script, /^\s+setTimeout/)
