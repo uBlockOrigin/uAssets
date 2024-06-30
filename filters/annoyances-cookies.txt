@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Cookie Notices
-! Last modified: Mon, 24 Jun 2024 05:56:35 +0000
+! Last modified: Sun, 30 Jun 2024 12:05:55 +0000
 ! Expires: 7 days
 ! Description: |
 !   Filters optimized for uBlock Origin, to be used with EasyList's
@@ -181,8 +181,6 @@ tumblr.com##+js(trusted-click-element, .cmp__dialog-footer-buttons > .is-seconda
 tumblr.com##.components-modal__screen-overlay
 ! https://ontinet.com/
 ontinet.com##+js(trusted-set-cookie, website_cookies_bar, '{"required": true, "optional": false}')
-! https://github.com/uBlockOrigin/uAssets/issues/22254
-abc.es##+js(trusted-click-element, button#didomi-notice-agree-button)
 ! https://www.20minutos.es/noticia/5193814/0/violencia-machista-detenido-un-hombre-24-anos-por-asesinato-una-mujer-25-hija-ambos/
 20minutos.es##+js(trusted-click-element, #didomi-notice-agree-button)
 ! fplstatistics.co.uk
@@ -437,9 +435,6 @@ sydan.fi##+js(trusted-set-cookie, OptanonConsent, groups=C0001%3A1%2CC0002%3A0%2
 ! Video - Targeting cookie
 thejournal.ie##+js(trusted-set-cookie, OptanonConsent, groups=C0001%3A1%2CC0002%3A0%2CC0003%3A0%2CC0004%3A1)
 
-! https://github.com/uBlockOrigin/uAssets/issues/18842
-rfi.fr##+js(trusted-click-element, #didomi-notice-agree-button)
-
 ! Mandatory + Functional - chat doesn't work
 cmore.fi##+js(trusted-set-cookie, OptanonConsent, groups=1%3A1%2C2%3A0%2C3%3A1%2C4%3A0%2C5%3A0%2CBG40%3A0%2CBG41%3A0%2CBG42%3A0, 1year)
 
@@ -675,11 +670,6 @@ goed.at##+js(trusted-set-cookie, CookieConsent, {necessary:true%2Cpreferences:tr
 ! cookies managed by trustarc
 consent-pref.trustarc.com##+js(trusted-click-element, .call)
 
-! https://www.elcomercio.es/ - Agree
-elcomercio.es##+js(trusted-click-element, #didomi-notice-agree-button)
-elcomercio.es##div[style*="z-index: 9999;"]:style(background-color: transparent !important;)
-elcomercio.es###didomi-notice:style(visibility: hidden !important;)
-
 ! https://github.com/uBlockOrigin/uAssets/issues/20680
 highlights.legaseriea.it##+js(trusted-click-element, #cl-consent button[data-role="b_decline"])
 
@@ -752,9 +742,6 @@ coolstuff.*##+js(trusted-set-cookie, ConsentStatus, %7B%22necessary%22%3Atrue%2C
 
 ! https://github.com/uBlockOrigin/uAssets/issues/20840
 mediaset.it##+js(trusted-click-element, 'button#minf-privacy-open-modal-btn-id, button.iubenda-cs-close-btn')
-
-! https://github.com/uBlockOrigin/uAssets/issues/16943
-france24.com##+js(trusted-click-element, #didomi-notice-agree-button)
 
 ! cookies
 primor.eu##+js(set-cookie, amcookie_allowed, 0)
@@ -1154,9 +1141,6 @@ kosik.cz##+js(trusted-set-cookie, consentPreferences, '{"timestamp":"1","version
 ! technical only
 inps.it##+js(trusted-set-cookie, cc_cookie, '{"level":["tecnici"],"revision":0,"data":null,"rfc_cookie":false}')
 
-! https://github.com/AdguardTeam/AdguardFilters/issues/175067
-marmiton.org##+js(trusted-click-element, #didomi-notice-agree-button)
-
 ! https://github.com/uBlockOrigin/uAssets/issues/21954#issuecomment-2007446535
 ||sdk.privacy-center.org/*/loader.js$script,important,domain=huffingtonpost.es
 
@@ -1339,9 +1323,6 @@ n-tv.de##+js(trusted-set-cookie, consentUUID, 2cc64b48-60ab-4161-b42c-45f25a6e33
 ! accept
 privacy.motorradonline.de##+js(trusted-click-element, button[title="Akzeptieren und weiter"], , 1000)
 
-! https://github.com/uBlockOrigin/uAssets/issues/24056
-sensacine.com##+js(trusted-click-element, #didomi-notice-agree-button)
-
 ! just necessary
 tedbaker.com##+js(trusted-set-cookie, CONSENTMGR, c1:0|c6:0|c9:0|ts:1718751098255|consent:false|id:01902d7e715a00551abb1b4878180206f003606700fb9, , , domain, .tedbaker.com)
 
@@ -1359,3 +1340,7 @@ dailystar.co.uk,mirror.co.uk##+js(trusted-click-element, [class^="qc-cmp2-button
 ! https://www.redbull.com/ - third party content
 redbull.com##+js(trusted-set-cookie, OptanonConsent, groups=C0001%3A1%2CC0002%3A0%2CC0003%3A1, , , domain, www.redbull.com)
 redbull.com##+js(trusted-set-cookie, OptanonAlertBoxClosed, $currentDate$, , , domain, www.redbull.com)
+
+! Didomi consent popups
+gva.be,nieuwsblad.be,cadenaser.com,actu.fr,elconfidencial.com,rtl.lu,rfi.fr,20minutos.es,elcomercio.es,france24.com,marmiton.org,cope.es,sensacine.com,abc.es##+js(trusted-click-element, #didomi-notice-agree-button, , 1000)
+gva.be,nieuwsblad.be,cadenaser.com,actu.fr,elconfidencial.com,rtl.lu,rfi.fr,20minutos.es,elcomercio.es,france24.com,marmiton.org,cope.es,sensacine.com,abc.es###didomi-host:style(visibility: hidden !important;)
