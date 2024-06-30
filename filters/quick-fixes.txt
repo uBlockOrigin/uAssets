@@ -1,5 +1,5 @@
 ! Title: uBlock₀ filters – Quick fixes
-! Last modified: Sun, 30 Jun 2024 11:55:40 +0000
+! Last modified: Sun, 30 Jun 2024 14:54:13 +0000
 ! Expires: 8 hours
 ! Description: Immediate, temporary filters to fix websites
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -106,7 +106,7 @@ raenonx.cc##html[style*="hidden"]:style(overflow: visible !important;)
 ! https://github.com/uBlockOrigin/uAssets/issues/23806
 japscan.lol#@#+js(acs, EventTarget.prototype.addEventListener, '/((ad-img|banner)-|interstitial|getComputedStyle|\)break;else)[\s\S]{1,5000}$/')
 japscan.lol##+js(acs, EventTarget.prototype.addEventListener, /mgid_iframe|ad[_-]|sessionStorage/)
-japscan.lol##+js(rmnt, script, /while \(!!\[\]\)|String\(\)\.fromCharCode|\.join\(\w+\)\.split\(\w+\)|"undefined"|_\$/)
+japscan.lol##+js(rmnt, script, /while \(!!\[\]\)|String\(\)\.fromCharCode|\.join\(\w+\)\.split\(\w+\)|"undefined"|_\$|\[0\][^=]*==/)
 japscan.lol##+js(aeld, load, /function.{1\,3000}$/)
 japscan.lol##+js(aost, onload, inlineScript)
 @@||japscan.lol^$ghide
@@ -140,7 +140,7 @@ matsukiyococokara-online.com#@#.storyblock-wrapper
 @@||fireworkapi1.com^$domain=matsukiyococokara-online.com
 
 ! https://github.com/uBlockOrigin/uAssets/issues/24217
-kimcartoon.*##+js(rmnt, script, /^\s+setTimeout|setTimeout\([^\)]+?'[^\)]+\)/)
+kimcartoon.*##+js(rmnt, script, /^\s+setTimeout|setTimeout[^(]*\([^\)]+?'[^\)]+\)/)
 
 ! https://young-machine.com/
 ||fewcents.co^$3p
