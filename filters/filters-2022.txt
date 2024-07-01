@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2022)
-! Last modified: Sun, 30 Jun 2024 12:07:06 +0000
+! Last modified: Mon, 01 Jul 2024 03:11:39 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -5402,3 +5402,11 @@ sportskart.*##^script:has-text(u_cfg)
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/170100
 cdnm4m.nl##+js(nowoif)
+
+! https://listauthorschat.slack.com/archives/C05G8V3NERH/p1719797252047079
+||html-load.com/loader.min.js^$script,3p,domain=wfmz.com
+!#if cap_html_filtering
+wfmz.com##^script[onload*="error-report.com"]
+!#else
+||wfmz.com^$csp=script-src-attr 'none'
+!#endif
