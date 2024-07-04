@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Link shorteners
-! Last modified: Wed, 03 Jul 2024 14:11:59 +0000
+! Last modified: Thu, 04 Jul 2024 05:04:04 +0000
 ! Expires: 5 days
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
@@ -877,23 +877,25 @@ cookad.net,pmkisanlists.in,shramikcard.in##.timer, .shrs_btn, .tag, .link-open-m
 
 ! https://tii.la/qczmBQKd
 ! https://github.com/uBlockOrigin/uAssets/issues/18944
-@@*$ghide,domain=tii.la|oko.sh|ckk.ai|oei.la|lnbz.la
-tii.la,oko.sh,ckk.ai,oei.la,lnbz.la##+js(no-fetch-if, /googlesyndication|inklinkor/)
-tii.la,oko.sh,ckk.ai,oei.la,lnbz.la##+js(no-xhr-if, /pagead2\.googlesyndication\.com|inklinkor\.com/)
+! https://iir .la/p978czolam
+! https://github.com/uBlockOrigin/uAssets/discussions/17361#discussioncomment-9947919
+@@*$ghide,domain=tii.la|oko.sh|ckk.ai|oei.la|lnbz.la|iir.la
+iir.la,tii.la,oko.sh,ckk.ai,oei.la,lnbz.la##+js(no-fetch-if, /googlesyndication|inklinkor/)
+iir.la,tii.la,oko.sh,ckk.ai,oei.la,lnbz.la##+js(no-xhr-if, /pagead2\.googlesyndication\.com|inklinkor\.com/)
 !#if cap_html_filtering
-tii.la,oko.sh,ckk.ai,oei.la,lnbz.la##^script:has-text(;break;case $.)
-tii.la,oko.sh,ckk.ai,oei.la,lnbz.la##^script:has-text(adb_detected)
+iir.la,tii.la,oko.sh,ckk.ai,oei.la,lnbz.la##^script:has-text(;break;case $.)
+iir.la,tii.la,oko.sh,ckk.ai,oei.la,lnbz.la##^script:has-text(adb_detected)
 !#else
-tii.la,oko.sh,ckk.ai,oei.la,lnbz.la##+js(rmnt, script, ;break;case $.)
-tii.la,oko.sh,ckk.ai,oei.la,lnbz.la##+js(rmnt, script, adb_detected)
+iir.la,tii.la,oko.sh,ckk.ai,oei.la,lnbz.la##+js(rmnt, script, ;break;case $.)
+iir.la,tii.la,oko.sh,ckk.ai,oei.la,lnbz.la##+js(rmnt, script, adb_detected)
 !#endif
-tii.la,oko.sh,ckk.ai,oei.la,lnbz.la##+js(set, blurred, false)
-tii.la,oko.sh,ckk.ai,oei.la,lnbz.la##a[href][target="_blank"]
-tii.la,oko.sh,ckk.ai,oei.la,lnbz.la##.banner-inner
-tii.la,oko.sh,ckk.ai,oei.la,lnbz.la##.td-post-template-default.td-container
-tii.la,oko.sh,ckk.ai,oei.la,blogtechh.com,lnbz.la,techbixby.com,blogmyst.com##+js(nowoif)
-blogtechh.com,lnbz.la,techbixby.com,blogmyst.com##+js(set, timeSec, 0)
-blogtechh.com,lnbz.la,techbixby.com,blogmyst.com##[class*="category-"], .td-pb-border-top, .td-footer-bottom-full.td-container, .td-container-wrap.td-sub-footer-container
+iir.la,tii.la,oko.sh,ckk.ai,oei.la,lnbz.la##+js(set, blurred, false)
+iir.la,tii.la,oko.sh,ckk.ai,oei.la,lnbz.la##a[href][target="_blank"]
+iir.la,tii.la,oko.sh,ckk.ai,oei.la,lnbz.la##.banner-inner
+iir.la,tii.la,oko.sh,ckk.ai,oei.la,lnbz.la##.td-post-template-default.td-container
+iir.la,tii.la,oko.sh,ckk.ai,oei.la,blogtechh.com,lnbz.la,techbixby.com,blogmyst.com,wp2host.com##+js(nowoif)
+wp2host.com,blogtechh.com,lnbz.la,techbixby.com,blogmyst.com##+js(set, timeSec, 0)
+wp2host.com,blogtechh.com,lnbz.la,techbixby.com,blogmyst.com##[class*="category-"], .td-pb-border-top, .td-footer-bottom-full.td-container, .td-container-wrap.td-sub-footer-container
 
 ! http://go.megafly.in/znj2u7olam
 ! https://github.com/uBlockOrigin/uAssets/issues/18719
