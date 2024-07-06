@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Other Annoyances
-! Last modified: Fri, 05 Jul 2024 19:11:30 +0000
+! Last modified: Sat, 06 Jul 2024 04:14:25 +0000
 ! Expires: 7 days
 ! Description: |
 !   Filters optimized for uBlock Origin, to be used with EasyList's
@@ -7651,3 +7651,13 @@ karsaz-law.com##+js(rpnt, style, @media print)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/24220
 veev.to##+js(acs, RegExp, console)
+
+! https://mskmangaz.blogspot.com/2023/02/chuong-1-su-tro-lai-cua-nee-san-va-dien_10.html - anti copy / select / print
+mskmangaz.blogspot.com##.novel-box :not(a):style(user-select: text !important; -ms-user-select: text !important; -moz-user-select: text !important; -khtml-user-select: text !important; -webkit-user-select: text !important; -webkit-touch-callout: default !important;)
+mskmangaz.blogspot.com##.superpowerlol::before:style(content: unset !important;)
+mskmangaz.blogspot.com##div[oncopy]:remove-attr(/oncopy|oncut|onpaste/)
+!#if cap_html_filtering
+||mskmangaz.blogspot.com^$doc,replace=/\.novel-box \*:not\(a\)|\@media print//g
+!#else
+mskmangaz.blogspot.com##+js(trusted-rpnt, style, '/\.novel-box \*:not\(a\)|@media print/g')
+!#endif
