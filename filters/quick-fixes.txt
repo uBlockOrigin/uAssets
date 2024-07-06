@@ -1,5 +1,5 @@
 ! Title: uBlock₀ filters – Quick fixes
-! Last modified: Fri, 05 Jul 2024 17:15:33 +0000
+! Last modified: Sat, 06 Jul 2024 02:18:41 +0000
 ! Expires: 8 hours
 ! Description: Immediate, temporary filters to fix websites
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -105,7 +105,7 @@ raenonx.cc##html[style*="hidden"]:style(overflow: visible !important;)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/23806
 japscan.lol##+js(acs, EventTarget.prototype.addEventListener, /mgid_iframe|ad[_-]|sessionStorage/)
-japscan.lol##+js(rmnt, script, /while \(!!\[\]\)|String\(\)\.fromCharCode|\.join\(\w+\)\.split\(\w+\)|"undefined"|_\$|\[\d+\][^=]*==|\.join|\.substr|\.charAt/)
+japscan.lol##+js(rmnt, script, /while \(!!\[\]\)|String\(\)\.fromCharCode|\.join\(\w+\)\.split\(\w+\)|"undefined"|_\$|\[\d+\][^=]*==|\.join|\.substr|\.charAt|\.reduce/)
 japscan.lol##+js(aeld, load, /function.{1\,3000}$/)
 japscan.lol##+js(aost, onload, inlineScript)
 @@||japscan.lol^$ghide
@@ -120,9 +120,6 @@ japscan.lol##+js(no-fetch-if, www.japscan.lol/imgs/japo/reader)
 ||www.japscan.lol/imgs/japo/reader$image,1p,redirect=1x1.gif
 japscan.lol##+js(rmnt, script, /\'length\'/)
 ||japscan.lol^$csp=sandbox allow-forms allow-same-origin allow-scripts allow-modals allow-orientation-lock allow-pointer-lock allow-presentation allow-top-navigation
-
-! https://github.com/uBlockOrigin/uAssets/issues/20364
-@@*$xhr,script,3p,from=announcedcatchix1t.shop|brotherfox91.shop|currentcolorq2dv.shop|customsfencei3.shop|determinemousecshe.shop|fencethoughgdrt.shop|fencethroughout642.shop|foxwent6ot.shop|havingmovementu8x.shop|homebasis4d.shop|includingbreath5ku.shop|ironwinter6m.shop|leadmorning4ivn.shop|limiteddollqjc.shop|linelocatemfsn.shop|littlesound6c.shop|mindmotion93y8.shop|mightbadly4f.shop|monkeynecktj4w.shop|neighbormajorkex.shop|nervousdoctor9bx.shop|pantogether6jpi.shop|publicspeed5c.shop|quietlywheat23.shop|saddletopg3tk.shop|soldrubber5xrp.shop|somehowrockyng.shop|strangernervousql.shop|superabbit.shop|supportrightufd.shop|studyinghuman6js.shop|wholecommonrrvp.shop|wintertold7nq.shop,to=autos|sbs|shop
 
 ! https://github.com/uBlockOrigin/uAssets/issues/24145
 forumactif.com#@#.croco_wrapper, [onclick*="_"], [onclick*="var"], [onmousedown*="x"], [style*="height: 90px;"]
@@ -141,8 +138,8 @@ matsukiyococokara-online.com#@#.storyblock-wrapper
 @@||fireworkapi1.com^$domain=matsukiyococokara-online.com
 
 ! https://github.com/uBlockOrigin/uAssets/issues/24217
-! kimcartoon.*,kisscartoon.se,kc.linksgen.com##+js(nostif, '/^(?!function\(\){var c=d\(b\);f\.body\.removeChild\(b\),a\(c\)}$|function cv\(\){ct=b}$)/')
-kimcartoon.li##+js(aost, document.getElementById, /^(?!.*\b(jquery|disqus)\b).*/)
+kimcartoon.*,kisscartoon.se,kc.linksgen.com##+js(aost, document.getElementById, /^(?!.*\b(jquery|disqus)\b).*/)
+kimcartoon.*,kisscartoon.se,kc.linksgen.com##+js(aost, $, scripts)
 
 ! https://github.com/easylist/easylist/commit/43558f45cfb0cad01f968e6e4c65effdce1dce0e
 @@||pv.sohu.com/cityjson$domain=ems.com.cn
@@ -153,4 +150,3 @@ hikaku.kurashiru.com##a[class^="side-banner_side_fixed_banner_"]
 
 ! https://github.com/uBlockOrigin/uBlock-discussions/discussions/790#discussioncomment-9958805
 $frame,csp=sandbox allow-downloads allow-forms allow-same-origin allow-scripts,to=~buymeacoffee.com|~chatango.com|~cloudflare.com|~dailymotion.com|~discord.com|~disqus.com|~edgecastcdn.net|~emturbovid.com|~facebook.com|~frembed.*|~google.*|~hcaptcha.com|~mixdrop.*|~ok.ru|~recaptcha.net|~twitter.com|~vixcloud.co|~youtu.be|~youtube.com|~x.com,from=1jour1film.homes|7mmtv.sx|animefever.cc|animeunity.to|antennasports.ru|detodopeliculas.nu|euro2024direct.ru|hianime.to|kickassanime.*|kipflix.vercel.app|kissanime.*|seriescultes.store|soccerinhd.com|xsportbox.com,badfilter
-$frame,csp=sandbox allow-downloads allow-forms allow-same-origin allow-scripts,to=~buymeacoffee.com|~chatango.com|~cloudflare.com|~dailymotion.com|~discord.com|~disqus.com|~edgecastcdn.net|~emturbovid.com|~facebook.com|~frembed.*|~google.*|~hcaptcha.com|~mixdrop.*|~ok.ru|~recaptcha.net|~twitter.com|~vixcloud.co|~youtu.be|~youtube.com|~x.com,from=1jour1film.homes|animefever.cc|animeunity.to|antennasports.ru|detodopeliculas.nu|euro2024direct.ru|hianime.to|kickassanime.*|kipflix.vercel.app|kissanime.*|seriescultes.store|soccerinhd.com|xsportbox.com
