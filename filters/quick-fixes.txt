@@ -1,5 +1,5 @@
 ! Title: uBlock₀ filters – Quick fixes
-! Last modified: Sat, 06 Jul 2024 10:18:21 +0000
+! Last modified: Sat, 06 Jul 2024 15:14:40 +0000
 ! Expires: 8 hours
 ! Description: Immediate, temporary filters to fix websites
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -105,7 +105,7 @@ raenonx.cc##html[style*="hidden"]:style(overflow: visible !important;)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/23806
 japscan.lol##+js(acs, EventTarget.prototype.addEventListener, /mgid_iframe|ad[_-]|sessionStorage/)
-japscan.lol##+js(rmnt, script, /while \(!!\[\]\)|String\(\)\.fromCharCode|\.join\(\w+\)\.split\(\w+\)|"undefined"|_\$|\[\d+\][^=]*==|\.join|\.substr|\.charAt|\.reduce/)
+japscan.lol##+js(rmnt, script, /while \(!!\[\]\)|String\(\)\.fromCharCode|\.join\(\w+\)\.split\(\w+\)|"undefined"|_\$|\$_|\[\d+\][^=]*==|\.join|\.substr|\.charAt|\.reduce/)
 japscan.lol##+js(aeld, load, /function.{1\,3000}$/)
 japscan.lol##+js(aost, onload, inlineScript)
 @@||japscan.lol^$ghide
@@ -120,9 +120,6 @@ japscan.lol##+js(no-fetch-if, www.japscan.lol/imgs/japo/reader)
 ||www.japscan.lol/imgs/japo/reader$image,1p,redirect=1x1.gif
 japscan.lol##+js(rmnt, script, /\'length\'/)
 ||japscan.lol^$csp=sandbox allow-forms allow-same-origin allow-scripts allow-modals allow-orientation-lock allow-pointer-lock allow-presentation allow-top-navigation
-
-! https://github.com/uBlockOrigin/uAssets/issues/24145
-forumactif.com#@#.croco_wrapper, [onclick*="_"], [onclick*="var"], [onmousedown*="x"], [style*="height: 90px;"]
 
 ! https://github.com/uBlockOrigin/uAssets/issues/18260
 !#if cap_html_filtering
