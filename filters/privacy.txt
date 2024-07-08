@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Privacy
-! Last modified: Mon, 08 Jul 2024 08:50:19 +0000
+! Last modified: Mon, 08 Jul 2024 08:58:57 +0000
 ! Expires: 7 days
 ! Description: |
 !   Some of these filters make use of the `important` filter option,`
@@ -89,7 +89,7 @@ www.reddit.com##+js(rpnt, script, "outboundUrl", "outbound")
 www.reddit.com##+js(json-prune, data.*.elements.edges.[].node.outboundLink)
 www.reddit.com##+js(json-prune, data.children.[].data.outbound_link)
 ||redditstatic.com/shreddit/sentry-$domain=reddit.com
-www.reddit.com##+js(trusted-replace-outbound-text, JSON.stringify, /\"screen\"\:\{\"height\"\:/, '"screen":{"height":0,"width":0}')
+www.reddit.com##+js(trusted-replace-outbound-text, JSON.stringify, /\"screen\"\:\{\"height"\:[0-9][0-9][0-9]\,\"width\"\:[0-9][0-9][0-9][0-9]\}/, '"screen":{"height":0,"width":0}')
 www.reddit.com##+js(trusted-replace-outbound-text, JSON.stringify, /\"adblock\"\:\{\"enabled\"\:true\,\"acceptable_ads\"\:false\}/, '"adblock":{"enabled":false,"acceptable_ads":false}')
 ||www.reddit.com/|$xhr,1p,method=post
 
