@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Privacy
 ! Expires: 7 days
-! Last modified: Fri, 05 Jul 2024 04:53:45 +0000
+! Last modified: Mon, 08 Jul 2024 08:37:45 +0000
 ! Diff-Path: %diffpath%#ublock-privacy
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -42,9 +42,8 @@ www.reddit.com##+js(rpnt, script, "outboundUrl", "outbound")
 www.reddit.com##+js(json-prune, data.*.elements.edges.[].node.outboundLink)
 www.reddit.com##+js(json-prune, data.children.[].data.outbound_link)
 ||redditstatic.com/shreddit/sentry-$domain=reddit.com
-reddit.com##+js(aopw, STICKY_CANARY)
-! reddit.com##+js(aost, fetch, Ee/</<)
-reddit.com##reddit-breadcrumbs
+www.reddit.com##+js(trusted-replace-outbound-text, JSON.stringify, /\"screen\"\:\{\"height"\:[0-9][0-9][0-9]\,\"width\"\:[0-9][0-9][0-9][0-9]\}/, '"screen":{"height":0,"width":0}')
+www.reddit.com##+js(trusted-replace-outbound-text, JSON.stringify, /\"adblock\"\:\{\"enabled\"\:true\,\"acceptable_ads\"\:false\}/, '"adblock":{"enabled":false,"acceptable_ads":false}')
 ||www.reddit.com/|$xhr,1p,method=post
 docs.google.com##+js(no-xhr-if, method:POST url:/logImpressions)
 www.google.*##+js(set, rwt, noopFunc)
