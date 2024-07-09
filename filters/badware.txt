@@ -1,5 +1,5 @@
 ! Title: uBlock₀ filters – Badware risks
-! Last modified: Tue, 09 Jul 2024 04:52:19 +0000
+! Last modified: Tue, 09 Jul 2024 04:54:32 +0000
 ! Expires: 5 days
 ! Description: |
 !   For sites documented to put users at risk of installing 
@@ -3606,9 +3606,10 @@ oltacidergisi.com##+js(acs, atob, minimalDrainValue)
 ! booking.com
 ||rating-booking-vip.com^$all,to=~booking.com
 ! https://www.virustotal.com/gui/url/5fef6bafac49c64dc9e0ca06339967aa2ba2936745a57ca2c47aa3606def1707
-/^https:\/\/(?:[a-z]+\.)?hotel-(?:id)?\d{5,8}\.eu\//$doc,domain=eu|~booking.com
-/^https:\/\/(?:[a-z]+\.)?hotel-(?:id)?\d{5,8}\.com\//$doc,domain=com|~booking.com
+/^https:\/\/(?:[a-z]+\.)?hotel-(?:id)?\d{4,8}\.eu\//$doc,domain=eu|~booking.com
+/^https:\/\/(?:[a-z]+\.)?hotel-(?:id)?\d{4,8}\.com\//$doc,domain=com|~booking.com
 ! airbnb
+/^https:\/\/(?:[a-z]+\.)?check-(?:id)?\d{4,8}\.com\//$doc,domain=com
 ! https://www.virustotal.com/gui/url/8cdc4c3ca9313a9cdd27dc03d855105f37aebe9abac62265ea45993121cf7b31
 /^https:\/\/support-\d{1,2}\.ru\//$doc,domain=ru|~airbnb.com
 ||abnbclaim.com^$all,to=~airbnb.com
@@ -3733,6 +3734,7 @@ oltacidergisi.com##+js(acs, atob, minimalDrainValue)
 
 ! gov phishing site
 ||thanhtrapcrt.online^$all,to=~thanhtra.gov.vn
+||seeproc.com.br^$all,to=~my.gov.au
 ! gov.uk
 ||liveflo.qxlva.io^$all,to=~gov.uk
 ||approvaltool.bdukinternal.net^$all,to=~gov.uk
@@ -3764,13 +3766,16 @@ oltacidergisi.com##+js(acs, atob, minimalDrainValue)
 ||turkiyecumhuriyetiziraatbankasi.com^$all,to=~ziraatbank.com.tr
 ! https://www.virustotal.com/gui/url/d9fe8e546ae632891bf53e189191c8d66f00ad6ae27322e6fa5c8fb20f9cd1a1
 ||c1.is/BRI/$doc,domain=~bri.co.id
+! https://www.virustotal.com/gui/url/e776c7ece9f9bf00cda51a44d3cb5c37a32d05f98fed00f2b8963da4244b3151
+||facilitycond.protectorsistemas.com.br/--/*/Login.html^$all,to=~vrb-niederschlesien.de
 
 ! DHL
 ||dhl.*.potabox.com^$doc,domain=~dhl.com
 ||dhl-event.app^$all,to=~dhl.com
 ||dhexpress.weebly.com^$all,to=~dhl.com
 ||delivery.attempt.failure.ebbs.co.za^$all,to=~dhl.com
-||sites.google.com/view/expressdhl^$all
+||sites.google.com/view/expressdhl^$all,to=~dhl.com
+||app.farmaciadelmonestironline.com/SER/dnkdl/^$all,to=~dhl.com
 ! https://infosec.exchange/@urldna/112362770153826421
 ||solutionfun.info^$all
 ! https://infosec.exchange/@urldna/112516596219764485
@@ -3802,7 +3807,9 @@ oltacidergisi.com##+js(acs, atob, minimalDrainValue)
 ! https://www.virustotal.com/gui/url/381b8a23c755c95909382d1b4dc80bfd4e4c89b0f1c0e48ef626c16723ff88c1
 ||www-facebooks.com.vn^$all
 ! https://www.virustotal.com/gui/url/e5632b7ebd4d9ef4899155af4a8cf218797bd59972c231a7897b603b32ccccb1
-||govern-assessment-validation-njbujm.vercel.app^$all
+||govern-assessment-validation-*.vercel.app^$all
+! https://www.virustotal.com/gui/url/54cb07a8f7961f2a9b2e5aac8c8a7a3f7a3f816f56f799382b672929fabc32b4
+||support-center-for-business-page-caseid-*.vercel.app^$all
 ! https://www.virustotal.com/gui/url/6091a6693b5581524198c73b1f84c58e9272f1b100d7e68d7ed5fae7d05a06e2
 ||request-page-violation-*.surge.sh^$all
 ! https://www.virustotal.com/gui/url/a9ef0c410c76df46d4871a247df980ac912b93df02d7c7012477107171c78964
@@ -3810,6 +3817,8 @@ oltacidergisi.com##+js(acs, atob, minimalDrainValue)
 ! https://www.virustotal.com/gui/url/6eeee02278ccbecd060a66c9948c69d98b79c249876e03f7ff410180fa4b4057
 ||copyrights-*.surge.sh^$doc
 ||instructions-video.vercel.app/detailed_video.mp4$media
+! instagram
+||instagam.xyz^$all
 
 ! shopping sites
 /api/user/do_login|$xhr,1p,to=com|info,method=post,header=access-control-allow-headers:/authorization\,content-type\,if-match\,if-modified-since\,if-none-match\,if-unmodified-since\,x-requested-with/i
@@ -3881,8 +3890,10 @@ oltacidergisi.com##+js(acs, atob, minimalDrainValue)
 ||outlookoffice365team.webflow.io^$all
 ||exceklcmicrosftprotection.pages.dev^$all
 ||microsoft-datamaturity.noisehq.nl^$all
+||mblholdings.com^$all
 ||cashum.unam.mx/wp-content/backups-dup-pro/imports/index.htm$all
 ||od.atami.no/one_drive.html$all
+||vvskomplett.no/dev/tests/functional/config/$all
 ! https://www.virustotal.com/gui/url/20d6a5b64d26edeb2e5caae3aa19c00ebd83a6d4dac9e41486c823751e875030
 ||johnhstngs4.wixsite.com^$all
 ! https://infosec.exchange/@urldna/112186648791862292
@@ -3896,16 +3907,22 @@ oltacidergisi.com##+js(acs, atob, minimalDrainValue)
 ||conohawing.com/*/outlook-$doc
 ! https://www.virustotal.com/gui/url/6842be99947bd0db1671500f4ab7774846e34f7d951b190be9e58b9e84536f39
 ||hergunavantaj.com.tr^$all
-! https://www.virustotal.com/gui/url/121614b7a02a5f9bfe0df6bea30184ef2c28a03df07b6ae41c489de241554344?nocache=1
+! https://www.virustotal.com/gui/url/121614b7a02a5f9bfe0df6bea30184ef2c28a03df07b6ae41c489de241554344
 ||irrigationservices.co^$all
 ! https://www.virustotal.com/gui/url/49d7a628c9179a385101a8b2375318dd7659b95ecaa8c35fe8a04383f3414809
 ||antivhelp.com^$all
+! https://www.virustotal.com/gui/url/a718d596ee202aef01133915018feedcb6b3402730a4246dd4c7329d60729faf
+||adobesecurequotelink.ru^$all
 
 ! telegram
 ||telegramhcn.com^$all
 ||web.telegram.data-bees.cn^$all
 ||telegramkv.com^$all
 ||haveplentymusic.com^$all
+||telewebk.xyz^$all
+||jzrx-spins.com^$all
+||newappmssg.ru^$all
+||tele-gramotno.ru^$all
 
 ! usps
 ! https://infosec.exchange/@urldna/112224043535026915
@@ -4024,6 +4041,8 @@ oltacidergisi.com##+js(acs, atob, minimalDrainValue)
 ||utahpolicetraining.*.mybluehost.me^$all
 ! https://www.virustotal.com/gui/url/6b28b0f75f67f50bff41f92b9189f2c499d3d20abb59eebb1a3aebb78b32950c
 ||shoppingmall55.com^$all,to=~falabella.com
+! https://www.virustotal.com/gui/url/39e79c9498bfbdda517d98e90661045f3480e646db1d606f2dbc6fc2880e62b2
+||rozvag.com.ua/*/ionos/$all,to=~ionos.com
 
 ! https://khonggianmang.vn/uploads/2024_CBT_09_4c59decfba.pdf
 ||chamsockhachhang-$doc

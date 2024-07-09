@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Badware risks
 ! Expires: 5 days
-! Last modified: Tue, 09 Jul 2024 04:52:19 +0000
+! Last modified: Tue, 09 Jul 2024 04:54:32 +0000
 ! Diff-Path: %diffpath%#ublock-badware
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -3043,9 +3043,10 @@ oltacidergisi.com##+js(acs, atob, minimalDrainValue)
 ||bookingtool.azurewebsites.net^$all,to=~fedex.com
 ! booking.com
 ||rating-booking-vip.com^$all,to=~booking.com
-/^https:\/\/(?:[a-z]+\.)?hotel-(?:id)?\d{5,8}\.eu\//$doc,domain=eu|~booking.com
-/^https:\/\/(?:[a-z]+\.)?hotel-(?:id)?\d{5,8}\.com\//$doc,domain=com|~booking.com
+/^https:\/\/(?:[a-z]+\.)?hotel-(?:id)?\d{4,8}\.eu\//$doc,domain=eu|~booking.com
+/^https:\/\/(?:[a-z]+\.)?hotel-(?:id)?\d{4,8}\.com\//$doc,domain=com|~booking.com
 ! airbnb
+/^https:\/\/(?:[a-z]+\.)?check-(?:id)?\d{4,8}\.com\//$doc,domain=com
 /^https:\/\/support-\d{1,2}\.ru\//$doc,domain=ru|~airbnb.com
 ||abnbclaim.com^$all,to=~airbnb.com
 ||pt-apartmentsairbnb.com^$all,to=~airbnb.com
@@ -3140,6 +3141,7 @@ oltacidergisi.com##+js(acs, atob, minimalDrainValue)
 ||btbttt.000webhostapp.com^$all,to=~bt.com
 ! gov phishing site
 ||thanhtrapcrt.online^$all,to=~thanhtra.gov.vn
+||seeproc.com.br^$all,to=~my.gov.au
 ! gov.uk
 ||liveflo.qxlva.io^$all,to=~gov.uk
 ||approvaltool.bdukinternal.net^$all,to=~gov.uk
@@ -3162,12 +3164,14 @@ oltacidergisi.com##+js(acs, atob, minimalDrainValue)
 ||mybluehost.me/service/*/nkl-log.php$doc,domain=~nickel.eu
 ||turkiyecumhuriyetiziraatbankasi.com^$all,to=~ziraatbank.com.tr
 ||c1.is/BRI/$doc,domain=~bri.co.id
+||facilitycond.protectorsistemas.com.br/--/*/Login.html^$all,to=~vrb-niederschlesien.de
 ! DHL
 ||dhl.*.potabox.com^$doc,domain=~dhl.com
 ||dhl-event.app^$all,to=~dhl.com
 ||dhexpress.weebly.com^$all,to=~dhl.com
 ||delivery.attempt.failure.ebbs.co.za^$all,to=~dhl.com
-||sites.google.com/view/expressdhl^$all
+||sites.google.com/view/expressdhl^$all,to=~dhl.com
+||app.farmaciadelmonestironline.com/SER/dnkdl/^$all,to=~dhl.com
 ||solutionfun.info^$all
 ||zdrhuagh.elementor.cloud/*/index.html$all
 ! facebook
@@ -3190,11 +3194,14 @@ oltacidergisi.com##+js(acs, atob, minimalDrainValue)
 ||www-facebook-com.vn^$all
 ||vww-facebook.com.vn^$all
 ||www-facebooks.com.vn^$all
-||govern-assessment-validation-njbujm.vercel.app^$all
+||govern-assessment-validation-*.vercel.app^$all
+||support-center-for-business-page-caseid-*.vercel.app^$all
 ||request-page-violation-*.surge.sh^$all
 ||violation-*.surge.sh^$doc
 ||copyrights-*.surge.sh^$doc
 ||instructions-video.vercel.app/detailed_video.mp4$media
+! instagram
+||instagam.xyz^$all
 ! shopping sites
 /api/user/do_login|$xhr,1p,to=com|info,method=post,header=access-control-allow-headers:/authorization\,content-type\,if-match\,if-modified-since\,if-none-match\,if-unmodified-since\,x-requested-with/i
 /api/user/do_login|$xhr,1p,to=com|info,method=post,header=Access-Control-Allow-Headers:/authorization\,content-type\,if-match\,if-modified-since\,if-none-match\,if-unmodified-since\,x-requested-with/i
@@ -3254,8 +3261,10 @@ oltacidergisi.com##+js(acs, atob, minimalDrainValue)
 ||outlookoffice365team.webflow.io^$all
 ||exceklcmicrosftprotection.pages.dev^$all
 ||microsoft-datamaturity.noisehq.nl^$all
+||mblholdings.com^$all
 ||cashum.unam.mx/wp-content/backups-dup-pro/imports/index.htm$all
 ||od.atami.no/one_drive.html$all
+||vvskomplett.no/dev/tests/functional/config/$all
 ||johnhstngs4.wixsite.com^$all
 ||acir.postofficeweb.com/grupoacir/$all
 ||storageapi-new.fleek.co/*/yss/ind.html$all
@@ -3264,11 +3273,16 @@ oltacidergisi.com##+js(acs, atob, minimalDrainValue)
 ||hergunavantaj.com.tr^$all
 ||irrigationservices.co^$all
 ||antivhelp.com^$all
+||adobesecurequotelink.ru^$all
 ! telegram
 ||telegramhcn.com^$all
 ||web.telegram.data-bees.cn^$all
 ||telegramkv.com^$all
 ||haveplentymusic.com^$all
+||telewebk.xyz^$all
+||jzrx-spins.com^$all
+||newappmssg.ru^$all
+||tele-gramotno.ru^$all
 ! usps
 /^https:\/\/usps\.[-a-z]{6,}\.(?:com|top)\/(?:address\.html|information|verify)\b/$doc,domain=com|top|~usps.com
 /^https:\/\/ur[cex][a-z]{2,4}\.com\/(?:address\.html|information|verify)\b/$doc,domain=com|~usps.com
@@ -3349,6 +3363,7 @@ oltacidergisi.com##+js(acs, atob, minimalDrainValue)
 ||cprapid.com^$doc
 ||utahpolicetraining.*.mybluehost.me^$all
 ||shoppingmall55.com^$all,to=~falabella.com
+||rozvag.com.ua/*/ionos/$all,to=~ionos.com
 ||chamsockhachhang-$doc
 ! /^https:\/\/hdsaison-?[a-z]{2,}\.(?:cc|com|vip)\//$doc,domain=cc|com|vip|~hdsaison.com.vn
 /^https?:\/\/dienmayxanh[-a-z0-9]+\.com\//$doc,domain=com|~dienmayxanh.com
