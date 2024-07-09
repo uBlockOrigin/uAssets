@@ -10,6 +10,16 @@
 ! GitHub issues: https://github.com/uBlockOrigin/uAssets/issues
 ! GitHub pull requests: https://github.com/uBlockOrigin/uAssets/pulls
 
+! START: Email trackings
+
+! password reset link broken on coindesk.com
+@@||awstrack.me/*auth.coindesk.com$doc,popup
+
+! swagbucks.com - restore inactive
+@@||awstrack.me/*cmd=ac-inactive-restore$doc,popup
+
+! END: Email trackings
+
 ! https://github.com/uBlockOrigin/uAssets/issues/729
 ! https://github.com/NanoMeow/QuickReports/issues/1636
 ||2mdn.net/instream/video/client.js$script,redirect=noopjs,domain=video.foxnews.com
@@ -17,6 +27,13 @@
 @@||akamaihd.net/player/*/akamai/amp/prebid/*$script,domain=static.foxnews.com
 @@||global.fncstatic.com^*/ads.js$script,domain=foxnews.com
 @@||imasdk.googleapis.com/js/sdkloader/ima3.js$script,domain=insider.foxnews.com
+! https://github.com/uBlockOrigin/uAssets/issues/22160
+! https://github.com/uBlockOrigin/uAssets/issues/22385
+!#if env_firefox
+foxbusiness.com,foxnews.com##+js(set, Taplytics, {})
+foxbusiness.com,foxnews.com##+js(set, Taplytics.featureFlagEnabled, noopFunc)
+foxbusiness.com,foxnews.com##+js(set, Taplytics.runningExperiments, noopFunc)
+!#endif
 
 ! Chrome store feedback
 ! To counter `top.mail.ru` in Peter Lowe's
@@ -4194,16 +4211,18 @@ jacksonguitars.com##+js(set, analytics, {})
 ! https://github.com/easylist/easylist/issues/15018
 ! https://github.com/uBlockOrigin/uAssets/issues/17578
 ! https://github.com/AdguardTeam/AdguardFilters/issues/148311
+! https://www.reddit.com/r/uBlockOrigin/comments/1d95bh2/ublock_detected_at_httpskultivicom/
 ||connatix.com^$badfilter
-||connatix.com^$3p,domain=~huffpost.com
-huffpost.com#@#.cnx-player-wrapper
+||connatix.com^$3p
 ||connatix.com^$3p,removeparam=cid
-@@||cd.connatix.com/connatix.player.js$3p,script,domain=accesousa.com|accuweather.com|adweek.com|bellinghamherald.com|bnd.com|bradenton.com|centredaily.com|charlotteobserver.com|easternstandardtimes.com|elnuevoherald.com|flkeysnews.com|fresnobee.com|heraldonline.com|heraldsun.com|hollywoodreporter.com|idahostatesman.com|indiewire.com|islandpacket.com|interestingengineering.com|kansas.com|kansascity.com|kentucky.com|ledger-enquirer.com|loot.tv|macon.com|mahoningmatters.com|mcclatchydc.com|mercedsunstar.com|miamiherald.com|modbee.com|myrtlebeachonline.com|newsobserver.com|reuters.com|sacbee.com|sanluisobispo.com|star-telegram.com|sunherald.com|thenewstribune.com|theolympian.com|thestate.com|tri-cityherald.com|variety.com
-hollywoodreporter.com#@#.cnx-player-wrapper
-hollywoodreporter.com#@#[id^="jwplayer"]
-@@||cds.connatix.com/p/*/connatix.player.$3p,script
-@@||cds.connatix.com/p/*/player.css$3p,css
-@@||connatix.com/elements/*/cnx-lead-style.css$3p,css
+app.kultivi.com,hollywoodreporter.com,huffpost.com,sacbee.com,w3schools.com#@#.cnx-player-wrapper
+app.kultivi.com,hollywoodreporter.com,huffpost.com,sacbee.com,w3schools.com#@#[id^="jwplayer"]
+@@||connatix.com/*connatix.player.$3p,script,domain=accesousa.com|accuweather.com|adweek.com|app.kultivi.com|bellinghamherald.com|bnd.com|bradenton.com|centredaily.com|charlotteobserver.com|easternstandardtimes.com|elnuevoherald.com|flkeysnews.com|fresnobee.com|heraldonline.com|heraldsun.com|hollywoodreporter.com|huffpost.com|idahostatesman.com|indiewire.com|islandpacket.com|interestingengineering.com|kansas.com|kansascity.com|kentucky.com|ledger-enquirer.com|loot.tv|macon.com|mahoningmatters.com|mcclatchydc.com|mercedsunstar.com|miamiherald.com|modbee.com|myrtlebeachonline.com|newsobserver.com|reuters.com|sacbee.com|sanluisobispo.com|star-telegram.com|sunherald.com|thenewstribune.com|theolympian.com|thestate.com|tri-cityherald.com|variety.com|w3schools.com
+@@||connatix.com/*.css$3p,css
+@@||cds.connatix.com/*/elLoader.$3p,script
+@@||cds.connatix.com/*/player.renderer.$3p,script
+@@||cds.connatix.com/*/player.hls.$3p,script
+@@||cds.connatix.com/*/player.lit.$3p,script
 @@||capi.connatix.com/core/pls$3p,xhr
 @@||img.connatix.com/pid-$3p,image
 @@||vid.connatix.com/pid-$3p,media,xhr
@@ -5047,11 +5066,12 @@ help.cashctrl.com##+js(set, Origami.fastclick, noopFunc)
 ! https://www.reddit.com/r/uBlockOrigin/comments/1bbhc60/videos_from_the_site_httpsle10sportcom_do_not/
 ! https://www.reddit.com/r/uBlockOrigin/comments/1axy3om/videos_from_the_site_httpswwwpurepeoplecom_do_not/
 ! https://www.purepeople.com/article/kate-middleton-et-le-prince-harry-ont-ils-repris-contact-une-experte-en-est-persuadee_a520086/1
-@@||cdn.lib.getjad.io/library/$script,3p,domain=le10sport.com|purepeople.com|vidaextra.com
-@@||securepubads.g.doubleclick.net/tag/js/gpt.js$script,3p,domain=le10sport.com|purepeople.com|vidaextra.com
-@@||securepubads.g.doubleclick.net/pagead/managed/js/gpt/*/pubads_impl$script,3p,domain=le10sport.com|purepeople.com|vidaextra.com
-@@||securepubads.g.doubleclick.net/gampad/ads$xhr,3p,domain=le10sport.com|purepeople.com|vidaextra.com
-@@||amazon-adsystem.com/*/apstag.js$script,3p,redirect-rule,domain=le10sport.com|purepeople.com|vidaextra.com
+! https://www.reddit.com/r/uBlockOrigin/comments/1dci4g4/videos_from_the_site_httpswwwozapcom_do_not_launch/
+@@||cdn.lib.getjad.io/library/$script,3p,domain=le10sport.com|ozap.com|purepeople.com|vidaextra.com
+@@||securepubads.g.doubleclick.net/tag/js/gpt.js$script,3p,domain=le10sport.com|ozap.com|purepeople.com|vidaextra.com
+@@||securepubads.g.doubleclick.net/pagead/managed/js/gpt/*/pubads_impl$script,3p,domain=le10sport.com|ozap.com|purepeople.com|vidaextra.com
+@@||securepubads.g.doubleclick.net/gampad/ads$xhr,3p,domain=le10sport.com|ozap.com|purepeople.com|vidaextra.com
+@@||amazon-adsystem.com/*/apstag.js$script,3p,redirect-rule,domain=le10sport.com|ozap.com|purepeople.com|vidaextra.com
 @@||vidaextra.com^$ghide
 vidaextra.com##.ad
 
@@ -5166,13 +5186,6 @@ sklep.trzynastkaplus.pl##[onclick$="return !ga.loaded;"]:remove-attr(onclick)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/22172
 @@||st.dynamicyield.com/st$script,3p,domain=thewarehouse.co.nz
-
-! https://github.com/uBlockOrigin/uAssets/issues/22160
-! https://github.com/uBlockOrigin/uAssets/issues/22385
-!#if env_firefox
-foxbusiness.com,foxnews.com##+js(set, Taplytics, {})
-foxbusiness.com,foxnews.com##+js(set, Taplytics.featureFlagEnabled, noopFunc)
-!#endif
 
 ! https://github.com/uBlockOrigin/uAssets/issues/22204
 @@||engine.monetate.net/api/$xhr,domain=dunelm.com
@@ -5444,3 +5457,124 @@ share.hntv.tv##+js(set, sensorsDataAnalytic201505.track, noopFunc)
 ! https://github.com/uBlockOrigin/uAssets/issues/23896
 optimum.net##+js(set, s, {})
 optimum.net##+js(set, s.tl, noopFunc)
+
+! https://github.com/uBlockOrigin/uAssets/issues/23910
+@@||usabilla.com^$script,domain=nos.nl
+
+! https://github.com/AdguardTeam/AdguardFilters/issues/179845
+@@||jssdkcdns.mparticle.com/js/*/mparticle.js^$script,3p,domain=syfy.com
+
+! https://www.reddit.com/r/uBlockOrigin/comments/1d4j9is/ub0_only_extension_and_default_filters_but_still/
+pvrcinemas.com##+js(set, SalesforceInteractions, {})
+pvrcinemas.com##+js(set, SalesforceInteractions.CatalogObjectInteractionName)
+
+! https://github.com/uBlockOrigin/uAssets/issues/23921
+@@||hog.tv^$cname
+
+! https://github.com/easylist/easylist/commit/05088ebeca21e346dc73c08b45e4eab2041a414d
+@@||fundingchoicesmessages.google.com/i/$script,domain=sudokugame.org
+
+! https://github.com/uBlockOrigin/uAssets/issues/23937
+howtogeek.com,makeuseof.com,xda-developers.com#@#+js(aopr, googletag)
+howtogeek.com,makeuseof.com,xda-developers.com#@#.adsninja-ad-zone
+howtogeek.com,makeuseof.com,xda-developers.com#@#.ad-current
+howtogeek.com,makeuseof.com,xda-developers.com#@#.ad-zone-container
+@@||cdn.adsninja.ca^$script,css,domain=howtogeek.com|makeuseof.com|xda-developers.com
+||imasdk.googleapis.com/js/sdkloader/ima3.js$script,3p,redirect=google-ima.js,domain=howtogeek.com|makeuseof.com|xda-developers.com,important
+||googletagservices.com/tag/js/gpt.js$domain=howtogeek.com|makeuseof.com|xda-developers.com,important
+||g.doubleclick.net/pagead/managed/js/gpt/$script,domain=howtogeek.com|makeuseof.com|xda-developers.com,important
+
+! https://github.com/uBlockOrigin/uAssets/issues/23960
+@@||imasdk.googleapis.com/pal/sdkloader/pal.js$script,domain=13tv.co.il
+13tv.co.il##+js(nano-stb, taboola timeout, *, 0.001)
+13tv.co.il##+js(nano-stb, clearInterval(run), 5000, 0.001)
+
+! https://github.com/AdguardTeam/AdguardFilters/issues/180750
+||pcoptimizedsettings.com/*/gtag.js^$script,1p,important
+||pcoptimizedsettings.com^$script,1p,redirect-rule=noopjs
+
+! https://github.com/uBlockOrigin/uAssets/issues/23992
+@@||lostpod.space/static/streaming-playlists/$xhr
+
+! https://github.com/uBlockOrigin/uAssets/issues/24037
+||js-agent.newrelic.com^$badfilter
+||js-agent.newrelic.com^$3p
+
+! https://github.com/uBlockOrigin/uAssets/issues/24005#issuecomment-2168848802
+! Page issue, but annoying so fixing it here
+emailnator.com##[style^="width: 15px; height: 15px; overflow: scroll; visibility: hidden; color: rgb(calc(var(--x2)"]
+
+! https://github.com/AdguardTeam/AdguardFilters/issues/111245
+! https://github.com/easylist/easylist/issues/19352
+mediaite.com##+js(set-cookie, am-sub, 1)
+
+! https://github.com/uBlockOrigin/uAssets/issues/24153
+@@||track.adtraction.com/*www.gog.com$popup,3p,domain=isthereanydeal.com
+
+! https://github.com/uBlockOrigin/uAssets/issues/24136
+@@||netshoes.com.br/webanalytics/*$xhr,1p
+
+! https://github.com/uBlockOrigin/uAssets/issues/24176
+||imasdk.googleapis.com/js/sdkloader/ima3.js$script,domain=tabii.com,redirect-rule=google-ima.js
+||imasdk.googleapis.com/js/sdkloader/ima3_dai.js$script,domain=tabii.com,redirect-rule=noopjs
+
+! https://github.com/uBlockOrigin/uAssets/issues/24191
+investor-web.hdfcfund.com##+js(set, smartech, noopFunc)
+
+! https://github.com/uBlockOrigin/uAssets/issues/24192
+@@||cdn.snigelweb.com/adengine/w3schools.com/loader.js$script,3p,domain=w3schools.com
+@@||adengine.snigelweb.com/w3schools.com/*/adngin.js^$script,3p,domain=w3schools.com
+@@||securepubads.g.doubleclick.net/tag/js/gpt.js$script,3p,domain=w3schools.com
+@@||securepubads.g.doubleclick.net/pagead/managed/js/gpt/*/pubads_impl$script,3p,domain=w3schools.com
+@@||securepubads.g.doubleclick.net/gampad/ads$xhr,3p,domain=w3schools.com
+||securepubads.g.doubleclick.net/gampad/ads$xhr,3p,domain=w3schools.com,removeparam=/cookie|gpic|ppid|eo_id_str|psts|pvsid|ga_|eid|didk|a3p/
+
+! https://github.com/uBlockOrigin/uAssets/issues/24201
+@@||mssl.fwmrm.net/libs/adm/*/AdManager.js$script,domain=tv5mondeplus.com
+tv5mondeplus.com##+js(cookie-remover, didomi_token)
+tv5mondeplus.com##+js(set-local-storage-item, didomi_token, $remove$)
+
+! https://github.com/uBlockOrigin/uAssets/issues/24225
+premio.io##+js(no-fetch-if, cloudflare.com/cdn-cgi/trace)
+
+! https://github.com/uBlockOrigin/uAssets/issues/24237
+||algolia.io/1/isalive$badfilter
+
+! https://tierlists.com/create/best-players-of-all-time-1
+@@||tierlists.com/detroitchicago/tulsa.js^$script,1p
+||tierlists.com^$script,1p,redirect-rule=noopjs
+tierlists.com##+js(nano-stb, /TDELAY|EzoIvent/, *, 0.001)
+
+! https://ktla.com/video - video breakage
+||imasdk.googleapis.com/js/sdkloader/ima3.js^$script,3p,redirect=google-ima.js,domain=ktla.com,important
+
+! https://github.com/uBlockOrigin/uAssets/issues/24321
+user.guancha.cn##+js(set, sensors, {})
+user.guancha.cn##+js(set, sensors.init, noopFunc)
+
+! https://github.com/uBlockOrigin/uAssets/issues/24351
+! https://github.com/uBlockOrigin/uAssets/issues/24372
+/frontend-metrics^$xhr,redirect-rule=nooptext
+
+! https://github.com/uBlockOrigin/uAssets/issues/24374
+||imasdk.googleapis.com/js/sdkloader/ima3.js^$script,3p,redirect=google-ima.js,domain=4gtv.tv,important
+
+! https://github.com/uBlockOrigin/uAssets/issues/24375
+@@||securepubads.g.doubleclick.net/tag/js/gpt.js$script,3p,redirect-rule,domain=ani.gamer.com.tw
+
+! https://www.chegg.com/my/security - cannot change password
+@@||assets.adobedtm.com/*/satelliteLib-$script,domain=chegg.com
+@@||assets.adobedtm.com/*-source.min.js$script,domain=chegg.com
+@@||client.perimeterx.net/PXzYvFOXaC/main.min.js$script,domain=chegg.com
+@@||pxchk.net/api/v2/collector^$xhr,domain=chegg.com
+
+! Lowe's list prevents opening links to streaming services
+! https://www.justwatch.com/us/tv-show/naruto
+@@||click.justwatch.com^$document,domain=click.justwatch.com
+@@||crunchyroll.pxf.io^$document,domain=crunchyroll.pxf.io
+@@||ojrq.net^*www.justwatch.com$document,domain=ojrq.net
+@@||imp.i305175.net^*justwatch&$document,domain=imp.i305175.net
+
+! https://github.com/uBlockOrigin/uAssets/issues/24407
+||imasdk.googleapis.com/js/sdkloader/ima3.js^$script,3p,redirect-rule=google-ima.js,domain=fox5sandiego.com
+||imasdk.googleapis.com/pal/sdkloader/pal.js^$script,3p,redirect-rule=noopjs,domain=fox5sandiego.com
