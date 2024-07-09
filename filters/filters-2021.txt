@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2021)
-! Last modified: Sun, 07 Jul 2024 01:28:30 +0000
+! Last modified: Tue, 09 Jul 2024 07:59:41 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -1252,8 +1252,11 @@ goalup.live##+js(nosiif, 0x)
 goalup.live##+js(ra, onclick)
 
 ! https://github.com/easylist/easylist/issues/7395#issuecomment-796787384
+! https://github.com/uBlockOrigin/uAssets/issues/24423
 freeuseporn.com##+js(aopr, encodeURIComponent)
-*$script,3p,domain=freeuseporn.com
+*$script,3p,from=freeuseporn.com,to=~cloudflare.com
+||freeuseporn.com/backdrop.js
+freeuseporn.com##.homed li:has(iframe)
 freeuseporn.com##canvas
 
 ||adsyou.pro^$3p
