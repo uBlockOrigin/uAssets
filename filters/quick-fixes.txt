@@ -1,5 +1,5 @@
 ! Title: uBlock₀ filters – Quick fixes
-! Last modified: Tue, 09 Jul 2024 18:32:49 +0000
+! Last modified: Wed, 10 Jul 2024 02:01:45 +0000
 ! Expires: 8 hours
 ! Description: Immediate, temporary filters to fix websites
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -105,7 +105,7 @@ raenonx.cc##html[style*="hidden"]:style(overflow: visible !important;)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/23806
 japscan.lol#@#+js(rmnt, script, "/ApoZow|'(map'|\/imgs\/|ads?-\d+|ad-img-slot|ad_inview_area|div-leader-ad)|\['style'\]\['display'\]|\.length;var|\.substr\(0|\.reduce\(\(acc, curr\)/")
-japscan.lol##+js(rmnt, script, /while \(!!\[\]\)|String\(\)\.fromCharCode|\.join\(\w+\)\.split\(\w+\)|"undefined"|_\$|\$_|\[\d+\][^=]*==|\.join|\.substr|\.charAt|\.reduce|!!|\$document/)
+japscan.lol##+js(rmnt, script, /while \(!!\[\]\)|String\(\)\.fromCharCode|\.join\(\w+\)\.split\(\w+\)|"undefined"|_\$|\$_|\[\d+\][^=]*==|\.join|\.substr|\.charAt|\.reduce|!!|\$document|return document/)
 japscan.lol##+js(acs, Array.prototype.join)
 japscan.lol##+js(aeld, load, /function.{1\,3000}$/)
 japscan.lol##+js(aost, onload, inlineScript)
@@ -134,12 +134,12 @@ client.falixnodes.net##+js(rpnt, script, (window.googlescriptloaded, (window.goo
 ! kimcartoon.*,kisscartoon.se,kc.linksgen.com##+js(aopw, xaZlE)
 ! kimcartoon.*,kisscartoon.se,kc.linksgen.com##+js(aost, jQuery.fn.html, /^(?!.*jquery).*(Scripts|inlineScript)/i)
 @@*$xhr,1p,domain=kimcartoon.*|kisscartoon.se|kc.linksgen.com
-!||kimcartoon.li/Scripts/ozzz.min.js
-! kimcartoon.*##+js(rmnt, script, AdBlock)
 kimcartoon.*#@#+js(nostif, /tryHard|leHz|Adb|divContentVideo/)
-kimcartoon.*##+js(nostif, /tryHard|leHz|Adb/)
+! kimcartoon.*##+js(nostif, /tryHard|leHz|Adb/)
 !#if ext_devbuild
 kimcartoon.li,kc.linksgen.com,kisscartoon.se##+js(trusted-suppress-native-method, RegExp.prototype.test, '"AdBlock"', abort)
+!#else
+kimcartoon.*##+js(rpnt, script, /^\(function/, '/*start*/(function(){const e={apply:(e,t,o)=>{if(o[0]?.includes("AdBlock")){throw new ReferenceError();};return Reflect.apply(e,t,o)}};window.RegExp.prototype.test=new Proxy(window.RegExp.prototype.test,e)})();document.currentScript.textContent=document.currentScript.textContent.replace(/\/\*start\*\/(.*)\/\*end\*\//g,"");/*end*/(function', sedCount, 1)
 !#endif
 
 ! https://github.com/uBlockOrigin/uBlock-discussions/discussions/790#discussioncomment-9958805
