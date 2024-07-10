@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2024)
-! Last modified: Wed, 10 Jul 2024 03:14:58 +0000
+! Last modified: Wed, 10 Jul 2024 03:55:13 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -591,11 +591,22 @@ bharathwick.com##+js(rmnt, script, deblocker)
 ||amazonaws.com/pubs/trib/aa_adb_modal$script,3p
 ||amazonaws.com/pubs/trib/triblive_$script,3p
 
+! https://www.reddit.com/r/uBlockOrigin/comments/1dz686n/how_to_block_this_ad_prematurely_i_blocked_it/
+! https://github.com/uBlockOrigin/uAssets/issues/19779
 ! https://github.com/uBlockOrigin/uAssets/issues/21769
 ! https://github.com/uBlockOrigin/uAssets/issues/22851
 ! https://github.com/uBlockOrigin/uAssets/commit/b8ec336f4f3ea793750d553129b58df543cc338d#commitcomment-139593195
-animesuge.to,aniwave.to,aniwave.vc,anix.to,bflix.to,bflixhd.to,flixflare.to,flixhive.to,flixhq.bz,flixtorz.to,fmoviesz.to,fmovies24.to,hurawatch.bz,hurawatch2.to,losmoviesz.to,mangafire.to,moviestowatch.id,soap2dayx.to##+js(nowoif, _blank)
-animesuge.to,aniwave.to,aniwave.vc,anix.to,anix.vc,bflix.to,bflixhd.to,flixflare.to,flixhive.to,flixhq.bz,flixtorz.to,fmoviesz.to,fmovies24.to,hurawatch.bz,hurawatch2.to,losmoviesz.to,mangafire.to,moviestowatch.id,soap2dayx.to##+js(set-cookie, __pf, 1)
+animesuge.to,aniwave.*,anix.to,bflix.to,bflixhd.to,flixflare.to,flixhive.to,flixhq.bz,flixtorz.to,fmoviesz.to,fmovies24.to,hurawatch.bz,hurawatch2.to,losmoviesz.to,mangafire.to,moviestowatch.id,soap2dayx.to##+js(nowoif, _blank)
+animesuge.to,aniwave.*,anix.to,anix.vc,bflix.to,bflixhd.to,flixflare.to,flixhive.to,flixhq.bz,flixtorz.to,fmoviesz.to,fmovies24.to,hurawatch.bz,hurawatch2.to,losmoviesz.to,mangafire.to,moviestowatch.id,soap2dayx.to##+js(set-cookie, __pf, 1)
+up.com,puzzle-bridges.com,puzzle-shikaku.com,puzzle-nurikabe.com,puzzle-dominosa.com###MainContainer + [id]:has(> #bannerSide)
+!#if cap_html_filtering
+aniwave.*##^script:has-text(document.write)
+!#else
+aniwave.*##+js(acs, document.write)
+!#endif
+aniwave.*##.adx
+aniwave.*##.text-center:has(script + a[target="_blank"])
+||aniwave.*/assets/_bnx/$image,1p
 ||platform.pubadx.one^$3p
 ||delivery.r2b2.cz^$3p
 
