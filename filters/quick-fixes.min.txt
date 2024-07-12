@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Quick fixes
 ! Expires: 12 hours
-! Last modified: Fri, 12 Jul 2024 14:06:46 +0000
+! Last modified: Fri, 12 Jul 2024 18:28:56 +0000
 ! Diff-Path: %diffpath%#ublock-quick-fixes
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -154,7 +154,8 @@ exploader.net##div[style*="1120px;"][style*="450px;"]:style(height: 0 !important
 exploader.net##+js(no-xhr-if, .js)
 exploader.net##+js(set, load_daotag, true)
 *$script,domain=veev.to,redirect-rule=noopjs
-veev.to##+js(set, Object.prototype.callDetected, noopFunc)
+veev.to#@#+js(set, Object.prototype.callDetected, noopFunc)
+veev.to##+js(set, XMLHttpRequest.prototype.readyState, 4)
 /smartserve-$badfilter
 ||gateway.pinata.cloud^$3p,badfilter
 pcguide.com#@#.wepc-takeover
