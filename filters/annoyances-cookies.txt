@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Cookie Notices
-! Last modified: Tue, 09 Jul 2024 13:05:33 +0000
+! Last modified: Fri, 12 Jul 2024 17:04:04 +0000
 ! Expires: 7 days
 ! Description: |
 !   Filters optimized for uBlock Origin, to be used with EasyList's
@@ -1365,3 +1365,11 @@ ryobitools.eu###onetrust-consent-sdk
 
 ! Decline consent, video playback=good. Set expiry date to 1
 njspotlightnews.org,wliw.org,thirteen.org,njpbs.org,allarts.org##+js(trusted-set-cookie, wnet_vppa_assent, '{"choice":"decline","expires":1}')
+
+! https://github.com/AdguardTeam/AdguardFilters/issues/177378
+! https://github.com/AdguardTeam/AdguardFilters/issues/183077
+!#if ext_devbuild
+sportiva.shueisha.co.jp,wpb.shueisha.co.jp##+js(trusted-set-cookie, OptanonAlertBoxClosed, $currentISODate$)
+!#else
+sportiva.shueisha.co.jp,wpb.shueisha.co.jp##+js(trusted-click-element, #onetrust-accept-btn-handler)
+!#endif
