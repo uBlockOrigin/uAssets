@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Privacy
-! Last modified: Fri, 12 Jul 2024 19:34:27 +0000
+! Last modified: Sat, 13 Jul 2024 18:01:22 +0000
 ! Expires: 7 days
 ! Description: |
 !   Some of these filters make use of the `important` filter option,`
@@ -89,7 +89,7 @@ www.reddit.com##+js(rpnt, script, "outboundUrl", "outbound")
 www.reddit.com##+js(json-prune, data.*.elements.edges.[].node.outboundLink)
 www.reddit.com##+js(json-prune, data.children.[].data.outbound_link)
 ||redditstatic.com/shreddit/sentry-$domain=reddit.com
-www.reddit.com##+js(trusted-replace-outbound-text, JSON.stringify, '/^{"([a-z]{4})_token":"[^"]+","info":\[{.*"action_info":.*]}$/', '{"$1_token":"","info":[{"action_info":{"success":true,"trigger_type":"","page_type":""},"request":{"server_render_id":"","canonical_url":""},"screenview_id":"","screen":{"height":"","width":""},"adblock":{"enabled":false},"source":"global","action":"view","noun":"screen","referrer":{"url":"","domain":""},"client_timestamp":"","correlation_id":"","feed":{"correlation_id":""}}]}')
+www.reddit.com##+js(trusted-replace-outbound-text, JSON.stringify, '/^{"([^"]*token[^"]*)":"[0-9a-z]+","info":\[{.*"action_info":.*}]}$/', '{"$1":"","info":[{"action_info":{"success":true,"trigger_type":"","page_type":null},"request":{"server_render_id":"","canonical_url":""},"screenview_id":"","screen":{"height":"","width":""},"adblock":{"enabled":false},"source":"global","action":"view","noun":"screen","referrer":{"url":"","domain":""},"client_timestamp":"","correlation_id":""}]}')
 ||www.reddit.com/|$xhr,1p,method=post
 
 ! https://github.com/uBlockOrigin/uAssets/pull/5997
