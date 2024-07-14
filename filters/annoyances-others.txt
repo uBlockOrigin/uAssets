@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Other Annoyances
-! Last modified: Thu, 11 Jul 2024 22:32:21 +0000
+! Last modified: Sun, 14 Jul 2024 17:43:45 +0000
 ! Expires: 7 days
 ! Description: |
 !   Filters optimized for uBlock Origin, to be used with EasyList's
@@ -1979,7 +1979,9 @@ mangaku.*##+js(aeld, contextmenu)
 gamebanana.com##+js(aopr, adBlockDetected)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/10888#issuecomment-1523943368
-reddit.com##[bundlename="desktop_rpl_nsfw_blocking_modal"]:remove()
+reddit.com##[bundlename$="nsfw_blocking_modal"]:remove()
+! https://www.reddit.com/r/uBlockOrigin/comments/1dzrnq3/remove_popups_from_reddit_mobile/
+reddit.com##xpromo-nsfw-blocking-container:shadow(.prompt:has(> .viewInApp))
 ! https://github.com/easylist/easylist/issues/17354
 !#if !env_mobile
 reddit.com#@#body:not(.with-listing-chooser):style(overflow: visible !important; position: static !important;)
