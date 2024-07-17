@@ -1,5 +1,5 @@
 ! Title: uBlock₀ filters – Quick fixes
-! Last modified: Tue, 16 Jul 2024 23:07:35 +0000
+! Last modified: Wed, 17 Jul 2024 04:15:27 +0000
 ! Expires: 8 hours
 ! Description: Immediate, temporary filters to fix websites
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -173,7 +173,7 @@ audiobookbay.lu#@#a[href*="?f="]
 ||hl.cn^$doc,badfilter
 
 ! reddit data collection
-www.reddit.com##+js(trusted-replace-outbound-text, JSON.stringify, '/^{"([^"]*(csrf|tken|tkn|toke|token|toekn)[^"]*)":"[0-9a-z]+","info":\[{.*"action_info":.*}]}$/', '{"$1":"","info":[{"action_info":{"success":true,"trigger_type":"","page_type":null},"request":{"server_render_id":"","canonical_url":""},"screenview_id":"","screen":{"height":"","width":""},"adblock":{"enabled":false},"source":"global","action":"view","noun":"screen","referrer":{"url":"","domain":""},"client_timestamp":"","correlation_id":""}]}')
+www.reddit.com##+js(trusted-replace-outbound-text, JSON.stringify, '/^{"([^"]*(tokn|csrf|tken|tkn|toke|token|toekn)[^"]*)":"[0-9a-z]+","info":\[{.*"action_info":.*}]}$/', '{"$1":"","info":[{"action_info":{"success":true,"trigger_type":"","page_type":null},"request":{"server_render_id":"","canonical_url":""},"screenview_id":"","screen":{"height":"","width":""},"adblock":{"enabled":false},"source":"global","action":"view","noun":"screen","referrer":{"url":"","domain":""},"client_timestamp":"","correlation_id":""}]}')
 
 ! https://github.com/uBlockOrigin/uAssets/issues/24498
 ||contabostorage.com^$all,to=~gov.uk,badfilter
