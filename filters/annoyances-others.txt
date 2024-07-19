@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Other Annoyances
-! Last modified: Thu, 18 Jul 2024 10:02:41 +0000
+! Last modified: Fri, 19 Jul 2024 03:24:40 +0000
 ! Expires: 7 days
 ! Description: |
 !   Filters optimized for uBlock Origin, to be used with EasyList's
@@ -7698,3 +7698,9 @@ abysscdn.com##+js(set, devtoolsDetector.launch, noopFunc)
 ! https://www.reddit.com/r/uBlockOrigin/comments/1e63pqs/streamrubycom_detecting_ublock/
 ||streamruby.com/js/devtools-detector.js^$script,3p,domain=rubystm.com
 rubystm.com##+js(aopr, devtoolsDetector)
+
+! https://github.com/uBlockOrigin/uAssets/issues/24544
+esscctv.com##+js(ra, onselectstart, html[onselectstart])
+esscctv.com##.forbidden_select:remove-class(forbidden_select)
+esscctv.com##.track_back:style(background: unset !important;)
+esscctv.com##.pg_main2, .panel_main, .panel_border2:style(background: unset !important; user-select: text !important; -ms-user-select: text !important; -moz-user-select: text !important; -khtml-user-select: text !important; -webkit-user-select: text !important; -webkit-touch-callout: default !important;)
