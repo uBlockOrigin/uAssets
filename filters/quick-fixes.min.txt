@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Quick fixes
 ! Expires: 12 hours
-! Last modified: Fri, 19 Jul 2024 04:25:16 +0000
+! Last modified: Fri, 19 Jul 2024 08:15:30 +0000
 ! Diff-Path: %diffpath%#ublock-quick-fixes
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -145,6 +145,7 @@ exploader.net#@#+js(rmnt, script, $.ajax)
 exploader.net#@#+js(rmnt, script, /\$\.ajax|result/)
 exploader.net#@#+js(trusted-rpnt, script, /.{20\,}\.innerHTML = \'<span.+>\';/g)
 exploader.net##+js(trusted-rpnt, script, /\{\n.{20\,}\.innerHTML = \'<span.+>\';/g, {)
+exploader.net##+js(trusted-rpnt, script, /[0-9A-z]{20\,}\.innerHTML === \'<span.+>\'/, 1)
 veev.to##+js(set, XMLHttpRequest.prototype.readyState, true)
 !veev.to##+js(json-prune, file.disable_adb file.file_a)
 pcguide.com#@#.wepc-takeover
