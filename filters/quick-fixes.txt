@@ -164,8 +164,8 @@ exploader.net#@#+js(rmnt, script, window.load_daotag)
 exploader.net#@#+js(rmnt, script, !window.load_daotag)
 exploader.net#@#+js(rmnt, script, $.ajax)
 exploader.net#@#+js(rmnt, script, /\$\.ajax|result/)
-exploader.net##+js(trusted-rpnt, script, /if \(\!window\.load_daotag\) \{\n?\}[\S\s]+;\n?\}/)
-exploader.net##+js(rmnt, script, /\$\.ajax|result === false/)
+exploader.net##+js(trusted-rpnt, script, /[0-9A-z]{20\,} = false;if \([0-9A-z]{20\,}\).+?;\}\}/)
+exploader.net##+js(rmnt, script, /\$\.ajax|document\.getElementById\(\'([0-9A-z]+)\'\)\.style\.display = \'block\';\n?document\.getElementById\(\'([0-9A-z]+)\'\)\.style\.display = \'none\';\n?\}\n?[0-9A-z]+ = false;\n?if \([0-9A-z]+\) \{\n?document\.getElementById\(\'\1\'\)/)
 !#if env_mobile
 exploader.net###firstpop
 exploader.net##+js(trusted-rpnt, script, /[0-9A-z]{20\,}\.innerHTML = \'<a style.+?a>\';/g)
