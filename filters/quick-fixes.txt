@@ -164,12 +164,12 @@ exploader.net#@#+js(rmnt, script, window.load_daotag)
 exploader.net#@#+js(rmnt, script, !window.load_daotag)
 exploader.net#@#+js(rmnt, script, $.ajax)
 exploader.net#@#+js(rmnt, script, /\$\.ajax|result/)
-exploader.net#@#+js(trusted-rpnt, script, /.{20\,}\.innerHTML = \'<span.+>\';/g)
-exploader.net#@#+js(trusted-rpnt, script, /\{\n.{20\,}\.innerHTML = \'<span.+>\';/g, {)
-exploader.net#@#+js(trusted-rpnt, script, /[0-9A-z]{20\,}\.innerHTML === \'<span.+>\'/, 1)
-exploader.net#@#+js(trusted-rpnt, script, /if \(.+?\{\n(.+innerHTML = \'<a .+)\n\}/, $1, condition, ダウンロード)
-exploader.net##+js(trusted-rpnt, script, /\([0-9A-z]{20\,}\.innerHTML === \'<span.+?>\'\)/g, (1))
-exploader.net##+js(trusted-rpnt, script, /\{[0-9A-z]{20\,}\.innerHTML = \'<span.+?span>\';?\}/g, {})
+exploader.net##+js(trusted-rpnt, script, /if \(\!window\.load_daotag\) \{\n?\}[\S\s]+;\n?\}/)
+exploader.net##+js(rmnt, script, /\$\.ajax|result === false/)
+!#if env_mobile
+exploader.net###firstpop
+exploader.net##+js(trusted-rpnt, script, /[0-9A-z]{20\,}\.innerHTML = \'<a style.+?a>\';/g)
+!#endif
 
 ! https://github.com/uBlockOrigin/uAssets/issues/24220
 veev.to##+js(aopr, XMLHttpRequest.prototype.getResponseHeader)
