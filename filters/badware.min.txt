@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Badware risks
 ! Expires: 5 days
-! Last modified: Mon, 22 Jul 2024 04:16:38 +0000
+! Last modified: Mon, 22 Jul 2024 05:47:29 +0000
 ! Diff-Path: %diffpath%#ublock-badware
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -3060,8 +3060,20 @@ oltacidergisi.com##+js(acs, atob, minimalDrainValue)
 ||mybluehost.me/*/dir/ca/pay/$doc,domain=~canadapost-postescanada.ca
 ||21cpromotions.com/logs/postch/$all,to=~laposte.fr
 ||inner.website/*.html^$all
+/^https:\/\/www\.[a-z]{4,5}\.[a-z]{3,7}\/[a-z0-9]{36}\.html\b/$doc,match-case,domain=com|info|website|~edu|~gov|~google.com
 ||colegiovilamilitar.com.br/*/linkedin_^$all,to=~linkedin.com
 ||hand-to-hand.cfolks.pl^$all,to=~ram.co.za
+! jio
+/\/recharge\d?\.(?:html|php)\?mobile=\d{10}\b/$doc,match-case,domain=~jio.com|~edu|~gov
+/offer.php?rechargenumber=$doc,domain=~jio.com|~edu|~gov
+/offer.html?rechargenumber=$doc,domain=~jio.com|~edu|~gov
+! apple
+||com/isignesp.php^$doc,domain=com|~apple.com
+||help/isignesp.php^$doc,domain=help|~apple.com
+/^https:\/\/apple\.[a-z]{6}\.com\//$domain=com|~apple.com
+! ourtime
+||login-ourtime.members-datings.workers.dev^$all,domain=~ourtime.com
+||profile-ourtime.*.workers.dev^$doc,domain=~ourtime.com
 ! tiktok
 /^https:\/\/(?:[a-z]{4,6}\.)?tiktok\d{2,5}\.com\//$doc,domain=com|~tiktok.com
 /^https:\/\/(?:[a-z]{4,6}\.)?tiktok\d{2,5}\.cc\//$doc,domain=cc|~tiktok.com
@@ -3159,6 +3171,7 @@ oltacidergisi.com##+js(acs, atob, minimalDrainValue)
 ||ebayasean.com^$all
 ||vilbuy.com^$all
 ||ebaydw.com^$all
+||show.naturecircle.shop^$all
 ||51eabay.com^$all
 ||135buy.com^$all
 ||ebaydw.cc^$all
@@ -3201,6 +3214,8 @@ oltacidergisi.com##+js(acs, atob, minimalDrainValue)
 ||wcomhost.com/amendes-gouv/$doc,domain=~amendes.gouv.fr
 ||wcomhost.com/*/am/3dsece.php^$doc,domain=~amendes.gouv.fr
 /am/*.php^$doc,domain=mybluehost.me|wcomhost.com|~amendes.gouv.fr
+||fi/a/Amendes/*.php^$doc,domain=fi|~amendes.gouv.fr
+||fi/part/Amendes/*.php^$doc,domain=fi|~amendes.gouv.fr
 ! bank
 ||chamsocthekhachhang-$doc,domain=~edu|~gov|~edu.vn|~gov.vn
 ||sotuyenvcb.vietcombanker.com^$all,to=~vietcombank.com.vn
@@ -3243,6 +3258,8 @@ oltacidergisi.com##+js(acs, atob, minimalDrainValue)
 ||zdrhuagh.elementor.cloud/*/index.html$all
 ||leatherqueen.shop^$all
 ||dhl-express-ppd.infanion.com^$all,to=~dhl.com
+! instagram
+||instagram-mail.net^$all
 ! facebook
 ! /^https:\/\/[vw]ww-[a-z]?facebook[a-z]?([.-]com)?\.vn\//$doc,domain=vn
 ||notificationbyfacebook.$doc
@@ -3250,6 +3267,7 @@ oltacidergisi.com##+js(acs, atob, minimalDrainValue)
 ||notificationbyfacebook.web.app^$all
 ||business-facebook-*.pages.dev^$all
 ||unusualaccountcnfrmpages.github.io^$all
+||review-your-page.000.pe^$all
 ||facebook.prantiksoft.com^$all
 ||facebook-guidelines.com^$all
 ||www-mfacebook.$doc
@@ -3325,6 +3343,7 @@ oltacidergisi.com##+js(acs, atob, minimalDrainValue)
 ||gareza.vn^$all,to=~garena.vn
 ||garena.pro.vn^$all,to=~garena.vn
 ||ff-menmber-garena.vn^$all,to=~garena.vn
+||rewards-ff-garenaa.ru^$all
 ||gaerana.io.vn^$all,to=~garena.vn
 ||gareana.vn^$all,to=~garena.vn
 ! pubg
@@ -3378,12 +3397,15 @@ oltacidergisi.com##+js(acs, atob, minimalDrainValue)
 ! telegram
 ||telegramhcn.com^$all
 ||web.telegram.data-bees.cn^$all
-||telegramkv.com^$all
 ||haveplentymusic.com^$all
 ||newappmssg.ru^$all
 ||telegrambotsolution.pages.dev^$all
+/^https:\/\/www\.telegramk[a-z]\.com\//$domain=com|~telegram.org
+||telegramkv.com^$all
 ||telegramkp.com^$all
 ||cdn-telegram.com^$all
+||telegramkd.com^$all
+||telegram-zhongwen.com^$all
 ||rr.nu^$doc
 ! usps
 /^https:\/\/usps\.[-a-z]{6,}\.(?:com|top)\/(?:address\.html|information|verify)\b/$doc,domain=com|top|~usps.com
@@ -3478,8 +3500,6 @@ oltacidergisi.com##+js(acs, atob, minimalDrainValue)
 ||dropbox*.weebly.com^$doc
 ?email=3mail@b.c|$doc
 ?email=3mail@b.c/|$doc
-||com/isignesp.php^$doc,domain=com|~apple.com
-||help/isignesp.php^$doc,domain=help|~apple.com
 /^https:\/\/([a-z]-){10,15}[a-z]\.(?:com|net)\.tr\//$doc,domain=com.tr|net.tr
 ||lazada.gg^$all
 ||chamsockhachhang-$doc
