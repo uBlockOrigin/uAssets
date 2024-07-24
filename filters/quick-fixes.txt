@@ -1,5 +1,5 @@
 ! Title: uBlock₀ filters – Quick fixes
-! Last modified: Wed, 24 Jul 2024 09:29:27 +0000
+! Last modified: Wed, 24 Jul 2024 11:18:37 +0000
 ! Expires: 8 hours
 ! Description: Immediate, temporary filters to fix websites
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -156,7 +156,8 @@ kimcartoon.li,kc.linksgen.com,kisscartoon.se###centerDivVideo > div[id]:has(> im
 @@||kc.linksgen.com/ads2/$frame,1p
 
 ! exploader.net ads, anti-adb
-exploader.net#@#+js(rmnt, script, /\$\.ajax|result/)xploader.net#@#+js(rmnt, script, /\$\.ajax|result === false/)
+exploader.net#@#+js(rmnt, script, /\$\.ajax|result/)
+exploader.net#@#+js(rmnt, script, /\$\.ajax|result === false/)
 exploader.net#@#+js(rmnt, script, /\$\.ajax|document\.getElementById\(\'([0-9A-z]+)\'\)\.style\.display = \'block\';\n?document\.getElementById\(\'([0-9A-z]+)\'\)\.style\.display = \'none\';\n?\}\n?[0-9A-z]+ = false;\n?if \([0-9A-z]+\) \{\n?document\.getElementById\(\'\1\'\)/)
 exploader.net#@#+js(no-xhr-if, .js)
 exploader.net##+js(trusted-rpnt, script, /(if \(\! window\.[0-9A-z]+\) \n?\{\n?window[\S\s]+?\})/g, if(!window.canRunAds){throw new Error()};$1)
