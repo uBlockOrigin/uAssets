@@ -156,19 +156,14 @@ kimcartoon.li,kc.linksgen.com,kisscartoon.se###centerDivVideo > div[id]:has(> im
 @@||kc.linksgen.com/ads2/$frame,1p
 
 ! exploader.net ads, anti-adb
-exploader.net#@#+js(rmnt, script, window.load_daotag)
-exploader.net#@#+js(rmnt, script, !window.load_daotag)
-exploader.net#@#+js(rmnt, script, $.ajax)
-exploader.net#@#+js(rmnt, script, /\$\.ajax|result/)
-exploader.net#@#+js(rmnt, script, /\$\.ajax|result === false/)
+exploader.net#@#+js(rmnt, script, /\$\.ajax|result/)xploader.net#@#+js(rmnt, script, /\$\.ajax|result === false/)
 exploader.net#@#+js(rmnt, script, /\$\.ajax|document\.getElementById\(\'([0-9A-z]+)\'\)\.style\.display = \'block\';\n?document\.getElementById\(\'([0-9A-z]+)\'\)\.style\.display = \'none\';\n?\}\n?[0-9A-z]+ = false;\n?if \([0-9A-z]+\) \{\n?document\.getElementById\(\'\1\'\)/)
 exploader.net#@#+js(no-xhr-if, .js)
-exploader.net##+js(trusted-rpnt, script, /(if \(\! window\.[0-9A-z]+\) \{\n?[\S\s]+?\}\n?\})/g, if(window.canRunAds){throw new Error()};$1)
+exploader.net##+js(trusted-rpnt, script, /(if \(\! window\.[0-9A-z]+\) \n?\{\n?window[\S\s]+?\})/g, if(!window.canRunAds){throw new Error()};$1)
 ||exploader.net/js/$script,redirect=prebid-ads.js:10
 ||exploader.net/js/$xhr,redirect=prebid-ads.js:10
 !#if env_mobile
 exploader.net###firstpop
-exploader.net##+js(trusted-rpnt, script, /[0-9A-z]{20\,}\.innerHTML = \'<a style.+?a>\';/g)
 !#endif
 
 ! https://github.com/uBlockOrigin/uAssets/issues/24220
