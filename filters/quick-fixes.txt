@@ -108,6 +108,7 @@ japscan.lol#@#+js(rmnt, script, "/ApoZow|'(map'|\/imgs\/|ads?-\d+|ad-img-slot|ad
 japscan.lol##+js(rmnt, script, /while \(!!\[\]\)|String\(\)\.fromCharCode|\.join\(\w+\)\.split\(\w+\)|"undefined"|_\$|\$_|\[\d+\][^=]*==|\.join|\.substr|\.charAt|\.reduce|!!|\$document|Function\s*;|var [^=]+=window\[|=\s*\[[^\]]*]/)
 japscan.lol##+js(aost, onload, inlineScript)
 japscan.lol##+js(acs, JSON.stringify, function)
+japscan.lol##+js(acs, Object.entries, function)
 japscan.lol##+js(acs, document.querySelectorAll, function)
 japscan.lol##+js(acs, document.querySelector, function)
 japscan.lol##+js(acs, Array, function)
@@ -145,6 +146,7 @@ kimcartoon.li,kc.linksgen.com,kisscartoon.se##+js(aost, $, /[a-z]+[A-Z]+[a-z]* i
 kimcartoon.li,kc.linksgen.com,kisscartoon.se##+js(aost, document.getElementById, /[a-z]+[A-Z]+[a-z]* inlineScript[^i]+inlineScript:\d+:1$/)
 kimcartoon.li,kc.linksgen.com,kisscartoon.se##+js(set, isAdb, false)
 kimcartoon.li,kc.linksgen.com,kisscartoon.se##+js(no-fetch-if, bidgear)
+kimcartoon.li,kc.linksgen.com,kisscartoon.se##+js(trusted-replace-argument, document.getElementById, 0, undefined, condition, divContentVideo)
 ! kimcartoon.li###centerDivVideo > div[id]:not(#divContentVideo):not(:has(video)):remove()
 ! @@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$script,domain=kimcartoon.li
 kimcartoon.li,kc.linksgen.com,kisscartoon.se##+js(rmnt, script, _batCheck)
@@ -171,6 +173,7 @@ exploader.net##+js(trusted-rpnt, script, /[0-9A-z]{20\,}\.innerHTML = \'<a style
 
 ! https://github.com/uBlockOrigin/uAssets/issues/24220
 @@||a.magsrv.com/ad-provider.js$xhr,domain=veev.to
+veev.to##+js(trusted-set, __abburi, {"value": "https://veev.to/assets/videoplayer/df8fdb9.js"})
 
 ! reddit data collection
 www.reddit.com##+js(trusted-replace-outbound-text, JSON.stringify, '/^{"([^"]*[a-z][^"]*)":"[0-9a-z]+","info":\[{.*"action_info":.*}]}$/', '{"$1":"","info":[{"action_info":{"success":true,"trigger_type":"","page_type":null},"request":{"server_render_id":"","canonical_url":""},"screenview_id":"","screen":{"height":"","width":""},"adblock":{"enabled":false},"source":"global","action":"view","noun":"screen","referrer":{"url":"","domain":""},"client_timestamp":"","correlation_id":""}]}')
@@ -186,3 +189,6 @@ www.reddit.com##+js(trusted-replace-outbound-text, JSON.stringify, '/^{"([^"]*[a
 
 ! https://github.com/easylist/easylist/commit/0de9162959cde01dff720dcc12e850e52520e499
 @@||googletagmanager.com/gtm.js$domain=j-wave.co.jp|tbsradio.jp
+
+! https://github.com/uBlockOrigin/uAssets/issues/24416#issuecomment-2246795561
+www.yahoo.com#@#.sticky
