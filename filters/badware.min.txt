@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Badware risks
 ! Expires: 5 days
-! Last modified: Thu, 25 Jul 2024 04:33:01 +0000
+! Last modified: Thu, 25 Jul 2024 05:39:42 +0000
 ! Diff-Path: %diffpath%#ublock-badware
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -3058,7 +3058,6 @@ c0c9d.cmi.rj.gov.br,cambe.pr.gov.br##^responseheader(location)
 ! phishing
 /^https:\/\/vietg[a-z]v[0-9]*\.cc\//$doc,domain=cc
 ||clickhereecraigslist.tripod.com^$all
-||1234854.com^$all,to=~shopify.com
 ||thriveinclusion.com^$all,to=~web.de
 ||talktalk0.godaddysites.com^$all,to=~talktalk.co.uk
 ||unclepigva.com^$all,to=~chase.com
@@ -3076,6 +3075,9 @@ c0c9d.cmi.rj.gov.br,cambe.pr.gov.br##^responseheader(location)
 ||colegiovilamilitar.com.br/*/linkedin_^$all,to=~linkedin.com
 ||hand-to-hand.cfolks.pl^$all,to=~ram.co.za
 ||mybluehost.me/intesasanpaolo/$doc,domain=~intesasanpaolo.com
+! shopify
+||1234854.com^$all,to=~shopify.com
+||suoncopbaonk.com^$all,to=~shopify.com
 ! paypal
 ||paypal-complete.com^$all
 ||prizegift.top^$all
@@ -3141,6 +3143,9 @@ c0c9d.cmi.rj.gov.br,cambe.pr.gov.br##^responseheader(location)
 ||allegrocx.com^$all
 ||allegro-online.ru^$all
 ##html[lang][style] > body[ontouchstart=""] > div#app[data-v-app=""] > div#app[class] > div.grow
+/^https:\/\/allegro[a-z]{2,}\.shop\//$doc,domain=shop
+||allegroshop.shop^$all
+||allegrocn.shop^$all
 ! rackspace
 ||racks.pages.dev^$all,to=~rackspace.com
 ||rackweb-----support*.weebly.com^$all,to=~rackspace.com
@@ -3186,7 +3191,7 @@ c0c9d.cmi.rj.gov.br,cambe.pr.gov.br##^responseheader(location)
 ||shop73.online^$all
 ||syae3289.top^$all
 ||ww26mb8.top^$all
-##html[lang][data-dpr="1"][style] > body.bluetheme.false > div#app.wrapper
+~amazon.com,~edu,~gov##html##html[lang][data-dpr="1"][style] > body.bluetheme.false > div#app.wrapper
 ||mybluehost.me/wp-admin/amz/$doc
 ! ebay
 ||c.vn-ebayn.vip^$all
@@ -3195,11 +3200,14 @@ c0c9d.cmi.rj.gov.br,cambe.pr.gov.br##^responseheader(location)
 ||vilbuy.com^$all
 ||ebaydw.com^$all
 ||ebayhelpre.org^$all
+||ebay-european.com^$all
 ||show.naturecircle.shop^$all
 ||51eabay.com^$all
 ||135buy.com^$all
 ||ebaydw.cc^$all
 ||pages.dev/errors/validateCaptcha^$doc
+||shopvip-alibaba.com^$all
+~alibaba.com##html[lang][translate] > body.deeppurple-theme:not([id]) > div#app:not([class]) > div.aiz-main-wrapper:not([id])
 ! AT&T
 ||wixsite.com/att-support/$doc
 ||diwapa3051.wixsite.com^$all
@@ -3255,6 +3263,8 @@ c0c9d.cmi.rj.gov.br,cambe.pr.gov.br##^responseheader(location)
 ||itaconsorciodigital.com.br^$all,to=~itau.com.br
 ||americanexpressempresas.com^$all,to=~americanexpress.com
 ||wizardpayroll.com.ar^$all,to=~hsbc.com
+||amigosdelasfinanzas.com^$all,to=~bancocajasocial.com
+||e-cmv.ph^$all,to=~grupobancolombia.com
 ||recompensaszurichsantander.com.mx^$all
 ||upsdelivery-nl.com^$all,to=~bancosantander.es
 ||santander.cf.sandbox.motrada.ch^$all,to=~santanderbank.com|~santander.co.uk
@@ -3282,9 +3292,9 @@ c0c9d.cmi.rj.gov.br,cambe.pr.gov.br##^responseheader(location)
 ||xn--d1aqfkf.xn--p1ai/bitrix/.../GlobalSources/$all,to=~dhl.com
 ||app.farmaciadelmonestironline.com/SER/dnkdl/$all,to=~dhl.com
 ||solutionfun.info^$all
-||zdrhuagh.elementor.cloud/*/index.html$all
 ||leatherqueen.shop^$all
 ||dhl-express-ppd.infanion.com^$all,to=~dhl.com
+||elementor.cloud/*/ENGHUY645/$doc,domain=~dhl.com
 ! whatsapp
 ||ann.tess1.top^$all
 ||play.funfourmob.com^$all
@@ -3330,6 +3340,8 @@ c0c9d.cmi.rj.gov.br,cambe.pr.gov.br##^responseheader(location)
 /^https:\/\/business\.[a-z]+confirm\.com\/meta-community-standard\d{15}\/?/$doc,match-case,domain=com
 /\.(?:pages\.dev|surge\.sh)\/help\/contact\/\d{14,19}\b/$doc,match-case,domain=pages.dev|surge.sh|~facebook.com
 ||business-help-temp-$doc
+/\.cfd\/contract\/\d{14,19}\b/$doc,match-case,domain=cfd|~facebook.com
+||business-center-$doc
 ||instructions-video.vercel.app/detailed_video.mp4$media
 ! shopping sites
 /api/user/do_login|$xhr,1p,to=com|info,method=post,header=access-control-allow-headers:/authorization\,content-type\,if-match\,if-modified-since\,if-none-match\,if-unmodified-since\,x-requested-with/i
@@ -3355,6 +3367,7 @@ c0c9d.cmi.rj.gov.br,cambe.pr.gov.br##^responseheader(location)
 ||11steam.com^$all
 ||st-invite.com^$all
 ||gtm.you1.cn^$all
+||steamxiazai.cn^$all
 ||steamcommunitylog.chez.com^$all
 ||steam.workshop*.com^$doc
 /^https:\/\/stea[a-z]{1,4}o[mn][a-z]{4,7}y[a-z]?\.com\//$doc,domain=com|~steamcommunity.com
@@ -3438,6 +3451,7 @@ c0c9d.cmi.rj.gov.br,cambe.pr.gov.br##^responseheader(location)
 ||supplieradvisor.ciamlogin.com^$all
 ||e-messsage.com^$all
 ||supp0rt.co.za^$all
+||ariabcon.com^$all
 ! telegram
 ||telegramhcn.com^$all
 ||web.telegram.data-bees.cn^$all
@@ -3552,6 +3566,7 @@ c0c9d.cmi.rj.gov.br,cambe.pr.gov.br##^responseheader(location)
 ||dropbox*.weebly.com^$doc
 /^https:\/\/([a-z]-){10,15}[a-z]\.(?:com|net|org)\.tr\//$doc,domain=com.tr|net.tr|org.tr
 /views/go/start.php^$doc
+/^https:\/\/pub-[a-f0-9]{32}\.r2\.dev/be[a0-9]\d{2,3}\.html\b/$doc,match-case,domain=r2.dev
 ||khach-hang-the-$doc
 ||lazada.gg^$all
 ||chamsockhachhang-$doc
