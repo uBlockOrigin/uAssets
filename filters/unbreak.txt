@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Unbreak
-! Last modified: Wed, 24 Jul 2024 12:14:24 +0000
+! Last modified: Fri, 26 Jul 2024 05:18:06 +0000
 ! Expires: 5 days
 ! Description: Filters optimized for uBlock Origin, to unbreak sites broken as a result of 3rd-party filter lists enabled by default.
 ! Homepage: https://github.com/uBlockOrigin/uAssets
@@ -5608,3 +5608,12 @@ jprime.jp##+js(trusted-rpnt, script, var ISMLIB, !function(){const o={apply:(o\,
 
 ! https://www.fortinet.com/resources/reports/fortirecon-threat-intelligence-report-summer-olympics - form submission breakage
 @@||t.eloqua.com/e/$xhr,domain=fortinet.com
+
+! https://www.wunderground.com/video/top-stories/will-meteorology-help-bring-home-us-olympic-sailing-gold - video breakage
+! https://github.com/easylist/easylist/commit/27b9bde5f50059ffc93581ae70e109891266c42a
+||g.doubleclick.net/gampad/ads?env=$xmlhttprequest,domain=wunderground.com,important
+||pagead2.googlesyndication.com/tag/js/gpt.js$script,domain=wunderground.com,important
+||pagead2.googlesyndication.com/pagead/managed/js/gpt/*/pubads_impl.js?$script,domain=wunderground.com,important
+wunderground.com##+js(no-fetch-if, doubleclick)
+wunderground.com##+js(nano-stb, isPeriodic, 2200, 0.001)
+wunderground.com##+js(nano-stb, isPeriodic, 2300, 0.001)
