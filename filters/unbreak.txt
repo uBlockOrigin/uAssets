@@ -5620,7 +5620,11 @@ wunderground.com##+js(nano-stb, isPeriodic, 2300, 0.001)
 sosovalue.com##+js(set, sensors.track, noopFunc)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/24647
-@@||s.zmctrack.net/z|$xhr
+!#if cap_html_filtering
+123movies.link##^script:has-text(currentScript)
+!#else
+@@||s.zmctrack.net/z|$xhr,domain=123movies.link
+!#endif
 
 ! https://www.reddit.com/r/uBlockOrigin/comments/1edvh6e/anti_ad_blocker_on_nbc_olympics_streams/
 @@||geo.nbcsports.com^$xhr,domain=nbcolympics.com
