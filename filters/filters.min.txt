@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Sun, 28 Jul 2024 18:30:19 +0000
+! Last modified: Sun, 28 Jul 2024 18:59:52 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -10355,6 +10355,11 @@ watchdirty.to##+js(set, flashvars.adv_pre_vast, '')
 watchdirty.to##.block-video > .table
 cinemitas.org,cinelatino.net,cineplus123.org,paraveronline.org,pobreflix.vc,verpelis.gratis##+js(trusted-set, dtGonza.playeradstime, '"-1"')
 cracksports.me##+js(acs, JSON.parse, atob)
+!#if cap_html_filtering
+mlbbite.net,mlbstreams.ai##^script:has-text(adserverDomain)
+!#else
+mlbbite.net,mlbstreams.ai##+js(rmnt, script, adserverDomain)
+!#endif
 ! Link shortener filters go into their own dedicated list
 ! *** filters/ubo-link-shorteners.txt ***
 ! gplinks all domains (gplinks.co/EWu8)
