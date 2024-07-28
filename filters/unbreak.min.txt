@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Unbreak
 ! Expires: 5 days
-! Last modified: Sun, 28 Jul 2024 02:34:35 +0000
+! Last modified: Sun, 28 Jul 2024 02:42:27 +0000
 ! Diff-Path: %diffpath%#ublock-unbreak
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -2662,6 +2662,10 @@ wunderground.com##+js(no-fetch-if, doubleclick)
 wunderground.com##+js(nano-stb, isPeriodic, 2200, 0.001)
 wunderground.com##+js(nano-stb, isPeriodic, 2300, 0.001)
 sosovalue.com##+js(set, sensors.track, noopFunc)
-@@||s.zmctrack.net/z|$xhr
+!#if cap_html_filtering
+123movies.link##^script:has-text(currentScript)
+!#else
+@@||s.zmctrack.net/z|$xhr,domain=123movies.link
+!#endif
 @@||geo.nbcsports.com^$xhr,domain=nbcolympics.com
 ||imrworldwide.com^$script,3p,redirect-rule=noopjs,domain=nbcolympics.com
