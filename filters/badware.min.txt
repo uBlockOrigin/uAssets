@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Badware risks
 ! Expires: 5 days
-! Last modified: Wed, 31 Jul 2024 23:24:56 +0000
+! Last modified: Thu, 01 Aug 2024 03:57:18 +0000
 ! Diff-Path: %diffpath%#ublock-badware
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -3086,6 +3086,7 @@ c0c9d.cmi.rj.gov.br,cambe.pr.gov.br##^responseheader(location)
 ||inner.website/*.html^$all
 /^https:\/\/www\.[a-z]{4,5}\.[a-z]{3,7}\/[a-z0-9]{36}\.html\b/$doc,match-case,domain=com|info|website|~edu|~gov|~google.com
 ||hand-to-hand.cfolks.pl^$all,to=~ram.co.za
+||pub-*.r2.dev/gsecondcheck.html^$doc
 ! wetransfer.com
 ||wetransfers.fr^$all,to=~wetransfer.com
 ||cragrle.whf.bz/wetransfert/$all,to=~wetransfer.com
@@ -3253,6 +3254,7 @@ c0c9d.cmi.rj.gov.br,cambe.pr.gov.br##^responseheader(location)
 ! gov phishing site
 ||thanhtrapcrt.online^$all,to=~thanhtra.gov.vn
 ||seeproc.com.br^$all,to=~my.gov.au
+||sarsefilingsarsitassessment.weebly.com^$all,to=~sars.gov.za
 ! gov.tr
 ||pttgov-*.top^$all,to=top|~ptt.gov.tr
 ! gov.uk
@@ -3307,6 +3309,7 @@ c0c9d.cmi.rj.gov.br,cambe.pr.gov.br##^responseheader(location)
 ||sparkasse-oberhessen.info^$all,to=~sparkasse.de
 ||sp-digi*.net^$doc,to=~sparkasse.de
 ||spk-digi*.net^$doc,to=~sparkasse.de
+||skylarkspb.ru/raiffeisentwint/$all,to=~raiffeisen.ch
 ! DHL
 ||dhl.*.potabox.com^$doc,domain=~dhl.com
 ||dhl-event.app^$all,to=~dhl.com
@@ -3397,12 +3400,11 @@ c0c9d.cmi.rj.gov.br,cambe.pr.gov.br##^responseheader(location)
 ||steamxiazai.cn^$all
 ||s.team-pn.com^$all
 ||steam.zssjsq.com^$all
+||steamtopup.ru^$all
 ||steamcommunitylog.chez.com^$all
 ||steam.workshop*.com^$doc
-!#if !env_mv3
 /^https:\/\/stea[a-z]{1,4}o[mn][a-z]{4,7}y[a-z]?\.com\//$doc,to=com|~steamcommunity.com
 /^https:\/\/steam\.(?:community)?workshop-?[a-z]+\.com\//$doc,to=com|~steamcommunity.com
-!#endif
 ||steam.communityart-work.com^$all
 ||stearnccommunity.com^$all
 ||steamcomuniry.com^$all
@@ -3412,9 +3414,7 @@ c0c9d.cmi.rj.gov.br,cambe.pr.gov.br##^responseheader(location)
 ||st-friends.com^$all
 ||st-invite.com^$all
 ||cn-steam.com^$all
-!#if !env_mv3
-||com/p/jcod-ppsr/huasdirjdo^$doc,domain=~steamcommunity.com
-!#endif
+||com/p/jcod-ppsr/huasdirjdo^$doc,to=~steamcommunity.com
 ! game sites
 ||battlegrounds-bgmi-reward.events-games.com^$all
 ! garena
@@ -3586,6 +3586,7 @@ c0c9d.cmi.rj.gov.br,cambe.pr.gov.br##^responseheader(location)
 ||imtoken-etc.com^$all,to=~token.im
 app##html > body[style]:not([class]):not([id]) > center#yangchen[style]:not([class]) > iframe#external-frame[src="https://im136.mom/"]:not([class])
 ! pancakeswap
+||pancake.saaedal.com^$all,to=~pancakeswap.finance
 /^https:\/\/pancake(?:dro|swa)pclick\d+\.vercel\.app\//$doc,domain=vercel.app|~pancakeswap.finance
 ||pancakeswap-*.vercel.app^$doc,to=~pancakeswap.finance
 ||pancake-swap*.vercel.app^$doc,to=~pancakeswap.finance
@@ -3602,6 +3603,7 @@ app##html > body[style]:not([class]):not([id]) > center#yangchen[style]:not([cla
 ||seguro.serasaexperian.site^$all,to=~serasa.com.br
 ||vangphutai.com^$all,to=~vangphutai.vn
 ||snapscrttm.serv00.net^$all,to=~snapchat.com
+||aliexpressr.top^$all,to=~aliexpress.com
 ||beluxrepm.followme.fr/FolloWMe$all,to=~realestate.bnpparibas.com
 ||mybluehost.me/Cope346/$all
 ||tesakom.com/aa/index.html^$all,to=~ebestsec.co.kr
@@ -3610,21 +3612,23 @@ app##html > body[style]:not([class]):not([id]) > center#yangchen[style]:not([cla
 ||cursorltd.com^$doc
 ||cprapid.com^$doc
 ||utahpolicetraining.*.mybluehost.me^$all
-||mybluehost.me/*/choronopost/$doc,domain=~chronopost.fr
+||mybluehost.me/*/choronopost/$doc,to=~chronopost.fr
 ||dropbox*.weebly.com^$doc
-/^https:\/\/([a-z]-){10,15}[a-z]\.(?:com|net|org)\.tr\//$doc,domain=com.tr|net.tr|org.tr
+/^https:\/\/([a-z]-){10,15}[a-z]\.(?:com|net|org)\.tr\//$doc,to=com.tr|net.tr|org.tr
 /views/go/start.php^$doc
-/^https:\/\/pub-[a-f0-9]{32}\.r2\.dev/be[a0-9]\d{2,3}\.html\b/$doc,match-case,domain=r2.dev
+/^https:\/\/pub-[a-f0-9]{32}\.r2\.dev/be[a0-9]\d{2,3}\.html\b/$doc,match-case,to=r2.dev
+||namecheapsupport-*.codeanyapp.com^$all,to=~namecheap.com
 ! docusign.com
 ||roycamining.com/pdeb/Untitled/$all,to=~docusign.com
 ||msoft_docusign_verification_secured-doc_office.zatrdg.com^$all,to=~docusign.com
-||pub-*.r2.dev/alt_type.html^$doc,domain=~docusign.com
-||pub-*.r2.dev/auth_response.html^$doc,domain=~docusign.com
-||pub-*.r2.dev/doc_start.html^$doc,domain=~docusign.com
-||pub-*.r2.dev/dse_sign.html^$doc,domain=~docusign.com
-||pub-*.r2.dev/secure_response.html^$doc,domain=~docusign.com
-||pub-*.r2.dev/utility_base.html^$doc,domain=~docusign.com
-||pub-*.r2.dev/docuss_3456787654324567897865433456789.html^$doc,domain=~docusign.com
+||pub-*.r2.dev/alt_type.html^$doc,to=~docusign.com
+||pub-*.r2.dev/auth_response.html^$doc,to=~docusign.com
+||pub-*.r2.dev/doc_start.html^$doc,to=~docusign.com
+||pub-*.r2.dev/dse_sign.html^$doc,to=~docusign.com
+||pub-*.r2.dev/secure_response.html^$doc,to=~docusign.com
+||pub-*.r2.dev/utility_base.html^$doc,to=~docusign.com
+||pub-*.r2.dev/docuss_3456787654324567897865433456789.html^$doc,to=~docusign.com
+||vieclamlazada.vn^$all,to=~lazada.vn
 ||didongvietstore.com^$all,to=~didongviet.vn
 ||tin-dung-$doc
 ||khcn-tindung-$doc
@@ -3632,19 +3636,19 @@ app##html > body[style]:not([class]):not([id]) > center#yangchen[style]:not([cla
 ||khach-hang-the-$doc
 ||lazada.gg^$all
 ||chamsockhachhang-$doc
-! /^https:\/\/hdsaison-?[a-z]{2,}\.(?:cc|com|vip)\//$doc,domain=cc|com|vip|~hdsaison.com.vn
-/^https?:\/\/dienmayxanh[-a-z0-9]+\.com\//$doc,domain=com|~dienmayxanh.com
-/^https:\/\/dich-vu(?:-[a-z0-9]+){2,3}\.com\//$doc,domain=com
-/^https:\/\/zla\d{3}\.top\//$doc,domain=top|~tiki.vn
+! /^https:\/\/hdsaison-?[a-z]{2,}\.(?:cc|com|vip)\//$doc,to=cc|com|vip|~hdsaison.com.vn
+/^https?:\/\/dienmayxanh[-a-z0-9]+\.com\//$doc,to=com|~dienmayxanh.com
+/^https:\/\/dich-vu(?:-[a-z0-9]+){2,3}\.com\//$doc,to=com
+/^https:\/\/zla\d{3}\.top\//$doc,to=top|~tiki.vn
 ||cskh-vib-$doc
 ||cskh-vib.$doc
 ||chamsockhachang-$doc
 ||chamsocthekhachang-$doc
 ||nang-cap-$doc
 ||ho-tro-tin-dung-ca-nhan.com^$all
-||hdsaison-$doc,domain=cc|vip|~hdsaison.com.vn
-||dichvucong.$doc,domain=~gov.vn
-||tikimall.$doc,domain=tikimall.*|~tiki.vn
+||hdsaison-$doc,to=cc|vip|~hdsaison.com.vn
+||dichvucong.$doc,to=~gov.vn
+||tikimall.$doc,to=tikimall.*|~tiki.vn
 ||taikhoanvps.com.vn^$all,to=~vps.com.vn
 ||motaikhoanchungkhoanvps.com^$all,to=~vps.com.vn
 ||zla963.top^$all,to=~tiki.vn
@@ -3654,13 +3658,13 @@ app##html > body[style]:not([class]):not([id]) > center#yangchen[style]:not([cla
 ||dailyssshopee.com^$all,to=~shopee.vn
 ||clzl.pro^$all,to=~momo.vn
 ||tpbankvn.workplace.com^$all,to=~tpb.vn
-/^https:\/\/da\d{4}\.com\//$doc,domain=com|~lazada.vn
-/^https:\/\/tdk[det]0[0-9]\.com\//$doc,domain=com|~tiki.vn
+/^https:\/\/da\d{4}\.com\//$doc,to=com|~lazada.vn
+/^https:\/\/tdk[det]0[0-9]\.com\//$doc,to=com|~tiki.vn
 ||da6555.com^$all,to=~lazada.vn
 ||soppe68.$all,to=~shopee.vn
-/^https:\/\/sp\d{4,5}p\.com\//$doc,domain=com|~shopee.vn
-||vib-*.com^$doc,domain=com|~vib.com.vn
-||vib-*.shop^$doc,domain=shop|~vib.com.vn
+/^https:\/\/sp\d{4,5}p\.com\//$doc,to=com|~shopee.vn
+||vib-*.com^$doc,to=com|~vib.com.vn
+||vib-*.shop^$doc,to=shop|~vib.com.vn
 ||vssidgov.com^$all
 ||nappthe.vn^$all,to=~napthe.vn
 ||binhchoncuocthivetranhsinhvien2024.weebly.com^$all
