@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Thu, 01 Aug 2024 06:16:39 +0000
+! Last modified: Thu, 01 Aug 2024 06:28:39 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -477,6 +477,11 @@ gamer.com.tw##img[onload="AntiAd.check(this)"]
 gamer.com.tw##+js(aopr, AntiAd.check)
 skidrowreloaded.com##+js(acs, open)
 skidrowreloaded.com##+js(no-fetch-if, /^/)
+!#if cap_html_filtering
+skidrowreloaded.com##^script:has-text(adserverDomain)
+!#else
+skidrowreloaded.com##+js(rmnt, script, adserverDomain)
+!#endif
 ! skidrowcodexgames.com ads
 skidrowcodexgames.com##+js(aopr, _pop)
 skidrowcodexgames.com##[class^="aligncenter wp-image-"]
