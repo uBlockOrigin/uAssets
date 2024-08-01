@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2024)
-! Last modified: Thu, 01 Aug 2024 09:32:44 +0000
+! Last modified: Thu, 01 Aug 2024 10:58:05 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -2681,6 +2681,11 @@ cinemitas.org,cinelatino.net,cineplus123.org,paraveronline.org,pobreflix.vc,verp
 
 ! https://cracksports.me/ - popups
 cracksports.me##+js(acs, JSON.parse, atob)
+!#if cap_html_filtering
+cracksports.me,kenitv.me##^script:has-text(adserverDomain)
+!#else
+cracksports.me,kenitv.me##+js(rmnt, script, adserverDomain)
+!#endif
 
 ! https://github.com/uBlockOrigin/uAssets/issues/24656
 !#if cap_html_filtering
