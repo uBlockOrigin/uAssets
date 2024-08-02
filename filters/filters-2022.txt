@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2022)
-! Last modified: Thu, 01 Aug 2024 13:12:01 +0000
+! Last modified: Fri, 02 Aug 2024 07:12:10 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -1401,6 +1401,12 @@ saveearning.com##.theiaStickySidebar
 ! cricfree. io / live popups
 cricfree.*,cricplay2.*,primetubsub.*,yourtehzeeb.com##+js(nowoif)
 primetubsub.*##+js(aopr, AaDetector)
+! https://www.reddit.com/r/uBlockOrigin/comments/1ehkxbg/filter_to_block_redirects_on_this_page/
+!#if cap_html_filtering
+topembed.pw##^script:has-text(adserverDomain)
+!#else
+topembed.pw##+js(rmnt, script, adserverDomain)
+!#endif
 *.gif$image,domain=cricfree.*
 
 ! https://github.com/uBlockOrigin/uAssets/issues/12352
