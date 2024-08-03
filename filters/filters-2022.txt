@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2022)
-! Last modified: Sat, 03 Aug 2024 11:46:16 +0000
+! Last modified: Sat, 03 Aug 2024 23:48:57 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -5404,3 +5404,8 @@ euro2024direct.ru##+js(acs, document.documentElement, break;case $.)
 ! https://github.com/uBlockOrigin/uAssets/issues/24377
 ||mrmnd.com^
 ||ss-mndsrv.b-cdn.net^
+
+! https://www.reddit.com/r/uBlockOrigin/comments/1ejgdkb/how_do_i_block_dynamically_appearing_ads_on/
+text-compare.com##+js(trusted-replace-argument, HTMLScriptElement.prototype.setAttribute, 1, noopFunc, condition, error-report)
+||html-load.com/loader.min.js^$domain=text-compare.com,important
+@@||html-load.com/loader.min.js^$redirect-rule,domain=text-compare.com
