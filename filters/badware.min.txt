@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Badware risks
 ! Expires: 5 days
-! Last modified: Sun, 04 Aug 2024 14:15:38 +0000
+! Last modified: Sun, 04 Aug 2024 15:28:43 +0000
 ! Diff-Path: %diffpath%#ublock-badware
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -3114,6 +3114,7 @@ c0c9d.cmi.rj.gov.br,cambe.pr.gov.br##^responseheader(location)
 ! ourtime
 ||login-ourtime.members-datings.workers.dev^$all,to=~ourtime.com
 ||profile-ourtime.*.workers.dev^$doc,to=~ourtime.com
+/^https:\/\/ourtime\.[a-z]+-[a-z]+\.workers\.dev\//$doc,to=workers.dev|~ourtime.com
 ! tiktok
 /^https:\/\/(?:[a-z]{4,6}\.)?tiktok\d{2,5}\.com\//$doc,to=com|~tiktok.com
 /^https:\/\/(?:[a-z]{4,6}\.)?tiktok\d{2,5}\.cc\//$doc,to=cc|~tiktok.com
@@ -3202,6 +3203,7 @@ c0c9d.cmi.rj.gov.br,cambe.pr.gov.br##^responseheader(location)
 /or/.espace-.client/(;authentication.htm^$doc,to=~orange.fr
 ||tw1.ru/Orange/$doc,to=~orange.fr
 ||dariusdomain.com/orange/$doc,to=~orange.fr
+||dailycontestportal.com^$all,to=~orange.fr
 ! amazon
 ||amazon-*.shop^$doc
 ||amazon-shopping.shop^$all
@@ -3223,6 +3225,7 @@ c0c9d.cmi.rj.gov.br,cambe.pr.gov.br##^responseheader(location)
 ||ebayasean.com^$all
 ||vilbuy.com^$all
 ||epayu.cc^$all
+||ebaymerchant.shop^$all
 ||show.naturecircle.shop^$all
 /^https:\/\/(?:seller\.)?ebay-[a-z]{8,15}\.com\//$doc,to=com
 ||ebay-european.com^$all
@@ -3277,6 +3280,7 @@ c0c9d.cmi.rj.gov.br,cambe.pr.gov.br##^responseheader(location)
 ||fi/part/Amendes/*.php^$doc,to=fi|~amendes.gouv.fr
 ||mybluehost.me/wp-content/12/*.php^$doc,to=~amendes.gouv.fr
 ||odeal.fi/fr/AMA/*.php^$doc,to=~amendes.gouv.fr
+||odeal.fi/amndes/*.php^$doc,to=~amendes.gouv.fr
 ||askozvar.sk/*/amendesgouv/$all,to=~amendes.gouv.fr
 ! bank
 ||chamsocthekhachhang-$doc,to=~edu|~gov|~edu.vn|~gov.vn
@@ -3294,8 +3298,9 @@ c0c9d.cmi.rj.gov.br,cambe.pr.gov.br##^responseheader(location)
 ||spareb1.com^$all,to=~sparebank1.no
 ||login-banca-web.firebaseapp.com^$all,to=~pichincha.com
 ||amigosdelasfinanzas.com^$all,to=~bancocajasocial.com
-||e-cmv.ph^$all,to=~grupobancolombia.com
 ||bdvenlineaconfirmate.pages.dev^$all,to=~bancodevenezuela.com
+||e-cmv.ph^$all,to=~grupobancolombia.com
+||agenciaidee.com^$all,to=~grupobancolombia.com
 ||tinchapshinhan.online^$all,to=~shinhan.com.vn
 ||sites.google.com/view/shinhan-fiinance/^$all,to=~shinhan.com.vn
 ||recompensaszurichsantander.com.mx^$all
@@ -3323,7 +3328,6 @@ c0c9d.cmi.rj.gov.br,cambe.pr.gov.br##^responseheader(location)
 ||dhl-event.app^$all,to=~dhl.com
 ||dhexpress.weebly.com^$all,to=~dhl.com
 ||delivery.attempt.failure.ebbs.co.za^$all,to=~dhl.com
-||packages.mpinsureit.com^$all,to=~dhl.com
 ||deliverytodayrequest.com^$all,to=~dhl.com
 ||sites.google.com/view/expressdhl^$all,to=~dhl.com
 ||xn--d1aqfkf.xn--p1ai/bitrix/.../GlobalSources/$all,to=~dhl.com
@@ -3335,11 +3339,14 @@ c0c9d.cmi.rj.gov.br,cambe.pr.gov.br##^responseheader(location)
 ||mybluehost.me/*/phpmailer/src/dh/$doc,to=~dhl.com
 ||acheter-fichier-email.com^$all,to=~dhl.com
 ||de.pathloading.com^$all,to=~dhl.com
+||mpinsureit.com^$doc,to=~dhl.com
+||goldsystem.com.br/amds/css/secure/dhlFR^$doc,to=~dhl.com
 ! whatsapp
 ||ann.tess1.top^$all
 ||play.funfourmob.com^$all
 ! instagram
 ||privrendom.com^$all
+||bcit.pro/*/Instagram$doc
 ! facebook
 ||mait.inhhome.top^$all
 ||mail.pages.exchange-midasbuy.com^$all
@@ -3365,6 +3372,7 @@ c0c9d.cmi.rj.gov.br,cambe.pr.gov.br##^responseheader(location)
 ||facabook.vn^$all
 ||facebooks-com.vn^$all
 ||mobile-facebook.com.vn^$all
+||m-facebookk.com.vn^$all
 ||ifbsmetaiidentiityconfirms.com^$all
 ||ad-activity-center.com^$all
 ||govern-assessment-validation-*.vercel.app^$all
@@ -3381,11 +3389,14 @@ c0c9d.cmi.rj.gov.br,cambe.pr.gov.br##^responseheader(location)
 ||transparency-business.com^$all
 ||http://marketplace-item-details-*.zya.me^$all
 ||mediacontrolcenters.com^$all
-/^https:\/\/business\.[a-z]+confii?rm\.com\/meta-community-standard\d{15}\/?/$doc,match-case,to=com
-/\.(?:click|dev|surge\.sh)\/help\/contact\/\d{14,19}\b/$doc,match-case,to=click|dev|surge.sh|~facebook.com
+||supportcreatorportal.com^$all
+/^https:\/\/business\.[a-z]+confii?rm\.com\/meta-community-standard\d{15}\/?/$doc,match-case,to=com|~facebook.com
+/^https:\/\/business-component\.[a-z]+(-[a-z]+){2}\.com\//$doc,to=com|~facebook.com
+/\.(?:click|dev|net|surge\.sh)\/help\/contact\/\d{14,19}\b/$doc,match-case,to=click|dev|net|surge.sh|~facebook.com
 ||business-help-temp-$doc
 /\.cfd\/contract\/\d{14,19}\b/$doc,match-case,to=cfd|~facebook.com
 ||business-center-$doc
+||helps-center-page-number-$doc
 ||xyzxyz55.xyz^$all
 ||thepatrones.blob.core.windows.net^$all
 ||m-isist-emai-nmu-ne-*.vercel.app^$all
@@ -3418,6 +3429,7 @@ c0c9d.cmi.rj.gov.br,cambe.pr.gov.br##^responseheader(location)
 ||steam.zssjsq.com^$all
 ||steamtopup.ru^$all
 ||steamcommunitylog.chez.com^$all
+||steamcommunity.com.co^$all
 ||steam.workshop*.com^$doc
 /^https:\/\/stea[a-z]{1,4}o[mn][a-z]{4,7}y[a-z]?\.com\//$doc,to=com|~steamcommunity.com
 /^https:\/\/steam\.(?:community)?workshop-?[a-z]+\.com\//$doc,to=com|~steamcommunity.com
@@ -3451,6 +3463,7 @@ c0c9d.cmi.rj.gov.br,cambe.pr.gov.br##^responseheader(location)
 ||doivangfreefiregarena.io.vn^$all,to=~garena.vn
 ||garane.io.vn^$all,to=~garena.vn
 ||garcna.vn^$all,to=~garena.vn
+||garenae.vn^$all,to=~garena.vn
 ! pubg
 ||pubg-arena.top^$all
 ||register-turnamen.free.nf^$all
@@ -3517,7 +3530,7 @@ c0c9d.cmi.rj.gov.br,cambe.pr.gov.br##^responseheader(location)
 ||enexdirecto.com^$all
 ||ccefactoring.com.br/ziujhyhtrer/$doc
 /Message%20Centre/mc.php^$doc
-/\.com\.[a-z]{2}\/wp-includes\/images\/smilies\/images?\/smili?es\/[a-z]{25,35}\.html/$doc
+/\.com(\.[a-z]{2})?\/wp-includes\/images\/smilies\/images?\/smili?es\/[a-z]{25,35}\.html/$doc
 ! telegram
 ||telegramhcn.com^$all
 ||web.telegram.data-bees.cn^$all
@@ -3533,6 +3546,7 @@ c0c9d.cmi.rj.gov.br,cambe.pr.gov.br##^responseheader(location)
 ||telegram-zhongwen.com^$all
 ||rr.nu^$doc
 ||joinxtelegram.com^$all
+/^https:\/\/ht[a-z]\d{2}\.vip\//$doc,to=vip
 ! usps
 ||uspsparcels.net^$all,to=~usps.com
 ||freeusps.com^$all,to=~usps.com
@@ -3561,6 +3575,7 @@ c0c9d.cmi.rj.gov.br,cambe.pr.gov.br##^responseheader(location)
 ||mybluehost.me/dse/main/$doc
 ! swisspass
 ||swiss-passapp.web.app^$all,to=~swisspass.ch
+||pbrd.com.br^$all,to=~swisspass.ch
 ||mybluehost.me/CFF/$doc,to=~swisspass.ch
 ||mybluehost.me/--/SBBCFF$doc,to=~swisspass.ch
 ||mybluehost.me/SBB.CH/$doc,to=~swisspass.ch
@@ -3627,6 +3642,7 @@ app##html > body[style]:not([class]):not([id]) > center#yangchen[style]:not([cla
 ||pancakeclaim-*.vercel.app^$doc,to=~pancakeswap.finance
 ||pancakeswap.finance.expolorer.im^$all,to=~pancakeswap.finance
 ||pancake.run^$all,to=~pancakeswap.finance
+||pay8-2v-*-gmailcom.vercel.app^$all,to=~pancakeswap.finance
 ! openphish
 ||air.bnb-id*.com^$all,to=~airbnb.com
 ||pakket-bpost-be.web.app^$all,to=~bpost.be
@@ -3640,6 +3656,7 @@ app##html > body[style]:not([class]):not([id]) > center#yangchen[style]:not([cla
 ||autoscurt24.de^$all,to=~autoscout24.de
 ||rogersales.com^$all,to=~rogers.com
 ||hk668.cc^$all,to=~yahoo.com
+||internal-checker.com^$all,to=~id.me
 ||beluxrepm.followme.fr/FolloWMe$all,to=~realestate.bnpparibas.com
 ||mybluehost.me/Cope346/$all
 ||tesakom.com/aa/index.html^$all,to=~ebestsec.co.kr
@@ -3654,6 +3671,7 @@ app##html > body[style]:not([class]):not([id]) > center#yangchen[style]:not([cla
 /views/go/start.php^$doc
 /^https:\/\/pub-[a-f0-9]{32}\.r2\.dev/be[a0-9]\d{2,3}\.html\b/$doc,match-case,to=r2.dev
 ||namecheapsupport-*.codeanyapp.com^$all,to=~namecheap.com
+||mybluehost.me/Versan/UPS/$doc,to=~ups.com
 ! docusign.com
 ||roycamining.com/pdeb/Untitled/$all,to=~docusign.com
 ||msoft_docusign_verification_secured-doc_office.zatrdg.com^$all,to=~docusign.com
