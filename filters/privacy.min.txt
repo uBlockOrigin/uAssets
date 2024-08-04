@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Privacy
 ! Expires: 7 days
-! Last modified: Sun, 04 Aug 2024 09:27:50 +0000
+! Last modified: Sun, 04 Aug 2024 11:24:57 +0000
 ! Diff-Path: %diffpath%#ublock-privacy
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -147,7 +147,6 @@ tacobell.com##+js(set, bmak.js_post, false)
 ||cm.bilibili.com/cm/api/$xhr
 ||wannads.com/api/track/fingerprint^
 ||wuzhuiso.com^$removeparam=src
-||statwup.huya.com^
 ||va.huya.com^
 ||e-stat.huya.com^
 ! pornocolombiano.net analytics
@@ -155,8 +154,6 @@ tacobell.com##+js(set, bmak.js_post, false)
 ||zhihu.com^$removeparam=hybrid_search_source
 ||zhihu.com^$removeparam=hybrid_search_extra
 /cfga/jquery.js?$image
-! jzzo.com,xxxvogue.net, etc.
-/s/js/ta-2.3.js?
 ||mynewsmedia.co/*/Linkpage/ads_stats_controller.php
 ||gplinks.co/Auth/ads_stats_controller.php
 ||videovard.*/api/front/view^$xhr,important
@@ -171,9 +168,6 @@ endbasic.dev,jmmv.dev##+js(no-xhr-if, method:POST)
 /?v=eyI*sImgiOiJodHRwczovL$image,1p
 !/^https?:\/\/[-.0-9a-z]+\/script\.js$/$script,1p,strict3p,match-case
 ||hdslb.com/bfs/cm/cm-sdk/static/js/bili-collect.js$script,redirect=noop.js,domain=bilibili.com,important
-! tarnkappe. info tracking
-tarnkappe.info##+js(aopr, Matomo)
-://posthog.$script,domain=~posthog.com
 ! ||no/api/aid/users/self?filter=*tracking$xhr
 ||play.google.com/store/apps/*referrer$removeparam=referrer
 ||apps.apple.com/*/app/*referrer$removeparam=referrer
@@ -566,7 +560,6 @@ coursera.org##+js(no-fetch-if, eventing)
 ||coursera.org/*/eventing/
 ||rambler.ru/*#rcmrclid=$uritransform=/#rcmrclid=.*//
 ||cmp.*.no^*/metrics/$important
-||fsho.st/tracker.js^$script,domain=fshost.me
 /^https:\/\/mudah\.my\/[a-zA-Z0-9]{16}\/[a-zA-Z0-9]{16}\?apiKey=/$script,1p,domain=mudah.my
 ! m.youtube.com,music.youtube.com,tv.youtube.com,www.youtube.com,youtubekids.com,youtube-nocookie.com##+js(href-sanitizer, a[href^="https://www.youtube.com/redirect?event=video_description"][href*="&q=http"], ?q)
 ||view.mngusr.com^$domain=chapmanganato.to|manganato.com
@@ -574,11 +567,8 @@ coursera.org##+js(no-fetch-if, eventing)
 ||royalroad.com/dist/sentry.js$script
 streamin.me##^responseheader(set-cookie)
 ||api.modrinth.com/analytics/
-||brilliant.org/amplitude/$1p
-||analytics-prod-*.amazonaws.com^$domain=brilliant.org
 dev.to##+js(cookie-remover, ahoy_visitor)
 dev.to##+js(cookie-remover, ahoy_visit)
-||autotrader.com/*/pep?pixallId
 ||partner.awscconsumerinfo.autotrader.com/*/beacon/
 advocate-news.com,akronnewsreporter.com,bocopreps.com,bostonherald.com,broomfieldenterprise.com,brushnewstribune.com,buffzone.com,burlington-record.com,canoncitydailyrecord.com,chicagotribune.com,chicoer.com,coloradodaily.com,coloradohometownweekly.com,courant.com,dailybreeze.com,dailybulletin.com,dailycamera.com,dailydemocrat.com,dailyfreeman.com,dailylocal.com,dailynews.com,dailypress.com,dailytribune.com,delcotimes.com,denverpost.com,eastbaytimes.com,eastbaytimes.com,eptrail.com,excelsiorcalifornia.com,fortmorgantimes.com,greeleytribune.com,journal-advocate.com,julesburgadvocate.com,lamarledger.com,lowellsun.com,macombdaily.com,mainlinemedianews.com,marinij.com,mcall.com,mendocinobeacon.com,mercurynews.com,mercurynews.com,montereyherald.com,morningjournal.com,nashobavalleyvoice.com,news-herald.com,nydailynews.com,ocregister.com,oneidadispatch.com,orlandosentinel.com,orovillemr.com,paradisepost.com,pasadenastarnews.com,pilotonline.com,pottsmerc.com,pressandguide.com,pressenterprise.com,presstelegram.com,readingeagle.com,record-bee.com,redbluffdailynews.com,redlandsdailyfacts.com,reporterherald.com,sandiegouniontribune.com,santacruzsentinel.com,saratogian.com,sbsun.com,sentinelandenterprise.com,sgvtribune.com,siliconvalley.com,southplattesentinel.com,sun-sentinel.com,themorningsun.com,thenewsherald.com,theoaklandpress.com,thereporter.com,thereporteronline.com,times-standard.com,timescall.com,timesherald.com,timesheraldonline.com,trentonian.com,troyrecord.com,twincities.com,ukiahdailyjournal.com,voicenews.com,whittierdailynews.com,willitsnews.com##+js(set-session-storage-item, nxt_is_incognito, false)
 pitchfork.com##+js(href-sanitizer, a[href^="https://cna.st/"][data-offer-url^="https://"], [data-offer-url])
