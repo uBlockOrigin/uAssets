@@ -1,5 +1,5 @@
 ! Title: uBlock₀ filters – Quick fixes
-! Last modified: Mon, 05 Aug 2024 12:25:57 +0000
+! Last modified: Mon, 05 Aug 2024 13:32:58 +0000
 ! Expires: 8 hours
 ! Description: Immediate, temporary filters to fix websites
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -143,14 +143,6 @@ kimcartoon.li,kc.linksgen.com,kisscartoon.se###centerDivVideo > div[id]:has(> im
 ! kimcartoon.li,kc.linksgen.com,kisscartoon.se##+js(rmnt, script, _btcCheck)
 @@||platform.bidgear.com/pubbidgear-ad.js$xhr,domain=kimcartoon.li|kisscartoon.se|kc.linksgen.com
 
-! exploader.net ads, anti-adb
-exploader.net#@#div[style*="1120px;"][style*="450px;"]:style(height: 0 !important; overflow: hidden !important;)
-exploader.net##article > div[style="margin-left: -63px;width: 1120px;height: 450px;margin-bottom: 5px;display: flex;align-items: center;"]:style(position: absolute !important; left: -3000px !important;)
-exploader.net##+js(spoof-css, article > div[style="margin-left: -63px;width: 1120px;height: 450px;margin-bottom: 5px;display: flex;align-items: center;"] > div, left, auto)
-!#if env_mobile
-exploader.net###firstpop
-!#endif
-
 ! https://github.com/uBlockOrigin/uAssets/issues/24220
 !veev.to##+js(trusted-set, __abburi, {"value": "https://veev.to/assets/videoplayer/df8fdb9.js"})
 @@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$xhr,domain=veev.to
@@ -160,19 +152,3 @@ veev.to##+js(trusted-suppress-native-method, XMLHttpRequest.prototype.open, | "a
 *$xhr,3p,domain=app.axenthost.com,redirect-rule=nooptext
 @@*$xhr,3p,method=get,domain=app.axenthost.com
 @@||axenthost.com^$ghide
-
-! https://github.com/uBlockOrigin/uAssets/issues/24631
-#@#html[lang][style] > body:not([id]) > uni-app.uni-app--maxwidth > uni-page[data-page] > uni-page-wrapper > uni-page-body
-#@#html[lang][style] > body[ontouchstart=""] > div#app[data-v-app=""] > div#app[class] > div.grow
-#@#html[lang] > body:not([class]):not([id]) > div.container.hid[style] > div.box-login:not([id]) > form#formNohp[onsubmit="sendNohp(event);"]:not([class])
-#@#html[lang][data-dpr="1"][style] > body.bluetheme.false > div#app.wrapper
-#@#html[lang][translate] > body.deeppurple-theme:not([id]) > div#app:not([class]) > div.aiz-main-wrapper:not([id])
-#@#html[lang] > body[style="opacity: 1;"]:not([class]):not([id]) > div.wrapper.xbg-101:not([id]) > div.w3-display-container[style]:not([id])
-#@#html[data-dpr="1"][style] > body[style]:not([class]):not([id]) > div#app:not([class]) > div.main:not([id])
-
-! https://github.com/AdguardTeam/AdguardFilters/commit/bd790df5e1ddbf7cdf74c7cedc2fcd9d8f309076
-||nikkansports.com/mod2015/js/piano/members_only.js$badfilter
-
-! https://github.com/uBlockOrigin/uAssets/issues/24685
-||kinesis.*.amazonaws.com^$third-party,domain=~amazon.com,badfilter
-
