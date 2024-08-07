@@ -1,5 +1,5 @@
 ! Title: uBlock₀ filters – Quick fixes
-! Last modified: Wed, 07 Aug 2024 16:09:40 +0000
+! Last modified: Wed, 07 Aug 2024 20:49:16 +0000
 ! Expires: 8 hours
 ! Description: Immediate, temporary filters to fix websites
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -123,10 +123,14 @@ client.falixnodes.net##+js(rpnt, script, (window.loadscript, (window.loadscript 
 @@||cdn.jsdelivr.net/gh/Levii22/$domain=freemcserver.net
 @@||stpd.cloud/saas/$script,domain=panel.freemcserver.net
 @@*$xhr,domain=freemcserver.net
+!#if env_firefox
 ||gum.criteo.com/sid/json?origin=prebid&topUrl=https*&domain=panel.freemcserver.net&*&gdpr=1|$xhr,important,domain=freemcserver.net
 ||id5-sync.com/g/v2/481.json|$xhr,important,domain=freemcserver.net
-||id5-sync.com/api/config/prebid|$xhr,important,method=post,domain=freemcserver.net
+||id5-sync.com/api/config/prebid|$xhr,important,method=post,redirect=nooptext,domain=freemcserver.net
 ||lb.eu-1-id5-sync.com/lb/v1|$xhr,important,domain=freemcserver.net
+!#else
+panel.freemcserver.net##+js(aost, fetch, stpd.cloud)
+!#endif
 
 ! https://github.com/uBlockOrigin/uAssets/issues/24217
 ! kimcartoon.*,kisscartoon.se,kc.linksgen.com##+js(aost, jQuery.fn.html, /^(?!.*jquery).*(Scripts|inlineScript)/i)
