@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Quick fixes
 ! Expires: 12 hours
-! Last modified: Wed, 07 Aug 2024 20:49:16 +0000
+! Last modified: Thu, 08 Aug 2024 05:36:44 +0000
 ! Diff-Path: %diffpath%#ublock-quick-fixes
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -71,7 +71,6 @@ japscan.lol#@#+js(aeld, DOMContentLoaded, /\)\(\);\s*\}.{400\,500}$/)
 japscan.lol#@#+js(aeld, DOMContentLoaded, /\)\(\)\s*;\s*\}.{400\\, 500}$/)
 japscan.lol#@#.notice-message
 japscan.lol##+js(aost, onload, inlineScript)
-japscan.lol##+js(acs, JSON.stringify, function)
 japscan.lol##+js(acs, Object.entries, function)
 japscan.lol##+js(acs, document.querySelectorAll, function)
 japscan.lol##+js(acs, document.querySelector, function)
@@ -119,16 +118,12 @@ panel.freemcserver.net##+js(aost, fetch, stpd.cloud)
 !kimcartoon.*##+js(rpnt, script, /^\(function/, '/*start*/(function(){const e={apply:(e,t,o)=>{if(o[0]?.includes("<img src=")){throw new ReferenceError();};return Reflect.apply(e,t,o)}};window.RegExp.prototype.test=new Proxy(window.RegExp.prototype.test,e)})();document.currentScript.textContent=document.currentScript.textContent.replace(/\/\*start\*\/(.*)\/\*end\*\//g,"");/*end*/(function', sedCount, 1)
 !#endif
 !kimcartoon.li,kc.linksgen.com,kisscartoon.se##+js(acs, setTimeout, /navigator\.userAgent;\n\s+if \(\w|i.*\..*i.*m.*g.*u.*r.*\..*c.*o.*m/)
-kimcartoon.li,kc.linksgen.com,kisscartoon.se##+js(set, isAdb, false)
 kimcartoon.li,kc.linksgen.com,kisscartoon.se##+js(no-fetch-if, bidgear)
-kimcartoon.li,kc.linksgen.com,kisscartoon.se##+js(trusted-replace-argument, document.getElementById, 0, undefined, condition, divContentVideo)
 ! @@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$script,domain=kimcartoon.li
-kimcartoon.li,kc.linksgen.com,kisscartoon.se##+js(acs, $, /divContentVideo(?![\s\S]*\.src)/)
-kimcartoon.li,kc.linksgen.com,kisscartoon.se##+js(acs, $, cpe = true)
 kimcartoon.li,kc.linksgen.com,kisscartoon.se##+js(nostif, navigator.userAgent)
-kimcartoon.li,kc.linksgen.com,kisscartoon.se###divContentVideo:style(display: block !important;)
-kimcartoon.li,kc.linksgen.com,kisscartoon.se###centerDivVideo > div[id]:has(> img[src^="https://i.imgur.com"])
-kimcartoon.li,kc.linksgen.com,kisscartoon.se##+js(rmnt, script, /_btcCheck(?![\s\S]*\.src)|i\.imgur\.com[\s\S]*?(\.remove\(\)|\.innerHTML)/)
+! kimcartoon.li,kc.linksgen.com,kisscartoon.se###divContentVideo:style(display: block !important;)
+! kimcartoon.li,kc.linksgen.com,kisscartoon.se###centerDivVideo > div[id]:has(> img[src^="https://i.imgur.com"])
+kimcartoon.li,kc.linksgen.com,kisscartoon.se#@##hideAds
 @@||kc.linksgen.com^$frame,1p,strict1p
 @@||kimcartoon.li^$frame,1p,strict1p
 @@||kisscartoon.se^$frame,1p,strict1p
@@ -136,6 +131,7 @@ kimcartoon.li,kc.linksgen.com,kisscartoon.se##+js(rmnt, script, /_btcCheck(?![\s
 ||kimcartoon.li/Ads/bid300a.aspx$frame,1p,important
 ||kisscartoon.se/Ads/bid300a.aspx$frame,1p,important
 @@||platform.bidgear.com/pubbidgear-ad.js$xhr,domain=kimcartoon.li|kisscartoon.se|kc.linksgen.com
+@@||whatsnew247.net^$script,xhr,domain=kimcartoon.li|kisscartoon.se|kc.linksgen.com
 !veev.to##+js(trusted-set, __abburi, {"value": "https://veev.to/assets/videoplayer/df8fdb9.js"})
 @@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$xhr,domain=veev.to
 veev.to##+js(trusted-suppress-native-method, XMLHttpRequest.prototype.open, | "adsbygoogle", prevent)
@@ -146,3 +142,4 @@ veev.to##+js(trusted-suppress-native-method, XMLHttpRequest.prototype.open, |"ad
 ! Better to counter the old filter for a while... https://github.com/uBlockOrigin/uAssets/commit/f44ac328b718bab3118f759880128fe420afb906
 www.google.*#@#+js(trusted-set-cookie, SOCS, CAISNQgQEitib3FfaWRlbnRpdHlmcm9udGVuZHVpc2VydmVyXzIwMjQwNTE0LjA2X3AwGgJmaSADGgYIgOu0sgY, 1year)
 ||e11956.x.akamaiedge.net^$badfilter
+||0.0.0.0^$third-party,domain=~0.0.0.0|~127.0.0.1|~[::1]|~[::]|~local|~localhost
