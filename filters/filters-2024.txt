@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2024)
-! Last modified: Thu, 08 Aug 2024 19:10:55 +0000
+! Last modified: Fri, 09 Aug 2024 01:43:28 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -1799,24 +1799,30 @@ pandadevelopment.net##+js(no-fetch-if, adsbygoogle)
 ||go.aff.7k-partners.com^$popup
 megacanais.com##+js(aopr, Adcash)
 
+! https://cracksports.me/ - popups
+! https://soccerworldcup.me/ - popups
 ! https://github.com/uBlockOrigin/uAssets/issues/23443
 ! https://github.com/uBlockOrigin/uAssets/issues/23444
+! https://github.com/uBlockOrigin/uAssets/issues/24656
 ! https://github.com/uBlockOrigin/uAssets/issues/24737
+! https://github.com/uBlockOrigin/uAssets/issues/24816
+! https://github.com/uBlockOrigin/uAssets/issues/24831
 !#if cap_html_filtering
-buffsports.me,rnbastreams.com,4kwebplay.xyz,qqwebplay.xyz,totalsportek.to,eztvx.to,topstreams.info,lewblivehdplay.ru,claplivehdplay.ru,mixdrop.*,viwlivehdplay.ru,antennasports.ru,buffstreams.app,1stream.eu##^script:has-text(adserverDomain)
+1stream.eu,4kwebplay.xyz,antennasports.ru,buffsports.me,buffstreams.app,claplivehdplay.ru,cracksports.me,ext.to,eztv.tf,eztvx.to,kenitv.me,lewblivehdplay.ru,mixdrop.*,mlbbite.net,mlbstreams.ai,qqwebplay.xyz,rnbastreams.com,soccerworldcup.me,topstreams.info,totalsportek.to,viwlivehdplay.ru##^script:has-text(adserverDomain)
 !#else
-buffsports.me,rnbastreams.com,4kwebplay.xyz,qqwebplay.xyz,totalsportek.to,eztvx.to,topstreams.info,lewblivehdplay.ru,claplivehdplay.ru,mixdrop.*,viwlivehdplay.ru,antennasports.ru,buffstreams.app,1stream.eu##+js(rmnt, script, adserverDomain)
+1stream.eu,4kwebplay.xyz,antennasports.ru,buffsports.me,buffstreams.app,claplivehdplay.ru,cracksports.me,ext.to,eztv.tf,eztvx.to,kenitv.me,lewblivehdplay.ru,mixdrop.*,mlbbite.net,mlbstreams.ai,qqwebplay.xyz,rnbastreams.com,soccerworldcup.me,topstreams.info,totalsportek.to,viwlivehdplay.ru##+js(rmnt, script, adserverDomain)
 !#endif
 ###dontfoid
 ##div[style="top: 0px; left: 0px; width: 1287px; height: 500px; position: fixed; z-index: 2147483647;"]
 ##div[style="position: fixed; inset: 0px; z-index: 2147483647; pointer-events: auto;"]
+cracksports.me##+js(acs, JSON.parse, atob)
 ! https://github.com/uBlockOrigin/uAssets/issues/23616
 /\/z-[a-z0-9]{7,10}(\.js)?$/$script,domain=embedflix.online|koyso.com|nepu.to|methstreams.com
 /^https:\/\/[a-z]{4,}\.(?:com|to)\/z-[a-z0-9]{7,10}(\.js)?$/$script,1p,strict1p,domain=com|to,header=etag:/^"[a-f0-9]{4,}-[a-f0-9]{4,}"$/
 ! https://github.com/uBlockOrigin/uAssets/issues/23459
 ! https://www.reddit.com/r/uBlockOrigin/comments/1cyfbpa/ad_block_stopped_working_on_sports_streaming/
 ! https://github.com/uBlockOrigin/uBlock-discussions/discussions/790#discussioncomment-9534899
-/^https?:\/\/[a-z]{5,12}\.com\/[0-9a-h]{1,17}\?[0-9a-zA-Z]{1,21}=[0-9a-zA-Z]{300,1300}/$xhr,3p,match-case,to=com,method=get,header=via:/1[-.:]1/
+/^https?:\/\/[a-z]{5,12}\.com\/[0-9a-h]{1,17}\?[0-9a-zA-Z]{1,21}=[0-9a-zA-Z]{300,1300}/$xhr,3p,match-case,to=com,method=get,header=via:/1[-.:]\d/
 
 ! cricket sites popups
 crictime.is,freehit.eu,mobilecric.com##[href*="?key"][target="_blank"]:remove-attr(href)
@@ -2690,21 +2696,6 @@ watchdirty.to##.block-video > .table
 ! https://github.com/uBlockOrigin/uAssets/issues/24632
 cinemitas.org,cinelatino.net,cineplus123.org,paraveronline.org,pobreflix.vc,verpelis.gratis##+js(trusted-set, dtGonza.playeradstime, '"-1"')
 
-! https://cracksports.me/ - popups
-cracksports.me##+js(acs, JSON.parse, atob)
-!#if cap_html_filtering
-cracksports.me,kenitv.me##^script:has-text(adserverDomain)
-!#else
-cracksports.me,kenitv.me##+js(rmnt, script, adserverDomain)
-!#endif
-
-! https://github.com/uBlockOrigin/uAssets/issues/24656
-!#if cap_html_filtering
-mlbbite.net,mlbstreams.ai##^script:has-text(adserverDomain)
-!#else
-mlbbite.net,mlbstreams.ai##+js(rmnt, script, adserverDomain)
-!#endif
-
 ! https://github.com/uBlockOrigin/uAssets/issues/24670
 ! https://github.com/uBlockOrigin/uAssets/issues/24671
 al.com,cleveland.com,mlive.com,nj.com,oregonlive.com##+js(rmnt, script, admiral)
@@ -2730,13 +2721,6 @@ chasingthedonkey.com##+js(nowoif)
 
 ! https://www.taste.com.au/food-news/arnotts-told-us-secret-recipe-their-discontinued-honey-jumbles-biscuits/y036sar4 - top placeholder
 taste.com.au##.main-header:style(top: 0 !important)
-
-! https://soccerworldcup.me/ - popups
-!#if cap_html_filtering
-soccerworldcup.me##^script:has-text(adserverDomain)
-!#else
-soccerworldcup.me##+js(rmnt, script, adserverDomain)
-!#endif
 
 ! https://github.com/uBlockOrigin/uAssets/issues/24677#issuecomment-2262916020
 tvline.com##+js(rmnt, script, /adm|adb/i)
@@ -2788,13 +2772,6 @@ olympicstreams.ru##+js(aost, Object, Pop)
 avxhm.se##[data-localize]:has(a[href^="https://icerbox.com/"])
 avxhm.se##center:has(a[href^="https://canv.ai/"])
 avxhm.se##center:has(a[href^="https://canv.ai/"]) ~ span:has(a[href^="https://canv.ai/"])
-
-! https://github.com/uBlockOrigin/uAssets/issues/24831
-!#if cap_html_filtering
-ext.to##^script:has-text(adserverDomain)
-!#else
-ext.to##+js(rmnt, script, adserverDomain)
-!#endif
 
 ! https://github.com/uBlockOrigin/uAssets/issues/24835
 ||heraldnet.com/wp-content/plugins/incognito_dectector/js/incognito-detector.js$script,1p
