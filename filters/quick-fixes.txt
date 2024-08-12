@@ -1,5 +1,5 @@
 ! Title: uBlock₀ filters – Quick fixes
-! Last modified: Sun, 11 Aug 2024 12:48:13 +0000
+! Last modified: Mon, 12 Aug 2024 13:08:23 +0000
 ! Expires: 8 hours
 ! Description: Immediate, temporary filters to fix websites
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -123,6 +123,7 @@ client.falixnodes.net##+js(rpnt, script, (window.loadscript, (window.loadscript 
 @@||securepubads.g.doubleclick.net/tag/js/gpt.js$script,domain=panel.freemcserver.net
 @@||googletagmanager.com/gtag/js?$script,domain=panel.freemcserver.net
 @@*$xhr,domain=freemcserver.net
+*$script,redirect-rule=noopjs,domain=panel.freemcserver.net
 !#if env_firefox
 ||gum.criteo.com/sid/json?origin=prebid&topUrl=https*&domain=panel.freemcserver.net&*&gdpr=1|$xhr,important,domain=freemcserver.net
 ||id5-sync.com/g/v2/481.json|$xhr,important,domain=freemcserver.net
@@ -131,8 +132,7 @@ client.falixnodes.net##+js(rpnt, script, (window.loadscript, (window.loadscript 
 ||google-analytics.com^$xhr,important,domain=freemcserver.net
 *$xhr,redirect-rule=nooptext,domain=panel.freemcserver.net
 !#else
-panel.freemcserver.net##+js(aost, fetch, stpd.cloud)
-panel.freemcserver.net##+js(aost, fetch, googletagmanager.com)
+||region1.google-analytics.com/g/collect?$xhr,important,domain=freemcserver.net
 !#endif
 
 ! https://github.com/uBlockOrigin/uAssets/issues/24217
