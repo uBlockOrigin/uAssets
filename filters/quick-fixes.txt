@@ -1,5 +1,5 @@
 ! Title: uBlock₀ filters – Quick fixes
-! Last modified: Wed, 14 Aug 2024 10:19:59 +0000
+! Last modified: Thu, 15 Aug 2024 22:14:50 +0000
 ! Expires: 8 hours
 ! Description: Immediate, temporary filters to fix websites
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -114,6 +114,8 @@ client.falixnodes.net##+js(rpnt, script, (window.loadscript, (window.loadscript 
 @@||googletagmanager.com/gtag/js?$script,domain=panel.freemcserver.net
 @@||securepubads.g.doubleclick.net/pagead/managed/js/gpt/$script,domain=panel.freemcserver.net
 *$script,redirect-rule=noopjs,domain=panel.freemcserver.net
+freemcserver.net,~panel.freemcserver.net##+js(nostif, 0x)
+panel.freemcserver.net##div[style^="min-height:"]:has(> div[id^="stpd-"])
 !#if env_firefox
 *$xhr,redirect-rule=nooptext,domain=panel.freemcserver.net
 !#else
@@ -121,6 +123,10 @@ client.falixnodes.net##+js(rpnt, script, (window.loadscript, (window.loadscript 
 @@||tagan.adlightning.com/setupad-hai/op.js|$xhr,domain=panel.freemcserver.net
 @@||lb.eu-1-id5-sync.com/lb/v1|$xhr,domain=panel.freemcserver.net
 @@||adx.adform.net/adx/openrtb|$xhr,domain=panel.freemcserver.net
+@@||eus.rubiconproject.com/usync.html?gdpr=0|$xhr,domain=panel.freemcserver.net
+panel.freemcserver.net##+js(aost, fetch, googletagmanager.com)
+panel.freemcserver.net##+js(aost, fetch, stpd.cloud)
+panel.freemcserver.net##+js(set, onerror, null)
 !#endif
 
 ! https://github.com/uBlockOrigin/uAssets/issues/24217
