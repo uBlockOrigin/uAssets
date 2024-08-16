@@ -1,5 +1,5 @@
 ! Title: uBlock filters
-! Last modified: Fri, 16 Aug 2024 11:36:20 +0000
+! Last modified: Fri, 16 Aug 2024 19:39:25 +0000
 ! Expires: 5 days
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
@@ -1510,24 +1510,12 @@ sxyprn.*##.cbd
 
 ! https://github.com/uBlockOrigin/uAssets/issues/1197
 lacuevadeguns.com##+js(aost, onload, inlineScript)
-*$image,redirect-rule=1x1.gif,domain=magesy.*|majesy.*|mage.si|magesypro.*
-@@*$ghide,domain=mage.si|magesypro.*|magesy.blog
-magesy.*##ins.adsbygoogle
-mage.si##+js(aeld, load, nextFunction)
-mage.si##+js(nano-sib)
-magesypro.*##ins.adsbygoogle
-magesypro.pro,magesy.*##+js(nostif, AdBlocker)
-magesy.*##+js(no-fetch-if, adsbygoogle)
-audiotools.pro,magesy.blog,magesypro.pro##+js(noeval-if, blocker)
-audiotools.pro,magesy.blog,magesypro.pro##+js(nostif, Blocked)
-magesy.download##+js(acs, addEventListener, google_ad_client)
-magesy.*,magesypro.pro##+js(aost, document.getElementById, adsBlocked)
-@@*$script,1p,domain=audiotools.pro|magesy.blog|magesypro.pro|audioztools.com
-/magesy\.blog\/biocontent\/themes\/[a-z0-9]{4,15}\.js/$script,1p,important,domain=magesy.blog
 ||cdn.jsdelivr.net/npm/@rimiti/abm@latest/dist/$script,css,3p
-magesy.blog###abm
-magesy.blog##+js(nostif, ai_adb)
-magesy.blog##+js(nostif, match, 100)
+!#if cap_html_filtering
+magesypro.com##^script:has-text(deblocker)
+!#else
+magesypro.com##+js(rmnt, script, deblocker)
+!#endif
 
 ! https://github.com/uBlockOrigin/uAssets/issues/6223
 hqq.*##+js(aopr, adBlockDetected)
