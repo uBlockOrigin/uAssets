@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Unbreak
-! Last modified: Fri, 16 Aug 2024 00:38:43 +0000
+! Last modified: Sat, 17 Aug 2024 02:04:48 +0000
 ! Expires: 5 days
 ! Description: Filters optimized for uBlock Origin, to unbreak sites broken as a result of 3rd-party filter lists enabled by default.
 ! Homepage: https://github.com/uBlockOrigin/uAssets
@@ -5698,3 +5698,14 @@ hltv.org#@#.playerOfTheWeekContainer
 ! https://github.com/uBlockOrigin/uAssets/issues/24913
 macrotrends.net##+js(set, clicky, {})
 macrotrends.net##+js(set, clicky.goal, noopFunc)
+
+! https://github.com/uBlockOrigin/uAssets/issues/24930
+||imasdk.googleapis.com/js/sdkloader/ima3.js$script,redirect=google-ima.js,domain=gamerant.com
+@@||cdn.adsninja.ca/adsninja_worker_caller.js$script,domain=gamerant.com
+@@||cdn.adsninja.ca/adsninja_client$script,css,domain=gamerant.com
+@@||gamerant.com^$ghide
+gamerant.com#@#+js(abort-on-property-read, googletag)
+gamerant.com##[id^="adsninja-ad-zone-div-gpt-ad"]
+gamerant.com##[id^="adsninja-ad-zone-adsninja-ad-unit-footer"]
+gamerant.com##[class*="ad-zone-container-content-character-count-repeatable"]
+gamerant.com##.adzone-above-latest
