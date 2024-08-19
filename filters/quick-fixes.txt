@@ -169,9 +169,13 @@ kimcartoon.li,kc.linksgen.com,kisscartoon.se#@##hideAds
 
 ! https://github.com/uBlockOrigin/uAssets/issues/24220
 !veev.to##+js(trusted-set, __abburi, {"value": "https://veev.to/assets/videoplayer/df8fdb9.js"})
+!#if cap_html_filtering
+||static.veevcdn.co/assets/videoplayer/$script,replace=/\)\{\!0x1\=\=\=/){true===/g
+!#else
 @@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$xhr,domain=veev.to
+@@||a.pemsrv.com/ad-provider.js|$xhr,domain=veev.to
 veev.to##+js(trusted-suppress-native-method, XMLHttpRequest.prototype.open, | "adsbygoogle", prevent)
-veev.to##+js(trusted-suppress-native-method, XMLHttpRequest.prototype.open, |"ad-provider.js", prevent)
+!#endif
 
 ! Better to counter the old filter for a while... https://github.com/uBlockOrigin/uAssets/commit/f44ac328b718bab3118f759880128fe420afb906
 ! https://www.reddit.com/r/uBlockOrigin/comments/1ekkkp1/google_constantly_reverting_to_light_mode_and/
