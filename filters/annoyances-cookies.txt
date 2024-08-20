@@ -244,9 +244,12 @@ sportbible.com#@#div[id^="sp_message_container_"]
 ! https://github.com/uBlockOrigin/uAssets/issues/21526
 ! https://github.com/uBlockOrigin/uAssets/pull/21510/
 m2o.it,deejay.it,capital.it,ilmattino.it,leggo.it,libero.it,tiscali.it##+js(trusted-click-element, 'button.iubenda-cs-customize-btn, button.iub-cmp-reject-btn, button#iubFooterBtn', , 1000)
-m2o.it,deejay.it,capital.it,ilmattino.it,leggo.it,libero.it,tiscali.it##html[style="overflow: hidden;"]:style(overflow: auto !important)
+m2o.it,deejay.it,capital.it,ilmattino.it,leggo.it,libero.it,tiscali.it##html[style="overflow: hidden;"]:not(:has(#cmp_consent_wall)):style(overflow: auto !important)
 m2o.it,deejay.it,capital.it,ilmattino.it,leggo.it,libero.it,tiscali.it##[id^="iubenda"]
 ilmattino.it,leggo.it##.banner:has([href="javascript:acceptAllCookies();void(0);"])
+ilmattino.it##+js(trusted-click-element, .accept[onclick="cmpConsentWall.acceptAllCookies()"], , 1000)
+ilmattino.it###cmp_consent_wall:style(visibility: hidden !important;)
+ilmattino.it##body:has(#cmp_consent_wall):style(overflow: auto !important;)
 ! https://lastmile.lt/
 lastmile.lt##+js(set-cookie, __consent, %5B%22required%22%5D)
 
@@ -1605,3 +1608,9 @@ virgin.com##+js(trusted-set-cookie, user-cookie-preferences, {%22necessary-cooki
 
 ! decline
 mundwerk-rottweil.de##+js(trusted-set-local-storage-item, cookieConsent, denied)
+
+! https://www.vidal.fr/ - social sharing
+vidal.fr##+js(trusted-set-cookie, vidal_consent, tracking=0&content=0&comm=0&pub=0&social=1&date_consent=$now$&validity_date_consent=$now$, , , domain, vidal.fr)
+
+! https://www.mediamarkt.be/ - comfortable cookies
+mediamarkt.*##+js(trusted-set-cookie, pwaconsent, 'v:1.0~required:1&clf:1,cli:1,gfb:1,gtm:1,mmr:1|comfort:1&baz:1,cha:1,cne:1,con:0,fix:1,gfa:0,gis:1,goa:0,gom:1,grc:0,lob:1,loq:1,mmc:0,ore:0,pcl:1,sen:0,sst:0,swo:0,yte:1|marketing:0&cri:0,fab:0,fcm:0,gad:0,gam:0,gcl:0,gcm:0,gdv:0,gse:0,msb:0,omp:0,pin:0,trd:0|')
