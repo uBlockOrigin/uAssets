@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Tue, 20 Aug 2024 16:36:36 +0000
+! Last modified: Tue, 20 Aug 2024 20:56:13 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -16371,6 +16371,12 @@ reddit.com,reddittorjg6rue252oqsxryoxengawnmo46qy4kyii5wtqnwfj4ooad.onion##.adLi
 @@||xtremestream.co^$ghide
 blick.ch##+js(set, Object.prototype.isAdDisabled, true)
 blick.ch##.fKZLNI:style(width:120% !important)
+!#if cap_html_filtering
+blick.ch##^script:has-text(setNptTechAdblockerCookie)
+!#else
+blick.ch##+js(rmnt, script, setNptTechAdblockerCookie)
+!#endif
+blick.ch##+js(cookie-remover, __adblocker)
 bblink.com##+js(set, blurred, false)
 bblink.com##.banner-img-promotion
 ! donpelis.com popup popunder
