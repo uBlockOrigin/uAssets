@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Unbreak
-! Last modified: Fri, 23 Aug 2024 09:12:22 +0000
+! Last modified: Fri, 23 Aug 2024 09:25:16 +0000
 ! Expires: 5 days
 ! Description: Filters optimized for uBlock Origin, to unbreak sites broken as a result of 3rd-party filter lists enabled by default.
 ! Homepage: https://github.com/uBlockOrigin/uAssets
@@ -4899,8 +4899,10 @@ neurotray.com##+js(nano-stb, /EzoIvent|TDELAY/, 5000)
 
 ! https://www.reddit.com/r/uBlockOrigin/comments/16gwdpd/virgin_media_player_not_visible_with_ublock/
 virginmediatelevision.ie##+js(set, google.ima.dai, {})
-||imasdk.googleapis.com/js/sdkloader/ima3.js$script,redirect=google-ima.js,domain=virginmediatelevision.ie
-@@||imasdk.googleapis.com/js/sdkloader/ima3_dai.js$script,domain=virginmediatelevision.ie
+||imasdk.googleapis.com/js/sdkloader/ima3.js^$script,redirect=google-ima.js,domain=virginmediatelevision.ie
+@@||imasdk.googleapis.com/js/sdkloader/ima3_dai.js^$script,domain=virginmediatelevision.ie
+! https://github.com/uBlockOrigin/uAssets/issues/25010
+virginmediatelevision.ie##+js(no-xhr-if, /froloa.js)
 
 ! https://www.3bmeteo.com/meteo/italia/video - Video breakage
 ||imasdk.googleapis.com/js/sdkloader/ima3.js$script,redirect=google-ima.js,domain=3bmeteo.com,important
