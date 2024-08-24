@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Sat, 24 Aug 2024 00:34:28 +0000
+! Last modified: Sat, 24 Aug 2024 02:03:47 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -10424,6 +10424,13 @@ m9.news##+js(rmnt, script, m9-ad-modal)
 m9.news##body:style(display: block !important;)
 !#endif
 /wp-content/uploads/pum/pum-site-scripts.js^
+!#if cap_html_filtering
+cineb.rs##^script:has-text(shown_at)
+!#else
+cineb.rs##+js(rmnt, script, shown_at)
+!#endif
+cineb.rs##+js(aeld, mousedown, shown_at)
+cineb.rs##+js(nowoif)
 ! Link shortener filters go into their own dedicated list
 ! *** filters/ubo-link-shorteners.txt ***
 ! gplinks all domains (gplinks.co/EWu8)
