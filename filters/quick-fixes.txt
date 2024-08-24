@@ -52,6 +52,13 @@ www.youtube.com##+js(json-prune-xhr-response, playerAds adPlacements adSlots pla
 ! https://github.com/easylist/easylist/commit/ff6cf6a17bfd5f9f3d5233c364d05f48f187b9b7
 ||youtube.com/youtubei/v1/player/heartbeat?$badfilter
 
+! https://github.com/uBlockOrigin/uAssets/issues/3367#issuecomment-2307514494
+!#if cap_html_filtering
+||facebook.com/api/graphql/$xhr,replace=/\{"cnt_lbl_brs"[^\n]+?"SponsoredData","ad_id"[^\n]+"cursor":"[^"]+"\}/{}/g,domain=web.facebook.com|www.facebook.com
+!#else
+web.facebook.com,www.facebook.com##+js(trusted-replace-xhr-response, '/\{"cnt_lbl_brs"[^\n]+?"SponsoredData","ad_id"[^\n]+"cursor":"[^"]+"\}/g', {}, /api/graphql)
+!#endif
+
 ! https://github.com/uBlockOrigin/uAssets/issues/18476
 ! VOE sites
 ||imasdk.googleapis.com/js/sdkloader/ima3.js$script,3p,redirect=google-ima.js,domain=donaldlineelse.com,important
