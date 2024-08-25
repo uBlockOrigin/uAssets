@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Sun, 25 Aug 2024 15:15:39 +0000
+! Last modified: Sun, 25 Aug 2024 15:32:09 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -10445,6 +10445,12 @@ help.sakarnewz.com##+js(rmnt, script, googlesyndication)
 btv.bg###leading_video_player_autoplay_wrapper:remove()
 btv.bg###leading_video_player_autoplay_main_wrapper:style(display: block !important;)
 btv.bg##.vjs-continue-watching-bar
+!#if cap_html_filtering
+sexwebvideo.com,sexwebvideo.net##^script:has-text(detectAdBlock)
+!#elseif
+sexwebvideo.com,sexwebvideo.net##+js(rmnt, script, detectAdBlock)
+!#endif
+sexwebvideo.com,sexwebvideo.net##+js(set, flashvars.popunder_url, '')
 ! Link shortener filters go into their own dedicated list
 ! *** filters/ubo-link-shorteners.txt ***
 ! gplinks all domains (gplinks.co/EWu8)
