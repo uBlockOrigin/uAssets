@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Link shorteners
-! Last modified: Sun, 25 Aug 2024 05:07:05 +0000
+! Last modified: Sun, 25 Aug 2024 05:23:32 +0000
 ! Expires: 5 days
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
@@ -561,10 +561,15 @@ amanguides.com,highkeyfinance.com##+js(rmnt, script, deblocker)
 
 ! cuty.io (https://cutty.app/b6InEDRzF8NF)
 ! https://github.com/uBlockOrigin/uAssets/issues/24222
+! https://github.com/uBlockOrigin/uAssets/discussions/17361#discussioncomment-10438223 (https://cuty .io/blIkkHQyy)
 cety.app,exego.app,cutlink.net,cutsy.net,cutyurls.com,cutty.app,cutnet.net##.steps-to-earn, .flex.share-icons-container, .register-banner, fieldset, .partners-container, .actions
 cety.app,exego.app,cutlink.net,cutsy.net,cutyurls.com,cutty.app,cutnet.net##+js(aeld, click, /handleClick|popup/)
-cety.app,exego.app,cutlink.net,cutsy.net,cutyurls.com,cutty.app,cutnet.net##+js(rmnt, script, popup)
 cety.app,exego.app,cutlink.net,cutsy.net,cutyurls.com,cutty.app,cutnet.net##+js(set, blurred, false)
+!#if cap_html_filtering
+cety.app,exego.app,cutlink.net,cutsy.net,cutyurls.com,cutty.app,cutnet.net##^script:has-text(/popup/i)
+!#else
+cety.app,exego.app,cutlink.net,cutsy.net,cutyurls.com,cutty.app,cutnet.net##+js(rmnt, script, /popup/i)
+!#endif
 cety.app##+js(acs, navigator, FingerprintJS)
 cety.app##+js(aeld, click, open)
 
