@@ -1,0 +1,16 @@
+on:
+  issue_comment:
+    types: created
+jobs:
+  check-if-bad-comment:
+    name: delete bad comment
+    runs-on: ubuntu-latest
+    if: contains(github.event.comment.body, 'Download') && contains(github.event.comment.body, 'gcc')
+    permissions: write-all
+    steps:
+      - name: Delete comment
+        uses: actions-cool/issues-helper@v3
+        with:
+          actions: 'delete-comment'
+          token: ${{ secrets.GITHUB_TOKEN }}
+          comment-id: ${{ github.event.comment.id }}
