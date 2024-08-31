@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Sat, 31 Aug 2024 05:11:17 +0000
+! Last modified: Sat, 31 Aug 2024 05:54:55 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -10475,10 +10475,13 @@ giga-streaming.com##+js(rmnt, script, popundersPerIP)
 giga-streaming.com##^script[data-cfasync]:has-text(popundersPerIP)
 giga-uqload.xyz##+js(nostif, afterOpen)
 ||player.kick.com^$frame,3p,domain=interactivemap.app
-||interactivemap.app/admin/api/sidebarframeleft/$subdocument,1p
+||interactivemap.app/admin/api/sidebarframeleft/$frame,1p
 interactivemap.app###streamers
 interactivemap.app##.footer
 interactivemap.app##.sidebar-tabs-panels:style(max-height: 700px !important;)
+||adobedtm.com^*-source.min.js$script,domain=plasticsnews.com,important
+plasticsnews.com##[class*="has-interstitial-ads"]:remove-class(/^has-interstitial-ads/)
+plasticsnews.com##body.has-interstitial-ads .has-interstitial-ads-page, body.has-interstitial-ads .has-interstitial-ads-page *:style(visibility: visible !important;)
 ! Link shortener filters go into their own dedicated list
 ! *** filters/ubo-link-shorteners.txt ***
 ! gplinks all domains (gplinks.co/EWu8)
