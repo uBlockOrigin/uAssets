@@ -3116,3 +3116,27 @@ multimovies.*###clickfakeplayer:remove-attr(href)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/25165
 mlbstreaming.live##+js(nowoif)
+
+! https://github.com/uBlockOrigin/uAssets/issues/25096
+idnes.cz#@#+js(acis, HTMLIFrameElement.prototype.contentWindow)
+@@/site=*/viewid=*/size=$script,domain=idnes.cz
+idnes.cz##.abchead
+idnes.cz##.s_widesquare:has(> div > #widesquare > a[rel="sponsored"])
+idnes.cz##div[id].pla-net > div > span:empty
+idnes.cz##body::before:style(background: none !important;)
+idnes.cz##html:style(cursor: auto !important;)
+idnes.cz##+js(acs, document.onclick, reklama-flash-body)
+
+! paste.fo ads
+paste.fo##.wrapper > [class] > a[href*="https://bit.ly/3vKxLhC"], a[href*="https://bit.ly/4aDbAcb"], a[href*="https://bit.ly/4cL4Jz2"], a[href*="https://bit.ly/3VEkIbL"], a[href*="https://goldenaccounts.cc/?r=pastefo"], a[href*="https://discord.gg/R5pN8ZvBVW"], a[href*="https://spadone.cc/"], a[href*="https://orion.hydrolmn.com/"], a[href*="https://anonsmm.com/?utm_source"], a[href*="https://cryptochanger.to/"], a[href*="https://sellsn.io/"], a[href*="https://astralproxies.sellpass.io/"], a[href*="https://discord.gg/GeDqHNzyEh"], a[href*="https://proxylist.to/?ref=pfo"], a[href*="https://themario.sellpass.io/"], a[href*="sigmaproxies.com"], a[href*="notokyc.com"], a[href="https://adultslayer.shop/"]
+||paste.fo^$image,1p
+@@||paste.fo/assets/svg/*.php$image,1p
+@@||paste.fo/assets/svg/*.svg$image,1p
+@@||paste.fo/favicon.ico|$image,1p
+@@||paste.fo/assets/img/$image,1p
+||paste.fo/*?as=*&tkn=$xhr
+paste.fo##.lolimg
+paste.fo##.wrapper > *:has(> a > * > * > * [class])
+paste.fo##.wrapper > [class]:has(> a[href^="https://paste.fo/"][id] > * > *)
+paste.fo##style:has-text(background-image:):remove()
+paste.fo##style:has-text(/background\: url\(https/):remove()
