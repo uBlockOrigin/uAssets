@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Link shorteners
-! Last modified: Tue, 03 Sep 2024 16:06:30 +0000
+! Last modified: Tue, 03 Sep 2024 16:56:23 +0000
 ! Expires: 5 days
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
@@ -862,7 +862,6 @@ freemodsapp.xyz,panda.freemodsapp.in###wpsafe-link:others()
 itscybertech.com##+js(nano-sib, counter)
 itscybertech.com###combtn, .download.medium.button:style(display: inline-block !important;)
 computerpedia.in###tp98, #countdown:style(display: block !important;)
-computerpedia.in###tp98, #countdown, [src*="https://www.google.com/recaptcha"]:others()
 computerpedia.in##+js(nano-sib, count, *, 0.001)
 computerpedia.in##+js(no-fetch-if, syndication)
 takez.co##+js(nano-sib, timer)
@@ -1325,6 +1324,7 @@ shortxlinks.com##+js(set, blurred, false)
 shortxlinks.com##[href^="https://app.youcine.vip/"]
 mtcremix.com##+js(noeval-if, /chp_?ad/)
 mtcremix.com##+js(aost, document.getElementsByTagName, adsBlocked)
+mtcremix.com##+js(no-fetch-if, ads)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/17548
 ! https://github.com/uBlockOrigin/uAssets/issues/24504
@@ -1358,3 +1358,10 @@ dropgalaxy.*,financemonk.net##^script:has-text(/event\.keyCode|DisableDevtool/)
 !#else
 dropgalaxy.*,financemonk.net##+js(rmnt, script, /event\.keyCode|DisableDevtool/)
 !#endif
+
+! https://github.com/uBlockOrigin/uAssets/issues/25154
+advicefunda.com,bestloanoffer.net,computerpedia.in,techconnection.in##+js(no-fetch-if, ads)
+advicefunda.com,bestloanoffer.net,computerpedia.in,techconnection.in##+js(noeval-if, /chp_?ad/)
+advicefunda.com,bestloanoffer.net,techconnection.in##+js(nano-sib, count, *, 0.001)
+advicefunda.com,bestloanoffer.net,computerpedia.in,techconnection.in##.overlay
+advicefunda.com,bestloanoffer.net,computerpedia.in,techconnection.inn##.popup
