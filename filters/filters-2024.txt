@@ -264,7 +264,7 @@ abysscdn.com##.playover
 abysscdn.com,playhydrax.com##+js(set, document.ontouchend, null)
 abysscdn.com,playhydrax.com##+js(set, document.onclick, null)
 ! popups when moving out of fullscreen
-abysscdn.com,playhydrax.com##+js(aost, document.createElement, triggerSafe)
+abysscdn.com,playhydrax.com##+js(aost, HTMLElement.prototype.click, _0x)
 ! https://github.com/uBlockOrigin/uAssets/issues/24918
 abysscdn.com,playhydrax.com###overlay
 ! https://www.reddit.com/r/uBlockOrigin/comments/1ef4r1f/kisscartoonnz_blocks_720p_quality_for_adblock/
@@ -688,6 +688,18 @@ a2zapk.*,educatiocenter.online##+js(acs, $, alertmsg)
 @@||tmp.a2zapk.*/js/advertisement/$frame,domain=a2zapk.*|educatiocenter.online
 ||googlesyndication.com^$image,redirect-rule=1x1.gif,domain=a2zapk.*|educatiocenter.online
 
+! https://github.com/uBlockOrigin/uAssets/issues/5141
+@@||virginmediatelevision.ie/player/$xhr,1p
+@@||virginmediatelevision.ie/includes/js/cookienotice.js.pagespeed.$script,1p
+! https://github.com/uBlockOrigin/uAssets/issues/25164
+!#if ext_devbuild
+!#if cap_html_filtering
+play.virginmediatelevision.ie##+js(json-prune, avails)
+||amazonaws.com/v1/dash/$replace=/<Period[^\n]+\n[^<]+<BaseURL>https:\/\/vod-virginmedia-ssai.+?<\/Period>//gms,domain=play.virginmediatelevision.ie
+||amazonaws.com/v1/dash/$replace=/(?:mediaPresentationDuration|start)="[^"]+"//g,domain=play.virginmediatelevision.ie
+!#endif
+!#endif
+
 ! END: Rules from filters.txt
 
 ! START: Regional lists
@@ -725,6 +737,9 @@ fxmag.pl##[class*="Container_header_ad"] > div[style^="min-height:90px"]
 
 ! https://github.com/uBlockOrigin/uAssets/issues/25093
 okiemrolnika.pl##+js(no-fetch-if, adsbygoogle)
+
+! https://github.com/uBlockOrigin/uAssets/issues/25185
+megane.com.pl##+js(no-fetch-if, googlesyndication)
 
 ! END: Regional lists
 
@@ -904,7 +919,7 @@ timesnewsgroup.com.au##+js(acs, $, popup)
 romfree.net##+js(aost, setTimeout, adsBlocked)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/21985
-livecamrips.com##+js(rmnt, script, window.open)
+livecamrips.*##+js(rmnt, script, window.open)
 
 ! exactlyhowlong. com detection
 exactlyhowlong.com##+js(noeval-if, ads)
@@ -3084,10 +3099,10 @@ cineplateforme.cc###playerOver
 sadisflix.*##a[href^="https://shorturl.at/"]
 
 ! https://github.com/uBlockOrigin/uAssets/issues/25121
-giga-streaming.com##+js(rmnt, script, popundersPerIP)
-giga-streaming.com##+js(nowoif)
-giga-streaming.com##^script[data-cfasync]:has-text(popundersPerIP)
-giga-streaming.com##.popup-overlay
+g-streaming.com,giga-streaming.com##+js(rmnt, script, popundersPerIP)
+g-streaming.com,giga-streaming.com##+js(nowoif)
+g-streaming.com,giga-streaming.com##^script[data-cfasync]:has-text(popundersPerIP)
+g-streaming.com,giga-streaming.com##.popup-overlay
 giga-uqload.xyz##+js(nostif, afterOpen)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/25122
@@ -3116,3 +3131,35 @@ multimovies.*###clickfakeplayer:remove-attr(href)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/25165
 mlbstreaming.live##+js(nowoif)
+
+! https://github.com/uBlockOrigin/uAssets/issues/25096
+idnes.cz#@#+js(acis, HTMLIFrameElement.prototype.contentWindow)
+@@/site=*/viewid=*/size=$script,domain=idnes.cz
+idnes.cz##.abchead
+idnes.cz##.s_widesquare:has(> div > #widesquare > a[rel="sponsored"])
+idnes.cz##div[id].pla-net > div > span:empty
+idnes.cz##body::before:style(background: none !important;)
+idnes.cz##html:style(cursor: auto !important;)
+idnes.cz##+js(acs, document.onclick, reklama-flash-body)
+
+! paste.fo ads
+paste.fo##.wrapper > [class] > a[href*="https://bit.ly/3vKxLhC"], a[href*="https://bit.ly/4aDbAcb"], a[href*="https://bit.ly/4cL4Jz2"], a[href*="https://bit.ly/3VEkIbL"], a[href*="https://goldenaccounts.cc/?r=pastefo"], a[href*="https://discord.gg/R5pN8ZvBVW"], a[href*="https://spadone.cc/"], a[href*="https://orion.hydrolmn.com/"], a[href*="https://anonsmm.com/?utm_source"], a[href*="https://cryptochanger.to/"], a[href*="https://sellsn.io/"], a[href*="https://astralproxies.sellpass.io/"], a[href*="https://discord.gg/GeDqHNzyEh"], a[href*="https://proxylist.to/?ref=pfo"], a[href*="https://themario.sellpass.io/"], a[href*="sigmaproxies.com"], a[href*="notokyc.com"], a[href="https://adultslayer.shop/"]
+||paste.fo^$image,1p
+@@||paste.fo/assets/svg/*.php$image,1p
+@@||paste.fo/assets/svg/*.svg$image,1p
+@@||paste.fo/favicon.ico|$image,1p
+@@||paste.fo/assets/img/$image,1p
+||paste.fo/*?as=*&tkn=$xhr
+paste.fo##.lolimg
+paste.fo##.wrapper > *:has(> a > * > * > * [class])
+paste.fo##.wrapper > [class]:has(> a[href^="https://paste.fo/"][id] > * > *)
+paste.fo##style:has-text(background-image:):remove()
+paste.fo##style:has-text(/background\: url\(https/):remove()
+
+! https://community.brave.com/t/boundingintocomics-com-ad-banner/565710
+boundingintocomics.com,themix.net##.tpd-banner-mobile
+boundingintocomics.com,themix.net##.container.header-container__main
+boundingintocomics.com,themix.net##.banner-spacer-top
+boundingintocomics.com,themix.net##.header:style(top: 0px !important;)
+boundingintocomics.com,themix.net##h1:style(margin-top:20px !important;)
+boundingintocomics.com,themix.net##main[role="main"]:style(margin-top:30px !important;)
