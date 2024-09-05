@@ -692,13 +692,8 @@ a2zapk.*,educatiocenter.online##+js(acs, $, alertmsg)
 @@||virginmediatelevision.ie/player/$xhr,1p
 @@||virginmediatelevision.ie/includes/js/cookienotice.js.pagespeed.$script,1p
 ! https://github.com/uBlockOrigin/uAssets/issues/25164
-!#if ext_devbuild
-!#if cap_html_filtering
 play.virginmediatelevision.ie##+js(json-prune, avails)
-||amazonaws.com/v1/dash/$replace=/<Period[^\n]+\n[^<]+<BaseURL>https:\/\/vod-virginmedia-ssai.+?<\/Period>//gms,domain=play.virginmediatelevision.ie
-||amazonaws.com/v1/dash/$replace=/(?:mediaPresentationDuration|start)="[^"]+"//g,domain=play.virginmediatelevision.ie
-!#endif
-!#endif
+play.virginmediatelevision.ie##+js(trusted-replace-outbound-text, JSON.stringify, /^.+$/s, {}, condition, adsParams)
 
 ! END: Rules from filters.txt
 
