@@ -2219,8 +2219,14 @@ freesolana.top##+js(no-xhr-if, /coinzillatag|czilladx/)
 *$script,domain=freesolana.top,redirect-rule=noopjs
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/117873
+! https://github.com/uBlockOrigin/uAssets/issues/25213
 aruble.net###middle-adspace
 aruble.net###top-ads
+!#if cap_html_filtering
+aruble.net##^script:has-text(adblock)
+!#else
+aruble.net##+js(set, divWidth, 1)
+!#endif
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/117803
 justswallows.net##+js(aopr, BetterJsPop)
