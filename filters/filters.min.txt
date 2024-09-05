@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Thu, 05 Sep 2024 10:10:13 +0000
+! Last modified: Thu, 05 Sep 2024 11:49:45 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -18687,6 +18687,11 @@ freesolana.top##+js(no-xhr-if, /coinzillatag|czilladx/)
 *$script,domain=freesolana.top,redirect-rule=noopjs
 aruble.net###middle-adspace
 aruble.net###top-ads
+!#if cap_html_filtering
+aruble.net##^script:has-text(adblock)
+!#else
+aruble.net##+js(set, divWidth, 1)
+!#endif
 justswallows.net##+js(aopr, BetterJsPop)
 justswallows.net##[href="https://t.me/Russia_Vs_Ukraine_War3"]
 justswallows.net##a[onclick="openAuc();"]
