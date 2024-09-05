@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2024)
-! Last modified: Wed, 04 Sep 2024 11:16:56 +0000
+! Last modified: Thu, 05 Sep 2024 03:35:51 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -692,13 +692,8 @@ a2zapk.*,educatiocenter.online##+js(acs, $, alertmsg)
 @@||virginmediatelevision.ie/player/$xhr,1p
 @@||virginmediatelevision.ie/includes/js/cookienotice.js.pagespeed.$script,1p
 ! https://github.com/uBlockOrigin/uAssets/issues/25164
-!#if ext_devbuild
-!#if cap_html_filtering
 play.virginmediatelevision.ie##+js(json-prune, avails)
-||amazonaws.com/v1/dash/$replace=/<Period[^\n]+\n[^<]+<BaseURL>https:\/\/vod-virginmedia-ssai.+?<\/Period>//gms,domain=play.virginmediatelevision.ie
-||amazonaws.com/v1/dash/$replace=/(?:mediaPresentationDuration|start)="[^"]+"//g,domain=play.virginmediatelevision.ie
-!#endif
-!#endif
+play.virginmediatelevision.ie##+js(trusted-replace-outbound-text, JSON.stringify, /^.+$/s, {}, condition, adsParams)
 
 ! END: Rules from filters.txt
 
