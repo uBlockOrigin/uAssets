@@ -11390,12 +11390,13 @@ desired.de##+js(ra, data-ivad-preroll-adtag, video, stay)
 ||stern.de/__assets/homad
 ||static.kicker.de/content/js/vendor/homad
 spiegel.de##^script:has-text(homad)
-welt.de,~dutyfarm.welt.de##+js(json-prune, vastUrl)
-welt.de,~dutyfarm.welt.de##div[id][style^="z-index: 2"][style*="margin"][style*="auto"][style*="top"][style$="px; position: absolute;"]:remove()
 giga.de,kino.de,spieletipps.de##+js(rpnt, script, /\"homad\"\,/)
 t-online.de##+js(rpnt, script, /\"homad\":\{\"state\":\"enabled\"\}/, "homad":{"state":"disabled"})
 !#if !cap_html_filtering
+welt.de,~dutyfarm.welt.de##div[id][style^="z-index: 2"][style*="margin"][style*="auto"][style*="top"][style$="px; position: absolute;"]:remove()
 spiegel.de##+js(rmnt, script, homad)
+!#else
+||welt.de/homadConfigEnabled.json$xhr,replace=/"enabled":true/"enabled":false/
 !#endif
 plus.rtl.de##+js(json-prune, adReinsertion)
 tvspielfilm.de,tvtoday.de,chip.de,focus.de##+js(set, DL8_GLOBALS.enableAdSupport, false)
