@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2024)
-! Last modified: Sat, 07 Sep 2024 06:55:49 +0000
+! Last modified: Sat, 07 Sep 2024 11:41:54 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -673,6 +673,22 @@ a2zapk.*,educatiocenter.online##+js(acs, $, alertmsg)
 ! https://github.com/uBlockOrigin/uAssets/issues/25164
 play.virginmediatelevision.ie##+js(json-prune, avails)
 play.virginmediatelevision.ie##+js(json-prune-fetch-response, response.ads, , propsToMatch, /streams)
+
+! serialy.bombuj.tv | .si anti adb
+! https://github.com/uBlockOrigin/uAssets/issues/22253
+@@||bombuj.*^$ghide
+bombuj.*##.ad_banner
+bombuj.*##[id*="ekla"]
+bombuj.*##style:has-text(blink_me_ad):upward(2)
+! https://github.com/uBlockOrigin/uAssets/issues/25239
+bombuj.*###players a[href][target="_blank"]:remove-attr(/href|target/)
+bombuj.*##[id^="ad_banner"] ~ a
+||wurfl.io/wurfl.js$script,3p
+waaaw.*,waaw1.*##+js(aopr, doSecondPop)
+waaaw.*,waaw.*,waaw1.*##+js(aopr, BetterJsPop)
+/cdn-cgi/trace$xhr,domain=waaw.*|waaaw.*
+bombuj.*##+js(no-fetch-if, ads)
+bombuj.*##+js(nobab)
 
 ! END: Rules from filters.txt
 
