@@ -15,15 +15,15 @@ jobs:
       contents: write  # for Git to git push
     name: Update Easylist assets
     runs-on: ubuntu-latest
-  env:
-    GH_TOKEN: ${{ github.token }}
-  steps:
+    steps:
       - name: Clone uAssets
         uses: actions/checkout@v4
       - name: Assemble Easylist assets
         run: |
           ./tools/make-easylist.sh
       - name: Commit changes, if any
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
           if [[ -n $(git diff) ]]; then
             git config user.name "github-actions bot"
