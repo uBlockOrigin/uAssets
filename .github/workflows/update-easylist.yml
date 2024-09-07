@@ -15,7 +15,9 @@ jobs:
       contents: write  # for Git to git push
     name: Update Easylist assets
     runs-on: ubuntu-latest
-    steps:
+  env:
+    GH_TOKEN: ${{ github.token }}
+  steps:
       - name: Clone uAssets
         uses: actions/checkout@v4
       - name: Assemble Easylist assets
