@@ -1,5 +1,5 @@
 ! Title: uBlock₀ filters – Quick fixes
-! Last modified: Sat, 07 Sep 2024 07:12:55 +0000
+! Last modified: Sat, 07 Sep 2024 19:18:51 +0000
 ! Expires: 8 hours
 ! Description: Immediate, temporary filters to fix websites
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -111,6 +111,7 @@ japscan.lol##:matches-path(/^\/$/)body > style + .container:first-of-type > .row
 *$script,redirect-rule=noopjs,domain=panel.freemcserver.net
 freemcserver.net,~panel.freemcserver.net##+js(nostif, 0x)
 panel.freemcserver.net##div[style^="min-height:"]:has(> div[id^="stpd-"])
+panel.freemcserver.net##+js(set, apstag.fetchBids.name, '')
 !#if env_firefox
 *$xhr,redirect-rule=nooptext,domain=panel.freemcserver.net
 !#else
@@ -119,6 +120,8 @@ panel.freemcserver.net##div[style^="min-height:"]:has(> div[id^="stpd-"])
 ||gum.criteo.com/sid/json?origin=prebid&topUrl=https*&gdpr=1|$xhr,important,domain=panel.freemcserver.net
 ||prebid-stag.setupad.net/cookie_sync|$xhr,important,method=post,domain=panel.freemcserver.net
 ||prebid-stag.setupad.net/openrtb2/auction|$xhr,important,domain=panel.freemcserver.net
+||prebid.a-mo.net/a/c|$xhr,important,domain=panel.freemcserver.net
+||ib.adnxs.com/ut/v3/prebid|$xhr,important,domain=panel.freemcserver.net
 ||fastlane.rubiconproject.com/a/api/fastlane.json?$xhr,important,domain=panel.freemcserver.net
 ||tlx.3lift.com/header/auction?lib=prebid&v=*&referrer=https%3A%2F%2Fpanel.freemcserver.net%2Fserver%2F*&tmax=*&gdpr=true&cmp_cs=CQEKnMAQEKnMAF7ADBENBDF*AAAAA$xhr,important,domain=panel.freemcserver.net
 ||rtb.openx.net/openrtbb/prebidjs|$xhr,important,domain=panel.freemcserver.net
