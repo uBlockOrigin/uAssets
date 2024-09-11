@@ -1,5 +1,5 @@
 ! Title: uBlock₀ filters – Quick fixes
-! Last modified: Wed, 11 Sep 2024 12:27:12 +0000
+! Last modified: Wed, 11 Sep 2024 16:08:10 +0000
 ! Expires: 8 hours
 ! Description: Immediate, temporary filters to fix websites
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -87,7 +87,11 @@ japscan.lol#@#+js(no-fetch-if, method:/HEAD|GET/)
 japscan.lol##:matches-path(/^\/$/)body > style + .container:first-of-type > .row > #main + #sidebar.col-md-3 > .card.mt-1 > .card[style="margin: 0px auto; display: block;"] > a.aikoi.donate[href^="http"][href*="/?utm_source=index&utm_medium=extra_large&"][target="_blank"][rel="noopener noreferrer nofollow"]:not([href^="http://japscan.lol"]) > img
 japscan.lol##div[style="position: fixed; inset: 0px; z-index: 2147483647; pointer-events: auto;"]:empty
 japscan.lol#@#.navbar-nav > li.nav-item > a[href^="https://www.origoclick.com"]:style(position: absolute !important; left: -4000px !important;)
-japscan.lol##.navbar-nav > li.nav-item > a[href^="https://www.origoclick.com"]:style(position: absolute !important; right: 4000px !important;)
+japscan.lol#@#.navbar-nav > li.nav-item > a[href^="https://www.origoclick.com"]:style(position: absolute !important; right: 4000px !important;)
+japscan.lol##.navbar-nav > li.nav-item > a[href^="https://www.origoclick.com"]:style(position: absolute !important; top: -4000px !important;)
+/^https?:\/\/[-a-z]{8,15}\.(?:com|net)\/401\/\d{7}(?:\?v=\d+)$/$script,3p,domain=japscan.lol,important
+/^https?:\/\/[a-z]{8,15}\.xyz\/$/$xhr,3p,to=xyz,method=head,header=x-traceid2,domain=japscan.lol,important
+/^https?:\/\/[a-z]{8,15}\.com\/$/$xhr,3p,to=com,method=head,header=x-traceid2,domain=japscan.lol,important
 @@*$image,xhr,script,domain=japscan.lol
 /^https?:\/\/[a-z]{8,15}\.com\/$/$xhr,3p,to=com,method=head,header=x-traceid,important,domain=japscan.lol
 ||googletagmanager.com^$script,domain=japscan.lol,important
