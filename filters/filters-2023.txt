@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2023)
-! Last modified: Wed, 11 Sep 2024 17:19:09 +0000
+! Last modified: Wed, 11 Sep 2024 19:44:21 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -5370,11 +5370,15 @@ mirroshu.top##[id^="div-gpt-ad-"]
 poophq.com,veev.to##+js(aopr, VEEVPop)
 poophq.com,veev.to##+js(nowoif)
 poophq.com,veev.to##+js(set, fapit.check, noopFunc)
-!poophq.com,veev.to##+js(rpnt, script, window.__VEEVPLAYER__, '/*start*/ !function(){"use strict";let t=Object.keys;Object.keys=function(n){return n&&n.html&&n.html.instance&&n.html.instance.start&&n.env&&n.env.instance&&n.env.instance.start&&n.http&&n.http.instance&&n.http.instance.start&&(n.html.instance.start=function(){},n.env.instance.start=function(){},n.http.instance.start=function(){}),t(n)}}();/*end*/window.__VEEVPLAYER__')
 *$script,3p,domain=poophq.com|veev.to,redirect-rule=noopjs
 @@*$ghide,domain=poophq.com|veev.to
-@@*.js|$xhr,domain=veev.to|poophq.com
 veev.to#@#.avb-active
+!#if cap_html_filtering
+||static.veevcdn.co/assets/videoplayer/$script,replace=/this\[\'cd\'/this['cu'/g
+!#else
+!poophq.com,veev.to##+js(rpnt, script, window.__VEEVPLAYER__, '/*start*/ !function(){"use strict";let t=Object.keys;Object.keys=function(n){return n&&n.html&&n.html.instance&&n.html.instance.start&&n.env&&n.env.instance&&n.env.instance.start&&n.http&&n.http.instance&&n.http.instance.start&&(n.html.instance.start=function(){},n.env.instance.start=function(){},n.http.instance.start=function(){}),t(n)}}();/*end*/window.__VEEVPLAYER__')
+@@*.js|$xhr,domain=veev.to|poophq.com
+!#endif
 
 ! filmydown .site/fast-dl .co popups
 fast-dl.co,filmydown.*##+js(nowoif)
