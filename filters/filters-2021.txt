@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2021)
-! Last modified: Mon, 09 Sep 2024 09:45:47 +0000
+! Last modified: Thu, 12 Sep 2024 11:18:56 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -3811,14 +3811,10 @@ reddit.com,reddittorjg6rue252oqsxryoxengawnmo46qy4kyii5wtqnwfj4ooad.onion##.adLi
 ! https://www.blick.ch/schweiz/prozess-um-tote-britin-22-in-lugano-es-gab-keinen-sex-nur-einen-femizid-id16849768.html video ads
 ! https://github.com/uBlockOrigin/uAssets/issues/12446
 ! https://github.com/uBlockOrigin/uAssets/issues/24977
-blick.ch##+js(set, Object.prototype.isAdDisabled, true)
 blick.ch##.fKZLNI:style(width:120% !important)
-!#if cap_html_filtering
-blick.ch##^script:has-text(setNptTechAdblockerCookie)
-!#else
-blick.ch##+js(rmnt, script, setNptTechAdblockerCookie)
-!#endif
 blick.ch##+js(cookie-remover, __adblocker)
+blick.ch##[class*="_ad_"]
+blick.ch##aside:has(> div[id^="ad-placement"])
 
 ! https://github.com/adsbypasser/adsbypasser/issues/3708
 bblink.com##+js(set, blurred, false)
