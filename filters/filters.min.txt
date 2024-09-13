@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Fri, 13 Sep 2024 08:38:20 +0000
+! Last modified: Fri, 13 Sep 2024 08:40:34 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -9192,6 +9192,14 @@ fxmag.pl##[class^="Ad_text"]
 fxmag.pl##[class*="Container_header_ad"] > div[style^="min-height:90px"]
 okiemrolnika.pl##+js(no-fetch-if, adsbygoogle)
 megane.com.pl##+js(no-fetch-if, googlesyndication)
+! <<<<< RU AdList >>>>>
+!#if cap_html_filtering
+@@||plrjs.org/*.xml^$3p,xhr
+||plrjs.org/*.xml^$3p,xhr,replace=/^.+$/<VAST version="3.0"><\/VAST>/s
+||cdn.plrjs.com/player/*.js^$3p,script,replace=/preroll/nopreroll/g
+!#else
+||plrjs.org/*.xml^$3p,xhr,redirect=noopvast-3.0
+!#endif
 ! END: Regional lists
 flixscans.org##+js(no-fetch-if, googlesyndication)
 mhn.quest##+js(nostif, adblock)
