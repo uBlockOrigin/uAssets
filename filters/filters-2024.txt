@@ -735,6 +735,16 @@ okiemrolnika.pl##+js(no-fetch-if, adsbygoogle)
 ! https://github.com/uBlockOrigin/uAssets/issues/25185
 megane.com.pl##+js(no-fetch-if, googlesyndication)
 
+! <<<<< RU AdList >>>>>
+! https://github.com/uBlockOrigin/uAssets/issues/25014#issuecomment-2346541996
+!#if cap_html_filtering
+@@||plrjs.org/*.xml^$3p,xhr
+||plrjs.org/*.xml^$3p,xhr,replace=/^.+$/<VAST version="3.0"><\/VAST>/s
+||cdn.plrjs.com/player/*.js^$3p,script,replace=/preroll/nopreroll/g
+!#else
+||plrjs.org/*.xml^$3p,xhr,redirect=noopvast-3.0
+!#endif
+
 ! END: Regional lists
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/169660
