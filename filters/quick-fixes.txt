@@ -137,6 +137,29 @@ download.megaup.net#@#+js(rpnt, script, /for\s*\(\s*(const|let|var).*?;return;\}
 download.megaup.net##+js(rpnt, script, /for\s*\(\s*(const|let|var).*?\)\;return\;\}_/g,_ , condition, attribute)
 download.megaup.net##a:has(img[src*="/download"]):style(width: 300px !important; height: 300px !important; display: block !important;)
 
+! https://github.com/uBlockOrigin/uAssets/issues/21064
+! https://github.com/uBlockOrigin/uAssets/issues/24220
+! https://github.com/uBlockOrigin/uAssets/issues/25121#issuecomment-2325357098
+poophq.com,veev.to##+js(nowoif)
+poophq.com,veev.to##+js(set, fapit.check, noopFunc)
+*$script,3p,domain=poophq.com|veev.to,redirect-rule=noopjs
+*$other,3p,denyallow=veevcdn.co,domain=poophq.com|veev.to
+||ptupsewo.net^
+@@*$ghide,domain=poophq.com|veev.to
+veev.to#@#.avb-active
+!#if ext_devbuild
+poophq.com,veev.to##+js(no-xhr-if, /\/ad-provider\.js$/, length:35000)
+poophq.com,veev.to##+js(no-xhr-if, twinrdsyn.com)
+!#else
+!#if cap_html_filtering
+||static.veevcdn.co/assets/videoplayer/$script,replace=/\=\!0x0;\}return/=false;}return/g
+!#else
+@@.js|$xhr,domain=veev.to|poophq.com
+@@||twinrdsyn.com^$xhr,other,domain=veev.to
+||c.adsco.re/|$script,redirect=none:5,domain=veev.to
+!#endif
+!#endif
+
 ! https://github.com/uBlockOrigin/uAssets/issues/24575
 @@||ads.anitube.vip^$xhr,domain=animefire.info|animesonlinecc.us|animesup.info|animeyabu.net|animeyabu.org|anitube.us|anitube.vip|caroloportunidades.com.br|dattebayo-br.com|drstonebr.com|flyanimes.cloud|goanimes.vip|goyabu.us|hinatasoul.com|isekaibrasil.com|meuanime.info|otakuanimess.net
 @@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$xhr,domain=animefire.info|animesonlinecc.us|animesup.info|animeyabu.net|animeyabu.org|anitube.us|anitube.vip|caroloportunidades.com.br|dattebayo-br.com|drstonebr.com|flyanimes.cloud|goanimes.vip|goyabu.us|hinatasoul.com|isekaibrasil.com|meuanime.info|otakuanimess.net
