@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Cookie Notices
-! Last modified: Fri, 13 Sep 2024 14:02:56 +0000
+! Last modified: Sun, 15 Sep 2024 03:16:28 +0000
 ! Expires: 7 days
 ! Description: Filters optimized for uBlock Origin, to be used with EasyList's and/or Adguard's "Cookie Notices" list(s)
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -393,6 +393,10 @@ ted.com##+js(trusted-set-cookie, OptanonConsent, groups=C0001%3A1%2CC0002%3A0%2C
 xing.com##+js(trusted-set-cookie, userConsent, %7B%22marketing%22%3Afalse%2C%22version%22%3A%225%22%7D, , , domain, xing.com)
 ! https://www.webnode.com/
 webnode.com##+js(trusted-set-cookie, ac, '{"essential":true,"functional":false}')
+! https://www.lego.com/en-ca/
+lego.com##+js(trusted-click-element, button[kind="secondary"][data-test="cookie-necessary-button"], , 1000)
+! https://es.onswingers.com/
+onswingers.com##+js(trusted-set-cookie, cookie_4_cookie, %7B%22onswingers%22%3Atrue%2C%22google-analytics%22%3Afalse%7D, , , domain, onswingers.com)
 
 
 !! Needs additional cookies
@@ -1686,3 +1690,11 @@ petbook.de##.sp-message-open > body:style(overflow: auto !important; position: i
 
 ! https://github.com/uBlockOrigin/uAssets/issues/25282 - typeform
 octopusenergy.de##+js(trusted-set, cmp_importvendors, '{"value": ["s23","s2564"]}')
+
+! https://www.gsk.com/ - functional
+gsk.com##+js(trusted-set-cookie, GSK_CONSENTMGR, c1:0%7Cc2:1%7Cc3:0%7Cc4:0%7Cc5:0%7Cc6:1%7Cc7:0%7Cc8:0%7Cc9:0%7Cc10:0%7Cc11:0%7Cc12:1%7Cc13:1%7Cc14:0%7Cc15:0%7Cts:1726229678052%7Cconsent:true%7Cid:0191eb4d9db7005233a45cef34fc0406f001a06700f1c)
+
+! https://www.estadiodeportivo.com/ - accept
+estadiodeportivo.com##+js(trusted-click-element, button#btn-gdpr-accept)
+estadiodeportivo.com##.cmp_gdpr:style(visibility: hidden !important;)
+estadiodeportivo.com##.body_fixed:style(overflow: auto !important;)
