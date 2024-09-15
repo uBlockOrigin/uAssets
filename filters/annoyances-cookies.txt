@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Cookie Notices
-! Last modified: Sun, 15 Sep 2024 07:59:17 +0000
+! Last modified: Sun, 15 Sep 2024 12:29:30 +0000
 ! Expires: 7 days
 ! Description: Filters optimized for uBlock Origin, to be used with EasyList's and/or Adguard's "Cookie Notices" list(s)
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -397,6 +397,13 @@ webnode.com##+js(trusted-set-cookie, ac, '{"essential":true,"functional":false}'
 lego.com##+js(trusted-click-element, button[kind="secondary"][data-test="cookie-necessary-button"], , 1000)
 ! https://es.onswingers.com/
 onswingers.com##+js(trusted-set-cookie, cookie_4_cookie, %7B%22onswingers%22%3Atrue%2C%22google-analytics%22%3Afalse%7D, , , domain, onswingers.com)
+! https://www.obi.de/
+obi.de##+js(trusted-set-cookie, obiConsent, c1-1|c2-0|c3-0|c4-0|c5-0|ts-$now$|consent-true, , , domain, obi.de)
+! https://www.bitget.com/
+bitget.com##+js(trusted-set-cookie, OptanonConsent, isMarketing=0&isStatistic=0)
+bitget.com##+js(trusted-set-cookie, OptanonAlertBoxClosed, $currentDate$)
+! https://www.buywholefoodsonline.co.uk/
+buywholefoodsonline.co.uk##+js(trusted-set-cookie, cookiesSettingsData, '{"1":2,"2":0,"3":0,"4":0}')
 
 
 !! Needs additional cookies
@@ -1698,3 +1705,7 @@ gsk.com##+js(trusted-set-cookie, GSK_CONSENTMGR, c1:0%7Cc2:1%7Cc3:0%7Cc4:0%7Cc5:
 estadiodeportivo.com##+js(trusted-click-element, button#btn-gdpr-accept)
 estadiodeportivo.com##.cmp_gdpr:style(visibility: hidden !important;)
 estadiodeportivo.com##.body_fixed:style(overflow: auto !important;)
+
+! https://www.kicker.de/ - accept
+kicker.de##+js(trusted-click-element, a[href][onclick="ov.cmp.acceptAllConsents()"], , 1000)
+kicker.de###kick__pur__layer:has(a[href][onclick="ov.cmp.acceptAllConsents()"]):style(opacity: 0 !important;)
