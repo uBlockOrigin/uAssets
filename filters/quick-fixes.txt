@@ -1,5 +1,5 @@
 ! Title: uBlock₀ filters – Quick fixes
-! Last modified: Tue, 17 Sep 2024 09:57:26 +0000
+! Last modified: Tue, 17 Sep 2024 12:28:25 +0000
 ! Expires: 8 hours
 ! Description: Immediate, temporary filters to fix websites
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -81,10 +81,7 @@ japscan.lol#@#+js(acs, addEventListener, String.fromCharCode)
 japscan.lol#@##blur-inter
 japscan.lol#@##interstitial
 japscan.lol##body > .container.text-center > div.mt-3[style="margin: 0px auto; display: block;"] > a.Aikoi.donate[target="_blank"][href^="https://www."][href*="/?utm_source=manga&utm_"]:not([href^="https://www.google"]):not([href^="https://www.japscan"]):not([href^="https://www.example"]) > img.img-fluid[src^="/imgs/onc/"]
-japscan.lol#@#.navbar-nav > li.nav-item > a[href^="https://www.origoclick.com"]:remove()
-japscan.lol##:matches-path(/^\/$/)body > style + .container:first-of-type > .row > #main + #sidebar.col-md-3 > .card.mt-1 > .card[style="margin: 0px auto; display: block;"] > a.aikoi.donate[href^="http"][href*="/?utm_source=index&utm_medium=extra_large&"][target="_blank"][rel="noopener noreferrer nofollow"]:not([href^="http://japscan.lol"]) > img
-japscan.lol#@#.navbar-nav > li.nav-item > a[href^="https://www.origoclick.com"]:style(position: absolute !important; left: -4000px !important;)
-japscan.lol#@#.navbar-nav > li.nav-item > a[href^="https://www.origoclick.com"]:style(position: absolute !important; right: 4000px !important;)
+japscan.lol##body > style + .container:first-of-type > .row > #main + #sidebar.col-md-3 > .card.mt-1 > .card[style="margin: 0px auto; display: block;"] > a.aikoi.donate[href^="http"][href*="/?utm_source=index&utm_medium=extra_large&"][target="_blank"][rel="noopener noreferrer nofollow"]:not([href^="http://japscan.lol"]) > img
 japscan.lol#@#.navbar-nav > li.nav-item > a[href^="https://www.origoclick.com"]:style(position: absolute !important; top: -4000px !important;)
 japscan.lol#@#+js(spoof-css, .navbar-nav > li.nav-item > a[href^="https://www.origoclick.com"], top, auto)
 japscan.lol#@#.navbar-nav > li.nav-item:has(> a[href^="https://www.origoclick.com"]):style(position: absolute !important; bottom: 5000px !important;)
@@ -94,7 +91,8 @@ japscan.lol#@#+js(rmnt, script, newDiv)
 japscan.lol#@#+js(rmnt, script, newImg)
 japscan.lol##.navbar-nav > li.nav-item > a[href^="https://www.origoclick.com"]:style(visibility: hidden !important;)
 japscan.lol#@#+js(rmnt, script, imgNew)
-japscan.lol##+js(rmnt, script, imgGood)
+japscan.lol#@#+js(rmnt, script, imgGood)
+japscan.lol##+js(rmnt, script, imgHola)
 /^https?:\/\/[-a-z]{8,15}\.(?:com|net)\/401\/\d{7}(?:\?v=\d+)?$/$script,3p,domain=japscan.lol,important
 /^https?:\/\/[a-z]{8,15}\.xyz\/$/$xhr,3p,to=xyz,method=head,header=x-traceid2,domain=japscan.lol,important
 /^https?:\/\/[a-z]{8,15}\.com\/$/$xhr,3p,to=com,method=head,header=x-traceid2,domain=japscan.lol,important
@@ -104,6 +102,7 @@ japscan.lol##+js(rmnt, script, imgGood)
 /^https?:\/\/(?:[a-z]{2}\.)?[0-9a-z]{5,16}\.[a-z]{3,7}\/[a-z](?=[a-z]{0,25}[0-9A-Z])[0-9a-zA-Z]{3,26}\/\d{4,5}(?:\?[_v]=\d+)?$/$script,3p,match-case,important,domain=japscan.lol
 /^https?:\/\/[a-z]{8,15}\.[a-z]{2,3}\/5\/\d{6,7}(?:\?_=\d+)?$/$script,3p,domain=japscan.lol,important
 /^https?:\/\/[-a-z]{8,15}\.(?:com|net)\/401\/\d{7}$/$script,3p,domain=japscan.lol,important
+/^https?:\/\/[a-z]{5,7}\.com\/script\/[-_0-9A-Za-z]+(\.min)?\.js$/$script,3p,match-case,header=x-guploader-uploadid,domain=japscan.lol,important
 ! ads
 ||japscan.lol^$csp=sandbox allow-forms allow-same-origin allow-scripts allow-modals allow-orientation-lock allow-pointer-lock allow-presentation allow-top-navigation
 
