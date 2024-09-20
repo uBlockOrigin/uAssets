@@ -8,6 +8,12 @@
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 !
+!#if cap_ipaddress
+! https://github.com/uBlockOrigin/uBlock-issues/issues/1070#issuecomment-707237653
+! https://github.com/uBlockOrigin/uBlock-discussions/discussions/910
+*$3p,strict3p,ipaddress=lan,domain=~localhost|~127.0.0.1|~[::1]|~0.0.0.0|~[::]|~local
+!#else
+!
 ! ——— LAN
 ! https://en.wikipedia.org/wiki/Private_network
 !
@@ -36,6 +42,7 @@
 !
 ! ——— any local
 ! https://en.wikipedia.org/wiki/0.0.0.0
+!#endif
 !
 ||0.0.0.0^$3p,domain=~localhost|~127.0.0.1|~[::1]|~0.0.0.0|~[::]|~local
 ||[::]^$3p,domain=~localhost|~127.0.0.1|~[::1]|~0.0.0.0|~[::]|~local
@@ -103,11 +110,6 @@
 ||tplinkwifi.net^$3p,domain=~localhost|~127.0.0.1|~[::1]|~0.0.0.0|~[::]|~local
 ||web.setup^$3p,domain=~localhost|~127.0.0.1|~[::1]|~0.0.0.0|~[::]|~local
 ||web.setup.home^$3p,domain=~localhost|~127.0.0.1|~[::1]|~0.0.0.0|~[::]|~local
-
-! https://github.com/uBlockOrigin/uBlock-issues/issues/1070#issuecomment-707237653
-! https://github.com/uBlockOrigin/uBlock-discussions/discussions/910
-*$3p,strict3p,ipaddress=lan,domain=~localhost|~127.0.0.1|~[::1]|~0.0.0.0|~[::]|~local
-
 !
 ! ——— EXCEPTIONS
 !
