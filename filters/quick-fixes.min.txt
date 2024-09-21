@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Quick fixes
 ! Expires: 12 hours
-! Last modified: Sat, 21 Sep 2024 15:16:15 +0000
+! Last modified: Sat, 21 Sep 2024 15:22:27 +0000
 ! Diff-Path: %diffpath%#ublock-quick-fixes
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -40,18 +40,10 @@ www.youtube.com##+js(trusted-replace-xhr-response, /"adPlacements.*?("adSlots"|"
 ||www.youtube-nocookie.com/youtubei/v1/player?$xhr,1p,replace=/"adPlacements.*?([A-Z]"\}|"\}{2\,4})\}\]\,//
 ||www.youtube-nocookie.com/youtubei/v1/player?$xhr,1p,replace=/"adSlots.*?\}\}\]\,"adBreakHeartbeatParams/"adBreakHeartbeatParams/
 !#if cap_html_filtering
-! ||facebook.com/api/graphql/$xhr,replace=/\{"brs_c[^\n]+?"SponsoredData","ad_id"[^\n]+"cursor":"[^"]+"\}/{}/g,domain=web.facebook.com|www.facebook.com
-! ||facebook.com/api/graphql/$xhr,replace=/\{"cnt_lbl_brs"[^\n]+?"SponsoredData","ad_id"[^\n]+"cursor":"[^"]+"\}/{}/g,domain=web.facebook.com|www.facebook.com
-! ||facebook.com/api/graphql/$xhr,replace=/\{"label_field_for_brs":[^\n]+?"SponsoredData","ad_id"[^\n]+"cursor":"[^"]+"\}/{}/g,domain=web.facebook.com|www.facebook.com
-! ||facebook.com/api/graphql/$xhr,replace=/\{"the_cnt_lbl_for_brs":[^\n]+?"SponsoredData","ad_id"[^\n]+"cursor":"[^"]+"\}/{}/g,domain=web.facebook.com|www.facebook.com
-! ||facebook.com/api/graphql/$xhr,replace=/\{"newest_lbl_for_brs"[^\n]+?"SponsoredData","ad_id"[^\n]+"cursor":"[^"]+"\}/{}/g,domain=web.facebook.com|www.facebook.com
+||facebook.com/api/graphql/$xhr,replace=/\{"newest_lbl_for_brs"[^\n]+?"SponsoredData","ad_id"[^\n]+"cursor":"[^"]+"\}/{}/g,domain=web.facebook.com|www.facebook.com
 ||facebook.com/api/graphql/$xhr,replace=/null,"category_sensitive"[^\n]+?"SponsoredData","ad_id"[^\n]+"cursor":"[^"]+"\}/null}/g,domain=web.facebook.com|www.facebook.com
 !#else
-! web.facebook.com,www.facebook.com##+js(trusted-replace-xhr-response, '/\{"brs_c[^\n]+?"SponsoredData","ad_id"[^\n]+"cursor":"[^"]+"\}/g', {}, /api/graphql)
-! web.facebook.com,www.facebook.com##+js(trusted-replace-xhr-response, '/\{"cnt_lbl_brs"[^\n]+?"SponsoredData","ad_id"[^\n]+"cursor":"[^"]+"\}/g', {}, /api/graphql)
-! web.facebook.com,www.facebook.com##+js(trusted-replace-xhr-response, '/\{"label_field_for_brs":[^\n]+?"SponsoredData","ad_id"[^\n]+"cursor":"[^"]+"\}/g', {}, /api/graphql)
-! web.facebook.com,www.facebook.com##+js(trusted-replace-xhr-response, '/\{"the_cnt_lbl_for_brs":[^\n]+?"SponsoredData","ad_id"[^\n]+"cursor":"[^"]+"\}/g', {}, /api/graphql)
-! web.facebook.com,www.facebook.com##+js(trusted-replace-xhr-response, /\{"newest_lbl_for_brs"[^\n]+?"SponsoredData","ad_id"[^\n]+"cursor":"[^"]+"\}/g, {}, /api/graphql)
+web.facebook.com,www.facebook.com##+js(trusted-replace-xhr-response, /\{"newest_lbl_for_brs"[^\n]+?"SponsoredData","ad_id"[^\n]+"cursor":"[^"]+"\}/g, {}, /api/graphql)
 web.facebook.com,www.facebook.com##+js(trusted-replace-xhr-response, '/null,"category_sensitive"[^\n]+?"SponsoredData","ad_id"[^\n]+"cursor":"[^"]+"\}/g', null}, /api/graphql)
 !#endif
 ! VOE sites
