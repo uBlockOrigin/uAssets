@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Other Annoyances
-! Last modified: Sat, 21 Sep 2024 08:55:20 +0000
+! Last modified: Sat, 21 Sep 2024 15:08:23 +0000
 ! Expires: 7 days
 ! Description: Filters optimized for uBlock Origin, to be used with EasyList's and/or Adguard's "Other Annoyances" list(s)
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -393,11 +393,13 @@ facebook.com,facebookcorewwwi.onion,facebookwkhpilnemxj7asaniu7vnjjbiltxjqhye3mh
 !#if cap_html_filtering
 ! ||facebook.com/api/graphql/$xhr,replace=/\{"brs_content_label":[^\n]+?"follow_button":\{"__typename":"CometFeedStoryFollowButtonStrategy"[^\n]+"cursor":"[^"]+"\}/{}/g,domain=web.facebook.com|www.facebook.com
 ! ||facebook.com/api/graphql/$xhr,replace=/\{"label_field_for_brs":[^\n]+?"follow_button":\{"__typename":"CometFeedStoryFollowButtonStrategy"[^\n]+"cursor":"[^"]+"\}/{}/g,domain=web.facebook.com|www.facebook.com
-||facebook.com/api/graphql/$xhr,replace=/\{"the_cnt_lbl_for_brs":[^\n]+?"follow_button":\{"__typename":"CometFeedStoryFollowButtonStrategy"[^\n]+"cursor":"[^"]+"\}/{}/g,domain=web.facebook.com|www.facebook.com
+! ||facebook.com/api/graphql/$xhr,replace=/\{"the_cnt_lbl_for_brs":[^\n]+?"follow_button":\{"__typename":"CometFeedStoryFollowButtonStrategy"[^\n]+"cursor":"[^"]+"\}/{}/g,domain=web.facebook.com|www.facebook.com
+||facebook.com/api/graphql/$xhr,replace=/\{"newest_lbl_for_brs"[^\n]+?"follow_button":\{"__typename":"CometFeedStoryFollowButtonStrategy"[^\n]+"cursor":"[^"]+"\}/{}/g,domain=web.facebook.com|www.facebook.com
 !#else
 ! web.facebook.com,www.facebook.com##+js(trusted-replace-xhr-response, '/\{"brs_content_label":[^\n]+?"follow_button":\{"__typename":"CometFeedStoryFollowButtonStrategy"[^\n]+"cursor":"[^"]+"\}/g', {}, /api/graphql)
 ! web.facebook.com,www.facebook.com##+js(trusted-replace-xhr-response, '/\{"label_field_for_brs":[^\n]+?"follow_button":\{"__typename":"CometFeedStoryFollowButtonStrategy"[^\n]+"cursor":"[^"]+"\}/g', {}, /api/graphql)
-web.facebook.com,www.facebook.com##+js(trusted-replace-xhr-response, '/\{"the_cnt_lbl_for_brs":[^\n]+?"follow_button":\{"__typename":"CometFeedStoryFollowButtonStrategy"[^\n]+"cursor":"[^"]+"\}/g', {}, /api/graphql)
+! web.facebook.com,www.facebook.com##+js(trusted-replace-xhr-response, '/\{"the_cnt_lbl_for_brs":[^\n]+?"follow_button":\{"__typename":"CometFeedStoryFollowButtonStrategy"[^\n]+"cursor":"[^"]+"\}/g', {}, /api/graphql)
+web.facebook.com,www.facebook.com##+js(trusted-replace-xhr-response, '/\{"newest_lbl_for_brs":[^\n]+?"follow_button":\{"__typename":"CometFeedStoryFollowButtonStrategy"[^\n]+"cursor":"[^"]+"\}/g', {}, /api/graphql)
 !#endif
 ! FB link redirection
 www.facebook.com##+js(json-prune, require.0.3.0.__bbox.define.[].2.is_linkshim_supported require.0.3.0.__bbox.define.[].2.click_ids)
