@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Quick fixes
 ! Expires: 12 hours
-! Last modified: Sun, 22 Sep 2024 09:23:10 +0000
+! Last modified: Sun, 22 Sep 2024 12:29:54 +0000
 ! Diff-Path: %diffpath%#ublock-quick-fixes
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -100,35 +100,13 @@ japscan.lol##+js(aost, eval, stackDepth:4)
 @@||freemcserver.net^$script,1p
 @@||freemcserver.net^$ghide
 @@||cdn.jsdelivr.net/gh/Levii22/$domain=freemcserver.net
-!@@||pagead2.googlesyndication.com/getconfig/sodar?$xhr,domain=freemcserver.net
-!@@||stpd.cloud/saas/$script,domain=panel.freemcserver.net
 @@||securepubads.g.doubleclick.net/tag/js/gpt.js$script,domain=panel.freemcserver.net
-!@@||googletagmanager.com/gtag/js?$script,domain=panel.freemcserver.net
-!@@||securepubads.g.doubleclick.net/pagead/managed/js/gpt/$script,domain=panel.freemcserver.net
 /cdn-cgi/challenge-platform/scripts/jsd/main.js$script,important,1p,domain=freemcserver.net
 *$script,redirect-rule=noopjs,domain=panel.freemcserver.net
 freemcserver.net,~panel.freemcserver.net##+js(nostif, 0x)
 panel.freemcserver.net##body > #main-wrapper > .page-wrapper > .container-fluid > .row > .col-md-10 > [class] > .row > .col > ul:first-child + [class="row justify-content-center mb-3 billboard_responsive text-center"]
 panel.freemcserver.net##body > #main-wrapper > .page-wrapper > .container-fluid > .row > .col-md-10 > [class] > .row > [class^="col-"] > [style*="min-height"][style*="flex"]:has(> [id^="stpd-"][style^="position:"]:first-child + div + div:last-child)
-panel.freemcserver.net##+js(set, apstag.fetchBids.name, '')
-panel.freemcserver.net##+js(set, Object.getOwnPropertyDescriptor, falseFunc)
-!#if env_firefox
-*$xhr,redirect-rule=nooptext,domain=panel.freemcserver.net
-!#else
-@@*$xhr,domain=panel.freemcserver.net
-||region1.google-analytics.com/g/collect?$xhr,important,domain=panel.freemcserver.net
-||gum.criteo.com/sid/json?origin=prebid&topUrl=https*&gdpr=1|$xhr,important,domain=panel.freemcserver.net
-||prebid-stag.setupad.net/cookie_sync|$xhr,important,method=post,domain=panel.freemcserver.net
-||prebid-stag.setupad.net/openrtb2/auction|$xhr,important,domain=panel.freemcserver.net
-||prebid.a-mo.net/a/c|$xhr,important,domain=panel.freemcserver.net
-||ib.adnxs.com/ut/v3/prebid|$xhr,important,domain=panel.freemcserver.net
-||mp.4dex.io/prebid|$xhr,important,domain=panel.freemcserver.net
-||fastlane.rubiconproject.com/a/api/fastlane.json?$xhr,important,domain=panel.freemcserver.net
-||tlx.3lift.com/header/auction?lib=prebid&v=*&referrer=https%3A%2F%2Fpanel.freemcserver.net%2Fserver%2F*&tmax=*&gdpr=true&cmp_cs=*AAAAA$xhr,important,domain=panel.freemcserver.net
-||rtb.openx.net/openrtbb/prebidjs|$xhr,important,domain=panel.freemcserver.net
-||hbopenbid.pubmatic.com/translator?source=prebid-client|$xhr,important,domain=panel.freemcserver.net
-||adx.adform.net/adx/openrtb|$xhr,important,domain=panel.freemcserver.net
-!#endif
+panel.freemcserver.net##+js(trusted-replace-argument, String.prototype.includes, 0, "''", condition, we-need-your-support)
 download.megaup.net#@#+js(rpnt, script, /for\s*\(\s*(const|let|var).*?;return;\}\}.*?;return;.*?;return;\}/g, , condition, attribute)
 download.megaup.net##+js(rpnt, script, /for\s*\(\s*(const|let|var).*?\)\;return\;\}_/g,_ , condition, attribute)
 download.megaup.net##a:has(img[src*="/download"]):style(width: 300px !important; height: 300px !important; display: block !important;)
