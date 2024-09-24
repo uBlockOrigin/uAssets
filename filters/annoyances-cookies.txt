@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Cookie Notices
-! Last modified: Fri, 20 Sep 2024 03:41:53 +0000
+! Last modified: Tue, 24 Sep 2024 00:38:27 +0000
 ! Expires: 7 days
 ! Description: Filters optimized for uBlock Origin, to be used with EasyList's and/or Adguard's "Cookie Notices" list(s)
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -326,9 +326,7 @@ bol.com##+js(trusted-set-cookie, bolConsentChoices, source#OFC|version#6|int-tra
 wesendit.com##+js(trusted-set-local-storage-item, cookieManagement, '{"googleAnalytics":false,"facebook":false}')
 wesendit.com##+js(set-local-storage-item, legalsAccepted, true)
 ! https://github.com/easylist/easylist/issues/19226
-!#if ext_devbuild
 abw.by##+js(trusted-set-cookie, cookiePolicy, '{"accepted":true,"technical":true,"statistics":false,"marketing":false,"expire":$now$}', , , domain, abw.by)
-!#endif
 ! https://www.fotografiska.com/
 fotografiska.com##+js(trusted-set-cookie, cookie_consent, '{"purposes":{"marketing":false,"analytics":false}}')
 ! https://github.com/uBlockOrigin/uAssets/issues/24141
@@ -1624,11 +1622,7 @@ njspotlightnews.org,wliw.org,thirteen.org,njpbs.org,allarts.org##+js(trusted-set
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/177378
 ! https://github.com/AdguardTeam/AdguardFilters/issues/183077
-!#if ext_devbuild
 sportiva.shueisha.co.jp,wpb.shueisha.co.jp##+js(trusted-set-cookie, OptanonAlertBoxClosed, $currentISODate$)
-!#else
-sportiva.shueisha.co.jp,wpb.shueisha.co.jp##+js(trusted-click-element, #onetrust-accept-btn-handler)
-!#endif
 
 ! https://github.com/uBlockOrigin/uAssets/issues/24402
 tvn24.pl##+js(set, __tcfapi_user_acctepted, true)

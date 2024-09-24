@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Tue, 24 Sep 2024 00:24:59 +0000
+! Last modified: Tue, 24 Sep 2024 00:38:27 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -13149,13 +13149,7 @@ etcscrs.to##+js(aopr, LieDetector)
 sinfoniarossini.com##+js(nowoif)
 thepoorcoder.com##+js(aopr, adblockDetector)
 @@||citytv.com^$ghide
-@@||citytv.com/wp-json/rsm-adutil/v1/get_ad_targets_by_url/$xhr,1p
-citytv.com##+js(json-prune, *, ad_unit_path)
-!#if ext_devbuild
-||citytv.com/wp-json/rsm-adutil/v1/get_ad_targets_by_url/$xhr,1p,important
-citytv.com#@#+js(json-prune, *, ad_unit_path)
 citytv.com##+js(no-xhr-if, wp-json/rsm-adutil, true)
-!#endif
 ! brave issue google funding
 globo.com,latimes.com##+js(nostif, f.parentNode.removeChild(f), 100)
 @@||googletagmanager.com/gtm.js$script,domain=globo.com
@@ -19486,15 +19480,7 @@ zadfaucet.com##+js(set, verifica_adblock, noopFunc)
 ewrc-results.com##+js(set, canGetAds, true)
 ewrc-results.com##+js(no-xhr-if, googlesyndication)
 @@||yt2save.com^$ghide
-@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$xhr,domain=theappstore.org
-!#if ext_devbuild
 theappstore.org##+js(no-fetch-if, adsbygoogle, length:11000)
-!#else
-!#if cap_html_filtering
-||theappstore.org/script.js?v=$script,1p,replace=/result\.length \> 10000/result.length < 10000/g
-theappstore.org##+js(no-fetch-if, adsbygoogle)
-!#endif
-!#endif
 dzeko11.net##+js(nostif, keepChecking)
 *$script,redirect-rule=noopjs,domain=sprawdzwegiel.pl
 ier.ai##+js(nowoif)
@@ -19899,12 +19885,8 @@ protege-torrent.com##+js(aopr, decodeURI)
 ottverse.com##+js(nostif, show)
 hokej.net##+js(nostif, blur)
 @@||shoop.de^$ghide
-!#if ext_devbuild
 soft98.ir,~forum.soft98.ir##+js(aeld, click, open)
 soft98.ir,~forum.soft98.ir##+js(aeld, contextmenu, preventDefault)
-!#else
-soft98.ir,~forum.soft98.ir##+js(aeld, click, [native code])
-!#endif
 ||img.soft98.ir^$image,1p,redirect-rule=1x1.gif
 @@||soft98.ir^$ghide
 soft98.ir,~forum.soft98.ir##+js(window-close-if, /link-)
