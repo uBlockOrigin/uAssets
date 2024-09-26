@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Privacy
-! Last modified: Wed, 25 Sep 2024 15:44:17 +0000
+! Last modified: Thu, 26 Sep 2024 03:35:43 +0000
 ! Expires: 7 days
 ! Description: |
 !   Some of these filters make use of the `important` filter option,`
@@ -1029,6 +1029,10 @@ nytimes.com##+js(no-fetch-if, api.theathletic.com/graphql body:/PostEvent|PostIm
 *$all,ipaddress=0.0.0.0,domain=~0.0.0.0|~127.0.0.1|~[::1]|~[::]|~local|~localhost
 *$all,ipaddress=::,domain=~0.0.0.0|~127.0.0.1|~[::1]|~[::]|~local|~localhost
 !#endif
+
+! https://github.com/uBlockOrigin/uAssets/issues/25432
+/^https:\/\/[a-z]\d{3}\.[a-z]+\.com\/script\.js$/$script,1p,strict3p,domain=com,redirect=noopjs
+||cdn.blueconic.net/hearst.js^$script,3p,redirect=noopjs,domain=bigrapidsnews.com
 
 ! Merge in resource-abuse.txt
 !#include resource-abuse.txt
