@@ -1,5 +1,5 @@
 ! Title: uBlock₀ filters – Quick fixes
-! Last modified: Sat, 28 Sep 2024 12:50:37 +0000
+! Last modified: Sat, 28 Sep 2024 19:03:38 +0000
 ! Expires: 8 hours
 ! Description: Immediate, temporary filters to fix websites
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -45,6 +45,7 @@ www.youtube.com#@#+js(trusted-replace-xhr-response, /"adPlacements.*?("adSlots"|
 www.youtube.com##+js(trusted-replace-xhr-response, /"adPlacements.*?([A-Z]"\}|"\}{2\,4})\}\]\,/, , /playlist\?list=|\/player(?:\?.+)?$|watch\?[tv]=/)
 www.youtube.com##+js(trusted-replace-xhr-response, /"adPlacements.*?("adSlots"|"adBreakHeartbeatParams")/gms, $1, /\/player(?:\?.+)?$/)
 !#endif
+www.youtube.com##+js(set, yt.config_.EXPERIMENT_FLAGS.web_bind_fetch, false)
 ! https://github.com/uBlockOrigin/uBlock-discussions/discussions/831#discussioncomment-10655279
 ||www.youtube-nocookie.com/youtubei/v1/player?$xhr,1p,replace=/"adPlacements.*?([A-Z]"\}|"\}{2\,4})\}\]\,//
 ||www.youtube-nocookie.com/youtubei/v1/player?$xhr,1p,replace=/"adSlots.*?\}\}\]\,"adBreakHeartbeatParams/"adBreakHeartbeatParams/
