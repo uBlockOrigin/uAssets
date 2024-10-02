@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2024)
-! Last modified: Tue, 01 Oct 2024 20:25:12 +0000
+! Last modified: Wed, 02 Oct 2024 04:57:55 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -51,6 +51,8 @@ apkmirror.com##+js(rmnt, script, document.createTextNode)
 ! https://forums.lanik.us/viewtopic.php?f=62&t=41466
 ! https://github.com/uBlockOrigin/uAssets/issues/7884
 ! https://github.com/uBlockOrigin/uAssets/issues/22769
+! https://github.com/uBlockOrigin/uAssets/issues/25495
+vidsrc.*##+js(acs, document.write)
 vidsrc.*##+js(nosiif, /0x|sandCheck/)
 vidsrc.*##+js(nowoif)
 vidsrc.*##+js(aopr, __Y)
@@ -58,7 +60,10 @@ vidsrc.*##+js(aopr, AaDetector)
 vidsrc.*##+js(rmnt, script, adserverDomain)
 vidsrc.*##^script:has-text(/\{delete window\[/)
 vidsrc.*###pop_asdf
+||vidsrc.net/*.js?_=$script,1p
 ||vidsrc.pro/uwu-js^$script
+||annotationsincereexistence.com^
+||reminderasking.com^$all
 embed.smashystream.com###addiv
 ! https://github.com/uBlockOrigin/uAssets/issues/23610
 streambucket.net##+js(acs, EventTarget.prototype.addEventListener, /runPop|aclib|window\.open/)
@@ -2051,9 +2056,10 @@ thejakartapost.com##.tjp-single__content-ads:remove()
 ! https://github.com/uBlockOrigin/uAssets/issues/23965
 ! https://github.com/uBlockOrigin/uAssets/issues/24013
 ! https://github.com/uBlockOrigin/uAssets/issues/24812#issuecomment-2289648269
-$frame,csp=sandbox allow-downloads allow-forms allow-same-origin allow-scripts,to=~buymeacoffee.com|~cbox.ws|~chatango.com|~cloudflare.com|~dailymotion.com|~discord.com|~disqus.com|~edgecastcdn.net|~emturbovid.com|~facebook.com|~frembed.*|~google.*|~hcaptcha.com|~mixdrop.*|~ok.ru|~recaptcha.net|~twitter.com|~vidmoly.*|~vixcloud.co|~youtu.be|~youtube.com|~x.com,from=1jour1film.*|animefever.cc|animeunity.to|bluphim.*|dailypudding.com|detodopeliculas.nu|hianime.to|kaas.ro|kickassanime.*|kipflix.vercel.app|kissanime.*|phimmoifhd.com|seriescultes.store|soccerinhd.com|visualnewshub.com|xsportbox.com
+! https://github.com/uBlockOrigin/uAssets/issues/25495
+$frame,csp=sandbox allow-downloads allow-forms allow-modals allow-same-origin allow-scripts,to=~buymeacoffee.com|~cbox.ws|~chatango.com|~cloudflare.com|~dailymotion.com|~discord.com|~disqus.com|~edgecastcdn.net|~emturbovid.com|~facebook.com|~frembed.*|~google.*|~hcaptcha.com|~mixdrop.*|~ok.ru|~recaptcha.net|~twitter.com|~vidmoly.*|~vixcloud.co|~youtu.be|~youtube.com|~x.com,from=1jour1film.*|animefever.cc|animeunity.to|bluphim.*|dailypudding.com|detodopeliculas.nu|hianime.to|kaas.ro|kickassanime.*|kipflix.vercel.app|kissanime.*|phimmoifhd.com|seriescultes.store|soccerinhd.com|visualnewshub.com|xsportbox.com
 !#if env_firefox
-$frame,csp=sandbox allow-downloads allow-forms allow-same-origin allow-scripts,to=~buymeacoffee.com|~cbox.ws|~chatango.com|~cloudflare.com|~dailymotion.com|~discord.com|~disqus.com|~edgecastcdn.net|~emturbovid.com|~facebook.com|~frembed.*|~google.*|~hcaptcha.com|~mixdrop.*|~ok.ru|~recaptcha.net|~twitter.com|~vidmoly.*|~vixcloud.co|~youtu.be|~youtube.com|~x.com,from=antennasports.ru|dlhd.so|euro2024direct.ru|roselife.site|roshy.tv
+$frame,csp=sandbox allow-downloads allow-forms allow-modals allow-same-origin allow-scripts,to=~buymeacoffee.com|~cbox.ws|~chatango.com|~cloudflare.com|~dailymotion.com|~discord.com|~disqus.com|~edgecastcdn.net|~emturbovid.com|~facebook.com|~frembed.*|~google.*|~hcaptcha.com|~mixdrop.*|~ok.ru|~recaptcha.net|~twitter.com|~vidmoly.*|~vixcloud.co|~youtu.be|~youtube.com|~x.com,from=antennasports.ru|dlhd.so|euro2024direct.ru|putlockers.*|roselife.site|roshy.tv
 !#endif
 euro2024direct.ru##+js(acs, document.createElement, break;case)
 ! https://github.com/uBlockOrigin/uAssets/issues/23689
