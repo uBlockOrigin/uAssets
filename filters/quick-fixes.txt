@@ -136,23 +136,13 @@ download.megaup.net##a:has(img[src*="/download"]):style(width: 300px !important;
 ! https://github.com/uBlockOrigin/uAssets/issues/25121#issuecomment-2325357098
 poophq.com,veev.to##+js(nowoif)
 poophq.com,veev.to##+js(set, fapit.check, noopFunc)
-*$script,3p,domain=poophq.com|veev.to,redirect-rule=noopjs
-*$other,3p,denyallow=veevcdn.co,domain=poophq.com|veev.to
-||ptupsewo.net^
-@@*$ghide,domain=poophq.com|veev.to
-veev.to#@#.avb-active
-!#if ext_devbuild
+poophq.com,veev.to##+js(no-xhr-if, url:!/cdn\.plyr\.io|veev\.to|\/dl\?op=player_api/ method:GET)
 poophq.com,veev.to##+js(no-xhr-if, /\/ad-provider\.js$/, length:35000)
 poophq.com,veev.to##+js(no-xhr-if, /\/preroll\.engine$/)
-poophq.com,veev.to##+js(no-xhr-if, url:!/cdn\.plyr\.io|veev\.to|\/dl\?op=player_api/ method:GET)
-!#else
-!#if cap_html_filtering
-||static.veevcdn.co/assets/videoplayer/$script,replace=/'val':!0x0//g
-!#else
-@@/vast.php$xhr,domain=poophq.com|veev.to
-||c.adsco.re/|$script,redirect=none:5,domain=poophq.com|veev.to
-!#endif
-!#endif
+*$script,3p,domain=poophq.com|veev.to,redirect-rule=noopjs
+*$other,3p,denyallow=veevcdn.co,domain=poophq.com|veev.to
+@@*$ghide,domain=poophq.com|veev.to
+veev.to#@#.avb-active
 
 ! https://github.com/uBlockOrigin/uAssets/issues/24575
 @@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$xhr,domain=caroloportunidades.com.br|flyanimes.cloud
