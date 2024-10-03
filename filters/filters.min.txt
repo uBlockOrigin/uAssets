@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Thu, 03 Oct 2024 15:14:53 +0000
+! Last modified: Thu, 03 Oct 2024 15:17:19 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -16620,10 +16620,12 @@ eplayer.click##+js(aopr, AaDetector)
 ustream.click##+js(acs, RegExp, 'shift')
 ustream.click##^script:has-text('shift')
 ustream.click##^script:has-text(\'shift\')
-! performance slowndown by site's antiadb code
+1cloudfile.com##+js(no-xhr-if, pagead2.googlesyndication.com)
+1cloudfile.com##+js(trusted-replace-node-text, script, 200===r.status, 0===r.status, condition, getNextDownloadPageLink)
+1cloudfile.com##+js(trusted-replace-node-text, script, return r.responseText, return `a.getAttribute("data-ad-client")||""`, , condition, getNextDownloadPageLink)
 1cloudfile.com##+js(nosiif, !display)
 1cloudfile.com##+js(nowoif)
-1cloudfile.com##+js(no-fetch-if, /googlesyndication|nerveheels/)
+1cloudfile.com##+js(no-fetch-if, /nerveheels/)
 1cloudfile.com##+js(acs, navigator, FingerprintJS)
 ||1cloudfile.com/sw.js$script
 1cloudfile.com#@#.advert-wrapper
