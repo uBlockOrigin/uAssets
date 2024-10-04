@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Quick fixes
 ! Expires: 12 hours
-! Last modified: Fri, 04 Oct 2024 05:35:19 +0000
+! Last modified: Fri, 04 Oct 2024 07:57:20 +0000
 ! Diff-Path: %diffpath%#ublock-quick-fixes
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -145,10 +145,11 @@ tver.jp##+js(json-prune, data.adData)
 tver.jp##+js(nano-stb, /nrWrapper\(\)|n\.setTimeoutIds_\.has\(i\)/, 10000)
 ||imasdk.googleapis.com/js/sdkloader/ima3.js$script,redirect=google-ima.js,domain=tver.jp,important
 picrew.me##.play-Imagemaker:style(height: 100% !important;)
-filemoon-59t9ep5j.xyz##+js(acs, Math, localStorage['\x)
-filemoon-59t9ep5j.xyz##+js(nowoif)
-filemoon-59t9ep5j.xyz##+js(acs, Math.floor, urls.length)
-*$script,3p,denyallow=gstatic.com,domain=filemoon-59t9ep5j.xyz|filemoon-nv2xl8an.xyz 
+/^moon-.*\.com$/##+js(nowoif)
+/^moon-.*\.com$/##+js(acs, Math, localStorage['\x)
+!#if env_firefox
+*$frame,csp=sandbox allow-downloads allow-forms allow-modals allow-same-origin allow-scripts,from=filemoon.*
+!#endif
 gunauc.net##+js(no-fetch-if, googlesyndication, , {"type":"cors"})
 gunauc.net#@#+js(prevent-fetch, pagead2.googlesyndication.com)
 wiki.yjsnpi.nu#@#.ad
