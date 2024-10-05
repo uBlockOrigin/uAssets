@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Unbreak
-! Last modified: Fri, 04 Oct 2024 06:25:47 +0000
+! Last modified: Sat, 05 Oct 2024 04:14:17 +0000
 ! Expires: 5 days
 ! Description: Filters optimized for uBlock Origin, to unbreak sites broken as a result of 3rd-party filter lists enabled by default.
 ! Homepage: https://github.com/uBlockOrigin/uAssets
@@ -5028,14 +5028,15 @@ help.cashctrl.com##+js(set, Origami.fastclick, noopFunc)
 purepeople.com##+js(rpnt, script, window.gdprAppliesGlobally, '(()=>{window.addEventListener("load",(function(){var intervalId=window.setInterval((function(){let iframe=document.querySelector("iframe.dailymotion-player");if(!iframe)return;const playerItem=document.querySelector("div.player-item[data-video-id]");if(!playerItem)return;iframe.src=iframe.src.replace(".html?",`.html?video=${playerItem.dataset.videoId}&`);clearInterval(intervalId)}),1e3)}))})();window.gdprAppliesGlobally', sedCount, 1)
 ! https://github.com/uBlockOrigin/uAssets/issues/25439
 gry-online.pl##+js(set, jad, undefined)
-! https://github.com/uBlockOrigin/uAssets/issues/20579
 ! https://www.reddit.com/r/uBlockOrigin/comments/1dci4g4/videos_from_the_site_httpswwwozapcom_do_not_launch/
+ozap.com##+js(rpnt, script, WB.defer, 'window.wbads={public:{getDailymotionAdsParamsForScript:function(a,b){b("")},setTargetingOnPosition:function(a,b){return}}};WB.defer', condition, wbads.public.setTargetingOnPosition)
+! https://github.com/uBlockOrigin/uAssets/issues/20579
 ||imasdk.googleapis.com/js/sdkloader/ima3.js$script,redirect=google-ima.js,domain=dailymotion.com,important
-@@||cdn.lib.getjad.io/library/$script,3p,domain=ozap.com|vidaextra.com
-@@||cdn.lib.getjad.io/prebid/$script,3p,domain=ozap.com|vidaextra.com
-@@||securepubads.g.doubleclick.net/tag/js/gpt.js$script,3p,domain=ozap.com|vidaextra.com
-@@||securepubads.g.doubleclick.net/pagead/managed/js/gpt/*/pubads_impl.js^$script,3p,domain=ozap.com|vidaextra.com
-@@||amazon-adsystem.com/*/apstag.js$script,3p,redirect-rule,domain=ozap.com|vidaextra.com
+@@||cdn.lib.getjad.io/library/$script,3p,domain=vidaextra.com
+@@||cdn.lib.getjad.io/prebid/$script,3p,domain=vidaextra.com
+@@||securepubads.g.doubleclick.net/tag/js/gpt.js$script,3p,domain=vidaextra.com
+@@||securepubads.g.doubleclick.net/pagead/managed/js/gpt/*/pubads_impl.js^$script,3p,domain=vidaextra.com
+@@||amazon-adsystem.com/*/apstag.js$script,3p,redirect-rule,domain=vidaextra.com
 @@||vidaextra.com^$ghide
 ozap.com,vidaextra.com##+js(no-fetch-if, /gampad/ads)
 vidaextra.com##.ad:style(height: 0px !important; min-height: 0px !important; padding: 0px !important; margin: 0px !important; visibility: collapse !important;)
