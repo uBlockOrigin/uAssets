@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Unbreak
 ! Expires: 5 days
-! Last modified: Sat, 05 Oct 2024 04:28:56 +0000
+! Last modified: Sat, 05 Oct 2024 04:56:01 +0000
 ! Diff-Path: %diffpath%#ublock-unbreak
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -2383,7 +2383,7 @@ help.cashctrl.com##+js(set, Origami.fastclick, noopFunc)
 @@||moviesandtv.myvi.in/videojs/videojs-contrib-ads.min.js$script,domain=moviesandtv.myvi.in
 ! getjad-issue sites
 ||imasdk.googleapis.com/js/sdkloader/ima3.js$script,redirect=google-ima.js,domain=dailymotion.com,important
-purepeople.com##+js(rpnt, script, window.gdprAppliesGlobally, '(()=>{window.addEventListener("load",(function(){var intervalId=window.setInterval((function(){let iframe=document.querySelector("iframe.dailymotion-player");if(!iframe)return;const playerItem=document.querySelector("div.player-item[data-video-id]");if(!playerItem)return;iframe.src=iframe.src.replace(".html?",`.html?video=${playerItem.dataset.videoId}&`);clearInterval(intervalId)}),1e3)}))})();window.gdprAppliesGlobally', sedCount, 1)
+purepeople.com##+js(trusted-replace-argument, document.querySelector, 0, {"value": ".ad-placement-interstitial"}, condition, .easyAdsBox)
 gry-online.pl##+js(set, jad, undefined)
 ozap.com##+js(rpnt, script, WB.defer, 'window.wbads={public:{getDailymotionAdsParamsForScript:function(a,b){b("")},setTargetingOnPosition:function(a,b){return}}};WB.defer', condition, wbads.public.setTargetingOnPosition)
 vidaextra.com##+js(set, hasAdblocker, true)
