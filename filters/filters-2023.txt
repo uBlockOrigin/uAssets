@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2023)
-! Last modified: Sat, 05 Oct 2024 15:41:37 +0000
+! Last modified: Sun, 06 Oct 2024 11:48:06 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -1895,7 +1895,7 @@ www.wp.pl##div[data-bdc="section-celebrities"] > .wp-inner-content > div:has(> d
 www.wp.pl##div[class*=" "]:has(> div > div:first-child > div:first-child > a[href^="https://www.wp.pl/"]:first-child):matches-css(max-width: 420px):remove()
 www.wp.pl##.app-container > div:has(> div > div > div + img[src^="https://v.wpimg.pl/"] + div:empty)
 www.wp.pl##div:has(> div:first-child:empty + div:empty)
-money.pl##div:has-text(> style:has-text(flex: 0 0 100%))
+money.pl##div:has(> style:first-child:has-text(flex: 0 0 100%) + div)
 wiadomosci.wp.pl##div:has(> div[data-native-adv] > a[href*="utm_"])
 !#endif
 ~www.wp.pl,wp.pl##header + div[data-reactid]:has(> div:only-child > div:first-child > div:only-child > a > div:only-child:empty)
@@ -1922,10 +1922,11 @@ sportowefakty.wp.pl##.article > .article__top + div:has(> div:last-child > div >
 sportowefakty.wp.pl##.article-footer + div:has(> div:last-child > div > div > div > div[id^="div-gpt-ad-"])
 abczdrowie.pl##div[data-element="s3-placeholder"]
 wp.pl##body > [data-container] > div[class]:empty
+wp.pl###comments > div > div > div:has(> div:first-child > div:only-child > div:only-child > div:last-child > div:first-child > div > a > img[src^="https://v.wpimg.pl/"][alt="null"])
 ! against blinking ads
 kobieta.wp.pl,wiadomosci.wp.pl,film.wp.pl##header + [data-alternative-wrapper]:has(> div > div > a > img[src^="https://v.wpimg.pl/"])
 ~www.wp.pl,wp.pl#@#div:matches-css-after(content:/R.*E.*K.*L.*A.*M.*A/):upward(1)
-~www.wp.pl,wp.pl##div:has(> a:first-child:has(> div:empty:only-child) + div:empty:last-child)
+~www.wp.pl,wp.pl##div:has(> a:first-child:has(> div:empty:only-child) + div:empty:last-child):remove()
 ~www.wp.pl,wp.pl##div:has(> div:first-child:has(> div:only-child > a > div:empty:only-child) + div:last-child:empty)
 ~www.wp.pl,wp.pl##div:has(> div:first-child:has(> a:only-child > img[src^="https://v.wpimg.pl/"]) + div:empty:last-child)
 ! https://github.com/uBlockOrigin/uAssets/issues/16909
