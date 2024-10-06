@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Sun, 06 Oct 2024 03:48:51 +0000
+! Last modified: Sun, 06 Oct 2024 04:06:17 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -15291,6 +15291,11 @@ tekfiz.com##ins.adsbygoogle
 files.fm##+js(aopr, canRunAds)
 ||cdn.flashtalking.com^$media,redirect=noopmp3-0.1s,domain=app.plex.tv
 app.plex.tv##+js(json-prune, MediaContainer.Metadata.[].Ad)
+!#if env_firefox
+imasdk.googleapis.com##+js(no-xhr-if, vod.provider.plex.tv/ad?, war:noop-vast3.xml)
+!#else
+||vod.provider.plex.tv/ad?$xhr,redirect=noopvast-3.0
+!#endif
 ||neonime.*/wp-content/themes/grifus/images/donate/yunita/
 discoveryplus.in##+js(no-fetch-if, ads)
 ! androidhexzone.blogspot.com anti-adb

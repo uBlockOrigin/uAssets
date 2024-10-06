@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2021)
-! Last modified: Fri, 04 Oct 2024 08:04:43 +0000
+! Last modified: Sun, 06 Oct 2024 04:06:17 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -1559,6 +1559,12 @@ files.fm##+js(aopr, canRunAds)
 ||cdn.flashtalking.com^$media,redirect=noopmp3-0.1s,domain=app.plex.tv
 ! https://github.com/uBlockOrigin/uAssets/issues/20357
 app.plex.tv##+js(json-prune, MediaContainer.Metadata.[].Ad)
+! https://www.reddit.com/r/uBlockOrigin/comments/1fwizi0/plex_free_tvmovies_ad_block/
+!#if env_firefox
+imasdk.googleapis.com##+js(no-xhr-if, vod.provider.plex.tv/ad?, war:noop-vast3.xml)
+!#else
+||vod.provider.plex.tv/ad?$xhr,redirect=noopvast-3.0
+!#endif
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/78973
 ||neonime.*/wp-content/themes/grifus/images/donate/yunita/
