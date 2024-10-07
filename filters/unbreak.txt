@@ -5661,7 +5661,11 @@ topgear.com##+js(set, _sp_.config.events.onSPPMObjectReady, noopFunc)
 @@||worldsurfleague.com/js/videojs8/nuevo/plugins/videojs-contrib-ads.min.js^$script,1p
 @@||micro.rubiconproject.com/prebid/dynamic/$script,domain=worldsurfleague.com
 @@||securepubads.g.doubleclick.net/pagead/ima_ppub_config$xhr,domain=worldsurfleague.com
+!#if env_firefox
+imasdk.googleapis.com##+js(no-xhr-if, worldsurfleague.com, war:noop-vmap1.0.xml)
+!#else
 ||pubads.g.doubleclick.net/gampad/ads?*www.worldsurfleague.com$xhr,redirect=noop-vmap1.0.xml:5,domain=imasdk.googleapis.com
+!#endif
 
 ! https://github.com/uBlockOrigin/uAssets/issues/25049
 eservice.directauto.com##+js(set, gtm, {})
