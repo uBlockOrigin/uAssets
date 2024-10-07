@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2023)
-! Last modified: Mon, 07 Oct 2024 15:02:56 +0000
+! Last modified: Mon, 07 Oct 2024 15:18:23 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -3045,8 +3045,10 @@ empire-anime.*,empire-stream.*,empire-streaming.*,empire-streamz.*##+js(set, emp
 empire-anime.*,empire-stream.*,empire-streaming.*,empire-streamz.*##+js(set, empire.directHideAds, undefined)
 empire-anime.*,empire-stream.*,empire-streaming.*,empire-streamz.*##+js(rpnt, script, /data: \[.*\]\,/, data: []\,, condition, ads_num)
 empire-anime.*,empire-stream.*,empire-streaming.*,empire-streamz.*##+js(nano-stb, (!1), *)
-!#if !ext_ubol
-empire-anime.*,empire-stream.*,empire-streaming.*,empire-streamz.*##+js(nowoif)
+!#if env_firefox
+empire-anime.*,empire-stream.*,empire-streaming.*,empire-streamz.*##+js(nowoif, , 300, blank)
+!#else
+empire-anime.*,empire-stream.*,empire-streaming.*,empire-streamz.*##+js(nowoif, , 0, blank)
 !#endif
 empire-anime.*,empire-stream.*,empire-streaming.*,empire-streamz.*##+js(no-xhr-if, pagead2.googlesyndication.com)
 /iframe_ad$csp=sandbox allow-forms allow-same-origin allow-scripts allow-modals allow-orientation-lock allow-pointer-lock allow-presentation allow-top-navigation,1p,domain=empire-anime.*|empire-stream.*|empire-streaming.*|empire-streamz.*
