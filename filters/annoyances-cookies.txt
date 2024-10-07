@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Cookie Notices
-! Last modified: Sun, 06 Oct 2024 09:21:56 +0000
+! Last modified: Mon, 07 Oct 2024 02:48:58 +0000
 ! Expires: 7 days
 ! Description: Filters optimized for uBlock Origin, to be used with EasyList's and/or Adguard's "Cookie Notices" list(s)
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -1768,4 +1768,15 @@ linternaute.com##body.appconsent_noscroll:style(overflow: auto !important;)
 visionapartments.com##+js(trusted-set-cookie, ota_ga_consent, eyJkYXRlIjoiMjAyNC0wOS0yOFQxODoyNToxMy40MjlaIiwibmVzY2Vzc2FyeSI6dHJ1ZSwicGVyZm9ybWFuY2UiOmZhbHNlLCJtYXJrZXRpbmciOmZhbHNlfQ==)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/25544
-dw.com##+js(trusted-click-element, #cmpwrapper >>> #cmpbntyestxt)
+dw.com##+js(set, Object.prototype.hasConsent, trueFunc)
+dw.com##+js(set, cmp_autoreject, true)
+
+! https://github.com/uBlockOrigin/uAssets/issues/25544
+dw.com##+js(set, cmp_autoreject, true)
+
+! https://winfuture.de/videos/Spiele/New-World-Aeternum-Der-Launch-Trailer-laeutet-eine-neue-Aera-ein-26728.html
+winfuture.de##+js(set, Object.prototype.hasConsent, trueFunc)
+winfuture.de##+js(set, cmp_autoreject, true)
+winfuture.de##+js(nostif, checkPURLayerMustBeShown)
+winfuture.de##.videop em:not([data-video-src]):remove()
+winfuture.de##.videop em[data-video-src]:style(display: block !important;)
