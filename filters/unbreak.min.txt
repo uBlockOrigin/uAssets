@@ -1,16 +1,18 @@
 ! Title: uBlock filters – Unbreak
 ! Expires: 5 days
-! Last modified: Mon, 07 Oct 2024 04:40:45 +0000
+! Last modified: Mon, 07 Oct 2024 05:08:49 +0000
 ! Diff-Path: %diffpath%#ublock-unbreak
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 ! *** uAssets:filters/unbreak.txt ***
-! START: Email trackings
+! START: Click trackings
 ! password reset link broken on coindesk.com
 @@||awstrack.me/*auth.coindesk.com$doc,popup
 ! swagbucks.com - restore inactive
 @@||awstrack.me/*cmd=ac-inactive-restore$doc,popup
-! END: Email trackings
+@@||track.adtraction.com/*&url=https://www.gog.com/$popup,domain=gamingonlinux.com|isthereanydeal.com|rpgcodex.net
+||track.adtraction.com/*&url=https://www.gog.com/$urlskip=?url
+! END: Click trackings
 ||2mdn.net/instream/video/client.js$script,redirect=noopjs,domain=video.foxnews.com
 ||cdn.krxd.net^$script,redirect=noopjs,domain=video.foxnews.com
 @@||akamaihd.net/player/*/akamai/amp/prebid/*$script,domain=static.foxnews.com
@@ -2571,7 +2573,6 @@ optimum.net##+js(set, s.tl, noopFunc)
 ! Page issue, but annoying so fixing it here
 emailnator.com##[style^="width: 15px; height: 15px; overflow: scroll; visibility: hidden; color: rgb(calc(var(--x2)"]
 mediaite.com##+js(set-cookie, am-sub, 1)
-@@||track.adtraction.com/*www.gog.com$popup,3p,domain=isthereanydeal.com
 @@||netshoes.com.br/webanalytics/*$xhr,1p
 ||imasdk.googleapis.com/js/sdkloader/ima3.js$script,domain=tabii.com,redirect=google-ima.js
 ||imasdk.googleapis.com/js/sdkloader/ima3_dai.js$script,domain=tabii.com,redirect=noopjs
@@ -2683,8 +2684,6 @@ eservice.directauto.com##+js(set, gtm.trackEvent, noopFunc)
 ||imasdk.googleapis.com/js/sdkloader/ima3_debug.js$script,redirect=google-ima.js,domain=mais.sbt.com.br,important
 ||wpfc.ml^$image,redirect=1x1.gif,domain=ht-instruments.de
 ||trycloudflare.com^$badfilter
-@@||track.adtraction.com/*&url=https://www.gog.com/$popup,domain=gamingonlinux.com|rpgcodex.net
-||track.adtraction.com/*&url=https://www.gog.com/$urlskip=?url
 gazzetta.gr###comment-section:style(display: block !important;)
 ||mparticle.com/js/v2/*/mparticle.js$script,domain=nbcsports.com,important
 nbcsports.com##+js(set, mParticle.Identity.getCurrentUser, noopFunc)
