@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Privacy
-! Last modified: Sat, 05 Oct 2024 04:10:31 +0000
+! Last modified: Mon, 07 Oct 2024 03:16:36 +0000
 ! Expires: 7 days
 ! Description: |
 !   Some of these filters make use of the `important` filter option,`
@@ -1049,6 +1049,11 @@ blog.cloudflare.com##+js(no-fetch-if, method:POST body:zaraz)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/25532
 ||s.yimg.com/ss/analytics
+! https://github.com/uBlockOrigin/uAssets/issues/25552
+yahoo.com##+js(set-attr, img.caas-lazy[data-src]:not([src]), src, [data-src])
+yahoo.com##.caas-img-container.caas-img-loader .caas-img:style(opacity: 1 !important;)
+yahoo.com##.caas-img-container.caas-img-loader:style(background-color: transparent !important;)
+yahoo.com##.caas-img-container.caas-img-loader::after:style(background: unset !important;)
 
 ! Merge in resource-abuse.txt
 !#include resource-abuse.txt
