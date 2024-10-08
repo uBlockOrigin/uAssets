@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2022)
-! Last modified: Tue, 08 Oct 2024 07:13:03 +0000
+! Last modified: Tue, 08 Oct 2024 11:00:09 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -2837,6 +2837,8 @@ utopiascans.com##+js(ra, href, [href*="discord"])
 @@/popup*$script,1p,domain=streamingcommunity.*
 streamingcommunity.*##+js(no-xhr-if, /thaudray\.com|putchumt\.com/)
 streamingcommunity.*##+js(set, adBlockDetected, noopFunc)
+streamingcommunity.*##+js(alert-buster)
+streamingcommunity.*##^script:has-text(/adblock/i)
 !#if env_firefox
 @@||googletagmanager.com/gtag/js$xhr,domain=streamingcommunity.*
 !#endif
