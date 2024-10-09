@@ -1,5 +1,5 @@
 ! Title: uBlock₀ filters – Quick fixes
-! Last modified: Tue, 08 Oct 2024 14:55:52 +0000
+! Last modified: Wed, 09 Oct 2024 10:43:00 +0000
 ! Expires: 8 hours
 ! Description: Immediate, temporary filters to fix websites
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -51,10 +51,13 @@ www.youtube.com##+js(set, yt.config_.EXPERIMENT_FLAGS.web_bind_fetch, false)
 ||www.youtube-nocookie.com/youtubei/v1/player?$xhr,1p,replace=/"adSlots.*?\}\}\]\,"adBreakHeartbeatParams/"adBreakHeartbeatParams/
 
 ! https://github.com/uBlockOrigin/uAssets/issues/3367#issuecomment-2307514494
+web.facebook.com,www.facebook.com##+js(json-prune, require.0.3.0.__bbox.require.[].3.1.__bbox.result.data, require.0.3.0.__bbox.require.[].3.1.__bbox.result.data.node.sponsored_data.id_for_advertisement)
 !#if cap_html_filtering
 ||facebook.com/api/graphql/$xhr,replace=/null,"category_sensitive"[^\n]+?,"__typename":"SponsoredData"[^\n]+"cursor":"[^"]+"\}/null}/g,domain=web.facebook.com|www.facebook.com
+||facebook.com^$doc,replace=/null,"category_sensitive"[^\n]+?,"__typename":"SponsoredData"[^\n]+"cursor":"[^"]+"\}/null}/g,to=web.facebook.com|www.facebook.com
 !#else
 web.facebook.com,www.facebook.com##+js(trusted-replace-xhr-response, '/null,"category_sensitive"[^\n]+?,"__typename":"SponsoredData"[^\n]+"cursor":"[^"]+"\}/g', null}, /api/graphql)
+web.facebook.com,www.facebook.com##+js(rpnt, script, '/null,"category_sensitive"[^\n]+?,"__typename":"SponsoredData"[^\n]+"cursor":"[^"]+"\}/g', null})
 !#endif
 
 ! https://github.com/uBlockOrigin/uAssets/issues/18476
