@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Privacy
-! Last modified: Tue, 08 Oct 2024 14:29:58 +0000
+! Last modified: Wed, 09 Oct 2024 01:23:19 +0000
 ! Expires: 7 days
 ! Description: |
 !   Some of these filters make use of the `important` filter option,`
@@ -1064,6 +1064,13 @@ blog.cloudflare.com##+js(no-fetch-if, method:POST body:zaraz)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/25558
 ||gitbook.com/v1/integrations/googleanalytics/
+
+! https://www.reddit.com/r/uBlockOrigin/comments/1fzfpfj/a_small_issue_with_targetcom/
+!#if env_firefox
+forum.blu-ray.com##a[href][onclick*="this.href"]:remove-attr(/^on(?:click|contextmenu|mouseover)$/)
+!#else
+forum.blu-ray.com##+js(ra, onclick|oncontextmenu|onmouseover, a[href][onclick*="this.href"], stay)
+!#endif
 
 ! Merge in resource-abuse.txt
 !#include resource-abuse.txt
