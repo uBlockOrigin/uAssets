@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Cookie Notices
-! Last modified: Thu, 10 Oct 2024 11:04:58 +0000
+! Last modified: Thu, 10 Oct 2024 13:47:53 +0000
 ! Expires: 7 days
 ! Description: Filters optimized for uBlock Origin, to be used with EasyList's and/or Adguard's "Cookie Notices" list(s)
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -1763,12 +1763,14 @@ ignboards.com##+js(trusted-set-cookie, boards-eu-gdpr, eu, , , domain, ignboards
 web.de##+js(trusted-click-element, button[data-id="save-all-pur"], , 1000)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/25366
+! https://github.com/uBlockOrigin/uAssets/issues/25608
 ! https://www.linternaute.com/hightech/jeux-video/5995467-inzoi-quel-est-ce-jeu-aux-graphismes-hyper-realistes-qui-entend-concurrencer-les-sims/
+lefigaro.fr,linternaute.com##body.appconsent_noscroll:style(overflow: auto !important;)
+lefigaro.fr,linternaute.com###appconsent:style(visibility: hidden !important;)
+lefigaro.fr##+js(trusted-click-element, button.button__acceptAll)
 linternaute.com##+js(trusted-click-element, button.button__skip)
 linternaute.com##+js(rpnt, script, typeof jQuery !==, '(()=>{window.addEventListener("load",(function(){if(window.localStorage.appconsent){const consents=window.JSON.parse(window.localStorage.appconsent);if(consents&&consents.consents&&consents.consents.vendors){for(vendor of consents.consents.vendors){if(vendor.name==="Facebook"&&vendor.status===1)return}}}let i=0;var intervalId=window.setInterval((function(){try{i+=1;if(typeof _gtm?.consent?.cm?.strategy?.updateExtraVendorStatus!=="function")return;["facebook","instagram","pinterest","twitter","youtube"].forEach((vendor=>{_gtm.consent.cm.strategy.updateExtraVendorStatus(vendor,!0)}))}catch(_){return}if(i===5)clearInterval(intervalId)}),1e3)}))})();typeof jQuery !==')
 linternaute.com##+js(set, _gtm.consent.cm.strategy.options.cmpay.enabled, false)
-linternaute.com##body.appconsent_noscroll:style(overflow: auto !important;)
-linternaute.com###appconsent:style(visibility: hidden !important;)
 linternaute.com##.ccminsert > .jEmbedTagPlaceholder.pending > .jEmbedTagPlaceholder__content
 
 ! essential only 
