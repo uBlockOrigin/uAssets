@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Unbreak
-! Last modified: Wed, 09 Oct 2024 11:31:34 +0000
+! Last modified: Thu, 10 Oct 2024 02:45:45 +0000
 ! Expires: 5 days
 ! Description: Filters optimized for uBlock Origin, to unbreak sites broken as a result of 3rd-party filter lists enabled by default.
 ! Homepage: https://github.com/uBlockOrigin/uAssets
@@ -1503,6 +1503,9 @@ reuters.com##ul[class^="cluster__stories"] > li[class^="cluster__cluster-hub"][c
 ||t.eloqua.com^$3p
 ! https://github.com/uBlockOrigin/uAssets/issues/23370
 @@||t.eloqua.com^$xhr,domain=natera.com
+! https://www.fortinet.com/resources/reports/fortirecon-threat-intelligence-report-summer-olympics - form submission breakage
+! https://github.com/uBlockOrigin/uAssets/issues/25601
+@@||t.eloqua.com/e/$xhr,frame,3p
 
 ! https://www.wilderssecurity.com/threads/ublock-a-lean-and-fast-blocker.365273/page-166#post-2878656
 @@||google-analytics.com/ga.js$script,domain=bimi.jorudan.co.jp
@@ -5529,9 +5532,6 @@ jprime.jp##+js(trusted-rpnt, script, var ISMLIB, !function(){const o={apply:(o\,
 
 ! https://github.com/uBlockOrigin/uAssets/issues/24597
 @@||googletagmanager.com/gtm.js$script,3p,domain=eu.community.samsung.com
-
-! https://www.fortinet.com/resources/reports/fortirecon-threat-intelligence-report-summer-olympics - form submission breakage
-@@||t.eloqua.com/e/$xhr,domain=fortinet.com
 
 ! https://www.wunderground.com/video/top-stories/will-meteorology-help-bring-home-us-olympic-sailing-gold - video breakage
 ! https://github.com/easylist/easylist/commit/27b9bde5f50059ffc93581ae70e109891266c42a
