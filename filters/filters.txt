@@ -1,5 +1,5 @@
 ! Title: uBlock filters
-! Last modified: Fri, 11 Oct 2024 17:36:34 +0000
+! Last modified: Fri, 11 Oct 2024 17:46:25 +0000
 ! Expires: 5 days
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
@@ -174,7 +174,6 @@ aupetitparieur.com,allthingsvegas.com,100percentfedup.com,beforeitsnews.com,conc
 appteka.store##+js(aost, Math.random, /injectedScript|blob/)
 
 whatfinger.com##+js(set, oeo, noopFunc)
-@@*$ghide,domain=themattwalshblog.com
 ||rddywd.com^$image,redirect-rule=1x1.gif
 @@||rddywd.com/advertising.js$script
 @@||thegatewaypundit.com^$image,1p
@@ -1152,25 +1151,16 @@ msn.com##.vd-ad
 
 ! https://github.com/uBlockOrigin/uAssets/issues/12058
 ! https://www.reddit.com/r/uBlockOrigin/comments/1dnyvz4/fmovies24to_bypass/
-mcloud.bz##+js(acs, Math, XMLHttpRequest)
-mcloud.bz##+js(nosiif, break)
-mcloud.bz##+js(aopr, open)
-@@||mcloud.bz^$ghide
-mcloud.bz,vidstream.pro,vid2faf.*##+js(nowoif)
-vidstream.pro##+js(aopr, mm)
-mcloud.bz##+js(aopr, __Y)
-vidstream.pro##+js(nosiif, break)
-vidstream.pro##div[id][style^="position: fixed; inset: 0px; z-index: 2147483647;"]
+vid2faf.*##+js(nowoif)
 bflix.*,mcloud.*,vizcloud.*,vizcloud2.*##+js(aopr, AaDetector)
 bflix.*##+js(aopr, mm)
 vizcloud.*,vizcloud2.*##.xad-wrapper
-mcloud.bz,vidplay.*,vidstream.pro,vizcloud.*##+js(ra, data-id|data-p, '[data-id],[data-p]', stay)
-mcloud.bz,vid2faf.*,vidplay.*##[src^="assets/bn"]:upward([style])
+vidplay.*,vizcloud.*##+js(ra, data-id|data-p, '[data-id],[data-p]', stay)
+vid2faf.*,vidplay.*##[src^="assets/bn"]:upward([style])
 ||i.imgur.com^$image,domain=vizcloud.*|vizcloud2.*
 /mellowpresence.com^$script
 /\/[A-Z]{1,2}\/[-0-9a-z]{5,}\.com\/(?:[0-9a-f]{2}\/){3}[0-9a-f]{32}\.js$/$script,1p,match-case
 ! https://github.com/uBlockOrigin/uAssets/issues/19260
-vidstream.pro##.aslot
 /lazymolecule/*.js$script
 
 youtubedownloader.*##+js(nowoif)
