@@ -20,8 +20,10 @@ uAssets will fix the following exceptions even if they do not require using the 
 
 uAssets will not address the following:
 
-- Paywalls (Use Bypass Paywalls Clean for [Chromium](https://github.com/bpc-clone/bypass-paywalls-chrome-clean) or [Firefox](https://github.com/bpc-clone/bypass-paywalls-firefox-clean) instead. Doing this in uBlock Origin will make us face DMCA takedown requests which we would like to avoid.)
+- Paywalls
 - Porn Farms
+
+For these, other browser extensions instead. Circumventing paywalls specifically [violates Section 1201 of the Digital Millennium Copyright Act (DMCA), which prohibits circumvention technology](https://github.com/github/dmca/blob/master/2024/08/2024-08-09-news-media-alliance.md) leading to takedown of the entire repository.
 
 #### How to correctly report an issue
 
