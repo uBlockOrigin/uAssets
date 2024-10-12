@@ -23,7 +23,7 @@ uAssets will not address the following:
 - Paywalls
 - Porn Farms
 
-For these, other browser extensions instead. Circumventing paywalls specifically [violates Section 1201 of the Digital Millennium Copyright Act (DMCA), which prohibits circumvention technology](https://github.com/github/dmca/blob/master/2024/08/2024-08-09-news-media-alliance.md) leading to takedown of the entire repository.
+Use other browser extensions for these scenarios instead which you can ask in the [Discussions](https://github.com/uBlockOrigin/uAssets/discussions). Circumventing paywalls specifically [violates Section 1201 of the Digital Millennium Copyright Act (DMCA), which prohibits circumvention technology](https://github.com/github/dmca/blob/master/2024/08/2024-08-09-news-media-alliance.md) leading to takedown of the entire repository.
 
 #### How to correctly report an issue
 
