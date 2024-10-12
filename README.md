@@ -23,7 +23,7 @@ uAssets will not address the following:
 - Paywalls
 - Porn Farms
 
-Use other browser extensions for these scenarios instead which you can ask for in the [Discussions](https://github.com/uBlockOrigin/uAssets/discussions). Circumventing paywalls specifically [violates Section 1201 of the Digital Millennium Copyright Act (DMCA), which prohibits circumvention technology](https://github.com/github/dmca/blob/master/2024/08/2024-08-09-news-media-alliance.md) leading to takedown of the entire repository. uBlock Origin is not a website blocker so porn websites will not be blocked - only the advertisements will be.
+Use other browser extensions for these scenarios instead which you can ask for in the [Discussions](https://github.com/uBlockOrigin/uAssets/discussions). Circumventing paywalls specifically [violates Section 1201 of the Digital Millennium Copyright Act (DMCA), which prohibits circumvention technology](https://github.com/github/dmca/blob/master/2024/08/2024-08-09-news-media-alliance.md) leading to takedown of the entire repository. uBlock Origin is not a website blocker so Porn Farm websites will not be blocked - only the advertisements will be.
 
 #### How to correctly report an issue
 
