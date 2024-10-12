@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2024)
-! Last modified: Fri, 11 Oct 2024 06:04:43 +0000
+! Last modified: Sat, 12 Oct 2024 02:05:04 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -3492,3 +3492,10 @@ vidlink.pro##+js(aopr, aclib)
 
 ! https://www.ilgazzettino.it/nordest/rovigo/rissa_minorenni_bottiglia_faccia-8407348.html - waiting time for ads
 ilgazzettino.it##+js(set, jwDefaults.advertising, {})
+
+! https://github.com/uBlockOrigin/uAssets/issues/25627
+!#if cap_html_filtering
+secondhandsongs.com##^script:has-text(ad_block)
+!#else
+secondhandsongs.com##+js(trusted-replace-argument, String.prototype.startsWith, 0, 0, condition, /^\/(?:performance|work|artist|release|label|explore|statistics)$/)
+!#endif
