@@ -1,5 +1,5 @@
 ! Title: uBlock₀ filters – Quick fixes
-! Last modified: Sat, 12 Oct 2024 03:16:10 +0000
+! Last modified: Sat, 12 Oct 2024 03:18:14 +0000
 ! Expires: 8 hours
 ! Description: Immediate, temporary filters to fix websites
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -100,8 +100,6 @@ japscan.lol##+js(rmnt, script, 'fined)
 /^https?:\/\/[a-z]{8,15}\.[a-z]{2,3}\/5\/\d{6,7}(?:\?_=\d+)?$/$script,3p,domain=japscan.lol,important
 /^https?:\/\/[-a-z]{8,15}\.(?:com|net)\/401\/\d{7}$/$script,3p,domain=japscan.lol,important
 /^https?:\/\/[a-z]{5,7}\.com\/script\/[-_0-9A-Za-z]+(\.min)?\.js$/$script,3p,match-case,header=x-guploader-uploadid,domain=japscan.lol,important
-! ads
-||japscan.lol^$csp=sandbox allow-forms allow-same-origin allow-scripts allow-modals allow-orientation-lock allow-pointer-lock allow-presentation allow-top-navigation
 
 ! https://github.com/uBlockOrigin/uAssets/issues/2320
 @@||freemcserver.net^$ghide
@@ -155,9 +153,6 @@ infinityscans.xyz,infinityscans.net##+js(rpnt, script, /"\\x68\\x74\\x74\\x70.*?
 infinityscans.xyz,infinityscans.net##+js(rpnt, script, ==0xc8, ==0, condition, throw)
 ||enigmaswhereas.com^$all
 
-! https://www.youtube.com/ - page constantly reloading
-youtube.com#@#+js(trusted-set-cookie, SOCS, CAISNQgDEitib3FfaWRlbnRpdHlmcm9udGVuZHVpc2VydmVyXzIwMjMwODI5LjA3X3AxGgJlbiADGgYIgJnPpwY, , , reload, 1, domain, youtube.com)
-
 ! https://github.com/uBlockOrigin/uAssets/issues/19935
 sportnews.to##+js(aeld, DOMContentLoaded, adsSrc)
 *$script,redirect-rule=noopjs,domain=sportnews.to|sportshub.to
@@ -184,13 +179,6 @@ wiki.yjsnpi.nu#@#.ad:style(height: 0 !important;)
 @@||wiki.yjsnpi.nu^$ghide
 wiki.yjsnpi.nu##.mw-file-element:remove-class(mw-file-element)
 wiki.yjsnpi.nu##.lazy-image-placeholder:remove-class(lazy-image-placeholder)
-
-! https://github.com/AdguardTeam/AdguardFilters/commit/2ff33624c53737968a93974c6568c17e8d9f3a3d#commitcomment-147572799
-adacomi.com#@#body > div[style^="text-align:center;"]
-
-! https://github.com/AdguardTeam/AdguardFilters/commit/84fd4bab474adc6c0412335a5ebc2e197e00569d#r147573717
-ibarakinews.jp#@#.l-grid-banner
-ibarakinews.jp#@#div[class^="l-ad"]
 
 ! https://github.com/AdguardTeam/AdguardFilters/commit/56183cc80ce1e10c8c09810f6832d20ae64d87c5
 kahoku.news#@#.vr2_pickup-main

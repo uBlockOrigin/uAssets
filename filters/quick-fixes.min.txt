@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Quick fixes
 ! Expires: 12 hours
-! Last modified: Sat, 12 Oct 2024 03:16:10 +0000
+! Last modified: Sat, 12 Oct 2024 03:18:14 +0000
 ! Diff-Path: %diffpath%#ublock-quick-fixes
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -82,8 +82,6 @@ japscan.lol##+js(rmnt, script, 'fined)
 /^https?:\/\/[a-z]{8,15}\.[a-z]{2,3}\/5\/\d{6,7}(?:\?_=\d+)?$/$script,3p,domain=japscan.lol,important
 /^https?:\/\/[-a-z]{8,15}\.(?:com|net)\/401\/\d{7}$/$script,3p,domain=japscan.lol,important
 /^https?:\/\/[a-z]{5,7}\.com\/script\/[-_0-9A-Za-z]+(\.min)?\.js$/$script,3p,match-case,header=x-guploader-uploadid,domain=japscan.lol,important
-! ads
-||japscan.lol^$csp=sandbox allow-forms allow-same-origin allow-scripts allow-modals allow-orientation-lock allow-pointer-lock allow-presentation allow-top-navigation
 @@||freemcserver.net^$ghide
 @@||cdn.jsdelivr.net/gh/Levii22/$domain=freemcserver.net
 @@||securepubads.g.doubleclick.net/tag/js/gpt.js$script,domain=panel.freemcserver.net
@@ -122,7 +120,6 @@ infinityscans.xyz,infinityscans.net#@#+js(nowoif)
 infinityscans.xyz,infinityscans.net##+js(rpnt, script, /"\\x68\\x74\\x74\\x70.*?"/, false)
 infinityscans.xyz,infinityscans.net##+js(rpnt, script, ==0xc8, ==0, condition, throw)
 ||enigmaswhereas.com^$all
-youtube.com#@#+js(trusted-set-cookie, SOCS, CAISNQgDEitib3FfaWRlbnRpdHlmcm9udGVuZHVpc2VydmVyXzIwMjMwODI5LjA3X3AxGgJlbiADGgYIgJnPpwY, , , reload, 1, domain, youtube.com)
 sportnews.to##+js(aeld, DOMContentLoaded, adsSrc)
 *$script,redirect-rule=noopjs,domain=sportnews.to|sportshub.to
 1001tracklists.com##+js(rmnt, script, .className.indexOf)
@@ -140,9 +137,6 @@ wiki.yjsnpi.nu#@#.ad:style(height: 0 !important;)
 @@||wiki.yjsnpi.nu^$ghide
 wiki.yjsnpi.nu##.mw-file-element:remove-class(mw-file-element)
 wiki.yjsnpi.nu##.lazy-image-placeholder:remove-class(lazy-image-placeholder)
-adacomi.com#@#body > div[style^="text-align:center;"]
-ibarakinews.jp#@#.l-grid-banner
-ibarakinews.jp#@#div[class^="l-ad"]
 kahoku.news#@#.vr2_pickup-main
 ||s.yimg.com/ss/analytics$badfilter
 yahoo.com#@#+js(set, rapidInstance, {})
