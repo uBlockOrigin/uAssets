@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Quick fixes
 ! Expires: 12 hours
-! Last modified: Mon, 14 Oct 2024 07:54:15 +0000
+! Last modified: Mon, 14 Oct 2024 13:21:49 +0000
 ! Diff-Path: %diffpath%#ublock-quick-fixes
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -131,12 +131,10 @@ jmzkzesy.xyz##+js(acs, Math, localStorage['\x)
 !#if env_firefox
 *$frame,csp=sandbox allow-downloads allow-forms allow-modals allow-same-origin allow-scripts,from=filemoon.*
 !#endif
-@@||wiki.yjsnpi.nu^$image,xhr,1p
-@@||wiki.yjsnpi.nu^$ghide
-wiki.yjsnpi.nu##+js(trusted-suppress-native-method, Document.prototype.querySelectorAll, "span:has(>img), a:has(>img)", prevent)
+wiki.yjsnpi.nu##+js(nostif, remove)
 wiki.yjsnpi.nu#@#iframe[src*="?affid="]
 $frame,redirect-rule=noopframe,domain=wiki.yjsnpi.nu
-||wiki.yjsnpi.nu^$script,replace=/(window\.addEventListener\(['"]load['"]\,\s*\(\)\s*=>\s*\{)[\S\s]+(document\.querySelectorAll\(['"]\.nsfw['"]\)[\S\s]+)/\$1\$2/
+||wiki.yjsnpi.nu^$script,replace=/const now =[\S\s]+?remove[\S\s]+?\);?\n?\s*?\}\n?\s*?\}//
 kahoku.news#@#.vr2_pickup-main
 ||s.yimg.com/ss/analytics$badfilter
 yahoo.com#@#+js(set, rapidInstance, {})
