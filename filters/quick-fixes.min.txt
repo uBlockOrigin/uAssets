@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Quick fixes
 ! Expires: 12 hours
-! Last modified: Tue, 15 Oct 2024 04:27:21 +0000
+! Last modified: Tue, 15 Oct 2024 09:47:52 +0000
 ! Diff-Path: %diffpath%#ublock-quick-fixes
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -133,13 +133,14 @@ jmzkzesy.xyz##+js(acs, Math, localStorage['\x)
 !#if env_firefox
 *$frame,csp=sandbox allow-downloads allow-forms allow-modals allow-same-origin allow-scripts,from=filemoon.*
 !#endif
-wiki.yjsnpi.nu##+js(trusted-replace-argument, document.querySelectorAll, 0, json:"iframe[src*='https://gallerieshub.com']", condition, /^span:has\(>img\)/)
-wiki.yjsnpi.nu#@#iframe[src*="?affid="]
+wiki.yjsnpi.nu##+js(trusted-replace-argument, document.querySelectorAll, 0, json:"iframe[src*='affid=']", condition, /^img/)
 $frame,redirect-rule=noopframe,domain=wiki.yjsnpi.nu
-||wiki.yjsnpi.nu^$script,replace=/if\s*\(detected\)/if (0)/
+||wiki.yjsnpi.nu^$script,replace=/[\S\s]*iframe[\S\s]*/function getAbsolutePath(e){const t=location.href;return new URL(e\,t).href}window.addEventListener("load"\,(()=>{document.querySelectorAll(".copy_to_clipboard").forEach((e=>{e.addEventListener("click"\,{caller:e\,handleEvent:e=>{navigator.clipboard.writeText(this.caller.dataset.text).then((()=>{mw.notify("クリップボードにコピーしました")\,gtag("event"\,"clipboard"\,{wgTitle:RLCONF.wgTitle\,clipboard_status:"done"})})\,(()=>{mw.notify("クリップボードにコピーできませんでした…")\,gtag("event"\,"clipboard"\,{wgTitle:RLCONF.wgTitle\,clipboard_status:"failed"})}))}})}))\,document.querySelectorAll(".search_products").forEach((e=>{e.addEventListener("click"\,{caller:e\,handleEvent:e=>{var t="";if("FANZA"===this.caller.dataset.asp){{const e="https:\/\/www.dmm.co.jp\/digital\/videoa\/-\/list\/search\/=\/?searchstr="+encodeURI(RLCONF.wgPageName);t="https:\/\/al.dmm.co.jp\/?lurl="+encodeURI(e)+"&af_id=takayama-001&ch=toolbar&ch_id=link"}window.open(t\,"_blank")\,gtag("event"\,"search_products"\,{wgTitle:RLCONF.wgTitle\,asp:this.caller.dataset.asp})}}})}))\,document.querySelectorAll(".share_button").forEach((e=>{e.addEventListener("click"\,(async e=>{const t={title:RLCONF.wgTitle+" - 真夏の夜の淫夢Wiki"\,text:RLCONF.wgTitle+" - 真夏の夜の淫夢Wiki"\,url:getAbsolutePath("\/wiki\/"+encodeURI(RLCONF.wgPageName))};if(navigator.canShare&&navigator.canShare(t))try{await navigator.share(t)\,mw.notify("シェアしました")\,gtag("event"\,"share"\,{wgTitle:RLCONF.wgTitle\,share_type:"share"\,share_status:"done"})}catch(e){mw.notify("シェアできませんでした…")\,gtag("event"\,"share"\,{wgTitle:RLCONF.wgTitle\,share_type:"share"\,share_status:"cancelled"})}else navigator.clipboard.writeText(t.text+" "+t.url).then((()=>{mw.notify("クリップボードにコピーしました")\,gtag("event"\,"share"\,{wgTitle:RLCONF.wgTitle\,share_type:"clipboard"\,share_status:"done"})})\,(()=>{mw.notify("クリップボードにコピーできませんでした…")\,gtag("event"\,"share"\,{wgTitle:RLCONF.wgTitle\,share_type:"clipboard"\,share_status:"failed"})}))}))}))\,document.querySelectorAll(".nsfw").forEach((e=>{e.addEventListener("click"\,{caller:e\,handleEvent:e=>{this.caller.classList.remove("nsfw")\,gtag("event"\,"nsfw"\,{wgTitle:RLCONF.wgTitle})}})}))}));/
 wiki.yjsnpi.nu##iframe[src*="?affid="]
 wiki.yjsnpi.nu###mw-content-text > div.im[style^="min-height:"]
 wiki.yjsnpi.nu###mw-content-text > div[style*="min-height:"]:has(> div.im > div[id^="im-"] > script)
+wiki.yjsnpi.nu###mw-content-text > div[style*="min-height:"]:has(> div[id^="im-"] > script)
+wiki.yjsnpi.nu###mw-content-text > div[style*="min-height:"]:has(> div[style] > div[id^="im-"] > script)
 kahoku.news#@#.vr2_pickup-main
 iwb.jp##+js(nostif, getComputedStyle(a).height)
 pinterest.*#@#div[data-test-id="pin"]:has(div[title^="Promoted"])
