@@ -1,5 +1,5 @@
 ! Title: uBlock₀ filters – Quick fixes
-! Last modified: Tue, 15 Oct 2024 10:20:15 +0000
+! Last modified: Tue, 15 Oct 2024 12:05:57 +0000
 ! Expires: 8 hours
 ! Description: Immediate, temporary filters to fix websites
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -175,9 +175,9 @@ jmzkzesy.xyz##+js(acs, Math, localStorage['\x)
 !#endif
 
 ! https://github.com/AdguardTeam/AdguardFilters/commit/337aaa82e68d2aeae140b46d5d234a86e2f0cde3
-wiki.yjsnpi.nu##+js(trusted-replace-argument, document.querySelectorAll, 0, json:"iframe[src*='affid=']", condition, /^img/)
+wiki.yjsnpi.nu##+js(trusted-suppress-native-method, document.querySelectorAll, '"html"', abort)
+wiki.yjsnpi.nu##+js(trusted-replace-argument, document.getElementById, 0, 0, condition, /^bodyContent$/)
 $frame,redirect-rule=noopframe,domain=wiki.yjsnpi.nu
-||wiki.yjsnpi.nu^$script,replace=/[\S\s]*iframe[\S\s]*/function getAbsolutePath(e){const t=location.href;return new URL(e\,t).href}window.addEventListener("load"\,(()=>{document.querySelectorAll(".copy_to_clipboard").forEach((e=>{e.addEventListener("click"\,{caller:e\,handleEvent:e=>{navigator.clipboard.writeText(this.caller.dataset.text).then((()=>{mw.notify("クリップボードにコピーしました")\,gtag("event"\,"clipboard"\,{wgTitle:RLCONF.wgTitle\,clipboard_status:"done"})})\,(()=>{mw.notify("クリップボードにコピーできませんでした…")\,gtag("event"\,"clipboard"\,{wgTitle:RLCONF.wgTitle\,clipboard_status:"failed"})}))}})}))\,document.querySelectorAll(".search_products").forEach((e=>{e.addEventListener("click"\,{caller:e\,handleEvent:e=>{var t="";if("FANZA"===this.caller.dataset.asp){{const e="https:\/\/www.dmm.co.jp\/digital\/videoa\/-\/list\/search\/=\/?searchstr="+encodeURI(RLCONF.wgPageName);t="https:\/\/al.dmm.co.jp\/?lurl="+encodeURI(e)+"&af_id=takayama-001&ch=toolbar&ch_id=link"}window.open(t\,"_blank")\,gtag("event"\,"search_products"\,{wgTitle:RLCONF.wgTitle\,asp:this.caller.dataset.asp})}}})}))\,document.querySelectorAll(".share_button").forEach((e=>{e.addEventListener("click"\,(async e=>{const t={title:RLCONF.wgTitle+" - 真夏の夜の淫夢Wiki"\,text:RLCONF.wgTitle+" - 真夏の夜の淫夢Wiki"\,url:getAbsolutePath("\/wiki\/"+encodeURI(RLCONF.wgPageName))};if(navigator.canShare&&navigator.canShare(t))try{await navigator.share(t)\,mw.notify("シェアしました")\,gtag("event"\,"share"\,{wgTitle:RLCONF.wgTitle\,share_type:"share"\,share_status:"done"})}catch(e){mw.notify("シェアできませんでした…")\,gtag("event"\,"share"\,{wgTitle:RLCONF.wgTitle\,share_type:"share"\,share_status:"cancelled"})}else navigator.clipboard.writeText(t.text+" "+t.url).then((()=>{mw.notify("クリップボードにコピーしました")\,gtag("event"\,"share"\,{wgTitle:RLCONF.wgTitle\,share_type:"clipboard"\,share_status:"done"})})\,(()=>{mw.notify("クリップボードにコピーできませんでした…")\,gtag("event"\,"share"\,{wgTitle:RLCONF.wgTitle\,share_type:"clipboard"\,share_status:"failed"})}))}))}))\,document.querySelectorAll(".nsfw").forEach((e=>{e.addEventListener("click"\,{caller:e\,handleEvent:e=>{this.caller.classList.remove("nsfw")\,gtag("event"\,"nsfw"\,{wgTitle:RLCONF.wgTitle})}})}))}));/
 wiki.yjsnpi.nu##iframe[src*="?affid="]
 wiki.yjsnpi.nu###mw-content-text > div.im[style^="min-height:"]
 wiki.yjsnpi.nu###mw-content-text > div[style*="min-height:"]:has(> div.im > div[id^="im-"] > script)
