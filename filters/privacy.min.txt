@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Privacy
 ! Expires: 7 days
-! Last modified: Mon, 21 Oct 2024 09:52:30 +0000
+! Last modified: Mon, 21 Oct 2024 12:20:38 +0000
 ! Diff-Path: %diffpath%#ublock-privacy
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -304,6 +304,13 @@ bikesales.com.au##^html > head > :is([name="canonical"], [rel="canonical"]):not(
 ||events.paramount.tech^$redirect=nooptext,domain=nickjr.com
 ||mps.nbcuni.com/images/MPS-STATISTIC-REPORTING.png
 ||ab.blogs.es/abtest.png^$image,3p,domain=xataka.com|trendencias.com,redirect=1x1.gif,important
+! Bounce/Click trackers
+@@||track.adtraction.com/*&url=https://www.gog.com/$popup
+||track.adtraction.com/*url=https://www.gog.com/$doc,urlskip=?url
+||goto.target.com/*u=https%3A%2F%2Fwww.target.com$doc,urlskip=?u
+||paramountplus.qflm.net/*u=https%3A%2F%2Fwww.paramountplus.com$doc,urlskip=?u
+||clicks.trx-hub.com/*q=http$doc,urlskip=?q
+||disneyplus.bn5x.net/*u=https://www.disneyplus.com/$doc,urlskip=?u
 ! Click Trackers
 html.duckduckgo.com,lite.duckduckgo.com##+js(href-sanitizer, a[href^="//duckduckgo.com/l/?uddg="], ?uddg)
 androidauthority.com##+js(href-sanitizer, a[href^="https://androidauth.wpengine.com/wp-json/api/advanced_redirect?ref="], ?ref)
@@ -344,6 +351,7 @@ slickdeals.net##+js(href-sanitizer, a[href^="https://slickdeals.net/?"][href*="u
 dk.pcpartpicker.com##+js(href-sanitizer, a[href^="https://online.adservicemedia.dk/"][href*="deeplink=http"], ?deeplink)
 justwatch.com##+js(href-sanitizer, 'a:is([href^="https://click.justwatch.com/"],[href^="https://d.justwatch.com/"])[href*="r=http"]:not([href*=".pxf.io"])', ?r)
 justwatch.com##+js(href-sanitizer, 'a:is([href^="https://click.justwatch.com/"],[href^="https://d.justwatch.com/"])[href*="r=http"][href*=".pxf.io"]', ?r?u)
+variety.com##+js(href-sanitizer, a[href^="https://clicks.trx-hub.com/"][href*="bn5x.net"], ?q?u)
 ||cdn.digg.com/fragments/homepage/static/view-frontpage.js
 /detroitchicago/dpv.gif?$image
 /detroitchicago/imp.gif$ping
