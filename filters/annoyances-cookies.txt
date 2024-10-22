@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Cookie Notices
-! Last modified: Mon, 21 Oct 2024 08:40:45 +0000
+! Last modified: Tue, 22 Oct 2024 08:10:42 +0000
 ! Expires: 7 days
 ! Description: Filters optimized for uBlock Origin, to be used with EasyList's and/or Adguard's "Cookie Notices" list(s)
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -378,15 +378,12 @@ olympics.com##+js(trusted-set-cookie, OptanonAlertBoxClosed, $currentDate$)
 tf1info.fr##+js(trusted-click-element, button[title^="Continuer sans accepter"])
 tf1info.fr###tc-privacy-wrapper:style(visibility: hidden !important;)
 tf1info.fr##body.tc-modal-open:style(overflow: auto !important;)
-! https://www.ubereats.com/
-ubereats.com##+js(trusted-click-element, button[data-tracking-name="cookie-preferences-mloi-initial-opt-out"])
-ubereats.com##div[role="dialog"]:has(button[data-tracking-name="cookie-preferences-mloi-initial-opt-out"]):style(visibility: hidden !important;)
+! https://www.ubereats.com/ ; https://www.uber.com
+uber.com,ubereats.com##+js(trusted-click-element, button[data-tracking-name="cookie-preferences-mloi-initial-opt-out"])
+uber.com,ubereats.com##div[role="dialog"]:has(button[data-tracking-name="cookie-preferences-mloi-initial-opt-out"]):style(visibility: hidden !important;)
 ! https://github.com/uBlockOrigin/uAssets/issues/25238
 visme.co##+js(trusted-set-cookie, visme_cookies_settings, '{"analytics":false,"advertisement":false,"functionality":false}', , , domain, visme.co)
 visme.co##+js(trusted-set-cookie, visme_cookies_use, no, , , domain, visme.co)
-! https://www.uber.com/
-uber.com##+js(trusted-click-element, button[data-baseweb="button"][data-tracking-name="cookie-preferences-sloo-opt-out"], , 1000)
-uber.com##div[role="dialog"]:has(button[data-baseweb="button"][data-tracking-name="cookie-preferences-sloo-opt-out"]):style(visibility: hidden !important;)
 ! https://www.ted.com/
 ted.com##+js(trusted-set-cookie, OptanonAlertBoxClosed, $currentDate$)
 ted.com##+js(trusted-set-cookie, OptanonConsent, groups=C0001%3A1%2CC0002%3A0%2CC0004%3A0%2CC0003%3A0, , , domain, ted.com)
