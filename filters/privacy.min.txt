@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Privacy
 ! Expires: 7 days
-! Last modified: Wed, 23 Oct 2024 06:53:15 +0000
+! Last modified: Wed, 23 Oct 2024 12:23:19 +0000
 ! Diff-Path: %diffpath%#ublock-privacy
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -307,10 +307,11 @@ bikesales.com.au##^html > head > :is([name="canonical"], [rel="canonical"]):not(
 ! Bounce/Click trackers
 @@||track.adtraction.com/*&url=https://www.gog.com/$popup
 ||track.adtraction.com/*^url=https://www.gog.com/$doc,urlskip=?url
-||goto.target.com/*^u=https%3A%2F%2Fwww.target.com$doc,urlskip=?u
-||paramountplus.qflm.net/*^u=https%3A%2F%2Fwww.paramountplus.com$doc,urlskip=?u
+/c/*^u=http$doc,urlskip=?u,to=goto.target.com|goto.walmart.com|bn5x.net|e9jo.net|fziv.net|qflm.net|pxf.io|sjv.io|tkjf.net|xovt.net
 ||clicks.trx-hub.com/*^q=http$doc,urlskip=?q
-||disneyplus.bn5x.net/*^u=https://www.disneyplus.com/$doc,urlskip=?u
+||kqzyfj.com/click-*^url=http$doc,urlskip=?url
+||shop-links.co/link/?url=http$doc,urlskip=?url
+||buy.geni.us/Proxy.ashx*^GR_URL=http$urlskip=?GR_URL
 ||cc.mashable.com/v1/*^url=http$doc,urlskip=?url
 ||click.pstmrk.it/*/$doc,urlskip=/\.pstmrk\.it\/[23][mst]{0,2}\/(.+)/ +https -uricomponent
 ||howl.me/link?url=http$doc,urlskip=?url
@@ -359,6 +360,9 @@ variety.com##+js(href-sanitizer, a[href^="https://clicks.trx-hub.com/"][href*="b
 otherweb.com##+js(href-sanitizer, a[href^="https://cc.mashable.com/v1/"][href*="url=http"], ?url)
 streetinsider.com##+js(href-sanitizer, a[href^="https://c212.net/c/link/?"][href*="u=http"], ?u)
 engadget.com##+js(href-sanitizer, a[href^="https://shopping.yahoo.com/rdlw?"][href*="gcReferrer=http"], ?gcReferrer)
+cnet.com##+js(set, Object.prototype.updateModifiedCommerceUrl, noopFunc)
+cnet.com##+js(href-sanitizer, 'a[href*="url=http"]:is([href^="https://shop-links.co/link/?url=http"],[href^="https://www.kqzyfj.com/click-"])', ?url)
+cnet.com,sheknows.com##+js(href-sanitizer, 'a[href*="&u=http"]:is([href*=".com/c/"],[href*=".io/c/"],[href*=".net/c/"])', ?u)
 ||cdn.digg.com/fragments/homepage/static/view-frontpage.js
 /detroitchicago/dpv.gif?$image
 /detroitchicago/imp.gif$ping
