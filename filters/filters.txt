@@ -2983,7 +2983,11 @@ mejortorrento.*,mejortorrents.*,mejortorrents1.*,mejortorrentt.*##iframe[src^="p
 xfreehd.com##.nvheader > span:has-text(Advertisement)
 *$frame,redirect-rule=noopframe,domain=xfreehd.com
 xfreehd.com##.ad-body:remove()
-xfreehd.com##+js(rmnt, script, navigator.brave)
+!#if cap_html_filtering
+xfreehd.com##^script:has-text(/nativeads|navigator\.brave/)
+!#else
+xfreehd.com##+js(rmnt, script, /nativeads|navigator\.brave/)
+!#endif
 
 ! https://github.com/uBlockOrigin/uAssets/issues/1550
 ! https://forums.lanik.us/viewtopic.php?f=62&t=42535
