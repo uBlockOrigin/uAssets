@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Cookie Notices
-! Last modified: Tue, 22 Oct 2024 12:03:17 +0000
+! Last modified: Wed, 23 Oct 2024 04:28:28 +0000
 ! Expires: 7 days
 ! Description: Filters optimized for uBlock Origin, to be used with EasyList's and/or Adguard's "Cookie Notices" list(s)
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -1825,3 +1825,10 @@ volksfreund.de##+js(trusted-click-element, custom-button[id="consentAccept"], , 
 
 ! technical cookies only
 pekro.cz##+js(trusted-set-cookie, ck, bbc3afa1f99650a097dc655e829ea82db262c98c%7Ee452fcf3a43bf2d79554343150020333, , , reload, 1)
+
+! https://github.com/uBlockOrigin/uAssets/issues/25759
+@@||cmp.inmobi.com^$script,domain=dailypost.co.uk|the-express.com
+@@||cmp.inmobi.com/*.json^$xhr,domain=dailypost.co.uk|the-express.com
+@@||cdn-images.the-express.com/*/dist/gdpr-$script,1p
+dailypost.co.uk,the-express.com##+js(trusted-click-element, button[mode="primary"])
+dailypost.co.uk,the-express.com###qc-cmp2-container:style(visibility: hidden !important;)
