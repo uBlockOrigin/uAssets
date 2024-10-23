@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Wed, 23 Oct 2024 15:15:41 +0000
+! Last modified: Wed, 23 Oct 2024 18:49:46 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -2055,7 +2055,11 @@ mejortorrento.*,mejortorrents.*,mejortorrents1.*,mejortorrentt.*##iframe[src^="p
 xfreehd.com##.nvheader > span:has-text(Advertisement)
 *$frame,redirect-rule=noopframe,domain=xfreehd.com
 xfreehd.com##.ad-body:remove()
-xfreehd.com##+js(rmnt, script, navigator.brave)
+!#if cap_html_filtering
+xfreehd.com##^script:has-text(/nativeads|navigator\.brave/)
+!#else
+xfreehd.com##+js(rmnt, script, /nativeads|navigator\.brave/)
+!#endif
 ||downloadfullfree.com^$xhr,redirect=nooptext
 adsrt.*##+js(acs, atob, decodeURIComponent)
 adsrt.*##+js(aopw, Fingerprint2)
