@@ -15,12 +15,15 @@ jobs:
       contents: write  # for Git to git push
     name: Update 3rd-party assets
     runs-on: ubuntu-latest
+
     steps:
-      - name: Clone uAssets
-        uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
       - name: Fetch 3rd-party assets
         run: |
           ./tools/update-3rdparties.sh
+
       - name: Commit changes, if any
         run: |
           if [[ -n $(git diff) ]]; then
