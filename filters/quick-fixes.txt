@@ -165,8 +165,13 @@ sportnews.to,soccershoes.blog##+js(aeld, DOMContentLoaded, adsSrc)
 *$script,redirect-rule=noopjs,domain=sportnews.to|sportshub.to
 
 ! https://github.com/uBlockOrigin/uAssets/issues/8719
-1001tracklists.com##+js(rmnt, script, .className.indexOf)
-1001tracklists.com##+js(spoof-css, '[target="_blank"][rel="noopener noreferrer"]', display, block)
+1001tracklists.com#@#a[onclick]
+1001tracklists.com#@#[target="_blank"][rel="noopener noreferrer"]
+1001tracklists.com##[target="_blank"][rel^="noopener noreferrer"]:has(> img[src^="/images/artworks/"])
+1001tracklists.com##div[style^="text-align: center; margin-bottom: 10px;"]:has(a img[src^="/images/artworks/"])
+1001tracklists.com##div[id]:has(> [data-freestar-ad])
+1001tracklists.com###left > div:not(div[id="artworkLeft"][class="c bgArt"], div[class="fTab"], div[class="aMenu"], [id="lSt"].border)
+1001tracklists.com##+js(spoof-css, '[target="_blank"][rel^="noopener noreferrer"]:has(> img[src^="/images/artworks/"]', display, block)
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/190044
 ! https://www.reddit.com/r/uBlockOrigin/comments/1fuaaw5/asblock_detected_in_ask4porncc
