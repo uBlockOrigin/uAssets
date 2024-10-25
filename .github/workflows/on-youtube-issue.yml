@@ -1,8 +1,9 @@
 name: Triage YouTube issues
 
 on:
+  workflow_dispatch:
   issues:
-    types: opened
+    types: [opened]
 
 jobs:
   check-if-youtube:
@@ -11,12 +12,14 @@ jobs:
     if: contains(github.event.issue.title, 'youtube.com:')
     permissions:
       issues: write
+
     steps:
       - name: Add label
         uses: actions-cool/issues-helper@v3
         with:
           actions: 'add-labels'
           labels: 'duplicate'
+          
       - name: Add comment
         uses: actions-cool/issues-helper@v3
         with:
@@ -25,6 +28,7 @@ jobs:
             Please respect what is asked in the issue template to not unduly burden volunteers.
             
             This is a `youtube.com` issue, see <https://github.com/uBlockOrigin/uAssets/issues/20586>.
+            
       - name: Close issue
         uses: actions-cool/issues-helper@v3
         with:
