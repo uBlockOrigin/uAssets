@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2024)
-! Last modified: Sun, 27 Oct 2024 02:55:33 +0000
+! Last modified: Sun, 27 Oct 2024 03:08:44 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -754,6 +754,19 @@ winfuture.de##[id$="_adContainer"]
 ! https://github.com/uBlockOrigin/uAssets/issues/18099
 emurom.net##+js(set, dvsize, 52)
 emurom.net##+js(aost, jQuery, removeDLElements)
+
+! https://github.com/uBlockOrigin/uAssets/issues/1549
+! https://www.reddit.com/r/uBlockOrigin/comments/x289uk
+! https://github.com/uBlockOrigin/uAssets/issues/25809
+*$popunder,domain=xfreehd.com,3p
+xfreehd.com##.nvheader > span:has-text(Advertisement)
+*$frame,redirect-rule=noopframe,domain=xfreehd.com
+xfreehd.com##.ad-body:remove()
+!#if cap_html_filtering
+xfreehd.com##^script:has-text(/nativeads|navigator\.brave|goodDay|\.abk_msg/)
+!#else
+xfreehd.com##+js(rmnt, script, /nativeads|navigator\.brave|goodDay|\.abk_msg/)
+!#endif
 
 ! END: Rules from filters.txt
 
