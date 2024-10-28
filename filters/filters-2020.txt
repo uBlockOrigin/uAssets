@@ -4198,6 +4198,11 @@ moviezwap.*##+js(nowoif)
 moviezwap.*##[style^=" width: 305px;"][type^="button"][onclick^="window.location.href"]
 ! https://s3.xfile.sbs/file/rczaGIkXGE
 ! https://xcloud.pics/c5a83cce79ebbe3
+!#if env_firefox
+xcloud.pics##a[onclick^="OPEN_NEW_LINK"]:remove-attr(onclick)
+!#else
+xcloud.pics##+js(ra, onclick, a.btn[onclick^="OPEN_NEW_LINK"], stay)
+!#endif
 /^https:\/\/[0-9a-z]{8,}\.[a-z0-9]{7,}\.[a-z]{4,}\/[0-9a-f]{32}\/a4\/[0-9a-f]{13}\.js$/$script,3p,match-case
 /^https:\/\/[0-9a-z]{8,}\.[a-z0-9]{7,}\.[a-z]{4,}\/[0-9a-f]{32}\/b4\/[0-9a-f]{13}\.js$/$script,3p,match-case
 ||addi809.buzz^
