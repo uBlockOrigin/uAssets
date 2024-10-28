@@ -859,7 +859,20 @@ boobsrealm.com##iframe[style$="height: 250px;"]
 720pstream.*##+js(nowoif)
 720pstream.*##+js(nostif, "admc")
 *$script,3p,denyallow=chatango.com|cloudfront.net|sharethis.com,domain=720pstream.*
-720pstream.*##.bg-dark.position-absolute
+! https://github.com/uBlockOrigin/uAssets/issues/25822
+720pstream.*,embedstream.me,jumbtv.com##.bg-dark.position-absolute
+!#if cap_html_filtering
+720pstream.*,embedstream.me,jumbtv.com##^script:has-text(adserverDomain)
+jumbtv.com##^script:has-text(/break;case|FingerprintJS/)
+!#else
+720pstream.*,embedstream.me,jumbtv.com##+js(rmnt, script, adserverDomain)
+jumbtv.com##+js(rmnt, script, /break;case|FingerprintJS/)
+jumbtv.com##+js(aeld, message)
+!#endif
+||usaballs.fun^
+||variationsradio.com^
+||kaitakavixen.shop^
+||gliraimsofu.net^
 
 ! ytanime.tv ads
 ytanime.tv##^script:has-text(u_cfg)
