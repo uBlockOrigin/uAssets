@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Privacy
 ! Expires: 7 days
-! Last modified: Mon, 28 Oct 2024 12:25:08 +0000
+! Last modified: Mon, 28 Oct 2024 12:34:42 +0000
 ! Diff-Path: %diffpath%#ublock-privacy
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -550,6 +550,12 @@ $removeparam=s,domain=twitter.com|x.com
 ||instagram.com^$removeparam=ig_rid
 ||instagram.com^$removeparam=igsh
 $removeparam=igshid,domain=instagram.com|threads.net
+! msn.com url tracking
+||msn.com^$doc,removeparam=ocid
+||msn.com^$doc,removeparam=pc
+||msn.com^$doc,removeparam=cvid
+||msn.com^$doc,removeparam=ei
+||msn.com^$doc,removeparam=vid
 !#if env_firefox
 ||reddit.com^$removeparam=rdt,doc
 !#endif
@@ -670,12 +676,6 @@ forum.blu-ray.com##+js(ra, onclick|oncontextmenu|onmouseover, a[href][onclick*="
 ||gog.com/productcard/users/activity/log
 ||onual.com/*^link_t=$doc,uritransform=/#[^\/?]+//
 onual.com##+js(href-sanitizer, a.btn[href^="https://zxro.com/u/?url=http"], ?url)
-! msn.com url tracking
-*$removeparam=ocid,document,domain=msn.com
-*$removeparam=pc,document,domain=msn.com
-*$removeparam=cvid,document,domain=msn.com
-*$removeparam=ei,document,domain=msn.com
-*$removeparam=vid,document,domain=msn.com
 globo.com##+js(trusted-set, libAnalytics, json: {"status":{"dataAvailable":false}\,"data":{}})
 globo.com##+js(set, libAnalytics.data.get, noopFunc)
 ||videovak.com/log/

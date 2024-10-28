@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Privacy
-! Last modified: Mon, 28 Oct 2024 12:25:08 +0000
+! Last modified: Mon, 28 Oct 2024 12:34:42 +0000
 ! Expires: 7 days
 ! Description: |
 !   Some of these filters make use of the `important` filter option,`
@@ -932,6 +932,12 @@ $removeparam=s,domain=twitter.com|x.com
 ||instagram.com^$removeparam=ig_rid
 ||instagram.com^$removeparam=igsh
 $removeparam=igshid,domain=instagram.com|threads.net
+! msn.com url tracking
+||msn.com^$doc,removeparam=ocid
+||msn.com^$doc,removeparam=pc
+||msn.com^$doc,removeparam=cvid
+||msn.com^$doc,removeparam=ei
+||msn.com^$doc,removeparam=vid
 ! https://github.com/uBlockOrigin/uAssets/issues/18938#issuecomment-1693238481
 ! https://community.brave.com/t/unable-to-open-reddit-com-urls-in-private-tabs/503125/4
 !#if env_firefox
@@ -1159,13 +1165,6 @@ forum.blu-ray.com##+js(ra, onclick|oncontextmenu|onmouseover, a[href][onclick*="
 ! https://github.com/DandelionSprout/adfilt/discussions/163#discussioncomment-10437157
 ||onual.com/*^link_t=$doc,uritransform=/#[^\/?]+//
 onual.com##+js(href-sanitizer, a.btn[href^="https://zxro.com/u/?url=http"], ?url)
-
-! msn.com url tracking
-*$removeparam=ocid,document,domain=msn.com
-*$removeparam=pc,document,domain=msn.com
-*$removeparam=cvid,document,domain=msn.com
-*$removeparam=ei,document,domain=msn.com
-*$removeparam=vid,document,domain=msn.com
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/181699
 globo.com##+js(trusted-set, libAnalytics, json: {"status":{"dataAvailable":false}\,"data":{}})
