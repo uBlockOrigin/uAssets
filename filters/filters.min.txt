@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Tue, 29 Oct 2024 13:53:52 +0000
+! Last modified: Tue, 29 Oct 2024 14:31:03 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -18729,9 +18729,9 @@ apkmaven.*###countdown
 apkmaven.*###download_link:style(display: block !important;)
 photopea.com##div[style]:has(> a[href*="photopea.com"][href*="ads"])
 !#if cap_html_filtering
-||photopea.com^$doc,replace=/<head>/<script>if (window.innerWidth !== document.documentElement.offsetWidth + 320) {Object.defineProperty(window, 'innerWidth', {get() { return document.documentElement.offsetWidth + 320 },});}<\/script><head>/
+||photopea.com^$doc,replace=/<head>/<script>if (typeof localStorage !== 'undefined' && typeof JSON.parse(localStorage._ppp)['0_uid'] === 'undefined') {Object.defineProperty(window, 'innerWidth', {get() { return document.documentElement.offsetWidth + 320 },});}<\/script><head>/
 !#else
-photopea.com##+js(trusted-rpnt, script, added=false;, "added=false;if (window.innerWidth !== document.documentElement.offsetWidth + 320) {Object.defineProperty(window, 'innerWidth', {get() { return document.documentElement.offsetWidth + 320 },});}")
+photopea.com##+js(trusted-rpnt, script, added=false;, "added=false;if (typeof localStorage !== 'undefined' && typeof JSON.parse(localStorage._ppp)['0_uid'] === 'undefined') {Object.defineProperty(window, 'innerWidth', {get() { return document.documentElement.offsetWidth + 320 },});}")
 !#endif
 !photopea.com##+js(rpnt, script, /^.*?(function gtag).*$/, document.documentElement.setAttribute('onreset'\,(function addCustomEvent(){document.addEventListener('resizecanvas'\,()=>{window.innerWidth=document.documentElement.clientWidth+(window.screen.width<1600?180:320)})})());document.documentElement.dispatchEvent(new CustomEvent('reset'));document.documentElement.removeAttribute('onreset');function resize(event={}){if(!event.skip){document.dispatchEvent(new CustomEvent('resizecanvas'));const resizeEvent=new Event('resize');resizeEvent.skip=true;window.dispatchEvent(resizeEvent)}}let debounce;window.addEventListener('resize'\,event=>{clearTimeout(debounce);debounce=setTimeout(()=>resize(event)\,100)});resize();)
 ||pagead2.googlesyndication.com^$3p,xhr,method=head,redirect-rule=noop.js,domain=photopea.com
