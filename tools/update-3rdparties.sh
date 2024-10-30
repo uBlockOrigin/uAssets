@@ -1,10 +1,8 @@
 #!/usr/bin/env bash
-#
-# This script assumes a linux environment
 
 TEMPFILE=$(mktemp)
 
-echo "*** uAssets: updating remote assets..."
+echo "*** uAssets: Updating remote assets..."
 
 declare -A assets
 assets=(
