@@ -1,6 +1,4 @@
 #!/usr/bin/env bash
-#
-# This script assumes a linux environment
 
 echo "*** uAssets: Assembling filters/filters.txt"
 node ./tools/make-easylist.mjs in=templates/ublock-filters.template out=filters/filters.min.txt minify=1
