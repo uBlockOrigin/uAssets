@@ -1,6 +1,4 @@
 #!/usr/bin/env bash
-#
-# This script assumes a linux environment
 
 echo "*** uAssets: Assembling EasyList lists"
 TMPDIR=$(mktemp -d)
