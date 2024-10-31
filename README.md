@@ -16,8 +16,8 @@ uAssets will address the following exceptions even if they do not require the ex
 
 - Ad-Reinsertion
 - Anti-Blocker
-- Context Menu Blockage
-- Cut/Copy/Paste Blockage
+- Context Menu/Dev Console Blockage
+- Cut/Copy/Paste/Drag Blockage
 - Popups/Popunders
 - Website Breakage
 - Video Ads
