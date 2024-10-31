@@ -23,4 +23,4 @@
 
 ### Notes
 
-[Add here the result of whatever investigation work you have done: please investigate the issues you report—this prevents burdening other volunteers. This is especially true for issues arising from settings which are very different from default ones.]
+[Add here the result of whatever investigation work you have done: please investigate the issues you report — this prevents burdening other volunteers. This is especially true for issues arising from settings which are very different from default ones.]
