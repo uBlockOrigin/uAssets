@@ -20,7 +20,8 @@ uAssets will address the following exceptions even if they do not require the ex
 - Cut/Copy/Paste/Drag Blockage
 - Popups/Popunders
 - Website Breakage
-- Video Ads
+- Resource Abuse/Coin Mining
+- Video/Audio Ads
 
 ### Exclusions
 
