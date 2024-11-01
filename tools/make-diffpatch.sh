@@ -15,7 +15,7 @@ fi
 
 PATCHES_DIR=$2
 if [[ -z $PATCHES_DIR ]]; then
-    echo "Error: patches directory is not provided, aborting"
+    echo "Error: Patches directory is not provided, aborting"
     exit 1
 fi
 
@@ -30,7 +30,6 @@ DIFF=$(mktemp)
 
 FILES=( $(git diff --name-only) )
 for FILE in "${FILES[@]}"; do
-
     # Reference:
     # https://github.com/ameshkov/diffupdates
 
@@ -40,19 +39,17 @@ for FILE in "${FILES[@]}"; do
 
     # Patches are for filter lists supporting differential updates
     if (head "$FILE" | grep -q '^! Diff-Path: '); then
-
         # Extract diff name from `! Diff-Path:` field
         DIFF_NAME=$(grep -m 1 -oP '^! Diff-Path: [^#]+#?\K.*' "$FILE")
         # Fall back to `! Diff-Name:` field if no name found
-        # Remove once `! Diff-Name:` is no longer needed after transition
         if [[ -z $DIFF_NAME ]]; then
             DIFF_NAME=$(grep -m 1 -oP '^! Diff-Name: \K.+' "$FILE")
         fi
+
         echo "Info: Diff name for ${FILE} is ${DIFF_NAME}"
 
         # We need a patch name to generate a valid patch
         if [[ -n $DIFF_NAME ]]; then
-
             # Compute relative patch path
             PATCH_PATH="$(realpath --relative-to="$(dirname "$FILE")" "$NEXT_PATCH_FILE")"
 
@@ -72,18 +69,14 @@ for FILE in "${FILES[@]}"; do
             echo "Info: Adding patch data of ${FILE} to ${PREVIOUS_PATCH_FILE}"
             echo "diff name:$DIFF_NAME lines:$DIFF_LINES checksum:$FILE_CHECKSUM" >> "$PREVIOUS_PATCH_FILE"
             cat "$DIFF" >> "$PREVIOUS_PATCH_FILE"
-
         else
-
             echo "Error: Diff name not found, skipping"
-
         fi
     fi
 
     # Stage changed file
     echo "Info: Staging $FILE"
     git add -u "$FILE"
-
 done
 
 # Create a patch only if there was a previous version
