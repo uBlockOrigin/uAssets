@@ -7,7 +7,7 @@ mkdir -p "$TMPDIR/easylist"
 git clone --depth 1 https://github.com/easylist/easylist.git "$TMPDIR/easylist"
 cp -R templates/easy*.template "$TMPDIR/easylist/"
 
-declare -A files=(
+declare -A filters=(
     ["easylist.txt"]="easylist.template"
     ["easyprivacy.txt"]="easyprivacy.template"
     ["easylist-annoyances.txt"]="easylist-annoyances.template"
@@ -18,9 +18,9 @@ declare -A files=(
     ["easylist-chat.txt"]="easylist-chat.template"
 )
 
-for file in "${!files[@]}"; do
-    echo "*** uAssets: Assembling $file"
-    node ./tools/make-easylist.mjs dir="$TMPDIR/easylist" in="${files[$file]}" out="thirdparties/easylist/$file"
+for filter in "${!filters[@]}"; do
+    echo "*** uAssets: Assembling $filter"
+    node ./tools/make-easylist.mjs dir="$TMPDIR/easylist" in="${filters[$filter]}" out="thirdparties/easylist/$filter"
 done
 
 rm -rf "$TMPDIR"
