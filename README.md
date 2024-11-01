@@ -22,6 +22,7 @@ uAssets will address the following exceptions even if they do not require the ex
 - Website Breakage
 - Resource Abuse/Coin Mining
 - Video/Audio Ads
+- Redirections/URL Parameter Removing
 
 ### Exclusions
 
