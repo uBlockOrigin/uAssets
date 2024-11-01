@@ -1,33 +1,26 @@
 #!/usr/bin/env bash
 
 echo "*** uAssets: Assembling EasyList lists"
+
 TMPDIR=$(mktemp -d)
-mkdir -p $TMPDIR/easylist
-git clone --depth 1 https://github.com/easylist/easylist.git $TMPDIR/easylist
-cp -R templates/easy*.template $TMPDIR/easylist/
+mkdir -p "$TMPDIR/easylist"
+git clone --depth 1 https://github.com/easylist/easylist.git "$TMPDIR/easylist"
+cp -R templates/easy*.template "$TMPDIR/easylist/"
 
-echo "*** uAssets: Assembling easylist.txt"
-node ./tools/make-easylist.mjs dir=$TMPDIR/easylist in=easylist.template out=thirdparties/easylist/easylist.txt
+declare -A files=(
+    ["easylist.txt"]="easylist.template"
+    ["easyprivacy.txt"]="easyprivacy.template"
+    ["easylist-annoyances.txt"]="easylist-annoyances.template"
+    ["easylist-cookies.txt"]="easylist-cookies.template"
+    ["easylist-social.txt"]="easylist-social.template"
+    ["easylist-newsletters.txt"]="easylist-newsletters.template"
+    ["easylist-notifications.txt"]="easylist-notifications.template"
+    ["easylist-chat.txt"]="easylist-chat.template"
+)
 
-echo "*** uAssets: Assembling easyprivacy.txt"
-node ./tools/make-easylist.mjs dir=$TMPDIR/easylist in=easyprivacy.template out=thirdparties/easylist/easyprivacy.txt
+for file in "${!files[@]}"; do
+    echo "*** uAssets: Assembling $file"
+    node ./tools/make-easylist.mjs dir="$TMPDIR/easylist" in="${files[$file]}" out="thirdparties/easylist/$file"
+done
 
-echo "*** uAssets: Assembling easylist-annoyances.txt"
-node ./tools/make-easylist.mjs dir=$TMPDIR/easylist in=easylist-annoyances.template out=thirdparties/easylist/easylist-annoyances.txt
-
-echo "*** uAssets: Assembling easylist-cookies.txt"
-node ./tools/make-easylist.mjs dir=$TMPDIR/easylist in=easylist-cookies.template out=thirdparties/easylist/easylist-cookies.txt
-
-echo "*** uAssets: Assembling easylist-social.txt"
-node ./tools/make-easylist.mjs dir=$TMPDIR/easylist in=easylist-social.template out=thirdparties/easylist/easylist-social.txt
-
-echo "*** uAssets: Assembling easylist-newsletters.txt"
-node ./tools/make-easylist.mjs dir=$TMPDIR/easylist in=easylist-newsletters.template out=thirdparties/easylist/easylist-newsletters.txt
-
-echo "*** uAssets: Assembling easylist-notifications.txt"
-node ./tools/make-easylist.mjs dir=$TMPDIR/easylist in=easylist-notifications.template out=thirdparties/easylist/easylist-notifications.txt
-
-echo "*** uAssets: Assembling easylist-chat.txt"
-node ./tools/make-easylist.mjs dir=$TMPDIR/easylist in=easylist-chat.template out=thirdparties/easylist/easylist-chat.txt
-
-rm -rf $TMPDIR
+rm -rf "$TMPDIR"
