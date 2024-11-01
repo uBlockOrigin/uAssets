@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Unbreak
 ! Expires: 5 days
-! Last modified: Thu, 31 Oct 2024 05:31:48 +0000
+! Last modified: Fri, 01 Nov 2024 04:05:09 +0000
 ! Diff-Path: %diffpath%#ublock-unbreak
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -457,6 +457,10 @@ calgaryherald.com#@#.local-branding
 @@*$csp,domain=activistpost.com
 @@||d24n15hnbwhuhn.cloudfront.net/libs/amplitude-$script,domain=gethuman.com
 @@||cdnjs.cloudflare.com/ajax/libs/videojs-contrib-ads/*/videojs.ads.css$stylesheet,domain=abcya.com
+||px.moatads.com/pixel.gif$image,domain=abcya.com,redirect=1x1.gif
+*$script,domain=abcya.com,redirect-rule=noopjs
+||imasdk.googleapis.com/js/sdkloader/ima3.js^$script,redirect=google-ima.js:5,domain=abcya.com
+abcya.com##+js(nano-stb, t++, 500)
 @@||hyundaiusa.com/js/analytics/analytics.js$script,1p
 @@||appspot.com/api/*/feed/tag$xhr,domain=apnews.com
 apnews.com##html[data-header-hasleaderboard]:remove-attr(data-header-hasleaderboard)
@@ -726,7 +730,6 @@ bearteach.com###externalinject-gpt-passback-iframe
 @@||4strokemedia.com^$xhr,script,domain=ilmeteo.it
 ||imasdk.googleapis.com/js/sdkloader/ima3.js^$script,redirect=noopjs,domain=ilmeteo.it
 dziennikbaltycki.pl,dzienniklodzki.pl,dziennikpolski24.pl,dziennikzachodni.pl,echodnia.eu,expressbydgoski.pl,expressilustrowany.pl,gazetakrakowska.pl,gazetalubuska.pl,gazetawroclawska.pl,gk24.pl,gloswielkopolski.pl,gol24.pl,gp24.pl,gra.pl,gs24.pl,kurierlubelski.pl,motofakty.pl,naszemiasto.pl,nowiny24.pl,nowosci.com.pl,nto.pl,polskatimes.pl,pomorska.pl,poranny.pl,sportowy24.pl,strefaagro.pl,strefabiznesu.pl,stronakobiet.pl,telemagazyn.pl,to.com.pl,wspolczesna.pl#@#+js(set-constant, pp_adblock_is_off, trueFunc)
-||px.moatads.com/pixel.gif$image,domain=abcya.com,redirect-rule=1x1.gif
 ! netaffiliation .com Peter Lowe's
 ||metaffiliation.com^$badfilter
 ||metaffiliation.com^$3p,domain=~netaffiliation.com
@@ -2165,7 +2168,6 @@ metastats.net###page-wrapper > div.row:nth-of-type(1)
 @@||4chan.org/adv/$image,domain=boards.4channel.org
 ! To counter `siteintercept.qualtrics.com` in PL list
 ||siteintercept.qualtrics.com^$badfilter
-*$script,domain=abcya.com,redirect-rule=noopjs
 ||googletagmanager.com/gtag/js$script,redirect-rule=noop.js:10,domain=scobel.pasaz24.pl
 goku.sx##.st-hidden:remove-class(st-hidden)
 goku.sx##.st-btn:not(.st-first):style(display: inline-block !important; min-width: 50px !important; width: 50px !important;)
