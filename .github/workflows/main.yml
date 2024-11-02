@@ -6,7 +6,7 @@ on:
       - master
   workflow_dispatch:
 
-# https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#example-only-cancel-in-progress-jobs-or-runs-for-the-current-workflow
+# https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#example-only-cancel-in-progress-jobs-or-runs-for-the-current-workflow
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
@@ -21,10 +21,11 @@ jobs:
     name: Publish lists
     runs-on: ubuntu-latest
     steps:
-      - name: Clone uAssets
+      - name: Checkout repository
         uses: actions/checkout@v4
         with:
-            ref: gh-pages
+          ref: gh-pages
+
       - name: Copy filter lists to gh-pages
         run: |
           TMPDIR=$(mktemp -d)
@@ -35,6 +36,7 @@ jobs:
           cp $TMPDIR/filters/*.txt filters/
           cp $TMPDIR/thirdparties/easylist/easy*.txt thirdparties/
           cp $TMPDIR/dnr/*.json dnr/
+
       - name: Patch last-updated field
         run: |
           DATE=$(date -Ru)
@@ -46,6 +48,7 @@ jobs:
               git checkout -q $f
             fi
           done
+
       - name: Commit changes (if any)
         run: |
           if [[ -n $(git diff) ]]; then

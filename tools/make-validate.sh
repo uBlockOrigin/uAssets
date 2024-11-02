@@ -1,6 +1,4 @@
 #!/usr/bin/env bash
-#
-# This script assumes a linux environment
 
 # https://stackoverflow.com/a/52526704
 echo "*** Importing required uBO files"

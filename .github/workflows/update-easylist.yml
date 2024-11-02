@@ -2,7 +2,7 @@ name: Update Easylist assets (hourly)
 
 on:
   schedule:
-    - cron: "47 */3 * * *"
+    - cron: "0 * * * *"
   workflow_dispatch:
 
 permissions:
@@ -16,12 +16,15 @@ jobs:
       contents: write  # for Git to git push
     name: Update Easylist assets
     runs-on: ubuntu-latest
+
     steps:
-      - name: Clone uAssets
+      - name: Checkout repository
         uses: actions/checkout@v4
+
       - name: Assemble Easylist assets
         run: |
           ./tools/make-easylist.sh
+
       - name: Commit changes, if any
         env:
           GH_TOKEN: ${{ github.token }}

@@ -1,18 +1,38 @@
-name: on-issue-comment
+name: Delete Bad Comments
+
 on:
+  workflow_dispatch:
   issue_comment:
     types: created
+
 jobs:
   check-if-bad-comment:
-    name: delete bad comment
+    name: Delete Bad Comment
     runs-on: ubuntu-latest
-    if: (( contains(github.event.comment.body, 'Download') || contains(github.event.comment.body, 'install') || contains(github.event.comment.body, 'mediafire') || contains(github.event.comment.body, 'changeme') ) && ( contains(github.event.comment.body, 'gcc') || contains(github.event.comment.body, 'usx'))) || ( contains(github.event.comment.body, 'install') && ( contains(github.event.comment.body, 'mediafire') || contains(github.event.comment.body, 'gofile') ))
+    if: >-
+      (
+        (contains(github.event.comment.body, 'Download') || 
+        contains(github.event.comment.body, 'install') || 
+        contains(github.event.comment.body, 'mediafire') || 
+        contains(github.event.comment.body, 'changeme')) && 
+        (contains(github.event.comment.body, 'gcc') || 
+        contains(github.event.comment.body, 'usx'))
+      ) || 
+      (
+        contains(github.event.comment.body, 'install') && 
+        (contains(github.event.comment.body, 'mediafire') || 
+        contains(github.event.comment.body, 'gofile'))
+      )
+    
     permissions: write-all
+
     steps:
-      - name: Delete comment
+      - name: Echo event comment body
         run: |
-          echo " ${{ github.event.comment.body }} "
-      - uses: actions-cool/issues-helper@v3
+          echo "${{ github.event.comment.body }}"
+      
+      - name: Delete comments
+        uses: actions-cool/issues-helper@v3
         with:
           actions: 'delete-comment'
           token: ${{ secrets.GITHUB_TOKEN }}

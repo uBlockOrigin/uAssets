@@ -1,6 +1,6 @@
 /*******************************************************************************
 
-    uBlock Origin - a browser extension to block requests.
+    uBlock Origin - a comprehensive, efficient content blocker
     Copyright (C) 2022-present Raymond Hill
 
     This program is free software: you can redistribute it and/or modify
@@ -14,7 +14,7 @@
     GNU General Public License for more details.
 
     You should have received a copy of the GNU General Public License
-    along with this program.  If not, see {http://www.gnu.org/licenses/}.
+    along with this program.  If not, see {https://www.gnu.org/licenses/}.
 
     Home: https://github.com/gorhill/uBlock
 */
@@ -139,11 +139,11 @@ function trimSublist(text) {
 /******************************************************************************/
 
 function minify(text) {
-    // remove issue-related comments
+    // Remove issue-related comments
     text = text.replace(/^! https:\/\/.*?[\n\r]+/gm, '');
-    // remove empty lines
+    // Remove empty lines
     text = text.replace(/^[\n\r]+/gm, '');
-    // convert potentially present Windows-style newlines
+    // Convert potentially present Windows-style newlines
     text = text.replace(/\r\n/g, '\n');
     return text;
 }

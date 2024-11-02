@@ -1,6 +1,4 @@
 #!/usr/bin/env bash
-#
-# This script assumes a linux environment
 
 set -e
 
@@ -11,19 +9,19 @@ set -e
 
 REPO_DIR=$1
 if [[ -z $REPO_DIR ]]; then
-    echo "Error: repo directory is not provided, aborting"
+    echo "Error: Repo directory is not provided, aborting"
     exit 1
 fi
 
 PATCHES_DIR=$2
 if [[ -z $PATCHES_DIR ]]; then
-    echo "Error: patches directory is not provided, aborting"
+    echo "Error: Patches directory is not provided, aborting"
     exit 1
 fi
 
 FILTER_FILES=$3
 if [[ -z $FILTER_FILES ]]; then
-    echo "Error: filter lists are not provided, aborting"
+    echo "Error: Filter lists are not provided, aborting"
     exit 1
 fi
 FILTER_FILES=( "$FILTER_FILES" )
@@ -41,7 +39,6 @@ NEW_PATCH_FILE=$(mktemp)
 DIFF_FILE=$(mktemp)
 
 for PATCH_FILE in "${PATCH_FILES[@]}"; do
-
     # Extract tag from patch file name
     [[ ${PATCH_FILE} =~ ^$PATCHES_DIR/([0-9]+\.[0-9]+\.[0-9]+\.[0-9]+)\.patch$ ]] && \
         PREVIOUS_VERSION=${BASH_REMATCH[1]}
@@ -53,14 +50,15 @@ for PATCH_FILE in "${PATCH_FILES[@]}"; do
 
     # Skip if version doesn't exist
     if [ -z "$(ls -A "$OLD_REPO" 2>/dev/null)" ]; then
-        continue;
+        continue
     fi
 
     : > "$NEW_PATCH_FILE"
 
-    for FILTER_LIST in ${FILTER_FILES[@]}; do
-
-        if [ ! -f "$OLD_REPO/$FILTER_LIST" ]; then continue; fi
+    for FILTER_LIST in "${FILTER_FILES[@]}"; do
+        if [ ! -f "$OLD_REPO/$FILTER_LIST" ]; then
+            continue
+        fi
 
         # Patches are for filter lists supporting differential updates
         if ! (head "$OLD_REPO/$FILTER_LIST" | grep -q '^! Diff-Path: '); then
@@ -72,8 +70,8 @@ for PATCH_FILE in "${PATCH_FILES[@]}"; do
 
         # Extract diff name from `! Diff-Path:` field
         DIFF_NAME=$(grep -m 1 -oP '^! Diff-Path: [^#]+#?\K.*' "$FILTER_LIST")
+        
         # Fall back to `! Diff-Name:` field if no name found
-        # Remove once `! Diff-Name:` is no longer needed after transition
         if [[ -z $DIFF_NAME ]]; then
             DIFF_NAME=$(grep -m 1 -oP '^! Diff-Name: \K.+' "$FILTER_LIST")
         fi
@@ -93,12 +91,12 @@ for PATCH_FILE in "${PATCH_FILES[@]}"; do
         DIFF_LINE_COUNT=$(wc -l < "$DIFF_FILE")
 
         # Patch header
-        DIFF_HEAD="diff name:$DIFF_NAME lines:$DIFF_LINE_COUNT checksum:$FILE_CHECKSUM"
+        DIFF_HEAD="Diff name:$DIFF_NAME lines:$DIFF_LINE_COUNT checksum:$FILE_CHECKSUM"
         printf "\tAdding diff: %s\n" "$DIFF_HEAD"
         echo "$DIFF_HEAD" >> "$NEW_PATCH_FILE"
+        
         # Patch data
         cat "$DIFF_FILE" >> "$NEW_PATCH_FILE"
-
     done
 
     rm -rf "$OLD_REPO"
@@ -108,7 +106,6 @@ for PATCH_FILE in "${PATCH_FILES[@]}"; do
     ls -l "$PATCH_FILE"
     echo "Info: Staging ${PATCH_FILE}"
     git add -u "$PATCH_FILE"
-
 done
 
 rm -f "$DIFF_FILE"
