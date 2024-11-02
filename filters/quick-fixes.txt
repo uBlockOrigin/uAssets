@@ -1,19 +1,16 @@
-! Title: uBlock₀ filters – Quick fixes
-! Last modified: Sat, 02 Nov 2024 15:15:34 +0000
-! Expires: 8 hours
-! Description: Immediate, temporary filters to fix websites
+! Title: uBlock filters – Quick fixes
+! Expires: 12 hours
+! Last modified: Sat, 02 Nov 2024 16:27:29 +0000
+! Diff-Path: %diffpath%#ublock-quick-fixes
+! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
-! Homepage: https://github.com/uBlockOrigin/uAssets
-! Forums: https://github.com/uBlockOrigin/uAssets/issues
-
+! *** uAssets:filters/quick-fixes.txt ***
 ! aternos anti adb
 @@||hb.vntsm.com/v4/live/vms/sites/aternos.org/index.js$script,domain=aternos.org
 aternos.org##.header-center:style(margin-top:-5000px !important;)
 aternos.org##.sidebar:style(width: 1.745px !important; padding: 1px !important)
 aternos.org##.ad-dfp:style(min-height: 0.1485mm !important; height: 0.1485mm !important;)
 aternos.org###placement-takeover
-
-! https://www.reddit.com/r/uBlockOrigin/comments/16lmeri/youtube_antiadblock_and_ads_september_18_2023/k1wl8df/
 !#if !env_mv3
 !#if !cap_html_filtering
 !#if env_firefox
@@ -27,11 +24,7 @@ www.youtube.com##+js(nano-stb, [native code], 17000, 0.001)
 !#if cap_html_filtering
 ||www.youtube.com/s/player/*/base.js$script,xhr,replace=/if\(e===""\)/if(0)/
 !#endif
-! https://www.reddit.com/r/uBlockOrigin/comments/1ebwr6c/is_ublock_broken_again_or_am_i_doing_something/
 www.youtube.com##+js(json-prune-fetch-response, playerAds adPlacements adSlots playerResponse.playerAds playerResponse.adPlacements playerResponse.adSlots [].playerResponse.adPlacements [].playerResponse.playerAds [].playerResponse.adSlots, , propsToMatch, /player?)
-! https://github.com/uBlockOrigin/uAssets/issues/20586#issuecomment-2271325338
-! https://github.com/uBlockOrigin/uAssets/issues/20586#issuecomment-2308486423
-! https://github.com/AdguardTeam/AdguardFilters/commit/61d89cebe154ca17932bedf61df5e2c7bd75bd7d
 !tv.youtube.com#@#+js(trusted-replace-xhr-response, '"adPlacements"', '"no_ads"', /playlist\?list=|player\?|watch\?[tv]=|youtubei\/v1\/player/)
 www.youtube.com##+js(json-prune-xhr-response, playerAds adPlacements adSlots playerResponse.playerAds playerResponse.adPlacements playerResponse.adSlots [].playerResponse.adPlacements [].playerResponse.playerAds [].playerResponse.adSlots, , propsToMatch, /\/player(?:\?.+)?$/)
 tv.youtube.com##+js(trusted-replace-xhr-response, '"adPlacements"', '"no_ads"', /playlist\?list=|\/player(?:\?.+)?$|watch\?[tv]=/)
@@ -40,8 +33,6 @@ www.youtube.com##+js(trusted-replace-xhr-response, /"adPlacements.*?([A-Z]"\}|"\
 www.youtube.com##+js(trusted-replace-xhr-response, /"adPlacements.*?("adSlots"|"adBreakHeartbeatParams")/gms, $1, /\/player(?:\?.+)?$/)
 !#endif
 www.youtube.com##+js(set, yt.config_.EXPERIMENT_FLAGS.web_bind_fetch, false)
-
-! https://github.com/uBlockOrigin/uAssets/issues/3367#issuecomment-2307514494
 web.facebook.com,www.facebook.com##+js(json-prune, require.0.3.0.__bbox.require.[].3.1.__bbox.result.data, require.0.3.0.__bbox.require.[].3.1.__bbox.result.data.node.sponsored_data.id_for_advertisement)
 web.facebook.com,www.facebook.com##+js(json-prune, require.0.3.0.__bbox.require.[].3.1.__bbox.result.data, require.0.3.0.__bbox.require.[].3.1.__bbox.result.data.sponsored_auction_distance)
 !#if cap_html_filtering
@@ -51,20 +42,15 @@ web.facebook.com,www.facebook.com##+js(json-prune, require.0.3.0.__bbox.require.
 web.facebook.com,www.facebook.com##+js(trusted-replace-xhr-response, '/null,"category_sensitive"[^\n]+?,"__typename":"SponsoredData"[^\n]+"cursor":"[^"]+"\}/g', null}, /api/graphql)
 web.facebook.com,www.facebook.com##+js(rpnt, script, '/null,"category_sensitive"[^\n]+?,"__typename":"SponsoredData"[^\n]+"cursor":"[^"]+"\}/g', null})
 !#endif
-
-! https://github.com/uBlockOrigin/uAssets/issues/18476 - https://voe.sx/e/2z9smej3tebe
 ! VOE sites
 ||imasdk.googleapis.com/js/sdkloader/ima3.js$script,3p,redirect=google-ima.js,domain=evelynthankregion.com|kimberlyonlocal.com|lorimuchbenefit.com|richardstorehalf.com|susanhavekeep.com|thomasalthoughhear.com|zacharycollectionmight.com,important
 evelynthankregion.com,kimberlyonlocal.com,lorimuchbenefit.com,richardstorehalf.com,susanhavekeep.com,thomasalthoughhear.com,zacharycollectionmight.com##+js(nowoif)
 evelynthankregion.com,kimberlyonlocal.com,lorimuchbenefit.com,richardstorehalf.com,susanhavekeep.com,thomasalthoughhear.com,zacharycollectionmight.com##+js(set, console.clear, undefined)
-
 ! next-episode .net
 !next-episode.net##+js(rmnt, script, '/[\s\S]{0,}head[\s\S]{1900,}/')
 !next-episode.net##+js(rpnt, script, '/.then[\s\S]{0,}?;/g')
 !next-episode.net##+js(rmnt, script, '/\d+\+\d|64|\+\+|\+1|adbl|ablk|[\s\S]{0,}(\.\.|function)[\s\S]{1800,}|document\[/i')
 @@||pagead2.googlesyndication.com^$script,domain=next-episode.net
-
-! https://github.com/uBlockOrigin/uAssets/issues/23806
 japscan.lol##+js(aost, onload, inlineScript)
 *$image,redirect-rule=1x1.gif,domain=japscan.lol
 japscan.lol#@#+js(aeld, DOMContentLoaded, LoVe)
@@ -110,8 +96,6 @@ japscan.lol##body > .container.text-center > .mb-2.mt-2[style="margin: 0px auto;
 /^https?:\/\/[a-z]{8,15}\.[a-z]{2,3}\/5\/\d{6,7}(?:\?_=\d+)?$/$script,3p,domain=japscan.lol,important
 /^https?:\/\/[-a-z]{8,15}\.(?:com|net)\/401\/\d{7}$/$script,3p,domain=japscan.lol,important
 /^https?:\/\/[a-z]{5,7}\.com\/script\/[-_0-9A-Za-z]+(\.min)?\.js$/$script,3p,match-case,header=x-guploader-uploadid,domain=japscan.lol,important
-
-! https://github.com/uBlockOrigin/uAssets/issues/2320
 @@||freemcserver.net^$ghide
 @@||cdn.jsdelivr.net/gh/Levii22/$domain=freemcserver.net
 @@||securepubads.g.doubleclick.net/tag/js/gpt.js$script,domain=panel.freemcserver.net
@@ -124,14 +108,8 @@ panel.freemcserver.net##+js(rpnt, script, 'G-1B4LC0KT6C');, 'G-1B4LC0KT6C'); win
 freemcserver.net##+js(nostif, 0x)
 panel.freemcserver.net##body > #main-wrapper > .page-wrapper > .container-fluid > .row > .col-md-10 > [class] > .row > .col > ul:first-child + [class="row justify-content-center mb-3 billboard_responsive text-center"]
 panel.freemcserver.net##body > #main-wrapper > .page-wrapper > .container-fluid > .row > .col-md-10 > [class] > .row > [class^="col-"] > [style*="min-height"][style*="flex"]:has(> [id^="stpd-"][style^="position:"]:first-child + div + div:last-child)
-
-! https://github.com/uBlockOrigin/uAssets/issues/20505
 download.megaup.net##+js(rpnt, script, /for\s*\(\s*(const|let|var).*?\)\;return\;\}_/g,_ , condition, attribute)
 download.megaup.net##a:has(img[src*="/download"]):style(width: 300px !important; height: 300px !important; display: block !important;)
-
-! https://github.com/uBlockOrigin/uAssets/issues/21064
-! https://github.com/uBlockOrigin/uAssets/issues/24220
-! https://github.com/uBlockOrigin/uAssets/issues/25121#issuecomment-2325357098
 poophq.com,veev.to##+js(nowoif)
 poophq.com,veev.to##+js(set, fapit.check, noopFunc)
 !poophq.com,veev.to##+js(no-xhr-if, url:!/cdn\.plyr\.io|veev\.to|\/dl\?op=player_api/ method:GET)
@@ -143,13 +121,9 @@ poophq.com,veev.to##+js(no-xhr-if, /\/preroll\.engine$/)
 *$other,3p,denyallow=veevcdn.co,domain=poophq.com|veev.to
 @@*$ghide,domain=poophq.com|veev.to
 veev.to#@#.avb-active
-
-! https://github.com/uBlockOrigin/uAssets/issues/24575
 @@||widgets.outbrain.com/outbrain.js$xhr,domain=animefire.info|animesonlinecc.us|animesonliner4.com|animesup.info|animeyabu.net|animeyabu.org|anitube.us|anitube.vip|caroloportunidades.com.br|dattebayo-br.com|drstonebr.com|flyanimes.cloud|goanimes.vip|goyabu.us|hinatasoul.com|isekaibrasil.com|meuanime.info|otakuanimess.net|superanimes.in
 animefire.info,animesonlinecc.us,animesonliner4.com,animesup.info,animeyabu.net,animeyabu.org,anitube.us,anitube.vip,caroloportunidades.com.br,dattebayo-br.com,drstonebr.com,flyanimes.cloud,goanimes.vip,goyabu.us,hinatasoul.com,isekaibrasil.com,meuanime.info,otakuanimess.net,superanimes.in##+js(trusted-prevent-xhr, outbrain.com, outbrain)
 caroloportunidades.com.br,coempregos.com.br##+js(nostif, hasAdblock)
-
-! https://github.com/uBlockOrigin/uAssets/issues/20401
 @@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js|$xhr,domain=infinityscans.xyz|infinityscans.net
 *$script,redirect-rule=noopjs,domain=infinityscans.xyz|infinityscans.net
 infinityscans.xyz,infinityscans.net##+js(no-fetch-if, /api\/collect|api\/chapter/)
@@ -157,12 +131,8 @@ infinityscans.xyz,infinityscans.net##+js(rmnt, script, platformVersion)
 infinityscans.xyz,infinityscans.net##+js(rpnt, script, /\"\"\) \{\s*\(function\(\){var [a-zA-Z]{8}=atob\(\'.*?\)\;\}\)\(\);/, "") {)
 ||enigmaswhereas.com^$all
 ||highmanapts.com^$all
-
-! https://github.com/uBlockOrigin/uAssets/issues/19935
 sportnews.to,soccershoes.blog##+js(aeld, DOMContentLoaded, adsSrc)
 *$script,redirect-rule=noopjs,domain=sportnews.to|sportshub.to
-
-! https://github.com/uBlockOrigin/uAssets/issues/8719
 1001tracklists.com#@#a[onclick]
 1001tracklists.com#@#[target="_blank"][rel="noopener noreferrer"]
 1001tracklists.com##[target="_blank"][rel^="noopener noreferrer"]:has(> img[src^="/images/artworks/"])
@@ -170,20 +140,14 @@ sportnews.to,soccershoes.blog##+js(aeld, DOMContentLoaded, adsSrc)
 1001tracklists.com##div[id]:has(> [data-freestar-ad])
 1001tracklists.com###left > div:not(div[id="artworkLeft"][class="c bgArt"], div[class="fTab"], div[class="aMenu"], [id="lSt"].border)
 1001tracklists.com##+js(spoof-css, '[target="_blank"][rel^="noopener noreferrer"]:has(> img[src^="/images/artworks/"]', display, block)
-
-! https://github.com/AdguardTeam/AdguardFilters/issues/190044
-! https://www.reddit.com/r/uBlockOrigin/comments/1fuaaw5/asblock_detected_in_ask4porncc
 file-1bl9ruic-moon.com,file-kg88oaak-embed.com,file-mi11ljwj-embed.com,file-sp32aoh8-moon.com,moon-kg83docx.com,moon-fm43w1qv.com,moonfile-62es3l9z.com##+js(nowoif)
 file-1bl9ruic-moon.com,file-kg88oaak-embed.com,file-mi11ljwj-embed.com,file-sp32aoh8-moon.com,moon-kg83docx.com,moon-fm43w1qv.com,moonfile-62es3l9z.com##+js(acs, Math, localStorage['\x)
 .xyz/js/cold.js|$script,3p
-! https://github.com/uBlockOrigin/uAssets/issues/25538
 afl3ua5u.xyz,jmzkzesy.xyz##+js(nowoif)
 afl3ua5u.xyz,jmzkzesy.xyz##+js(acs, Math, localStorage['\x)
 !#if env_firefox
 *$frame,csp=sandbox allow-downloads allow-forms allow-modals allow-same-origin allow-scripts,from=filemoon.*
 !#endif
-
-! https://github.com/AdguardTeam/AdguardFilters/issues/190943
 wiki.yjsnpi.nu#@#+js(aopr, console)
 wiki.yjsnpi.nu#@#+js(aost, Function.prototype.toString, ar)
 wiki.yjsnpi.nu#@#+js(aost, Function.prototype.toString, /h\s.+comments\.js/)
@@ -217,7 +181,6 @@ wiki.yjsnpi.nu#@#+js(noeval-if, /\d\([-\d]+\,[-\d]+/)
 wiki.yjsnpi.nu##+js(trusted-rpnt, script, (RLQ=window.RLQ, const shuffleArray=e=>e.sort((()=>Math.random()-Math.random()));function fetchComments(e){const t=new XMLHttpRequest;let n;t.onreadystatechange=()=>{4===t.readyState&&200===t.status&&(n=JSON.parse(t.responseText)\,renderComments(n))}\,t.open("GET"\,"/comments/comments.php?article_id="+RLCONF.wgArticleId+"&cursor="+e\,!0)\,t.send()}function fetchMore(e){fetchComments(e.target.dataset.cursor)}function renderComments(e){const t=document.querySelector("#comments")\,n=document.querySelector("#comments-contents")\,o=document.querySelector("#comments-loading")\,c=document.querySelector("#comments-more")\,m=document.querySelector("#comments-recent");if(o&&o.remove()\,c&&c.remove()\,e.comments.forEach((e=>{const n=window.comments.template.querySelector("#comment").cloneNode(!0);n.id="comment-"+e.number\,n.dataset.commentId=e.comment_id\,n.querySelector(".comment-author").innerHTML=e.author\,n.querySelector(".comment-timestamp").innerHTML=e.created_at\,n.querySelector(".comment-body").innerHTML=e.comment\,t.appendChild(n)}))\,e.cursor>0){const t=window.comments.template.querySelector("#comments-more").cloneNode(!0);t.dataset.cursor=e.cursor\,t.addEventListener("click"\,fetchMore)\,n.appendChild(t)}const r=document.createElement("ul");e.recent=shuffleArray(e.recent)\,e.recent.forEach((e=>{const t=document.createElement("li")\,n=document.createElement("a");n.href="/w/index.php?curid="+e.article_id\,e.comment.length>70&&(e.comment=e.comment.substring(0\,70)+"&hellip;")\,n.innerHTML=e.comment\,t.appendChild(n)\,r.appendChild(t)}))\,m.appendChild(r.cloneNode(!0))\,m.appendChild(r.cloneNode(!0))\,"#comments-section"==location.hash&&(location.hash=""\,location.hash="#comments-section")}function submitComment(e){const t=document.querySelector('#comment-editor input[name="author"]')\,n=document.querySelector("#comment-editor textarea");if(""==n.value)return void mw.notify("（本文が）ないです");e.target.disabled=!0\,e.target.innerHTML="送信中…";const o={article_id:RLCONF.wgArticleId\,author:t.value\,comment:n.value}\,c=[];for(const[e\,t]of Object.entries(o))c.push(`${encodeURIComponent(e)}=${encodeURIComponent(t)}`);const m=new XMLHttpRequest;m.onreadystatechange=()=>{4===m.readyState&&(e.target.disabled=!1\,e.target.innerHTML="投稿する"\,200===m.status?(mw.notify("投稿しました")\,t.value=""\,n.value=""\,document.querySelector("#comments").innerHTML=""\,document.querySelector("#comments-recent").innerHTML=""\,setTimeout((()=>{fetchComments(0)})\,"100")):403===m.status?mw.notify("（フリーWi-Fiからは書け）ないです"):429===m.status?mw.notify("書きすぎィ！ちょっと待って、どうぞ！"):mw.notify("投稿できませんでした…"))}\,m.open("POST"\,"/comments/comments.php")\,m.setRequestHeader("Content-Type"\,"application/x-www-form-urlencoded")\,m.send(c.join("&").replace(/%20/g\,"+"))}window.addEventListener("load"\,(()=>{if(0==RLCONF.wgNamespaceNumber&&"view"==RLCONF.wgAction&&0!=RLCONF.wgArticleId&&!RLCONF.wgIsRedirect&&RLCONF.wgRevisionId==RLCONF.wgCurRevisionId){"#comments-section"==location.hash&&window.scroll(0\,document.documentElement.scrollHeight-document.documentElement.clientHeight)\,window.comments={};const e=new XMLHttpRequest;e.onreadystatechange=()=>{4===e.readyState&&200===e.status&&(window.comments.template=(new DOMParser).parseFromString(e.responseText\,"text/html").body\,document.querySelector("#bodyContent").appendChild(window.comments.template.querySelector("#comments-section"))\,document.querySelector("#comment-submit").addEventListener("click"\,submitComment)\,fetchComments(0))}\,e.open("GET"\,"/comments/template.html"\,!0)\,e.send()}}));mw.loader.impl((function(){return["mediawiki.page.ready@1mbf4"\,{main:"ready.js"\,files:{"ready.js":function(e\,t\,n){var o=e("./checkboxShift.js")\,i=e("./config.json")\,a=e("./teleportTarget.js");function r(e){var t=!!("mediawiki.searchSuggest"===e&&"vector"===mw.config.get("skin")&&window.performance&&performance.mark&&performance.measure&&performance.getEntriesByName);function n(){t&&performance.mark("mwVectorLegacySearchLoadStart")\,mw.loader.using(e\,(function(){t&&performance.getEntriesByName("mwVectorLegacySearchLoadStart").length&&(performance.mark("mwVectorLegacySearchLoadEnd")\,performance.measure("mwVectorLegacySearchLoadStartToLoadEnd"\,"mwVectorLegacySearchLoadStart"\,"mwVectorLegacySearchLoadEnd"))}))}!document.activeElement||"searchInput"!==document.activeElement.id&&!document.activeElement.classList.contains("mw-searchInput")?document.addEventListener("focusin"\,(function e(t){("searchInput"===t.target.id||t.target.classList.contains("mw-searchInput"))&&(n()\,document.removeEventListener("focusin"\,e))})):n()}mw.config.get("wgBreakFrames")&&window.top!==window.self&&(window.top.location.href=location.href)\,mw.hook("wikipage.content").add((function(e){var t\,n\,a=[];i.collapsible&&(t=e.find(".mw-collapsible")).length&&a.push("jquery.makeCollapsible")\,i.sortable&&(n=e.find("table.sortable")).length&&a.push("jquery.tablesorter")\,a.length&&mw.loader.using(a).then((function(){n&&n.length&&n.tablesorter()\,t&&t.length&&t.makeCollapsible()}))\,e[0]&&!1===e[0].isConnected&&mw.log.warn("wikipage.content hook should not be fired on unattached content")\,o(e.find('input[type="checkbox"]:not(.noshiftselect)'))}))\,e("./toggleAllCollapsibles.js")\,$((function(){$("[accesskey]").updateTooltipAccessKeys();var e=document.querySelector(".mw-indicators");e&&e.children.length&&mw.hook("wikipage.indicators").fire($(e.children));var t=$("#mw-content-text");t.length&&mw.hook("wikipage.content").fire(t);var n=$('.catlinks[data-mw="interface"]');n.length&&mw.hook("wikipage.categories").fire(n)\,(n=$('table.diff[data-mw="interface"]')).length&&mw.hook("wikipage.diff").fire(n.eq(0))\,$("#t-print a").on("click"\,(function(e){window.print()\,e.preventDefault()}));var o\,r\,c\,l=$("#t-permalink a");function d(){mw.util.getTargetFromFragment()?l[0].hash=location.hash:l[0].hash=""}l.length&&($(window).on("hashchange"\,d)\,d())\,mw.hook("skin.logout").add((function(e){mw.notify(mw.message("logging-out-notify")\,{tag:"logout"\,autoHide:!1});var t=new mw.Api;t.postWithToken("csrf"\,{action:"logout"}).then((function(){location.href=e})\,(function(e\,n){mw.notify(t.getErrorMessage(n)\,{type:"error"\,tag:"logout"\,autoHide:!1})}))}))\,$(i.selectorLogoutLink).on("click"\,(function(e){mw.hook("skin.logout").fire(this.href)\,e.preventDefault()}))\,o=$("meta[name=viewport]")\,r=o.attr("content")\,c=window.outerWidth/window.innerWidth\,window.innerWidth>=720&&window.innerWidth<=1e3&&r&&-1===r.indexOf("initial-scale")&&o.attr("content"\,"width=1000\,initial-scale="+c)\,a.attach()}))\,i.search&&r("mediawiki.searchSuggest");try{sessionStorage.getItem("mw-PostEdit"+mw.config.get("wgPageName"))&&mw.loader.load("mediawiki.action.view.postEdit")}catch(e){}t.exports={loadSearchModule:r\,checkboxHack:e("./checkboxHack.js")\,teleportTarget:a.target}}\,"checkboxShift.js":function(e\,t\,n){t.exports=function(e){var t;e.on("click"\,(function(n){t&&n.shiftKey&&e.slice(Math.min(e.index(t)\,e.index(n.target))\,Math.max(e.index(t)\,e.index(n.target))+1).filter((function(){return!this.disabled&&this.checked!==n.target.checked})).prop("checked"\,n.target.checked).trigger("change")\,t=n.target}))}}\,"checkboxHack.js":function(e\,t\,n){function o(e\,t){if(t)return mw.log.warn("[1.38] The button parameter in updateAriaExpanded is deprecated\, aria-expanded will be applied to the checkbox going forward. View the updated checkbox hack documentation for more details.")\,void t.setAttribute("aria-expanded"\,e.checked.toString());e.setAttribute("aria-expanded"\,e.checked.toString())}function i(e\,t){var n;if(e.checked=t\,"function"==typeof Event)n=new Event("input"\,{bubbles:!0\,composed:!0});else{if(!(n=document.createEvent("CustomEvent")))return;n.initCustomEvent("input"\,!0\,!1\,!1)}e.dispatchEvent(n)}function a(e\,t\,n\,o){!e.checked||o.target instanceof Node&&(e.contains(o.target)||t.contains(o.target)||n.contains(o.target))||i(e\,!1)}function r(e\,t){t&&mw.log.warn("[1.38] The button parameter in bindUpdateAriaExpandedOnInput is deprecated\, aria-expanded will be applied to the checkbox going forward. View the updated checkbox hack documentation for more details.");var n=o.bind(void 0\,e\,t);return e.addEventListener("input"\,n)\,function(){e.removeEventListener("input"\,n)}}function c(e\,t){function n(t){t.preventDefault()\,i(e\,!e.checked)}return t.addEventListener("click"\,n\,!0)\,function(){t.removeEventListener("click"\,n\,!0)}}function l(e){function t(t){"Enter"===t.key&&i(e\,!e.checked)}return e.addEventListener("keyup"\,t)\,function(){e.removeEventListener("keyup"\,t)}}function d(e\,t\,n\,o){var i=a.bind(void 0\,t\,n\,o);return e.addEventListener("click"\,i\,!0)\,function(){e.removeEventListener("click"\,i\,!0)}}function s(e\,t\,n\,o){var i=a.bind(void 0\,t\,n\,o);return e.addEventListener("focusin"\,i\,!0)\,function(){e.removeEventListener("focusin"\,i\,!0)}}function u(e\,t){function n(t){t.target&&t.target.parentNode&&("A"===t.target.nodeName||"A"===t.target.parentNode.nodeName)&&i(e\,!1)}return t.addEventListener("click"\,n)\,function(){t.removeEventListener("click"\,n)}}t.exports={updateAriaExpanded:o\,bindUpdateAriaExpandedOnInput:r\,bindToggleOnClick:c\,bindToggleOnSpaceEnter:function(e\,t){function n(e){" "!==e.key&&"Enter"!==e.key||e.preventDefault()}function o(e){" "!==e.key&&"Enter"!==e.key||t.click()}return mw.log.warn("[1.38] bindToggleOnSpaceEnter is deprecated. Use `bindToggleOnEnter` instead.")\,t.addEventListener("keydown"\,n)\,t.addEventListener("keyup"\,o)\,function(){t.removeEventListener("keydown"\,n)\,t.removeEventListener("keyup"\,o)}}\,bindToggleOnEnter:l\,bindDismissOnClickOutside:d\,bindDismissOnFocusLoss:s\,bindDismissOnClickLink:u\,bind:function(e\,t\,n\,o){var i=[r(t)\,c(t\,n)\,l(t)\,d(e\,t\,n\,o)\,s(e\,t\,n\,o)\,u(t\,o)];return function(){i.forEach((function(e){e()}))}}}}\,"teleportTarget.js":function(e\,t\,n){const o=document.createElement("div");o.id="mw-teleport-target"\,t.exports={target:o\,attach(){document.body.appendChild(o)}}}\,"toggleAllCollapsibles.js":function(e\,t\,n){let o;mw.hook("wikipage.content").add((function(){if(o)return;if(!document.querySelector("#mw-content-text .mw-parser-output .mw-collapsible"))return;const e=mw.util.addPortletLink("p-tb"\,"#"\,mw.msg("collapsible-expand-all-text")\,"t-collapsible-toggle-all"\,mw.msg("collapsible-expand-all-tooltip"));if(!e)return;o=e.querySelector("a")\,o.setAttribute("role"\,"button")\,o.setAttribute("aria-expanded"\,"false");let t=!1;o.addEventListener("click"\,(function(e){if(e.preventDefault()\,t){const e=document.querySelectorAll("#mw-content-text .mw-parser-output .mw-made-collapsible:not( .mw-collapsed )");Array.prototype.forEach.call(e\,(function(e){$(e).data("mw-collapsible").collapse()}))\,o.textContent=mw.msg("collapsible-expand-all-text")\,o.title=mw.msg("collapsible-expand-all-tooltip")\,o.setAttribute("aria-expanded"\,"false")\,t=!1}else{const e=document.querySelectorAll("#mw-content-text .mw-parser-output .mw-made-collapsible.mw-collapsed");Array.prototype.forEach.call(e\,(function(e){$(e).data("mw-collapsible").expand()}))\,o.textContent=mw.msg("collapsible-collapse-all-text")\,o.title=mw.msg("collapsible-collapse-all-tooltip")\,o.setAttribute("aria-expanded"\,"true")\,t=!0}}))}))}\,"config.json":{search:!1\,collapsible:!0\,sortable:!0\,selectorLogoutLink:'#pt-logout a[data-mw="interface"]'}}}\,{css:["#mw-teleport-target{position:absolute;z-index:450}"]}\,{"collapsible-collapse-all-text":"すべて折り畳む"\,"collapsible-collapse-all-tooltip":"現在のページ上にある折り畳み可能な要素をすべて折り畳む"\,"collapsible-expand-all-text":"すべて開く"\,"collapsible-expand-all-tooltip":"現在のページ上にある折り畳み可能な要素をすべて開く"\,"logging-out-notify":"ログアウト中です。お待ちください。"}]}));(RLQ=window.RLQ)
 wiki.yjsnpi.nu#@#+js(noeval-if, MutationObserver)
 wiki.yjsnpi.nu#@#+js(noeval-if, adoptNode)
-
 ! Ad-Shield
 ||ad-shield.cc^$xhr,ping,popup,doc
 ||79180284.xyz^$xhr,ping,popup,doc
@@ -232,25 +195,15 @@ img-load.com##html:style(visibility: collapse !important;)
 ##a[href*="content-loader.com/fl1hrrg"]
 ##a[href*="css-load.com/fl1hrrg"]
 ##a[href*="img-load.com/fl1hrrg"]
-
-! https://github.com/uBlockOrigin/uAssets/issues/25809
 !#if cap_html_filtering
 xfreehd.com##^script:has-text(/nativeads|navigator\.brave|\.abk_msg|\.innerHTML|ad blocker|manipulation/)
 !#else
 xfreehd.com##+js(rmnt, script, /nativeads|navigator\.brave|\.abk_msg|\.innerHTML|ad blocker|manipulation/)
 !#endif
 xfreehd.com##+js(nostif, /\.append|\.innerHTML|undefined|\.css|blocker|flex|\$\('|obfuscatedMsg/)
-
-! https://www.reddit.com/r/uBlockOrigin/comments/1gdc7mh/spotify/
 ||adxcel.com^$media,redirect=noop-1s.mp4:10,domain=open.spotify.com
-
-! https://github.com/uBlockOrigin/uAssets/issues/25421
 gecmisi.com.tr#@#+js(trusted-replace-argument, document.querySelector, 0, json:".adsbygoogle", condition, .adsbygoogle.adsbygoogle-noablate)
 gecmisi.com.tr##+js(trusted-replace-argument, document.querySelector, 0, json:"div[align='center']", condition, .adsbygoogle.adsbygoogle-noablate)
-
-! https://github.com/easylist/easylist/issues/20485
 ! Can be removed on 5th of November
 @@||cms.finnair.com^*?view=fin-fragment-json$xmlhttprequest,domain=finnair.com
-
-! https://github.com/uBlockOrigin/uAssets/issues/25875
 @@||googletagmanager.com/gtm.js$script,domain=trendyol.com
