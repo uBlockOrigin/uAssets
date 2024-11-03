@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Other Annoyances
-! Last modified: Sat, 02 Nov 2024 01:18:03 +0000
+! Last modified: Sun, 03 Nov 2024 01:54:41 +0000
 ! Expires: 7 days
 ! Description: Filters optimized for uBlock Origin, to be used with EasyList's and/or Adguard's "Other Annoyances" list(s)
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -7757,3 +7757,11 @@ ajanstv.com.tr##+js(nostif, adblock)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/25883
 manhwa18.cc##+js(nostif, detect_modal)
+
+! https://www.reddit.com/r/uBlockOrigin/comments/1gi648d/web_page_is_opening_trying_to_redirect/ - anti right click, selection
+japonhentai.com##+js(acs, addEventListener, ays_tooltip)
+!#if cap_html_filtering
+japonhentai.com##^style:has-text(::selection)
+!#else
+japonhentai.com##+js(rmnt, style, ::selection)
+!#endif
