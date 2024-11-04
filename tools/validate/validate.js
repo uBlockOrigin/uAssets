@@ -1,6 +1,6 @@
 /*******************************************************************************
 
-    uBlock Origin - a comprehensive, efficient content blocker
+    uBlock Origin - a browser extension to block requests.
     Copyright (C) 2022-present Raymond Hill
 
     This program is free software: you can redistribute it and/or modify

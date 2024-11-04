@@ -1,6 +1,6 @@
 /*******************************************************************************
 
-    uBlock Origin - a comprehensive, efficient content blocker
+    uBlock Origin - a browser extension to block requests.
     Copyright (C) 2023-present Raymond Hill
 
     This program is free software: you can redistribute it and/or modify
@@ -14,7 +14,7 @@
     GNU General Public License for more details.
 
     You should have received a copy of the GNU General Public License
-    along with this program.  If not, see {https://www.gnu.org/licenses/}.
+    along with this program.  If not, see {http://www.gnu.org/licenses/}.
 
     Home: https://github.com/gorhill/uBlock
 */

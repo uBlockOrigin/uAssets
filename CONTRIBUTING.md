@@ -1,24 +1,22 @@
-### Filter Lists
+#### Filter lists
 
-#### Ordering of Filters
+##### Ordering of filters
 
-- New filters must be added at the end of the list.
-  
-  This approach allows for an easy assessment of a filter's relevance. Filters at the top will be the oldest and most likely to be obsolete.
+New filter must be added at the end of the list.
 
-- Old filters confirmed to still be required should also be moved to the end of the list.
+The reason is to provide an easy way to check whether a filter is still relevant. The filters at the top of the file will be the oldest filters, and also the most likely to maybe be obsolete.
 
-#### Issue Number Association
+Old filters which are confirmed to still be required must be moved to the end of the list.
 
-- **All** added filters must be associated with a formal issue number. For example:
+##### Issue number association
 
-  ```
-  ! https://github.com/uBlockOrigin/uAssets/issues/2
-  ||data.inertanceretinallaurel.com^
-  ```
+**All** added filters must be associated with a formal issue number, example:
 
-  This practice documents the reason for adding a filter and provides a way to verify if an old filter is still necessary. The comment line preceding the filter(s) should consist solely of the URL to the issue, which contains all relevant details about the resolution.
+    ! https://github.com/uBlockOrigin/uAssets/issues/2
+    ||data.inertanceretinallaurel.com^
 
-#### Commit Message
+This way this documents why a filter was added, and how to verify whether an old filter is still needed. The comment line preceding the filter(s) to solve a specific issue should be only a URL to the issue. The issue itself can contains all the details about how the issue was solved, and why it was solved this way, etc.
 
-- Keep it simple. For example: `this fixes #2`. The issue itself will contain all the necessary details.
+##### Commit message
+
+Keep it simple, example: `this fixes #2`. The issue itself will contains all the details.

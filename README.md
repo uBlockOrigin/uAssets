@@ -1,58 +1,51 @@
 # uAssets
 
-This repository is dedicated to the resources for [uBlock Origin (uBO)](https://github.com/gorhill/uBlock). It serves as a hub for reporting new filters or existing filters that may cause webpage breakage. Contributions are welcome, and valuable contributors may be granted write permissions to the repository.
+This repository is for the resources of [uBlock Origin (uBO)](https://github.com/gorhill/uBlock). It receives all reports for new filters or existing filters that cause web page breakage. Any contributors are welcome. Contributors who are proven valuable will get write permissions to the repository.
 
-## Filter Inclusion Rationale
+The rationale for including a specific filter in uBO's filter lists is the same as the [EasyList/EasyPrivacy policies](https://easylist.to/pages/policy.html) and also takes into account whether a filter requires uBO's extended filter syntax.
 
-The rationale for including specific filters in uBO's filter lists aligns with the [EasyList/EasyPrivacy policies](https://easylist.to/pages/policy.html) and considers whether a filter requires uBO's extended filter syntax. 
+It is preferred to fix filter issues in EasyList. Any filters included in uBO's filter lists must use the [extended syntax](https://github.com/gorhill/uBlock/wiki/Static-filter-syntax#extended-syntax).
 
-It is preferred to address filter issues in EasyList first. Any filters included in uBO's filter lists must utilize the [extended syntax](https://github.com/gorhill/uBlock/wiki/Static-filter-syntax#extended-syntax).
+The EasyList-compatible fixes for high-traffic websites are added to uBO filters until they become added to EasyList.
 
-High-traffic websites will have EasyList-compatible fixes added to uBO filters until they are incorporated into EasyList.
-
-## Exceptions Handled by uAssets
-
-uAssets will address the following exceptions even if they do not require the extended syntax:
+uAssets will fix the following exceptions even if they do not require using the extended syntax:
 
 - Ad-Reinsertion
 - Anti-Blocker
-- Context Menu/Dev Console Blockage
-- Cut/Copy/Paste/Drag Blockage
+- Context Menu Blockage
+- Cut/Copy/Paste Blockage
 - Popups/Popunders
 - Website Breakage
-- Resource Abuse/Coin Mining
-- Video/Audio Ads
-- Redirections/URL Parameter Removing
+- Video Ads
 
-### Exclusions
-
-uAssets will **not** address the following:
+uAssets will not address the following:
 
 - Paywalls
 - Porn Farms
 
-## Reporting an Issue
+#### How to correctly report an issue
 
-To report an issue correctly:
+- Disable all other browser extensions and see if the problem still persists
 
-1. Disable all other browser extensions to see if the problem persists.
-2. If the issue continues:
-   - On the problematic website, click the uBlock Origin icon.
-   - Click the chat icon.
-   - Click "Troubleshooting Information" to expand, and copy that information into the relevant GitHub issue.
+- How to provide troubleshooting information:
 
-## Support Forum
+  If the problem persists, then please:
+  - On the problematic website, click the uBlock Origin icon
+  - Click the chat icon
+  - Click "Troubleshooting Information" to expand, and copy that information into the appropriate github issue.
 
-For support, questions, or assistance, visit [/r/uBlockOrigin](https://www.reddit.com/r/uBlockOrigin/).
+#### Support Forum
 
-## uBO Issues
+For support, questions, or help, visit [/r/uBlockOrigin](https://www.reddit.com/r/uBlockOrigin/).
 
-For issues related to uBO, please report them in the [uBO issue tracker](https://github.com/uBlockOrigin/uBlock-issues/issues).
+#### uBO Issues
 
-## uBO Lite (uBOL) Issues
+Report issues with uBO in the [uBO issue tracker](https://github.com/uBlockOrigin/uBlock-issues/issues).
 
-For issues specific to the Manifest Version 3 (MV3) variant, report them in the [uBOL issue tracker](https://github.com/uBlockOrigin/uBOL-home/issues).
+#### uBO Lite (uBOL) Issues
 
-## Concurrent Blockers
+Report issues specific to the Manifest Version 3 (MV3) variant in the [uBOL issue tracker](https://github.com/uBlockOrigin/uBOL-home/issues).
 
-Do **NOT** use any other [similarly-purposed blockers](https://x.com/gorhill/status/1033706103782170625) concurrently with uBO, as this may lead to website breakage or unpredictable results.
+#### Similarly-Purposed Blockers
+
+Do **NOT** use any other [similarly-purposed blockers](https://x.com/gorhill/status/1033706103782170625) concurrently with uBO. It can result in website breakage or undefined results.
