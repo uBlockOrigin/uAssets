@@ -3829,3 +3829,11 @@ japonhentai.com##+js(acs, document.querySelectorAll, popMagic)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/25902
 fomo.id##+js(json-prune-fetch-response, data.[-].inner.ctaCopy, , propsToMatch, ?page=)
+
+! https://github.com/uBlockOrigin/uAssets/issues/25920
+!#if cap_html_filtering
+||filiser.eu/_next/static/chunks/*.js^$script,replace=/\[0\];\w<\w\.length/[0];false/
+!#else
+||i.imgur.com/*.mp4^$media,redirect=noopmp3-0.1s,domain=filiser.eu
+@@/^https:\/\/i\.imgur\.com\/(?:Nb8hauQ|qgn2xUN|asEQRCN|ppLF03C|gSh2lrT|zUniMdp|7gscsmm|vh8L243|MYyC34P)\.mp4/$media,domain=filiser.eu
+!#endif
