@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Mon, 04 Nov 2024 23:58:55 +0000
+! Last modified: Tue, 05 Nov 2024 01:28:13 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -10675,6 +10675,12 @@ gamerxyt.com##+js(aeld, DOMContentLoaded, history.go)
 cheatography.com##+js(nostif, adblocker)
 japonhentai.com##+js(acs, document.querySelectorAll, popMagic)
 fomo.id##+js(json-prune-fetch-response, data.[-].inner.ctaCopy, , propsToMatch, ?page=)
+!#if cap_html_filtering
+||filiser.eu/_next/static/chunks/*.js^$script,replace=/\[0\];\w<\w\.length/[0];false/
+!#else
+||i.imgur.com/*.mp4^$media,redirect=noopmp3-0.1s,domain=filiser.eu
+@@/^https:\/\/i\.imgur\.com\/(?:Nb8hauQ|qgn2xUN|asEQRCN|ppLF03C|gSh2lrT|zUniMdp|7gscsmm|vh8L243|MYyC34P)\.mp4/$media,domain=filiser.eu
+!#endif
 ! Link shortener filters go into their own dedicated list
 ! *** filters/ubo-link-shorteners.txt ***
 ! gplinks all domains (gplinks.co/EWu8)
