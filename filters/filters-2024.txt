@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2024)
-! Last modified: Tue, 05 Nov 2024 23:40:43 +0000
+! Last modified: Wed, 06 Nov 2024 03:52:54 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -2155,7 +2155,7 @@ thejakartapost.com##.tjp-single__content-ads:remove()
 !#if env_firefox
 $frame,csp=sandbox allow-downloads allow-forms allow-modals allow-same-origin allow-scripts,to=~buymeacoffee.com|~cbox.ws|~chatango.com|~cloudflare.com|~dailymotion.com|~discord.com|~disqus.com|~edgecastcdn.net|~facebook.com|~frembed.*|~google.*|~hcaptcha.com|~mixdrop.*|~ok.ru|~recaptcha.net|~strcdn.org|~twitter.com|~vidmoly.*|~vixcloud.co|~youtu.be|~youtube.com|~x.com,from=1jour1film.*|animefever.cc|animeunity.to|antennasports.ru|bluphim.*|dailypudding.com|detodopeliculas.nu|dlhd.so|euro2024direct.ru|hurawatch.art|kaas.ro|kickassanime.*|kipflix.vercel.app|kissanime.*|moflix-stream.day|movie3k.net|phimmoifhd.com|popcornmovies.to|putlockers.*|roselife.site|roshy.tv|seriescultes.store|soccerinhd.com|vidsrc.*|visualnewshub.com|xsportbox.com
 !#else
-$frame,csp=sandbox allow-downloads allow-forms allow-modals allow-same-origin allow-scripts,to=~buymeacoffee.com|~cbox.ws|~chatango.com|~cloudflare.com|~dailymotion.com|~discord.com|~disqus.com|~edgecastcdn.net|~emturbovid.com|~facebook.com|~frembed.*|~google.*|~hcaptcha.com|~mixdrop.*|~ok.ru|~recaptcha.net|~strcdn.org|~twitter.com|~vidmoly.*|~vixcloud.co|~youtu.be|~youtube.com|~x.com,from=1jour1film.*|animefever.cc|animeunity.to|bluphim.*|dailypudding.com|detodopeliculas.nu|kaas.ro|kickassanime.*|kipflix.vercel.app|kissanime.*|phimmoifhd.com|seriescultes.store|soccerinhd.com|visualnewshub.com|xsportbox.com
+$frame,csp=sandbox allow-downloads allow-forms allow-modals allow-same-origin allow-scripts,to=~buymeacoffee.com|~cbox.ws|~chatango.com|~cloudflare.com|~dailymotion.com|~discord.com|~disqus.com|~edgecastcdn.net|~emturbovid.com|~facebook.com|~frembed.*|~google.*|~hcaptcha.com|~mixdrop.*|~ok.ru|~recaptcha.net|~strcdn.org|~topembed.pw|~twitter.com|~vidmoly.*|~vixcloud.co|~youtu.be|~youtube.com|~x.com,from=1jour1film.*|animefever.cc|animeunity.to|bluphim.*|dailypudding.com|detodopeliculas.nu|kaas.ro|kickassanime.*|kipflix.vercel.app|kissanime.*|phimmoifhd.com|seriescultes.store|soccerinhd.com|visualnewshub.com|xsportbox.com
 !#endif
 euro2024direct.ru##+js(acs, document.createElement, break;case)
 ! https://github.com/uBlockOrigin/uAssets/issues/23689
@@ -2986,15 +2986,20 @@ hesgoal-tv.io,hesgoal-vip.io##+js(rmnt, script, /adbl/i)
 ||hesgoal.watch^$csp=sandbox allow-forms allow-same-origin allow-scripts allow-modals allow-orientation-lock allow-pointer-lock allow-presentation allow-top-navigation
 
 ! https://github.com/uBlockOrigin/uAssets/issues/24812
+! https://www.reddit.com/r/uBlockOrigin/comments/1gkmdcp/usatvgolive_adblocker_detected_overlay/
 homesports.net##+js(aeld, DOMContentLoaded, fetch)
 anarchy-stream.com,olalivehdplay.ru,pawastreams.info##+js(aopw, Adcash)
 pawastreams.info##+js(rmnt, script, ai_adb)
 fastreams.com,redittsports.com,sky-sports.store,streamsoccer.site,tntsports.store,wowstreams.co##+js(rmnt, script, /h=decodeURIComponent|popundersPerIP/)
-claplivehdplay.ru,lewblivehdplay.ru,qqwebplay.xyz,quest4play.xyz,topembed.pw,weblivehdplay.ru##+js(aost, String.prototype.charCodeAt, inlineScript)
+claplivehdplay.ru,cookiewebplay.xyz,ilovetoplay.xyz,lewblivehdplay.ru,qqwebplay.xyz,quest4play.xyz,streamcaster.live,topembed.pw,weblivehdplay.ru##+js(acs, EventTarget.prototype.addEventListener, delete window)
+claplivehdplay.ru,cookiewebplay.xyz,ilovetoplay.xyz,lewblivehdplay.ru,qqwebplay.xyz,quest4play.xyz,streamcaster.live,topembed.pw,weblivehdplay.ru##+js(rmnt, script, popupBackground)
 usgate.xyz##+js(nowoif)
 pawastreams.info##.adsbyadful
 pawastreams.info###adcash
 pawastreams.info###dismiss-btn
+||igouthoatsord.net^
+! https://thedaddy.to/cast/stream-327.php - anti-adb
+@@*$xhr,1p,domain=cookiewebplay.xyz|ilovetoplay.xyz|quest4play.xyz|streamcaster.live|topembed.pw
 
 ! https://community.brave.com/t/video-streamer-doesnt-work-only-on-brave/562140 - ads
 ! https://github.com/AdguardTeam/AdguardFilters/issues/187395
@@ -3863,6 +3868,3 @@ helicomicro.com##^script:has-text(adsBlocked)
 !#else
 helicomicro.com##+js(rmnt, script, adsBlocked)
 !#endif
-
-! https://thedaddy.to/cast/stream-327.php - anti-adb
-@@*$xhr,1p,domain=cookiewebplay.xyz|ilovetoplay.xyz|quest4play.xyz|streamcaster.live|topembed.pw
