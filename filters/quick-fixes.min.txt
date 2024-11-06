@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Quick fixes
 ! Expires: 12 hours
-! Last modified: Wed, 06 Nov 2024 10:49:49 +0000
+! Last modified: Wed, 06 Nov 2024 12:50:37 +0000
 ! Diff-Path: %diffpath%#ublock-quick-fixes
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -127,13 +127,14 @@ infinityscans.xyz,infinityscans.net##+js(rpnt, script, /\"\"\) \{\s*\(function\(
 ||highmanapts.com^$all
 sportnews.to,soccershoes.blog##+js(aeld, DOMContentLoaded, adsSrc)
 *$script,redirect-rule=noopjs,domain=sportnews.to|sportshub.to
-1001tracklists.com#@#a[onclick]
-1001tracklists.com#@#[target="_blank"][rel="noopener noreferrer"]
-1001tracklists.com##[target="_blank"][rel^="noopener noreferrer"]:has(> img[src^="/images/artworks/"])
-1001tracklists.com##div[style^="text-align: center; margin-bottom: 10px;"]:has(a img[src^="/images/artworks/"])
+1001tracklists.com##[target="_blank"][rel$=" noopener noreferrer"]:has(> img[src^="/images/artworks/"]), [target="_blank"][rel^="noopener noreferrer"]:has(> img[src^="/images/artworks/"])
+1001tracklists.com##div[style^="text-align: center; margin-bottom: 10px;"]:has(a img[src^="/images/artworks/"]), div[style^="margin: 10px 0px; text-align: center;"]:has(a img[src^="/images/artworks/"])
 1001tracklists.com##div[id]:has(> [data-freestar-ad])
-1001tracklists.com###left > div:not(div[id="artworkLeft"][class="c bgArt"], div[class="fTab"], div[class="aMenu"], [id="lSt"].border)
-1001tracklists.com##+js(spoof-css, '[target="_blank"][rel^="noopener noreferrer"]:has(> img[src^="/images/artworks/"]', display, block)
+1001tracklists.com###left > div:not(div[id="artworkLeft"][class="c bgArt"], div[class="fTab"], div[class="aMenu"], [id="lSt"].border, div[class="boxBg rB c mb10"]):has(a img[src^="/images/artworks/"])
+1001tracklists.com###fpLeft > div:not(div[id="lSt"][class=""]):has(a img[src^="/images/artworks/"])
+1001tracklists.com###top > [style]:not(a[id="topLogo"][href="//www.1001tracklists.com"], div[id="pageTitle"], script, div[id="hInfo"]):has(a img[src^="/images/artworks/"])
+1001tracklists.com###left + div[style*="grid"][style*="place-content"]:has(a img[src^="/images/artworks/"])
+1001tracklists.com##+js(spoof-css, '[target="_blank"][rel$=" noopener noreferrer"]:has(> img[src^="/images/artworks/"]), [target="_blank"][rel^="noopener noreferrer"]:has(> img[src^="/images/artworks/"])', display, block)
 file-1bl9ruic-moon.com,file-kg88oaak-embed.com,file-mi11ljwj-embed.com,file-sp32aoh8-moon.com,moon-kg83docx.com,moon-fm43w1qv.com,moonfile-62es3l9z.com##+js(nowoif)
 file-1bl9ruic-moon.com,file-kg88oaak-embed.com,file-mi11ljwj-embed.com,file-sp32aoh8-moon.com,moon-kg83docx.com,moon-fm43w1qv.com,moonfile-62es3l9z.com##+js(acs, Math, localStorage['\x)
 .xyz/js/cold.js|$script,3p
