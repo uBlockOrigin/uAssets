@@ -238,9 +238,12 @@ gecmisi.com.tr##+js(trusted-replace-argument, document.querySelector, 0, json:"d
 nogizaka46-matome.jp#@##headerafficode
 
 ! tracking ping like computerbase.de/nlylev
-/^https?:\/\/www\.computerbase\.de\/[a-zA-Z_]{1,}$/$xhr,1p,method=post,domain=computerbase.de
+/^https?:\/\/www\.computerbase\.de\/[a-zA-Z0-9_\-]{1,}$/$xhr,1p,method=post,domain=computerbase.de
 !#if cap_html_filtering
-computerbase.de##^#js-stats
+computerbase.de##^[id^="js-stat"]
+computerbase.de##^.stats-pixel
+computerbase.de##^[data-pixel-url]
+computerbase.de##^div[data-params^="section="][data-params*="date="]:has(> noscript:only-child)
 !#else
-computerbase.de##+js(trusted-replace-argument, document.getElementById, 0, , condition, js-stats)
+computerbase.de##+js(trusted-replace-argument, document.getElementById, 0, , condition, js-stat)
 !#endif
