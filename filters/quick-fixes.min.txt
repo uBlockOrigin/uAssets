@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Quick fixes
 ! Expires: 12 hours
-! Last modified: Thu, 07 Nov 2024 16:56:06 +0000
+! Last modified: Thu, 07 Nov 2024 17:16:32 +0000
 ! Diff-Path: %diffpath%#ublock-quick-fixes
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -188,3 +188,8 @@ gecmisi.com.tr##+js(trusted-replace-argument, document.querySelector, 0, json:"d
 nogizaka46-matome.jp#@##headerafficode
 ! tracking ping like computerbase.de/nlylev
 /^https?:\/\/www\.computerbase\.de\/[a-zA-Z_]{1,}$/$xhr,1p,method=post,domain=computerbase.de
+!#if cap_html_filtering
+computerbase.de##^#js-stats
+!#else
+computerbase.de##+js(trusted-replace-argument, document.getElementById, 0, , condition, js-stats)
+!#endif
