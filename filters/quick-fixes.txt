@@ -238,3 +238,8 @@ nogizaka46-matome.jp#@##headerafficode
 
 ! tracking ping like computerbase.de/nlylev
 /^https?:\/\/www\.computerbase\.de\/[a-zA-Z_]{1,}$/$xhr,1p,method=post,domain=computerbase.de
+!#if cap_html_filtering
+computerbase.de##^#js-stats
+!#else
+computerbase.de##+js(trusted-replace-argument, document.getElementById, 0, , condition, js-stats)
+!#endif
