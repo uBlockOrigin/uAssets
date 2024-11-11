@@ -72,8 +72,15 @@ kokostream.net##+js(nowoif)
 *$script,3p,denyallow=gstatic.com,domain=streambucket.net
 ! https://github.com/uBlockOrigin/uAssets/issues/22762#issuecomment-1977984428
 player.smashy.stream##.react-responsive-modal-root
-player.smashystream.com##+js(rmnt, script, HTMLAllCollection)
+! https://bingemaster.netlify.app/movie_details/movie_details.html?id=1034541 - SS server popups and anti-adb
 player.smashystream.com##+js(nowoif)
+!#if cap_html_filtering
+smashystream.com##^script:has-text(/shown_at|WebAssembly/)
+!#else
+smashystream.com##+js(rmnt, script, /shown_at|WebAssembly/)
+smashystream.com##+js(acs, globalThis, shown_at)
+!#endif
+smashyplayer.top##+js(aeld, click, document.createElement)
 ||imasdk.googleapis.com/js/sdkloader/ima3.js$script,domain=smashyplayer.top,redirect=google-ima.js
 ! EL badfilter
 ||ate60vs7zcjhsjo5qgv8.com^$badfilter
@@ -3932,16 +3939,6 @@ karistudio.com##+js(nostif, getComputedStyle)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/25995
 cambro.io##+js(acs, document.querySelectorAll, popMagic)
-
-! https://bingemaster.netlify.app/movie_details/movie_details.html?id=1034541 - SS server popups and anti-adb
-!#if cap_html_filtering
-smashystream.com##^script:has-text(/shown_at|WebAssembly/)
-!#else
-smashystream.com##+js(rmnt, script, /shown_at|WebAssembly/)
-smashystream.com##+js(acs, globalThis, shown_at)
-!#endif
-smashyplayer.top##+js(aeld, click, document.createElement)
-||imasdk.googleapis.com/js/sdkloader/ima3.js$script,redirect=google-ima.js,domain=smashyplayer.top
 
 ! https://github.com/uBlockOrigin/uAssets/issues/25910
 ##.infiniteads_placeholder
