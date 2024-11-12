@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Tue, 12 Nov 2024 12:12:04 +0000
+! Last modified: Tue, 12 Nov 2024 12:12:24 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -10706,11 +10706,7 @@ shahid.mbc.net##+js(no-fetch-if, /gampad/ads?)
 moflix-stream.*##+js(nostif, affiliate)
 moflix-stream.*##+js(nostif, afterOpen)
 @@||cinemaclock.com^$script,1p
-!#if cap_html_filtering
-helicomicro.com##^script:has-text(adsBlocked)
-!#else
-helicomicro.com##+js(rmnt, script, adsBlocked)
-!#endif
+helicomicro.com##+js(noeval-if, adsbygoogle)
 moviesmod.*,topmovies.*##+js(nowoif)
 /wp-content/themes/blogarise-child/check*.js^
 toonstream.*##+js(nowoif, _blank)
