@@ -593,20 +593,22 @@ bikesales.com.au##^html > head > :is([name="canonical"], [rel="canonical"]):not(
 ! https://variety.com/2023/digital/news/disney-plus-first-four-indiana-jones-movies-exclusive-merch-1235629165/
 ! https://www.cnet.com/tech/best-labor-day-sales-2024-09-03/
 ! https://www.hunker.com/13770331/best-headboards/
-/^https:\/\/(?:[^.]+\.){2}(?:com|io|net)\/c(?:\/\d+){3}\?.+?&u=http/$doc,to=com|io|net,urlskip=?u
-/click-*^url=http$doc,urlskip=?url,to=dpbolvw.net|jdoqocy.com|kqzyfj.com
+! https://pcpartpicker.com/forums/topic/247066-everytime-i-click-a-newegg-link-i-get-redirected-to-anrdoezrsnet
+/^https?:\/\/(?:[^.]+\.){2}(?:com|io|net)\/c(?:\/\d+){3}\?.+?&u=http/$doc,to=com|io|net,urlskip=?u
+/^https?:\/\/www\.[a-z]+\.(?:com|net)\/click-\d{7}-\d{8}\b.*?[?&]url=http/$doc,to=com|net,urlskip=?url
 ||clicks.trx-hub.com/*^q=http$doc,urlskip=?q
 ||shop-links.co/link/?url=http$doc,urlskip=?url
 ||buy.geni.us/Proxy.ashx*^GR_URL=http$urlskip=?GR_URL
 ||go.skimresources.com/*^url=http$doc,urlskip=?url
-||shareasale.com/r.cfm*^urllink=$doc,urlskip=/urllink=(\w+\.[^\/]+)/ +https -uricomponent
+||shareasale.com/r.cfm*^urllink=$doc,urlskip=/urllink=(\w+\.[^\/]+)/ -uricomponent +https
 ||prf.hn/click/*/destination:http$doc,urlskip=/\/destination:([^\/]+)/ -uricomponent
 
 ! https://otherweb.com/n/jql8n85J
-||cc.mashable.com/v1/*^url=http$doc,urlskip=?url
+! https://upload.trinituner.com/v4/forums/viewtopic.php?t=319216&start=7500
+||cc.*.com/v1/otc/*?merchant=*&url=http$doc,to=com,urlskip=?url
 
 ! https://github.com/brave/adblock-lists/commit/c6c8a9d0eafd52fba4a1c63d1e33404d90cbcad2
-||click.pstmrk.it/*/$doc,urlskip=/\.pstmrk\.it\/[23][mst]{0,2}\/(.+)/ +https -uricomponent
+||click.pstmrk.it/*/$doc,urlskip=/\.pstmrk\.it\/[23][mst]{0,2}\/(.+)/ -uricomponent +https
 
 ! https://x.com/LeBlorstOfTimes/status/1802874950132318572
 ! https://docs.planethowl.com/en/stable/clickmate.html
@@ -639,8 +641,8 @@ bikesales.com.au##^html > head > :is([name="canonical"], [rel="canonical"]):not(
 ! https://capd.mit.edu/experiences/hackmit/
 ! https://econ.georgetown.edu/ug_opportunities/pre-doc-opportunity-stanford-law-school-empirical-research-fellowship/
 ! https://agilebrandguide.com/591-building-an-accessible-digital-experience-with-jennifer-griffin-smith-acquia/
-||streaklinks.com/*/http$doc,urlskip=/\bstreaklinks\.com\/[^\/]+\/https?%3A%2F%2F([^\/]+)/ +https -uricomponent
-||streak-link.com/*/http$doc,urlskip=/\bstreak-link\.com\/[^\/]+\/https?%3A%2F%2F([^\/]+)/ +https -uricomponent
+||streaklinks.com/*/http$doc,urlskip=/\bstreaklinks\.com\/[^\/]+\/https?%3A%2F%2F([^\/]+)/ -uricomponent +https
+||streak-link.com/*/http$doc,urlskip=/\bstreak-link\.com\/[^\/]+\/https?%3A%2F%2F([^\/]+)/ -uricomponent +https
 
 ! https://www.bleepingcomputer.com/news/security/googles-mysterious-searchapp-links-leave-android-users-concerned/
 ||search.app^*link=http$doc,urlskip=?link
