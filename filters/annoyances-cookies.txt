@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Cookie Notices
-! Last modified: Wed, 13 Nov 2024 11:51:42 +0000
+! Last modified: Thu, 14 Nov 2024 07:44:58 +0000
 ! Expires: 7 days
 ! Description: Filters optimized for uBlock Origin, to be used with EasyList's and/or Adguard's "Cookie Notices" list(s)
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -965,7 +965,9 @@ viss.nu##+js(trusted-set-cookie, sv-cookie-consent, true, , , reload, 1)
 ! music.amazon. co.uk|de|fr cookies
 ! https://github.com/uBlockOrigin/uAssets/issues/20620
 music.amazon.*##+js(trusted-click-element, #dialogButton1)
-! music.amazon.*###overlay:has([href*="privacyprefs/"])
+! https://github.com/uBlockOrigin/uAssets/issues/20620#issuecomment-2465802971
+music.amazon.*##+js(trusted-click-element, #overlay > div > #banner:has([href*="privacyprefs/"]) music-button:last-of-type)
+music.amazon.*###overlay > div > #banner:has([href*="privacyprefs/"])
 
 
 ! https://github.com/uBlockOrigin/uAssets/issues/20551
