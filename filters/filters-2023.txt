@@ -1667,7 +1667,12 @@ meilblog.com##.adblock_title
 enryumanga.com,varnascan.com###close-teaser
 enryumanga.com,varnascan.com###floatcenter
 ! https://github.com/uBlockOrigin/uAssets/issues/25249
-ftuapps.*,twobluescans.com##+js(rmnt, script, decodeURIComponent(escape)
+! https://www.reddit.com/r/uBlockOrigin/comments/1gr2oru/adblocker_detected_on_hentaiseasoncom/
+!#if cap_html_filtering
+ftuapps.*,hentaiseason.com,twobluescans.com##^script:has-text('decodeURIComponent(escape')
+!#else
+ftuapps.*,hentaiseason.com,twobluescans.com##+js(rmnt, script, 'decodeURIComponent(escape')
+!#endif
 ftuapps.*##body > div:has(.adblock_title)
 twobluescans.com###ad-container
 
