@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Privacy
 ! Expires: 7 days
-! Last modified: Thu, 14 Nov 2024 12:51:59 +0000
+! Last modified: Fri, 15 Nov 2024 04:56:04 +0000
 ! Diff-Path: %diffpath%#ublock-privacy
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -314,7 +314,7 @@ bikesales.com.au##^html > head > :is([name="canonical"], [rel="canonical"]):not(
 @@||track.adtraction.com/*&url=https://www.gog.com/$popup
 ||track.adtraction.com/*^url=https://www.gog.com/$doc,urlskip=?url
 ||track.adtraction.com/*^url=https://www.gog.com/$doc,urlskip=?url -blocked
-/^https?:\/\/(?:[^.]+\.){2}(?:com|io|net)\/c(?:\/\d+){3}\?.+?&u=http/$doc,to=com|io|net,urlskip=?u
+/^https?:\/\/(?:[^.]+\.){2}(?:com|io|net)\/c(?:\/\d+){3}\?.*?&?u=http/$doc,to=com|io|net,urlskip=?u
 /^https?:\/\/www\.[a-z]+\.(?:com|net)\/click-\d{7}-\d{8}\b.*?[?&]url=http/$doc,to=com|net,urlskip=?url
 ||clicks.trx-hub.com/*^q=http$doc,urlskip=?q
 ||shop-links.co/link/?url=http$doc,urlskip=?url
@@ -336,6 +336,7 @@ bikesales.com.au##^html > head > :is([name="canonical"], [rel="canonical"]):not(
 ||events.laylo.com/r/redirect*^link=http$urlskip=?link
 ||streaklinks.com/*/http$doc,urlskip=/\bstreaklinks\.com\/[^\/]+\/https?%3A%2F%2F([^\/]+)/ -uricomponent +https
 ||streak-link.com/*/http$doc,urlskip=/\bstreak-link\.com\/[^\/]+\/https?%3A%2F%2F([^\/]+)/ -uricomponent +https
+||app.hive.co/email/elt/*^next=http$doc,urlskip=?next
 ||search.app^*link=http$doc,urlskip=?link
 ! Click Trackers
 html.duckduckgo.com,lite.duckduckgo.com##+js(href-sanitizer, a[href^="//duckduckgo.com/l/?uddg="], ?uddg)
@@ -378,8 +379,8 @@ justwatch.com##+js(href-sanitizer, 'a:is([href^="https://click.justwatch.com/"],
 variety.com##+js(href-sanitizer, a[href^="https://clicks.trx-hub.com/"][href*="bn5x.net"], ?q?u)
 engadget.com##+js(href-sanitizer, a[href^="https://shopping.yahoo.com/rdlw?"][href*="gcReferrer=http"], ?gcReferrer)
 cnet.com##+js(set, Object.prototype.updateModifiedCommerceUrl, noopFunc)
-cnet.com,hunker.com,pcgamingwiki.com,sheknows.com,streetinsider.com##+js(href-sanitizer, 'a[href*="u=http"]:is([href*=".com/c/"],[href*=".io/c/"],[href*=".net/c/"])', ?u)
-cnet.com,hunker.com,otherweb.com,pcgamingwiki.com##+js(href-sanitizer, 'a[href*="url=http"]:is([href^="https://cc.mashable.com/v1/"],[href^="https://go.skimresources.com?"],href^="https://shop-links.co/link/?url=http"],[href*=".com/click-"],[href*=".net/click-"])', ?url)
+cnet.com,hunker.com,pcgamingwiki.com,purewow.com,sheknows.com,streetinsider.com##+js(href-sanitizer, 'a[href*="u=http"]:is([href*=".com/c/"],[href*=".io/c/"],[href*=".net/c/"])', ?u)
+cnet.com,hunker.com,otherweb.com,pcgamingwiki.com,purewow.com##+js(href-sanitizer, 'a[href*="url=http"]:is([href^="https://cc."][href*=".com/v1/otc/"][href*="merchant="],[href^="https://go.skimresources.com"],[href^="https://shop-links.co/link/?url=http"],[href*=".com/click-"],[href*=".net/click-"])', ?url)
 windowscentral.com##+js(href-sanitizer, a[href^="https://go.redirectingat.com/"][href*="&url=http"], ?url)
 ||cdn.digg.com/fragments/homepage/static/view-frontpage.js
 /detroitchicago/dpv.gif?$image
