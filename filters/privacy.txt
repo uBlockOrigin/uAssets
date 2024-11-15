@@ -594,7 +594,8 @@ bikesales.com.au##^html > head > :is([name="canonical"], [rel="canonical"]):not(
 ! https://www.cnet.com/tech/best-labor-day-sales-2024-09-03/
 ! https://www.hunker.com/13770331/best-headboards/
 ! https://pcpartpicker.com/forums/topic/247066-everytime-i-click-a-newegg-link-i-get-redirected-to-anrdoezrsnet
-/^https?:\/\/(?:[^.]+\.){2}(?:com|io|net)\/c(?:\/\d+){3}\?.+?&u=http/$doc,to=com|io|net,urlskip=?u
+! https://www.purewow.com/fashion/four-bs-french-outfit-staples
+/^https?:\/\/(?:[^.]+\.){2}(?:com|io|net)\/c(?:\/\d+){3}\?.*?&?u=http/$doc,to=com|io|net,urlskip=?u
 /^https?:\/\/www\.[a-z]+\.(?:com|net)\/click-\d{7}-\d{8}\b.*?[?&]url=http/$doc,to=com|net,urlskip=?url
 ||clicks.trx-hub.com/*^q=http$doc,urlskip=?q
 ||shop-links.co/link/?url=http$doc,urlskip=?url
@@ -643,6 +644,9 @@ bikesales.com.au##^html > head > :is([name="canonical"], [rel="canonical"]):not(
 ! https://agilebrandguide.com/591-building-an-accessible-digital-experience-with-jennifer-griffin-smith-acquia/
 ||streaklinks.com/*/http$doc,urlskip=/\bstreaklinks\.com\/[^\/]+\/https?%3A%2F%2F([^\/]+)/ -uricomponent +https
 ||streak-link.com/*/http$doc,urlskip=/\bstreak-link\.com\/[^\/]+\/https?%3A%2F%2F([^\/]+)/ -uricomponent +https
+
+! https://github.com/brave/brave-browser/issues/30731
+||app.hive.co/email/elt/*^next=http$doc,urlskip=?next
 
 ! https://www.bleepingcomputer.com/news/security/googles-mysterious-searchapp-links-leave-android-users-concerned/
 ||search.app^*link=http$doc,urlskip=?link
@@ -715,9 +719,10 @@ engadget.com##+js(href-sanitizer, a[href^="https://shopping.yahoo.com/rdlw?"][hr
 ! https://otherweb.com/n/jql8n85J
 ! https://pcgamingwiki.com/wiki/Grand_Theft_Auto_V
 ! https://www.cnet.com/tech/best-labor-day-sales-2024-09-03/
+! https://www.purewow.com/fashion/four-bs-french-outfit-staples
 cnet.com##+js(set, Object.prototype.updateModifiedCommerceUrl, noopFunc)
-cnet.com,hunker.com,pcgamingwiki.com,sheknows.com,streetinsider.com##+js(href-sanitizer, 'a[href*="u=http"]:is([href*=".com/c/"],[href*=".io/c/"],[href*=".net/c/"])', ?u)
-cnet.com,hunker.com,otherweb.com,pcgamingwiki.com##+js(href-sanitizer, 'a[href*="url=http"]:is([href^="https://cc.mashable.com/v1/"],[href^="https://go.skimresources.com?"],href^="https://shop-links.co/link/?url=http"],[href*=".com/click-"],[href*=".net/click-"])', ?url)
+cnet.com,hunker.com,pcgamingwiki.com,purewow.com,sheknows.com,streetinsider.com##+js(href-sanitizer, 'a[href*="u=http"]:is([href*=".com/c/"],[href*=".io/c/"],[href*=".net/c/"])', ?u)
+cnet.com,hunker.com,otherweb.com,pcgamingwiki.com,purewow.com##+js(href-sanitizer, 'a[href*="url=http"]:is([href^="https://cc."][href*=".com/v1/otc/"][href*="merchant="],[href^="https://go.skimresources.com"],[href^="https://shop-links.co/link/?url=http"],[href*=".com/click-"],[href*=".net/click-"])', ?url)
 ! https://www.windowscentral.com/software-apps/opera-will-independently-continue-supporting-ublock-origin
 windowscentral.com##+js(href-sanitizer, a[href^="https://go.redirectingat.com/"][href*="&url=http"], ?url)
 
