@@ -3832,10 +3832,7 @@ ustream.click##^script:has-text(\'shift\')
 ! https://github.com/uBlockOrigin/uBlock-issues/discussions/3096#discussioncomment-8273443
 ! https://1cloudfile.com/I7
 1cloudfile.com##+js(no-xhr-if, pagead2.googlesyndication.com)
-!#if !ext_devbuild
-1cloudfile.com##+js(rpnt, script, 200===r.status, 0===r.status, condition, getNextDownloadPageLink)
-!#endif
-1cloudfile.com##+js(rpnt, script, return r.responseText, return `a.getAttribute("data-ad-client")||""`, condition, getNextDownloadPageLink)
+1cloudfile.com##+js(trusted-prevent-xhr, googlesyndication, 'a.getAttribute("data-ad-client")||""')
 1cloudfile.com##+js(nosiif, !display)
 ! https://github.com/uBlockOrigin/uAssets/issues/22329
 1cloudfile.com##+js(nowoif)
