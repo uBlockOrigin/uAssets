@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Privacy
 ! Expires: 7 days
-! Last modified: Mon, 18 Nov 2024 05:10:00 +0000
+! Last modified: Mon, 18 Nov 2024 12:59:48 +0000
 ! Diff-Path: %diffpath%#ublock-privacy
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -342,6 +342,9 @@ bikesales.com.au##^html > head > :is([name="canonical"], [rel="canonical"]):not(
 ||rd.bizrate.com/rd*^t=http$doc,urlskip=?t +https
 ||engage.squarespace-mail.com/r*^u=http$doc,urlskip=?u
 /Prod/link-tracker?*redirectUrl=aHR0c$doc,urlskip=?redirectUrl -base64 -uricomponent +https
+||awin1.com/cread.php*^p=http$doc,urlskip=?p
+||awin1.com/cread.php*^ued=http$doc,urlskip=?ued
+threads.net##+js(json-prune, require.0.3.0.__bbox.define.[].2.is_linkshim_supported)
 ||search.app^*link=http$doc,urlskip=?link
 ! Click Trackers
 html.duckduckgo.com,lite.duckduckgo.com##+js(href-sanitizer, a[href^="//duckduckgo.com/l/?uddg="], ?uddg)
@@ -387,6 +390,8 @@ cnet.com##+js(set, Object.prototype.updateModifiedCommerceUrl, noopFunc)
 cnet.com,hunker.com,pcgamingwiki.com,purewow.com,sheknows.com,streetinsider.com##+js(href-sanitizer, 'a[href*="u=http"]:is([href*=".com/c/"],[href*=".io/c/"],[href*=".net/c/"])', ?u)
 cnet.com,hunker.com,otherweb.com,pcgamingwiki.com,purewow.com##+js(href-sanitizer, 'a[href*="url=http"]:is([href^="https://cc."][href*=".com/v1/otc/"][href*="merchant="],[href^="https://go.skimresources.com"],[href^="https://shop-links.co/link/?url=http"],[href*=".com/click-"],[href*=".net/click-"])', ?url)
 windowscentral.com##+js(href-sanitizer, a[href^="https://go.redirectingat.com/"][href*="&url=http"], ?url)
+shutupandtakemyyen.com##+js(href-sanitizer, a[href^="https://www.awin1.com/cread.php?"][href*="ued=http"], ?ued)
+shutupandtakemyyen.com##+js(href-sanitizer, a[href^="https://www.awin1.com/cread.php?"][href*="p=http"], ?p)
 ||cdn.digg.com/fragments/homepage/static/view-frontpage.js
 /detroitchicago/dpv.gif?$image
 /detroitchicago/imp.gif$ping
