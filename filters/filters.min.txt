@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Wed, 20 Nov 2024 14:27:52 +0000
+! Last modified: Wed, 20 Nov 2024 15:31:43 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -21062,7 +21062,7 @@ harshfaucet.com##.ads
 compromath.com##+js(no-fetch-if, ads)
 /ads/autopromo/*$media,xhr,redirect=noopmp3-0.1s,domain=deezer.com
 ||live.streamtheworld.com/media/*.mp3$media,domain=deezer.com|~widget.deezer.com,redirect=noopmp3-0.1s
-deezer.com##+js(json-prune-fetch-response, results, , propsToMatch, deezer.getAudiobreak)
+deezer.com##+js(trusted-replace-fetch-response, /<VAST version.+VAST>/, <VAST version=\"4.0\"></VAST>, deezer.getAudiobreak)
 deezer.com##+js(nostif, Ads)
 deezer.com##+js(set, smartLoaded, true)
 @@||s0.2mdn.net/instream/video/client.js$script,domain=deezer.com
