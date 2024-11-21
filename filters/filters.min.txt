@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Thu, 21 Nov 2024 01:22:03 +0000
+! Last modified: Thu, 21 Nov 2024 03:57:14 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -10737,6 +10737,15 @@ canela.tv##+js(trusted-replace-fetch-response, /#EXT-X-KEY:METHOD=NONE\n#EXT(?:I
 reliabletv.me##+js(set, window.navigator.brave, undefined)
 viralxxxporn.com##+js(set, flashvars.adv_pre_src, '')
 viralxxxporn.com##+js(set, flashvars.mlogo, '')
+@@*$ghide,to=activo.mx|dynamicsupply.net|foroactivo.com|zdsports.org|~www.activo.mx|~www.foroactivo.com
+@@||blogspot.com^$ghide,to=zscnl.blogspot.com|zsnls.blogspot.com
+!#if cap_html_filtering
+zdsptv.com##^script:has-text(/h=decodeURIComponent|popundersPerIP/)
+!#else
+zdsptv.com##+js(rmnt, script, /h=decodeURIComponent|popundersPerIP/)
+!#endif
+tarjetarojaenvivo.lat##^script#aclib
+||tarjetarojaenvivo.lat/lib.js^
 ! Link shortener filters go into their own dedicated list
 ! *** filters/ubo-link-shorteners.txt ***
 ! gplinks all domains (gplinks.co/EWu8)
