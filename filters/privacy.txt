@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Privacy
-! Last modified: Thu, 21 Nov 2024 07:19:55 +0000
+! Last modified: Thu, 21 Nov 2024 12:29:55 +0000
 ! Expires: 7 days
 ! Description: |
 !   Some of these filters make use of the `important` filter option,`
@@ -705,6 +705,16 @@ bikesales.com.au##^html > head > :is([name="canonical"], [rel="canonical"]):not(
 ||clixgalore.com/Lead.aspx*^LP=$doc,urlskip=?LP -uricomponent +https
 ! https://github.com/brave/adblock-lists/pull/770
 ||clixgalore.com/Lead.aspx*^AffDirectURL=$doc,urlskip=?AffDirectURL -uricomponent +https
+
+! https://github.com/brave/adblock-lists/issues/894
+||ojrq.net/p/?return=http$doc,urlskip=?return +https
+||d.agkn.com/pixel/*^l1=http$doc,urlskip=?l1
+
+! https://experienceleague.adobe.com/en/docs/audience-manager/user-guide/implementation-integration-guides/media-data-integration/click-data-pixels
+||demdex.net/*^d_rd=http$doc,urlskip=?d_rd +https
+
+! https://github.com/brave/adblock-lists/issues/892
+||api.bam-x.com/api/v1/clickmate/*^url=http$doc,urlskip=?url
 
 ! https://www.threads.net/@mosseri/post/C0m-tFjvitg/small-but-notable-update-to-share-weve-updated-the-link-referrer-for-threads-so-
 threads.net##+js(json-prune, require.0.3.0.__bbox.define.[].2.is_linkshim_supported)
