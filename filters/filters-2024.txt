@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2024)
-! Last modified: Fri, 22 Nov 2024 23:39:10 +0000
+! Last modified: Sat, 23 Nov 2024 15:30:24 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -791,6 +791,12 @@ emurom.net##+js(aost, jQuery, removeDLElements)
 xfreehd.com##.nvheader > span:has-text(Advertisement)
 *$frame,redirect-rule=noopframe,domain=xfreehd.com
 xfreehd.com##.ad-body:remove()
+!#if cap_html_filtering
+xfreehd.com##^script:has-text(/popMagic|nativeads|navigator\.brave|\.abk_msg|\.innerHTML|ad block|manipulation/)
+!#else
+xfreehd.com##+js(rmnt, script, /popMagic|nativeads|navigator\.brave|\.abk_msg|\.innerHTML|ad block|manipulation/)
+!#endif
+xfreehd.com##+js(nostif, /\.append|\.innerHTML|undefined|\.css|blocker|flex|\$\('|obfuscatedMsg/)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/1024
 @@||arkadiumhosted.com^$script,domain=arkadiumarena.com|games.baltimoresun.com|games.chicagotribune.com|games.dailypress.com|games.express.co.uk|games.mcall.com|games.nydailynews.com|games.orlandosentinel.com|games.sun-sentinel.com|puzzles.bestforpuzzles.com
