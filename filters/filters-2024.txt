@@ -791,6 +791,12 @@ emurom.net##+js(aost, jQuery, removeDLElements)
 xfreehd.com##.nvheader > span:has-text(Advertisement)
 *$frame,redirect-rule=noopframe,domain=xfreehd.com
 xfreehd.com##.ad-body:remove()
+!#if cap_html_filtering
+xfreehd.com##^script:has-text(/popMagic|nativeads|navigator\.brave|\.abk_msg|\.innerHTML|ad block|manipulation/)
+!#else
+xfreehd.com##+js(rmnt, script, /popMagic|nativeads|navigator\.brave|\.abk_msg|\.innerHTML|ad block|manipulation/)
+!#endif
+xfreehd.com##+js(nostif, /\.append|\.innerHTML|undefined|\.css|blocker|flex|\$\('|obfuscatedMsg/)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/1024
 @@||arkadiumhosted.com^$script,domain=arkadiumarena.com|games.baltimoresun.com|games.chicagotribune.com|games.dailypress.com|games.express.co.uk|games.mcall.com|games.nydailynews.com|games.orlandosentinel.com|games.sun-sentinel.com|puzzles.bestforpuzzles.com
