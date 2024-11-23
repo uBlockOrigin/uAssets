@@ -1,5 +1,5 @@
 ! Title: uBlock₀ filters – Quick fixes
-! Last modified: Sat, 23 Nov 2024 14:56:31 +0000
+! Last modified: Sat, 23 Nov 2024 15:30:01 +0000
 ! Expires: 8 hours
 ! Description: Immediate, temporary filters to fix websites
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -239,29 +239,9 @@ xfreehd.com##+js(rmnt, script, /popMagic|nativeads|navigator\.brave|\.abk_msg|\.
 !#endif
 xfreehd.com##+js(nostif, /\.append|\.innerHTML|undefined|\.css|blocker|flex|\$\('|obfuscatedMsg/)
 
-! https://github.com/uBlockOrigin/uAssets/issues/20620#issuecomment-2465802971
-music.amazon.*#@##overlay:has([href*="privacyprefs/"])
-
-! https://github.com/AdguardTeam/AdguardFilters/issues/189518#issuecomment-2468330308
-blog.livedoor.jp##+js(rmnt, script, selectRandomProduct)
-blog.livedoor.jp##.ads_more ~ .article-main2 > div[style*="margin:"][style*="#"]:has(img[src*="amazon."])
-blog.livedoor.jp##.kiziue > #product-container
-blog.livedoor.jp##:matches-path(/goldennews/)a[href^="https://www.amazon.co.jp"],a[href^="https://amzn.to"]
-
-! https://github.com/uBlockOrigin/uAssets/issues/25966#issuecomment-2473824597
-||downdetector.com/cdn-cgi/trace$badfilter
-
 ! https://github.com/uBlockOrigin/uAssets/issues/25990
 ||karistudio.com/wp-content/themes/blogarise-child/check2.js$important
 karistudio.com##p.chapter_content:style(display: block !important; visibility: visible !important; opacity: 1 !important; transform: none !important;)
-
-! https://github.com/AdguardTeam/AdguardFilters/issues/183252
-exploader.net#@#article > div[style="margin-left: -63px;width: 1120px;height: 450px;margin-bottom: 5px;display: flex;align-items: center;"]:remove()
-exploader.net##article > div[style="margin-left: -63px;width: 1120px;height: 450px;margin-bottom: 5px;display: flex;align-items: center;"]:style(position: absolute !important; clip:rect(1px,1px,1px,1px) !important;)
-exploader.net##article > div[style="display: flex;align-items: center;margin-bottom: 5px;"] > div[data-pr="1"][style^="min-height: 20px;"]
-
-! https://www.reddit.com/r/uBlockOrigin/comments/1gstcwp/how_to_remove_ubo_webfont_filters/
-||cdnpk.net^$domain=flaticon.com,badfilter
 
 ! https://github.com/uBlockOrigin/uAssets/issues/20907
 !cursomecanet.com##+js(nostif, /document\.write|Math\.floor/)
