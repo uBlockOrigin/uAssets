@@ -602,8 +602,10 @@ bikesales.com.au##^html > head > :is([name="canonical"], [rel="canonical"]):not(
 /Proxy.ashx?*&GR_URL=http$doc,urlskip=?GR_URL
 ||clicks.trx-hub.com/*^q=http$doc,urlskip=?q
 ||shop-links.co/link*^url=http$doc,urlskip=?url
-||go.skimresources.com/*^url=http$doc,urlskip=?url
 ||prf.hn/click/*/destination:http$doc,urlskip=/\/destination:([^\/]+)/ -uricomponent
+! https://github.com/uBlockOrigin/uAssets/issues/23729
+||go.redirectingat.com/*^url=http$doc,urlskip=?url
+||go.skimresources.com/*^url=http$doc,urlskip=?url
 
 ! https://github.com/uBlockOrigin/uAssets/issues/26126
 ||click.linksynergy.com/*^murl=http$doc,urlskip=?murl
@@ -625,9 +627,6 @@ bikesales.com.au##^html > head > :is([name="canonical"], [rel="canonical"]):not(
 
 ! https://www.engadget.com/samsung-galaxy-s23-ultra-review-specs-price-photo-and-video-take-center-stage-140034341.html
 ||shopping.yahoo.com/rdlw*^gcReferrer=http$doc,urlskip=?gcReferrer
-
-! https://github.com/uBlockOrigin/uAssets/issues/23729
-||go.redirectingat.com/*^url=http$doc,urlskip=?url
 
 ! https://www.flexoffers.com/new-features/new-deep-linking-url-structure/
 ||track.flexlinks.com/a.ashx*^url=http$doc,urlskip=?url
@@ -752,6 +751,11 @@ bikesales.com.au##^html > head > :is([name="canonical"], [rel="canonical"]):not(
 ! https://help.icontact.com/customers/s/article/Your-Message-Contains-An-Invalid-Link
 ||click.icptrack.com/icp/relay.php*^destination=http$doc,urlskip=?destination +https
 
+! https://www.sport-passion.fr/comparatifs/meilleurs-compteurs-gps-de-velo-et-vtt.php
+||track.effiliation.com/servlet/effi.redir*^url=http$doc,urlskip=?url
+||tradeinn.com/ts/*^trg=http$doc,urlskip=?trg
+||fsx.i-run.fr/*^redir=http$doc,urlskip=?redir
+
 ! https://www.threads.net/@mosseri/post/C0m-tFjvitg/small-but-notable-update-to-share-weve-updated-the-link-referrer-for-threads-so-
 threads.net##+js(json-prune, require.0.3.0.__bbox.define.[].2.is_linkshim_supported)
 ||l.threads.net/?u=http$doc,urlskip=?u
@@ -835,7 +839,7 @@ engadget.com##+js(href-sanitizer, a[href^="https://shopping.yahoo.com/rdlw?"][hr
 ! https://www.space.com/drone-deals
 cnet.com##+js(set, Object.prototype.updateModifiedCommerceUrl, noopFunc)
 cnet.com,hunker.com,pcgamingwiki.com,pcpartpicker.com,purewow.com,sheknows.com,space.com,streetinsider.com##+js(href-sanitizer, 'a[href*="u=http"]:is([href*=".com/c/"],[href*=".io/c/"],[href*=".net/c/"])', ?u)
-cnet.com,hunker.com,otherweb.com,pcgamingwiki.com,purewow.com,space.com##+js(href-sanitizer, 'a[href*="url=http"]:is([href^="https://cc."][href*=".com/v1/otc/"][href*="merchant="],[href^="https://go.skimresources.com"],[href^="https://shop-links.co/link"],[href*=".com/click-"],[href*=".net/click-"])', ?url)
+cnet.com,hunker.com,otherweb.com,pcgamingwiki.com,purewow.com,space.com,sport-passion.fr##+js(href-sanitizer, 'a[href*="url=http"]:is([href^="https://cc."][href*=".com/v1/otc/"][href*="merchant="],[href^="https://go.skimresources.com/"],[href^="https://go.redirectingat.com/"],[href^="https://shop-links.co/link"],[href^="https://track.effiliation.com/servlet/effi.redir?"],[href*=".com/click-"],[href*=".net/click-"])', ?url)
 pcpartpicker.com##+js(href-sanitizer, a[href^="https://click.linksynergy.com/"][href*="link?id="][href*="&murl=http"], ?murl)
 space.com##+js(href-sanitizer, a[href*="/Proxy.ashx?"][href*="GR_URL=http"], ?GR_URL)
 ! https://www.windowscentral.com/software-apps/opera-will-independently-continue-supporting-ublock-origin
@@ -845,6 +849,9 @@ shutupandtakemyyen.com##+js(href-sanitizer, a[href^="https://www.awin1.com/cread
 shutupandtakemyyen.com##+js(href-sanitizer, a[href^="https://www.awin1.com/cread.php?"][href*="p=http"], ?p)
 ! https://forums.redflagdeals.com/henrys-used-camera-equipment-20-off-90-day-warranty-ends-march-28-2024-2676433/
 forums.redflagdeals.com##+js(href-sanitizer, a.autolinker_link[href*=".com/t/"][href*="url=http"], ?url)
+! https://www.sport-passion.fr/comparatifs/meilleurs-compteurs-gps-de-velo-et-vtt.php
+sport-passion.fr##+js(href-sanitizer, a[rel="sponsored nofollow"][href^="https://fsx.i-run.fr/?"][href*="redir=http"], ?redir)
+sport-passion.fr##+js(href-sanitizer, a[rel="sponsored nofollow"][href*=".tradeinn.com/ts/"][href*="trg=http"], ?trg)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/24675 - click tracking
 ||cdn.digg.com/fragments/homepage/static/view-frontpage.js
