@@ -597,7 +597,7 @@ bikesales.com.au##^html > head > :is([name="canonical"], [rel="canonical"]):not(
 ! https://www.purewow.com/fashion/four-bs-french-outfit-staples
 ! https://github.com/uBlockOrigin/uAssets/issues/26126
 ! https://www.space.com/drone-deals
-/^https?:\/\/(?:[^.]+\.){2}(?:com|io|net)\/c(?:\/\d+){3}\/?\?.*?&?u=http/$doc,to=com|io|net,urlskip=?u
+/^https?:\/\/(?:[^.]+\.){2}(?:com|io|net)\/c(?:\/\d+){3}\/?\?.*?&?u=http/$doc,to=com|io|net,urlskip=?u +https
 /^https?:\/\/www\.[a-z]+\.(?:com|net)\/click-\d{7}-\d{8}\b.*?[?&]url=http/$doc,to=com|net,urlskip=?url
 /Proxy.ashx?*&GR_URL=http$doc,urlskip=?GR_URL
 ||clicks.trx-hub.com/*^q=http$doc,urlskip=?q
@@ -630,6 +630,8 @@ bikesales.com.au##^html > head > :is([name="canonical"], [rel="canonical"]):not(
 
 ! https://www.flexoffers.com/new-features/new-deep-linking-url-structure/
 ||track.flexlinks.com/a.ashx*^url=http$doc,urlskip=?url
+! https://jljbacktoclassic.com/archives/16956
+||track.flexlinkspro.com/a.ashx*^url=http$doc,urlskip=?url
 
 ! https://docs.fmtc.co/kb/pepperjam
 ! https://www.youtube.com/watch?v=HmonnOY9YK8
@@ -773,7 +775,7 @@ threads.net##+js(json-prune, require.0.3.0.__bbox.define.[].2.is_linkshim_suppor
 ||ds1.nl/redirect/*^dai_url=http$doc,urlskip=?dai_url
 
 ! https://github.com/uBlockOrigin/uBlock-issues/issues/1096
-||anrdoezrs.net/links/*/type/dlg/http$doc,urlskip=/\/dlg\/(http.+)/
+||anrdoezrs.net/links/*/type/dlg/http$doc,urlskip=/\/dlg\/(http.+)/ +https
 
 ! Click Trackers
 ! https://reddit.com/r/uBlockOrigin/comments/14t3y1d/
@@ -846,9 +848,10 @@ engadget.com##+js(href-sanitizer, a[href^="https://shopping.yahoo.com/rdlw?"][hr
 ! https://www.purewow.com/fashion/four-bs-french-outfit-staples
 ! https://github.com/uBlockOrigin/uAssets/issues/26126
 ! https://www.space.com/drone-deals
+! https://jljbacktoclassic.com/archives/16956
 cnet.com##+js(set, Object.prototype.updateModifiedCommerceUrl, noopFunc)
 cnet.com,hunker.com,pcgamingwiki.com,pcpartpicker.com,purewow.com,sheknows.com,space.com,streetinsider.com##+js(href-sanitizer, 'a[href*="u=http"]:is([href*=".com/c/"],[href*=".io/c/"],[href*=".net/c/"])', ?u)
-cnet.com,hunker.com,otherweb.com,pcgamingwiki.com,purewow.com,space.com,sport-passion.fr##+js(href-sanitizer, 'a[href*="url=http"]:is([href^="https://cc."][href*=".com/v1/otc/"][href*="merchant="],[href^="https://go.skimresources.com/"],[href^="https://go.redirectingat.com/"],[href^="https://shop-links.co/link"],[href^="https://track.effiliation.com/servlet/effi.redir?"],[href*=".com/click-"],[href*=".net/click-"])', ?url)
+cnet.com,hunker.com,jljbacktoclassic.com,otherweb.com,pcgamingwiki.com,purewow.com,space.com,sport-passion.fr##+js(href-sanitizer, 'a[href*="url=http"]:is([href^="https://cc."][href*=".com/v1/otc/"][href*="merchant="],[href^="https://go.skimresources.com/"],[href^="https://go.redirectingat.com/"],[href^="https://shop-links.co/link"],[href^="https://track.effiliation.com/servlet/effi.redir?"],[href*=".com/a.ashx?"],[href*=".com/click-"],[href*=".net/click-"])', ?url)
 pcpartpicker.com##+js(href-sanitizer, a[href^="https://click.linksynergy.com/"][href*="link?id="][href*="&murl=http"], ?murl)
 space.com##+js(href-sanitizer, a[href*="/Proxy.ashx?"][href*="GR_URL=http"], ?GR_URL)
 ! https://www.windowscentral.com/software-apps/opera-will-independently-continue-supporting-ublock-origin
@@ -861,6 +864,8 @@ forums.redflagdeals.com##+js(href-sanitizer, a.autolinker_link[href*=".com/t/"][
 ! https://www.sport-passion.fr/comparatifs/meilleurs-compteurs-gps-de-velo-et-vtt.php
 sport-passion.fr##+js(href-sanitizer, a[rel="sponsored nofollow"][href^="https://fsx.i-run.fr/?"][href*="redir=http"], ?redir)
 sport-passion.fr##+js(href-sanitizer, a[rel="sponsored nofollow"][href*=".tradeinn.com/ts/"][href*="trg=http"], ?trg)
+! https://jljbacktoclassic.com/archives/16956
+jljbacktoclassic.com##+js(href-sanitizer, a[href*=".com/r.cfm?"][href*="urllink=http"], ?urllink)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/24675 - click tracking
 ||cdn.digg.com/fragments/homepage/static/view-frontpage.js
@@ -1114,7 +1119,7 @@ $removeparam=igshid,domain=instagram.com|threads.net
 ! https://github.com/DandelionSprout/adfilt/discussions/163#discussioncomment-10269579
 ! https://github.com/uBlockOrigin/uAssets/issues/25667
 ! https://www.reddit.com/r/uBlockOrigin/comments/1g50usk/amazon_similar_items_link_resolving_to_bad_url/
-/dp/*/ref=$document,uritransform=/\/ref=[^\/?]+//,to=www.amazon.*
+/dp/*/ref=$doc,uritransform=/\/ref=[^\/?#]+//,to=www.amazon.*
 
 ! https://github.com/easylist/easylist/issues/16468#issuecomment-1691717458
 natgeotv.com##+js(no-xhr-if, /VisitorAPI|AppMeasurement/)
