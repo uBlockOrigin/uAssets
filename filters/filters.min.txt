@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Tue, 26 Nov 2024 11:52:00 +0000
+! Last modified: Tue, 26 Nov 2024 11:55:13 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -20506,8 +20506,10 @@ www.chip.de###CR[class="Downloads-Getfile"] > #G32 > #M1 > div:not([class="wrapp
 ! restore speed (the anti adblock script causing lag spikes)
 !#if cap_html_filtering
 www.chip.de##^script:has-text(/\+\+\) \{  \} \}/)
+www.chip.de##^script:has-text(?metric=transit.counter&key=fail_redirect&tags=)
 !#else
 www.chip.de##+js(rmnt, script, /\+\+\) \{  \} \}/)
+www.chip.de##+js(rmnt, script, ?metric=transit.counter&key=fail_redirect&tags=)
 !#endif
 ||nah-versorger.de^$3p
 ||stopundstart.de^$3p
