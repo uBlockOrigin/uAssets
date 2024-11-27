@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Privacy
 ! Expires: 7 days
-! Last modified: Tue, 26 Nov 2024 16:30:32 +0000
+! Last modified: Wed, 27 Nov 2024 05:01:12 +0000
 ! Diff-Path: %diffpath%#ublock-privacy
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -389,11 +389,12 @@ threads.net##+js(json-prune, require.0.3.0.__bbox.define.[].2.is_linkshim_suppor
 ||search.app^*link=http$doc,urlskip=?link
 ||bing.com/ck/a*^u=a1aHR0c$doc,urlskip=/[?&]u=a1(aHR0c[^&#]+)/ -base64 +https
 ||ds1.nl/redirect/*^dai_url=http$doc,urlskip=?dai_url
-||anrdoezrs.net/links/*/type/dlg/http$doc,urlskip=/\/dlg\/(http.+)/ +https
+/^https?:\/\/www\.anrdoezrs\.net\/links\/\d+\/type\/dlg\/(?:sid\/\w+\/)?http/$doc,to=anrdoezrs.net,urlskip=/\/dlg\/(?:sid\/\w+\/)?(http.+)/ +https
 /tradetracker/?tt=*&r=http$doc,urlskip=?r
 ||r.bttn.io/*^btn_url=http$doc,urlskip=?btn_url
 ||prsm1.com/r?url=http$doc,urlskip=?url
 ||link.theskimm.com/click/*/aHR0c$doc,urlskip=/\/click\/[^\/]+\/(aHR0c[^\/]+)/ -base64
+||redirect.viglink.com/*^ourl=http$doc,urlskip=?ourl
 ! Click Trackers
 html.duckduckgo.com,lite.duckduckgo.com##+js(href-sanitizer, a[href^="//duckduckgo.com/l/?uddg="], ?uddg)
 starstyle.com##+js(href-sanitizer, a[href^="https://go.skimresources.com/"][href*="&url=http"], ?url)
@@ -418,6 +419,7 @@ steamcommunity.com##+js(href-sanitizer, a[href^="https://steamcommunity.com/link
 steamcommunity.com##+js(href-sanitizer, a[href^="https://steamcommunity.com/linkfilter/?u=http"], ?u)
 colab.research.google.com##+js(href-sanitizer, a[href^="https://colab.research.google.com/corgiredirector?site=http"], ?site)
 xda-developers.com##+js(href-sanitizer, a[href^="https://shop-links.co/link/?"][href*="&url=http"], ?url)
+xda-developers.com##+js(href-sanitizer, a[href^="https://redirect.viglink.com/?"][href*="ourl=http"], ?ourl)
 isthereanydeal.com##+js(href-sanitizer, a[href^="http://www.jdoqocy.com/click-"][href*="?URL=http"], ?URL)
 isthereanydeal.com##+js(href-sanitizer, a[href^="https://track.adtraction.com/t/t?"][href*="&url=http"], ?url)
 metager.org##+js(href-sanitizer, a[href^="https://metager.org/partner/r?link=http"], ?link)
@@ -431,12 +433,12 @@ justwatch.com##+js(href-sanitizer, 'a:is([href^="https://click.justwatch.com/"],
 variety.com##+js(href-sanitizer, a[href^="https://clicks.trx-hub.com/"][href*="bn5x.net"], ?q?u)
 engadget.com##+js(href-sanitizer, a[href^="https://shopping.yahoo.com/rdlw?"][href*="gcReferrer=http"], ?gcReferrer)
 cnet.com##+js(set, Object.prototype.updateModifiedCommerceUrl, noopFunc)
-cnet.com,dogfoodadvisor.com,hunker.com,insidehook.com,pcgamingwiki.com,pcpartpicker.com,purewow.com,sheknows.com,space.com,streetinsider.com##+js(href-sanitizer, 'a[href*="u=http"]:is([href*=".com/c/"],[href*=".io/c/"],[href*=".net/c/"])', ?u)
-androidauthority.com,cnet.com,hunker.com,insidehook.com,jljbacktoclassic.com,otherweb.com,pcgamingwiki.com,purewow.com,space.com,sport-passion.fr##+js(href-sanitizer, 'a[href*="url=http"]:is([href^="https://cc."][href*=".com/v1/otc/"][href*="merchant="],[href^="https://go.skimresources.com"],[href^="https://go.redirectingat.com"],[href^="https://shop-links.co/link"],[href^="https://track.effiliation.com/servlet/effi.redir?"],[href*=".com/a.ashx?"],[href^="https://www."][href*=".com/t/"],[href*=".prsm1.com/r?"],[href*=".com/click-"],[href*=".net/click-"])', ?url)
+cnet.com,dogfoodadvisor.com,hunker.com,insidehook.com,pcgamingwiki.com,pcpartpicker.com,purewow.com,sheknows.com,space.com,streetinsider.com##+js(href-sanitizer, 'a[href*="?"][href*="u=http"]:is([href*=".com/c/"],[href*=".io/c/"],[href*=".net/c/"])', ?u)
+androidauthority.com,cnet.com,hunker.com,insidehook.com,jljbacktoclassic.com,otherweb.com,pcgamingwiki.com,purewow.com,space.com,sport-passion.fr##+js(href-sanitizer, 'a[href*="?"][href*="url=http"]:is([href^="https://cc."][href*=".com/v1/otc/"][href*="merchant="],[href^="https://go.skimresources.com"],[href^="https://go.redirectingat.com"],[href^="https://shop-links.co/link"],[href^="https://track.effiliation.com/servlet/effi.redir?"],[href*=".com/a.ashx?"],[href^="https://www."][href*=".com/t/"],[href*=".prsm1.com/r?"],[href*=".com/click-"],[href*=".net/click-"])', ?url)
 space.com##+js(href-sanitizer, a[href*="/Proxy.ashx?"][href*="GR_URL=http"], ?GR_URL)
 windowscentral.com##+js(href-sanitizer, a[href^="https://go.redirectingat.com/"][href*="&url=http"], ?url)
-insidehook.com,shutupandtakemyyen.com,thisiswhyimbroke.com##+js(href-sanitizer, a[href^="https://www.awin1.com/cread.php?"][href*="ued=http"], ?ued)
-insidehook.com,shutupandtakemyyen.com,thisiswhyimbroke.com##+js(href-sanitizer, a[href^="https://www.awin1.com/cread.php?"][href*="p=http"], ?p)
+insidehook.com,shutupandtakemyyen.com,thisiswhyimbroke.com,xda-developers.com##+js(href-sanitizer, a[href*="awin1.com/cread.php?"][href*="ued=http"], ?ued)
+insidehook.com,shutupandtakemyyen.com,thisiswhyimbroke.com,xda-developers.com##+js(href-sanitizer, a[href*="awin1.com/cread.php?"][href*="p=http"], ?p)
 forums.redflagdeals.com##+js(href-sanitizer, a.autolinker_link[href*=".com/t/"][href*="url=http"], ?url)
 sport-passion.fr##+js(href-sanitizer, a[rel="sponsored nofollow"][href^="https://fsx.i-run.fr/?"][href*="redir=http"], ?redir)
 sport-passion.fr##+js(href-sanitizer, a[rel="sponsored nofollow"][href*=".tradeinn.com/ts/"][href*="trg=http"], ?trg)
