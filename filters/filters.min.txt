@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Wed, 27 Nov 2024 15:06:36 +0000
+! Last modified: Wed, 27 Nov 2024 15:22:41 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -19229,10 +19229,14 @@ streamingcommunity.*##^script:has-text(/adblock/i)
 ||googletagmanager.com^$xhr,domain=streamingcommunity.*,redirect-rule=noop.js
 !#endif
 streamingcommunity.*##.slide-banner:has(> .slide-banner__container)
-streamingcommunity.*##+js(set, importFAB.onload, undefined)
 streamingcommunity.*##+js(aeld, click, popName)
 streamingcommunity.*##+js(nowoif, _blank)
 ||streamingcommunity.*/slide-banner/$all
+!#if cap_html_filtering
+streamingcommunity.*##^script:has-text(blockAdBlock)
+!#else
+streamingcommunity.*##+js(rmnt, script, blockAdBlock)
+!#endif
 ! tennistream. com => players => popups
 larsenik.com##+js(nowoif)
 /main.js$script,3p,domain=criptologico.com
