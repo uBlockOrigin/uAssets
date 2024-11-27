@@ -2849,10 +2849,14 @@ streamingcommunity.*##^script:has-text(/adblock/i)
 !#endif
 ! https://github.com/uBlockOrigin/uAssets/issues/26177
 streamingcommunity.*##.slide-banner:has(> .slide-banner__container)
-streamingcommunity.*##+js(set, importFAB.onload, undefined)
 streamingcommunity.*##+js(aeld, click, popName)
 streamingcommunity.*##+js(nowoif, _blank)
 ||streamingcommunity.*/slide-banner/$all
+!#if cap_html_filtering
+streamingcommunity.*##^script:has-text(blockAdBlock)
+!#else
+streamingcommunity.*##+js(rmnt, script, blockAdBlock)
+!#endif
 
 ! tennistream. com => players => popups
 larsenik.com##+js(nowoif)
