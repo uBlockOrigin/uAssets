@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Privacy
 ! Expires: 7 days
-! Last modified: Wed, 27 Nov 2024 05:01:12 +0000
+! Last modified: Thu, 28 Nov 2024 04:13:22 +0000
 ! Diff-Path: %diffpath%#ublock-privacy
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -391,7 +391,9 @@ threads.net##+js(json-prune, require.0.3.0.__bbox.define.[].2.is_linkshim_suppor
 ||ds1.nl/redirect/*^dai_url=http$doc,urlskip=?dai_url
 /^https?:\/\/www\.anrdoezrs\.net\/links\/\d+\/type\/dlg\/(?:sid\/\w+\/)?http/$doc,to=anrdoezrs.net,urlskip=/\/dlg\/(?:sid\/\w+\/)?(http.+)/ +https
 /tradetracker/?tt=*&r=http$doc,urlskip=?r
-||r.bttn.io/*^btn_url=http$doc,urlskip=?btn_url
+!#if !env_mobile
+||r.bttn.io/*^btn_desktop_url=http$document,urlskip=?btn_desktop_url
+!#endif
 ||prsm1.com/r?url=http$doc,urlskip=?url
 ||link.theskimm.com/click/*/aHR0c$doc,urlskip=/\/click\/[^\/]+\/(aHR0c[^\/]+)/ -base64
 ||redirect.viglink.com/*^ourl=http$doc,urlskip=?ourl

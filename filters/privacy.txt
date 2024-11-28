@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Privacy
-! Last modified: Wed, 27 Nov 2024 05:01:12 +0000
+! Last modified: Thu, 28 Nov 2024 04:13:22 +0000
 ! Expires: 7 days
 ! Description: |
 !   Some of these filters make use of the `important` filter option,`
@@ -785,7 +785,10 @@ threads.net##+js(json-prune, require.0.3.0.__bbox.define.[].2.is_linkshim_suppor
 /tradetracker/?tt=*&r=http$doc,urlskip=?r
 
 ! https://www.androidauthority.com/black-friday-deals-2024-3499762/
-||r.bttn.io/*^btn_url=http$doc,urlskip=?btn_url
+! https://github.com/uBlockOrigin/uAssets/issues/26204
+!#if !env_mobile
+||r.bttn.io/*^btn_desktop_url=http$document,urlskip=?btn_desktop_url
+!#endif
 
 ! https://www.insidehook.com/deals
 ||prsm1.com/r?url=http$doc,urlskip=?url
