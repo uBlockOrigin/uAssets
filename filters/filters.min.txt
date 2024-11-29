@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Fri, 29 Nov 2024 11:40:10 +0000
+! Last modified: Fri, 29 Nov 2024 11:53:53 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -10113,7 +10113,12 @@ service.webgoto.net##:not(:matches-path(/amafav/)) a[href^="https://www.amazon.c
 dreamdth.com,freemodsapp.in,onlytech.com##+js(acs, eval, replace)
 dreamdth.com,freemodsapp.in,onlytech.com##+js(nostif, document.createElement)
 freemodsapp.in##^script:has-text(/eval\(.+?decodeURIComponent/)
+!#if env_firefox
+tokuzilla.net##[onclick*="_blank"]:remove-attr(onclick)
+!#else
 tokuzilla.net##+js(ra, onclick, [onclick*="_blank"], stay)
+!#endif
+tokuzilla.net##+js(nowoif, _blank)
 javball.com##+js(no-fetch-if, adsbygoogle)
 javball.com##+js(aopr, popns)
 eurostreaming.casino##+js(acs, document.documentElement, break;case $.)

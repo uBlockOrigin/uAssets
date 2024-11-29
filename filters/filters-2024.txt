@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2024)
-! Last modified: Fri, 29 Nov 2024 11:40:10 +0000
+! Last modified: Fri, 29 Nov 2024 11:53:53 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -2907,7 +2907,12 @@ dreamdth.com,freemodsapp.in,onlytech.com##+js(nostif, document.createElement)
 freemodsapp.in##^script:has-text(/eval\(.+?decodeURIComponent/)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/26229
+!#if env_firefox
+tokuzilla.net##[onclick*="_blank"]:remove-attr(onclick)
+!#else
 tokuzilla.net##+js(ra, onclick, [onclick*="_blank"], stay)
+!#endif
+tokuzilla.net##+js(nowoif, _blank)
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/183713
 javball.com##+js(no-fetch-if, adsbygoogle)
