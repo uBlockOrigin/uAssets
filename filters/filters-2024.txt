@@ -69,17 +69,22 @@ embed.smashystream.com###addiv
 streambucket.net##+js(acs, EventTarget.prototype.addEventListener, /runPop|aclib|window\.open/)
 streambucket.net##+js(acs, atob, /popundersPerIP[\s\S]*?Date[\s\S]*?getElementsByTagName[\s\S]*?insertBefore/)
 streambucket.net##+js(aopr, Adcash)
+!#if cap_html_filtering
+streambucket.net##^script:has-text(/h=decodeURIComponent|popundersPerIP|adserverDomain/)
+!#else
+streambucket.net##+js(rmnt, script, /h=decodeURIComponent|popundersPerIP|adserverDomain/)
+!#endif
 kokostream.net##+js(nowoif)
 *$script,3p,denyallow=gstatic.com,domain=streambucket.net
 ! https://github.com/uBlockOrigin/uAssets/issues/22762#issuecomment-1977984428
 player.smashy.stream##.react-responsive-modal-root
 ! https://bingemaster.netlify.app/movie_details/movie_details.html?id=1034541 - SS server popups and anti-adb
-player.smashystream.com##+js(nowoif)
+player.smashy.stream,player.smashystream.com##+js(nowoif)
 !#if cap_html_filtering
-smashystream.com##^script:has-text(/shown_at|WebAssembly/)
+player.smashy.stream,player.smashystream.com##^script:has-text(/shown_at|WebAssembly/)
 !#else
-smashystream.com##+js(rmnt, script, /shown_at|WebAssembly/)
-smashystream.com##+js(acs, globalThis, shown_at)
+player.smashy.stream,player.smashystream.com##+js(rmnt, script, /shown_at|WebAssembly/)
+player.smashy.stream,player.smashystream.com##+js(acs, globalThis, shown_at)
 !#endif
 smashyplayer.top##+js(aeld, click, document.createElement)
 ||imasdk.googleapis.com/js/sdkloader/ima3.js$script,domain=smashyplayer.top,redirect=google-ima.js
