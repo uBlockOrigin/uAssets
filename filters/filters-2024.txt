@@ -2907,7 +2907,12 @@ dreamdth.com,freemodsapp.in,onlytech.com##+js(nostif, document.createElement)
 freemodsapp.in##^script:has-text(/eval\(.+?decodeURIComponent/)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/26229
+!#if env_firefox
+tokuzilla.net##[onclick*="_blank"]:remove-attr(onclick)
+!#else
 tokuzilla.net##+js(ra, onclick, [onclick*="_blank"], stay)
+!#endif
+tokuzilla.net##+js(nowoif, _blank)
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/183713
 javball.com##+js(no-fetch-if, adsbygoogle)
