@@ -623,7 +623,12 @@ bild.de##aside[data-type="ad"]
 ! https://www.reddit.com/r/uBlockOrigin/comments/jxrzda/
 ||tagger.opecloud.com^$xhr,redirect=noop.txt,domain=bild.de
 bild.de##+js(aopr, SmartAdServerASMI)
+! https://www.reddit.com/r/uBlockOrigin/comments/1gldn2v/bildde_adblockwall/
+!#if cap_html_filtering
+||bild.de^$doc,replace=/"adBlockWallEnabled":true/"adBlockWallEnabled":false/
+!#else
 bild.de##+js(rpnt, script, "adBlockWallEnabled":true, "adBlockWallEnabled":false)
+!#endif
 sport.bild.de#@#.ad-wrapper
 ! https://github.com/uBlockOrigin/uAssets/issues/8360
 spiele.bild.de##+js(nano-stb, , 10000)
