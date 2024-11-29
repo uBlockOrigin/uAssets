@@ -1,5 +1,5 @@
 ! Title: uBlock filters
-! Last modified: Thu, 28 Nov 2024 21:27:51 +0000
+! Last modified: Fri, 29 Nov 2024 03:32:48 +0000
 ! Expires: 5 days
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
@@ -623,7 +623,12 @@ bild.de##aside[data-type="ad"]
 ! https://www.reddit.com/r/uBlockOrigin/comments/jxrzda/
 ||tagger.opecloud.com^$xhr,redirect=noop.txt,domain=bild.de
 bild.de##+js(aopr, SmartAdServerASMI)
+! https://www.reddit.com/r/uBlockOrigin/comments/1gldn2v/bildde_adblockwall/
+!#if cap_html_filtering
+||bild.de^$doc,replace=/"adBlockWallEnabled":true/"adBlockWallEnabled":false/
+!#else
 bild.de##+js(rpnt, script, "adBlockWallEnabled":true, "adBlockWallEnabled":false)
+!#endif
 sport.bild.de#@#.ad-wrapper
 ! https://github.com/uBlockOrigin/uAssets/issues/8360
 spiele.bild.de##+js(nano-stb, , 10000)
