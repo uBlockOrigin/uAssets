@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2021)
-! Last modified: Sat, 30 Nov 2024 17:20:47 +0000
+! Last modified: Sat, 30 Nov 2024 17:44:49 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -1003,10 +1003,6 @@ imginn.com,finchtechs.com##+js(acs, document.createElement, unblocker)
 ! https://github.com/uBlockOrigin/uAssets/issues/8618
 ||googlesyndication.com/pagead/js/adsbygoogle.js$script,redirect=noop.js,domain=anidraw.net
 
-! torlook.info popup ads
-torlook.info##+js(acs, document.createElement, 'script')
-*$script,3p,denyallow=cloudflare.com|googleapis.com|yastatic.net,domain=torlook.info
-
 ! https://github.com/easylist/easylist/pull/7248
 fpo.xxx##+js(set, flashvars.adv_pause_html, '')
 fpo.xxx##+js(set, flashvars.adv_pre_src, '')
@@ -1024,7 +1020,6 @@ gayforfans.com##+js(aeld, getexoloader)
 ! cinecalidad popups
 cinecalidad.*##+js(set, playerAdSettings.adLink, '')
 cinecalidad.*##+js(set, playerAdSettings.waitTime, 0)
-cinecalidad2.com##+js(acs, document.getElementsByTagName, onclick)
 cine-calidad.*##+js(aeld, click, allclick_Public)
 cine-calidad.*##+js(aopw, adcashMacros)
 cine-calidad.*##+js(ra, href, #opfk)
@@ -1071,11 +1066,6 @@ jptorrent.org##+js(nano-stb)
 qub.ca##.jss2
 !#endif
 
-! https://github.com/AdguardTeam/AdguardFilters/issues/76597
-! https://github.com/uBlockOrigin/uAssets/issues/21211
-incestflix.com##body > div[style*="z-index:"]
-
-
 ! xtube.com PH
 xtube.com##.pageBanner
 xtube.com##.panelBottomSpace > li.pull-right
@@ -1084,27 +1074,12 @@ xtube.com##body.desktopView.hasFooterAd .mainSection:style(margin-bottom: 0!impo
 
 ##[href^="https://exi8ef83z9.com/"]
 
-! https://github.com/AdguardTeam/AdguardFilters/issues/73966
-videowood.tv##+js(aopr, LieDetector)
-videowood.tv##+js(aopr, PopURL)
-videowood.tv##+js(aopr, _wm)
-videowood.tv##+js(aopw, adcashMacros)
-videowood.tv##+js(nowoif)
-videowood.tv##+js(aeld, , dtnoppu)
-||teste1eeeeess.blogspot.com^$frame,3p
-||adstructor.com^
-||grapereward.website^
-||tabledestruction.hair^
-
 ! https://github.com/uBlockOrigin/uAssets/issues/8671
 hideandseek.world##+js(set, canRunAds, true)
 
 ! https://github.com/easylist/easylist/issues/7331#issuecomment-791886559
 speedostream.*##+js(aost, JSON.parse, computed)
 ||s.speedostream.*^$script,1p
-
-! https://github.com/AdguardTeam/AdguardFilters/issues/76791
-@@||nnaa66.xyz^$ghide
 
 ! https://github.com/uBlockOrigin/uAssets/issues/8674
 discovermagazine.com##a > img + div[class]:last-of-type:has-text(Sponsored):upward(div[sizes])
@@ -1157,9 +1132,6 @@ linkpoi.me##+js(no-fetch-if, manager)
 ! https://github.com/uBlockOrigin/uAssets/issues/8697
 alohatube.xyz##+js(set, popit, false)
 
-! https://www.reddit.com/r/uBlockOrigin/comments/m1gkn7/how_can_i_block_ads_on_this_site/
-@@||asklaftananlamazinhindi.com^$ghide
-
 ! https://github.com/AdguardTeam/AdguardFilters/issues/77079
 solotrend.net##+js(aopr, b2a)
 solotrend.net##[href^="https://www.hoster.co.id/"]
@@ -1171,19 +1143,10 @@ freevstplugins.net##+js(acs, document.getElementById, adsBlocked)
 freevstplugins.net##ins.adsbygoogle
 freevstplugins.net##.advert-wrap
 
-! https://github.com/AdguardTeam/AdguardFilters/issues/170497
-haes.tech##+js(aopr, BetterJsPop)
-haes.tech##+js(nowoif)
-||haes.tech/cdn-cgi/trace
-
 ! https://github.com/uBlockOrigin/uAssets/issues/8699
 @@||genelpara.com^$ghide
 genelpara.com##ins.adsbygoogle
 genelpara.com##[class^="rklm"]
-
-! https://www.reddit.com/r/uBlockOrigin/comments/m26n32/site_with_a_few_popups_blocks_ability_to_use_dev/
-goalup.live##+js(nosiif, 0x)
-goalup.live##+js(ra, onclick)
 
 ! https://github.com/easylist/easylist/issues/7395#issuecomment-796787384
 ! https://github.com/uBlockOrigin/uAssets/issues/24423
@@ -1196,9 +1159,6 @@ freeuseporn.com##canvas
 
 ||adsyou.pro^$3p
 ||bestcripto.xyz^$3p
-
-! pastebr.xyz anti adb
-pastebr.xyz##+js(set, isAdBlockActive, false)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/9768
 elitepvpers.com##p > [href^="https://playorigin.com/"]
@@ -1256,13 +1216,10 @@ livesport24.net##+js(acs, setTimeout, admc)
 livesport24.net##+js(aopr, Adcash)
 livesport24.net##[href^="https://b-partner.xyz/"]
 123moviesme.*##+js(aopr, decodeURI)
-jattmate.com,saveshared.com,simpledownload.net##+js(aopr, String.fromCharCode)
+saveshared.com,simpledownload.net##+js(aopr, String.fromCharCode)
 inextmovies.*##+js(nowoif)
-emb.apl236.me###ads
 ||livesport24.net/*.gif$image
 emb.apl305.me##+js(nowoif, _blank)
-apl284.me###ads
-apl306.me###ads
 
 hd44.com##+js(nowoif)
 *$script,3p,domain=hwnaturkya.com,denyallow=gstatic.com|recaptcha.net
@@ -1363,10 +1320,6 @@ aapks.com##+js(nano-stb, countDown)
 ! https://github.com/AdguardTeam/AdguardFilters/issues/78305
 forobasketcatala.com##+js(acs, XMLHttpRequest, onreadystatechange)
 
-! https://github.com/AdguardTeam/AdguardFilters/issues/78325
-tny.so##+js(acs, atob, 'shift')
-||tny.so/sw-$script
-
 ! https://github.com/uBlockOrigin/uAssets/issues/8777
 itsecuritynews.info##+js(aopr, b2a)
 itsecuritynews.info###secondary > .widget_custom_html.widget.widget_text
@@ -1446,14 +1399,6 @@ cargurus.com##div:has(> [id^="bannerAdLEADERBOARD_INLINE_"])
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/78704
 ! https://github.com/AdguardTeam/AdguardFilters/issues/78915
-1link.vip##+js(set, blurred, false)
-1link.vip##[href^="https://1frozenthrone1.com"]
-1link.vip##[href^="https://runreferences.com"]
-thaitrieuvi.live##+js(nano-sib, counter)
-thaitrieuvi.live##center ~ .mh-clearfix.mh-wrapper
-||i.imgur.com^$domain=1link.vip
-||youtube.com^$domain=1link.vip
-! https://1link.vip/riXpzGsa
 haonguyen.top##+js(set, blurred, false)
 haonguyen.top###tp-wait
 haonguyen.top##[id^="tp-snp"]:style(display: block !important)
@@ -1493,20 +1438,6 @@ vipboxtv.*##+js(nowoif, //)
 vipboxtv.*##+js(aopr, Adcash)
 ||raw.githubusercontent.com/*/just-detect-adblock/*$3p,xhr,redirect=nooptext
 /vppdzdrw.js
-
-! https://www.reddit.com/r/uBlockOrigin/comments/175ssq8/ubo_wont_allow_player_to_open/
-! https://community.brave.com/t/pop-up-ads-new-windows-not-being-blocked/555836
-! buffstreams. tv => sx popups
-buffstreams.*##+js(nowoif)
-buffstreams.*##+js(acs, setTimeout, admc)
-buffstreams.*##+js(json-prune, *, *.adserverDomain)
-!#if cap_html_filtering
-buffstreams.*##^script:has-text(/aclib\.runPop|aclib/)
-!#else
-buffstreams.*##+js(acs, document.createElement, /aclib|runPop/)
-!#endif
-buffstreams.*##.position-absolute
-buffstreams.*##.m-1.fw-bold.btn-danger.btn
 
 ! https://github.com/uBlockOrigin/uAssets/issues/9136
 nsfwyoutube.com##pp
