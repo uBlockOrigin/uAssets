@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Annoyances
 ! Expires: 7 days
-! Last modified: Sat, 30 Nov 2024 22:30:50 +0000
+! Last modified: Sun, 01 Dec 2024 05:00:17 +0000
 ! Diff-Path: %diffpath%#ublock-annoyances
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -3977,3 +3977,8 @@ d0000d.com##+js(set, console.clear, undefined)
 sussytoons.site##+js(nosiif, /devtool|console\.clear/)
 sussytoons.site##+js(aeld, keydown, 123)
 sussytoons.site##+js(set, Object.prototype.disableMenu, false)
+!#if cap_html_filtering
+mostream.us##^script:has-text(/devtoolsDetector|keyCode|preventDefault/)
+!#else
+mostream.us##+js(rmnt, script, /devtoolsDetector|keyCode|preventDefault/)
+!#endif
