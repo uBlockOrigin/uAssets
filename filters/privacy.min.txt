@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Privacy
 ! Expires: 7 days
-! Last modified: Sat, 30 Nov 2024 00:58:16 +0000
+! Last modified: Sun, 01 Dec 2024 06:35:18 +0000
 ! Diff-Path: %diffpath%#ublock-privacy
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -315,8 +315,9 @@ bikesales.com.au##^html > head > :is([name="canonical"], [rel="canonical"]):not(
 @@||track.adtraction.com/*&url=https://www.gog.com/$popup
 ||track.adtraction.com/*^url=https://www.gog.com/$doc,urlskip=?url
 ||track.adtraction.com/*^url=https://www.gog.com/$doc,urlskip=?url -blocked
-/^https?:\/\/(?:[^.]+\.){2}(?:com|io|net)\/c(?:\/\d+){3}\/?\?.*?&?u=http/$doc,to=com|io|net,urlskip=?u +https
 /^https?:\/\/(?:[^.]+\.){2}(?:com|io|net)\/[a-zA-Z0-9]{6}\?subId1=[^&]+&u=http/$doc,to=com|io|net,urlskip=?u +https
+/^https?:\/\/(?:[^.]+\.){2}(?:com|io|net)\/c(?:\/\d+){3}\/?\?.*?&?u=http/$doc,to=com|io|net,urlskip=?u +https
+/^https?:\/\/(?:[^.]+\.){2}(?:com|io|net)\/c(?:\/\d+){3}\/?\?.*?&?url=http/$doc,to=com|io|net,urlskip=?url +https
 /^https?:\/\/www\.[a-z]+\.(?:com|net)\/click-\d{7}-\d{8}\b.*?[?&]url=http/$doc,to=com|net,urlskip=?url
 /Proxy.ashx?*&GR_URL=http$doc,urlskip=?GR_URL
 ||clicks.trx-hub.com/*^q=http$doc,urlskip=?q
@@ -342,7 +343,7 @@ bikesales.com.au##^html > head > :is([name="canonical"], [rel="canonical"]):not(
 ||streaklinks.com/*/http$doc,urlskip=/\bstreaklinks\.com\/[^\/]+\/https?%3A%2F%2F([^\/?#]+)/ -uricomponent +https
 ||streak-link.com/*/http$doc,urlskip=/\bstreak-link\.com\/[^\/]+\/https?%3A%2F%2F([^\/?#]+)/ -uricomponent +https
 ||app.hive.co/email/elt/*^next=http$doc,urlskip=?next
-||digidip.net/visit?url=http$doc,urlskip=?url
+||digidip.net/visit?*url=http$doc,urlskip=?url
 ||action.metaffiliation.com/trk.php*^redir=http$doc,urlskip=?redir
 ||backerkit.com/ahoy/messages/*/click?*url=http$doc,urlskip=?url
 ||rd.bizrate.com/rd*^t=http$doc,urlskip=?t +https
@@ -397,8 +398,11 @@ threads.net##+js(json-prune, require.0.3.0.__bbox.define.[].2.is_linkshim_suppor
 ||prsm1.com/r?url=http$doc,urlskip=?url
 ||link.theskimm.com/click/*/aHR0c$doc,urlskip=/\/click\/[^\/]+\/(aHR0c[^\/]+)/ -base64
 ||redirect.viglink.com/*^ourl=http$doc,urlskip=?ourl
+||redirect.viglink.com/*^u=http$doc,urlskip=?u
 ||affportal.bhphoto.com/dl/redventures/*^u=http$doc,urlskip=?u
 ||dlk.ivoox.com/dlk/*^link=http$doc,urlskip=?link
+||amazon.com/gp/redirect.html?*&location=http$doc,urlskip=?location
+||link.sylikes.com/*^url=http$doc,urlskip=?url
 ! Click Trackers
 html.duckduckgo.com,lite.duckduckgo.com##+js(href-sanitizer, a[href^="//duckduckgo.com/l/?uddg="], ?uddg)
 starstyle.com##+js(href-sanitizer, a[href^="https://go.skimresources.com/"][href*="&url=http"], ?url)
