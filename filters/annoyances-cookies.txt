@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Cookie Notices
-! Last modified: Fri, 29 Nov 2024 22:36:17 +0000
+! Last modified: Mon, 02 Dec 2024 07:25:36 +0000
 ! Expires: 7 days
 ! Description: Filters optimized for uBlock Origin, to be used with EasyList's and/or Adguard's "Cookie Notices" list(s)
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -159,7 +159,7 @@ kino.dk##+js(trusted-set-cookie, CookieConsent, {stamp:%27Uv9YOAVP5djCBw71lxhE4r
 dr.dk##+js(trusted-set-cookie, CookieConsent, {stamp:%27Uv9YOAVP5djCBw71lxhE4rNAfTObaGck2Sn3rKWf9dPCYpqcWvAlpA==%27%2Cnecessary:true%2Cpreferences:false%2Cstatistics:false%2Cmarketing:false%2Cmethod:%27explicit%27%2Cver:6}, 1year)
 ! https://www.nytimes.com/
 ! https://github.com/uBlockOrigin/uAssets/issues/22686
-www.nytimes.com##+js(trusted-click-element, button.fides-reject-all-button, , 500)
+nytimes.com##+js(trusted-click-element, button.fides-reject-all-button, , 500)
 archive.nytimes.com##body > div[style*="z-index: 2147483647"]:has(a[href="https://nytimes.com/cookie-policy/"])
 ! https://www.schauspiel.koeln/en/
 schauspiel.koeln##+js(trusted-set-cookie, SK.Website.ConsentManager, W1siYmFzZSIsdHJ1ZV0sWyJnb29nbGVhbmFseXRpY3MiLGZhbHNlXSxbIm1ldGFwaXhlbCIsZmFsc2VdXQ==)
@@ -1916,3 +1916,9 @@ about.hsbc.co.uk##+js(trusted-click-element, button[name="accept"], , 1000)
 ! Decline optional cookies
 privatebanking.hsbc.com##+js(trusted-click-element, button[id="consent_prompt_decline"], , 1000)
 
+! compliance cookie popup
+! https://community.brave.com/t/nytimes-com-terms-policy/584173
+nytimes.com##+js(trusted-click-element, button[data-tpl-type="Button"], , 1000)
+
+! opt-out (mobile)
+uber.com##+js(trusted-click-element,  button[data-tracking-name="cookie-preferences-sloo-opt-out"])
