@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Privacy
-! Last modified: Tue, 03 Dec 2024 00:58:27 +0000
+! Last modified: Tue, 03 Dec 2024 02:38:01 +0000
 ! Expires: 7 days
 ! Description: |
 !   Some of these filters make use of the `important` filter option,`
@@ -815,6 +815,10 @@ bing.com##+js(href-sanitizer, a[href^="/rebates/welcome?url=http"], ?url)
 ||amazon.com/gp/redirect.html?*&location=http$doc,urlskip=?location
 ||link.sylikes.com/*^url=http$doc,urlskip=?url
 
+! https://github.com/uBlockOrigin/uBlock-discussions/discussions/775#discussioncomment-10120835
+||justwatch.com/a?*^r=http$doc,urlskip=?r
+||click.trafficguard.ai/*^lpurl=http$doc,urlskip=?lpurl
+
 ! Click Trackers
 ! https://reddit.com/r/uBlockOrigin/comments/14t3y1d/
 html.duckduckgo.com,lite.duckduckgo.com##+js(href-sanitizer, a[href^="//duckduckgo.com/l/?uddg="], ?uddg)
@@ -871,8 +875,7 @@ slickdeals.net##+js(href-sanitizer, a[href^="https://slickdeals.net/?"][href*="u
 ! https://github.com/uBlockOrigin/uAssets/issues/23590
 dk.pcpartpicker.com##+js(href-sanitizer, a[href^="https://online.adservicemedia.dk/"][href*="deeplink=http"], ?deeplink)
 ! https://github.com/uBlockOrigin/uBlock-discussions/discussions/775#discussioncomment-10120835
-justwatch.com##+js(href-sanitizer, 'a:is([href^="https://click.justwatch.com/"],[href^="https://d.justwatch.com/"])[href*="r=http"]:not([href*=".pxf.io"])', ?r)
-justwatch.com##+js(href-sanitizer, 'a:is([href^="https://click.justwatch.com/"],[href^="https://d.justwatch.com/"])[href*="r=http"][href*=".pxf.io"]', ?r?u)
+justwatch.com##+js(href-sanitizer, 'a[href*=".justwatch.com/a?"][href*="&r=http"]', ?r)
 ! https://variety.com/2023/digital/news/disney-plus-first-four-indiana-jones-movies-exclusive-merch-1235629165/
 variety.com##+js(href-sanitizer, a[href^="https://clicks.trx-hub.com/"][href*="bn5x.net"], ?q?u)
 ! https://www.engadget.com/samsung-galaxy-s23-ultra-review-specs-price-photo-and-video-take-center-stage-140034341.html
