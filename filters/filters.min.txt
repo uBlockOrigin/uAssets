@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Tue, 03 Dec 2024 06:37:57 +0000
+! Last modified: Tue, 03 Dec 2024 09:13:21 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -11380,6 +11380,15 @@ appsbull.com,diudemy.com,maqal360.com##+js(rmnt, script, onerror)
 @@||cdn.jsdelivr.net^$script,domain=appsbull.com|diudemy.com|maqal360.com
 appsbull.com,diudemy.com,maqal360.com##+js(set, private, false)
 appsbull.com,diudemy.com,maqal360.com##+js(rpnt, script, "'IFRAME'", "'BODY'")
+!#if env_firefox
+maqal360.com##+js(set, navigator.serviceWorker, {})
+!#else
+maqal360.com##+js(set, navigator.webkitTemporaryStorage.queryUsageAndQuota, noopFunc)
+!#endif
+maqal360.com##+js(set, document.onkeydown, noopFunc)
+maqal360.com##+js(aeld, contextmenu, preventDefault)
+maqal360.com##+js(aeld, visibilitychange, remainingSeconds)
+||revbid.net^
 mphealth.online##+js(rmnt, script, onerror)
 mphealth.online###yuidea-btn-after, #yuidea-btmbtn:style(display: block !important;)
 mphealth.online###yuidea-btn-after, #yuidea-btmbtn:remove-attr(disabled)
