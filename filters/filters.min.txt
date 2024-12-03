@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Tue, 03 Dec 2024 03:55:41 +0000
+! Last modified: Tue, 03 Dec 2024 06:37:57 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -10864,6 +10864,11 @@ cdn.tiesraides.lv##+js(rpnt, script, vid.vast, //vid.vast)
 ||cdn.tiesraides.lv/app/viblast/*/lib/vast-client.js
 456movie.com##+js(acs, clearTimeout, popundersPerIP)
 ||stretchedbystander.com^
+!#if cap_html_filtering
+getfiles.co.uk##^script:has-text(checkAdBlock)
+!#else
+getfiles.co.uk##+js(rmnt, script, checkAdBlock)
+!#endif
 ! Link shortener filters go into their own dedicated list
 ! *** filters/ubo-link-shorteners.txt ***
 ! gplinks all domains (gplinks.co/EWu8)
