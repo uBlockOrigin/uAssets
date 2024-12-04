@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Wed, 04 Dec 2024 07:44:52 +0000
+! Last modified: Wed, 04 Dec 2024 07:51:41 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -13641,7 +13641,11 @@ erinsakura.com##+js(nostif, disableDeveloperTools)
 erinsakura.com##.herald-fa-grid
 @@||fzmovies.*^$ghide
 @@||fzm.*^$ghide
-fzm.*,fzmovies.*##+js(ra, onclick, [onclick*="window.open"])
+!#if env_firefox
+fzm.*,fzmovies.*##[onclick*="window.open"]:remove-attr(onclick)
+!#else
+fzm.*,fzmovies.*##+js(ra, onclick, [onclick*="window.open"], stay)
+!#endif
 fzm.*,fzmovies.*##+js(nosiif, visibility, 1000)
 *$image,redirect-rule=1x1.gif,domain=freesslvpn.us|robotvpn.com
 fritidsmarkedet.dk,maskinbladet.dk##+js(nostif, Check)

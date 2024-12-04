@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2020)
-! Last modified: Wed, 04 Dec 2024 02:33:02 +0000
+! Last modified: Wed, 04 Dec 2024 07:51:41 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -2966,9 +2966,14 @@ erinsakura.com##+js(nostif, disableDeveloperTools)
 erinsakura.com##.herald-fa-grid
 
 ! https://github.com/uBlockOrigin/uAssets/issues/8091
+! https://github.com/uBlockOrigin/uAssets/issues/26278#issuecomment-2516429304
 @@||fzmovies.*^$ghide
 @@||fzm.*^$ghide
-fzm.*,fzmovies.*##+js(ra, onclick, [onclick*="window.open"])
+!#if env_firefox
+fzm.*,fzmovies.*##[onclick*="window.open"]:remove-attr(onclick)
+!#else
+fzm.*,fzmovies.*##+js(ra, onclick, [onclick*="window.open"], stay)
+!#endif
 fzm.*,fzmovies.*##+js(nosiif, visibility, 1000)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/8094
