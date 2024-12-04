@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2022)
-! Last modified: Wed, 04 Dec 2024 07:28:23 +0000
+! Last modified: Wed, 04 Dec 2024 07:41:43 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -2770,6 +2770,7 @@ streamingcommunity.*##^script:has-text(/adblock/i)
 !#if !env_firefox
 ||googletagmanager.com^$xhr,domain=streamingcommunity.*,redirect-rule=noop.js
 !#endif
+||streamingcommunity.$doc,csp=worker-src blob:
 ||streamingcommunity.*/sw.js^
 streamingcommunity.*##+js(rpnt, script, /^.+/s, navigator.serviceWorker.getRegistrations().then((registrations=>{for(const registration of registrations){if(registration.scope.includes("streamingcommunity.computer")){registration.unregister()}}}));, condition, swDidInit)
 ! https://github.com/uBlockOrigin/uAssets/issues/26177
