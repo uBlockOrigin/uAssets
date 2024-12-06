@@ -4678,7 +4678,8 @@ pinterest.*##a[href*="&epik="]:upward([data-grid-item])
 pinterest.*##[data-grid-item]:has([data-test-pin-id] a[href^="http"][rel] [data-test-id="pincard-oneTap-with-link"])
 !#endif
 ! https://github.com/uBlockOrigin/uBlock-discussions/discussions/887
-pinterest.*##+js(json-prune, resource_response.data.[-].pin_promotion_id)
+pinterest.*##+js(json-prune, resource_response.data.[-].pin_promotion_id resource_response.data.results.[-].pin_promotion_id)
+pinterest.*##+js(json-prune, initialReduxState.pins.{-}.pin_promotion_id initialReduxState.resources.UserHomefeedResource.*.data.[-].pin_promotion_id)
 ! https://www.reddit.com/r/uBlockOrigin/comments/1cnhfyd/ublock_detected_on_pinterest_today_firefox/
 @@*$ghide,domain=pinterest.*
 
