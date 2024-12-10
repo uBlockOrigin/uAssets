@@ -4951,10 +4951,14 @@ www.chip.de###CR[class="Downloads-Getfile"] > #G32 > #M1 > div:not([class="wrapp
 ! restore speed (the anti adblock script causing lag spikes)
 !#if cap_html_filtering
 www.chip.de##^script:has-text(/\+\+\) \{  \} \}/)
+!www.chip.de##^script:has-text(/ \= false\; \} else \{ /)
 www.chip.de##^script:has-text(?metric=transit.counter&key=fail_redirect&tags=)
+www.chip.de##^script:has-text(/pushAdTag|link_click|getAds/)
 !#else
 www.chip.de##+js(rmnt, script, /\+\+\) \{  \} \}/)
+www.chip.de##+js(rmnt, script, / \= false\; \} else \{ /)
 www.chip.de##+js(rmnt, script, ?metric=transit.counter&key=fail_redirect&tags=)
+www.chip.de##+js(rmnt, script, /pushAdTag|link_click|getAds/)
 !#endif
 ||nah-versorger.de^$3p
 ||stopundstart.de^$3p
@@ -4963,7 +4967,6 @@ www.chip.de##+js(rmnt, script, ?metric=transit.counter&key=fail_redirect&tags=)
 ||free.webcompanion.com/*/index.php?*partner=*&campaign=$popup,doc
 ||free.webcompanion.com/*/index.php?*campaign=*&partner=$popup,doc
 ||bdu.bitdriverupdater.com/*&utm_source=$popup,doc
-chip.de##^script:has-text(/pushAdTag|link_click|getAds/)
 praxistipps.chip.de##div[data-bc-data-trackvars]
 ! https://github.com/orgs/uBlockOrigin/teams/ublock-filters-volunteers/discussions/448
 chip.de##:root:style(--topbanner-height-min:unset!important;--topbanner-height-max:unset!important;)
