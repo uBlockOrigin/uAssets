@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Quick fixes
 ! Expires: 12 hours
-! Last modified: Tue, 10 Dec 2024 17:02:57 +0000
+! Last modified: Tue, 10 Dec 2024 17:23:58 +0000
 ! Diff-Path: %diffpath%#ublock-quick-fixes
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -178,9 +178,8 @@ karistudio.com##p.chapter_content:style(display: block !important; visibility: v
 cursomecanet.com##+js(no-fetch-if, https, , '{"statusText": "", "type": "cors"}')
 cursomecanet.com##+js(aost, fetch, .js?)
 cursomecanet.com##a[href][target="_blank"]:upward(div[id][style]):style(display: block !important;)
-bing.com#@#+js(trusted-replace-argument, DOMTokenList.prototype.contains, 0, , condition , /^b_algo$/)
-bing.com##li.b_algo:has(> .b_title a[href^="https://www.bing.com/aclk?"])
-bing.com##li.b_algo:has(> h2 > a[href^="https://www.bing.com/aclk?"])
+bing.com##+js(trusted-replace-argument, HTMLLIElement.prototype.querySelector, 0, undefined, condition, /^a\.tilk$/)
+bing.com##li.b_algo:has(> :is(.b_tpcn, .b_title, h2) > a[href^="https://www.bing.com/aclk?"])
 exploader.net#@#article > div[style="margin-left: -63px;width: 1120px;height: 450px;margin-bottom: 5px;display: flex;align-items: center;"]:style(position: absolute !important; clip:rect(1px,1px,1px,1px) !important;)
 exploader.net#@#+js(spoof-css, article > div[style="margin-left: -63px;width: 1120px;height: 450px;margin-bottom: 5px;display: flex;align-items: center;"], clip, auto)
 exploader.net#@#+js(spoof-css, a[href^="https://al.dmm.co"], display, block)
