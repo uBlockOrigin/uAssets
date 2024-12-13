@@ -86,7 +86,14 @@ www.reddit.com##+js(json-prune, data.children.[].data.outbound_link)
 ||redditstatic.com/shreddit/sentry-$domain=reddit.com
 ||www.reddit.com/|$xhr,1p,method=post
 ! https://github.com/uBlockOrigin/uBlock-issues/issues/3206#issuecomment-2406041484
-||click.redditmail.com/CL0/$urlskip=/CL0\/.*?(www\.reddit\.com.+?)(?:\?|%3F)/ -uricomponent +https
+||click.redditmail.com/CL0/$urlskip=/\/CL0\/(http.*?)\/\d\/[a-f0-9-]+\// -uricomponent
+||reddit.com^$doc,removeparam=/web_only=/
+||reddit.com^$doc,removeparam=/deep_link=/
+||reddit.com^$doc,removeparam=correlation_id
+||reddit.com^$doc,removeparam=ref
+||reddit.com^$doc,removeparam=ref_campaign
+||reddit.com^$doc,removeparam=ref_source
+||reddit.com^$doc,removeparam=utm_content
 
 ! https://github.com/uBlockOrigin/uAssets/pull/5997
 docs.google.com##+js(no-xhr-if, method:POST url:/logImpressions)
@@ -1468,7 +1475,7 @@ bentasker.co.uk##+js(no-xhr-if, method:POST url:pfanalytics.bentasker.co.uk)
 
 ! https://urlscan.io/result/54547ba8-b938-476a-b931-ad6824507b8b/#redirects
 ! https://urlscan.io/result/c018947c-61ee-48f7-8a88-147ae8b794a3/#redirects
-||email.stripe.com/CL0/$doc,urlskip=/CL0\/(http.*?)\/1\/[a-f0-9-]+\// -uricomponent
+||email.stripe.com/CL0/$doc,urlskip=/\/CL0\/(http.*?)\/\d\/[a-f0-9-]+\// -uricomponent
 ||q.stripe.com/?domain=$image
 
 ! Merge in resource-abuse.txt
