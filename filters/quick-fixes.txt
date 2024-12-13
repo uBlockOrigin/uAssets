@@ -210,14 +210,10 @@ bing.com##li.b_algo:has(> :is(.b_tpcn, .b_title, h2) a[href^="https://www.bing.c
 ! https://github.com/AdguardTeam/AdguardFilters/issues/183252
 exploader.net#@#a[style*="display:"][href^="https://al.dmm.co.jp"]
 exploader.net#@#+js(spoof-css, a[style*="display:"][href^="https://al.dmm.co.jp"], display, flex !important)
-exploader.net##+js(spoof-css, a[style*="display:"][href^="https://al.dmm.co.jp"] img, height, 20px)
-exploader.net##+js(spoof-css, a[style*="display:"][href^="https://al.dmm.co.jp"] img, display, block)
-exploader.net##a[style*="display:"][href^="https://al.dmm.co.jp"] img
-exploader.net##a[style*="display:"][href^="https://al.dmm.co.jp"] > div:has(img):style(height: 0 !important;)
-exploader.net##a[style*="display:"][href^="https://al.dmm.co.jp"] span
-exploader.net##+js(aost, Element.prototype.getBoundingClientRect, /[0-9a-z]{20\,}\s.+daotag/)
-||daotag.com/tag/$script,replace=/if\(images\[i_key\]\.parentNode\.offsetHeight<rand\)/if(0)/,domain=exploader.net
-||daotag.com/tag/$script,replace=/if\(rand\+'px'!=dev_height\)/if(0)/,domain=exploader.net
+exploader.net##+js(spoof-css, a[style*="display:"][href^="https://al.dmm.co.jp"] img\,a[style*="display:"][href^="https://al.dmm.co.jp"] span, clip, auto)
+exploader.net##a[style*="display:"][href^="https://al.dmm.co.jp"] img:style(position: absolute !important; clip:rect(1px,1px,1px,1px) !important;)
+exploader.net##a[style*="display:"][href^="https://al.dmm.co.jp"] span:style(position: absolute !important; clip:rect(1px,1px,1px,1px) !important;)
+||daotag.com/tag/$script,replace=/if\(.+?\)\{window\.[0-9a-f]{20\,}=false;return;\}/if(0){}/m,domain=exploader.net
 
 ! https://github.com/uBlockOrigin/uAssets/issues/26348
 @@||ac.cnstrc.com^$xhr,domain=bjs.com
