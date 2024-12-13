@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Quick fixes
 ! Expires: 12 hours
-! Last modified: Fri, 13 Dec 2024 13:00:37 +0000
+! Last modified: Fri, 13 Dec 2024 13:06:38 +0000
 ! Diff-Path: %diffpath%#ublock-quick-fixes
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -108,12 +108,11 @@ poophq.com,veev.to##+js(no-xhr-if, /\/preroll\.engine$/)
 @@*$ghide,domain=poophq.com|veev.to
 veev.to#@#.avb-active
 infinityscans.xyz,infinityscans.org##+js(no-fetch-if, .infinityscans.net)
-infinityscans.xyz,infinityscans.net,infinityscans.org##+js(rpnt, script, /\}\)\;\s+\(function\(\)\{.*?\)\;\}\)\(\)\;\s+\$\.ajax\(\{/s, }); $.ajax({)
-infinityscans.xyz,infinityscans.net,infinityscans.org##+js(rpnt, script, /async function \(xhr\) \{\s+\(function\(\){var.*?\)\;\}\)\(\)\; /s, async function (xhr) {)
+infinityscans.xyz,infinityscans.net,infinityscans.org##+js(rpnt, script, /\}\)\;\s+\(function\(\){var .*?\;\}\)\(\)\; /s, });)
 infinityscans.xyz,infinityscans.net,infinityscans.org##+js(trusted-replace-outbound-text, atob, window.matchMedia('(display-mode: standalone)').matches, true)
 infinityscans.xyz,infinityscans.net,infinityscans.org##+js(nowoif, _blank)
 infinityscans.xyz,infinityscans.net,infinityscans.org##div[class="alert alert-danger fade show m-0 p-0"]:has-text(/uBlock|AdGuard|advertisments/i)
-@@*$script,denyallow=googletagmanager.com|bidgear.com|googlesyndication.com,domain=infinityscans.xyz|infinityscans.net|infinityscans.org
+@@*$script,denyallow=googletagmanager.com|bidgear.com|googlesyndication.com|a.magsrv.com,domain=infinityscans.xyz|infinityscans.net|infinityscans.org
 ||b5rh0rt.infinityscans.net^$xhr,important
 1001tracklists.com##div[id]:has(> [data-freestar-ad]):remove()
 1001tracklists.com###head + [id] > div:first-child > div:not([id="topLogo"], [id="pageTitle"], [id="hInfo"]):has(> a > :is(img[src*="/"][src*="_"][alt], div[style*="background"]))
