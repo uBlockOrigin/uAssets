@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Quick fixes
 ! Expires: 12 hours
-! Last modified: Sat, 14 Dec 2024 07:00:05 +0000
+! Last modified: Sat, 14 Dec 2024 07:04:08 +0000
 ! Diff-Path: %diffpath%#ublock-quick-fixes
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -167,8 +167,8 @@ bing.com##+js(trusted-replace-argument, HTMLLIElement.prototype.querySelector, 0
 bing.com##li.b_algo:has(> :is(.b_tpcn, .b_title, h2) a[href^="https://www.bing.com/aclk?"])
 exploader.net#@#a[style*="display:"][href^="https://al.dmm.co.jp"]
 exploader.net#@#+js(spoof-css, a[style*="display:"][href^="https://al.dmm.co.jp"], display, flex !important)
-exploader.net##article > div[style="margin-left: -63px; width: 1120px; height: 450px; margin-bottom: 5px; display: flex; align-items: center;"]:watch-attr(data-pr):has(> div[data-loaded]:not([data-pr]))
-exploader.net##+js(ra, data-pr, article > div[style="margin-left: -63px; width: 1120px; height: 450px; margin-bottom: 5px; display: flex; align-items: center;"] > div[data-pr][data-loaded], complete)
+exploader.net##article > div[style]:watch-attr(data-pr):has(> div[data-loaded]:not([data-pr]))
+exploader.net##+js(ra, data-pr, article > div[style] > div[data-pr][data-loaded], complete)
 exploader.net##:matches-path(/^\/$/)a[href^="https://al.dmm.co.jp"]
 @@||ac.cnstrc.com^$xhr,domain=bjs.com
 #@##__next > div[style="position:fixed;z-index:9999;top:16px;left:16px;right:16px;bottom:16px;pointer-events:none"]
