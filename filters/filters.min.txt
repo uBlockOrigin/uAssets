@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Mon, 16 Dec 2024 14:21:35 +0000
+! Last modified: Mon, 16 Dec 2024 15:04:09 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -16810,6 +16810,8 @@ bowfile.com##+js(no-fetch-if, cloudfront.net/?)
 bowfile.com##+js(no-fetch-if, method:HEAD)
 bowfile.com##+js(ra, href|target|data-onclick, a[id="dl"][data-onclick^="window.open"], stay)
 bowfile.com##^script:has-text(FingerprintJS)
+! antiadb/download button not showing
+bowfile.com##+js(trusted-prevent-xhr, googlesyndication, 'a.getAttribute("data-ad-client")||""')
 *$xhr,redirect-rule=nooptext,domain=bowfile.com
 javfor.tv##+js(acs, addEventListener, -0x)
 ! adlinkweb.com,linkbr.xyz,myad.biz,vklinks.com ads, anti-adb, focus detection
