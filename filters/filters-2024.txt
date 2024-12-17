@@ -4468,3 +4468,11 @@ feed2all.org##+js(set-cookie, BetterJsPop0, 1)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/26493
 titulky.com##+js(set, showFairUser, {})
+
+! https://github.com/uBlockOrigin/uAssets/issues/26494
+!#if cap_html_filtering
+xbaaz.com##^script[data-cfasync]:has-text(/h=decodeURIComponent|popundersPerIP|wpadmngr|popMagic/)
+!#else
+xbaaz.com##+js(rmnt, script, /h=decodeURIComponent|popundersPerIP|wpadmngr|popMagic/)
+xbaaz.com##+js(aost, clearTimeout, /\b[a-z] inlineScript:/)
+!#endif
