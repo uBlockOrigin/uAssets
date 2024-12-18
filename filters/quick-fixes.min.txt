@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Quick fixes
 ! Expires: 12 hours
-! Last modified: Wed, 18 Dec 2024 08:25:25 +0000
+! Last modified: Wed, 18 Dec 2024 14:13:27 +0000
 ! Diff-Path: %diffpath%#ublock-quick-fixes
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -152,9 +152,9 @@ karistudio.com##p.chapter_content:style(display: block !important; visibility: v
 bing.com##+js(trusted-replace-outbound-text, DOMTokenList.prototype.toString, b_algoSlug, b_algo)
 bing.com##li.b_algo:has(> :is(.b_tpcn, .b_title, h2) a[href^="https://www.bing.com/aclick?"])
 bing.com##li.b_algo:has(> :is(.b_tpcn, .b_title, h2) a[href^="https://www.bing.com/aclk?"])
-exploader.net##a[style*="display:"][href^="https://al.dmm.co.jp"] img:style(position: absolute !important; clip:rect(1px,1px,1px,1px) !important;)
-exploader.net##a[style*="display:"][href^="https://al.dmm.co.jp"] span:style(position: absolute !important; clip:rect(1px,1px,1px,1px) !important;)
-exploader.net##+js(spoof-css, a[style*="display:"][href^="https://al.dmm.co.jp"] img\,a[style*="display:"][href^="https://al.dmm.co.jp"] span, clip, '')
+exploader.net##+js(trusted-rpnt, script, window.addEventListener, (async()=>{const path=document.querySelector('script[src^="https://daotag.com/tag/').getAttribute('src');const getVal=async()=>{const res=await fetch(path);const text=await res.text();const val=text.match(/[0-9a-f]{20\,}/);return val[0]};let value=await getVal();if(!value&&typeof value==='undefined'||value!==!1){window[value]=!0}})();window.addEventListener)
+||daotag.com^$xhr,badfilter
+||daotag.com/tag/$script,domain=exploader.net,important
 exploader.net##:matches-path(/(^\/$|\/free|\/search|\/preview|\/tag)/)a[href^="https://al.dmm.co.jp"]
 exploader.net###preview_images > span[class^="tracking_"]
 ||daotag.com/tag/$script,replace=/if\s*\(!(window\.[0-9a-z]{20\,})\)[\S\s]+/if(!\$1&&typeof \$1==='undefined'||\$1!==false){\$1=true}/,domain=exploader.net
