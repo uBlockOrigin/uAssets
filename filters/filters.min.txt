@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Wed, 18 Dec 2024 06:11:57 +0000
+! Last modified: Wed, 18 Dec 2024 06:37:54 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -10955,6 +10955,12 @@ panel.freemcserver.net##body > #main-wrapper > .page-wrapper > .container-fluid 
 panel.freemcserver.net##body > #main-wrapper > .page-wrapper > .container-fluid > .row > .col-md-10 > [class] > .row > [class^="col-"] > [style*="min-height"][style*="flex"]:has(> [id^="stpd-"][style^="position:"]:first-child + div + div:last-child)
 ! zinkmovies .in ads
 zinkmovies.in##+js(aopr, app_advert)
+!#if cap_html_filtering
+pornhoarder.*##^script:has-text(/wpadmngr|adserverDomain/)
+!#else
+pornhoarder.*##+js(rmnt, script, /wpadmngr|adserverDomain/)
+!#endif
+||misdeedtucked.shop^
 ! Link shortener filters go into their own dedicated list
 ! *** filters/ubo-link-shorteners.txt ***
 ! gplinks all domains (gplinks.co/EWu8)

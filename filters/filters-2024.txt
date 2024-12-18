@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2024)
-! Last modified: Wed, 18 Dec 2024 06:11:57 +0000
+! Last modified: Wed, 18 Dec 2024 06:37:54 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -4495,3 +4495,11 @@ panel.freemcserver.net##body > #main-wrapper > .page-wrapper > .container-fluid 
 
 ! zinkmovies .in ads
 zinkmovies.in##+js(aopr, app_advert)
+
+! https://github.com/uBlockOrigin/uAssets/issues/26512
+!#if cap_html_filtering
+pornhoarder.*##^script:has-text(/wpadmngr|adserverDomain/)
+!#else
+pornhoarder.*##+js(rmnt, script, /wpadmngr|adserverDomain/)
+!#endif
+||misdeedtucked.shop^
