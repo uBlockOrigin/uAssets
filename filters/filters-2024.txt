@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2024)
-! Last modified: Fri, 20 Dec 2024 11:17:30 +0000
+! Last modified: Fri, 20 Dec 2024 19:55:42 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -4519,3 +4519,10 @@ wooflix.tv##+js(aopw, Adcash)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/26533
 pngitem.com##+js(aopw, window.onload)
+
+! https://github.com/uBlockOrigin/uAssets/issues/26103
+!#if cap_html_filtering
+lineupexperts.com##^script:has-text(/account_ad_blocker|tmaAB/)
+!#else
+lineupexperts.com##+js(rmnt, script, /account_ad_blocker|tmaAB/)
+!#endif

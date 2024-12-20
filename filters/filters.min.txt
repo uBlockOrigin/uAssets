@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Fri, 20 Dec 2024 19:08:38 +0000
+! Last modified: Fri, 20 Dec 2024 19:55:42 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -10964,6 +10964,11 @@ wooflix.tv##+js(aopw, Adcash)
 ||wooflix.tv/api/block^
 ||getmagic.moe^
 pngitem.com##+js(aopw, window.onload)
+!#if cap_html_filtering
+lineupexperts.com##^script:has-text(/account_ad_blocker|tmaAB/)
+!#else
+lineupexperts.com##+js(rmnt, script, /account_ad_blocker|tmaAB/)
+!#endif
 ! Link shortener filters go into their own dedicated list
 ! *** filters/ubo-link-shorteners.txt ***
 ! gplinks all domains (gplinks.co/EWu8)
