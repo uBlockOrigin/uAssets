@@ -10,10 +10,12 @@ jobs:
     permissions: write-all
     steps:
       - name: Delete comment
-        run: |
-          echo " ${{ github.event.comment.body }} "
-      - uses: actions-cool/issues-helper@v3
+        uses: actions-cool/issues-helper@v3
         with:
           actions: 'delete-comment'
           token: ${{ secrets.GITHUB_TOKEN }}
           comment-id: ${{ github.event.comment.id }}
+        env:
+          BODY: ${{ github.event.comment.body }}
+        run: |
+          echo " $BODY "
