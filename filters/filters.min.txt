@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Sun, 22 Dec 2024 02:55:13 +0000
+! Last modified: Sun, 22 Dec 2024 03:59:47 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -24001,8 +24001,15 @@ lk21official.pics###top-b
 iqksisgw.xyz##+js(nostif, "document['\x")
 stream.hownetwork.xyz##+js(disable-newtab-links)
 /assets/jquery/p2anime.js?v=
-streamruby.com##+js(rmnt, script, wpadmngr.com)
+!#if cap_html_filtering
+favoyeurtube.net##^script:has-text(minBid)
+rubystm.com,streamruby.com##^script:has-text(wpadmngr.com)
+!#else
+favoyeurtube.net##+js(rmnt, script, minBid)
+rubystm.com,streamruby.com##+js(rmnt, script, wpadmngr.com)
+!#endif
 ||astirduller.com^
+||illinformed-imagination.com^
 ||ads.the.tube^
 ||the.tube/js/simpleblocker.js^
 videocdnal24.xyz##+js(nowoif)
