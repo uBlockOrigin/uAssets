@@ -176,12 +176,9 @@ bing.com##li.b_algo:has(> :is(.b_tpcn, .b_title, h2) a[href^="https://www.bing.c
 bing.com##li.b_algo:has(> :is(.b_tpcn, .b_title, h2) a[href^="https://www.bing.com/aclk?"])
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/183252
-exploader.net##+js(trusted-rpnt, script, window.addEventListener, (async()=>{const path=document.querySelector('script[src^="https://daotag.com/tag/').getAttribute('src');const getVal=async()=>{const res=await fetch(path);const text=await res.text();const val=text.match(/[0-9a-f]{20\,}/);return val[0]};let value=await getVal();if(!value&&typeof value==='undefined'||value!==!1){window[value]=!0}})();window.addEventListener)
-||daotag.com^$xhr,badfilter
-||daotag.com/tag/$script,domain=exploader.net,important
-exploader.net##:matches-path(/(^\/$|\/free|\/search|\/preview|\/tag)/)a[href^="https://al.dmm.co.jp"]
-exploader.net###preview_images > span[class^="tracking_"]
-||daotag.com/tag/$script,replace=/if\s*\(!(window\.[0-9a-z]{20\,})\)[\S\s]+/if(!\$1&&typeof \$1==='undefined'||\$1!==false){\$1=true}/,domain=exploader.net
+exploader.net##+js(spoof-css, a[style*="display:"][href^="https://al.dmm.co.jp"], clip, '')
+exploader.net##a[style*="display:"][href^="https://al.dmm.co.jp"]:style(position: absolute !important; clip:rect(1px,1px,1px,1px) !important)
+||daotag.com/tag/$script,replace=/(if\s*\(!window.[0-9a-f]{20\,}\))[\S\s]+(if\(typeof window\.[0-9a-f]{20\,}==='undefined'\)\{window.[0-9a-f]{20\,}=true;\})\s*(if\(typeof window\.[0-9a-f]{20\,}==='undefined'\)\{window.[0-9a-f]{20\,}=true;\})/\$1{\$2\$3}/,domain=exploader.net
 
 ! https://github.com/uBlockOrigin/uAssets/issues/26392
 #@##__next > div[style="position:fixed;z-index:9999;top:16px;left:16px;right:16px;bottom:16px;pointer-events:none"]
