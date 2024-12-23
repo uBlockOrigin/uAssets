@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Annoyances
 ! Expires: 7 days
-! Last modified: Sat, 21 Dec 2024 20:38:46 +0000
+! Last modified: Mon, 23 Dec 2024 07:22:57 +0000
 ! Diff-Path: %diffpath%#ublock-annoyances
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -3997,3 +3997,13 @@ nintendolife.com##.insert-blocker
 pngitem.com##+js(aopr, document.oncontextmenu)
 ! t3n.de anti adblock in articles
 ||assets.t3n.de/t3n-de/assets/t3n/2018/scripts/abdtn-$script,1p
+!#if env_firefox
+foxteller.com##[oncontextmenu]:remove-attr(/^on(?:contextmenu|copy|cut)$/)
+!#else
+foxteller.com##+js(ra, oncontextmenu|oncopy|oncut, [id^="chapter"], stay)
+!#endif
+foxteller.com##+js(aeld, contextmenu, preventDefault)
+foxteller.com##+js(aeld, selectionchange, .html)
+foxteller.com##+js(set, document.onkeydown, noopFunc)
+foxteller.com##+js(trusted-suppress-native-method, RegExp.prototype.test, '"contact@foxteller.com"', abort)
+foxteller.com##.m-content#chapter .chapter-content p:style(cursor: revert !important; -webkit-touch-callout: default !important; -webkit-user-select: text !important; -khtml-user-select: text !important; -moz-user-select: text !important; -ms-user-select: text !important; user-select: text !important; -webkit-tap-highlight-color: revert !important;)
