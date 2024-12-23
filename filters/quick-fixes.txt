@@ -118,13 +118,18 @@ poophq.com,veev.to##+js(no-xhr-if, /\/preroll\.engine$/)
 veev.to#@#.avb-active
 
 ! https://github.com/uBlockOrigin/uAssets/issues/20401
-infinityscans.xyz,infinityscans.org##+js(no-fetch-if, b5rh0rt.infinityscans.net method:POST)
 infinityscans.xyz,infinityscans.net,infinityscans.org##+js(rpnt, script, /async function \(xhr\) \{\s+\(function\(\){var .*?\)\;\}\)\(\)\; /s, async function (xhr) {)
+infinityscans.xyz,infinityscans.net,infinityscans.org##+js(rpnt, script, /\(function\(\)\{var .*?\)\;\}\)\(\)\;\s+\$\.ajax\(\{/, $.ajax({)
 infinityscans.xyz,infinityscans.net,infinityscans.org##+js(trusted-replace-outbound-text, atob, window.matchMedia('(display-mode: standalone)').matches, true)
 infinityscans.xyz,infinityscans.net,infinityscans.org##+js(nowoif, _blank)
 infinityscans.xyz,infinityscans.net,infinityscans.org##div[class="alert alert-info m-0 p-0"]:has-text(/uBlock|AdGuard|advertisments/i)
 @@*$script,denyallow=googletagmanager.com|bidgear.com|googlesyndication.com|a.magsrv.com|fstatic.netpub.media,domain=infinityscans.xyz|infinityscans.net|infinityscans.org
 ||b5rh0rt.infinityscans.net^$xhr,important
+!#if cap_html_filtering
+infinityscans.xyz,infinityscans.net,infinityscans.org##^script:has-text(/b5rh0rt|\;\}\}catch\(_/)
+!#else
+infinityscans.xyz,infinityscans.net,infinityscans.org##+js(rmnt, script, /b5rh0rt|\;\}\}catch\(_/)
+!#endif
 
 ! https://github.com/uBlockOrigin/uAssets/issues/8719
 1001tracklists.com##div[id]:has(> [data-freestar-ad]):remove()
