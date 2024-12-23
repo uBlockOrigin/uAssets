@@ -1,5 +1,5 @@
 ! Title: uBO Lite filters
-! Last modified: Sun, 22 Dec 2024 16:02:35 +0000
+! Last modified: Mon, 23 Dec 2024 13:19:36 +0000
 ! Expires: 4 days
 ! Description: Filters optimized for uBO Lite
 ! Homepage: https://github.com/uBlockOrigin/uAssets
@@ -301,4 +301,7 @@ moon-fm43w1qv.com##+js(acs, Math, localStorage['\x)
 ||com/*.js|$script,3p,domain=pornhoarder.tv
 
 ! https://github.com/uBlockOrigin/uAssets/issues/26585
-?*=$xhr,3p,from=extreme-down.*,to=~com|~net
+/^https?:\/\/[-a-z]{5,12}\.[a-z]{3,6}\/[0-9a-h]{1,17}\?[0-9a-zA-Z]{1,21}=/$xhr,3p,match-case,method=get,from=extreme-down.*,to=~com|~net
+
+! https://github.com/uBlockOrigin/uAssets/issues/26586
+/^https?:\/\/(?:[a-z]{2}\.)?[0-9a-z]{5,16}\.[a-z]{3,7}\/[a-zA-Z0-9]{3,26}\/\d{4,6}/$script,3p,match-case,redirect=noopjs,domain=flamecomics.xyz
