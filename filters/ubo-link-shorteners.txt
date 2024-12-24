@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Link shorteners
-! Last modified: Tue, 24 Dec 2024 08:40:46 +0000
+! Last modified: Tue, 24 Dec 2024 08:52:20 +0000
 ! Expires: 5 days
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
@@ -1449,3 +1449,14 @@ compu-pc.com##+js(acs, document.querySelectorAll, pastepc)
 ! https://github.com/uBlockOrigin/uAssets/discussions/17361#discussioncomment-11656328
 quins.us##+js(no-fetch-if, doubleclick, , {"type": "opaque"})
 quins.us##+js(set, document.hasFocus, trueFunc)
+
+! https://github.com/uBlockOrigin/uAssets/issues/26597
+!#if cap_html_filtering
+flycutlink.com##^script:has-text(/google_ad_client|popMagic/)
+!#else
+flycutlink.com##+js(acs, document.addEventListener, google_ad_client)
+flycutlink.com##+js(acs, document.querySelectorAll, popMagic)
+!#endif
+flycutlink.com##+js(set, blurred, false)
+flycutlink.com##+js(nowoif)
+flycutlink.com##+js(set, go_popup, {})
