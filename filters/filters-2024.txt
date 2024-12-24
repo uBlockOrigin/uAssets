@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2024)
-! Last modified: Mon, 23 Dec 2024 22:47:17 +0000
+! Last modified: Tue, 24 Dec 2024 10:38:24 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -4582,3 +4582,10 @@ wvt.free.nf##.tracking-btn
 
 ! https://github.com/uBlockOrigin/uAssets/issues/26599
 faceittracker.net##+js(no-fetch-if, fundingchoicesmessages)
+
+! https://github.com/uBlockOrigin/uAssets/issues/26602
+!#if cap_html_filtering
+blog.tangwudi.com##^script:has-text(ai_adb)
+!#else
+blog.tangwudi.com##+js(rmnt, script, ai_adb)
+!#endif
