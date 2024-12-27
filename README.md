@@ -18,7 +18,7 @@ uAssets will fix the following exceptions even if they do not require using the 
 - Website Breakage
 - Video Ads
 
-uAssets will not address the following:
+#### uAssets will not address the following:
 
 - Paywalls
 - Porn Farms
