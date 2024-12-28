@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Quick fixes
 ! Expires: 12 hours
-! Last modified: Sat, 28 Dec 2024 06:21:57 +0000
+! Last modified: Sat, 28 Dec 2024 15:08:55 +0000
 ! Diff-Path: %diffpath%#ublock-quick-fixes
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -158,4 +158,8 @@ rekidai-info.github.io##+js(nosiif, /loc|about:blank|href|window/)
 ||status.techtarget.itmedia.co.jp^$badfilter
 indiatimes.com#@#.adhide
 @@||toweroffantasy-global.com/events/accounttransfer/public/js/fingerprint.js$1p
-cursomecanet.com##+js(set, canRunAds, true)
+!#if cap_html_filtering
+cursomecanet.com##^script:has-text($)
+!#else
+cursomecanet.com##+js(rmnt, script, $)
+!#endif
