@@ -1,5 +1,5 @@
 ! Title: uBlock filters
-! Last modified: Mon, 30 Dec 2024 19:14:08 +0000
+! Last modified: Tue, 31 Dec 2024 11:33:08 +0000
 ! Expires: 5 days
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
@@ -22,12 +22,12 @@ www.youtube.com##+js(trusted-replace-xhr-response, /"adPlacements.*?("adSlots"|"
 www.youtube.com##+js(trusted-replace-fetch-response, /"adPlacements.*?([A-Z]"\}|"\}{2\,4})\}\]\,/, , player?)
 www.youtube.com##+js(trusted-replace-fetch-response, /"adSlots.*?\}\}\]\,"adBreakHeartbeatParams/, "adBreakHeartbeatParams, player?)
 !#else
-||www.youtube.com/playlist?list=$xhr,1p,replace=/"adPlacements.*?([A-Z]"\}|"\}{2\,4})\}\]\,//
-||www.youtube.com/playlist?list=$xhr,1p,replace=/"adSlots.*?\}\}\]\,"adBreakHeartbeatParams/"adBreakHeartbeatParams/
-||www.youtube.com/watch?$xhr,1p,replace=/"adPlacements.*?([A-Z]"\}|"\}{2\,4})\}\]\,//
-||www.youtube.com/watch?$xhr,1p,replace=/"adSlots.*?\}\}\]\,"adBreakHeartbeatParams/"adBreakHeartbeatParams/
-||www.youtube.com/youtubei/v1/player?$xhr,1p,replace=/"adPlacements.*?([A-Z]"\}|"\}{2\,4})\}\]\,//
-||www.youtube.com/youtubei/v1/player?$xhr,1p,replace=/"adSlots.*?\}\}\]\,"adBreakHeartbeatParams/"adBreakHeartbeatParams/
+||www.youtube.com/playlist?list=$xhr,1p,replace=/"adPlacements"/"no_ads"/
+||www.youtube.com/playlist?list=$xhr,1p,replace=/"adSlots"/"no_ads"/
+||www.youtube.com/watch?$xhr,1p,replace=/"adPlacements"/"no_ads"/
+||www.youtube.com/watch?$xhr,1p,replace=/"adSlots"/"no_ads"/
+||www.youtube.com/youtubei/v1/player?$xhr,1p,replace=/"adPlacements"/"no_ads"/
+||www.youtube.com/youtubei/v1/player?$xhr,1p,replace=/"adSlots"/"no_ads"/
 !#endif
 ! https://www.reddit.com/r/uBlockOrigin/comments/154vtwy/getting_ads_on_youtube/jsu299l/
 ! https://github.com/uBlockOrigin/uBlock-issues/issues/3083#issuecomment-1899349892
@@ -45,8 +45,8 @@ youtube.com##.ytlr-horizontal-list-renderer__items > .yt-virtual-list__container
 ! Shorts Ad
 m.youtube.com,music.youtube.com,tv.youtube.com,www.youtube.com,youtubekids.com,youtube-nocookie.com##+js(json-prune-fetch-response, reelWatchSequenceResponse.entries.[-].command.reelWatchEndpoint.adClientParams.isAd entries.[-].command.reelWatchEndpoint.adClientParams.isAd, , propsToMatch, url:/reel_watch_sequence?)
 !
-||youtube.com/youtubei/v1/get_watch?$xhr,1p,replace=/"adPlacements.*?([A-Z]"\}|"\}{2\,4})\}\]\,//
-||youtube.com/youtubei/v1/get_watch?$xhr,1p,replace=/"adSlots.*?\}\}\]\,"adBreakHeartbeatParams/"adBreakHeartbeatParams/
+||youtube.com/youtubei/v1/get_watch?$xhr,1p,replace=/"adPlacements"/"no_ads"/
+||youtube.com/youtubei/v1/get_watch?$xhr,1p,replace=/"adSlots"/"no_ads"/
 
 ! AdDefend
 !#if env_chromium
