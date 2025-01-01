@@ -1,5 +1,5 @@
 ! Title: uBlock₀ filters – Quick fixes
-! Last modified: Wed, 01 Jan 2025 12:12:45 +0000
+! Last modified: Wed, 01 Jan 2025 12:16:50 +0000
 ! Expires: 8 hours
 ! Description: Immediate, temporary filters to fix websites
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -190,7 +190,9 @@ exploader.net##+js(trusted-replace-argument, window.addEventListener, 0, json:"D
 exploader.net##article div:not(article>div[style="width: 750px;margin-left: auto;margin-right: auto;"],article>div[style="width: 750px;margin-left: auto;margin-right: auto;"]>div[style="float: right;width: 180px;"],[class="information"],[class="information"]+[class="thumbnail"],[class="information"]>[class="warning"],[class="information"]>[class="d_"]):watch-attr(style,class):has(div:not([style]):not([class]) div a[href^="https://al.dmm.co.jp"],article>#freefiles>#sort,article>#freefiles>[class="list"])
 exploader.net##+js(ra, class|style, article div:not(article>div[style="width: 750px;margin-left: auto;margin-right: auto;"]\,article>div[style="width: 750px;margin-left: auto;margin-right: auto;"]>div[style="float: right;width: 180px;"]\,[class="information"]\,[class="information"]+[class="thumbnail"]\,[class="information"]>[class="warning"]\,[class="information"]>[class="d_"]\,article>#freefiles>#sort\,article>#freefiles>[class="list"]), complete)
 exploader.net##+js(trusted-set, document.readyState, json:"complete", runAt, 2)
-exploader.net##+js(aost, document.readyState, HTMLDocument.onStateChange)
+exploader.net##+js(aost, document.readyState, /:1[01]\d:/)
+exploader.net##+js(trusted-rpnt, script, /let [0-9a-z]{20\,};document\.addEventListener\(['"]DOMContentLoaded['"]\,\s*function\(\)\s*\{\s*([0-9a-z]{20\,}\s*=\s*function\(\)\s*\{\s*window\.[0-9a-z]{20\,}\.innerHTML=[0-9a-z]{10\,}\(['"][0-9a-z]{10\,}['"]\)\s*\})\s*\}\);?/, let $1)
+exploader.net##+js(aeld, DOMContentLoaded, setAdjustItems)
 *$image,redirect-rule=32x32.png,domain=exploader.net
 
 ! https://github.com/easylist/easylistgermany/issues/216
