@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Annoyances
 ! Expires: 7 days
-! Last modified: Tue, 31 Dec 2024 17:34:42 +0000
+! Last modified: Wed, 01 Jan 2025 07:26:15 +0000
 ! Diff-Path: %diffpath%#ublock-annoyances
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -4019,4 +4019,5 @@ cursomecanet.com##+js(set, loadInstructions, noopFunc)
 blindhelp.net##+js(ra, oncontextmenu|oncopy|onselectstart, body, complete)
 smalley.com##+js(ra, onselectstart|oncopy, body, complete)
 francis-bacon.com##+js(aeld, contextmenu, return"undefined")
-nebula.tv##+js(trusted-suppress-native-method, Storage.prototype.setItem, freeVideoFriendlySlug, prevent)
+nebula.tv##+js(set-local-storage-item, /^freeVideoFriendly/, $remove$)
+nebula.tv##+js(trusted-replace-argument, Storage.prototype.setItem, 0, json:"freeVideoFriendly", condition, freeVideoFriendlySlug)

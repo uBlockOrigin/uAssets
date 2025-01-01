@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Other Annoyances
-! Last modified: Tue, 31 Dec 2024 17:34:42 +0000
+! Last modified: Wed, 01 Jan 2025 07:26:15 +0000
 ! Expires: 7 days
 ! Description: Filters optimized for uBlock Origin, to be used with EasyList's and/or Adguard's "Other Annoyances" list(s)
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -7727,4 +7727,5 @@ smalley.com##+js(ra, onselectstart|oncopy, body, complete)
 francis-bacon.com##+js(aeld, contextmenu, return"undefined")
 
 ! https://nebula.tv/videos/bekindrewind-12-underrated-performances-you-need-to-see-now - "Sign in to watch"
-nebula.tv##+js(trusted-suppress-native-method, Storage.prototype.setItem, freeVideoFriendlySlug, prevent)
+nebula.tv##+js(set-local-storage-item, /^freeVideoFriendly/, $remove$)
+nebula.tv##+js(trusted-replace-argument, Storage.prototype.setItem, 0, json:"freeVideoFriendly", condition, freeVideoFriendlySlug)
