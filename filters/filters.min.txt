@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Thu, 02 Jan 2025 08:16:14 +0000
+! Last modified: Thu, 02 Jan 2025 08:45:56 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -24049,5 +24049,22 @@ windowsreport.com##^script:has-text(wpadmngr.com)
 windowsreport.com##+js(rmnt, script, wpadmngr.com)
 !#endif
 ! *** uAssets:filters/filters-2025.txt ***
+! START: Rules from filters.txt
+!#if cap_html_filtering
+filecrypt.*##^script:has-text('{delete window[')
+!#else
+filecrypt.*##+js(rmnt, script, '{delete window[')
+!#endif
+filecrypt.*##+js(set, isAdblock, false)
+! ||filecrypt.*^$popunder
+@@||cutcaptcha.com/captcha/*$script,domain=filecrypt.cc|filecrypt.co
+filecrypt.*##div:has(> [href*=".html"])
+filecrypt.*##+js(ra, onclick, button[id][onclick*=".html"])
+sharer.pw###overlay
+filecrypt.co###jh34[onmousedown^="var lsj = this;loc.href="]
+||filecrypt.co/*.php^$1p
+||beakpee.com^
+||glocmaift.net^
+! END: Rules from filters.txt
 opentunnel.net##+js(no-xhr-if, ad.plus)
 @@||ad.plus/cdn-cgi/trace|$xhr,method=head,domain=opentunnel.net
