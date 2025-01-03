@@ -3480,7 +3480,11 @@ littlebigsnake.com##+js(set, ADS.isBannersEnabled, false)
 multi.xxx##+js(set, flashvars.video_click_url, '')
 
 ! https://github.com/uBlockOrigin/uAssets/issues/25280
-animesaturn.cx##+js(acs, globalThis, break;case)
+animesaturn.cx##^script:has-text('{delete window[')
+!#else
+animesaturn.cx##+js(rmnt, script, '{delete window[')
+!#endif
+||usingageghoaft.net^
 ! https://github.com/uBlockOrigin/uAssets/discussions/17361#discussioncomment-10610118
 streamtape.*,watchadsontape.com##.play-overlay
 streamtape.*,watchadsontape.com##+js(rpnt, script, /\$\(['"]\.play-overlay['"]\)\.click.+/s, document.getElementById("mainvideo").src=srclink;player.currentTrack=0;})}), condition, srclink)
