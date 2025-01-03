@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Quick fixes
 ! Expires: 12 hours
-! Last modified: Thu, 02 Jan 2025 14:30:23 +0000
+! Last modified: Fri, 03 Jan 2025 03:19:14 +0000
 ! Diff-Path: %diffpath%#ublock-quick-fixes
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -145,7 +145,11 @@ file-1bl9ruic-moon.com,file-kg88oaak-embed.com,file-mi11ljwj-embed.com,file-sp32
 ! Ad-Shield
 *##body > div[id^="img_"][class^="img_"][style^="width"]:first-child:style(visibility: hidden !important;)
 *##body > a:only-child > div[id^="img_"][class^="img_"]:style(visibility: hidden !important;)
-dogdrip.net,infinityfree.com,smsonline.cloud,webdesignledger.com##+js(trusted-replace-argument, String.prototype.concat, 0, , condition, '/^-?\d{9,10}$/')
+!#if env_firefox
+dogdrip.net,infinityfree.com,smsonline.cloud,webdesignledger.com##+js(trusted-set, navigator.userAgent, 'json:"Mozilla/5.0 (NAVER; rv:133.0) Gecko/20100101 Firefox/133.0"')
+!#else
+dogdrip.net,infinityfree.com,smsonline.cloud,webdesignledger.com##+js(trusted-set, navigator.userAgent, 'json:"Mozilla/5.0 (NAVER) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36"')
+!#endif
 bing.com##li.b_algo:has(a[href^="https://www.bing.com/aclick?"], a[href^="https://www.bing.com/aclk?"]):remove-class(b_algo)
 bing.com##ol#b_results > li:has(> :is(.b_tpcn, .b_title, h2) a[href^="https://www.bing.com/aclick?"])
 bing.com##ol#b_results > li:has(> :is(.b_tpcn, .b_title, h2) a[href^="https://www.bing.com/aclk?"])
@@ -158,4 +162,3 @@ www.chip.de##+js(rmnt, script, / \=\=\= [0-9]{1,2}\) \{ \}/)
 !#endif
 rekidai-info.github.io##+js(nostif, /aframe|querySelector/)
 ||status.techtarget.itmedia.co.jp^$badfilter
-@@||toweroffantasy-global.com/events/accounttransfer/public/js/fingerprint.js$1p
