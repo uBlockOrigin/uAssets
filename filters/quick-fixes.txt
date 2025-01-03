@@ -178,7 +178,11 @@ file-1bl9ruic-moon.com,file-kg88oaak-embed.com,file-mi11ljwj-embed.com,file-sp32
 *##body > div[id^="img_"][class^="img_"][style^="width"]:first-child:style(visibility: hidden !important;)
 *##body > a:only-child > div[id^="img_"][class^="img_"]:style(visibility: hidden !important;)
 ! https://github.com/uBlockOrigin/uAssets/issues/26487
-dogdrip.net,infinityfree.com,smsonline.cloud,webdesignledger.com##+js(trusted-replace-argument, String.prototype.concat, 0, , condition, '/^-?\d{9,10}$/')
+!#if env_firefox
+dogdrip.net,infinityfree.com,smsonline.cloud,webdesignledger.com##+js(trusted-set, navigator.userAgent, 'json:"Mozilla/5.0 (NAVER; rv:133.0) Gecko/20100101 Firefox/133.0"')
+!#else
+dogdrip.net,infinityfree.com,smsonline.cloud,webdesignledger.com##+js(trusted-set, navigator.userAgent, 'json:"Mozilla/5.0 (NAVER) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36"')
+!#endif
 
 ! https://github.com/uBlockOrigin/uAssets/issues/25344
 ! https://github.com/uBlockOrigin/uAssets/pull/26342
@@ -204,6 +208,3 @@ rekidai-info.github.io##+js(nostif, /aframe|querySelector/)
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/195216
 ||status.techtarget.itmedia.co.jp^$badfilter
-
-! https://github.com/easylist/easylist/commit/2a0156deacd034fccef3e90ae884d41a827067e7
-@@||toweroffantasy-global.com/events/accounttransfer/public/js/fingerprint.js$1p
