@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Sat, 04 Jan 2025 14:55:57 +0000
+! Last modified: Sat, 04 Jan 2025 15:45:31 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -17175,8 +17175,11 @@ thothd.com##.table
 /player/stats.php?$image,redirect=1x1.gif
 #@#.ads-iframe
 ##.ads-iframe:not([style="position: absolute; left: -10px; top: -10px;"])
-mafiatown.pl##+js(set, aLoad, noopFunc)
-mafiatown.pl##+js(set, mtCanRunAdsSoItCanStillBeOnTheWeb, true)
+!#if cap_html_filtering
+mafiatown.pl##^script:has-text(AreLoaded)
+!#else
+mafiatown.pl##+js(rmnt, script, AreLoaded)
+!#endif
 rtl.de##+js(nostif, null, 10)
 @@||iocnt.net^$script,domain=rtl.de
 @@||googletagmanager.com/gtm.js$script,domain=rtl.de
