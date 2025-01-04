@@ -3670,8 +3670,11 @@ thothd.com##.table
 ##.ads-iframe:not([style="position: absolute; left: -10px; top: -10px;"])
 
 ! https://github.com/uBlockOrigin/uAssets/issues/14610
-mafiatown.pl##+js(set, aLoad, noopFunc)
-mafiatown.pl##+js(set, mtCanRunAdsSoItCanStillBeOnTheWeb, true)
+!#if cap_html_filtering
+mafiatown.pl##^script:has-text(AreLoaded)
+!#else
+mafiatown.pl##+js(rmnt, script, AreLoaded)
+!#endif
 
 ! https://github.com/uBlockOrigin/uAssets/issues/14617
 rtl.de##+js(nostif, null, 10)
