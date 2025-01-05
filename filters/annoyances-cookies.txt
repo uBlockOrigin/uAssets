@@ -1993,7 +1993,7 @@ salzburg.info##+js(set-attr, img.js-lazy-img[src^="data:image/"], src, [data-src
 verksamt.se##+js(trusted-click-element, [data-testid="consent-necessary"])
 
 ! decline (reported, allow search to work)
-booking.com,pluto.tv##+js(trusted-click-element, button[id="onetrust-reject-all-handler"], , 1000)
+booking.com,groceries.asda.com,pluto.tv##+js(trusted-click-element, button[id="onetrust-reject-all-handler"], , 1000)
 
 ! non-essential
 here.com##+js(trusted-click-element, div[class="t_cm_ec_reject_button"], , 1000)
@@ -2067,6 +2067,26 @@ taxscouts.com##+js(trusted-click-element, button[data-js="cookieConsentReject"],
 ! agree, constent wall. https://www.heute.at/
 cdn.privacy-mgmt.com##+js(trusted-click-element, button[title*="Jetzt"], , 1000)
 
+! decline 
+online.no##+js(trusted-click-element, a[id="consent_prompt_decline"], , 1000)
+
+! Necessary
+redcare.it##+js(trusted-set-cookie, usercentrics_consent, '{"ad_storage":0,"analytics_storage":0,"functional":0}')
+
+! I do not agree
+austrian.com##+js(trusted-click-element, button[id="cm-acceptNone"], , 1000)
+
+! Just Essential
+hornetsecurity.com###BorlabsCookieBox
+hornetsecurity.com##+js(trusted-click-element, button.brlbs-btn-accept-only-essential, , 1000)
+
+! disagree
+standaard.be##+js(trusted-click-element, button[id="didomi-notice-disagree-button"], , 1000)
+
+! Agree (consent wall)
+cmp.bz-berlin.de##+js(trusted-click-element, button[title="Alle akzeptieren"], , 1000) 
+
 ! https://github.com/uBlockOrigin/uAssets/issues/26727 - functional
 lieferando.de##+js(trusted-set-cookie, je-cookieConsent, necessary, , , domain, lieferando.de)
 lieferando.de##+js(trusted-set-cookie, customerCookieConsent, '[{"consentTypeId":103,"consentTypeName":"necessary","isAccepted":true,"decisionAt":"$now$"},{"consentTypeId":104,"consentTypeName":"functional","isAccepted":true,"decisionAt":"$now$"},{"consentTypeId":105,"consentTypeName":"analytical","isAccepted":false,"decisionAt":"$now$"},{"consentTypeId":106,"consentTypeName":"personalized","isAccepted":false,"decisionAt":"$now$"}]', , , domain, lieferando.de)
+
