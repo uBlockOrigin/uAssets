@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Quick fixes
 ! Expires: 12 hours
-! Last modified: Tue, 07 Jan 2025 10:24:44 +0000
+! Last modified: Tue, 07 Jan 2025 12:13:09 +0000
 ! Diff-Path: %diffpath%#ublock-quick-fixes
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -156,7 +156,9 @@ bing.com##ol#b_results > li:has(> :is(.b_tpcn, .b_title, h2) a[href^="https://ww
 exploader.net##+js(ra, href, a[style*="display:"][href^="https://al.dmm.co.jp"], stay)
 *$image,redirect-rule=32x32.png,domain=exploader.net
 ||dmm.co.jp^$domain=exploader.net,badfilter
-exploader.net##article > div a[target="_blank"][style*="display"]:style(opacity: 0 !important; cursor: default !important;)
+exploader.net##+js(trusted-rpnt, script, /^document\.addEventListener\('DOMContentLoaded.+?function\(\).+?\(\);.+/, (()=>{const e="広告ブロックをしていると画像プレビューを使用できません。広告ブロックを解除してダウンロードページをリロードしてください";let t=!1\,n="";const o=new Set\,c=c=>{c.preventDefault();const l=c.target.href\,r=window.open(l\,"_blank");r.addEventListener("load"\,(c=>{if(c.target.documentElement.innerText.includes(e)){const c=o.values().next().value;n=c\,o.delete(c);const l=setInterval((()=>{if(r.document.documentElement?.innerText.includes(e)){const e=o.values().next().value;n=e\,o.delete(e)\,r.location.replace(r.location.href.replace(/\?.*/\,`?${e}`))}if(!t&&r.document.getElementById("preview_images")){document.querySelectorAll(".dl_button[href]").forEach((e=>e.href=e.href.replace(/\?.*/\,`?${n}`)))\,t=!0\,clearInterval(l)}})\,500);r.location.replace(r.location.href.replace(/\?.*/\,`?${c}`))}}))};document.addEventListener("DOMContentLoaded"\,(()=>{const e=document.querySelector("body script").textContent.match(/"] = '(.*?)'/g);if(!e)return;e.forEach((e=>{const t=e.replace(/.*'(.*?)'/\,"$1");o.add(t)}));const t=document.querySelector('.dl_button[href*="preview"]').href.split("?")[1];o.has(t)&&o.delete(t);document.querySelectorAll(".dl_button[href]").forEach((e=>e.addEventListener("click"\,c)))}))})();, sedCount, 1)
+exploader.net##+js(acs, EventTarget.prototype.addEventListener, .innerHTML)
+||daotag.com/tag/$script,domain=exploader.net,important
 exploader.net##:matches-path(/(^\/$|\/free|\/search|\/preview|\/tag)/)a[target="_blank"][style*="display"] img
 !#if cap_html_filtering
 www.chip.de##^script:has-text(/ \=\=\= [0-9]{1,2}\) \{ \}/)
