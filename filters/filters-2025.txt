@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2025)
-! Last modified: Tue, 07 Jan 2025 04:22:58 +0000
+! Last modified: Tue, 07 Jan 2025 06:51:01 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -104,3 +104,10 @@ moviediskhd.cloud##+js(acs, document.createElement, warning)
 
 ! https://androidadult.com/latest-games/ - anti-adb (NSFW)
 androidadult.com##+js(rmnt, script, ads-blocked)
+
+! https://www.reddit.com/r/uBlockOrigin/comments/1hvk9jx/captcha_not_working/
+!#if cap_html_filtering
+hentaihere.com##^script:has-text(/shown_at|WebAssembly/)
+!#else
+hentaihere.com##+js(rmnt, script, /shown_at|WebAssembly/)
+!#endif
