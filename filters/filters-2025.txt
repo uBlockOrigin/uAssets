@@ -30,6 +30,36 @@ filecrypt.co###jh34[onmousedown^="var lsj = this;loc.href="]
 ||beakpee.com^
 ||glocmaift.net^
 
+! https://github.com/uBlockOrigin/uAssets/issues/7836
+! https://github.com/uBlockOrigin/uAssets/issues/13508
+! https://github.com/uBlockOrigin/uAssets/issues/14372
+!sbs.com.au##+js(set, adBlockerDetected, undefined)
+sbs.com.au##+js(m3u-prune, dclk_video_ads, .m3u8)
+sbs.com.au##+js(no-xhr-if, /redirector\.googlevideo\.com\/videoplayback[\s\S]*?dclk_video_ads/)
+sbs.com.au##+js(json-prune, ads breaks cuepoints times)
+sbs.com.au##+js(rc, ad-controls, .bitmovinplayer-container.ad-controls)
+||pubads.g.doubleclick.net/ondemand/hls/content/*/streams$xhr,redirect=noop.txt,domain=sbs.com.au
+||redirector.googlevideo.com/*&source=dclk_video_ads&$redirect=noop.txt,domain=sbs.com.au,important,image,media,subdocument,stylesheet,script,xhr,other
+@@||pubads.g.doubleclick.net/ondemand/hls/content/*/vid/*/streams$domain=sbs.com.au
+@@||pubads.g.doubleclick.net/ssai/event/$xhr,domain=sbs.com.au
+@@||imasdk.googleapis.com/js/sdkloader/ima3.js$domain=sbs.com.au
+sbs.com.au##^script:has-text(NREUM)
+@@||sbs.com.au^$ghide
+@@/ad/banner/_adsense_/_adserver/_adview_.ad.json$1p
+@@||sbs.com.au/ondemand/ad/peel1.js$script,domain=sbs.com.au
+*$script,3p,redirect-rule=noopjs,domain=sbs.com.au
+! https://github.com/uBlockOrigin/uAssets/issues/22753
+@@||sbs.com.au^$xhr,1p
+@@||dpm.demdex.net^$xhr,domain=sbs.com.au
+! https://github.com/uBlockOrigin/uAssets/issues/24045
+sbs.com.au##+js(aopr, odabd)
+! https://www.reddit.com/r/uBlockOrigin/comments/1h4f5hp/sbs_on_demand_detects_ubo/
+sbs.com.au##+js(trusted-prevent-xhr, pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?ord=, b.google_reactive_tag_first)
+sbs.com.au##+js(trusted-prevent-xhr, sbs.demdex.net/dest5.html?d_nsid=0&ord=, Demdex.canSetThirdPartyCookies)
+sbs.com.au##+js(trusted-prevent-xhr, securepubads.g.doubleclick.net/pagead/ima_ppub_config?ippd=https%3A%2F%2Fwww.sbs.com.au%2Fondemand%2F&ord=, ["4117"])
+@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?ord=$xhr,domain=sbs.com.au
+@@||sbs.demdex.net/dest5.html?d_nsid=0&ord=$xhr,domain=sbs.com.au
+
 ! END: Rules from filters.txt
 
 ! https://github.com/uBlockOrigin/uAssets/issues/26682
