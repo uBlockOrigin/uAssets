@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Quick fixes
 ! Expires: 12 hours
-! Last modified: Wed, 08 Jan 2025 12:35:30 +0000
+! Last modified: Wed, 08 Jan 2025 12:45:27 +0000
 ! Diff-Path: %diffpath%#ublock-quick-fixes
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -142,11 +142,7 @@ brr-69xwmut5-moo.com,file-1bl9ruic-moon.com,file-kg88oaak-embed.com,file-mi11ljw
 *##body > div[id^="img_"][class^="img_"][style^="width"]:first-child:style(position: absolute !important; top: -100000px !important;)
 *##body > div:first-child > script + div[id^="img_"][class^="img_"]:style(position: absolute !important; top: -100000px !important;)
 *##body > a:only-child > div[id^="img_"][class^="img_"]:style(max-width: 0px !important; max-height: 0px !important;)
-!#if env_chromium
-dogdrip.net,infinityfree.com,smsonline.cloud##+js(trusted-set, navigator.userAgent, 'json:"Mozilla/5.0 NAVER(inapp; search) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36"')
-!#else
-dogdrip.net,infinityfree.com,smsonline.cloud##+js(trusted-set, navigator.userAgent, 'json:"Mozilla/5.0 NAVER(inapp; search; rv:134.0) Gecko/20100101 Firefox/134.0"')
-!#endif
+dogdrip.net,infinityfree.com,smsonline.cloud##+js(trusted-replace-fetch-response, /^.+$/, '(()=>{const S=null===(D=document.currentScript)||void 0===D?void 0:D.getAttribute("loader");S&&window.postMessage(S,"*"),null!==(E=document.currentScript)&&void 0!==E&&E.remove();})()', -load.com/script/)
 bing.com##li.b_algo:has(a[href^="https://www.bing.com/aclick?"], a[href^="https://www.bing.com/aclk?"]):remove-class(b_algo)
 bing.com##ol#b_results > li:has(> :is(.b_tpcn, .b_title, h2) a[href^="https://www.bing.com/aclick?"])
 bing.com##ol#b_results > li:has(> :is(.b_tpcn, .b_title, h2) a[href^="https://www.bing.com/aclk?"])
