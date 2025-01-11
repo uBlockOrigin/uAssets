@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Sat, 11 Jan 2025 02:32:28 +0000
+! Last modified: Sat, 11 Jan 2025 04:22:18 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -23938,3 +23938,11 @@ comdotgame.com##[src^="https://a.adtng.com/"]
 ||comdotgame.com/static/ads/istripper/
 premiumporn.org##+js(rmnt, script, window.open)
 @@||securepubads.g.doubleclick.net/pagead/ppub_config^$xhr,redirect-rule,domain=kumparan.com
+!#if cap_html_filtering
+hunterscomics.com##^script:has-text('{delete window[')
+!#else
+hunterscomics.com##+js(rmnt, script, '{delete window[')
+!#endif
+hunterscomics.com##+js(no-fetch-if, /googlesyndication|doubleclick/, length:10, {"type": "cors"})
+hunterscomics.com##+js(no-xhr-if, pubfuture, length:10)
+/^https:\/\/hunterscomics\.com\/wp-content\/themes(\/[a-f]{6}){2}\.js\?ver=/$script,1p,domain=hunterscomics.com
