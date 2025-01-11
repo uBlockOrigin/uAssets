@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Quick fixes
 ! Expires: 12 hours
-! Last modified: Sat, 11 Jan 2025 02:46:53 +0000
+! Last modified: Sat, 11 Jan 2025 04:38:57 +0000
 ! Diff-Path: %diffpath%#ublock-quick-fixes
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -144,12 +144,8 @@ smsonline.cloud##html[data-theme][lang] [id^="img_"][style]:has(iframe[framebord
 ~dogdrip.net,~infinityfree.com,~smsonline.cloud,*##body > div:first-child > script + div[id^="img_"][class^="img_"]:style(position: absolute !important; top: -100000px !important;)
 ~dogdrip.net,~infinityfree.com,~smsonline.cloud,*##body > a:only-child > div[id^="img_"][class^="img_"]:style(position: absolute !important; top: -100000px !important;)
 07c225f3.online,content-loader.com,css-load.com,html-load.com,img-load.com##body > *:not(pre):style(filter: opacity(0) !important; pointer-events: none !important;)
-!#if env_chromium
-dogdrip.net,infinityfree.com,smsonline.cloud##+js(trusted-set, navigator.userAgent, 'json:"Mozilla/5.0 NAVER(inapp; search) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36"')
-!#else
-dogdrip.net,infinityfree.com,smsonline.cloud##+js(trusted-set, navigator.userAgent, 'json:"Mozilla/5.0 NAVER(inapp; search; rv:134.0) Gecko/20100101 Firefox/134.0"')
-!#endif
-dogdrip.net,infinityfree.com,smsonline.cloud##+js(set, naverappapi, noopFunc)
+-load.com/script/$xhr,domain=dogdrip.net|infinityfree.com|smsonline.cloud
+dogdrip.net,infinityfree.com,smsonline.cloud##+js(nostif, );throw new Error()
 bing.com##li.b_algo:has(a[href^="https://www.bing.com/aclick?"], a[href^="https://www.bing.com/aclk?"]):remove-class(b_algo)
 bing.com##ol#b_results > li:has(> :is(.b_tpcn, .b_title, h2) a[href^="https://www.bing.com/aclick?"])
 bing.com##ol#b_results > li:has(> :is(.b_tpcn, .b_title, h2) a[href^="https://www.bing.com/aclk?"])
@@ -175,7 +171,6 @@ instagram.com##+js(remove-cookie, ig_did)
 facebook.com#@#+js(trusted-set-cookie, datr, 835uZ-bIo1ECQru7AjqnhhRl, 1year, , reload, 1, dontOverwrite, 1)
 instagram.com#@#+js(trusted-set-cookie, ig_did, 5443AF77-1A68-4603-BF65-43BB5F664A80, 1year, , reload, 1, dontOverwrite, 1)
 quora.com#@#.q-sticky[style*="box-sizing: border-box; position: sticky;"]
-||rr.nu^$doc,badfilter
 ||chat.deepseek.com/api/v0/events$badfilter
 chat.deepseek.com#@#+js(no-xhr-if, /api/v0/events)
 ||hyogo-tourism.jp/img/top/bnr-$badfilter
