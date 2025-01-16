@@ -43,10 +43,6 @@ decider.com,nypost.com,pagesix.com##.zephr-component
 !!! Trusted scriptlets------------------------------------------------------------
 
 !! Accept mandatory cookies / reject all additional cookies
-! Didomi - Continue without agreeing
-auto.it##+js(trusted-click-element, .didomi-continue-without-agreeing, , 1000)
-auto.it###didomi-host:style(visibility: hidden !important;)
-auto.it##body.didomi-popup-open:style(overflow: auto !important;)
 ! When moving from Google search to other Google services or opening them directly. E.G. https://translate.google.com/ 
 consent.google.*##+js(trusted-click-element, form[action] button[jsname="tWT92d"])
 ! https://github.com/DandelionSprout/adfilt/discussions/932#discussioncomment-8260397
@@ -429,10 +425,6 @@ linasmatkasse.se##+js(trusted-set-local-storage-item, reduxStore, '{"tracking":{
 ! https://gamearena.pl/
 gamearena.pl##+js(trusted-set-cookie, cookieOptions, '{"analitics":false,"marketing":false}')
 gamearena.pl##+js(set-cookie, cookieVer, 1, , reload, 1)
-! https://github.com/uBlockOrigin/uAssets/issues/25596
-publicsenat.fr##+js(trusted-click-element, ':is(.didomi-continue-without-agreeing, #didomi-notice-disagree-button)', , 2000)
-publicsenat.fr###didomi-host:style(opacity: 0 !important;)
-publicsenat.fr##body.didomi-popup-open:style(overflow: auto !important;)
 ! mobile/EU IP
 bambaw.com##+js(trusted-set-cookie, cookieconsent_status, accept_selected)
 bambaw.com##+js(trusted-set-cookie, cookieconsent_preferences_disabled, 'functionality,analytics,marketing')
@@ -1129,9 +1121,10 @@ mesta.net##+js(trusted-set-cookie, OptanonAlertBoxClosed, $currentDate$, 1year)
 mafu.de##+js(trusted-set-cookie, wmm-visitor_token, 4cb8860d-4194-4ab5-be04-10f9a26afaa8)
 ! essential only
 paf.com##+js(trusted-set-cookie, cookieConsent, {%22essential%22:true%2C%22tracking%22:false%2C%22marketing%22:false})
-! Continue without agreeing, hide consent flash
-boursobank.com,frandroid.com,rmcbfmplay.com###didomi-host
-boursobank.com,frandroid.com,rmcbfmplay.com##+js(trusted-click-element, .didomi-continue-without-agreeing)
+! Continue without agreeing, hide consent flash (.didomi-continue-without-agreeing)
+auto.it,boursobank.com,frandroid.com,meteofrance.com,mondialtissus.fr,publicsenat.fr,rmcbfmplay.com###didomi-host
+auto.it,boursobank.com,frandroid.com,meteofrance.com,mondialtissus.fr,publicsenat.fr,rmcbfmplay.com##+js(trusted-click-element, .didomi-continue-without-agreeing, , 1000)
+auto.it,boursobank.com,frandroid.com,meteofrance.com,mondialtissus.fr,publicsenat.fr,rmcbfmplay.com##body.didomi-popup-open:style(overflow: auto !important;)
 ! functional only, ad/analytics denied
 flip.gr##+js(trusted-set-cookie, consts, '{%22ad_storage%22:%22denied%22%2C%22analytics_storage%22:%22denied%22%2C%22functionality_storage%22:%22granted%22}')
 ! necessarry
@@ -1670,11 +1663,6 @@ idnes.cz##+js(trusted-click-element, a[href="javascript:Didomi.setUserAgreeToAll
 20minutes.fr,20minutos.es,24sata.hr,abc.es,actu.fr,antena3.com,antena3internacional.com,atresmedia.com,atresmediapublicidad.com,atresmediastudios.com,atresplayer.com,autopista.es,belfasttelegraph.co.uk,bonduelle.it,bonniernews.se,cadenaser.com,ciclismoafondo.es,cnews.fr,cope.es,correryfitness.com,decathlon.nl,decathlon.pl,diepresse.com,dnevnik.hr,dumpert.nl,ebuyclub.com,edreams.de,edreams.net,elcomercio.es,elconfidencial.com,eldesmarque.com,elespanol.com,elpais.com,elpais.es,engadget.com,euronews.com,europafm.com,expressen.se,flooxernow.com,france24.com,ghacks.net,gva.be,hbvl.be,krone.at,kurier.at,ladepeche.fr,lalibre.be,lasexta.com,lasprovincias.es,ledauphine.com,lejdd.fr,leparisien.fr,lexpress.fr,libremercado.com,marmiton.org,melodia-fm.com,metronieuws.nl,mundodeportivo.com,nicematin.com,nieuwsblad.be,numerama.com,ondacero.es,profil.at,radiofrance.fr,rankia.com,rfi.fr,rossmann.pl,rtbf.be,rtl.lu,science-et-vie.com,sensacine.com,sfgame.net,shure.com,silicon.es,sncf-connect.com,sport.es,techcrunch.com,telegraaf.nl,telequebec.tv,trailrun.es,video-streaming.orange.fr###didomi-host:style(visibility: hidden !important;)
 20minutes.fr,20minutos.es,24sata.hr,abc.es,actu.fr,antena3.com,antena3internacional.com,atresmedia.com,atresmediapublicidad.com,atresmediastudios.com,atresplayer.com,autopista.es,belfasttelegraph.co.uk,bonduelle.it,bonniernews.se,cadenaser.com,ciclismoafondo.es,cnews.fr,cope.es,correryfitness.com,decathlon.nl,decathlon.pl,diepresse.com,dnevnik.hr,dumpert.nl,ebuyclub.com,edreams.de,edreams.net,elcomercio.es,elconfidencial.com,eldesmarque.com,elespanol.com,elpais.com,elpais.es,engadget.com,euronews.com,europafm.com,expressen.se,flooxernow.com,france24.com,ghacks.net,gva.be,hbvl.be,krone.at,kurier.at,ladepeche.fr,lalibre.be,lasexta.com,lasprovincias.es,ledauphine.com,lejdd.fr,leparisien.fr,lexpress.fr,libremercado.com,marmiton.org,melodia-fm.com,metronieuws.nl,mundodeportivo.com,nicematin.com,nieuwsblad.be,numerama.com,ondacero.es,profil.at,radiofrance.fr,rankia.com,rfi.fr,rossmann.pl,rtbf.be,rtl.lu,science-et-vie.com,sensacine.com,sfgame.net,shure.com,silicon.es,sncf-connect.com,sport.es,techcrunch.com,telegraaf.nl,telequebec.tv,trailrun.es,video-streaming.orange.fr##body.didomi-popup-open:style(overflow: auto !important;)
 @@||sdk.privacy-center.org^$script,domain=actu.fr|ledauphine.com
-
-! didomi-continue-without-agreeing
-meteofrance.com##+js(trusted-click-element, span.didomi-continue-without-agreeing, , 1000)
-meteofrance.com###didomi-host:style(visibility: hidden !important;)
-meteofrance.com##body.didomi-popup-open:style(overflow: auto !important;)
 
 ! https://de.euronews.com/next/2024/07/04/kohlenstoffarme-forderung-aserbaidschan-mochte-diversifizierung-des-traditionellen-energie video broken, decline tracking
 euronews.com###poool-fullscreen-widget
