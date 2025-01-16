@@ -1728,7 +1728,7 @@ cdn.privacy-mgmt.com##+js(trusted-click-element, button[title*="AGREE"], , 1000)
 cdn.privacy-mgmt.com##+js(trusted-click-element, button[title*="Zustimmen"], , 1000)
 
 ! just Use necessary cookies only
-degiro.*##+js(trusted-click-element, #CybotCookiebotDialogBodyButtonDecline)
+degiro.*,vikingline.com##+js(trusted-click-element, #CybotCookiebotDialogBodyButtonDecline)
 
 ! Necessary + functional cookies
 interactivebrokers.com##+js(trusted-set-local-storage-item, consentMode, '{"functionality_storage":"granted","security_storage":"granted","ad_storage":"denied","analytics_storage":"denied","ad_personalization":"denied","ad_user_data":"denied"}')
@@ -1949,7 +1949,10 @@ argos.co.uk##+js(trusted-click-element, button[id="explicit-consent-prompt-rejec
 joinrs.com##+js(trusted-set-cookie, cookie-consent-settings, %5B%5D)
 
 ! accept
-poco.de,moebelix.*,moemax.*,xxxlutz.*##+js(trusted-click-element, button[data-testid="uc-button-accept-and-close"], , 1000)
+poco.de,moebelix.*,moemax.*,xxxlutz.*,xxxlesnina.*##+js(trusted-click-element, button[data-purpose="cookieBar.button.accept"], , 1000)
+! fallback (old)
+poco.de##+js(trusted-click-element, button[data-testid="uc-button-accept-and-close"], '', 1000)
+
 
 ! accept/close
 moebel24.ch##+js(trusted-click-element, button[data-testid="uc-button-accept-and-close"], , 1000)
@@ -2164,6 +2167,12 @@ gmx.ch##+js(trusted-click-element, button[id="save-all-conditionally"], , 1000)
 ! https://github.com/uBlockOrigin/uAssets/issues/26834
 mywot.com#@#+js(set-cookie, cookies_consent_disclaimer, false)
 mywot.com##+js(trusted-set-cookie, cookies_consent_disclaimer, closed, , , reload, 1)
+
+! accept, needed to avoid constant popup
+mojehobby.pl,super-hobby.*##+js(trusted-click-element, a[onclick="AcceptAllCookies(true); "], , 1000)
+
+! accept (consent wall)
+sp.stylevamp.de##+js(trusted-click-element, button[title="Akzeptieren & Weiter"], , 1000)
 
 ! https://lcp.fr/actualites/retraites-s-il-y-a-des-progres-entre-partenaires-sociaux-un-texte-sera-soumis-au - fix embedded videos and tweets
 lcp.fr##+js(trusted-set-cookie, cookiesjsr, '%7B%22functional%22:false,%22gtag%22:false,%22recaptcha%22:false,%22addtoany%22:false,%22twitter%22:true,%22video%22:true,%22vimeo%22:true%7D')
