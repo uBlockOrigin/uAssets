@@ -1,5 +1,5 @@
 ! Title: uBlock filters
-! Last modified: Sat, 18 Jan 2025 13:13:11 +0000
+! Last modified: Sat, 18 Jan 2025 14:25:29 +0000
 ! Expires: 5 days
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
@@ -211,8 +211,6 @@ gellerreport.com##.__hinit
 
 ! https://github.com/gorhill/uBlock/issues/949
 ! https://github.com/uBlockOrigin/uAssets/issues/6541#issuecomment-1012435405
-||s3.amazonaws.com/homad-global-configs.schneevonmorgen.com/hd-main.js$script,domain=autobild.de|cinema.de|computerbild.de|cdnapi.kaltura.com|focus.de|spieleaffe.de|sueddeutsche.de,redirect=hd-main.js
-||svonm.com/hd-main.js$script,redirect=hd-main.js,domain=cinema.de|cdnapi.kaltura.com
 tvspielfilm.de##.promo-box
 tvtoday.de##+js(nosiif, fireEvent, 500)
 @@||tvtoday.de^$ghide
@@ -10827,29 +10825,33 @@ aol.com##.maas-item:has-text(our Partners)
 ! https://github.com/uBlockOrigin/uAssets/issues/6541
 ! https://github.com/uBlockOrigin/uAssets/issues/15698
 ! https://github.com/uBlockOrigin/uAssets/issues/19453
-4players.de,buffed.de,gamesaktuell.de,gamezone.de,pcgames.de,videogameszone.de##+js(set, CustomEvent, noopFunc)
-golem.de,player.pcgameshardware.de##+js(no-xhr-if, damoh)
-vip.de,rtl.de,fitforfun.de,desired.de,kino.de,cinema.de##+js(no-xhr-if, svonm)
-desired.de##+js(ra, data-ivad-preroll-adtag, video, stay)
+player.buffed.de,player.gamezone.de,player.gamesaktuell.de,player.pcgames.de,player.videogameszone.de,player.pcgameshardware.de##+js(rpnt, script, /'globalConfig':.*?"\,\s};var exportz/s, };var exportz)
+golem.de##+js(no-xhr-if, damoh)
+vip.de,rtl.de,cinema.de##+js(no-xhr-if, svonm)
 ||computer-bild.de/_static-assets/homad/homad.js
 ||auto-bild.de/_static-assets/homad/homad.js
-||static.kicker.de/content/js/vendor/homad
-spiegel.de##^script:has-text(homad)
-giga.de,kino.de,spieletipps.de##+js(rpnt, script, /\"homad\"\,/)
+||uicdn.com/uimag/*/assets/_sn_/vendor/homad.min.js
+giga.de,kino.de,spieletipps.de,desired.de##+js(rpnt, script, /\"homad\"\,/)
 t-online.de##+js(rpnt, script, /\"homad\":\{\"state\":\"enabled\"\}/, "homad":{"state":"disabled"})
+sport.de##+js(set, player_542213.advertisingGeneral.homad.useAdBlockDefend, false)
+stern.de##+js(set, foundation.adPlayer.bitmovin, {})
 !#if !cap_html_filtering
 welt.de,~dutyfarm.welt.de##div[id][style^="z-index: 2"][style*="margin"][style*="auto"][style*="top"][style$="px; position: absolute;"]:remove()
 spiegel.de##+js(rmnt, script, homad)
 !#else
+spiegel.de##^script:has-text(homad)
 ||welt.de/homadConfigEnabled.json$xhr,replace=/"enabled":true/"enabled":false/
 !#endif
 plus.rtl.de##+js(json-prune, adReinsertion)
-tvspielfilm.de,tvtoday.de,chip.de,focus.de##+js(set, DL8_GLOBALS.enableAdSupport, false)
-tvspielfilm.de,tvtoday.de,chip.de,focus.de##+js(set, DL8_GLOBALS.useHomad, false)
-tvspielfilm.de,tvtoday.de,chip.de,focus.de##+js(set, DL8_GLOBALS.enableHomadDesktop, false)
-tvspielfilm.de,tvtoday.de,chip.de,focus.de##+js(set, DL8_GLOBALS.enableHomadMobile, false)
-! https://github.com/uBlockOrigin/uAssets/issues/26865
-stern.de##+js(set, foundation.adPlayer.bitmovin, {})
+tvspielfilm.de,tvtoday.de,chip.de,focus.de,fitforfun.de##+js(set, DL8_GLOBALS.enableAdSupport, false)
+tvspielfilm.de,tvtoday.de,chip.de,focus.de,fitforfun.de##+js(set, DL8_GLOBALS.useHomad, false)
+tvspielfilm.de,tvtoday.de,chip.de,focus.de,fitforfun.de##+js(set, DL8_GLOBALS.enableHomadDesktop, false)
+tvspielfilm.de,tvtoday.de,chip.de,focus.de,fitforfun.de##+js(set, DL8_GLOBALS.enableHomadMobile, false)
+
+! https://github.com/uBlockOrigin/uAssets/issues/7508#issuecomment-659267224
+||united-infos.net^$domain=gmx.*|web.de
+! https://github.com/uBlockOrigin/uAssets/issues/6541#issuecomment-559272733
+focus.de,kicker.de##+js(json-prune, enabled, force_disabled)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/7508#issuecomment-659267224
 ||damoh.gmx.*/*$media,redirect=noop-0.1s.mp3,1p
