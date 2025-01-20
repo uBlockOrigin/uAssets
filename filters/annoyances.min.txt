@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Annoyances
 ! Expires: 7 days
-! Last modified: Sun, 19 Jan 2025 23:15:10 +0000
+! Last modified: Mon, 20 Jan 2025 03:15:56 +0000
 ! Diff-Path: %diffpath%#ublock-annoyances
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -275,9 +275,14 @@ newsbook.pl##+js(aopw, disableEnterKey)
 newsbook.pl##+js(aopw, document.ondragstart)
 newsbook.pl##.unselectable:style(-webkit-touch-callout: default !important; -webkit-user-select: text !important; -moz-user-select: text !important; -ms-user-select: text !important; user-select: text !important;)
 cmg24.pl##+js(aopw, document.oncontextmenu)
-ligowiec.net,radio5.com.pl,romet.pl,sat-charts.eu,skionline.pl,trentino.pl,pcpobierz.pl##+js(ra, oncontextmenu)
+ligowiec.net,radio5.com.pl,romet.pl,sat-charts.eu,trentino.pl,pcpobierz.pl##+js(ra, oncontextmenu)
 roztoczanskipn.pl##+js(aeld, contextmenu)
 malybelgrad.pl##+js(aopr, document.oncontextmenu)
+!#if env_firefox
+skionline.*##body[oncontextmenu]:remove-attr(/^on(contextmenu|copy|dragstart|select)/)
+!#else
+skionline.*##+js(ra, oncontextmenu|oncopy|ondragstart|onselect|onselectstart, body, complete)
+!#endif
 carsguide.com.au##+js(set, isAdblockDisabled, true)
 carsguide.com.au###adBlockMessage
 @@||dermatologytimes.com^$ghide
