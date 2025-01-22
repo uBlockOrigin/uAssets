@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Cookie Notices
-! Last modified: Wed, 22 Jan 2025 05:35:29 +0000
+! Last modified: Wed, 22 Jan 2025 10:55:01 +0000
 ! Expires: 7 days
 ! Description: Filters optimized for uBlock Origin, to be used with EasyList's and/or Adguard's "Cookie Notices" list(s)
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -1127,9 +1127,9 @@ mafu.de##+js(trusted-set-cookie, wmm-visitor_token, 4cb8860d-4194-4ab5-be04-10f9
 ! essential only
 paf.com##+js(trusted-set-cookie, cookieConsent, {%22essential%22:true%2C%22tracking%22:false%2C%22marketing%22:false})
 ! Continue without agreeing, hide consent flash (.didomi-continue-without-agreeing)
-auto.it,boursobank.com,frandroid.com,meteofrance.com,mondialtissus.fr,publicsenat.fr,rmcbfmplay.com###didomi-host
-auto.it,boursobank.com,frandroid.com,meteofrance.com,mondialtissus.fr,publicsenat.fr,rmcbfmplay.com##+js(trusted-click-element, .didomi-continue-without-agreeing, , 1000)
-auto.it,boursobank.com,frandroid.com,meteofrance.com,mondialtissus.fr,publicsenat.fr,rmcbfmplay.com##body.didomi-popup-open:style(overflow: auto !important;)
+auto.it,boursobank.com,frandroid.com,jobijoba.*,meteofrance.com,mondialtissus.fr,publicsenat.fr,rmcbfmplay.com###didomi-host
+auto.it,boursobank.com,frandroid.com,jobijoba.*,meteofrance.com,mondialtissus.fr,publicsenat.fr,rmcbfmplay.com##+js(trusted-click-element, .didomi-continue-without-agreeing, , 1000)
+auto.it,boursobank.com,frandroid.com,jobijoba.*,meteofrance.com,mondialtissus.fr,publicsenat.fr,rmcbfmplay.com##body.didomi-popup-open:style(overflow: auto !important;)
 ! functional only, ad/analytics denied
 flip.gr##+js(trusted-set-cookie, consts, '{%22ad_storage%22:%22denied%22%2C%22analytics_storage%22:%22denied%22%2C%22functionality_storage%22:%22granted%22}')
 ! necessarry
@@ -2010,7 +2010,7 @@ salzburg.info##+js(set-attr, img.js-lazy-img[src^="data:image/"], src, [data-src
 verksamt.se##+js(trusted-click-element, [data-testid="consent-necessary"])
 
 ! decline (reported, allow search to work)
-booking.com,de.vanguard,dhl.de,khanacademy.org,konami.com,jll.*,groceries.asda.com,pluto.tv,samsonite.*,telenet.be,questdiagnostics.com##+js(trusted-click-element, button[id="onetrust-reject-all-handler"], , 1000)
+booking.com,de.vanguard,dhl.de,khanacademy.org,konami.com,jll.*,groceries.asda.com,nintendo.com,pluto.tv,samsonite.*,telenet.be,questdiagnostics.com##+js(trusted-click-element, button[id="onetrust-reject-all-handler"], , 1000)
 
 ! non-essential
 here.com##+js(trusted-click-element, div[class="t_cm_ec_reject_button"], , 1000)
@@ -2349,6 +2349,27 @@ lafi.fr##+js(trusted-click-element, button[onclick="SelectNone()"], , 1000)
 
 ! essential/date=1
 erli.pl##+js(trusted-set-local-storage-item, COOKIES_CONSENTS, '{"marketingAndStatistics":false,"personalization":false,"at":1}')
+
+! essential
+skyscanner.*##+js(trusted-click-element, button[data-tracking-element-id="cookie_banner_essential_only"], , 1000)
+
+! decline
+coolblue.*##+js(trusted-click-element, button[name="decline_cookie"], , 1000)
+
+! continue without accepting
+sanareva.*,atida.fr##+js(trusted-click-element, button.cmpt_customer--cookie--banner--continue, , 1000)
+
+! refuse
+bbva.*,bbvauk.com##+js(trusted-click-element, button.cookiesgdpr__rejectbtn, , 1000)
+
+! accept
+expertise.unimi.it##+js(trusted-click-element, button[onclick="confirmAll('theme-showcase')"], , 1000)
+
+! necessary
+lekarna-bella.cz##+js(trusted-set-cookie, cookiesSettings, '{"necessary":true,"preferential":false,"analytics":false,"marketing":false}')
+
+! necessary
+altenberg.de##+js(trusted-click-element, button.oax-cookie-consent-select-necessary, , 1000)
 
 ! reject
 vestel.es##+js(trusted-click-element, button#cookieModuleRejectAll, , 1000)
