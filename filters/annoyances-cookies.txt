@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Cookie Notices
-! Last modified: Tue, 21 Jan 2025 06:02:36 +0000
+! Last modified: Wed, 22 Jan 2025 05:35:29 +0000
 ! Expires: 7 days
 ! Description: Filters optimized for uBlock Origin, to be used with EasyList's and/or Adguard's "Cookie Notices" list(s)
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -796,7 +796,7 @@ hemmersbach.com##+js(trusted-set-cookie, cookiefirst-consent, %7B%22cookiefirst%
 
 ! https://github.com/uBlockOrigin/uAssets/issues/20523
 ! https://github.com/uBlockOrigin/uAssets/issues/20595
-blick.ch,digi24.ro,digisport.ro,digitalfoundry.net,egx.net,eurogamer.it,gmx.*,mail.com,mcmcomiccon.com,nachrichten.at,nintendolife.com,oe24.at,paxsite.com,peacocktv.com,player.pl,pricerunner.com,pricerunner.se,pricerunner.dk,proximus.be,proximus.com,purexbox.com,pushsquare.com,southparkstudios.com,starwarscelebration.com,thehaul.com,timeextension.com,travelandleisure.com,tunein.com,videoland.com,wizzair.com,wetter.at##+js(trusted-click-element, #onetrust-accept-btn-handler, , 1000)
+ansons.de,blick.ch,digi24.ro,digisport.ro,digitalfoundry.net,egx.net,eurogamer.it,gmx.*,mail.com,mcmcomiccon.com,nachrichten.at,nintendolife.com,oe24.at,paxsite.com,peacocktv.com,player.pl,pricerunner.com,pricerunner.se,pricerunner.dk,proximus.be,proximus.com,purexbox.com,pushsquare.com,southparkstudios.com,starwarscelebration.com,thehaul.com,timeextension.com,travelandleisure.com,tunein.com,videoland.com,wizzair.com,wetter.at##+js(trusted-click-element, #onetrust-accept-btn-handler, , 1000)
 dicebreaker.com,eurogamer.cz,eurogamer.es,eurogamer.net,eurogamer.nl,eurogamer.pl,eurogamer.pt,gamesindustry.biz,jelly.deals,reedpop.com,rockpapershotgun.com,thepopverse.com,vg247.com,videogameschronicle.com##+js(trusted-click-element, button[title="Accept and continue"])
 dicebreaker.com,eurogamer.cz,eurogamer.es,eurogamer.net,eurogamer.nl,eurogamer.pl,eurogamer.pt,gamesindustry.biz,jelly.deals,reedpop.com,rockpapershotgun.com,thepopverse.com,vg247.com,videogameschronicle.com##+js(trusted-click-element, button[title="Accept All Cookies"])
 eurogamer.de##+js(trusted-click-element, .accept-all)
@@ -2098,7 +2098,7 @@ hornetsecurity.com,kayzen.io###BorlabsCookieBox
 hornetsecurity.com,kayzen.io##+js(trusted-click-element, button.brlbs-btn-accept-only-essential, , 1000)
 
 ! disagree
-standaard.be##+js(trusted-click-element, button[id="didomi-notice-disagree-button"], , 1000)
+standaard.be,engelvoelkers.com,taxfix.de##+js(trusted-click-element, button[id="didomi-notice-disagree-button"], , 1000)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/26727 - functional
 lieferando.de##+js(trusted-set-cookie, je-cookieConsent, necessary, , , domain, lieferando.de)
@@ -2316,6 +2316,45 @@ rooader.pl##+js(trusted-set-cookie, cookie_consents, '{"essential":true,"functio
 
 ! necessary
 fastweb.it##+js(trusted-set-cookie, ck_consent, AT, , , reload, 1)
+
+! necessary bmw.co.uk/bmw.fr etc
+bmw.*##+js(trusted-click-element, epaas-consent-drawer-shell >>> button.reject-button, , 1000)
+
+! just selected
+kijk.nl##+js(trusted-click-element, button.ot-bnr-save-handler, , 1000)
+
+! essential only
+bandcamp.com##+js(trusted-set-cookie, cookie_preferences, '{"allow":[]}')
+
+! accept necessary
+nordania.dk,danskebank.*,danskeci.com,danicapension.dk##+js(trusted-click-element, button#button-accept-necessary, , 1000)
+
+! save selected, marketing=disabled
+dehn.*##+js(trusted-click-element, button[data-cookie-layer-accept="selected"], , 1000)
+
+! googleads=disabled/just selection
+gewerbegebiete.de##+js(trusted-click-element, .open > ng-transclude > footer > button.accept-selected-btn, , 1000)
+
+! continue without accepting
+cordia.fr##+js(trusted-click-element, .open_modal .modal-dialog .modal-content form .modal-header button[name="refuse_all"], , 1000)
+
+! refuse
+vola.fr##+js(trusted-click-element, div.button_cookies[onclick="RefuseCookie()"])
+
+! required
+aelia.pl##+js(trusted-set-local-storage-item, privacy_preferences_2024-04, '{"required":true,"functional":false,"analytics":false,"marketing":false}')
+
+! refuse
+lafi.fr##+js(trusted-click-element, button[onclick="SelectNone()"], , 1000)
+
+! essential/date=1
+erli.pl##+js(trusted-set-local-storage-item, COOKIES_CONSENTS, '{"marketingAndStatistics":false,"personalization":false,"at":1}')
+
+! reject
+vestel.es##+js(trusted-click-element, button#cookieModuleRejectAll, , 1000)
+
+! refuse
+eurofirms.com,clairejoster.com,eurofirmsgroup.com##+js(trusted-set-cookie, ett_cookie_acceptance, '{"strictlyNecessaryCookies":true,"analysisCookies":false,"functionaliyOrPersonalizationCookies":false}')
 
 ! https://github.com/uBlockOrigin/uAssets/issues/26900 - functional
 karkkainen.com##+js(trusted-set-cookie, CookieInformationConsent, '{"website_uuid":"0fabd588-2344-49cd-9abb-ce5ffad2757e","timestamp":"$currentDate$","consent_url":"https://www.karkkainen.com/","consent_website":"karkkainen.com","consent_domain":"www.karkkainen.com","user_uid":"","consents_approved":["cookie_cat_necessary","cookie_cat_functional"],"consents_denied":[],"user_agent":""}')
