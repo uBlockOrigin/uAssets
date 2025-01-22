@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Privacy
 ! Expires: 7 days
-! Last modified: Wed, 22 Jan 2025 01:30:53 +0000
+! Last modified: Wed, 22 Jan 2025 03:40:29 +0000
 ! Diff-Path: %diffpath%#ublock-privacy
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -40,7 +40,6 @@ www.reddit.com##+js(json-prune, data.*.elements.edges.[].node.outboundLink)
 www.reddit.com##+js(json-prune, data.children.[].data.outbound_link)
 ||redditstatic.com/shreddit/sentry-$domain=reddit.com
 ||www.reddit.com/|$xhr,1p,method=post
-||click.redditmail.com/CL0/$urlskip=/\/CL0\/(http.*?)\/\d\/[a-f0-9-]+\// -uricomponent
 ||reddit.com^$doc,removeparam=/web_only=/
 ||reddit.com^$doc,removeparam=/deep_link=/
 ||reddit.com^$doc,removeparam=correlation_id
@@ -48,6 +47,9 @@ www.reddit.com##+js(json-prune, data.children.[].data.outbound_link)
 ||reddit.com^$doc,removeparam=ref_campaign
 ||reddit.com^$doc,removeparam=ref_source
 ||reddit.com^$doc,removeparam=utm_content
+||click.redditmail.com/CL0/$urlskip=/\/CL0\/(http.*?)\/\d\/[a-f0-9-]+\// -uricomponent
+! remove.bg
+||rd.remove.bg/CL0/http$doc,urlskip=/\/CL0\/(http.*?)\/\d\/[a-f0-9-]+\// -uricomponent
 docs.google.com##+js(no-xhr-if, method:POST url:/logImpressions)
 www.google.*##+js(set, rwt, noopFunc)
 !#if !env_mobile
@@ -829,6 +831,7 @@ discord.com##+js(no-xhr-if, discord.com/api/v9/science)
 ://email-analytics.meetup.com/$image
 ://myanimelist.net/pixel?$image
 ://myanimelist.net/static/logging.gif?$image
+://rd.remove.bg/CI0/$image
 .*%2Fwf%2Fopen%3Fupn%3D$image
 .quora.com%2Fqemail%2Fmark_read%3Fct%3D$image
 ! beacons.ai analytics
