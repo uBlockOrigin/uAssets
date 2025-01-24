@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Fri, 24 Jan 2025 17:17:37 +0000
+! Last modified: Fri, 24 Jan 2025 19:06:26 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -20134,9 +20134,9 @@ crictracker.com##div[id^="div-ad-desk-"]
 crictracker.com##article > div[style="height:270px"]
 *$script,redirect-rule=noopjs,domain=client.falixnodes.net
 !#if cap_html_filtering
-client.falixnodes.net##^script:has-text(!window.adngin)
+client.falixnodes.net##^script:has-text(Object.keys(window.adngin).length)
 !#else
-client.falixnodes.net##+js(rmnt, script, !window.adngin)
+client.falixnodes.net##+js(rmnt, script, Object.keys(window.adngin).length)
 !#endif
 client.falixnodes.net##+js(rpnt, script, typeof window.loadtwo, typeof window.loadtwo === true)
 client.falixnodes.net##+js(rpnt, script, (window.loadtwo, (window.loadtwo === undefined || true || window.googlescriptloaded)
