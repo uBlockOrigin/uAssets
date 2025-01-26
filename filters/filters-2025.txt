@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2025)
-! Last modified: Sat, 25 Jan 2025 13:19:26 +0000
+! Last modified: Sun, 26 Jan 2025 03:30:30 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -68,6 +68,37 @@ appnee.com###babasbmsgx
 appnee.com##[href^="https://appnee.com/advertising/"] > [src^="https://img.appnee.com/other/"][alt="Ads Place"]
 appnee.com##+js(noeval-if, /chp_?ad/)
 ||filletfiguredconstrain.com^
+
+! https://github.com/uBlockOrigin/uAssets/issues/506
+! https://github.com/uBlockOrigin/uAssets/issues/6568
+||msn.com/advertisement.ad.js$script,1p,important
+||aolcdn.com/ads/adswrappermsni.js$script,domain=msn.com,important
+! https://github.com/uBlockOrigin/uAssets/issues/3703#issuecomment-435044782
+msn.com##.extnativeaditem, .serversidenativead > h3
+msn.com##.colombiaintraarticleads
+! https://github.com/NanoMeow/QuickReports/issues/2332
+msn.com##[data-aop="stripe.sponsored.navigation_stripenavigation"]:upward(2)
+!#if !env_mobile
+msn.com##[data-aop="stripe.store.navigation_stripenavigation"]:upward(2)
+!#endif
+!#if env_mobile
+msn.com##.stripenav:has(.adslabel):upward(2)
+!#endif
+msn.com##.todayshowcasead
+! https://github.com/NanoMeow/QuickReports/issues/1486#issuecomment-557161527
+msn.com##.stripecontainer:has(.adslabel)
+! https://www.msn.com/ja-jp/news placeholder
+msn.com##msft-article-card:not([class])
+! https://github.com/uBlockOrigin/uAssets/issues/19845
+!#if env_mobile
+msn.com##msft-article-card:not(.contentCard)
+!#endif
+! https://github.com/AdguardTeam/AdguardFilters/issues/173054
+www.msn.com##+js(json-prune-fetch-response, properties.componentConfigs.slideshowConfigs.slideshowSettings.interstitialNativeAds, , propsToMatch, url:consumptionpage/gallery_windows/config.json)
+! https://github.com/AdguardTeam/AdguardFilters/issues/146823
+! https://github.com/uBlockOrigin/uAssets/issues/22330#issuecomment-2614184678
+www.msn.com##+js(json-prune-fetch-response, *, list.[].link.kicker, propsToMatch, /content/v1/cms/api/amp/Document)
+msn.com##.vd-ad
 
 ! END: Rules from filters.txt
 

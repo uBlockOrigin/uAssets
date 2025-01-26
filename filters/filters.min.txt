@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Sun, 26 Jan 2025 02:25:43 +0000
+! Last modified: Sun, 26 Jan 2025 03:30:30 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -23735,6 +23735,26 @@ appnee.com###babasbmsgx
 appnee.com##[href^="https://appnee.com/advertising/"] > [src^="https://img.appnee.com/other/"][alt="Ads Place"]
 appnee.com##+js(noeval-if, /chp_?ad/)
 ||filletfiguredconstrain.com^
+||msn.com/advertisement.ad.js$script,1p,important
+||aolcdn.com/ads/adswrappermsni.js$script,domain=msn.com,important
+msn.com##.extnativeaditem, .serversidenativead > h3
+msn.com##.colombiaintraarticleads
+msn.com##[data-aop="stripe.sponsored.navigation_stripenavigation"]:upward(2)
+!#if !env_mobile
+msn.com##[data-aop="stripe.store.navigation_stripenavigation"]:upward(2)
+!#endif
+!#if env_mobile
+msn.com##.stripenav:has(.adslabel):upward(2)
+!#endif
+msn.com##.todayshowcasead
+msn.com##.stripecontainer:has(.adslabel)
+msn.com##msft-article-card:not([class])
+!#if env_mobile
+msn.com##msft-article-card:not(.contentCard)
+!#endif
+www.msn.com##+js(json-prune-fetch-response, properties.componentConfigs.slideshowConfigs.slideshowSettings.interstitialNativeAds, , propsToMatch, url:consumptionpage/gallery_windows/config.json)
+www.msn.com##+js(json-prune-fetch-response, *, list.[].link.kicker, propsToMatch, /content/v1/cms/api/amp/Document)
+msn.com##.vd-ad
 ! END: Rules from filters.txt
 ! START: Regional lists
 ! <<<<< ABPVN >>>>>
