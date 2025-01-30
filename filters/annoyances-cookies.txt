@@ -1053,17 +1053,6 @@ calciomercato.com##+js(trusted-click-element, #cl-consent button[data-role="b_de
 ! https://github.com/uBlockOrigin/uAssets/issues/21280
 fortune.com##+js(trusted-click-element, .privacy-popup > div > button, , 2000)
 
-! dpgmedia consentwall - Necessary + Social media
-! Sample pages: ad.nl,hln.be,trouw.nl
-cmp.dpgmedia.nl,cmp.dpgmedia.be,cmp.ad.nl,cmp.autotrack.nl,cmp.autoweek.nl,cmp.bd.nl,cmp.bndestem.nl,cmp.demorgen.be,cmp.deondernemer.nl,cmp.destentor.nl,cmp.ed.nl,cmp.gaspedaal.nl,cmp.gelderlander.nl,cmp.hln.be,cmp.humo.be,cmp.margriet.nl,cmp.nu.nl,cmp.qmusic.nl,cmp.stijlvol-wonen.com,cmp.trouw.nl,cmp.tubantia.nl,cmp.vtwonen.be,cmp.vtwonen.nl,cmp.pzc.nl,cmp.zozitdat.nl##+js(trusted-click-element, .pg-configure-button[title="Instellen"], , 500)
-cmp-sp.vrt.be##+js(trusted-click-element, button.message-button[title="Mijn instellingen beheren"], , 500)
-cmp-sp.vrt.be,cmp.dpgmedia.nl,cmp.dpgmedia.be,cmp.ad.nl,cmp.autotrack.nl,cmp.autoweek.nl,cmp.bd.nl,cmp.bndestem.nl,cmp.demorgen.be,cmp.deondernemer.nl,cmp.destentor.nl,cmp.ed.nl,cmp.gaspedaal.nl,cmp.gelderlander.nl,cmp.hln.be,cmp.humo.be,cmp.margriet.nl,cmp.nu.nl,cmp.qmusic.nl,cmp.stijlvol-wonen.com,cmp.trouw.nl,cmp.tubantia.nl,cmp.vtwonen.be,cmp.vtwonen.nl,cmp.pzc.nl,cmp.zozitdat.nl##+js(trusted-click-element, 'button[aria-checked="false"][aria-label^="Social"], button.sp_choice_type_SAVE_AND_EXIT', , 500)
-myprivacy.dpgmedia.nl,myprivacy.dpgmedia.be,ad.nl,autotrack.nl,autoweek.nl,bd.nl,bndestem.nl,demorgen.be,deondernemer.nl,destentor.nl,ed.nl,gaspedaal.nl,gelderlander.nl,hln.be,humo.be,margriet.nl,nu.nl,qmusic.nl,stijlvol-wonen.com,trouw.nl,tubantia.nl,vrt.be,vtwonen.be,vtwonen.nl,pzc.nl,zozitdat.nl##[title="SP Consent Message"]
-! Clicking doesn't work on myprivacy.dpgmediagroup.net, reloading the page once redirects to dpgmediagroup.com, where clicking works
-myprivacy.dpgmedia.nl,myprivacy.dpgmediagroup.net##+js(set-cookie, dummy, 1, , reload, 1)
-myprivacy.dpgmedia.nl,dpgmediagroup.com,story.nl,veronicasuperguide.nl##+js(trusted-click-element, '#pg-shadow-host >>> #pg-configure-btn, #pg-shadow-host >>> #purpose-row-SOCIAL_MEDIA input[type="checkbox"], #pg-shadow-host >>> button#pg-save-preferences-btn')
-myprivacy.dpgmedia.nl,dpgmediagroup.com,story.nl,veronicasuperguide.nl###pg-modal
-
 ! only essential cookies
 collectibles.mclaren.com##+js(trusted-set-cookie, user, '%7B%22necessary%22%3Atrue%2C%22preferences%22%3Afalse%2C%22statistics%22%3Afalse%2C%22marketing%22%3Afalse%7D')
 
@@ -1723,9 +1712,6 @@ cdn.privacy-mgmt.co##+js(trusted-click-element, button[title="TILLAD NØDVENDIGE
 ! accept all
 consent.spielaffe.de##+js(trusted-click-element, button[title="Accept All & Close"], ,1000)
 
-! agree
-vtwonen.nl##+js(trusted-click-element, #pg-root-shadow-host >>> button#pg-accept-btn)
-
 ! just Use necessary cookies only
 degiro.*,vikingline.com,tfl.gov.uk##+js(trusted-click-element, #CybotCookiebotDialogBodyButtonDecline)
 
@@ -1864,10 +1850,6 @@ skatbank.de##+js(trusted-set-cookie, cookieConsent, %5B%7B%22name%22%3A%22essenz
 eltiempo.es##+js(trusted-click-element, [target="_self"][type="button"][class="_3kalix4"], , 1000)
 eltiempo.es##+js(trusted-click-element, button[type="button"][class="_button_15feu_3"], , 1000)
 otempo.pt##+js(trusted-click-element, [target="_self"][type="button"][class="_10qqh8uq"], , 1000)
-
-! https://github.com/uBlockOrigin/uAssets/issues/25952
-tweakers.net##+js(trusted-click-element, #pg-shadow-root-host >>> button#pg-reject-btn)
-tweakers.net##+js(trusted-click-element, #pg-shadow-root-host >>> button#pg-configure-btn)
 
 ! accepting only required cookies
 gardengirls.de##+js(trusted-set-cookie, Cookie, accept_cookies\,\,, , , reload, 1)
@@ -2713,3 +2695,9 @@ easyparts.*,easyparts-recambios.es,easyparts-rollerteile.de##+js(trusted-click-e
 
 ! https://github.com/uBlockOrigin/uAssets/issues/26900 - functional
 karkkainen.com##+js(trusted-set-cookie, CookieInformationConsent, '{"website_uuid":"0fabd588-2344-49cd-9abb-ce5ffad2757e","timestamp":"$currentDate$","consent_url":"https://www.karkkainen.com/","consent_website":"karkkainen.com","consent_domain":"www.karkkainen.com","user_uid":"","consents_approved":["cookie_cat_necessary","cookie_cat_functional"],"consents_denied":[],"user_agent":""}')
+
+! DPG Media owns lots of sites which redirect to one of these domains to ask for consent - reject all
+! Sample pages: hln.be, nu.nl, tweakers.net
+myprivacy.dpgmedia.nl,myprivacy.dpgmedia.be,www.dpgmediagroup.com##+js(trusted-click-element, '#pg-host-shadow-root >>> button#pg-configure-btn, #pg-host-shadow-root >>> button#pg-reject-btn')
+! Clicking doesn't work on myprivacy.dpgmediagroup.net, reloading the page once redirects to www.dpgmediagroup.com, where clicking works
+myprivacy.dpgmediagroup.net##+js(set-cookie, dummy, 1, , reload, 1)
