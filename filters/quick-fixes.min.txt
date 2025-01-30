@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Quick fixes
 ! Expires: 12 hours
-! Last modified: Thu, 30 Jan 2025 04:21:53 +0000
+! Last modified: Thu, 30 Jan 2025 10:21:31 +0000
 ! Diff-Path: %diffpath%#ublock-quick-fixes
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -176,14 +176,11 @@ bing.com##li.b_algo:has(a[href^="https://www.bing.com/aclick?"], a[href^="https:
 bing.com##ol#b_results > li:has(> :is(.b_tpcn, .b_title, h2) a[href^="https://www.bing.com/aclick?"])
 bing.com##ol#b_results > li:has(> :is(.b_tpcn, .b_title, h2) a[href^="https://www.bing.com/aclk?"])
 exploader.net##+js(trusted-rpnt, script, /^var \w+=\[.+/, (()=>{let e=[];document.addEventListener("DOMContentLoaded"\,(()=>{const t=document.querySelector("body script").textContent.match(/"] = '(.*?)'/g);if(!t)return;t.forEach((t=>{const r=t.replace(/.*'(.*?)'/\,"$1");e.push(r)}));const r=document.querySelector('.dl_button[href*="preview"]').href.split("?")[1];e.includes(r)&&(e=e.filter((e=>e!==r)));document.querySelectorAll(".dl_button[href]").forEach((t=>{t.target="_blank";let r=t.cloneNode(!0);r.href=t.href.replace(/\?.*/\,`?${e[0]}`)\,t.after(r);let o=t.cloneNode(!0);o.href=t.href.replace(/\?.*/\,`?${e[1]}`)\,t.after(o)}))}))})();, sedCount, 1)
-exploader.net##+js(acs, EventTarget.prototype.addEventListener, eval)
-||daotag.com/tag/$script,domain=exploader.net,important
 !#if cap_html_filtering
 www.chip.de##^script:has-text(/[a-zA-Z0-9]{10,20}\; \} \}/)
 !#else
 www.chip.de##+js(rmnt, script, /[a-zA-Z0-9]{10,20}\; \} \}/)
 !#endif
-rekidai-info.github.io#@#+js(nostif, /aframe|querySelector/)
 rekidai-info.github.io##+js(nostif, /aframe|querySelector/, 1000-)
 rekidai-info.github.io##+js(nosiif, location[_0x)
 @@||cursomecanet.com^$script,1p
