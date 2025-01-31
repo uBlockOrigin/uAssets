@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Unbreak
 ! Expires: 5 days
-! Last modified: Fri, 31 Jan 2025 07:40:38 +0000
+! Last modified: Fri, 31 Jan 2025 08:09:55 +0000
 ! Diff-Path: %diffpath%#ublock-unbreak
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -2738,4 +2738,4 @@ the-independent.com##+js(no-fetch-if, npttech.com/advertising.js)
 !#endif
 @@||icanhazip.com^$xhr,domain=dnscheck.tools
 www.nvidia.com##+js(remove-cookie, ak_bmsc)
-nvidia.com,~www.nvidia.com##+js(rpnt, script, /^(\w)/, '(()=>{const remove=()=>{document.cookie="ak_bmsc=; domain=.nvidia.com; path=/; Max-Age=-1000; expires=Thu, 01 Jan 1970 00:00:00 GMT";console.debug("Removed")};remove();setTimeout(remove,5e3)})();$1', sedCount, 1)
+nvidia.com,~www.nvidia.com##+js(rpnt, script, /^(\w)/, '(()=>{const remove=()=>{document.cookie="ak_bmsc=; domain=.nvidia.com; path=/; Max-Age=-1000; expires=Thu, 01 Jan 1970 00:00:00 GMT";console.debug("Removed")};remove();setTimeout(remove,5e3);window.addEventListener("beforeunload",remove)})();$1', sedCount, 1)
