@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Cookie Notices
-! Last modified: Thu, 30 Jan 2025 17:06:26 +0000
+! Last modified: Fri, 31 Jan 2025 06:01:53 +0000
 ! Expires: 7 days
 ! Description: Filters optimized for uBlock Origin, to be used with EasyList's and/or Adguard's "Cookie Notices" list(s)
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -228,9 +228,9 @@ tomsguide.com##+js(trusted-set-cookie, consentUUID, cefc5c9f-0e4c-4d6f-ad00-41a1
 ! https://www.walmart.ca/
 walmart.ca##+js(trusted-set-cookie, uxcon, enforce=false&p13n=false&ads=false, , , domain, walmart.ca)
 ! festool
-festool.*,festoolcanada.com##+js(trusted-click-element, #usercentrics-root >>> button[data-testid="uc-deny-all-button"])
-festool.*,festoolcanada.com##body.overflowHidden:style(overflow: auto !important)
-festool.*,festoolcanada.com###focus-lock-id
+festool.*,festoolcanada.com,fuso-trucks.*##+js(trusted-click-element, #usercentrics-root >>> button[data-testid="uc-deny-all-button"])
+festool.*,festoolcanada.com,fuso-trucks.*##body.overflowHidden:style(overflow: auto !important)
+festool.*,festoolcanada.com,fuso-trucks.*###focus-lock-id
 ! https://www.cc.com/
 cc.com##+js(trusted-set-cookie, OptanonAlertBoxClosed, $currentDate$, 1year)
 ! https://www.resursbank.fi/
@@ -793,7 +793,7 @@ hemmersbach.com##+js(trusted-set-cookie, cookiefirst-consent, %7B%22cookiefirst%
 
 ! https://github.com/uBlockOrigin/uAssets/issues/20523
 ! https://github.com/uBlockOrigin/uAssets/issues/20595
-ansons.de,blick.ch,buienradar.be,digi24.ro,digisport.ro,digitalfoundry.net,egx.net,eurogamer.it,gmx.*,mail.com,mcmcomiccon.com,nachrichten.at,nintendolife.com,oe24.at,paxsite.com,peacocktv.com,player.pl,pricerunner.com,pricerunner.se,pricerunner.dk,proximus.be,proximus.com,purexbox.com,pushsquare.com,southparkstudios.com,starwarscelebration.com,thehaul.com,timeextension.com,travelandleisure.com,tunein.com,videoland.com,wizzair.com,wetter.at##+js(trusted-click-element, #onetrust-accept-btn-handler, , 1000)
+ansons.de,blick.ch,buienradar.be,digi24.ro,digisport.ro,digitalfoundry.net,egx.net,eurogamer.it,gmx.*,mail.com,mcmcomiccon.com,nachrichten.at,nintendolife.com,oe24.at,paxsite.com,peacocktv.com,player.pl,plus500.*,pricerunner.com,pricerunner.se,pricerunner.dk,proximus.be,proximus.com,purexbox.com,pushsquare.com,southparkstudios.com,starwarscelebration.com,thehaul.com,timeextension.com,travelandleisure.com,tunein.com,videoland.com,wizzair.com,wetter.at##+js(trusted-click-element, #onetrust-accept-btn-handler, , 1000)
 dicebreaker.com,eurogamer.cz,eurogamer.es,eurogamer.net,eurogamer.nl,eurogamer.pl,eurogamer.pt,gamesindustry.biz,jelly.deals,reedpop.com,rockpapershotgun.com,thepopverse.com,vg247.com,videogameschronicle.com##+js(trusted-click-element, button[title="Accept and continue"])
 dicebreaker.com,eurogamer.cz,eurogamer.es,eurogamer.net,eurogamer.nl,eurogamer.pl,eurogamer.pt,gamesindustry.biz,jelly.deals,reedpop.com,rockpapershotgun.com,thepopverse.com,vg247.com,videogameschronicle.com##+js(trusted-click-element, button[title="Accept All Cookies"])
 eurogamer.de##+js(trusted-click-element, .accept-all)
@@ -2783,6 +2783,61 @@ rsag.de##+js(trusted-click-element, a[data-button-action="essential"], , 1000)
 
 ! necessary
 envirodesign.eu##+js(trusted-set-cookie, cookie-ag, '{"necessary":1,"functional":0,"performance":0,"marketing":0}')
+
+! Mandatory
+answear.*##+js(trusted-click-element, button[data-test="cookiesAcceptMandatoryButton"], , 1000)
+
+! basic
+theprotocol.it##+js(trusted-click-element, button[data-test="button-customize"], , 500)
+theprotocol.it##+js(trusted-click-element, button[data-test="button-save"], , 750)
+
+! decline
+lightandland.co.uk##+js(trusted-click-element, button.cc-decline, , 1000)
+
+! necessary
+futoncompany.co.uk##+js(trusted-set-cookie, consent_cookie, '{"ad_storage":"denied","analytics_storage":"denied","ad_user_data":"denied","ad_personalization":"denied"}', , , reload, 1)
+
+! basic
+mbhbank.hu##+js(trusted-set-cookie, cookieBasic, $now$)
+
+! refuse
+nebo.app##+js(trusted-set-cookie, nebo, '{"acceptance":true,"analytics":false}')
+
+! approve
+etransport.pl##+js(trusted-click-element, div.approve.button, , 1000)
+
+! essential
+wohnen-im-alter.de##+js(trusted-click-element, button[onclick="CookieConsent.apply(['ESSENTIAL'])"], , 1000)
+
+! pref optout
+johnmuirhealth.com##+js(trusted-click-element, label[for="privacy_pref_optout"], , 800)
+johnmuirhealth.com##+js(trusted-click-element, div#consent_prompt_submit, , 1000)
+
+! essential
+ebz-business-school.de##+js(trusted-set-local-storage-item, procookie-dismissed, $now$)
+ebz-business-school.de##+js(trusted-set-local-storage-item, procookie-services, '["cookie_notice"]')
+
+! closed
+start-nrw.de##+js(trusted-set-session-storage-item, _pv_CookieOptInt, closed)
+
+! accept
+markushaenni.com##+js(trusted-click-element, button.dp_accept, , 1000)
+
+! do not accept
+mishcon.com##+js(trusted-set-cookie, CookieChoicesApr2021, '{"functionality":false,"anonymousMeasurement":false,"performance":false,"advertising":false}')
+
+! reject
+refunder.*##+js(trusted-set-cookie, cookie_consent, '{"rejectAll":true}')
+
+! essential
+airbaltic.com##+js(trusted-click-element, button.cookiebanner__buttons__deny, , 1000)
+
+! refuse
+zorgzaam010.nl##+js(trusted-click-element, button.button-refuse, , 1000)
+
+! refuse
+etos.nl##+js(trusted-set-cookie, etos-cookie-message, 8.0)
+etos.nl##+js(set-cookie,etos-tracking-consent, 0)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/26900 - functional
 karkkainen.com##+js(trusted-set-cookie, CookieInformationConsent, '{"website_uuid":"0fabd588-2344-49cd-9abb-ce5ffad2757e","timestamp":"$currentDate$","consent_url":"https://www.karkkainen.com/","consent_website":"karkkainen.com","consent_domain":"www.karkkainen.com","user_uid":"","consents_approved":["cookie_cat_necessary","cookie_cat_functional"],"consents_denied":[],"user_agent":""}')
