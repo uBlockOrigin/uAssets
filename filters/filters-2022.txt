@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2022)
-! Last modified: Wed, 29 Jan 2025 00:54:16 +0000
+! Last modified: Fri, 31 Jan 2025 14:50:25 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -4699,9 +4699,11 @@ www.chip.de###CR[class="Downloads-Getfile"] > #G32 > #M1 > div:not([class="wrapp
 !#if cap_html_filtering
 www.chip.de##^script:has-text(?metric=transit.counter&key=fail_redirect&tags=)
 www.chip.de##^script:has-text(/pushAdTag|link_click|getAds/)
+www.chip.de##^script:has-text(/[a-zA-Z0-9]{10,20}\; \} \}/)
 !#else
 www.chip.de##+js(rmnt, script, ?metric=transit.counter&key=fail_redirect&tags=)
 www.chip.de##+js(rmnt, script, /pushAdTag|link_click|getAds/)
+www.chip.de##+js(rmnt, script, /[a-zA-Z0-9]{10,20}\; \} \}/)
 !#endif
 ||nah-versorger.de^$3p
 ||stopundstart.de^$3p
