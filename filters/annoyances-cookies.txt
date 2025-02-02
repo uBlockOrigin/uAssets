@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Cookie Notices
-! Last modified: Sat, 01 Feb 2025 11:35:39 +0000
+! Last modified: Sun, 02 Feb 2025 06:29:30 +0000
 ! Expires: 7 days
 ! Description: Filters optimized for uBlock Origin, to be used with EasyList's and/or Adguard's "Cookie Notices" list(s)
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -1036,8 +1036,11 @@ snowandrock.com##+js(trusted-set-cookie, consent_setting, analytics%3A0%7Cfuncti
 dw.com,kinepolis.*,winfuture.de,lippu.fi,racingnews365.com,vaillant.*##+js(trusted-click-element, #cmpwrapper >>> #cmpbntyestxt, , 1000)
 ! .cmptxt_btn_no (shadowroot)
 billiger.de##+js(trusted-click-element, #cmpwrapper >>> .cmptxt_btn_no, , 1000)
+! .cmptxt_btn_save
+spar.hu##+js(trusted-click-element, #cmpwrapper >>> .cmptxt_btn_save, , 1000)
 ! I do not accept
 slashdot.org##+js(trusted-click-element, span#cmpbntnotxt, , 1000)
+
 
 ! https://www.zdf.de/ - Functional + social
 zdf.de##+js(trusted-set-cookie, zdf_cmp_client, '{%22version%22:%22v1%22%2C%22iteration%22:1%2C%22consents%22:[{%22id%22:%22personalisierung%22%2C%22value%22:false}%2C{%22id%22:%22socialMedia%22%2C%22value%22:true}%2C{%22id%22:%22instagram%22%2C%22value%22:true}%2C{%22id%22:%22twitter%22%2C%22value%22:true}%2C{%22id%22:%22facebook%22%2C%22value%22:true}%2C{%22id%22:%22drittsysteme%22%2C%22value%22:true}%2C{%22id%22:%22erforderlich%22%2C%22value%22:true}%2C{%22id%22:%22erfolgsmessung%22%2C%22value%22:true}]}')
@@ -1122,9 +1125,9 @@ mafu.de##+js(trusted-set-cookie, wmm-visitor_token, 4cb8860d-4194-4ab5-be04-10f9
 ! essential only
 paf.com##+js(trusted-set-cookie, cookieConsent, {%22essential%22:true%2C%22tracking%22:false%2C%22marketing%22:false})
 ! Continue without agreeing, hide consent flash (.didomi-continue-without-agreeing)
-auto.it,boursobank.com,canalplus.com,frandroid.com,jobijoba.*,meteofrance.com,mondialtissus.fr,oscaro.com,publicsenat.fr,rmcbfmplay.com###didomi-host
-auto.it,boursobank.com,canalplus.com,frandroid.com,jobijoba.*,meteofrance.com,mondialtissus.fr,oscaro.com,publicsenat.fr,rmcbfmplay.com##+js(trusted-click-element, .didomi-continue-without-agreeing, , 1000)
-auto.it,boursobank.com,canalplus.com,frandroid.com,jobijoba.*,meteofrance.com,mondialtissus.fr,oscaro.com,publicsenat.fr,rmcbfmplay.com##body.didomi-popup-open:style(overflow: auto !important;)
+auto.it,boursobank.com,canalplus.com,frandroid.com,jobijoba.*,meteofrance.com,mondialtissus.fr,oscaro.com,publicsenat.fr,rmcbfmplay.com,suzuki.fr###didomi-host
+auto.it,boursobank.com,canalplus.com,frandroid.com,jobijoba.*,meteofrance.com,mondialtissus.fr,oscaro.com,publicsenat.fr,rmcbfmplay.com,suzuki.fr##+js(trusted-click-element, .didomi-continue-without-agreeing, , 1000)
+auto.it,boursobank.com,canalplus.com,frandroid.com,jobijoba.*,meteofrance.com,mondialtissus.fr,oscaro.com,publicsenat.fr,rmcbfmplay.com,suzuki.fr##body.didomi-popup-open:style(overflow: auto !important;)
 ! functional only, ad/analytics denied
 flip.gr##+js(trusted-set-cookie, consts, '{%22ad_storage%22:%22denied%22%2C%22analytics_storage%22:%22denied%22%2C%22functionality_storage%22:%22granted%22}')
 ! necessarry
@@ -2868,6 +2871,41 @@ golfbreaks.com##+js(trusted-click-element, div#close_button.btn, , 1000)
 
 ! just-eat / necessary-only
 lieferando.de,just-eat.*,justeat.*,pyszne.pl,lieferando.at,takeaway.com,thuisbezorgd.nl##+js(trusted-click-element, pie-cookie-banner >>> pie-button[data-test-id="actions-necessary-only"], , 1000)
+
+! agree
+holidayhypermarket.co.uk##+js(trusted-click-element, button#cmCloseBanner, , 1000)
+
+! disagree
+beobank.be##+js(trusted-set-cookie, cookie_policy_version, 1.0.1)
+beobank.be##+js(set-cookie, ads, false)
+beobank.be##+js(set-cookie, functional, true)
+beobank.be##+js(set-cookie, measure, false)
+
+! reject
+atu.de,atu-flottenloesungen.de,but.fr,fortuneo.fr,maif.fr##+js(trusted-click-element, button#popin_tc_privacy_button_2, , 1000)
+
+! dismiss
+bstrongoutlet.pt##+js(trusted-click-element, span[aria-label="dismiss cookie message"], , 1000)
+
+! reject
+nobbot.com##+js(trusted-click-element, button[aria-label="Rechazar todas las cookies"], , 1000)
+
+! basic settings
+finlayson.fi,cowaymega.ca##+js(trusted-click-element, a[aria-label="settings cookies"], , 600)
+finlayson.fi,cowaymega.ca##+js(trusted-click-element, a[onclick="Pandectes.fn.savePreferences()"], , 750)
+
+! agree
+dockin.de##+js(trusted-click-element, a[aria-label="allow cookies"], , 1000)
+
+! close
+universcine.com##+js(trusted-set-cookie, COOKIE_CONSENT, '{"technical-cookies":true,"analytics":false,"ads":false}')
+
+! basic settings
+beam.co.uk##+js(trusted-click-element, div.privacy-more-information, , 600)
+beam.co.uk##+js(trusted-click-element, div#preferences_prompt_submit, , 750)
+
+! essential
+malaikaraiss.com##+js(trusted-click-element, a#CookieBoxSaveButton, , 1000)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/26900 - functional
 karkkainen.com##+js(trusted-set-cookie, CookieInformationConsent, '{"website_uuid":"0fabd588-2344-49cd-9abb-ce5ffad2757e","timestamp":"$currentDate$","consent_url":"https://www.karkkainen.com/","consent_website":"karkkainen.com","consent_domain":"www.karkkainen.com","user_uid":"","consents_approved":["cookie_cat_necessary","cookie_cat_functional"],"consents_denied":[],"user_agent":""}')
