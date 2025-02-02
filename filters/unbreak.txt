@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Unbreak
-! Last modified: Sun, 02 Feb 2025 13:26:56 +0000
+! Last modified: Sun, 02 Feb 2025 13:38:47 +0000
 ! Expires: 5 days
 ! Description: Filters optimized for uBlock Origin, to unbreak sites broken as a result of 3rd-party filter lists enabled by default.
 ! Homepage: https://github.com/uBlockOrigin/uAssets
@@ -2018,14 +2018,6 @@ getcoloringpages.com#@#.adsBlock
 ! https://github.com/NanoMeow/QuickReports/issues/4172
 .net/ads/$badfilter
 
-! https://github.com/NanoMeow/QuickReports/issues/2057
-nfmovies.com#@#+js(aopr, $myui)
-@@||nfmovies.com/static/side.jpg$xhr,1p
-
-! https://github.com/uBlockOrigin/uAssets/issues/4636#issuecomment-648915041
-|https://$xhr,3p,domain=cloudvideo.tv,badfilter
-|https://$css,3p,domain=cloudvideo.tv,badfilter
-
 ! https://github.com/uBlockOrigin/uAssets/issues/7330#issuecomment-649186403
 @@||cdn.plyr.io/*/plyr.svg$xhr,domain=mp4upload.com
 
@@ -2062,9 +2054,6 @@ saltspringexchange.com#@#.single-ad
 ! https://github.com/uBlockOrigin/uAssets/issues/7666
 @@||google.*^$cname
 
-! https://forums.lanik.us/viewtopic.php?f=62&t=44917
-/ads1.$badfilter
-
 ! broken video player https://www.gmx.net/magazine/sport/fussball/bundesliga/transfermarkt-2020-bundesliga-coronakrise-euro-zweimal-umdrehen-34888082
 @@||fluid.4strokemedia.com/www/delivery/asyncspc.php$xhr,1p
 @@||imasdk.googleapis.com/js/sdkloader/ima3.js$script,domain=4strokemedia.com
@@ -2074,9 +2063,6 @@ saltspringexchange.com#@#.single-ad
 
 ! https://forums.lanik.us/viewtopic.php?p=155737#p155737
 @@||cravitus.*/api/adverts/*$xhr,domain=cravitus.com|cravitus.lt
-
-! broken videos on pornhive .tv => videobin .co/embed
-*$frame,3p,domain=pornhive.tv,badfilter
 
 ! https://github.com/uBlockOrigin/uAssets/issues/7686
 @@||s0.2mdn.net/ads/studio/Enabler.js$script,domain=kabum.com.br
@@ -2124,10 +2110,6 @@ humanbenchmark.com##+js(set, pubg.unload, noopFunc)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/7719
 @@||t8cdn.com/js/lazyload.min.js$script,domain=tube8.*
-
-! moviesweb .info thunbs + player broken
-|https://$frame,3p,domain=moviesweb.info,badfilter
-|https://$image,3p,domain=moviesweb.info,badfilter
 
 ! https://github.com/uBlockOrigin/uAssets/issues/7723
 @@||message-fra.sp-prod.net^$script,xhr,domain=manager-magazin.de
