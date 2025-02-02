@@ -1587,11 +1587,13 @@ chat.deepseek.com##.ds-modal-overlay
 ||ipify.org^$domain=realmoasis.com
 
 ! https://github.com/easylist/easylist/issues/21148
-www.hoyoverse.com##+js(remove-cookie, /^DEVICEFP/)
+www.hoyolab.com,www.hoyoverse.com##+js(remove-cookie, /^DEVICEFP/)
 hoyoverse.com,~www.hoyoverse.com##+js(trusted-set-cookie, DEVICEFP, 1, , , domain, hoyoverse.com)
 hoyoverse.com,~www.hoyoverse.com##+js(trusted-set-cookie, DEVICEFP_SEED_ID, 1, , , domain, hoyoverse.com)
 hoyoverse.com,~www.hoyoverse.com##+js(trusted-set-cookie, DEVICEFP_SEED_TIME, 1, , , domain, hoyoverse.com)
 hoyoverse.com,~www.hoyoverse.com##+js(rpnt, script, /^/, '(()=>{const remove=()=>{["","_SEED_ID","_SEED_TIME"].forEach((cookie=>{document.cookie="DEVICEFP"+cookie+"=; domain=.hoyoverse.com; path=/; Max-Age=-1000; expires=Thu, 01 Jan 1970 00:00:00 GMT"}));console.debug("Removed")};window.addEventListener("beforeunload",remove)})();', sedCount, 1)
+hoyolab.com,~www.hoyolab.com##+js(trusted-set-cookie, DEVICEFP, 1, , , domain, hoyolab.com)
+hoyolab.com,~www.hoyolab.com##+js(trusted-rpnt, script, /^/, '(()=>{const remove=()=>{document.cookie="DEVICEFP=; domain=.hoyolab.com; path=/; Max-Age=-1000; expires=Thu, 01 Jan 1970 00:00:00 GMT";console.debug("Removed")};window.addEventListener("beforeunload",remove)})();')
 
 ! Merge in resource-abuse.txt
 !#include resource-abuse.txt
