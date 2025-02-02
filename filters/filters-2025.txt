@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2025)
-! Last modified: Sun, 02 Feb 2025 01:22:05 +0000
+! Last modified: Sun, 02 Feb 2025 01:52:50 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -450,3 +450,9 @@ exploader.net##+js(trusted-rpnt, script, /^var \w+=\[.+/, (()=>{let e=[];documen
 
 ! https://github.com/uBlockOrigin/uAssets/issues/27050
 blog-dnz.com##+js(set, isAdBlocked, noopFunc)
+
+! https://github.com/uBlockOrigin/uAssets/issues/1949
+! https://www.offidocs.com/media/system/app/viewnovnc_ext_chromium.php?urlpathx=https%3A%2Fwww.offidocs.com
+stream.offidocs.com##+js(no-fetch-if, /ip-acl-all.php)
+stream.offidocs.com##.image-container:has(> a[href^="https://amzn.to/"])
+stream.offidocs.com##.image-container:has(> a[href^="https://track.flexlinkspro.com/"])
