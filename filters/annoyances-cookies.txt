@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Cookie Notices
-! Last modified: Sun, 02 Feb 2025 06:29:30 +0000
+! Last modified: Mon, 03 Feb 2025 05:05:46 +0000
 ! Expires: 7 days
 ! Description: Filters optimized for uBlock Origin, to be used with EasyList's and/or Adguard's "Cookie Notices" list(s)
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -134,9 +134,6 @@ x-kom.pl##+js(trusted-set-cookie, trackingPermissionConsentsValue, %7B%22cookies
 easyfind.ch##+js(set-cookie, allow-marketing, false)
 easyfind.ch##+js(set-cookie, allow-analytics, false)
 easyfind.ch##+js(trusted-set-local-storage-item, elementor, '{"__expiration":{},"pageViews":1,"popup_1276_times":1}')
-! https://www.tiempo.com/
-tiempo.com##+js(trusted-set-cookie, euconsent-v2, CPzEX8APzEX8ADtACBESAUEgAAAAAAAAAAiQAAAAAAAA)
-tiempo.com##+js(trusted-set-cookie, euconsent-v2-addtl, %20)
 ! https://www.spiegel.de/
 spiegel.de##+js(trusted-click-element, button[title^="Consent"])
 spiegel.de##+js(trusted-click-element, button[title^="Einwilligen"])
@@ -1035,7 +1032,7 @@ snowandrock.com##+js(trusted-set-cookie, consent_setting, analytics%3A0%7Cfuncti
 ! All store information on device cookies
 dw.com,kinepolis.*,winfuture.de,lippu.fi,racingnews365.com,vaillant.*##+js(trusted-click-element, #cmpwrapper >>> #cmpbntyestxt, , 1000)
 ! .cmptxt_btn_no (shadowroot)
-billiger.de##+js(trusted-click-element, #cmpwrapper >>> .cmptxt_btn_no, , 1000)
+billiger.de,vanharen.nl,deichmann.com##+js(trusted-click-element, #cmpwrapper >>> .cmptxt_btn_no, , 1000)
 ! .cmptxt_btn_save
 spar.hu##+js(trusted-click-element, #cmpwrapper >>> .cmptxt_btn_save, , 1000)
 ! I do not accept
@@ -1789,9 +1786,9 @@ octopusenergy.de##+js(trusted-set, cmp_importvendors, '{"value": ["s23","s2564"]
 gsk.com##+js(trusted-set-cookie, GSK_CONSENTMGR, c1:0%7Cc2:1%7Cc3:0%7Cc4:0%7Cc5:0%7Cc6:1%7Cc7:0%7Cc8:0%7Cc9:0%7Cc10:0%7Cc11:0%7Cc12:1%7Cc13:1%7Cc14:0%7Cc15:0%7Cts:1726229678052%7Cconsent:true%7Cid:0191eb4d9db7005233a45cef34fc0406f001a06700f1c)
 
 ! https://www.estadiodeportivo.com/ - accept
-estadiodeportivo.com,tameteo.*,tempo.pt,meteored.*,yourweather.co.uk,tempo.com,ilmeteo.net,daswetter.com##+js(trusted-click-element, button#btn-gdpr-accept)
-estadiodeportivo.com,tameteo.*,tempo.pt,meteored.*,yourweather.co.uk,tempo.com,ilmeteo.net,daswetter.com##.cmp_gdpr:style(visibility: hidden !important;)
-estadiodeportivo.com,tameteo.*,tempo.pt,meteored.*,yourweather.co.uk,tempo.com,ilmeteo.net,daswetter.com##.body_fixed:style(overflow: auto !important;)
+estadiodeportivo.com,tameteo.*,tempo.pt,meteored.*,pogoda.com,yourweather.co.uk,tempo.com,tiempo.com,ilmeteo.net,daswetter.com##+js(trusted-click-element, button#btn-gdpr-accept)
+estadiodeportivo.com,tameteo.*,tempo.pt,meteored.*,pogoda.com,yourweather.co.uk,tempo.com,tiempo.com,ilmeteo.net,daswetter.com##.cmp_gdpr:style(visibility: hidden !important;)
+estadiodeportivo.com,tameteo.*,tempo.pt,meteored.*,pogoda.com,yourweather.co.uk,tempo.com,tiempo.com,ilmeteo.net,daswetter.com##.body_fixed:style(overflow: auto !important;)
 
 ! https://www.kicker.de/ - accept
 kicker.de##+js(trusted-click-element, a[href][onclick="ov.cmp.acceptAllConsents()"], , 1000)
@@ -2095,7 +2092,7 @@ hornetsecurity.com,kayzen.io,wasserkunst-hamburg.de###BorlabsCookieBox
 hornetsecurity.com,kayzen.io,wasserkunst-hamburg.de##+js(trusted-click-element, button.brlbs-btn-accept-only-essential, , 1000)
 
 ! disagree
-bnc.ca,standaard.be,engelvoelkers.com,taxfix.de##+js(trusted-click-element, button[id="didomi-notice-disagree-button"], , 1000)
+bnc.ca,standaard.be,engelvoelkers.com,taxfix.de,tf1.fr##+js(trusted-click-element, button[id="didomi-notice-disagree-button"], , 1000)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/26727 - functional
 lieferando.de##+js(trusted-set-cookie, je-cookieConsent, necessary, , , domain, lieferando.de)
@@ -2432,7 +2429,7 @@ leirovins.be##+js(trusted-click-element, .l-cookies-notice .btn-wrapper button[d
 vias.be##+js(trusted-click-element, button.btn-accept-necessary, , 1000)
 
 ! reject
-virbac.com##+js(trusted-click-element, button#popin_tc_privacy_button, , 1000)
+virbac.com,diners.hr##+js(trusted-click-element, button#popin_tc_privacy_button, , 1000)
 
 ! accept
 casius.nl##+js(trusted-click-element, input.cookieacceptall, , 1000)
@@ -2882,7 +2879,7 @@ beobank.be##+js(set-cookie, functional, true)
 beobank.be##+js(set-cookie, measure, false)
 
 ! reject
-atu.de,atu-flottenloesungen.de,but.fr,fortuneo.fr,maif.fr##+js(trusted-click-element, button#popin_tc_privacy_button_2, , 1000)
+atu.de,atu-flottenloesungen.de,but.fr,fortuneo.fr,maif.fr,sparkasse.at##+js(trusted-click-element, button#popin_tc_privacy_button_2, , 1000)
 
 ! dismiss
 bstrongoutlet.pt##+js(trusted-click-element, span[aria-label="dismiss cookie message"], , 1000)
@@ -2906,6 +2903,49 @@ beam.co.uk##+js(trusted-click-element, div#preferences_prompt_submit, , 750)
 
 ! essential
 malaikaraiss.com##+js(trusted-click-element, a#CookieBoxSaveButton, , 1000)
+
+! refuse
+wefashion.com##+js(trusted-click-element, span[data-content="WEIGEREN"], , 1000)
+
+! save
+merkur.dk##+js(trusted-click-element, .is-open .o-cookie__overlay .o-cookie__container .o-cookie__actions .is-space-between button[data-action="save"], '', 1000)
+
+! functional
+apk-vk.at##+js(trusted-set-cookie, cb_permissions, '["Notwendige"]')
+
+! (mandatory only) deichmann.com/TR/tr/shop/welcome.html 
+deichmann.com##+js(trusted-click-element, a[onclick="consentLayer.buttonAcceptMandatory();"], , 1000)
+
+! basic
+nmhh.hu##+js(trusted-set-cookie, gdpr2, base)
+
+! reject
+guter-gerlach.de,zsgarwolin.pl##+js(trusted-set-cookie, cookieControlPrefs, '[]')
+guter-gerlach.de,zsgarwolin.pl##+js(set-cookie, cookieControl, true)
+
+! reject
+carefully.be##+js(trusted-click-element, div#cookiescript_reject, , 1000)
+
+! required
+kosta.at##+js(trusted-set-cookie, COOKIE_CONSENT, NECESSARY|NECESSARY.DSGVO_CONSENT|TECHNICAL|TECHNICAL.PHP_SESSION|TECHNICAL.SHOP_WARENKORB|TECHNICAL.SHOP_PAYMENT|TECHNICAL.NEWSLETTER)
+
+! essential+external content
+germany.travel##+js(trusted-set-local-storage-item, consent, '{"version":1,"consent":{"essential":"1","analytics":0,"marketing":0,"external":"1"}}')
+
+! reject
+townsmith.de##+js(trusted-set-local-storage-item, consentMode, '{"functionality_storage":"denied","security_storage":"denied","ad_storage":"denied","analytics_storage":"denied","preferences_storage":"denied"}')
+
+! required
+airam.fi##+js(trusted-set-cookie, AcceptedCookies, '["essential"]')
+
+! reject
+dws.com##+js(trusted-click-element, button#consent_prompt_reject, , 1000)
+
+! spardabank
+sparda-a.de,sparda-ostbayern.de,sparda-sw.de,sparda-h.de,sparda-bank-hamburg.de##+js(trusted-set-cookie, cookieConsent, '[{"name":"essenziell","value":"on"},{"name":"komfort","value":"off"},{"name":"marketing","value":"off"},{"name":"statistik","value":"off"},{"name":"speichern","value":"on"}]')
+sparda-bw.de,sparda.de,sparda-west.de,sparda-m.de,sparda-n.de,sparda-hessen.de,sparda-n.de##+js(trusted-set-cookie, sparda.privacySettings, '["necessary","","",""]')
+sparda-b.de##+js(trusted-set-cookie, cookieConsent, '[{"name":"essenziell","value":"on"},{"name":"komfort","value":"off"},{"name":"statistik","value":"off"},{"name":"speichern","value":"on"}]')
+sparda.at##+js(trusted-set-cookie, cookie_info, all:0|req:1|track:1|marketing:0|social:0)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/26900 - functional
 karkkainen.com##+js(trusted-set-cookie, CookieInformationConsent, '{"website_uuid":"0fabd588-2344-49cd-9abb-ce5ffad2757e","timestamp":"$currentDate$","consent_url":"https://www.karkkainen.com/","consent_website":"karkkainen.com","consent_domain":"www.karkkainen.com","user_uid":"","consents_approved":["cookie_cat_necessary","cookie_cat_functional"],"consents_denied":[],"user_agent":""}')
