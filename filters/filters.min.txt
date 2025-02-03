@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Mon, 03 Feb 2025 09:06:52 +0000
+! Last modified: Mon, 03 Feb 2025 09:40:02 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -23920,3 +23920,12 @@ jobnib.com##.kln.mlb.blox
 18adultgames.com##+js(set, URLlist, [])
 18adultgames.com##+js(acs, document.querySelectorAll, popMagic)
 royale-games.com##+js(acs, navigator, FingerprintJS)
+!#if cap_html_filtering
+tuktukcinma.com##^script[data-cfasync]:has-text(/h=decodeURIComponent|popundersPerIP/)
+!#else
+tuktukcinma.com##+js(rmnt, script, /h=decodeURIComponent|popundersPerIP/)
+!#endif
+tuktukcinma.com##+js(no-fetch-if, /googlesyndication|doubleclick/, length:10, {"type": "cors"})
+tuktukcinma.com##+js(no-xhr-if, /googlesyndication|doubleclick/)
+/^https:\/\/www\.tuktukcinma\.com\/wp-content\/plugins\/[a-f]{6}\.js\?\w+$/$script,1p,domain=tuktukcinma.com
+||dummymerchandise.com^

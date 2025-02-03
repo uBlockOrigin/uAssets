@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2025)
-! Last modified: Mon, 03 Feb 2025 08:58:58 +0000
+! Last modified: Mon, 03 Feb 2025 09:40:02 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -479,3 +479,14 @@ jobnib.com##.kln.mlb.blox
 18adultgames.com##+js(set, URLlist, [])
 18adultgames.com##+js(acs, document.querySelectorAll, popMagic)
 royale-games.com##+js(acs, navigator, FingerprintJS)
+
+! https://www.reddit.com/r/uBlockOrigin/comments/1ig0zf2/adblock_detection_on_site_tuktukcinma/
+!#if cap_html_filtering
+tuktukcinma.com##^script[data-cfasync]:has-text(/h=decodeURIComponent|popundersPerIP/)
+!#else
+tuktukcinma.com##+js(rmnt, script, /h=decodeURIComponent|popundersPerIP/)
+!#endif
+tuktukcinma.com##+js(no-fetch-if, /googlesyndication|doubleclick/, length:10, {"type": "cors"})
+tuktukcinma.com##+js(no-xhr-if, /googlesyndication|doubleclick/)
+/^https:\/\/www\.tuktukcinma\.com\/wp-content\/plugins\/[a-f]{6}\.js\?\w+$/$script,1p,domain=tuktukcinma.com
+||dummymerchandise.com^
