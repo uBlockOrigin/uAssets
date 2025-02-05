@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2025)
-! Last modified: Tue, 04 Feb 2025 15:23:29 +0000
+! Last modified: Wed, 05 Feb 2025 05:02:09 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -530,3 +530,9 @@ o2tvseries.com##[href*="starmeetonline.com/"]
 o2tvseries.com##[href^="https://oabaubsutha.com/"]
 ||o2tvseries.com^$csp=script-src 'self'
 ||starmeetonline.com^
+
+! https://github.com/uBlockOrigin/uAssets/issues/8111
+||adapex.io^$script,redirect=noopjs,domain=colnect.com
+colnect.com##+js(set, aaw, {})
+colnect.com##+js(set, aaw.processAdsOnPage, noopFunc)
+colnect.com##+js(set-local-storage-item, adblock_warning_pages_count, $remove$)
