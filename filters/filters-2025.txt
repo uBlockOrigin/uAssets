@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2025)
-! Last modified: Wed, 05 Feb 2025 12:56:42 +0000
+! Last modified: Thu, 06 Feb 2025 03:25:14 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -547,3 +547,10 @@ adultgamesworld.com##+js(set, doOpen, undefined)
 ! https://www.reddit.com/r/uBlockOrigin/comments/1ii8dfa/adblock_detection_on_httpswhoisnovelcom_using/
 whoisnovel.com##+js(acs, document.readyState, adsBlocked)
 whoisnovel.com##[data-placement-id^="revbid-"]
+
+! https://github.com/AdguardTeam/AdguardFilters/issues/197616
+!#if cap_html_filtering
+rebajagratis.com,tv.latinlucha.es##^script:has-text(/adsBlocked|"popundersPerIP"/)
+!#else
+rebajagratis.com,tv.latinlucha.es##+js(rmnt, script, /adsBlocked|"popundersPerIP"/)
+!#endif
