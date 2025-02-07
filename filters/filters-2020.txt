@@ -4066,16 +4066,17 @@ moviezwap.*##[style^=" width: 305px;"][type^="button"][onclick^="window.location
 ! https://s3.xfile.sbs/file/rczaGIkXGE
 ! https://xcloud.pics/c5a83cce79ebbe3
 ! https://app.xcloud.host/login - breakage
-~xcloud.host,xcloud.*##+js(rpnt, script, /window.open.*/gms, window.open(url\, "_self");})
+! https://github.com/uBlockOrigin/uAssets/issues/27115
+~xcloud.eu,~xcloud.host,xcloud.*##+js(rpnt, script, /window.open.*/gms, window.open(url\, "_self");})
 xfile.*##+js(rpnt, script, /window\.location\.href.*?;/)
-~xcloud.host,xcloud.*##+js(noeval-if, window.open)
-~xcloud.host,xcloud.*##+js(aost, EventTarget.prototype.addEventListener, /(?=^(?!.*(challenge-platform|jquery|challenges\.cloudflare\.com|jwplayer)))/)
-~xcloud.host,xcloud.*##^script:has-text(/eval\(.+?RegExp/)
+~xcloud.eu,~xcloud.host,xcloud.*##+js(noeval-if, window.open)
+~xcloud.eu,~xcloud.host,xcloud.*##+js(aost, EventTarget.prototype.addEventListener, /(?=^(?!.*(challenge-platform|jquery|challenges\.cloudflare\.com|jwplayer)))/)
+~xcloud.eu,~xcloud.host,xcloud.*##^script:has-text(/eval\(.+?RegExp/)
 *$script,3p,denyallow=accounts.google.com|cloudflare.net|fastly.net|jsdelivr.net,from=xfile.*
 xfile.*##.ads-btns
 xfile.*##[href^="https://is.gd/"]
 xfile.*##.downloads-btns-div
-~xcloud.host,xcloud.*##.ads-btns
+~xcloud.eu,~xcloud.host,xcloud.*##.ads-btns
 /^https:\/\/[0-9a-z]{8,}\.[a-z0-9]{7,}\.[a-z]{4,}\/[0-9a-f]{32}\/a4\/[0-9a-f]{13}\.js$/$script,3p,match-case
 /^https:\/\/[0-9a-z]{8,}\.[a-z0-9]{7,}\.[a-z]{4,}\/[0-9a-f]{32}\/b4\/[0-9a-f]{13}\.js$/$script,3p,match-case
 ||43478y.online^
