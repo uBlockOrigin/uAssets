@@ -1,5 +1,5 @@
 ! Title: uBlock₀ filters – Quick fixes
-! Last modified: Sun, 09 Feb 2025 18:30:44 +0000
+! Last modified: Sun, 09 Feb 2025 23:18:42 +0000
 ! Expires: 8 hours
 ! Description: Immediate, temporary filters to fix websites
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -134,14 +134,13 @@ poophq.com,veev.to##+js(rmnt, script, /__abburi|ad-provider\.js|while\\x20\(true
 @@||c.adsco.re/|$script,domain=poophq.com|veev.to
 ||adsco.re^$xhr,important,domain=poophq.com|veev.to
 poophq.com,veev.to##+js(no-xhr-if, 162.252.214.4, true)
+!#else
+poophq.com,veev.to##+js(nosiif, !grecaptcha.render()
 !#endif
 *$script,3p,domain=poophq.com|veev.to,redirect-rule=noopjs
 *$other,3p,denyallow=veevcdn.co,domain=poophq.com|veev.to
-@@*$ghide,domain=poophq.com|veev.to
+@@*$ghide,xhr,domain=poophq.com|veev.to
 veev.to#@#.avb-active
-@@*$xhr,domain=poophq.com|veev.to
-poophq.com,veev.to##+js(nosiif, /\"adsco\"|\[1\+0\]\[0\+3\]|var ttbwk|5e3-1\)\}\}|\'t\'\+\'r\'\+\'ig\'\+\'|\+gndk|52292|\(n\)\,t\[\'state\'\]|\(r\)\;var a=e\.createElement|\)\s*\+\s*('|"|`)\/('|"|`)\s*\;\s*if|\]\s*\(\s*\)\s*\[|\]\s*\)\s*\}\s*\,|\+ \"\/a\" \+|\]\(t\[\'on/)
-poophq.com,veev.to##+js(nosiif, )===-0x)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/20401
 infinityscans.xyz,infinityscans.net,infinityscans.org##+js(rpnt, script, /async function \(xhr\) \{\s+\(function\(\){var .*?\;\}\)\(\)\; /s, async function (xhr) {)
