@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Cookie Notices
-! Last modified: Sun, 09 Feb 2025 00:47:16 +0000
+! Last modified: Sun, 09 Feb 2025 06:11:16 +0000
 ! Expires: 7 days
 ! Description: Filters optimized for uBlock Origin, to be used with EasyList's and/or Adguard's "Cookie Notices" list(s)
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -1986,7 +1986,7 @@ salzburg.info##+js(set-attr, img.js-lazy-img[src^="data:image/"], src, [data-src
 verksamt.se##+js(trusted-click-element, [data-testid="consent-necessary"])
 
 ! decline (reported, allow search to work)
-beko.com,booking.com,centrum.sk,de.vanguard,dhl.de,fello.se,khanacademy.org,konami.com,jll.*,intersport.*,groceries.asda.com,n26.com,nintendo.com,panasonic.com,pluto.tv,samsonite.*,swisscom.ch,telenet.be,toujeo.com,questdiagnostics.com,yoigo.com##+js(trusted-click-element, button[id="onetrust-reject-all-handler"], , 1000)
+beko.com,bepanthen.com.au,berocca.com.au,booking.com,centrum.sk,claratyne.com.au,de.vanguard,dhl.de,fello.se,khanacademy.org,konami.com,jll.*,intersport.*,groceries.asda.com,n26.com,nintendo.com,panasonic.com,pluto.tv,samsonite.*,swisscom.ch,swisspass.ch,telenet.be,toujeo.com,questdiagnostics.com,wallapop.com,yoigo.com##+js(trusted-click-element, button[id="onetrust-reject-all-handler"], , 1000)
 
 ! non-essential
 here.com##+js(trusted-click-element, div[class="t_cm_ec_reject_button"], , 1000)
@@ -3188,6 +3188,9 @@ elavon.co.uk,elavon.ie##+js(trusted-set-cookie, gdpr_preferences, '{"consent":fa
 dibaq.com##+js(set-cookie, _pCookiesP, 1)
 dibaq.com##+js(trusted-set-cookie, _pCookies, '["2","3","1"]')
 
+! closed
+rki.de##+js(trusted-set-cookie, gsbbanner, closed)
+
 ! reject
 amitek.it##+js(trusted-set-cookie, cookie_consent_consent, gived)
 
@@ -3221,6 +3224,50 @@ myprivacy.dpgmediagroup.net##+js(set-cookie, dummy, 1, , reload, 1)
 
 ! https://www.moviepass.com/ - essential only
 moviepass.com##+js(trusted-set-cookie, consent-policy, '{"ess":1,"func":0,"anl":0,"adv":0,"dt3":0}')
+
+! https://hitchcoq.order.app.hd.digital/menus 
+hitchcoq.de##+js(trusted-set-cookie, gox_cookie_consent, websiteTranslator)
+hitchcoq.order.app.hd.digital##+js(trusted-set-cookie, complianceCookie, '{"necessary":true,"statistics":false,"marketing":false}')
+
+! mandatory
+podleze-piekielko.pl##+js(trusted-set-cookie, CookieConsent, mandatory)
+
+! necessary
+finna.fi##+js(trusted-click-element, button[data-role="necessary"], , 1000)
+
+! reject
+betterhomes.ch,betterhomes.at,betterhomes-international.com,betterhomes.de##+js(trusted-set-cookie, gdprCookiesAccepted, bhWebsiteAccepted:true)
+
+! necessary
+musti.no,petenkoiratarvike.com,mustijamirri.fi,arkenzoo.se,vetzoo.*##+js(trusted-set-cookie, vzs_consent_necessary, granted)
+
+! close cookie popup
+featherliteladders.com##+js(trusted-set-cookie, razzi_newsletter_popup_prevent, $now$)
+
+! necessary
+henleyglobal.com##+js(trusted-set-cookie, cookietype, strictly_necessary)
+
+! basic
+fbreader.org##+js(trusted-set-cookie, cookie_consent, '"preferences=-1"', , , reload, 1)
+
+! reject
+roshtein.com##+js(trusted-set-cookie, cookieConsent, '{"necessary":true,"basic":true,"experience":false,"measurement":false,"targeting":false}')
+
+! reject, date=1
+brightdata.com##+js(trusted-set-cookie, brd_cookie_consent, '{"name":"accept_mkt","saved_at":1,"settings":{"necessary":true,"pers":false,"perf":false,"mkt":false}}')
+
+! necessary
+birenbach.de##+js(trusted-set-cookie, complianceCookie, system)
+
+! accept
+puravita.ch##+js(trusted-set-local-storage-item, userAgreeOfCookieOfData, '{"isUserAgreeCollectionOfCookies":true,"userConsentDataStorageTime":1}')
+
+! reject
+tnt.com##+js(trusted-click-element, button.cc-button--rejectAll, , ,1000)
+
+! deny
+parliament.scot##+js(trusted-set-cookie, GoogleAnalyticsUserConsentCookie, '{"ad_storage":"denied","analytics_storage":"denied","functionality_storage":"denied","personalization_storage":"denied","security_storage":"denied"}')
+parliament.scot##+js(trusted-set-cookie, SitecoreUserConsentCookie, NoTracking)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/27092
 theoceancleanup.com##+js(trusted-set-cookie, toc_cookie_consent, strictly_necessary)
