@@ -1,5 +1,5 @@
 ! Title: uBlock₀ filters – Quick fixes
-! Last modified: Sat, 08 Feb 2025 19:13:45 +0000
+! Last modified: Sun, 09 Feb 2025 03:00:05 +0000
 ! Expires: 8 hours
 ! Description: Immediate, temporary filters to fix websites
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -237,3 +237,10 @@ myreadingmanga.info##+js(aopr, exoNoExternalUI38djdkjDDJsio96)
 
 ! https://github.com/easylist/easylist/commit/e54c6a211fe8eb015c944668541a2a82688edab4
 ||m.media-amazon.com/images/S/sash/$domain=imdb.com,badfilter
+
+! https://github.com/uBlockOrigin/uAssets/issues/19697
+!#if cap_html_filtering
+||photopea.com^$doc,replace=/<head>/<head><script>if (typeof localStorage !== 'undefined' && typeof JSON.parse(localStorage._ppp)['0_uid'] === 'undefined') {const originalvisualViewport=window.visualViewport; Object.defineProperty(window, 'visualViewport', {value: new Proxy(originalvisualViewport, {get(target,property) {if (property === 'width') {return document.documentElement.offsetWidth+320} return target[property]}}), configurable:true});}<\/script>/,badfilter
+!#else
+photopea.com#@#+js(trusted-rpnt, script, added=false;, "added=false;if (typeof localStorage !== 'undefined' && typeof JSON.parse(localStorage._ppp)['0_uid'] === 'undefined') {const originalvisualViewport=window.visualViewport; Object.defineProperty(window, 'visualViewport', {value: new Proxy(originalvisualViewport, {get(target,property) {if (property === 'width') {return document.documentElement.offsetWidth+320} return target[property]}}), configurable:true});}")
+!#endif
