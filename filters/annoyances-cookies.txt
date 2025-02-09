@@ -2423,8 +2423,11 @@ virbac.com,diners.hr##+js(trusted-click-element, button#popin_tc_privacy_button,
 
 ! accept
 casius.nl##+js(trusted-click-element, input.cookieacceptall, , 1000)
-! accept
-analizy.pl##+js(trusted-click-element, button.privacyPolicyBtnAccept, , 1000)
+
+! reject
+analizy.pl##+js(trusted-set-cookie, polityka-prywatnosci-b4utxgfk, on_init, , , reload, 1)
+analizy.pl##+js(trusted-set-cookie, privacy_settings, '{"analytics_storage":"denied","ad_storage":"denied","ad_user_data":"denied","ad_personalization":"denied","personalization_storage":"denied"}')
+
 ! necessary
 bfarm.de,ganztagsschulen.org##+js(trusted-set-cookie, gsbbanner, closed)
 ! "ok"
@@ -3264,6 +3267,12 @@ puravita.ch##+js(trusted-set-local-storage-item, userAgreeOfCookieOfData, '{"isU
 
 ! reject
 tnt.com##+js(trusted-click-element, button.cc-button--rejectAll, , ,1000)
+
+! essential/minimal
+uza.be,uzafoundation.be,uzajobs.be##+js(trusted-click-element, a.eu-cookie-compliance-rocketship--accept-minimal.button, , 1000)
+
+! reject
+programmes.uliege.be##+js(trusted-set-cookie, CookieScriptConsent, '{"action":"reject","categories":"[]"}')
 
 ! deny
 parliament.scot##+js(trusted-set-cookie, GoogleAnalyticsUserConsentCookie, '{"ad_storage":"denied","analytics_storage":"denied","functionality_storage":"denied","personalization_storage":"denied","security_storage":"denied"}')
