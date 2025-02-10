@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2025)
-! Last modified: Sun, 09 Feb 2025 19:31:58 +0000
+! Last modified: Mon, 10 Feb 2025 03:47:48 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -232,6 +232,7 @@ unlimitedfiles.xyz##+js(nowoif)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/26753
 ||blearspellaea.shop^
+||bracketauthorizedportray.com^
 ||condemnfundraiserjune.com^
 ||frankerreedits.com^
 ||gillspaste.com^
@@ -610,3 +611,10 @@ quotesshine.com##+js(set, detectAdBlock, noopFunc)
 ! https://github.com/uBlockOrigin/uAssets/issues/27145
 flixhouse.com##+js(rpnt, script, /window.location.href[^?]+this[^?]+;/)
 flixhouse.com##.bottom-left.jq-toast-wrap
+
+! https://fuckflix.click/hustler-hs-tv-online/
+!#if cap_html_filtering
+fuckflix.click##^script:has-text(wpadmngr.com)
+!#else
+fuckflix.click##+js(rmnt, script, wpadmngr.com)
+!#endif
