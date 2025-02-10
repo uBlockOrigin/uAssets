@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Privacy
 ! Expires: 7 days
-! Last modified: Sun, 09 Feb 2025 14:53:54 +0000
+! Last modified: Mon, 10 Feb 2025 03:57:29 +0000
 ! Diff-Path: %diffpath%#ublock-privacy
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -894,6 +894,13 @@ hoyolab.com,~www.hoyolab.com##+js(trusted-set-cookie, DEVICEFP, 00000000000, , ,
 hoyolab.com,~www.hoyolab.com##+js(trusted-rpnt, script, /^/, '(()=>{const remove=()=>{document.cookie="DEVICEFP=; domain=.hoyolab.com; path=/; Max-Age=-1000; expires=Thu, 01 Jan 1970 00:00:00 GMT";console.debug("Removed")};window.addEventListener("beforeunload",remove)})();')
 ||flight-report.com/api/event
 liquipedia.net##+js(remove-cookie, /^_pk_/)
+||eezy.api.kustomerapp.com/c/v1/tracking/
+||videezy.com/clicks/
+!#if env_firefox
+videezy.com##a[onclick="fire_download_click_tracking();"]:remove-attr(onclick)
+!#else
+videezy.com##+js(ra, onclick, a[onclick="fire_download_click_tracking();"], complete)
+!#endif
 ! Merge in resource-abuse.txt
 ! *** uAssets:filters/resource-abuse.txt ***
 /edgemesh.*.js$script,domain=~edgemesh.com|~edgeno.de
