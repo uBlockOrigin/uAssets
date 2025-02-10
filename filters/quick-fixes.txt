@@ -1,5 +1,5 @@
 ! Title: uBlock₀ filters – Quick fixes
-! Last modified: Mon, 10 Feb 2025 12:05:15 +0000
+! Last modified: Mon, 10 Feb 2025 15:11:31 +0000
 ! Expires: 8 hours
 ! Description: Immediate, temporary filters to fix websites
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -254,3 +254,10 @@ photopea.com#@#+js(trusted-rpnt, script, added=false;, "added=false;if (typeof l
 ! https://github.com/uBlockOrigin/uAssets/issues/27153
 loom.com#@#+js(prevent-fetch, loom.com/insights-api/graphql)
 ||loom.com/insights-api/graphql$badfilter
+
+! https://github.com/uBlockOrigin/uAssets/issues/27161
+||store.storeimages.cdn-apple.com^*/appmeasurement.js^$domain=apple.com,important,badfilter
+||store.storeimages.cdn-apple.com/*/store.apple.com/static-resources/rs-analytics-*/rel/analytics.js^$script,badfilter
+apple.com#@#+js(set, asMetrics, {})
+apple.com#@#+js(set, asMetrics.update, noopFunc)
+apple.com#@#+js(set, asMetrics.fireMicroEvent, noopFunc)
