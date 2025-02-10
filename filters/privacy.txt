@@ -1613,5 +1613,15 @@ hoyolab.com,~www.hoyolab.com##+js(trusted-rpnt, script, /^/, '(()=>{const remove
 ! https://github.com/uBlockOrigin/uAssets/issues/27134
 liquipedia.net##+js(remove-cookie, /^_pk_/)
 
+! https://github.com/uBlockOrigin/uAssets/issues/27151
+||eezy.api.kustomerapp.com/c/v1/tracking/
+||videezy.com/clicks/
+!#if env_firefox
+videezy.com##a[onclick="fire_download_click_tracking();"]:remove-attr(onclick)
+!#else
+videezy.com##+js(ra, onclick, a[onclick="fire_download_click_tracking();"], complete)
+!#endif
+
+
 ! Merge in resource-abuse.txt
 !#include resource-abuse.txt
