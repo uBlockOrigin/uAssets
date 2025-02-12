@@ -216,9 +216,8 @@ smsonline.cloud##aside[class^="css-"]:has(> p:has-text(Advertisement) + ins.adsb
 ! https://github.com/uBlockOrigin/uAssets/pull/26342
 ! https://github.com/uBlockOrigin/uAssets/issues/26393
 ! https://github.com/uBlockOrigin/uAssets/issues/26623
-bing.com##li.b_algo:has(a[href^="https://www.bing.com/aclick?"], a[href^="https://www.bing.com/aclk?"]):remove-class(b_algo)
-bing.com##ol#b_results > li:has(> :is(.b_tpcn, .b_title, h2) a[href^="https://www.bing.com/aclick?"])
-bing.com##ol#b_results > li:has(> :is(.b_tpcn, .b_title, h2) a[href^="https://www.bing.com/aclk?"])
+bing.com##+js(set-attr, 'li.b_algo:has(a[h^="ID=SERP,"][h$=",Ads"])', ads, 1)
+bing.com##li.b_algo[ads="1"]
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/153796
 rekidai-info.github.io##+js(nostif, /aframe|querySelector/, 1000-)
@@ -254,13 +253,6 @@ photopea.com#@#+js(trusted-rpnt, script, added=false;, "added=false;if (typeof l
 ! https://github.com/uBlockOrigin/uAssets/issues/27153
 loom.com#@#+js(prevent-fetch, loom.com/insights-api/graphql)
 ||loom.com/insights-api/graphql$badfilter
-
-! https://github.com/uBlockOrigin/uAssets/issues/27161
-||store.storeimages.cdn-apple.com^*/appmeasurement.js^$domain=apple.com,important,badfilter
-||store.storeimages.cdn-apple.com/*/store.apple.com/static-resources/rs-analytics-*/rel/analytics.js^$script,badfilter
-apple.com#@#+js(set, asMetrics, {})
-apple.com#@#+js(set, asMetrics.update, noopFunc)
-apple.com#@#+js(set, asMetrics.fireMicroEvent, noopFunc)
 
 ! https://github.com/easylist/easylist/commit/92fd56abff399710be6f467bd95d4aa485e9e293
 /ajax/embed-4/banners|$xhr
