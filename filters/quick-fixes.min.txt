@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Quick fixes
 ! Expires: 12 hours
-! Last modified: Tue, 11 Feb 2025 17:16:27 +0000
+! Last modified: Wed, 12 Feb 2025 05:59:56 +0000
 ! Diff-Path: %diffpath%#ublock-quick-fixes
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -177,9 +177,8 @@ slashdot.org##+js(aeld, , )](this\,...)
 smsonline.cloud##+js(nostif, (new Error(, 3000-6000)
 smsonline.cloud##aside[class^="css-"]:has(> p:has-text(Advertisement) + ins.adsbygoogle)
 ||report.error-report.com^$frame,badfilter
-bing.com##li.b_algo:has(a[href^="https://www.bing.com/aclick?"], a[href^="https://www.bing.com/aclk?"]):remove-class(b_algo)
-bing.com##ol#b_results > li:has(> :is(.b_tpcn, .b_title, h2) a[href^="https://www.bing.com/aclick?"])
-bing.com##ol#b_results > li:has(> :is(.b_tpcn, .b_title, h2) a[href^="https://www.bing.com/aclk?"])
+bing.com##+js(set-attr, 'li.b_algo:has(a[h^="ID=SERP,"][h$=",Ads"])', ads, 1)
+bing.com##li.b_algo[ads="1"]
 rekidai-info.github.io##+js(nostif, /aframe|querySelector/, 1000-)
 rekidai-info.github.io##+js(nosiif, location[_0x)
 myreadingmanga.info##+js(aopr, exoNoExternalUI38djdkjDDJsio96)
@@ -197,11 +196,6 @@ photopea.com#@#+js(trusted-rpnt, script, added=false;, "added=false;if (typeof l
 ||sgad.surfsnow.jp^$badfilter
 loom.com#@#+js(prevent-fetch, loom.com/insights-api/graphql)
 ||loom.com/insights-api/graphql$badfilter
-||store.storeimages.cdn-apple.com^*/appmeasurement.js^$domain=apple.com,important,badfilter
-||store.storeimages.cdn-apple.com/*/store.apple.com/static-resources/rs-analytics-*/rel/analytics.js^$script,badfilter
-apple.com#@#+js(set, asMetrics, {})
-apple.com#@#+js(set, asMetrics.update, noopFunc)
-apple.com#@#+js(set, asMetrics.fireMicroEvent, noopFunc)
 /ajax/embed-4/banners|$xhr
 /ajax/banner/vpn|$xhr
 /ajax/banners?page=$xhr,1p
