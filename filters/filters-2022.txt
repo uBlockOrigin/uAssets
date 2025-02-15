@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2022)
-! Last modified: Sat, 15 Feb 2025 09:51:06 +0000
+! Last modified: Sat, 15 Feb 2025 19:13:55 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -2040,9 +2040,9 @@ photopea.com##div[style]:has(> a[href*="photopea.com"][href*="ads"])
 ! https://github.com/jared-schwalbe/remove-ads-from-photopea/blob/main/app.js
 ! https://github.com/uBlockOrigin/uAssets/issues/19697
 !#if cap_html_filtering
-!||photopea.com^$doc,replace=/<head>/<head><script>if (typeof localStorage !== 'undefined' && typeof JSON.parse(localStorage._ppp)['0_uid'] === 'undefined') {const originalvisualViewport=window.visualViewport; Object.defineProperty(window, 'visualViewport', {value: new Proxy(originalvisualViewport, {get(target,property) {if (property === 'width') {return document.documentElement.offsetWidth+320} return target[property]}}), configurable:true});}<\/script>/
+||photopea.com^$doc,replace=/<head>/<head><script>if (typeof localStorage !== 'undefined' && typeof JSON.parse(localStorage._ppp)['0_uid'] === 'undefined' && window.visualViewport.width != document.documentElement.offsetWidth+320) {const originalvisualViewport=window.visualViewport; Object.defineProperty(window, 'visualViewport', {value: new Proxy(originalvisualViewport, {get(target,property) {if (property === 'width') {return document.documentElement.offsetWidth+320} return target[property]}}), configurable:true});}<\/script>/
 !#else
-!photopea.com##+js(trusted-rpnt, script, added=false;, "added=false;if (typeof localStorage !== 'undefined' && typeof JSON.parse(localStorage._ppp)['0_uid'] === 'undefined') {const originalvisualViewport=window.visualViewport; Object.defineProperty(window, 'visualViewport', {value: new Proxy(originalvisualViewport, {get(target,property) {if (property === 'width') {return document.documentElement.offsetWidth+320} return target[property]}}), configurable:true});}")
+photopea.com##+js(trusted-rpnt, script, added=false;, "added=false;if (typeof localStorage !== 'undefined' && typeof JSON.parse(localStorage._ppp)['0_uid'] === 'undefined' && window.visualViewport.width != document.documentElement.offsetWidth+320) {const originalvisualViewport=window.visualViewport; Object.defineProperty(window, 'visualViewport', {value: new Proxy(originalvisualViewport, {get(target,property) {if (property === 'width') {return document.documentElement.offsetWidth+320} return target[property]}}), configurable:true});}")
 !#endif
 !photopea.com##+js(rpnt, script, /^.*?(function gtag).*$/, document.documentElement.setAttribute('onreset'\,(function addCustomEvent(){document.addEventListener('resizecanvas'\,()=>{window.innerWidth=document.documentElement.clientWidth+(window.screen.width<1600?180:320)})})());document.documentElement.dispatchEvent(new CustomEvent('reset'));document.documentElement.removeAttribute('onreset');function resize(event={}){if(!event.skip){document.dispatchEvent(new CustomEvent('resizecanvas'));const resizeEvent=new Event('resize');resizeEvent.skip=true;window.dispatchEvent(resizeEvent)}}let debounce;window.addEventListener('resize'\,event=>{clearTimeout(debounce);debounce=setTimeout(()=>resize(event)\,100)});resize();)
 ! https://github.com/uBlockOrigin/uAssets/issues/20232
