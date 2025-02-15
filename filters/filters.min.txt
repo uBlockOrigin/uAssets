@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Sat, 15 Feb 2025 15:33:44 +0000
+! Last modified: Sat, 15 Feb 2025 16:54:16 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -752,20 +752,6 @@ dailyuploads.net##+js(acs, $, window.open)
 dailyuploads.net##+js(nowoif)
 *$script,3p,denyallow=google.com|gstatic.com,domain=dailyuploads.net
 ||coertiest.click^
-! sports streams vipleague
-@@*$ghide,domain=f1stream.*|fbstream.*|mlbstream.*|motogpstream.*|nbastream.*|nflstream.*|nhlstream.*|plylive.*|plyvdo.*|rugbystreams.*|socceronline.*|tennisstreams.*|tvply.*|ufcstream.*|vipleague.*
-plylive.*,plyvdo.*##+js(nowoif)
-tennisstreams.*,vipleague.*##+js(acs, setTimeout, admc)
-||mw19c3mi5a.com^$3p
-||ryllae.com^$3p,important
-##[data-uri^="https://s3.amazonaws.com"]
-##[data-lnguri^="https://s3.amazonaws.com"]
-fbstream.*##.position-absolute
-vipleague.*##.bg-dark.ratio > .position-absolute
-*/script/formula.js|$script
-nolive.me##+js(set, attachEvent, trueFunc)
-nolive.me##+js(nosiif, debug)
-vipleague.*##.m-1.btn-danger.btn
 ||zergnet.com/zerg-inf-multi$3p,script
 wunderground.com##+js(aopw, _sp_)
 wunderground.com##[class*="-ad-box-"]
@@ -11836,7 +11822,7 @@ vidsrc.cc#@#+js(acs, EventTarget.prototype.addEventListener, delete window)
 ||zaisofohow.net^
 ?oo=1^$xhr,3p
 !!! other filters for pp
-||com/|$xhr,3p,method=head,domain=movieku.ink
+||com/|$xhr,3p,method=head,domain=fbstreams.pm|movieku.ink|reliabletv.me
 *$3p,xhr,script,denyallow=arc.io|cdnjs.cloudflare.com|cloudflare.net|fastly.net|fontawesome.com|jwpcdn.com,domain=files.im
 filmpertutti.*##.ads
 filmpertutti.*##.no_pop
@@ -12441,6 +12427,8 @@ embedsports.me,embedstream.me,jumbtv.com,reliabletv.me##+js(aeld, message)
 !#endif
 ||veepteecejoushe.net^
 ||gliraimsofu.net^
+reliabletv.me##+js(acs, EventTarget.prototype.addEventListener, delete window)
+reliabletv.me##html > iframe[style="display: none;"]:remove()
 ! ytanime.tv ads
 ytanime.tv##^script:has-text(u_cfg)
 ytanime.tv##+js(aopr, u_cfg)
@@ -23742,6 +23730,27 @@ lewdzone.com##.Leaderboard
 lewdzone.com##.item.widget_text
 lewdzone.com##.site-margin > .container-block div:has(> .item.widget_text)
 lewdzone.com###ad_vid
+! sports streams vipleague
+@@*$ghide,domain=f1stream.*|fbstream.*|mlbstream.*|motogpstream.*|nbastream.*|nflstream.*|nhlstream.*|plylive.*|plyvdo.*|rugbystreams.*|socceronline.*|tennisstreams.*|tvply.*|ufcstream.*|vipleague.*
+plylive.*,plyvdo.*##+js(nowoif)
+tennisstreams.*,vipleague.*##+js(acs, setTimeout, admc)
+||mw19c3mi5a.com^$3p
+||ryllae.com^$3p,important
+##[data-uri^="https://s3.amazonaws.com"]
+##[data-lnguri^="https://s3.amazonaws.com"]
+fbstream.*,fbstreams.*##.position-absolute
+vipleague.*##.bg-dark.ratio > .position-absolute
+*/script/formula.js|$script
+nolive.me##+js(set, attachEvent, trueFunc)
+nolive.me##+js(nosiif, debug)
+vipleague.*##.m-1.btn-danger.btn
+!#if cap_html_filtering
+fbstreams.*##^script:has-text(/adserverDomain|delete window|FingerprintJS/)
+!#else
+fbstreams.*##+js(rmnt, script, /adserverDomain|delete window|FingerprintJS/)
+fbstreams.*##+js(acs, EventTarget.prototype.addEventListener, delete window)
+!#endif
+||hexagynjewing.top^
 ! END: Rules from filters.txt
 ! START: Regional lists
 ! <<<<< ABPVN >>>>>
