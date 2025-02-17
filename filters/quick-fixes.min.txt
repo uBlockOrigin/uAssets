@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Quick fixes
 ! Expires: 12 hours
-! Last modified: Mon, 17 Feb 2025 11:39:09 +0000
+! Last modified: Mon, 17 Feb 2025 14:17:36 +0000
 ! Diff-Path: %diffpath%#ublock-quick-fixes
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -105,6 +105,7 @@ poophq.com,veev.to##+js(no-xhr-if, adsbygoogle, length:35000-55000)
 poophq.com,veev.to##+js(rpnt, script, /=\(['"].*?h.*?o.*?c.*?a.*?s['"]?/, "$1(function() {'use strict'; const handler = {apply: (target, thisArg, argumentsList) => {const e = argumentsList; if (e[0] && e[0].html?.detected === null && typeof e[0].html?.instance?.start === 'function' && typeof e[0].env?.instance?.start === 'function' && typeof e[0].http?.instance?.start === 'function') {const resetBooleans = function() {Object.keys(this).forEach(key => {if (typeof this[key] === 'boolean') {this[key] = false;}});}; ['html', 'env', 'http'].forEach(name => {e[0][name].instance.start = resetBooleans;});} return Reflect.apply(target, thisArg, argumentsList);}}; window.Object.keys = new Proxy(Object.keys, handler);})();", includes, break;else)
 poophq.com,veev.to##+js(no-xhr-if, /click\.com|preroll|native_render\.js|acscdn/, length:10001)
 poophq.com,veev.to##+js(nosiif, ;!0x0===_0x)
+poophq.com,veev.to##+js(nostif, _detectLoop)
 !#if cap_html_filtering
 poophq.com,veev.to##^script:has-text(/__abburi|ad-provider\.js|while\\x20\(true\)|\'gger\'|291714XFibRN|\;\}\;\}\(\)\)\;\(|__proto__|\'bind\'|\(\)\{return\!\!\[\]\;\}|parseInt\(b\(0x/)
 ||static.veevcdn.co/assets/videoplayer/$script,3p,replace=/return new Promise\(function\(_0x[a-z0-9]+\){var _0x/return new Promise(function(a){return; var _0x/,domain=poophq.com|veev.to
@@ -115,7 +116,7 @@ poophq.com,veev.to##+js(rmnt, script, /__abburi|ad-provider\.js|while\\x20\(true
 ||adsco.re^$xhr,important,domain=poophq.com|veev.to
 poophq.com,veev.to##+js(no-xhr-if, 162.252.214.4, true)
 !#else
-poophq.com,veev.to##+js(set, adscoreLibLoader.onerrorHandlers, null)
+poophq.com,veev.to##+js(set, window.adscoreLibLoader.load, null)
 !#endif
 !#endif
 *$script,3p,domain=poophq.com|veev.to,redirect-rule=noopjs
