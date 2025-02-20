@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Cookie Notices
-! Last modified: Wed, 19 Feb 2025 06:16:51 +0000
+! Last modified: Thu, 20 Feb 2025 05:59:59 +0000
 ! Expires: 7 days
 ! Description: Filters optimized for uBlock Origin, to be used with EasyList's and/or Adguard's "Cookie Notices" list(s)
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -1497,8 +1497,6 @@ dr-beckmann.com##+js(trusted-click-element, #usercentrics-root >>> button[data-t
 srf.ch,alternate.de,bayer04.de,douglas.de,falke.com,flaschenpost.de,hornbach.nl,postbank.de##+js(trusted-click-element, #usercentrics-root >>> button[data-testid="uc-deny-all-button"], , 1000)
 ! accept (no other option)
 immowelt.de,joyn.*,morenutrition.de##+js(trusted-click-element, #usercentrics-root >>> button[data-testid="uc-accept-all-button"], , 1000)
-! custom, accept and close
-moebel24.ch,meubles.fr,meubelo.nl,moebel.de##+js(trusted-click-element, #usercentrics-root >>> button[data-testid="uc-button-accept-and-close"], , 1000)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/23499 - Necessary and marketing
 @@||cookiebot.com^$~image,3p,domain=fastnedcharging.com
@@ -1713,7 +1711,8 @@ consent.economist.com##+js(trusted-click-element, button[title="Reject all"], , 
 cdn.privacy-mgmt.com,cmpv2.foundryco.com,cmpv2.infoworld.com,cmpv2.arnnet.com.au##+js(trusted-click-element, button[title="I Agree"], , 1000)
 
 ! agree
-sp-cdn.pcgames.de,sp-cdn.pcgameshardware.de,consentv2.sport1.de##+js(trusted-click-element, button[title="AKZEPTIEREN UND WEITER"], , 1000)
+! cdn.privacy-mgmt.com (boerse-online.de)
+sp-cdn.pcgames.de,sp-cdn.pcgameshardware.de,consentv2.sport1.de,cdn.privacy-mgmt.com##+js(trusted-click-element, button[title="AKZEPTIEREN UND WEITER"], , 1000)
 
 ! agree
 cmpv2.tori.fi##+js(trusted-click-element, button[title="Hyväksy kaikki evästeet"], , 1000)
@@ -1943,12 +1942,9 @@ joinrs.com##+js(trusted-set-cookie, cookie-consent-settings, %5B%5D)
 
 ! accept
 poco.de,moebelix.*,moemax.*,xxxlutz.*,xxxlesnina.*##+js(trusted-click-element, button[data-purpose="cookieBar.button.accept"], , 1000)
-! fallback (old)
-poco.de##+js(trusted-click-element, button[data-testid="uc-button-accept-and-close"], '', 1000)
-
 
 ! accept/close
-moebel24.ch##+js(trusted-click-element, button[data-testid="uc-button-accept-and-close"], , 1000)
+moebel24.ch,meubles.fr,meubelo.nl,moebel.de,poco.de##+js(trusted-click-element, button[data-testid="uc-button-accept-and-close"], , 1000)
 ! Continue without consent
 lipo.ch##+js(trusted-click-element, [data-testid="submit-login-button"].decline-consent, , 1000)
 ! Continue without consent
@@ -2920,7 +2916,7 @@ finlayson.fi,cowaymega.ca##+js(trusted-click-element, a[aria-label="settings coo
 finlayson.fi,cowaymega.ca##+js(trusted-click-element, a[onclick="Pandectes.fn.savePreferences()"], , 750)
 
 ! agree
-arktis.de,desktronic.de,dockin.de,dryrobe.com,hairtalk.se,hallmark.co.uk,loopearplugs.com,peopleofshibuya.com,sanctum.shop##+js(trusted-click-element, a[aria-label="allow cookies"], , 1000)
+arktis.de,desktronic.de,dockin.de,dryrobe.com,hairtalk.se,hallmark.co.uk,loopearplugs.com,peopleofshibuya.com,sanctum.shop,tartanblanketco.com##+js(trusted-click-element, a[aria-label="allow cookies"], , 1000)
 
 ! close
 universcine.com##+js(trusted-set-cookie, COOKIE_CONSENT, '{"technical-cookies":true,"analytics":false,"ads":false}')
@@ -3385,11 +3381,28 @@ broekhuis.nl##+js(trusted-click-element, button#CookieInfoDialogDecline, , 1000)
 ! reject
 nemck.cz##+js(trusted-click-element, button[aria-label="vypnout personalizaci"], , 1800)
 
+! reject
+bokio.se##+js(trusted-click-element, button#cookie-donottrack, , 1000)
+
+! mandatory
+sap-press.com##+js(trusted-click-element, div.agree-mandatory, , 1000)
+
+! basic
+roughguides.com##+js(trusted-click-element, button[data-cookiefirst-action="adjust"], , 600)
+roughguides.com##+js(trusted-click-element, button[data-cookiefirst-action="save"], , 750)
+
+! required
+mercedes-benz.cr##+js(set-cookie, COOKIE_SUPPORT, true)
+mercedes-benz.cr##+js(trusted-set-cookie, dataMercedesBenz, Marketing)
+
+! rejected
+rexbo.*##+js(trusted-click-element, a[data-ga-action="disallow_all_cookies"], , 1000)
+
 ! continue without accepting
 church-footwear.com##+js(trusted-click-element, a.cookie__close_text, , 1000)
 
 ! sparbank / essential
-sparbankenikarlshamn.se,olandsbank.se,atvidabergsspb.se,avsparbank.se,alemssparbank.se,virserumssparbank.se,vimmerbysparbank.se,varbergssparbank.se,wwsparbank.se,vadstenasparbank.se,valdemarsvikssparbank.se,ulricehamnssparbank.se,tjorns-sparbank.se,tidaholms-sparbank.se,tjustbanken.se,sodrahestrasparbank.se,sodradalarnassparbank.se,sormlandssparbank.se,sparbankenvm.se,sparbankensjuharad.se,sparbankengoinge.se,sparbankengotland.se,sparbankeneken.se,sparbankenalingsas.se,sparbankenboken.se,snapphanebygdenssparbank.se,skurupssparbank.se,sidensjosparbank.se,salasparbank.se,roslagenssparbank.se,orustsparbank.se,norrbarke-sparbank.se,mjobackssparbank.se,markarydssparbank.se,ltvsparbank.se,leksandssparbank.se,lekebergssparbank.se,laholmssparbank.se,kindaydresparbank.se,ivetoftasparbank.se,sparbankennord.se,sparbankentanum.se,sparbankentranemo.se,sparbankenskane.se,sparbankenskaraborg.se,sparbankenrekarne.se,sparbankenlidkoping.se,sparbankenenkoping.se,hogsbysparbank.se,sparbanken.se,swedbank.lv,swedbank.cn,swedbank.fi,swedbank.se,swedbank.no,swedbank.dk,haradssparbanken.se,halsinglandssparbank.se,fryksdalenssparbank.se,ekebysparbank.se,dalsbank.se,bjursassparbank.se,tidaholms-sparbank.se,smsparbank.se,sparbankenvm.se,falkenbergssparbank.se##+js(trusted-set-cookie, COOKIE_CONSENT, functi-0|market-0)
+swedbankrobur.se,sparbankenikarlshamn.se,olandsbank.se,atvidabergsspb.se,avsparbank.se,alemssparbank.se,virserumssparbank.se,vimmerbysparbank.se,varbergssparbank.se,wwsparbank.se,vadstenasparbank.se,valdemarsvikssparbank.se,ulricehamnssparbank.se,tjorns-sparbank.se,tidaholms-sparbank.se,tjustbanken.se,sodrahestrasparbank.se,sodradalarnassparbank.se,sormlandssparbank.se,sparbankenvm.se,sparbankensjuharad.se,sparbankengoinge.se,sparbankengotland.se,sparbankeneken.se,sparbankenalingsas.se,sparbankenboken.se,snapphanebygdenssparbank.se,skurupssparbank.se,sidensjosparbank.se,salasparbank.se,roslagenssparbank.se,orustsparbank.se,norrbarke-sparbank.se,mjobackssparbank.se,markarydssparbank.se,ltvsparbank.se,leksandssparbank.se,lekebergssparbank.se,laholmssparbank.se,kindaydresparbank.se,ivetoftasparbank.se,sparbankennord.se,sparbankentanum.se,sparbankentranemo.se,sparbankenskane.se,sparbankenskaraborg.se,sparbankenrekarne.se,sparbankenlidkoping.se,sparbankenenkoping.se,hogsbysparbank.se,sparbanken.se,swedbank.lv,swedbank.cn,swedbank.fi,swedbank.se,swedbank.no,swedbank.dk,haradssparbanken.se,halsinglandssparbank.se,fryksdalenssparbank.se,ekebysparbank.se,dalsbank.se,bjursassparbank.se,tidaholms-sparbank.se,smsparbank.se,sparbankenvm.se,falkenbergssparbank.se##+js(trusted-set-cookie, COOKIE_CONSENT, functi-0|market-0)
 
 ! necessary
 pivovarium.cz,iwabijoux.cz,doprava-usti.cz,zshercikova.cz,pilous.hu,aljaoptik.cz,webkamery.online,arco-feed.cz,berghof-systems.cz,dolin.eu,ispop.info,sfe.cz,larok.cz,egrus.cz,omnibooks.cz,kartum.cz,truhlarstvinavratil.cz,sprtec.info,bodysalon.cz,zbrane-slany.cz,thkadan.cz,mastrs.cz,domaciobuv.com,chorvatsko.org,mobilservis.sk,sirenipismasvateho.cz,jirislezak.cz,penzionudvojice.cz,icmjh.cz,zszitomirska.info,ural.cz,whippets-dog.cz,mirdacars.cz,mirdacars.cz,vestax.net,dja.cz##+js(trusted-set-cookie, cookie-ag, '{"necessary":1,"functional":0,"performance":0,"marketing":0}')
