@@ -2056,7 +2056,7 @@ adnkronos.com,cornwalllive.com,cyprus-mail.com,informazione.it,mymovies.it,tutto
 taxscouts.com##+js(trusted-click-element, button[data-js="cookieConsentReject"], , 1000)
 
 ! agree, constent wall. https://www.heute.at/
-cdn.privacy-mgmt.com##+js(trusted-click-element, button[title*="Jetzt"], , 1000)
+cdn.privacy-mgmt.com##+js(trusted-click-element, button[title*="Jetzt zustimmen"], , 1000)
 
 ! decline 
 online.no,telenor.no##+js(trusted-click-element, a[id="consent_prompt_decline"], , 1000)
@@ -2103,7 +2103,8 @@ elisa.ee##+js(trusted-click-element, cds-button[id="cookie-allow-necessary-et"],
 baseendpoint.brigitte.de,baseendpoint.gala.de,baseendpoint.haeuser.de,baseendpoint.stern.de,baseendpoint.urbia.de,cmp.tag24.de,cmpv2.berliner-zeitung.de,golem.de,gamestar.de,cdn.privacy-mgmt.com,consent.t-online.de,cmp-sp.handelsblatt.com##+js(trusted-click-element, button[title*="Zustimmen" i], ,  1000)
 
 ! I agree (consent wall)
-sp-consent.stuttgarter-nachrichten.de##+js(trusted-click-element, button[title="Ich bin einverstanden"], , ,1000)
+! cdn.privacy-mgmt.com = www.btc-echo.de
+sp-consent.stuttgarter-nachrichten.de,cdn.privacy-mgmt.com##+js(trusted-click-element, button[title="Ich bin einverstanden"], , ,1000)
 
 ! accept (including forms)
 regjeringen.no##+js(trusted-click-element, button[id="userSelectAll"], ,  1000)
@@ -3500,6 +3501,15 @@ svtplay.se##+js(trusted-set-cookie, cookie-consent-1, '{"required_storage":true,
 ! https://github.com/uBlockOrigin/uAssets/issues/27133 - embeds
 ioplus.nl##+js(set-local-storage-item, consentInteraction, true)
 ioplus.nl##+js(trusted-set-local-storage-item, consentSettings, {"essential":true\,"embeds":true})
+
+! viewed consent
+ops.alertcalifornia.org##+js(trusted-set-cookie, popup-cookie-alertca, viewed)
+
+! I Agree (Needed for forms)
+vejdirektoratet.dk##+js(trusted-click-element, mon-cb-main >>> mon-cb-home >>> mon-cb-button[e2e-tag="acceptAllCookiesButton"], , 1000)
+
+! Essential (EU)
+usaa.com##+js(trusted-click-element, button#gdpr_consent_accept_essential_btn, , 1000)
 
 ! Necessary + preferences
 napakka.fi##+js(trusted-set-cookie, CookieConsent, {necessary:true%2Cpreferences:true%2Cstatistics:false%2Cmarketing:false%2Cmethod:%27explicit%27}, 1year)
