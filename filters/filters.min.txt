@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Sat, 22 Feb 2025 19:56:43 +0000
+! Last modified: Sun, 23 Feb 2025 01:00:16 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -806,20 +806,6 @@ player.glomex.com,merkur.de,tz.de##+js(set, Object.prototype._getSalesHouseConfi
 player.glomex.com##+js(no-fetch-if, player-feedback)
 ||player-feedback*.glomex.*^
 theoutline.com##.stack-embed
-wired.com##[class^="OutbrainGridColumn-"]
-wired.com##[class^="StickyHeroAdWrapper-"]
-wired.com###around-the-web
-||googlesyndication.com/pagead/*$script,important,domain=wired.com
-||wired.com/ams/page-ads.js$important,script
-wired.com##+js(nostif, Bait)
-! "Sponsored stories" section spotted 1st-hand at:
-wired.com##.sponsored-stories-component
-! wired.com: more EasyList's exception filters to counter
-||doubleclick.net^$important,script,domain=wired.com
-wired.com##[id^="cns_ads_"]
-wired.com##[class^="adv"]
-wired.com##.failsafe-desktop
-wired.com##.consumer-marketing-unit
 androidrepublic.org##+js(acs, $, samInitDetection)
 biqle.*##+js(acs, decodeURI, decodeURIComponent)
 biqle.*##+js(aopr, Date.prototype.toUTCString)
@@ -23767,6 +23753,24 @@ mma-core.*##.rsky
 mma-core.*##.outVidAd
 mma-core.*##.banr
 ||webpartners.co^$3p
+wired.com##[class^="OutbrainGridColumn-"]
+wired.com##[class^="StickyHeroAdWrapper-"]
+wired.com###around-the-web
+||googlesyndication.com/pagead/*$script,important,domain=wired.com
+||wired.com/ams/page-ads.js$important,script
+! "Sponsored stories" section spotted 1st-hand at:
+wired.com##.sponsored-stories-component
+! wired.com: more EasyList's exception filters to counter
+||doubleclick.net^$important,script,domain=wired.com
+wired.com##[id^="cns_ads_"]
+wired.com##[class^="adv"]
+wired.com##.failsafe-desktop
+wired.com##.consumer-marketing-unit
+! Fake paywall, users with ads can read articles once, need to clear all cookies and data to reproduce
+@@||wired.com^$ghide
+wired.com##+js(set, cns.library, true)
+wired.com##+js(trusted-replace-argument, document.querySelectorAll, 0, json:"#app-root", condition, google_ads_iframe)
+wired.com##.full-bleed-ad
 ! END: Rules from filters.txt
 ! START: Regional lists
 ! <<<<< ABPVN >>>>>

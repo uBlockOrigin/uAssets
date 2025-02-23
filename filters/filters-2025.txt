@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2025)
-! Last modified: Sat, 22 Feb 2025 16:58:57 +0000
+! Last modified: Sun, 23 Feb 2025 01:00:16 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -166,6 +166,30 @@ mma-core.*##.rsky
 mma-core.*##.outVidAd
 mma-core.*##.banr
 ||webpartners.co^$3p
+
+! https://github.com/uBlockOrigin/uAssets/issues/25
+wired.com##[class^="OutbrainGridColumn-"]
+wired.com##[class^="StickyHeroAdWrapper-"]
+wired.com###around-the-web
+! https://github.com/uBlockOrigin/uAssets/issues/28
+||googlesyndication.com/pagead/*$script,important,domain=wired.com
+||wired.com/ams/page-ads.js$important,script
+! "Sponsored stories" section spotted 1st-hand at:
+! https://www.wired.com/2011/08/google-studying-re-ranking-search-results-using-1-button-data-but-its-touchy/
+wired.com##.sponsored-stories-component
+! wired.com: more EasyList's exception filters to counter
+||doubleclick.net^$important,script,domain=wired.com
+wired.com##[id^="cns_ads_"]
+wired.com##[class^="adv"]
+wired.com##.failsafe-desktop
+! https://github.com/NanoMeow/QuickReports/issues/1751#issuecomment-591741616
+wired.com##.consumer-marketing-unit
+! https://www.reddit.com/r/uBlockOrigin/comments/1ivtgbs/wiredcom_detection_or_paywall/ 
+! Fake paywall, users with ads can read articles once, need to clear all cookies and data to reproduce
+@@||wired.com^$ghide
+wired.com##+js(set, cns.library, true)
+wired.com##+js(trusted-replace-argument, document.querySelectorAll, 0, json:"#app-root", condition, google_ads_iframe)
+wired.com##.full-bleed-ad
 
 ! END: Rules from filters.txt
 
