@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2025)
-! Last modified: Mon, 24 Feb 2025 07:52:59 +0000
+! Last modified: Mon, 24 Feb 2025 11:08:14 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -801,3 +801,11 @@ game4you.top,innal.top,naylo.top,rustorka.com,rustorka.net,rustorka.top,rustorka
 51bonusrummy.in##+js(rmnt, script, WebAssembly)
 51bonusrummy.in##+js(rmnt, script, wpadmngr.com)
 ||btiatfobkjiv.com^
+
+! https://github.com/uBlockOrigin/uAssets/issues/27308
+reviewdiv.com##+js(set, FOXIZ_MAIN_SCRIPT.siteAccessDetector, noopFunc)
+!#if cap_html_filtering
+reviewdiv.com##^script:has-text(wpquads_adblocker_check)
+!#else
+reviewdiv.com##+js(rmnt, script, wpquads_adblocker_check)
+!#endif
