@@ -49,6 +49,12 @@ resourcepack.net##+js(aopw, disableSelection)
 programegratuitepc.com##+js(aopr, disableSelection)
 programegratuitepc.com##+js(aopr, document.oncontextmenu)
 programegratuitepc.com##.unselectable:style(-webkit-touch-callout: default !important; -webkit-user-select: text !important; -moz-user-select: text !important; -ms-user-select: text !important; user-select: text !important;)
+
+! https://github.com/uBlockOrigin/uAssets/issues/27167
+kolnovel.org##+js(acs, addEventListener, /disable_|wccp/)
+kolnovel.org##+js(ra, onmousedown|onselectstart,  #kol_content, complete)
+kolnovel.org##style[id^="wccp_pro_"]:remove()
+||kolnovel.org/wp-content/plugins/wccp-pro/
 ! END: Anti copy, right-click etc.
 
 ! START: Anti-adblock
@@ -65,6 +71,12 @@ sportsnet.ca##+js(aopr, uxGuid)
 
 ! https://github.com/NanoAdblocker/NanoFilters/issues/127
 xclient.info##+js(set, killads, true)
+
+! http://naturalhomes.org anti-adb
+||naturalhomes.org/img/adblock.gif
+
+! https://tools.jabrek.net/Genshin_score/u/1801438540/Alhatham anti-adb
+tools.jabrek.net##+js(no-fetch-if, www3.doubleclick.net)
 ! END: Anti-adblock
 
 ! https://github.com/uBlockOrigin/uAssets/issues/933
@@ -464,9 +476,6 @@ remotelyawesomejobs.com###ad-plea
 ! https://github.com/uBlockOrigin/uAssets/issues/3920
 htmlreference.io##+js(nostif, (), 2000)
 htmlreference.io##.header-carbon
-
-! https://github.com/uBlockOrigin/uAssets/issues/3922
-wildstarlogs.com##+js(nostif, (), 1000)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/3925
 heypoorplayer.com##+js(aopr, ABDSettings)
@@ -1835,7 +1844,8 @@ mangaku.*##+js(aeld, contextmenu)
 gamebanana.com##+js(aopr, adBlockDetected)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/10888#issuecomment-1523943368
-||redditstatic.com/shreddit/*/xpromo-nsfw-blocking-modal-$script
+www.reddit.com###nsfw-desktop-auth-blocking-modal-dialog,#nsfw-desktop-auth-blocking-modal-overlay-element
+www.reddit.com##body:style(overflow:auto !important)
 ! https://www.reddit.com/r/uBlockOrigin/comments/1dzrnq3/remove_popups_from_reddit_mobile/
 reddit.com##div.prompt:has(> .viewInApp)
 ! https://www.reddit.com/r/uBlockOrigin/comments/1i3b2kv/preventing_reddit_unreviewed_content_popup/
@@ -2114,9 +2124,9 @@ manianomikata.com##+js(acs, document.oncontextmenu)
 manianomikata.com##+js(aopw, disableSelection)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/7056
-quotev.com##*:style(-webkit-touch-callout: default !important; -webkit-user-select: text !important; -moz-user-select: text !important; -ms-user-select: text !important; user-select: text !important; cursor: auto !important)
+quotev.com##+js(ra, onselectstart|ondragstart|oncontextmenu, div.story_text, complete)
 quotev.com##+js(aopr, document.body.oncopy)
-quotev.com##+js(ra, onselectstart|ondragstart|oncontextmenu)
+quotev.com##div.storyView:style(-webkit-touch-callout: default !important; cursor: auto !important;)
 
 ! https://github.com/NanoMeow/QuickReports/issues/3216
 underconsideration.com##+js(nostif, test.remove)
@@ -2281,7 +2291,7 @@ therealdeal.com##.async-hide:style(opacity:1!important)
 intergate.info##+js(set, document.oncontextmenu, null)
 
 ! Steady anti adb warning
-handball-world.news,mobiflip.de,titanic-magazin.de,mimikama.org,langweiledich.net,der-postillon.com,perlentaucher.de,lwlies.com,serieslyawesome.tv,critic.de,mediotejo.net,nahrungsmittel-intoleranz.com,madeinbocholt.de,goodnews-magazin.de##+js(nostif, steady-adblock)
+handball-world.news,mobiflip.de,titanic-magazin.de,mimikama.org,langweiledich.net,der-postillon.com,perlentaucher.de,lwlies.com,serieslyawesome.tv,critic.de,mediotejo.net,nahrungsmittel-intoleranz.com,madeinbocholt.de,goodnews-magazin.de,wallauonline.de##+js(nostif, steady-adblock)
 handball-world.news##small
 
 ! https://github.com/uBlockOrigin/uAssets/issues/7238
@@ -3597,7 +3607,7 @@ vinaurl.blogspot.com##+js(acs, document.onkeydown)
 wasza-farma.pl##+js(ra, oncontextmenu)
 
 ! wouterplanet. com anti right click / select, dev tools
-wouterplanet.com##+js(ra, oncontextmenu)
+wouterplanet.com##+js(ra, oncontextmenu, body, complete)
 wouterplanet.com##+js(nosiif, _0x)
 wouterplanet.com##*:style(-webkit-touch-callout: default !important; -webkit-user-select: text !important; -moz-user-select: text !important; -ms-user-select: text !important; user-select: text !important;)
 
@@ -5334,11 +5344,12 @@ clujust.ro##+js(acs, document.ondragstart)
 clujust.ro##+js(aopw, disable_hot_keys)
 clujust.ro##*:style(-webkit-user-select: text !important; -moz-user-select: text !important; -ms-user-select: text !important; user-select: text !important;)
 
+! https://github.com/uBlockOrigin/uAssets/issues/3922
 ! https://github.com/uBlockOrigin/uAssets/pull/14563
 ! https://github.com/AdguardTeam/AdguardFilters/issues/175983
 ! https://github.com/uBlockOrigin/uAssets/issues/23536
-esologs.com,fflogs.com,swtorlogs.com,warcraftlogs.com##+js(acs, attachToDom, ad-fallback)
-esologs.com,fflogs.com,swtorlogs.com,warcraftlogs.com##.side-rail-ads
+esologs.com,fflogs.com,swtorlogs.com,warcraftlogs.com,wildstarlogs.com##+js(acs, attachToDom, ad-fallback)
+esologs.com,fflogs.com,swtorlogs.com,warcraftlogs.com,wildstarlogs.com##.side-rail-ads
 
 ! https://github.com/uBlockOrigin/uAssets/issues/14550
 ||hbzb111.com/api/advert/
@@ -5664,15 +5675,16 @@ media.framu.world##+js(aopw, document.onkeydown)
 ! https://github.com/uBlockOrigin/uAssets/issues/25263
 ! https://github.com/uBlockOrigin/uAssets/issues/26165
 ! https://www.reddit.com/r/uBlockOrigin/comments/1h30v38/filter_not_working_as_expected/
+! https://www.reddit.com/r/uBlockOrigin/comments/1ia9esg/cant_copy_and_cant_right_click_kritichnobg/
 !#if cap_html_filtering
-celebzcircle.com,sertracen.com.pa,pitesti24.ro,samsungtechwin.com,cours-de-droit.net,iptv4best.com,blogvisaodemercado.pt,kapitalis.com,tiempo.hn,winmeen.com,ibps.in,visse.com.br,javsubtitle.co,learninsta.com,licensekeys.org,mediahiburan.my,tipssehatcantik.com,anime-drama.jp,jbjbgame.com,viatasisanatate.com,ziarulargesul.ro,globaldefensecorp.com,gossipnextdoor.com,coffeeapps.ir,media.framu.world,immobiliaremia.com,colegiosconcertados.info,bigdatauni.com,riwyat.com,rukim.id,visefierbinti.ro,cyberkrafttraining.com,theaircurrent.com,ncert-solutions.com,ncertsolutions.guru,nocturnetls.net,clockks.com,ananda-yoga.ro,poolpiscina.com,infodifesa.it,getective.com,flashdumpfiles.com,formatatmak.com,drkrok.com,alphagirlreviews.com,kitchennovel.com,voxvalachorum.ro,cracksone.com,day-hoc.org,onlineonderdelenshop.nl,primicia.com.ve,tech-recipes.com,postcourier.com.pg,afrikmag.com,maduras.vip,aprendeinglessila.com,kicknews.today,koalasplayground.com,hellokpop.com,hayatbilgileri.com,moneyexcel.com,placementstore.com,neuroteam-metz.de,codedosa.com,liveyourmaths.com,newspao.gr,ieltsliz.com,programasvirtualespc.net,tempatwisataseru.com,wikiofcelebs.com,jornaljoca.com.br,arcanescans.com,filmzone.com,hiraethtranslation.com,kaystls.site,home.novel-gate.com,plural.jor.br,evreporter.com,sinhasannews.com,viewsofgreece.gr,rozbor-dila.cz##^script[id^="wpcp_"]
-celebzcircle.com,sertracen.com.pa,pitesti24.ro,samsungtechwin.com,cours-de-droit.net,iptv4best.com,blogvisaodemercado.pt,kapitalis.com,tiempo.hn,winmeen.com,ibps.in,visse.com.br,javsubtitle.co,learninsta.com,licensekeys.org,mediahiburan.my,tipssehatcantik.com,jbjbgame.com,viatasisanatate.com,ziarulargesul.ro,globaldefensecorp.com,gossipnextdoor.com,coffeeapps.ir,media.framu.world,immobiliaremia.com,colegiosconcertados.info,bigdatauni.com,riwyat.com,rukim.id,visefierbinti.ro,theaircurrent.com,ncert-solutions.com,ncertsolutions.guru,nocturnetls.net,clockks.com,ananda-yoga.ro,poolpiscina.com,infodifesa.it,getective.com,flashdumpfiles.com,formatatmak.com,drkrok.com,alphagirlreviews.com,kitchennovel.com,voxvalachorum.ro,cracksone.com,day-hoc.org,onlineonderdelenshop.nl,primicia.com.ve,tech-recipes.com,afrikmag.com,maduras.vip,aprendeinglessila.com,kicknews.today,koalasplayground.com,hellokpop.com,hayatbilgileri.com,moneyexcel.com,placementstore.com,neuroteam-metz.de,codedosa.com,liveyourmaths.com,newspao.gr,ieltsliz.com,programasvirtualespc.net,tempatwisataseru.com,wikiofcelebs.com,jornaljoca.com.br,arcanescans.com,filmzone.com,hiraethtranslation.com,kaystls.site,home.novel-gate.com,plural.jor.br,evreporter.com,sinhasannews.com,viewsofgreece.gr,rozbor-dila.cz##^style:has-text(@media print)
+celebzcircle.com,sertracen.com.pa,pitesti24.ro,samsungtechwin.com,cours-de-droit.net,iptv4best.com,blogvisaodemercado.pt,kapitalis.com,tiempo.hn,winmeen.com,ibps.in,visse.com.br,javsubtitle.co,learninsta.com,licensekeys.org,mediahiburan.my,tipssehatcantik.com,anime-drama.jp,jbjbgame.com,viatasisanatate.com,ziarulargesul.ro,globaldefensecorp.com,gossipnextdoor.com,coffeeapps.ir,media.framu.world,immobiliaremia.com,colegiosconcertados.info,bigdatauni.com,riwyat.com,rukim.id,visefierbinti.ro,cyberkrafttraining.com,theaircurrent.com,ncert-solutions.com,ncertsolutions.guru,nocturnetls.net,clockks.com,ananda-yoga.ro,poolpiscina.com,infodifesa.it,getective.com,flashdumpfiles.com,formatatmak.com,drkrok.com,alphagirlreviews.com,kitchennovel.com,voxvalachorum.ro,cracksone.com,day-hoc.org,onlineonderdelenshop.nl,primicia.com.ve,tech-recipes.com,postcourier.com.pg,afrikmag.com,maduras.vip,aprendeinglessila.com,kicknews.today,koalasplayground.com,hellokpop.com,hayatbilgileri.com,moneyexcel.com,placementstore.com,neuroteam-metz.de,codedosa.com,liveyourmaths.com,newspao.gr,ieltsliz.com,programasvirtualespc.net,tempatwisataseru.com,wikiofcelebs.com,jornaljoca.com.br,arcanescans.com,filmzone.com,hiraethtranslation.com,kaystls.site,home.novel-gate.com,plural.jor.br,evreporter.com,sinhasannews.com,viewsofgreece.gr,rozbor-dila.cz,kritichno.bg,csiplearninghub.com##^script[id^="wpcp_"]
+celebzcircle.com,sertracen.com.pa,pitesti24.ro,samsungtechwin.com,cours-de-droit.net,iptv4best.com,blogvisaodemercado.pt,kapitalis.com,tiempo.hn,winmeen.com,ibps.in,visse.com.br,javsubtitle.co,learninsta.com,licensekeys.org,mediahiburan.my,tipssehatcantik.com,jbjbgame.com,viatasisanatate.com,ziarulargesul.ro,globaldefensecorp.com,gossipnextdoor.com,coffeeapps.ir,media.framu.world,immobiliaremia.com,colegiosconcertados.info,bigdatauni.com,riwyat.com,rukim.id,visefierbinti.ro,theaircurrent.com,ncert-solutions.com,ncertsolutions.guru,nocturnetls.net,clockks.com,ananda-yoga.ro,poolpiscina.com,infodifesa.it,getective.com,flashdumpfiles.com,formatatmak.com,drkrok.com,alphagirlreviews.com,kitchennovel.com,voxvalachorum.ro,cracksone.com,day-hoc.org,onlineonderdelenshop.nl,primicia.com.ve,tech-recipes.com,afrikmag.com,maduras.vip,aprendeinglessila.com,kicknews.today,koalasplayground.com,hellokpop.com,hayatbilgileri.com,moneyexcel.com,placementstore.com,neuroteam-metz.de,codedosa.com,liveyourmaths.com,newspao.gr,ieltsliz.com,programasvirtualespc.net,tempatwisataseru.com,wikiofcelebs.com,jornaljoca.com.br,arcanescans.com,filmzone.com,hiraethtranslation.com,kaystls.site,home.novel-gate.com,plural.jor.br,evreporter.com,sinhasannews.com,viewsofgreece.gr,rozbor-dila.cz,kritichno.bg,csiplearninghub.com##^style:has-text(@media print)
 !#else
-celebzcircle.com,sertracen.com.pa,pitesti24.ro,samsungtechwin.com,cours-de-droit.net,iptv4best.com,blogvisaodemercado.pt,kapitalis.com,tiempo.hn,winmeen.com,ibps.in,visse.com.br,javsubtitle.co,learninsta.com,licensekeys.org,mediahiburan.my,tipssehatcantik.com,anime-drama.jp,jbjbgame.com,viatasisanatate.com,ziarulargesul.ro,globaldefensecorp.com,gossipnextdoor.com,coffeeapps.ir,media.framu.world,immobiliaremia.com,colegiosconcertados.info,bigdatauni.com,riwyat.com,rukim.id,visefierbinti.ro,cyberkrafttraining.com,theaircurrent.com,ncert-solutions.com,ncertsolutions.guru,nocturnetls.net,clockks.com,ananda-yoga.ro,poolpiscina.com,infodifesa.it,getective.com,flashdumpfiles.com,formatatmak.com,drkrok.com,alphagirlreviews.com,kitchennovel.com,voxvalachorum.ro,cracksone.com,day-hoc.org,onlineonderdelenshop.nl,primicia.com.ve,tech-recipes.com,postcourier.com.pg,afrikmag.com,maduras.vip,aprendeinglessila.com,kicknews.today,koalasplayground.com,hellokpop.com,hayatbilgileri.com,moneyexcel.com,placementstore.com,neuroteam-metz.de,codedosa.com,liveyourmaths.com,newspao.gr,ieltsliz.com,programasvirtualespc.net,tempatwisataseru.com,wikiofcelebs.com,jornaljoca.com.br,arcanescans.com,filmzone.com,hiraethtranslation.com,kaystls.site,home.novel-gate.com,plural.jor.br,evreporter.com,sinhasannews.com,viewsofgreece.gr,rozbor-dila.cz##+js(aopr, nocontext)
-celebzcircle.com,sertracen.com.pa,pitesti24.ro,samsungtechwin.com,cours-de-droit.net,iptv4best.com,blogvisaodemercado.pt,kapitalis.com,tiempo.hn,winmeen.com,ibps.in,visse.com.br,javsubtitle.co,learninsta.com,licensekeys.org,mediahiburan.my,tipssehatcantik.com,anime-drama.jp,jbjbgame.com,viatasisanatate.com,ziarulargesul.ro,globaldefensecorp.com,gossipnextdoor.com,coffeeapps.ir,media.framu.world,immobiliaremia.com,colegiosconcertados.info,bigdatauni.com,riwyat.com,rukim.id,visefierbinti.ro,cyberkrafttraining.com,theaircurrent.com,ncert-solutions.com,ncertsolutions.guru,nocturnetls.net,clockks.com,ananda-yoga.ro,poolpiscina.com,infodifesa.it,getective.com,flashdumpfiles.com,formatatmak.com,drkrok.com,alphagirlreviews.com,kitchennovel.com,voxvalachorum.ro,cracksone.com,day-hoc.org,onlineonderdelenshop.nl,primicia.com.ve,tech-recipes.com,postcourier.com.pg,afrikmag.com,maduras.vip,aprendeinglessila.com,kicknews.today,koalasplayground.com,hellokpop.com,hayatbilgileri.com,moneyexcel.com,placementstore.com,neuroteam-metz.de,codedosa.com,liveyourmaths.com,newspao.gr,ieltsliz.com,programasvirtualespc.net,tempatwisataseru.com,wikiofcelebs.com,jornaljoca.com.br,arcanescans.com,filmzone.com,hiraethtranslation.com,kaystls.site,home.novel-gate.com,plural.jor.br,evreporter.com,sinhasannews.com,viewsofgreece.gr,rozbor-dila.cz##+js(acs, disableSelection, reEnable)
-celebzcircle.com,sertracen.com.pa,pitesti24.ro,samsungtechwin.com,cours-de-droit.net,iptv4best.com,blogvisaodemercado.pt,kapitalis.com,tiempo.hn,winmeen.com,ibps.in,visse.com.br,javsubtitle.co,learninsta.com,licensekeys.org,mediahiburan.my,tipssehatcantik.com,jbjbgame.com,viatasisanatate.com,ziarulargesul.ro,globaldefensecorp.com,gossipnextdoor.com,coffeeapps.ir,media.framu.world,immobiliaremia.com,colegiosconcertados.info,bigdatauni.com,riwyat.com,rukim.id,visefierbinti.ro,theaircurrent.com,ncert-solutions.com,ncertsolutions.guru,nocturnetls.net,clockks.com,ananda-yoga.ro,poolpiscina.com,infodifesa.it,getective.com,flashdumpfiles.com,formatatmak.com,drkrok.com,alphagirlreviews.com,kitchennovel.com,voxvalachorum.ro,cracksone.com,day-hoc.org,onlineonderdelenshop.nl,primicia.com.ve,tech-recipes.com,afrikmag.com,maduras.vip,aprendeinglessila.com,kicknews.today,koalasplayground.com,hellokpop.com,hayatbilgileri.com,moneyexcel.com,placementstore.com,neuroteam-metz.de,codedosa.com,liveyourmaths.com,newspao.gr,ieltsliz.com,programasvirtualespc.net,tempatwisataseru.com,wikiofcelebs.com,jornaljoca.com.br,arcanescans.com,filmzone.com,hiraethtranslation.com,kaystls.site,home.novel-gate.com,plural.jor.br,evreporter.com,sinhasannews.com,viewsofgreece.gr,rozbor-dila.cz##style:has-text(@media print):remove()
+celebzcircle.com,sertracen.com.pa,pitesti24.ro,samsungtechwin.com,cours-de-droit.net,iptv4best.com,blogvisaodemercado.pt,kapitalis.com,tiempo.hn,winmeen.com,ibps.in,visse.com.br,javsubtitle.co,learninsta.com,licensekeys.org,mediahiburan.my,tipssehatcantik.com,anime-drama.jp,jbjbgame.com,viatasisanatate.com,ziarulargesul.ro,globaldefensecorp.com,gossipnextdoor.com,coffeeapps.ir,media.framu.world,immobiliaremia.com,colegiosconcertados.info,bigdatauni.com,riwyat.com,rukim.id,visefierbinti.ro,cyberkrafttraining.com,theaircurrent.com,ncert-solutions.com,ncertsolutions.guru,nocturnetls.net,clockks.com,ananda-yoga.ro,poolpiscina.com,infodifesa.it,getective.com,flashdumpfiles.com,formatatmak.com,drkrok.com,alphagirlreviews.com,kitchennovel.com,voxvalachorum.ro,cracksone.com,day-hoc.org,onlineonderdelenshop.nl,primicia.com.ve,tech-recipes.com,postcourier.com.pg,afrikmag.com,maduras.vip,aprendeinglessila.com,kicknews.today,koalasplayground.com,hellokpop.com,hayatbilgileri.com,moneyexcel.com,placementstore.com,neuroteam-metz.de,codedosa.com,liveyourmaths.com,newspao.gr,ieltsliz.com,programasvirtualespc.net,tempatwisataseru.com,wikiofcelebs.com,jornaljoca.com.br,arcanescans.com,filmzone.com,hiraethtranslation.com,kaystls.site,home.novel-gate.com,plural.jor.br,evreporter.com,sinhasannews.com,viewsofgreece.gr,rozbor-dila.cz,kritichno.bg,csiplearninghub.com##+js(aopr, nocontext)
+celebzcircle.com,sertracen.com.pa,pitesti24.ro,samsungtechwin.com,cours-de-droit.net,iptv4best.com,blogvisaodemercado.pt,kapitalis.com,tiempo.hn,winmeen.com,ibps.in,visse.com.br,javsubtitle.co,learninsta.com,licensekeys.org,mediahiburan.my,tipssehatcantik.com,anime-drama.jp,jbjbgame.com,viatasisanatate.com,ziarulargesul.ro,globaldefensecorp.com,gossipnextdoor.com,coffeeapps.ir,media.framu.world,immobiliaremia.com,colegiosconcertados.info,bigdatauni.com,riwyat.com,rukim.id,visefierbinti.ro,cyberkrafttraining.com,theaircurrent.com,ncert-solutions.com,ncertsolutions.guru,nocturnetls.net,clockks.com,ananda-yoga.ro,poolpiscina.com,infodifesa.it,getective.com,flashdumpfiles.com,formatatmak.com,drkrok.com,alphagirlreviews.com,kitchennovel.com,voxvalachorum.ro,cracksone.com,day-hoc.org,onlineonderdelenshop.nl,primicia.com.ve,tech-recipes.com,postcourier.com.pg,afrikmag.com,maduras.vip,aprendeinglessila.com,kicknews.today,koalasplayground.com,hellokpop.com,hayatbilgileri.com,moneyexcel.com,placementstore.com,neuroteam-metz.de,codedosa.com,liveyourmaths.com,newspao.gr,ieltsliz.com,programasvirtualespc.net,tempatwisataseru.com,wikiofcelebs.com,jornaljoca.com.br,arcanescans.com,filmzone.com,hiraethtranslation.com,kaystls.site,home.novel-gate.com,plural.jor.br,evreporter.com,sinhasannews.com,viewsofgreece.gr,rozbor-dila.cz,kritichno.bg,csiplearninghub.com##+js(acs, disableSelection, reEnable)
+celebzcircle.com,sertracen.com.pa,pitesti24.ro,samsungtechwin.com,cours-de-droit.net,iptv4best.com,blogvisaodemercado.pt,kapitalis.com,tiempo.hn,winmeen.com,ibps.in,visse.com.br,javsubtitle.co,learninsta.com,licensekeys.org,mediahiburan.my,tipssehatcantik.com,jbjbgame.com,viatasisanatate.com,ziarulargesul.ro,globaldefensecorp.com,gossipnextdoor.com,coffeeapps.ir,media.framu.world,immobiliaremia.com,colegiosconcertados.info,bigdatauni.com,riwyat.com,rukim.id,visefierbinti.ro,theaircurrent.com,ncert-solutions.com,ncertsolutions.guru,nocturnetls.net,clockks.com,ananda-yoga.ro,poolpiscina.com,infodifesa.it,getective.com,flashdumpfiles.com,formatatmak.com,drkrok.com,alphagirlreviews.com,kitchennovel.com,voxvalachorum.ro,cracksone.com,day-hoc.org,onlineonderdelenshop.nl,primicia.com.ve,tech-recipes.com,afrikmag.com,maduras.vip,aprendeinglessila.com,kicknews.today,koalasplayground.com,hellokpop.com,hayatbilgileri.com,moneyexcel.com,placementstore.com,neuroteam-metz.de,codedosa.com,liveyourmaths.com,newspao.gr,ieltsliz.com,programasvirtualespc.net,tempatwisataseru.com,wikiofcelebs.com,jornaljoca.com.br,arcanescans.com,filmzone.com,hiraethtranslation.com,kaystls.site,home.novel-gate.com,plural.jor.br,evreporter.com,sinhasannews.com,viewsofgreece.gr,rozbor-dila.cz,kritichno.bg,csiplearninghub.com##style:has-text(@media print):remove()
 !#endif
-celebzcircle.com,pitesti24.ro,samsungtechwin.com,cours-de-droit.net,iptv4best.com,blogvisaodemercado.pt,kapitalis.com,tiempo.hn,winmeen.com,ibps.in,visse.com.br,javsubtitle.co,learninsta.com,licensekeys.org,mediahiburan.my,tipssehatcantik.com,anime-drama.jp,jbjbgame.com,viatasisanatate.com,ziarulargesul.ro,globaldefensecorp.com,gossipnextdoor.com,coffeeapps.ir,media.framu.world,immobiliaremia.com,colegiosconcertados.info,bigdatauni.com,riwyat.com,rukim.id,visefierbinti.ro,cyberkrafttraining.com,theaircurrent.com,ncert-solutions.com,ncertsolutions.guru,nocturnetls.net,clockks.com,ananda-yoga.ro,poolpiscina.com,infodifesa.it,getective.com,flashdumpfiles.com,formatatmak.com,drkrok.com,alphagirlreviews.com,kitchennovel.com,voxvalachorum.ro,cracksone.com,day-hoc.org,onlineonderdelenshop.nl,primicia.com.ve,tech-recipes.com,postcourier.com.pg,afrikmag.com,maduras.vip,aprendeinglessila.com,kicknews.today,koalasplayground.com,hellokpop.com,hayatbilgileri.com,moneyexcel.com,placementstore.com,neuroteam-metz.de,codedosa.com,liveyourmaths.com,newspao.gr,ieltsliz.com,programasvirtualespc.net,tempatwisataseru.com,wikiofcelebs.com,jornaljoca.com.br,arcanescans.com,filmzone.com,hiraethtranslation.com,kaystls.site,home.novel-gate.com,plural.jor.br,sinhasannews.com,viewsofgreece.gr,rozbor-dila.cz##body:style(cursor: revert !important; -webkit-touch-callout: default !important; -webkit-user-select: text !important; -khtml-user-select: text !important; -moz-user-select: text !important; -ms-user-select: text !important; user-select: text !important; -webkit-tap-highlight-color: revert !important;)
+celebzcircle.com,pitesti24.ro,samsungtechwin.com,cours-de-droit.net,iptv4best.com,blogvisaodemercado.pt,kapitalis.com,tiempo.hn,winmeen.com,ibps.in,visse.com.br,javsubtitle.co,learninsta.com,licensekeys.org,mediahiburan.my,tipssehatcantik.com,anime-drama.jp,jbjbgame.com,viatasisanatate.com,ziarulargesul.ro,globaldefensecorp.com,gossipnextdoor.com,coffeeapps.ir,media.framu.world,immobiliaremia.com,colegiosconcertados.info,bigdatauni.com,riwyat.com,rukim.id,visefierbinti.ro,cyberkrafttraining.com,theaircurrent.com,ncert-solutions.com,ncertsolutions.guru,nocturnetls.net,clockks.com,ananda-yoga.ro,poolpiscina.com,infodifesa.it,getective.com,flashdumpfiles.com,formatatmak.com,drkrok.com,alphagirlreviews.com,kitchennovel.com,voxvalachorum.ro,cracksone.com,day-hoc.org,onlineonderdelenshop.nl,primicia.com.ve,tech-recipes.com,postcourier.com.pg,afrikmag.com,maduras.vip,aprendeinglessila.com,kicknews.today,koalasplayground.com,hellokpop.com,hayatbilgileri.com,moneyexcel.com,placementstore.com,neuroteam-metz.de,codedosa.com,liveyourmaths.com,newspao.gr,ieltsliz.com,programasvirtualespc.net,tempatwisataseru.com,wikiofcelebs.com,jornaljoca.com.br,arcanescans.com,filmzone.com,hiraethtranslation.com,kaystls.site,home.novel-gate.com,plural.jor.br,sinhasannews.com,viewsofgreece.gr,rozbor-dila.cz,kritichno.bg,csiplearninghub.com##body:style(cursor: revert !important; -webkit-touch-callout: default !important; -webkit-user-select: text !important; -khtml-user-select: text !important; -moz-user-select: text !important; -ms-user-select: text !important; user-select: text !important; -webkit-tap-highlight-color: revert !important;)
 evreporter.com##html, .unselectable:style(cursor: revert !important; -webkit-touch-callout: default !important; -webkit-user-select: text !important; -khtml-user-select: text !important; -moz-user-select: text !important; -ms-user-select: text !important; user-select: text !important; -webkit-tap-highlight-color: revert !important;)
 
 ! WPCP Pro - https://wp-buy.com/product/wp-content-copy-protection-pro/
@@ -6574,11 +6586,9 @@ thejakartapost.com##+js(rmnt, script, /$.*ready.*setInterval/)
 ! oreilly. com leaving screen => pop-up
 oreilly.com##+js(aeld, mouseout, cookie)
 
-! https://github.com/uBlockOrigin/uAssets/issues/20027
-fullxh.com,galleryxh.site,hamsterix.*,megaxh.com,movingxh.world,seexh.com,unlockxh4.com,valuexh.life,xhaccess.com,xhadult2.com,xhadult3.com,xhadult4.com,xhadult5.com,xhamster.*,xhamster1.*,xhamster10.*,xhamster11.*,xhamster12.*,xhamster13.*,xhamster14.*,xhamster15.*,xhamster16.*,xhamster17.*,xhamster18.*,xhamster19.*,xhamster20.*,xhamster2.*,xhamster3.*,xhamster4.*,xhamster42.*,xhamster46.com,xhamster5.*,xhamster7.*,xhamster8.*,xhamsterporno.mx,xhbig.com,xhbranch5.com,xhchannel.com,xhchannel2.com,xhdate.world,xhday.com,xhday1.com,xhlease.world,xhmoon5.com,xhofficial.com,xhopen.com,xhplanet1.com,xhplanet2.com,xhreal2.com,xhreal3.com,xhspot.com,xhtab2.com,xhtab4.com,xhtotal.com,xhtree.com,xhvictory.com,xhwebsite.com,xhwebsite2.com,xhwebsite5.com,xhwide1.com,xhwide2.com,xhwide5.com,xhxh3.xyz##+js(set, initials.layout.layoutPromoProps.promoMessagesWrapperProps.bannerCheckUrl, '')
 ! https://github.com/uBlockOrigin/uAssets/issues/4747#issuecomment-1691485028
 ! https://github.com/uBlockOrigin/uAssets/issues/26838
-fullxh.com,galleryxh.site,hamsterix.*,megaxh.com,movingxh.world,seexh.com,unlockxh4.com,valuexh.life,xhaccess.com,xhadult2.com,xhadult3.com,xhadult4.com,xhadult5.com,xhamster.*,xhamster1.*,xhamster10.*,xhamster11.*,xhamster12.*,xhamster13.*,xhamster14.*,xhamster15.*,xhamster16.*,xhamster17.*,xhamster18.*,xhamster19.*,xhamster20.*,xhamster2.*,xhamster3.*,xhamster4.*,xhamster42.*,xhamster46.com,xhamster5.*,xhamster7.*,xhamster8.*,xhamsterporno.mx,xhbig.com,xhbranch5.com,xhchannel.com,xhchannel2.com,xhdate.world,xhday.com,xhday1.com,xhlease.world,xhmoon5.com,xhofficial.com,xhopen.com,xhplanet1.com,xhplanet2.com,xhreal2.com,xhreal3.com,xhspot.com,xhtab2.com,xhtab4.com,xhtotal.com,xhtree.com,xhvictory.com,xhwebsite.com,xhwebsite2.com,xhwebsite5.com,xhwide1.com,xhwide2.com,xhwide5.com,xhxh3.xyz##+js(no-fetch-if, url:/en/ad/widget method:HEAD)
+fullxh.com,galleryxh.site,hamsterix.*,megaxh.com,movingxh.world,seexh.com,unlockxh4.com,valuexh.life,xhaccess.com,xhadult2.com,xhadult3.com,xhadult4.com,xhadult5.com,xhamster.*,xhamster1.*,xhamster10.*,xhamster11.*,xhamster12.*,xhamster13.*,xhamster14.*,xhamster15.*,xhamster16.*,xhamster17.*,xhamster18.*,xhamster19.*,xhamster20.*,xhamster2.*,xhamster3.*,xhamster4.*,xhamster42.*,xhamster46.com,xhamster5.*,xhamster7.*,xhamster8.*,xhamsterporno.mx,xhbig.com,xhbranch5.com,xhchannel.com,xhchannel2.com,xhdate.world,xhday.com,xhday1.com,xhlease.world,xhmoon5.com,xhofficial.com,xhopen.com,xhplanet1.com,xhplanet2.com,xhreal2.com,xhreal3.com,xhspot.com,xhtab2.com,xhtab4.com,xhtotal.com,xhtree.com,xhvictory.com,xhwebsite.com,xhwebsite2.com,xhwebsite5.com,xhwide1.com,xhwide2.com,xhwide5.com,xhxh3.xyz##+js(set, initials.layout.layoutPromoProps.promoMessagesWrapperProps.shouldDisplayAdblockMessage, false)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/20084
 270towin.com##+js(set-session-storage-item, fs.adb.dis, 1)
@@ -6696,6 +6706,7 @@ bluesnews.com##+js(nostif, nn_mpu1, 5000)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/20574
 broncoshq.com##+js(rmnt, script, XF)
+broncoshq.com##+js(acs, $, btoa)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/20059#issuecomment-1806089143
 androidpolice.com,makeuseof.com,movieweb.com,xda-developers.com,thegamer.com,cbr.com,gamerant.com,screenrant.com,howtogeek.com,thethings.com,simpleflying.com,dualshockers.com##+js(remove-cookie, /articlesLimit|articlesRead|previousPage/, when, scroll keydown)
@@ -6957,8 +6968,8 @@ asumanaksoy.com,freshlifecircle.com##+js(rmnt, script, devtoolsDetector)
 ! devtools detection scripts
 ! https://github.com/uBlockOrigin/uAssets/issues/21716
 ! https://github.com/uBlockOrigin/uAssets/issues/21320
-||cdn.jsdelivr.net/npm/disable-devtool$script,3p
-||cdn.jsdelivr.net/npm/devtools-detector$script,domain=asumanaksoy.com|comedyshow.to|freshlifecircle.com|superembeds.com|blsplayer.com
+||cdn.jsdelivr.net/npm/disable-devtool$script,3p,domain=~weloma.art
+||cdn.jsdelivr.net/npm/devtools-detector$script,domain=asumanaksoy.com|comedyshow.to|freshlifecircle.com|superembeds.com|blsplayer.com|daftmovie.xyz
 ||hentaihd.cyou/assets/js/devtools-detector.js$script
 ||bhplay.me/player/assets/devtools-detector/$script,1p
 ! https://github.com/uBlockOrigin/uAssets/issues/23689
@@ -7320,11 +7331,12 @@ thehouseofportable.com###htp
 
 ! https://github.com/uBlockOrigin/uAssets/issues/23777
 ! https://github.com/uBlockOrigin/uAssets/issues/21830
+! https://github.com/uBlockOrigin/uAssets/issues/26963#issuecomment-2614193847
 ! https://www.reddit.com/r/uBlockOrigin/comments/1gk2o42/help_me_to_block_new_tab_popup/
-tv.verizon.com##+js(aeld, keydown, 123)
-moflix-stream.day,tv.verizon.com##+js(set, console.clear, trueFunc)
-moflix-stream.day,tv.verizon.com##+js(set, console.table, trueFunc)
-moflix-stream.day,tv.verizon.com##+js(set, console.log, trueFunc)
+bitcine.app,cineby.app,tv.verizon.com##+js(aeld, keydown, 123)
+bitcine.app,cineby.app,moflix-stream.day,tv.verizon.com##+js(set, console.clear, trueFunc)
+bitcine.app,cineby.app,moflix-stream.day,tv.verizon.com##+js(set, console.table, trueFunc)
+bitcine.app,cineby.app,moflix-stream.day,tv.verizon.com##+js(set, console.log, trueFunc)
 
 ! https://dlhd.so/stream/stream-51.php anti right click on player iframes
 4kwebplay.xyz,qqwebplay.xyz,lewblivehdplay.ru,claplivehdplay.ru,tutlehd4.com,viwlivehdplay.ru##+js(ra, oncontextmenu)
@@ -7655,9 +7667,9 @@ embasic.pro,dlions.pro##+js(trusted-suppress-native-method, Function.prototype.c
 d0000d.com##+js(set, console.clear, undefined)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/26245 anti devtools, contextmenu, ctrl keys
-sussytoons.site##+js(nosiif, /devtool|console\.clear/)
-sussytoons.site##+js(aeld, keydown, 123)
-sussytoons.site##+js(set, Object.prototype.disableMenu, false)
+sussytoons.*##+js(nosiif, /devtool|console\.clear/)
+sussytoons.*##+js(aeld, keydown, 123)
+sussytoons.*##+js(set, Object.prototype.disableMenu, false)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/26250 - anti right click, devtools
 !#if cap_html_filtering
@@ -7668,15 +7680,16 @@ mostream.us##+js(rmnt, script, /devtoolsDetector|keyCode|preventDefault/)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/26294
 ! https://github.com/uBlockOrigin/uAssets/issues/26382
-hotleaks.tv,topfaps.com##+js(aeld, contextmenu, preventDefault)
-hotleaks.tv,topfaps.com##+js(aeld, keydown, 123)
+! https://github.com/uBlockOrigin/uAssets/issues/27042
+hotleak.vip,hotleaks.tv,topfaps.com##+js(aeld, contextmenu, preventDefault)
+hotleak.vip,hotleaks.tv,topfaps.com##+js(aeld, keydown, 123)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/26268
 ! https://github.com/uBlockOrigin/uAssets/issues/26335
 astro-cric.pages.dev,crichype.*,jio.pftv.ws,shz.al,tnt2-cricstreaming.pages.dev,wlo-cricstreamiing.pages.dev##+js(set, confirm, noopFunc)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/26426
-fandom.com##+js(trusted-set-cookie, fandomLeftPanelPersistence, collapsed)
+fandom.com##+js(trusted-set-cookie, leftPanelOpen, 0)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/26435
 baomidou.com##astro-island[opts^="{\"name\":\"CheckAdBlocked\""]
@@ -7754,3 +7767,51 @@ abstream.to##+js(acs, document.onkeydown)
 astoryofmasasstruggles.com##+js(rmnt, script, /contextmenu|reEnable/)
 astoryofmasasstruggles.com##*:style(-webkit-touch-callout: default !important; -webkit-user-select: text !important; -khtml-user-select: text !important; -moz-user-select: text !important; -ms-user-select: text !important; user-select: text !important; -webkit-tap-highlight-color: revert !important; cursor: revert !important;)
 astoryofmasasstruggles.com##style:has-text(@media print):remove()
+
+! https://www.pokeos.com/ - anti-adb banners
+pokeos.com##+js(no-fetch-if, doubleclick)
+||pokeos.com/pokeos-uploads/ads/adblock/$image
+
+! https://github.com/AdguardTeam/AdguardFilters/issues/156165
+lemon8-app.com##+js(trusted-click-element, .seo-landing-modal-cancel-btn .design-system-button-container, , 500)
+
+! animekai.to anti-devtools
+animekai.to##+js(set, console.clear, throwFunc)
+
+! https://github.com/uBlockOrigin/uAssets/issues/27010
+loverslab.com##+js(nano-sib)
+
+! https://github.com/uBlockOrigin/uAssets/issues/16606
+!#if !env_mv3
+/akam/13/*$script,xhr,1p,domain=easyjet.com|ing.nl,important
+easyjet.com,ing.nl##+js(cookie-remover, ak_bmsc, when, scroll keydown)
+!#endif
+
+! https://forums.lanik.us/viewtopic.php?t=48667-www-cowcotland-com
+cowcotland.com##+js(rmnt, script, /adbl/i)
+
+! GliaCloud
+||player.gliacloud.com^$3p
+##.gliaplayer-container
+appget.com###side_right > div[style="margin: 0 0 20px 25px;"]
+ejje.weblio.jp##.mainBlock[style="min-height: 270px;"]
+weblio.jp##.firstDictVideoAd
+
+! https://www.reddit.com/r/uBlockOrigin/comments/1ii8dfa/adblock_detection_on_httpswhoisnovelcom_using/
+whoisnovel.com##+js(acs, document.oncontextmenu)
+whoisnovel.com##*::selection:style(background-color:#338FFF!important)
+whoisnovel.com##*:style(-webkit-touch-callout: default !important; -webkit-user-select: text !important; -khtml-user-select: text !important; -moz-user-select: text !important; -ms-user-select: text !important; user-select: text !important; -webkit-tap-highlight-color: revert !important; cursor: revert !important;)
+
+! https://github.com/uBlockOrigin/uAssets/issues/27143
+zabawkahurtownia.pl##+js(rmnt, script, /oncontextmenu|disableselect/)
+zabawkahurtownia.pl##*:style(-webkit-touch-callout: default !important; -webkit-user-select: text !important; -khtml-user-select: text !important; -moz-user-select: text !important; -ms-user-select: text !important; user-select: text !important; -webkit-tap-highlight-color: revert !important; cursor: revert !important;)
+
+! ajogames.com embedded stream anti devtools
+||n2olabs.pro/devtool.js
+
+! https://github.com/uBlockOrigin/uAssets/issues/25920 - login wall
+! https://github.com/uBlockOrigin/uAssets/issues/27289
+filiser.eu,wishflix.cc##+js(nostif, (!0), 8000)
+
+! https://github.com/uBlockOrigin/uAssets/issues/27309
+bloxd.io##.AdBanner

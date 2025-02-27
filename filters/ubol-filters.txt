@@ -185,6 +185,14 @@ kurukura.jp##.ad-row
 ! https://github.com/uBlockOrigin/uAssets/issues/26765
 @@||outletarredamento.it^$ghide
 
+! https://github.com/uBlockOrigin/uAssets/issues/27206
+@@||pramborsfm.com^$ghide
+pramborsfm.com##div[id^="div-gpt-"]:not([style^="width: 1px; height: 1px; position: absolute; left: -10000px; top: -"]):not([style="pointer-events: none; height: 1px; width: 0px; opacity: 0; visibility: hidden; position: fixed; bottom: 0px;"])
+pramborsfm.com##[id^="div-gpt-ad"]:not([style^="width: 1px; height: 1px; position: absolute; left: -10000px; top: -"]):not([style="pointer-events: none; height: 1px; width: 0px; opacity: 0; visibility: hidden; position: fixed; bottom: 0px;"])
+pramborsfm.com##.sticky-ads
+pramborsfm.com##.masthead-ads
+pramborsfm.com##.ads.widget
+
 ! END: Exceptions to generic cosmetic filters
 
 ! START: Specific cosmetic filters
@@ -197,6 +205,29 @@ playeriframe.lol,stream.hownetwork.xyz###donate > a[href][style][onclick="thank_
 fuqster.com##a[href^="https://landing.brazzersnetwork.com/"]
 
 ! END: Specific cosmetic filters
+
+! START: Privacy filters
+
+! https://github.com/uBlockOrigin/uBOL-home/issues/278
+/^https?:\/\/(?:[^.]+\.){2}(?:com|io|net)\/[a-zA-Z0-9]{6}\?subId1=[^&]+&u=http/$doc,urlskip=?u
+/^https?:\/\/(?:[^.]+\.){2}(?:com|io|net)\/c(?:\/\d+){3}\/?\?.*?&?u=http/$doc,urlskip=?u
+/^https?:\/\/(?:[^.]+\.){2}(?:com|io|net)\/c(?:\/\d+){3}\/?\?.*?&?url=http/$doc,match-case,urlskip=?url
+/^https?:\/\/(?:[^.]+\.){2}(?:com|io|net)\/c(?:\/\d+){3}\/?\?.*?&?URL=http/$doc,match-case,urlskip=?URL
+/^https?:\/\/www\.[a-z]+\.(?:com|net)\/click-\d{6,7}-\d{8}\b.*?[?&]url=http/$doc,match-case,urlskip=?url
+/^https?:\/\/www\.[a-z]+\.(?:com|net)\/click-\d{6,7}-\d{8}\b.*?[?&]URL=http/$doc,match-case,urlskip=?URL
+||gopjn.com/t/*^url=http$doc,urlskip=?url
+||pjatr.com/t/*^url=http$doc,urlskip=?url
+||pjtra.com/t/*^url=http$doc,urlskip=?url
+||pntra.com/t/*^url=http$doc,urlskip=?url
+||pntrac.com/t/*^url=http$doc,urlskip=?url
+||pntrs.com/t/*^url=http$doc,urlskip=?url
+||awin1.com/*.php?*&p=http$doc,urlskip=?p
+||awin1.com/*.php?*&ued=http$doc,urlskip=?ued
+||pvn.mediamarkt.de/trck/eclick/*^url=http$doc,urlskip=?url
+||pvn.saturn.de/trck/eclick/*^url=http$doc,urlskip=?url
+/^https?:\/\/(?:www\.anrdoezrs\.net|cj\.dotomi\.com)\/links(?:-t)?\/\d+\/sid\/[^\/]+\/http/$doc,urlskip=/\/sid\/[^\/]+\/(http[^?]+)/
+
+! END: Privacy filters
 
 ! https://github.com/uBlockOrigin/uBOL-issues/issues/8
 ||pushbullet.com^$3p,badfilter
@@ -323,7 +354,14 @@ moon-fm43w1qv.com##+js(acs, Math, localStorage['\x)
 ! https://github.com/uBlockOrigin/uAssets/issues/26837
 ! https://www.reddit.com/r/uBlockOrigin/comments/1i1ow2n/cant_scrub_in_video/
 ! https://github.com/uBlockOrigin/uAssets/issues/26885
-/^https?:\/\/(?:[a-z]{2}\.)?[0-9a-z]{5,16}\.[a-z]{3,7}\//$script,3p,redirect=noopjs,domain=d0000d.com|d000d.com|d0o0d.com|do0od.com|doods.pro|dooodster.com|ds2play.com|ds2video.com|edgedeliverynetwork.com|flamecomics.xyz|ghbrisk.com|kshow123.tv|mixdrop.ps|nxbrew.net|pobreflixtv.uno|sussyscan.com|sussytoons.site|veporn.com
+! https://github.com/uBlockOrigin/uAssets/issues/27174
+! https://github.com/AdguardTeam/AdguardFilters/issues/198021
+/^https?:\/\/(?:[a-z]{2}\.)?[0-9a-z]{5,16}\.[a-z]{3,7}\//$script,3p,redirect=noopjs,domain=animixplay.st|d0000d.com|d000d.com|d0o0d.com|do0od.com|doods.pro|dooodster.com|ds2play.com|ds2video.com|edgedeliverynetwork.com|flamecomics.xyz|ghbrisk.com|kshow123.tv|mixdrop.ps|nxbrew.net|pobreflixtv.uno|readcominonline.li|sussyscan.com|sussytoons.site|veporn.com
+/^https:\/\/[a-z]{2}\.[a-z]{7,14}\.com\/[a-z][0-9A-Za-z]{10,16}\/\d{4,6}$/$script,3p,match-case,to=com,redirect=noopjs
+/^https:\/\/[a-z]{2}\.[a-z]{7,14}\.com\/[a-z][0-9A-Za-z]{10,16}\/[A-Za-z]{5}$/$script,3p,match-case,to=com,redirect=noopjs
+
+! https://github.com/uBlockOrigin/uAssets/issues/7900
+/^https:\/\/(?:cdn77\.)?aj\d{4}\.bid\/[^?]{30,}\?/$xhr,3p,to=bid,method=get
 
 ! https://github.com/uBlockOrigin/uAssets/discussions/17361#discussioncomment-11656652
 ||instant-dl.pages.dev^$doc,csp=script-src 'self' 'unsafe-inline'
@@ -341,3 +379,6 @@ upn.one##+js(trusted-override-element-method, HTMLAnchorElement.prototype.click,
 
 ! https://github.com/uBlockOrigin/uAssets/issues/26790
 ||securepubads.g.doubleclick.net/pagead/ppub_config^$xhr,domain=kumparan.com,important
+
+! https://github.com/uBlockOrigin/uAssets/issues/26943
+right.com.cn##.wp.a_t

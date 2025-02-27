@@ -28,19 +28,15 @@ www.youtube.com##+js(nano-stb, [native code], 17000, 0.001)
 ||www.youtube.com/s/player/*/base.js$script,xhr,replace=/if\(e===""\)/if(0)/
 !#endif
 ! https://www.reddit.com/r/uBlockOrigin/comments/1ebwr6c/is_ublock_broken_again_or_am_i_doing_something/
-!www.youtube.com##+js(json-prune-fetch-response, playerAds adPlacements adSlots playerResponse.playerAds playerResponse.adPlacements playerResponse.adSlots [].playerResponse.adPlacements [].playerResponse.playerAds [].playerResponse.adSlots, , propsToMatch, /\/(?:player|playlist|get_watch)\?/)
 www.youtube.com##+js(json-prune-fetch-response, playerAds adPlacements adSlots no_ads playerResponse.playerAds playerResponse.adPlacements playerResponse.adSlots playerResponse.no_ads [].playerResponse.adPlacements [].playerResponse.playerAds [].playerResponse.adSlots [].playerResponse.no_ads, , propsToMatch, /\/(player|get_watch)\?/)
 ! https://github.com/uBlockOrigin/uAssets/issues/20586#issuecomment-2144781835
 www.youtube.com##+js(json-prune-fetch-response, playerAds adPlacements adSlots no_ads playerResponse.playerAds playerResponse.adPlacements playerResponse.adSlots playerResponse.no_ads, , propsToMatch, /playlist?)
 ! https://github.com/uBlockOrigin/uAssets/issues/20586#issuecomment-2271325338
 ! https://github.com/uBlockOrigin/uAssets/issues/20586#issuecomment-2308486423
 ! https://github.com/AdguardTeam/AdguardFilters/commit/61d89cebe154ca17932bedf61df5e2c7bd75bd7d
-!tv.youtube.com#@#+js(trusted-replace-xhr-response, '"adPlacements"', '"no_ads"', /playlist\?list=|player\?|watch\?[tv]=|youtubei\/v1\/player/)
 www.youtube.com##+js(json-prune-xhr-response, playerAds adPlacements adSlots no_ads playerResponse.playerAds playerResponse.adPlacements playerResponse.adSlots playerResponse.no_ads [].playerResponse.adPlacements [].playerResponse.playerAds [].playerResponse.adSlots [].playerResponse.no_ads, , propsToMatch, /\/player(?:\?.+)?$/)
 tv.youtube.com##+js(trusted-replace-xhr-response, '"adPlacements"', '"no_ads"', /playlist\?list=|\/player(?:\?.+)?$|watch\?[tv]=/)
 !#if !cap_html_filtering
-www.youtube.com#@#+js(trusted-replace-fetch-response, /"adPlacements.*?([A-Z]"\}|"\}{2\,4})\}\]\,/, , player?)
-www.youtube.com#@#+js(trusted-replace-fetch-response, /"adSlots.*?\}\}\]\,"adBreakHeartbeatParams/, "adBreakHeartbeatParams, player?)
 www.youtube.com##+js(trusted-replace-xhr-response, /"adPlacements.*?([A-Z]"\}|"\}{2\,4})\}\]\,/, , /playlist\?list=|\/player(?:\?.+)?$|watch\?[tv]=/)
 www.youtube.com##+js(trusted-replace-xhr-response, /"adPlacements.*?("adSlots"|"adBreakHeartbeatParams")/gms, $1, /\/player(?:\?.+)?$/)
 www.youtube.com##+js(trusted-replace-fetch-response, '"adPlacements"', '"no_ads"', player?)
@@ -63,17 +59,21 @@ web.facebook.com,www.facebook.com##+js(json-prune, require.0.3.0.__bbox.require.
 web.facebook.com,www.facebook.com##+js(json-prune, require.0.3.0.__bbox.require.[].3.1.__bbox.result.data, require.0.3.0.__bbox.require.[].3.1.__bbox.result.data.sponsored_auction_distance)
 web.facebook.com,www.facebook.com##+js(rpnt, script, '/null,"category_sensitive"[^\n]+?,"__typename":"SponsoredData"[^\n]+"cursor":"[^"]+"\}/g', null})
 !#if cap_html_filtering
-||facebook.com/api/graphql/$xhr,replace=/null,"category_sensitive"[^\n]+?,"__typename":"SponsoredData"[^\n]+"cursor":"[^"]+"\}/null}/g,domain=web.facebook.com|www.facebook.com
+||facebook.com/api/graphql/$xhr,replace=/null,"category_sensitive"[^\n]+?"__typename":"SponsoredData"[^\n]+"cursor":"[^"]+"\}/null}/g,domain=web.facebook.com|www.facebook.com
 ! ||facebook.com^$doc,replace=/null,"category_sensitive"[^\n]+?,"__typename":"SponsoredData"[^\n]+"cursor":"[^"]+"\}/null}/g,to=web.facebook.com|www.facebook.com
 !#else
-web.facebook.com,www.facebook.com##+js(trusted-replace-xhr-response, '/null,"category_sensitive"[^\n]+?,"__typename":"SponsoredData"[^\n]+"cursor":"[^"]+"\}/g', null}, /api/graphql)
+web.facebook.com,www.facebook.com##+js(trusted-replace-xhr-response, '/null,"category_sensitive"[^\n]+?"__typename":"SponsoredData"[^\n]+"cursor":"[^"]+"\}/g', null}, /api/graphql)
 !#endif
+! https://github.com/uBlockOrigin/uAssets/issues/3367#issuecomment-2644501087
+web.facebook.com,www.facebook.com##+js(json-prune, require.0.3.0.__bbox.require.[].3.1.__bbox.result.data.viewer.sideFeed.nodes.0.ads)
+web.facebook.com,www.facebook.com##+js(json-prune-xhr-response, data.viewer.sideFeed.nodes.[].ads, , propsToMatch, /api/graphql)
 
-! https://github.com/uBlockOrigin/uAssets/issues/18476 - https://voe.sx/e/2z9smej3tebe
+! https://github.com/uBlockOrigin/uAssets/issues/24745 - https://voe.sx/e/2z9smej3tebe
 ! VOE sites
-||imasdk.googleapis.com/js/sdkloader/ima3.js$script,3p,redirect=google-ima.js,domain=sandratableother.com,important
-sandratableother.com##+js(nowoif)
-sandratableother.com##+js(set, console.clear, undefined)
+||imasdk.googleapis.com/js/sdkloader/ima3.js$script,3p,redirect=google-ima.js,domain=maxfinishseveral.com,important
+maxfinishseveral.com##+js(nowoif)
+maxfinishseveral.com##+js(set, console.clear, undefined)
+maxfinishseveral.com##+js(acs, EventTarget.prototype.addEventListener, delete window)
 
 ! next-episode .net
 !next-episode.net##+js(rmnt, script, '/[\s\S]{0,}head[\s\S]{1900,}/')
@@ -85,14 +85,13 @@ sandratableother.com##+js(set, console.clear, undefined)
 *$image,redirect-rule=1x1.gif,domain=japscan.lol
 japscan.lol##+js(norafif, /^/)
 japscan.lol##+js(trusted-set-attr, .navbar-nav > li#navpromo2.nav-item > a, onclick, 'let a=function(){};return false;')
+japscan.lol#@#+js(rmnt, script, Good_2025)
+japscan.lol##+js(rmnt, script, /const [A-Z]oRo/)
+! START: Counter Liste FR rules
+japscan.lol#@##main > .card:has(a[href*="/manga/?type="][href*="&content="][target="_blank"])
+japscan.lol#@#div.container > [href]
+! END
 ||japscan.lol/zjs/$script,replace=/function GoodDay\(\)\{.+?\}\}\}//
-japscan.lol##body > style + .container > .row > #main + #sidebar.col-md-3 > .card.mt-1 > .card[style="margin: 0px auto; display: block;"] > iframe[id^="__clb-"][id$="_container"][style^="display: inline-block; width: 300px; height: 250px;"][sandbox="allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-forms allow-scripts allow-top-navigation-to-custom-protocols"][scrolling="no"]
-japscan.lol##body > style + .container > .row > #main.col-md-9 > .card > .card-body[style="margin: 0px auto; display: block;"] > iframe[id^="__clb-"][id$="_container"][style^="display: inline-block; width: 300px; height: 100px;"][sandbox="allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-forms allow-scripts allow-top-navigation-to-custom-protocols"][scrolling="no"]
-japscan.lol##body > .container.text-center > .mb-2.mt-2[style="margin: 0px auto; display: block;"] > iframe[id^="__clb-"][id$="_container"][style^="display: inline-block; width: 300px; height: 100px;"][sandbox="allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-forms allow-scripts allow-top-navigation-to-custom-protocols"][scrolling="no"]
-japscan.lol##body > style + .container > .row > #main.col-md-9 > .card > .card-body.rounded-0 > .card-body[style^="margin: 0px auto; display: block;"] > iframe[id^="__clb-"][id$="_container"][style^="display: inline-block; width: 300px; height: 100px;"][sandbox="allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-forms allow-scripts allow-top-navigation-to-custom-protocols"][scrolling="no"]
-japscan.lol##body > style + .container > .row > #main + #sidebar.col-md-3 > .card.mt-1 > .card[style="margin: 0px auto; display: block;"] > iframe[id^="__clb-"][id$="_container"][style^="display: inline-block; width: 300px; height: 100px;"][sandbox="allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-forms allow-scripts allow-top-navigation-to-custom-protocols"][scrolling="no"]
-japscan.lol##body > div.container > #blare-inter[style*="position"]:not(:empty)
-japscan.lol##body > div.container > #interstitial[style*="display"]
 /^https?:\/\/[-a-z]{8,15}\.(?:com|net)\/401\/\d{7}(?:\?v=\d+)?$/$script,3p,domain=japscan.lol,important
 /^https?:\/\/[a-z]{8,15}\.xyz\/$/$xhr,3p,to=xyz,method=head,header=x-traceid2,domain=japscan.lol,important
 /^https?:\/\/[a-z]{8,15}\.com\/$/$xhr,3p,to=com,method=head,header=x-traceid2,domain=japscan.lol,important
@@ -111,6 +110,9 @@ japscan.lol##body > div.container > #interstitial[style*="display"]
 /^https?:\/\/(?:[a-z]{2}\.)?[a-z]{7,14}\.com\/r(?=[a-z]*[0-9A-Z])[0-9A-Za-z]{10,16}\/[A-Za-z]{5}(?:\?param=\w+)?$/$script,3p,match-case,to=com,domain=japscan.lol,important
 /\/[0-9a-f]{32}\/invoke\.js/$script,3p,domain=japscan.lol,important
 /^https?:\/\/(?:www\.|[0-9a-z]{7,10}\.)?[-0-9a-z]{5,}\.com\/\/?(?:[0-9a-z]{2}\/){2,3}[0-9a-f]{32}\.js/$script,xhr,3p,to=com,domain=japscan.lol,important
+/cuid/?f=https%$xhr,3p,domain=japscan.lol,important
+/^https:\/\/[a-z]{3,5}\.[a-z]{10,14}\.top\/[a-z]{10,16}\/[a-z]{5,6}(?:\?d=\d)?$/$script,xhr,3p,match-case,to=top,domain=japscan.lol,important
+/^https?:\/\/(?:[a-z]{2}\.)?[a-z]{7,14}\.com\/r(?=[a-z]*[0-9A-Z])[0-9A-Za-z]{10,16}\/[A-Za-z]{5}(?:\?v=\d+)?$/$xhr,3p,match-case,to=com,important,domain=japscan.lol
 
 ! https://github.com/uBlockOrigin/uAssets/issues/21064
 ! https://github.com/uBlockOrigin/uAssets/issues/24220
@@ -119,26 +121,39 @@ poophq.com,veev.to##+js(nowoif)
 poophq.com,veev.to##+js(set, fapit.check, noopFunc)
 poophq.com,veev.to##+js(no-xhr-if, /vast.php?)
 poophq.com,veev.to##+js(no-xhr-if, adsbygoogle, length:35000-55000)
-poophq.com,veev.to##+js(rpnt, script, /=\(['"].*?h.*?o.*?c.*?a.*?s['"]?/, "$1(function() {'use strict'; const handler = {apply: (target, thisArg, argumentsList) => {const e = argumentsList; if (e[0] && e[0].html?.detected === null && typeof e[0].html?.instance?.start === 'function' && typeof e[0].env?.instance?.start === 'function' && typeof e[0].http?.instance?.start === 'function') {const resetBooleans = function() {Object.keys(this).forEach(key => {if (typeof this[key] === 'boolean') {this[key] = false;}});}; ['html', 'env', 'http'].forEach(name => {e[0][name].instance.start = resetBooleans;});} return Reflect.apply(target, thisArg, argumentsList);}}; window.Object.keys = new Proxy(Object.keys, handler);})();", includes, break;else)
-poophq.com,veev.to##+js(no-xhr-if, /\/preroll\.engine$/)
+poophq.com,veev.to##+js(no-xhr-if, /click\.com|preroll|native_render\.js|acscdn/, length:10001)
+poophq.com,veev.to##+js(nosiif, ;!0x0===_0x)
+poophq.com,veev.to##+js(nosiif, )=== -0x)
+poophq.com,veev.to##+js(nostif, _detectLoop)
+poophq.com,veev.to##+js(trusted-set, window.__abburi, json:"https://poophq.com/favicon.ico")
+!#if cap_html_filtering
+||static.veevcdn.co/assets/videoplayer/$script,3p,replace=/return new Promise\(function\(_0x[a-z0-9]+\){var _0x/return new Promise(function(a){return; var _0x/,domain=poophq.com|veev.to
+!#else
+!#if ext_ubol
+@@||c.adsco.re/|$script,domain=poophq.com|veev.to
+||adsco.re^$xhr,important,domain=poophq.com|veev.to
+poophq.com,veev.to##+js(no-xhr-if, 162.252.214.4, true)
+!#else
+poophq.com,veev.to##+js(trusted-set, adscoreLibLoader.state, json:"loading")
+poophq.com,veev.to##+js(set, window.adscoreLibLoader._init, true)
+!#endif
+!#endif
 *$script,3p,domain=poophq.com|veev.to,redirect-rule=noopjs
 *$other,3p,denyallow=veevcdn.co,domain=poophq.com|veev.to
-@@*$ghide,domain=poophq.com|veev.to
+@@*$ghide,xhr,domain=poophq.com|veev.to
 veev.to#@#.avb-active
-@@/ad-provider.js$xhr,domain=poophq.com|veev.to
 
 ! https://github.com/uBlockOrigin/uAssets/issues/20401
-infinityscans.xyz,infinityscans.net,infinityscans.org##+js(rpnt, script, /async function \(xhr\) \{\s+\(function\(\){var .*?\;\}\)\(\)\; /s, async function (xhr) {)
-infinityscans.xyz,infinityscans.net,infinityscans.org##+js(rpnt, script, /\}\)\;\s+\(function\(\)\{var .*?\)\;\}\)\(\)\;\s+\$\.ajax\(\{/s, }); $.ajax({)
+infinityscans.xyz,infinityscans.net,infinityscans.org##+js(rpnt, script, /  function [a-zA-Z]{1\,2}\([a-zA-Z]{1\,2}\,[a-zA-Z]{1\,2}\).*?\(\)\{return [a-zA-Z]{1\,2}\;\}\;return [a-zA-Z]{1\,2}\(\)\;\}/)
+infinityscans.xyz,infinityscans.net,infinityscans.org##+js(nostif, .adv-)
+infinityscans.xyz,infinityscans.net,infinityscans.org##+js(trusted-replace-outbound-text, atob, .length === 0, .length === 31)
+infinityscans.xyz,infinityscans.net,infinityscans.org##+js(rpnt, script, /async function \(xhr\) \{\s+\(function\(\)\{var.*?\)\]\(\)\;\}\}\(\)\)\)\;/s, async function (xhr) {)
 infinityscans.xyz,infinityscans.net,infinityscans.org##+js(trusted-replace-outbound-text, atob, window.matchMedia('(display-mode: standalone)').matches, true)
-infinityscans.xyz,infinityscans.net,infinityscans.org##+js(nowoif, _blank)
 infinityscans.xyz,infinityscans.net,infinityscans.org##div[class="alert alert-info m-0 p-0"]:has-text(/uBlock|AdGuard|advertisments/i)
 @@*$script,denyallow=googletagmanager.com|bidgear.com|googlesyndication.com|a.magsrv.com|fstatic.netpub.media,domain=infinityscans.xyz|infinityscans.net|infinityscans.org
-!#if cap_html_filtering
-infinityscans.xyz,infinityscans.net,infinityscans.org##^script:has-text(/b5rh0rt|\;\}\}catch\(_/)
-!#else
-infinityscans.xyz,infinityscans.net,infinityscans.org##+js(rmnt, script, /b5rh0rt|\;\}\}catch\(_/)
-!#endif
+.infinityscans.net/|$popup,domain=infinityscans.org
+||tbd.infinityscans.net^$all
+||fhhgc.infinityscans.net^$xhr,important
 
 ! https://github.com/uBlockOrigin/uAssets/issues/2320
 panel.freemcserver.net#@#+js(rpnt, script, 'G-1B4LC0KT6C');, 'G-1B4LC0KT6C'); window.setTimeout(function(){blockPing()}\,200);)
@@ -155,71 +170,74 @@ panel.freemcserver.net##+js(rpnt, script, 'G-1B4LC0KT6C');, 'G-1B4LC0KT6C'); loc
 ! filemoon
 ! https://github.com/AdguardTeam/AdguardFilters/issues/190044
 ! https://www.reddit.com/r/uBlockOrigin/comments/1fuaaw5/asblock_detected_in_ask4porncc
-ghajini-8nz2lav9.lol,ghajini-vf70yty6.lol,semprefi-8xp7vfr9.fun,morgan0928-t9xc5eet.fun,stephenking-vy5hgkgu.fun,ghajini-04bl9y7x.lol,semprefi-2tazedzl.fun,morgan0928-8ufkpqp8.fun,ghajini-1flc3i96.lol,stephenking-c8bxyhnp.fun,z9sayu0m.nl,anqkdhcm.nl,fu-1abozhcd.nl,fu-12qjdjqh.lol,fu-e4nzgj78.nl,fu-hbr4fzp4.lol,fu-hjyo3jqu.lol,fu-c66heipu.lol,fu-l6d0ptc6.lol,fu-m03aenr9.nl,fu-mqsng72r.nl,fu-v79xn6ct.nl,fu-ys0tjjs1.nl,fu-1fbolpvq.nl,fu-4u3omzw0.nl,ccyig2ub.nl##+js(nowoif)
-ghajini-8nz2lav9.lol,ghajini-vf70yty6.lol,semprefi-8xp7vfr9.fun,morgan0928-t9xc5eet.fun,stephenking-vy5hgkgu.fun,ghajini-04bl9y7x.lol,semprefi-2tazedzl.fun,morgan0928-8ufkpqp8.fun,ghajini-1flc3i96.lol,stephenking-c8bxyhnp.fun,z9sayu0m.nl,anqkdhcm.nl,fu-1abozhcd.nl,fu-12qjdjqh.lol,fu-e4nzgj78.nl,fu-hbr4fzp4.lol,fu-ghajini-04bl9y7x.lol,hjyo3jqu.lol,fu-c66heipu.lol,fu-l6d0ptc6.lol,fu-m03aenr9.nl,fu-mqsng72r.nl,fu-v79xn6ct.nl,fu-ys0tjjs1.nl,fu-1fbolpvq.nl,fu-4u3omzw0.nl,ccyig2ub.nl##+js(acs, Math, localStorage['\x)
-ghajini-1flc3i96.lol,z9sayu0m.nl,anqkdhcm.nl,fu-1abozhcd.nl,fu-12qjdjqh.lol,fu-e4nzgj78.nl,fu-hbr4fzp4.lol,fu-hjyo3jqu.lol,fu-c66heipu.lol,fu-l6d0ptc6.lol,fu-m03aenr9.nl,fu-mqsng72r.nl,fu-v79xn6ct.nl,fu-ys0tjjs1.nl,fu-1fbolpvq.nl,fu-4u3omzw0.nl,ccyig2ub.nl##+js(rmnt, script, sandbox)
+! 
+https://github.com/uBlockOrigin/uAssets/issues/27173
+/^moo-.*-mkay\.com$/,/^file-.*-(moon|embed)\.com$/,/^fle-.*-moo\.com$/,bk9nmsxs.com,semprefi-7oliaqnr.fun,uh0keqp.cfd,pj8ltpy.sbs,bxxlnch2.fun,o3vuf42.cfd,put1xpp.cfd,e7o8t6oh.fun,l21io75f.fun,wymec6al.fun,d49mwlqz.fun,99lg2cla.fun,a-b-fnv7h0323ap2wfqj1ruyo8id2bcuoq4kufzon-b-d-t-s.fun,a-b-f-dd-aa-bb-ccn1nff.fun,e1hst.fun,zgdpo8nr.fun,morgan0928-6v7c14vs.fun,a-b-fjkt8v1pxgzrc3lqoaz8fh7pjgygf4zh3eqhl-b-d-t-s.fun,fs5mgyzt.fun,93gyqqqr.fun,a-b-f7mh86v4lirbwg7m4qiwwlk2e4za9uyngqy1u-b-d-t-s.fun,nbub3so6.fun,kjx4015m.fun,7us7m00f.fun,2g8rktp1fn9feqlhxexsw8o4snafapdh9dn1.fun,semprefi-uat4a3jd.fun,b5hqh.fun,semprefi-1h3u8pkc.fun,be43473e.fun,semprefi-hdm6l8jq.fun,ipzmbq01.fun,fk3e64wk.fun,filemoon-oe4w6g0u.xyz,o8ijdspf.fun,file-kg88oaak-embed.com,uw3hosfq.fun,tzodmjqs.fun,ipq9967n.fun,do3jhxk8.fun,s09di1hl.fun,a0rkwq5w.fun,mee-dp6h8dp2.com,xoywkiny.fun,filemoon-ep11lgxt.xyz,5zs4rox7.fun,ft41yaem.fun,iq9jhehu.fun,71pwq6sf.fun,vvoge3du.fun,fle-5r8dchma-moo.com,a-b-f-dd-aa-bb-ccyh5my.fun,stephenking-00qvxikv.fun##+js(nowoif)
+/^moo-.*-mkay\.com$/,/^file-.*-(moon|embed)\.com$/,/^fle-.*-moo\.com$/,bk9nmsxs.com,semprefi-7oliaqnr.fun,uh0keqp.cfd,pj8ltpy.sbs,bxxlnch2.fun,o3vuf42.cfd,put1xpp.cfd,e7o8t6oh.fun,l21io75f.fun,wymec6al.fun,d49mwlqz.fun,99lg2cla.fun,a-b-fnv7h0323ap2wfqj1ruyo8id2bcuoq4kufzon-b-d-t-s.fun,a-b-f-dd-aa-bb-ccn1nff.fun,e1hst.fun,zgdpo8nr.fun,morgan0928-6v7c14vs.fun,a-b-fjkt8v1pxgzrc3lqoaz8fh7pjgygf4zh3eqhl-b-d-t-s.fun,fs5mgyzt.fun,93gyqqqr.fun,a-b-f7mh86v4lirbwg7m4qiwwlk2e4za9uyngqy1u-b-d-t-s.fun,nbub3so6.fun,kjx4015m.fun,7us7m00f.fun,2g8rktp1fn9feqlhxexsw8o4snafapdh9dn1.fun,semprefi-uat4a3jd.fun,b5hqh.fun,semprefi-1h3u8pkc.fun,be43473e.fun,semprefi-hdm6l8jq.fun,ipzmbq01.fun,fk3e64wk.fun,filemoon-oe4w6g0u.xyz,o8ijdspf.fun,file-kg88oaak-embed.com,uw3hosfq.fun,tzodmjqs.fun,ipq9967n.fun,do3jhxk8.fun,s09di1hl.fun,a0rkwq5w.fun,mee-dp6h8dp2.com,xoywkiny.fun,filemoon-ep11lgxt.xyz,5zs4rox7.fun,ft41yaem.fun,iq9jhehu.fun,71pwq6sf.fun,vvoge3du.fun,fle-5r8dchma-moo.com,a-b-f-dd-aa-bb-ccyh5my.fun,stephenking-00qvxikv.fun##+js(acs, Math, localStorage['\x)
+/^moo-.*-mkay\.com$/,/^file-.*-(moon|embed)\.com$/,/^fle-.*-moo\.com$/,bk9nmsxs.com,semprefi-7oliaqnr.fun,uh0keqp.cfd,pj8ltpy.sbs,bxxlnch2.fun,o3vuf42.cfd,put1xpp.cfd,e7o8t6oh.fun,l21io75f.fun,wymec6al.fun,d49mwlqz.fun,99lg2cla.fun,a-b-fnv7h0323ap2wfqj1ruyo8id2bcuoq4kufzon-b-d-t-s.fun,a-b-f-dd-aa-bb-ccn1nff.fun,e1hst.fun,zgdpo8nr.fun,morgan0928-6v7c14vs.fun,a-b-fjkt8v1pxgzrc3lqoaz8fh7pjgygf4zh3eqhl-b-d-t-s.fun,fs5mgyzt.fun,93gyqqqr.fun,a-b-f7mh86v4lirbwg7m4qiwwlk2e4za9uyngqy1u-b-d-t-s.fun,nbub3so6.fun,kjx4015m.fun,7us7m00f.fun,2g8rktp1fn9feqlhxexsw8o4snafapdh9dn1.fun,semprefi-uat4a3jd.fun,b5hqh.fun,semprefi-1h3u8pkc.fun,be43473e.fun,semprefi-hdm6l8jq.fun,ipzmbq01.fun,fk3e64wk.fun,filemoon-oe4w6g0u.xyz,o8ijdspf.fun,file-kg88oaak-embed.com,uw3hosfq.fun,tzodmjqs.fun,ipq9967n.fun,do3jhxk8.fun,s09di1hl.fun,a0rkwq5w.fun,mee-dp6h8dp2.com,xoywkiny.fun,filemoon-ep11lgxt.xyz,5zs4rox7.fun,ft41yaem.fun,iq9jhehu.fun,71pwq6sf.fun,vvoge3du.fun,fle-5r8dchma-moo.com,a-b-f-dd-aa-bb-ccyh5my.fun##+js(no-xhr-if, ad)
+u26bekrb.fun##+js(set, adBlockDetected, undefined)
+!#if ext_devbuild
+$frame,3p,domain=filemoon.*|8rm3l0i9.fun,replace='/^/<script>(()=>{window.open=new Proxy(window.open,{apply:(e,t,r)=>{}});const e=new WeakMap,t=(e,t)=>{try{e.dispatchEvent(new Event(t))}catch{}};XMLHttpRequest.prototype;self.XMLHttpRequest=class extends self.XMLHttpRequest{open(t,r,...n){if(e.delete(this),new URL(r).hostname.endsWith(".cdn255.com"))return super.open(t,r,...n);const s={method:t,url:r},a=Object.assign(s,{xhr:this,headers:{date:"","content-type":"","content-length":""},url:s.url,props:{response:{value:""},responseText:{value:""},responseXML:{value:null}}});return e.set(this,a),super.open(t,r,...n)}send(...r){const n=e.get(this);return void 0===n?super.send(...r):!1===n.defer?(n.headers["content-length"]=`${n.props.response.value}`.length,Object.defineProperties(n.xhr,{readyState:{value:4},responseURL:{value:n.url},status:{value:200},statusText:{value:"OK"}}),void Object.defineProperties(n.xhr,n.props)):void Promise.resolve("").then((()=>n)).then((e=>(Object.defineProperties(e.xhr,{readyState:{value:1,configurable:!0},responseURL:{value:n.url}}),t(e.xhr,"readystatechange"),e))).then((e=>(n.headers["content-length"]=`${e.props.response.value}`.length,Object.defineProperties(e.xhr,{readyState:{value:2,configurable:!0},status:{value:200},statusText:{value:"OK"}}),t(e.xhr,"readystatechange"),e))).then((e=>(Object.defineProperties(e.xhr,{readyState:{value:3,configurable:!0}}),Object.defineProperties(e.xhr,e.props),t(e.xhr,"readystatechange"),e))).then((e=>{Object.defineProperties(e.xhr,{readyState:{value:4}}),t(e.xhr,"readystatechange"),t(e.xhr,"load"),t(e.xhr,"loadend")}))}};let r=document.querySelector("script");r.innerHTML.includes("window.open")&&r.parentElement.removeChild(r)})();<\/script>/'
+/^https:\/\/(?:[a-z0-9]{7}|(?:[a-z0-9]+-)+[a-z0-9]{5,}(?:-[a-z0-9]+)*)\.(?:cfd|sbs)\/[a-z0-9]+\/[a-z0-9]{12}\b/$frame,3p,match-case,to=cfd|sbs,ipaddress=/^(1(72\.67\.\d{3}|04\.21\.\d+)\.\d+|64:ff9b::[a-f0-9]{4}:[a-f0-9]{1,4})$/,replace='/^/<script>(()=>{window.open=new Proxy(window.open,{apply:(e,t,r)=>{}});const e=new WeakMap,t=(e,t)=>{try{e.dispatchEvent(new Event(t))}catch{}};XMLHttpRequest.prototype;self.XMLHttpRequest=class extends self.XMLHttpRequest{open(t,r,...n){if(e.delete(this),new URL(r).hostname.endsWith(".cdn255.com"))return super.open(t,r,...n);const s={method:t,url:r},a=Object.assign(s,{xhr:this,headers:{date:"","content-type":"","content-length":""},url:s.url,props:{response:{value:""},responseText:{value:""},responseXML:{value:null}}});return e.set(this,a),super.open(t,r,...n)}send(...r){const n=e.get(this);return void 0===n?super.send(...r):!1===n.defer?(n.headers["content-length"]=`${n.props.response.value}`.length,Object.defineProperties(n.xhr,{readyState:{value:4},responseURL:{value:n.url},status:{value:200},statusText:{value:"OK"}}),void Object.defineProperties(n.xhr,n.props)):void Promise.resolve("").then((()=>n)).then((e=>(Object.defineProperties(e.xhr,{readyState:{value:1,configurable:!0},responseURL:{value:n.url}}),t(e.xhr,"readystatechange"),e))).then((e=>(n.headers["content-length"]=`${e.props.response.value}`.length,Object.defineProperties(e.xhr,{readyState:{value:2,configurable:!0},status:{value:200},statusText:{value:"OK"}}),t(e.xhr,"readystatechange"),e))).then((e=>(Object.defineProperties(e.xhr,{readyState:{value:3,configurable:!0}}),Object.defineProperties(e.xhr,e.props),t(e.xhr,"readystatechange"),e))).then((e=>{Object.defineProperties(e.xhr,{readyState:{value:4}}),t(e.xhr,"readystatechange"),t(e.xhr,"load"),t(e.xhr,"loadend")}))}};let r=document.querySelector("script");r.innerHTML.includes("window.open")&&r.parentElement.removeChild(r)})();<\/script>/'
+/^https:\/\/[a-z0-9]{2,}-[a-z0-9]{8}(?:-[a-z0-9]{3,})?\.[a-z]{3}\/[a-z0-9]+\/[a-z0-9]{12}\b/$frame,3p,match-case,to=~net|~org|~gov|~edu,ipaddress=/^(1(72\.67\.\d{3}|04\.21\.\d+)\.\d+|64:ff9b::[a-f0-9]{4}:[a-f0-9]{1,4})$/,replace='/^/<script>(()=>{window.open=new Proxy(window.open,{apply:(n,o,w)=>{}});let e=document.querySelector("script");e.innerHTML.includes("window.open")&&e.parentElement.removeChild(e)})();<\/script>/i'
+/^https:\/\/(?:[a-z0-9]{8}|(?:[a-z0-9]+-)+[a-z0-9]{5,}(?:-[a-z0-9]+)*)\.fun\/[a-z0-9]+\/[a-z0-9]{12}\b/$frame,3p,match-case,to=fun,ipaddress=/^(1(72\.67\.\d{3}|04\.21\.\d+)\.\d+|64:ff9b::[a-f0-9]{4}:[a-f0-9]{1,4})$/,replace='/^/<script>(()=>{window.open=new Proxy(window.open,{apply:(e,t,r)=>{}});const e=new WeakMap,t=(e,t)=>{try{e.dispatchEvent(new Event(t))}catch{}};XMLHttpRequest.prototype;self.XMLHttpRequest=class extends self.XMLHttpRequest{open(t,r,...n){if(e.delete(this),new URL(r).hostname.endsWith(".cdn255.com"))return super.open(t,r,...n);const s={method:t,url:r},a=Object.assign(s,{xhr:this,headers:{date:"","content-type":"","content-length":""},url:s.url,props:{response:{value:""},responseText:{value:""},responseXML:{value:null}}});return e.set(this,a),super.open(t,r,...n)}send(...r){const n=e.get(this);return void 0===n?super.send(...r):!1===n.defer?(n.headers["content-length"]=`${n.props.response.value}`.length,Object.defineProperties(n.xhr,{readyState:{value:4},responseURL:{value:n.url},status:{value:200},statusText:{value:"OK"}}),void Object.defineProperties(n.xhr,n.props)):void Promise.resolve("").then((()=>n)).then((e=>(Object.defineProperties(e.xhr,{readyState:{value:1,configurable:!0},responseURL:{value:n.url}}),t(e.xhr,"readystatechange"),e))).then((e=>(n.headers["content-length"]=`${e.props.response.value}`.length,Object.defineProperties(e.xhr,{readyState:{value:2,configurable:!0},status:{value:200},statusText:{value:"OK"}}),t(e.xhr,"readystatechange"),e))).then((e=>(Object.defineProperties(e.xhr,{readyState:{value:3,configurable:!0}}),Object.defineProperties(e.xhr,e.props),t(e.xhr,"readystatechange"),e))).then((e=>{Object.defineProperties(e.xhr,{readyState:{value:4}}),t(e.xhr,"readystatechange"),t(e.xhr,"load"),t(e.xhr,"loadend")}))}};let r=document.querySelector("script");r.innerHTML.includes("window.open")&&r.parentElement.removeChild(r)})();<\/script>/'
+/^https:\/\/[a-z0-9]{36}\.fun\/[a-z0-9]+\/[a-z0-9]{12}\b/$frame,3p,match-case,to=fun,ipaddress=/^(1(72\.67\.\d{3}|04\.21\.\d+)\.\d+|64:ff9b::[a-f0-9]{4}:[a-f0-9]{1,4})$/,replace='/^/<script>(()=>{window.open=new Proxy(window.open,{apply:(n,o,w)=>{}});let e=document.querySelector("script");e.innerHTML.includes("window.open")&&e.parentElement.removeChild(e)})();<\/script>/i'
+/^https:\/\/[a-z0-9]{6}\.(?:fun|lol|net|org)\/[a-z0-9]+\/[a-z0-9]{12}\b/$frame,3p,match-case,to=fun|lol|net|org,ipaddress=/^(1(72\.67\.\d{3}|04\.21\.\d+)\.\d+|64:ff9b::[a-f0-9]{4}:[a-f0-9]{1,4})$/,replace='/^/<script>(()=>{window.open=new Proxy(window.open,{apply:(e,t,r)=>{}});const e=new WeakMap,t=(e,t)=>{try{e.dispatchEvent(new Event(t))}catch{}};XMLHttpRequest.prototype;self.XMLHttpRequest=class extends self.XMLHttpRequest{open(t,r,...n){if(e.delete(this),new URL(r).hostname.endsWith(".cdn255.com"))return super.open(t,r,...n);const s={method:t,url:r},a=Object.assign(s,{xhr:this,headers:{date:"","content-type":"","content-length":""},url:s.url,props:{response:{value:""},responseText:{value:""},responseXML:{value:null}}});return e.set(this,a),super.open(t,r,...n)}send(...r){const n=e.get(this);return void 0===n?super.send(...r):!1===n.defer?(n.headers["content-length"]=`${n.props.response.value}`.length,Object.defineProperties(n.xhr,{readyState:{value:4},responseURL:{value:n.url},status:{value:200},statusText:{value:"OK"}}),void Object.defineProperties(n.xhr,n.props)):void Promise.resolve("").then((()=>n)).then((e=>(Object.defineProperties(e.xhr,{readyState:{value:1,configurable:!0},responseURL:{value:n.url}}),t(e.xhr,"readystatechange"),e))).then((e=>(n.headers["content-length"]=`${e.props.response.value}`.length,Object.defineProperties(e.xhr,{readyState:{value:2,configurable:!0},status:{value:200},statusText:{value:"OK"}}),t(e.xhr,"readystatechange"),e))).then((e=>(Object.defineProperties(e.xhr,{readyState:{value:3,configurable:!0}}),Object.defineProperties(e.xhr,e.props),t(e.xhr,"readystatechange"),e))).then((e=>{Object.defineProperties(e.xhr,{readyState:{value:4}}),t(e.xhr,"readystatechange"),t(e.xhr,"load"),t(e.xhr,"loadend")}))}};let r=document.querySelector("script");r.innerHTML.includes("window.open")&&r.parentElement.removeChild(r)})();<\/script>/'
+*$frame,3p,replace=/adBlockDetected//,from=filemoon.*
+!#else
+/^https:\/\/[a-z0-9]{2,}-[a-z0-9]{8}(?:-[a-z0-9]{3,})?\.[a-z]{3}\/[a-z0-9]+\/[a-z0-9]{12}\b/$frame,3p,match-case,to=~com|~net|~org|~gov|~edu,ipaddress=/^(1(72\.67\.\d{3}|04\.21\.\d+)\.\d+|64:ff9b::[a-f0-9]{4}:[a-f0-9]{1,4})$/,replace='/^/<script>(()=>{window.open=new Proxy(window.open,{apply:(n,o,w)=>{}});let e=document.querySelector("script");e.innerHTML.includes("window.open")&&e.parentElement.removeChild(e)})();<\/script>/i'
+/^https:\/\/(?:[a-z0-9]{7}|(?:[a-z0-9]+-)+[a-z0-9]{5,}(?:-[a-z0-9]+)*)\.(?:cfd|sbs)\/[a-z0-9]+\/[a-z0-9]{12}\b/$frame,3p,match-case,to=cfd|sbs,ipaddress=/^(1(72\.67\.\d{3}|04\.21\.\d+)\.\d+|64:ff9b::[a-f0-9]{4}:[a-f0-9]{1,4})$/,replace='/^/<script>(()=>{window.open=new Proxy(window.open,{apply:(n,o,w)=>{}});let e=document.querySelector("script");e.innerHTML.includes("window.open")&&e.parentElement.removeChild(e)})();<\/script>/i'
+/^https:\/\/(?:[a-z0-9]{8}|(?:[a-z0-9]+-)+[a-z0-9]{5,}(?:-[a-z0-9]+)*)\.fun\/[a-z0-9]+\/[a-z0-9]{12}\b/$frame,3p,match-case,to=fun,ipaddress=/^(1(72\.67\.\d{3}|04\.21\.\d+)\.\d+|64:ff9b::[a-f0-9]{4}:[a-f0-9]{1,4})$/,replace='/^/<script>(()=>{window.open=new Proxy(window.open,{apply:(n,o,w)=>{}});let e=document.querySelector("script");e.innerHTML.includes("window.open")&&e.parentElement.removeChild(e)})();<\/script>/i'
+/^https:\/\/[a-z0-9]{36}\.fun\/[a-z0-9]+\/[a-z0-9]{12}\b/$frame,3p,match-case,to=fun,ipaddress=/^1(72\.67\.\d{3}|04\.21\.\d+)\.\d+$/,replace='/^/<script>(()=>{window.open=new Proxy(window.open,{apply:(n,o,w)=>{}});let e=document.querySelector("script");e.innerHTML.includes("window.open")&&e.parentElement.removeChild(e)})();<\/script>/i'
+/^https:\/\/[a-z0-9]{6}\.(?:fun|lol)\/[a-z0-9]+\/[a-z0-9]{12}\b/$frame,3p,match-case,to=fun|lol,ipaddress=/^(1(72\.67\.\d{3}|04\.21\.\d+)\.\d+|64:ff9b::[a-f0-9]{4}:[a-f0-9]{1,4})$/,replace='/^/<script>(()=>{window.open=new Proxy(window.open,{apply:(n,o,w)=>{}});let e=document.querySelector("script");e.innerHTML.includes("window.open")&&e.parentElement.removeChild(e)})();<\/script>/i'
+!#endif
 ! https://github.com/uBlockOrigin/uAssets/issues/25538
 0cbcq8mu.com,2cf0xzdu.com,4k2h4w04.xyz,a6iqb4m8.xyz,afl3ua5u.xyz,jmzkzesy.xyz##+js(nowoif)
 0cbcq8mu.com,2cf0xzdu.com,4k2h4w04.xyz,a6iqb4m8.xyz,afl3ua5u.xyz,jmzkzesy.xyz##+js(acs, Math, localStorage['\x)
 0cbcq8mu.com,2cf0xzdu.com,4k2h4w04.xyz,a6iqb4m8.xyz,afl3ua5u.xyz,jmzkzesy.xyz##^script:has-text(/popunder|\(\)\{try\{localStorage\[/)
-||j-mxponyz.love^
-||x-ozwpiqlb.rocks^$popup,doc
-||furthermoreofthem.com^$popup,doc
+||droci.buzz^$popup,doc
+||qsiyfgazubcu.top^$popup,doc
+||sez88e.fun^$popup,doc
+||vrkonefd.buzz^$popup,doc
+||xpobbwxzhe-l.site^$popup,doc
+! https://github.com/uBlockOrigin/uAssets/issues/27173
+*$frame,3p,replace='/^/<script>(()=>{window.open=new Proxy(window.open,{apply:(e,t,r)=>{}});const e=new WeakMap,t=(e,t)=>{try{e.dispatchEvent(new Event(t))}catch{}};XMLHttpRequest.prototype;self.XMLHttpRequest=class extends self.XMLHttpRequest{open(t,r,...n){if(e.delete(this),new URL(r).hostname.endsWith(".cdn255.com"))return super.open(t,r,...n);const s={method:t,url:r},a=Object.assign(s,{xhr:this,headers:{date:"","content-type":"","content-length":""},url:s.url,props:{response:{value:""},responseText:{value:""},responseXML:{value:null}}});return e.set(this,a),super.open(t,r,...n)}send(...r){const n=e.get(this);return void 0===n?super.send(...r):!1===n.defer?(n.headers["content-length"]=`${n.props.response.value}`.length,Object.defineProperties(n.xhr,{readyState:{value:4},responseURL:{value:n.url},status:{value:200},statusText:{value:"OK"}}),void Object.defineProperties(n.xhr,n.props)):void Promise.resolve("").then((()=>n)).then((e=>(Object.defineProperties(e.xhr,{readyState:{value:1,configurable:!0},responseURL:{value:n.url}}),t(e.xhr,"readystatechange"),e))).then((e=>(n.headers["content-length"]=`${e.props.response.value}`.length,Object.defineProperties(e.xhr,{readyState:{value:2,configurable:!0},status:{value:200},statusText:{value:"OK"}}),t(e.xhr,"readystatechange"),e))).then((e=>(Object.defineProperties(e.xhr,{readyState:{value:3,configurable:!0}}),Object.defineProperties(e.xhr,e.props),t(e.xhr,"readystatechange"),e))).then((e=>{Object.defineProperties(e.xhr,{readyState:{value:4}}),t(e.xhr,"readystatechange"),t(e.xhr,"load"),t(e.xhr,"loadend")}))}};let r=document.querySelector("script");r.innerHTML.includes("window.open")&&r.parentElement.removeChild(r)})();<\/script>/',from=u6lyxl0w.skin|l1afav.net
 
 ! Ad-Shield
 dogdrip.net##html[lang="ko"] [id^="img_"][style]:has(iframe[frameborder="0"][style]):style(clip-path: circle(0) !important;)
 infinityfree.com##html[lang][dir="ltr"] [id^="img_"][style]:has(iframe[frameborder="0"][style]):style(clip-path: circle(0) !important;)
 smsonline.cloud##html[data-theme][lang] [id^="img_"][style]:has(iframe[frameborder="0"][style]):style(clip-path: circle(0) !important;)
-~dogdrip.net,~infinityfree.com,~slashdot.org,~smsonline.cloud,*##body > div[id^="img_"][class^="img_"][style^="width"]:first-child:style(position: absolute !important; top: -100000px !important;)
-~dogdrip.net,~infinityfree.com,~slashdot.org,~smsonline.cloud,*##body > div:first-child > script + div[id^="img_"][class^="img_"]:style(position: absolute !important; top: -100000px !important;)
-~dogdrip.net,~infinityfree.com,~slashdot.org,~smsonline.cloud,*##body > a:only-child > div[id^="img_"][class^="img_"]:style(position: absolute !important; top: -100000px !important;)
-~dogdrip.net,~infinityfree.com,~slashdot.org,~smsonline.cloud,*##div[style*="fixed"] span[id^="img_"][class^="img_"] > style:first-child + div[style*="flex"][style*="relative"]:style(width: 10000px !important;)
-07c225f3.online,content-loader.com,css-load.com,html-load.com,img-load.com##body > *:not(pre):style(pointer-events: none !important; mask-image: linear-gradient(transparent, transparent) !important; -webkit-mask-image: linear-gradient(transparent, transparent) !important;)
-*$doc,to=slashdot.org,replace=/data-sdk/defer data-sdk/
+~dogdrip.net,~infinityfree.com,~slashdot.org,~smsonline.cloud,*##html[class^="img_"][amp4ads=""][i-amphtml-layout=""][i-amphtml-no-boilerplate=""][amp-version="2502032353000"]
+~dogdrip.net,~infinityfree.com,~slashdot.org,~smsonline.cloud,*##a[href^="https://html-load.com/contents/"]:style(visibility: hidden !important;)
+~dogdrip.net,~infinityfree.com,~slashdot.org,~smsonline.cloud,*##body[onclick="ExitApi.exit();"][style="cursor:pointer"]:style(visibility: hidden !important;)
+~dogdrip.net,~infinityfree.com,~slashdot.org,~smsonline.cloud,*##body > a:first-child[target="_blank"][rel="noopener noreferrer"]:only-child:has(> div[id^="img_"][class^="img_"]):style(visibility: hidden !important;)
+~dogdrip.net,~infinityfree.com,~slashdot.org,~smsonline.cloud,*##body > div[id^="img_"][class^="img_"][style^="width: "] > div[id^="img_"][style="margin:auto;"]:style(visibility: hidden !important;)
+~dogdrip.net,~infinityfree.com,~slashdot.org,~smsonline.cloud##div[id^="img_"][style*="z-index:2147483647;"][style*="display: flex;"]:style(visibility: hidden !important;)
+~dogdrip.net,~infinityfree.com,~slashdot.org,~smsonline.cloud,*##div[id^="img_"] > div[id^="img_"][style="margin: 0px; padding: 0px; display: block; position: fixed; left: 0px; bottom: 0px; width: 100%; z-index: 2147483647; transition: 0.3s ease-in-out;"]:style(visibility: hidden !important;)
+07c225f3.online,content-loader.com,css-load.com,html-load.com,img-load.com##body:not(:has(> script:has-text(style.getPropertyValue))):style(filter: opacity(0) !important; pointer-events: none !important;)
+/^https:\/\/www\.[0-9a-f]{4,8}(?:-(?:\d{4}-){3}[0-9a-f]{12})?\.(?:live|site|xyz)\/script\/[.0-9A-Za-z]+\.js$/$script,3p,match-case,to=live|site|xyz,header=x-length
 ! https://github.com/uBlockOrigin/uAssets/issues/26487
 dogdrip.net,infinityfree.com,slashdot.org,smsonline.cloud##+js(no-fetch-if, -load.com/script/, length:101)
-dogdrip.net,infinityfree.com,slashdot.org,smsonline.cloud##+js(nostif, )](this\,...)
+dogdrip.net,infinityfree.com,slashdot.org,smsonline.cloud##+js(nostif, )](this\,..., 3000-6000)
 slashdot.org##+js(aeld, , )](this\,...)
+-load.com/script/$xhr,domain=smsonline.cloud
+smsonline.cloud##+js(nostif, (new Error(, 3000-6000)
+smsonline.cloud##aside[class^="css-"]:has(> p:has-text(Advertisement) + ins.adsbygoogle)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/25344
 ! https://github.com/uBlockOrigin/uAssets/pull/26342
 ! https://github.com/uBlockOrigin/uAssets/issues/26393
 ! https://github.com/uBlockOrigin/uAssets/issues/26623
-bing.com##li.b_algo:has(a[href^="https://www.bing.com/aclick?"], a[href^="https://www.bing.com/aclk?"]):remove-class(b_algo)
-bing.com##ol#b_results > li:has(> :is(.b_tpcn, .b_title, h2) a[href^="https://www.bing.com/aclick?"])
-bing.com##ol#b_results > li:has(> :is(.b_tpcn, .b_title, h2) a[href^="https://www.bing.com/aclk?"])
+bing.com##+js(rpnt, script, '/(\(function\([a-z]\,[a-z]\)\{onload)/', '(()=>{const e={apply:(e,t,l)=>(l[0].includes(".tpmeta .b_attribution")&&(t.style.display="none"),Reflect.apply(e,t,l))};HTMLLIElement.prototype.querySelector=new Proxy(HTMLLIElement.prototype.querySelector,e)})();$1')
 
-! https://github.com/AdguardTeam/AdguardFilters/issues/183252
-exploader.net##+js(trusted-rpnt, script, /^var \w+=\[.+/, (()=>{let e=[];document.addEventListener("DOMContentLoaded"\,(()=>{const t=document.querySelector("body script").textContent.match(/"] = '(.*?)'/g);if(!t)return;t.forEach((t=>{const r=t.replace(/.*'(.*?)'/\,"$1");e.push(r)}));const r=document.querySelector('.dl_button[href*="preview"]').href.split("?")[1];e.includes(r)&&(e=e.filter((e=>e!==r)));document.querySelectorAll(".dl_button[href]").forEach((t=>{t.target="_blank";let r=t.cloneNode(!0);r.href=t.href.replace(/\?.*/\,`?${e[0]}`)\,t.after(r);let o=t.cloneNode(!0);o.href=t.href.replace(/\?.*/\,`?${e[1]}`)\,t.after(o)}))}))})();, sedCount, 1)
-exploader.net##+js(acs, EventTarget.prototype.addEventListener, eval)
-||daotag.com/tag/$script,domain=exploader.net,important
+! https://github.com/easylist/easylist/commit/18e4a0a737c6bfac213d837d10dc77d9b0582da1
+ewahlen.eu#@#.advertisment
 
-! https://github.com/easylist/easylistgermany/issues/216
-!#if cap_html_filtering
-www.chip.de##^script:has-text(/[a-zA-Z0-9]{10,20}\; \} \}/)
-!#else
-www.chip.de##+js(rmnt, script, /[a-zA-Z0-9]{10,20}\; \} \}/)
-!#endif
+! https://github.com/uBlockOrigin/uAssets/issues/25349
+||mngusr.com^$badfilter
 
-! https://github.com/AdguardTeam/AdguardFilters/issues/153796
-rekidai-info.github.io#@#+js(nostif, /aframe|querySelector/)
-rekidai-info.github.io##+js(nostif, /aframe|querySelector/, 1000-)
-rekidai-info.github.io##+js(nosiif, location[_0x)
+! https://github.com/uBlockOrigin/uAssets/issues/27328
+||monitor.azure.com^$badfilter
 
-! https://github.com/uBlockOrigin/uAssets/issues/20907
-@@||cursomecanet.com^$script,1p
-@@*$image,domain=cursomecanet.com
-
-! https://github.com/uBlockOrigin/uAssets/issues/20207
-! https://github.com/uBlockOrigin/uAssets/issues/26877
-||imasdk.googleapis.com/js/sdkloader/ima3.js$script,3p,redirect=google-ima.js,domain=robertordercharacter.com|voe.sx,important
-robertordercharacter.com,voe.sx##+js(nowoif)
-robertordercharacter.com,voe.sx##+js(set, console.clear, undefined)
-
-! https://github.com/uBlockOrigin/uAssets/pull/26754 - remove old value
-instagram.com##+js(remove-cookie, ig_did)
-facebook.com#@#+js(trusted-set-cookie, datr, 835uZ-bIo1ECQru7AjqnhhRl, 1year, , reload, 1, dontOverwrite, 1)
-instagram.com#@#+js(trusted-set-cookie, ig_did, 5443AF77-1A68-4603-BF65-43BB5F664A80, 1year, , reload, 1, dontOverwrite, 1)
-
-! https://github.com/uBlockOrigin/uAssets/issues/26878
-||gstatic.com/atari/embeds/*/intermediate-frame-minified.html?jsh=m%3B%2F_%2Fscs%2Fabc-static%2F_%2Fjs%2Fk%3Dgapi.lb.en.5oZHy0SiJxw.O%2Fd%3D1%2Frs%3DAHpOoo-Hry6DG-RE4t9kNz_t6hiwmwXOmA%2Fm%3D__features__&r=$frame,domain=sites.google.com,badfilter
+! https://github.com/AdguardTeam/AdguardFilters/issues/199557
+iwb.jp##+js(aeld, load, iframe)
