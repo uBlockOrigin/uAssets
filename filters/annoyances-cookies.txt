@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Cookie Notices
-! Last modified: Sun, 02 Mar 2025 06:12:14 +0000
+! Last modified: Sun, 02 Mar 2025 08:42:05 +0000
 ! Expires: 7 days
 ! Description: Filters optimized for uBlock Origin, to be used with EasyList's and/or Adguard's "Cookie Notices" list(s)
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -222,8 +222,10 @@ forums.tomsguide.com##+js(trusted-set-cookie, euconsent-v2, CP20-YAP20-YAAKAyBEN
 forums.tomsguide.com##+js(trusted-set-local-storage-item, _cmpRepromptHash, CP20-YAP20-YAAKAyBENAfEgAAAAAAAAAAwIAAAI8gBAGfAR4AAA.YAAAAAAAAAAA.1.l4yppBwRRyXiPrnFNrkJzQ==.P21TmRP21TmRAKAaAB4AAAAA)
 forums.tomsguide.com##+js(trusted-set-local-storage-item, noniabvendorconsent, P21TmRP21TmRAKAaAB4AAAAA)
 tomsguide.com##+js(trusted-set-cookie, consentUUID, cefc5c9f-0e4c-4d6f-ad00-41a1e49409ed_27_29)
-! https://www.walmart.ca/
-walmart.ca##+js(trusted-set-cookie, uxcon, enforce=false&p13n=false&ads=false, , , domain, walmart.ca)
+! https://www.walmart.ca/ (EU IP)
+walmart.ca##+js(trusted-click-element, button[aria-label="close button"], , 1000)
+! sams.com.mx (EU IP)
+sams.com.mx##+js(trusted-click-element, button[class="w_eEg0 w_OoNT w_w8Y1"], , 1000)
 ! festool
 cambio-carsharing.de,festool.*,festoolcanada.com,fuso-trucks.*,tracker.fressnapf.de##+js(trusted-click-element, #usercentrics-root >>> button[data-testid="uc-deny-all-button"])
 cambio-carsharing.de,festool.*,festoolcanada.com,fuso-trucks.*,tracker.fressnapf.de##body.overflowHidden:style(overflow: auto !important)
@@ -1924,7 +1926,7 @@ privatebanking.hsbc.com##+js(trusted-click-element, button[id="consent_prompt_de
 nytimes.com##+js(trusted-click-element, button[data-tpl-type="Button"], , 1000)
 
 ! opt-out (mobile)
-uber.com##+js(trusted-click-element,  button[data-tracking-name="cookie-preferences-sloo-opt-out"])
+uber.com,ubereats.com##+js(trusted-click-element, button[data-tracking-name="cookie-preferences-sloo-opt-out"], , 1000)
 
 ! Accept cookie-wall (UK IP)
 independent.co.uk,privacy.crash.net##+js(trusted-click-element, button[title="ACCEPT"])
@@ -2763,6 +2765,8 @@ drimsim.com##+js(trusted-click-element, a[data-cookies-action="accept"], , 1000)
 
 ! necessary
 canyon.com##+js(trusted-click-element, button.xlt-modalCookiesBtnAllowNecessary, , 1000)
+! allow (US IP)
+canyon.com##+js(trusted-click-element, button[data-closecause="close-by-submit"], , 1000)
 
 ! basic
 store.godox.eu##+js(trusted-set-cookie, _x13eucookie, '{"1":true,"2":false,"3":false,"4":false,"5":true}')
@@ -3694,6 +3698,9 @@ consent.thetimes.com##+js(trusted-click-element, button[title="Essential cookies
 
 ! https://github.com/uBlockOrigin/uAssets/issues/20628#issuecomment-2657400856
 cadenaser.com##+js(trusted-click-element, #redesignCmpWrapper > div > div > a[href^="https://cadenaser.com/"])
+
+! youtube=true
+vendeeglobe.org##+js(trusted-set-cookie, tarteaucitron, !gtag=false!youtube=true)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/27208
 betaseries.com###popup-bg
