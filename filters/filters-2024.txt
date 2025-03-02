@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2024)
-! Last modified: Sat, 01 Mar 2025 19:44:20 +0000
+! Last modified: Sun, 02 Mar 2025 22:56:24 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -4114,10 +4114,11 @@ neodrive.xyz##+js(rmnt, script, FingerprintJS)
 ||jaya9.app/?af=$doc
 
 ! https://www.reddit.com/r/uBlockOrigin/comments/1gucwsp/adblock_detection_on_historicaerialscom/
-historicaerials.com##+js(nosiif, data-google-query-id)
-historicaerials.com##+js(nostif, data-google-query-id)
-||historicaerials.com/js/checkuser.js^
-historicaerials.com##+js(rmnt, script, MutationObserver)
+!#if cap_html_filtering
+historicaerials.com##^script:has-text(window.googletag.pubads)
+!#else
+historicaerials.com##+js(rmnt, script, window.googletag.pubads)
+!#endif
 
 ! https://www.reddit.com/r/uBlockOrigin/comments/1guanqw/need_help_please/
 canela.tv##+js(json-prune-fetch-response, data.custom.bcAdMetadataUrl, , propsToMatch, /media/content)
