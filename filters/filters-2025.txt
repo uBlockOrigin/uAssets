@@ -300,8 +300,11 @@ ytapi.cc##+js(nostif, location.href)
 ||stylish-knife.com^
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/195589
-streamingnow.mov##+js(rmnt, script, popundersPerIP)
-streamingnow.mov##+js(rmnt, script, adserverDomain)
+!#if cap_html_filtering
+streamingnow.mov##^script:has-text(/popundersPerIP|adserverDomain|wpadmngr/)
+!#else
+streamingnow.mov##+js(rmnt, script, /popundersPerIP|adserverDomain|wpadmngr/)
+!#endif
 vidbinge.com##+js(rmnt, script, HTMLAllCollection)
 *$script,3p,denyallow=gstatic.com,domain=vidbinge.com
 
