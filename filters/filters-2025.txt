@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2025)
-! Last modified: Sat, 08 Mar 2025 13:56:13 +0000
+! Last modified: Sat, 08 Mar 2025 15:18:34 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -192,6 +192,23 @@ wired.com##.consumer-marketing-unit
 wired.com##+js(set, cns.library, true)
 wired.com##+js(trusted-replace-argument, document.querySelectorAll, 0, json:"#app-root", condition, google_ads_iframe)
 wired.com##.full-bleed-ad
+
+! https://github.com/uBlockOrigin/uAssets/issues/12058
+! https://www.reddit.com/r/uBlockOrigin/comments/1dnyvz4/fmovies24to_bypass/
+vid2faf.*##+js(nowoif)
+mcloud.*,vizcloud.*,vizcloud2.*##+js(aopr, AaDetector)
+! https://github.com/uBlockOrigin/uAssets/issues/27173
+723qrh1p.fun##+js(rmnt, script, popunder)
+vizcloud.*,vizcloud2.*##.xad-wrapper
+vidplay.*,vizcloud.*##+js(ra, data-id|data-p, '[data-id],[data-p]', stay)
+vid2faf.*,vidplay.*##[src^="assets/bn"]:upward([style])
+||i.imgur.com^$image,domain=vizcloud.*|vizcloud2.*
+/mellowpresence.com^$script
+/\/[A-Z]{1,2}\/[-0-9a-z]{5,}\.com\/(?:[0-9a-f]{2}\/){3}[0-9a-f]{32}\.js$/$script,1p,match-case,to=com
+! https://github.com/uBlockOrigin/uAssets/issues/19260
+/lazymolecule/*.js$script
+! https://github.com/uBlockOrigin/uAssets/issues/27173
+bflix.*>>,~cloudflare.com,~disqus.com,~google.com##+js(nowoif)
 
 ! END: Rules from filters.txt
 
