@@ -1658,5 +1658,15 @@ thehindu.com##+js(remove-cookie, _pc_private)
 ! https://github.com/uBlockOrigin/uAssets/pull/27500
 ||go.bsky.app/redirect*^u=http$urlskip=?u
 
+! https://www.farmersjournal.ie/news/news/my-farming-week-thomas-cosby-stradbally-co-laois-247317
+!#if cap_html_filtering
+farmersjournal.ie##^script:has-text(/detect|FingerprintJS/)
+!#else
+farmersjournal.ie##+js(rmnt, script, /detect|FingerprintJS/)
+!#endif
+||farmersjournal.ie/js/detectIncognito.min.js
+farmersjournal.ie##+js(remove-cookie, _vid_t/)
+farmersjournal.ie##+js(set-local-storage-item, /^_vid_(lr|t)$/, $remove$)
+
 ! Merge in resource-abuse.txt
 !#include resource-abuse.txt
