@@ -1,5 +1,5 @@
 ! Title: uBlock₀ filters – Quick fixes
-! Last modified: Thu, 13 Mar 2025 14:38:50 +0000
+! Last modified: Thu, 13 Mar 2025 19:56:22 +0000
 ! Expires: 8 hours
 ! Description: Immediate, temporary filters to fix websites
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -120,8 +120,8 @@ poophq.com,veev.to,doods.to##+js(no-xhr-if, adsbygoogle, length:35000-55000)
 poophq.com,veev.to,doods.to##+js(no-xhr-if, /click\.com|preroll|native_render\.js|acscdn/, length:10001)
 poophq.com,veev.to,doods.to##+js(nostif, )]();}, 500)
 !#if cap_html_filtering
-||static.veevcdn.co/assets/videoplayer/$script,3p,replace=/adblockEnabled\'\:\!0x0/adblockEnabled':false/,domain=poophq.com|veev.to|doods.to
-||a.orbsrv.com/ad-provider.js$xhr,important,domain=poophq.com|veev.to|doods.to
+||static.veevcdn.co/assets/videoplayer/$script,3p,replace=/\'e0\'.{1,30}return new Promise\(.*?\}\)\[/'e0';[/,domain=poophq.com|veev.to|doods.to
+/ad-provider.js$xhr,3p,important,domain=poophq.com|veev.to|doods.to
 !#else
 !#if ext_ubol
 @@||c.adsco.re/|$script,domain=poophq.com|veev.to|doods.to
@@ -129,11 +129,10 @@ poophq.com,veev.to,doods.to##+js(nostif, )]();}, 500)
 poophq.com,veev.to,doods.to##+js(no-xhr-if, 162.252.214.4, true)
 !#else
 poophq.com,veev.to,doods.to##+js(nostif, /^\s*function\s*\(\s*\)\s*{\s*[a-z]{1\,2}\s*\(.{1\,10}$/)
-poophq.com,veev.to,doods.to##+js(nostif, /^\s*function\s*.{55\,90}$/)
-poophq.com,veev.to,doods.to##+js(nostif, /iggerHandl|\"e\"\+\"3\"|\"\,r\[\"|\'\s*\+\s*\'|\]\(r\[\"/)
+poophq.com,veev.to,doods.to##+js(nostif, /\"eout\"|\+jzvv|imeoutHa|"e3"\)|function\(\)\{\s*t\=|\,\s*r\s*\[\s*\"|\'\s*\]\s*\(\s*[a-z]{1\,2}\s*\[\s*\"|(`|'|")\s*\+\s*(`|'|")|erHandl/)
 ||adsco.re^$script,redirect=none:5,domain=poophq.com|veev.to|doods.to
 /dl?op=aa&cmd=ga&_a=$xhr,1p,important,domain=poophq.com|veev.to|doods.to
-||a.orbsrv.com/ad-provider.js$xhr,important,domain=poophq.com|veev.to|doods.to
+/ad-provider.js$xhr,3p,important,domain=poophq.com|veev.to|doods.to
 !#endif
 !#endif
 *$script,3p,domain=poophq.com|veev.to|doods.to,redirect-rule=noopjs
