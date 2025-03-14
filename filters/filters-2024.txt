@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2024)
-! Last modified: Fri, 14 Mar 2025 12:46:05 +0000
+! Last modified: Fri, 14 Mar 2025 16:12:07 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -3456,6 +3456,10 @@ stitichsports.com##+js(rmnt, script, antiAdBlockerHandler)
 ! https://github.com/uBlockOrigin/uAssets/issues/25250
 @@||api.adinplay.com/libs/aiptag/pub/LBS/littlebigsnake.com/tag.$script,domain=littlebigsnake.com
 littlebigsnake.com##+js(set, ADS.isBannersEnabled, false)
+littlebigsnake.com##+js(trusted-set, ADS.STATUS_ERROR, json:"COMPLETE")
+!#if cap_html_filtering
+||littlebigsnake.com/cdn/js/ads/ads_adinplay.js$script,1p,replace=/15000/1000/
+!#endif
 
 ! https://*lobby.com anti-adb
 @@||metin2lobby.com^$ghide
