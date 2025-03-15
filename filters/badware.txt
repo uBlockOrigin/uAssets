@@ -1,5 +1,5 @@
 ! Title: uBlock₀ filters – Badware risks
-! Last modified: Sat, 15 Mar 2025 16:23:24 +0000
+! Last modified: Sat, 15 Mar 2025 16:35:09 +0000
 ! Expires: 5 days
 ! Description: For sites documented to put users at risk of installing adware/crapware/malware, having login credentials stolen, etc.
 ! The purpose is to at least ensure a user is warned of the risks ahead.
@@ -6299,6 +6299,11 @@ uploadfox.net###ad-gs-05
 
 ! https://www.reddit.com/r/antivirus/comments/1iy3ndw/bruh_all_i_was_doing_was_looking_stuff_bc_im/
 ||apple-protect.com^$all
+
+! https://github.com/AdguardTeam/CoreLibs/issues/1966 Can be removed if it's fixed
+!#if ext_ubol
+/^https:\/\/[a-z]{4,5}\.[a-z]{4,10}\.[a-z]{2,6}\/item-(?:[0-9a-z]{10}|\d{8})\.html$/$doc,match-case,to=art|baby|biz|blog|cc|cfd|click|cloud|club|eu|fit|fun|hair|homes|info|ink|lat|life|lol|me|mom|my|one|online|sbs|shop|site|skin|space|store|top|world|xyz
+!#endif
 
 ! https://www.reddit.com/r/Scams/comments/1iyqpsn/new_digital_fearscam_unlocked_zoom_phishing/
 ||zoom.us*web.us^$doc,to=~zoom.com
