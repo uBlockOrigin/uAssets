@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Link shorteners
-! Last modified: Sun, 16 Mar 2025 20:25:57 +0000
+! Last modified: Sun, 16 Mar 2025 20:38:40 +0000
 ! Expires: 5 days
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
@@ -1553,3 +1553,12 @@ cutyion.com##+js(aeld, click, shouldOpenPopUp)
 
 ! indiainfo4u.in antiadb/downloads at https://episode.urlshortpro.xyz/archives/6615
 indiainfo4u.in##+js(no-fetch-if, /adsbygoogle|googletagservices/)
+
+! https://github.com/uBlockOrigin/uAssets/issues/27587
+!#if cap_html_filtering
+weshare.is##^script:has-text(onDevToolOpen)
+!#else
+weshare.is##+js(rmnt, script, onDevToolOpen)
+!#endif
+weshare.is##+js(no-fetch-if, adsbygoogle)
+weshare.is##+js(aeld, blur)

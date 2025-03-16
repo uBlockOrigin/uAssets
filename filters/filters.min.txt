@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Sun, 16 Mar 2025 20:25:57 +0000
+! Last modified: Sun, 16 Mar 2025 20:38:40 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -9239,6 +9239,13 @@ cutyion.com##+js(aeld, click, shouldOpenPopUp)
 4khd.com##+js(acs, document.querySelectorAll, popMagic)
 ! indiainfo4u.in antiadb/downloads at https://episode.urlshortpro.xyz/archives/6615
 indiainfo4u.in##+js(no-fetch-if, /adsbygoogle|googletagservices/)
+!#if cap_html_filtering
+weshare.is##^script:has-text(onDevToolOpen)
+!#else
+weshare.is##+js(rmnt, script, onDevToolOpen)
+!#endif
+weshare.is##+js(no-fetch-if, adsbygoogle)
+weshare.is##+js(aeld, blur)
 !#if env_mobile
 ! *** filters/filters-mobile.txt ***
 !----- 2020 -----
