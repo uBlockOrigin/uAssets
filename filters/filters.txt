@@ -1,5 +1,5 @@
 ! Title: uBlock filters
-! Last modified: Sun, 16 Mar 2025 01:34:08 +0000
+! Last modified: Mon, 17 Mar 2025 00:52:16 +0000
 ! Expires: 5 days
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
@@ -3649,8 +3649,6 @@ vipbox.*##.btn-lg.btn
 vipbox.*##.btn-success.btn
 vipbox.*,viprow.*##+js(set, path, '')
 vipbox.*,vipboxtv.*##+js(json-prune, *, *.adserverDomain)
-vipbox.*,viprow.*##^script:has-text("admc")
-vipbox.*,viprow.*##^script:has-text(\"admc\")
 vipbox.*##+js(nowoif, , 10)
 vipbox.*##+js(acs, JSON.parse, atob)
 reliabletv.me##+js(nowoif)
@@ -3659,6 +3657,13 @@ cricstream.me##+js(acs, navigator, FingerprintJS)
 cricstream.me##^script:has-text(FingerprintJS)
 ||hologydeno.info^
 ||hologydeno.info^$popup
+! https://github.com/uBlockOrigin/uAssets/issues/27593
+!#if cap_html_filtering
+vipbox.*##^script:has-text(/delete window|adserverDomain|FingerprintJS/)
+!#else
+vipbox.*##+js(rmnt, script, /delete window|adserverDomain|FingerprintJS/)
+!#endif
+||moorsmerops.top^
 
 ! https://github.com/uBlockOrigin/uAssets/issues/2104
 wkyc.com##+js(acs, btoa)
