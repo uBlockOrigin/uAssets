@@ -1,5 +1,5 @@
 ! Title: uBlock₀ filters – Quick fixes
-! Last modified: Mon, 17 Mar 2025 11:11:45 +0000
+! Last modified: Mon, 17 Mar 2025 12:45:59 +0000
 ! Expires: 8 hours
 ! Description: Immediate, temporary filters to fix websites
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -107,15 +107,10 @@ poophq.com,veev.to,doods.to##+js(no-xhr-if, /click\.com|preroll|native_render\.j
 ||static.veevcdn.co/assets/videoplayer/$script,3p,replace=/\'adblockEnabled\'\:\!\!parseInt\(.*?\)/'adblockEnabled':false/,domain=poophq.com|veev.to|doods.to
 /dl?op=aa&cmd=ga&_a=$xhr,1p,important,domain=poophq.com|veev.to|doods.to
 !#else
-!#if ext_ubol
 @@||c.adsco.re/|$script,domain=poophq.com|veev.to|doods.to
-||adsco.re^$xhr,important,domain=poophq.com|veev.to|doods.to
 poophq.com,veev.to,doods.to##+js(no-xhr-if, 162.252.214.4, true)
-!#else
-poophq.com,veev.to,doods.to##+js(set, window.adscoreLibLoader._init, true)
-poophq.com,veev.to,doods.to##+js(trusted-set, window.__ascvertkn, json:"AAAAAAAAA")
-/dl?op=player_api&cmd=*adb=$xhr,1p,important,domain=poophq.com|veev.to|doods.to
-!#endif
+poophq.com,veev.to,doods.to##+js(no-xhr-if, c.adsco.re)
+poophq.com,veev.to,doods.to##+js(no-xhr-if, /[0-9]\.adsco.re/)
 !#endif
 *$script,3p,domain=poophq.com|veev.to|doods.to,redirect-rule=noopjs
 *$other,3p,denyallow=veevcdn.co,domain=poophq.com|veev.to|doods.to
