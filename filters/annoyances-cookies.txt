@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Cookie Notices
-! Last modified: Mon, 17 Mar 2025 06:32:10 +0000
+! Last modified: Mon, 17 Mar 2025 12:50:55 +0000
 ! Expires: 7 days
 ! Description: Filters optimized for uBlock Origin, to be used with EasyList's and/or Adguard's "Cookie Notices" list(s)
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -443,8 +443,6 @@ welcomestores.gr##+js(trusted-set-cookie, ConsentChecked, '{"userHasSetCookies":
 cosmo-hairshop.de,storyhouseegmont.no##+js(trusted-click-element, #CybotCookiebotDialogBodyLevelButtonLevelOptinDeclineAll)
 ! https://www.siivous.fi/
 siivous.fi##+js(trusted-set-cookie, cc_cookie, %7B%22level%22%3A%5B%22necessary%22%5D%2C%22revision%22%3A0%2C%22data%22%3Anull%2C%22rfc_cookie%22%3Atrue%7D, 1year)
-! Necessary
-s-pankki.fi##+js(trusted-click-element, #usercentrics-root >>> button[data-testid="uc-deny-all-button"])
 ! https://www.gallup.com
 gallup.com##+js(trusted-set-cookie, gcbca, , 1day)
 gallup.com##+js(trusted-set-cookie, gcbpl, p1|st1|pt1, 1year)
@@ -796,7 +794,7 @@ abola.pt,flytap.com,ansons.de,blick.ch,buienradar.be,crunchyroll.com,digi24.ro,d
 dicebreaker.com,eurogamer.cz,eurogamer.es,eurogamer.net,eurogamer.nl,eurogamer.pl,eurogamer.pt,gamesindustry.biz,jelly.deals,reedpop.com,rockpapershotgun.com,thepopverse.com,vg247.com,videogameschronicle.com##+js(trusted-click-element, button[title="Accept and continue"])
 dicebreaker.com,eurogamer.cz,eurogamer.es,eurogamer.net,eurogamer.nl,eurogamer.pl,eurogamer.pt,gamesindustry.biz,jelly.deals,reedpop.com,rockpapershotgun.com,thepopverse.com,vg247.com,videogameschronicle.com##+js(trusted-click-element, button[title="Accept All Cookies"])
 eurogamer.de##+js(trusted-click-element, .accept-all)
-roadtovr.com##+js(trusted-click-element, #CybotCookiebotDialogBodyButtonAccept)
+roadtovr.com,jotex.*##+js(trusted-click-element, #CybotCookiebotDialogBodyButtonAccept)
 
 ! Targeting cookies for search and for embeds - Sample: https://www.eurogamer.pl/czesc-graczy-nie-moze-zainstalowac-marvels-spider-man-2-z-plyty
 eurogamer.nl,eurogamer.es,eurogamer.cz,eurogamer.net,eurogamer.pl,eurogamer.pt##+js(trusted-set-cookie, consentUUID, f2fed351-3e4d-4e37-a3d6-bf942c6146e1_25)
@@ -1480,14 +1478,9 @@ elmundo.es##+js(trusted-click-element, button[id="ue-accept-notice-button"], , 2
 ! https://github.com/uBlockOrigin/uAssets/issues/23044
 eurobaustoff.com##+js(trusted-set-local-storage-item, ccm_consent, '{"/":{"gen":2,"ucid":"1","consent":true,"embeddings":["1e76acf","8ed8d9a","b429e86","f22e6ed","0b25af3","6079a42"],"created":"$currentDate$","updated":"$currentDate$","clickedButton":"acceptAll","iframeConsentDomains":[],"tcf":{"p":[],"lip":[],"sf":[],"v":[],"liv":[],"gad":[]},"lang":"de_DE"}}' )
 
-
-! https://github.com/uBlockOrigin/uAssets/issues/23454
-dr-beckmann.com##+js(trusted-click-element, #usercentrics-root >>> button[data-testid="uc-deny-all-button"])
-@@||usercentrics.eu^$domain=dr-beckmann.com
-
 ! usercentrics consents
 ! deny consent
-srf.ch,alternate.de,bayer04.de,douglas.de,falke.com,flaschenpost.de,gloeckle.de,hornbach.nl,postbank.de##+js(trusted-click-element, #usercentrics-root >>> button[data-testid="uc-deny-all-button"], , 1000)
+s-pankki.fi,srf.ch,alternate.de,bayer04.de,douglas.de,dr-beckmann.com,falke.com,fitnessfirst.de,flaschenpost.de,gloeckle.de,hornbach.nl,hypofriend.de,postbank.de##+js(trusted-click-element, #usercentrics-root >>> button[data-testid="uc-deny-all-button"], , 1000)
 ! accept (no other option)
 immowelt.de,joyn.*,morenutrition.de##+js(trusted-click-element, #usercentrics-root >>> button[data-testid="uc-accept-all-button"], , 1000)
 
@@ -1976,7 +1969,7 @@ salzburg.info##+js(set-attr, img.js-lazy-img[src^="data:image/"], src, [data-src
 verksamt.se##+js(trusted-click-element, [data-testid="consent-necessary"])
 
 ! decline (reported, allow search to work)
-acmemarkets.com,amtrak.com,beko.com,bepanthen.com.au,berocca.com.au,booking.com,centrum.sk,claratyne.com.au,credit-suisse.com,ceskatelevize.cz,de.vanguard,dhl.de,fello.se,flashscore.fr,fnac.es,foodandwine.com,fourseasons.com,khanacademy.org,konami.com,jll.*,jobs.redbull.com,hellenicbank.com,intersport.*,groceries.asda.com,n26.com,nintendo.com,panasonic.com,pluto.tv,ricardo.ch,rockstargames.com,rte.ie,salesforce.com,samsonite.*,spirit.com,stenaline.co.uk,swisscom.ch,swisspass.ch,technologyfromsage.com,telenet.be,toujeo.com,questdiagnostics.com,wallapop.com,vattenfall.de,yoigo.com##+js(trusted-click-element, button[id="onetrust-reject-all-handler"], , 1000)
+acmemarkets.com,amtrak.com,beko.com,bepanthen.com.au,berocca.com.au,booking.com,centrum.sk,claratyne.com.au,credit-suisse.com,ceskatelevize.cz,de.vanguard,dhl.de,fello.se,flashscore.fr,fnac.es,foodandwine.com,fourseasons.com,khanacademy.org,konami.com,jll.*,jobs.redbull.com,hellenicbank.com,intersport.*,groceries.asda.com,n26.com,nintendo.com,oneweb.net,panasonic.com,pluto.tv,ricardo.ch,rockstargames.com,rte.ie,salesforce.com,samsonite.*,spirit.com,stenaline.co.uk,swisscom.ch,swisspass.ch,technologyfromsage.com,telenet.be,toujeo.com,questdiagnostics.com,wallapop.com,vattenfall.de,yoigo.com##+js(trusted-click-element, button[id="onetrust-reject-all-handler"], , 1000)
 ! onetrust-close
 hallmarkchannel.com,noovle.com,otter.ai,telsy.com,timenterprise.it,tim.it,fnac.*,yeti.com##+js(trusted-click-element, button.onetrust-close-btn-handler, , 1000)
 
@@ -2144,8 +2137,8 @@ replay.lsm.lv,ltv.lsm.lv,bernistaba.lsm.lv##+js(trusted-click-element, button[da
 ! cookiefirst reject
 stadt-wien.at,verl.de,cubo-sauna.de,mbl.is##+js(trusted-click-element, button[data-cookiefirst-action="reject"], , 1000)
 
-! Accept (consent wall)
-mobile.de##+js(trusted-click-element, button.mde-consent-accept-btn, , 1600)
+! Accept (consent wall) consent not always fast
+mobile.de##+js(trusted-click-element, button.mde-consent-accept-btn, , 2600)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/26797
 cookist.it,fanpage.it,geopop.it,lexplain.it##+js(trusted-click-element, '.gdpr-modal .gdpr-btn--secondary, .gdpr-modal .gdpr-modal__box-bottom-dx > button.gdpr-btn--br:first-child')
