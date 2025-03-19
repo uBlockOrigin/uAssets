@@ -1,5 +1,5 @@
 ! Title: uBlock₀ filters – Quick fixes
-! Last modified: Wed, 19 Mar 2025 09:00:33 +0000
+! Last modified: Wed, 19 Mar 2025 12:31:00 +0000
 ! Expires: 8 hours
 ! Description: Immediate, temporary filters to fix websites
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -104,13 +104,23 @@ poophq.com,veev.to,doods.to##+js(nowoif)
 poophq.com,veev.to,doods.to##+js(no-xhr-if, /vast.php?)
 poophq.com,veev.to,doods.to##+js(no-xhr-if, /click\.com|preroll|native_render\.js|acscdn/, length:10001)
 !#if cap_html_filtering
-||static.veevcdn.co/assets/videoplayer/$script,3p,replace=/\'adblockEnabled\'\:\!\!parseInt\(.*?\)/'adblockEnabled':false/,domain=poophq.com|veev.to|doods.to
+||static.veevcdn.co/assets/videoplayer/$script,3p,replace=/\'adblockEnabled\':\!\![a-zA-Z]{1,3}/'adblockEnabled':false/,domain=poophq.com|veev.to|doods.to
+||static.veevcdn.co/assets/videoplayer/$script,3p,replace=/\!0x0\=\=\=HT\?H6\(\)/false===HT?H6()/,domain=poophq.com|veev.to|doods.to
+||adsco.re^$xhr,important,domain=poophq.com|veev.to|doods.to
+||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$xhr,important,domain=poophq.com|veev.to|doods.to
 /dl?op=aa&cmd=ga&_a=$xhr,1p,important,domain=poophq.com|veev.to|doods.to
 !#else
+!#if ext_ubol
 @@||c.adsco.re/|$script,domain=poophq.com|veev.to|doods.to
 poophq.com,veev.to,doods.to##+js(no-xhr-if, 162.252.214.4, true)
 poophq.com,veev.to,doods.to##+js(no-xhr-if, c.adsco.re)
-poophq.com,veev.to,doods.to##+js(no-xhr-if, /[0-9]\.adsco.re/)
+poophq.com,veev.to,doods.to##+js(no-xhr-if, adsco.re:2087)
+!#else
+/dl?op=player_api&cmd=*adb=$xhr,1p,important,domain=poophq.com|veev.to|doods.to
+||adsco.re^$script,redirect=none:5,domain=poophq.com|veev.to|doods.to
+poophq.com,veev.to,doods.to##+js(nostif, /^\s*function\s*\(\s*\)\s*{\s*[a-zA-Z]{1\,2}\s*\(.{1\,10}$/)
+poophq.com,veev.to,doods.to##+js(nostif, /('|`|")\s*\+.{10\,100}('|`|")\s*\+|[a-z]{1\,2}\s*\[\s*\[|('|`|")\s*\,\s*('|`|")|\"\s*\;\s*[a-zA-Z]{1\,2}\s*\=[a-z]+\s*\,|zza|\]\s*\,\s*[a-z]+\s*\)\s*\}/)
+!#endif
 !#endif
 *$script,3p,domain=poophq.com|veev.to|doods.to,redirect-rule=noopjs
 *$other,3p,denyallow=veevcdn.co,domain=poophq.com|veev.to|doods.to
