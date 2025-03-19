@@ -1,5 +1,5 @@
 ! Title: uBlock₀ filters – Quick fixes
-! Last modified: Wed, 19 Mar 2025 08:48:06 +0000
+! Last modified: Wed, 19 Mar 2025 09:00:33 +0000
 ! Expires: 8 hours
 ! Description: Immediate, temporary filters to fix websites
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -196,7 +196,7 @@ smsonline.cloud##aside[class^="css-"]:has(> p:has-text(Advertisement) + ins.adsb
 ! https://github.com/uBlockOrigin/uAssets/pull/26342
 ! https://github.com/uBlockOrigin/uAssets/issues/26393
 ! https://github.com/uBlockOrigin/uAssets/issues/26623
-bing.com##+js(rpnt, script, '/(\(function\([a-z]\,[a-z]\)\{onload)/', '(()=>{const e={apply:(e,l,t)=>("img"===t[0]&&"b_algo"===l.classList.value&&(l.style.display="none"),Reflect.apply(e,l,t))};HTMLLIElement.prototype.querySelectorAll=new Proxy(HTMLLIElement.prototype.querySelectorAll,e)})();$1')
+bing.com##+js(rpnt, script, '/(\(function\([a-z]\,[a-z]\)\{onload)/', '(()=>{const e={apply:(e,l,t)=>("a"===t[0]&&"b_algo"===l.classList.value&&(l.style.display="none"),Reflect.apply(e,l,t))};HTMLLIElement.prototype.getElementsByTagName=new Proxy(HTMLLIElement.prototype.getElementsByTagName,e)})();$1')
 bing.com##+js(no-xhr-if, /fd/ls/lsp.aspx)
 bing.com##ol#b_results > li:has(> :is(.b_tpcn, .b_title, h2) a[href^="https://www.bing.com/aclk?"])
 
