@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Quick fixes
 ! Expires: 12 hours
-! Last modified: Wed, 19 Mar 2025 12:31:00 +0000
+! Last modified: Wed, 19 Mar 2025 22:12:39 +0000
 ! Diff-Path: %diffpath%#ublock-quick-fixes
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -24,7 +24,7 @@ www.youtube.com##+js(nano-stb, [native code], 17000, 0.001)
 !#if cap_html_filtering
 ||www.youtube.com/s/player/*/base.js$script,xhr,replace=/if\(e===""\)/if(0)/
 !#endif
-www.youtube.com##+js(json-prune-fetch-response, playerAds adPlacements adSlots no_ads playerResponse.playerAds playerResponse.adPlacements playerResponse.adSlots playerResponse.no_ads [].playerResponse.adPlacements [].playerResponse.playerAds [].playerResponse.adSlots [].playerResponse.no_ads, , propsToMatch, /\/(player|get_watch)\?/)
+www.youtube.com##+js(json-prune-fetch-response, playerAds adPlacements adSlots no_ads playerResponse.playerAds playerResponse.adPlacements playerResponse.adSlots playerResponse.no_ads [].playerResponse.adPlacements [].playerResponse.playerAds [].playerResponse.adSlots [].playerResponse.no_ads, , propsToMatch, /player\?|get_watch|\W+/)
 www.youtube.com##+js(json-prune-fetch-response, playerAds adPlacements adSlots no_ads playerResponse.playerAds playerResponse.adPlacements playerResponse.adSlots playerResponse.no_ads, , propsToMatch, /playlist?)
 www.youtube.com##+js(json-prune-xhr-response, playerAds adPlacements adSlots no_ads playerResponse.playerAds playerResponse.adPlacements playerResponse.adSlots playerResponse.no_ads [].playerResponse.adPlacements [].playerResponse.playerAds [].playerResponse.adSlots [].playerResponse.no_ads, , propsToMatch, /\/player(?:\?.+)?$/)
 tv.youtube.com##+js(trusted-replace-xhr-response, '"adPlacements"', '"no_ads"', /playlist\?list=|\/player(?:\?.+)?$|watch\?[tv]=/)
@@ -33,6 +33,7 @@ www.youtube.com##+js(trusted-replace-xhr-response, /"adPlacements.*?([A-Z]"\}|"\
 www.youtube.com##+js(trusted-replace-xhr-response, /"adPlacements.*?("adSlots"|"adBreakHeartbeatParams")/gms, $1, /\/player(?:\?.+)?$/)
 www.youtube.com##+js(trusted-replace-fetch-response, '"adPlacements"', '"no_ads"', player?)
 www.youtube.com##+js(trusted-replace-fetch-response, '"adSlots"', '"no_ads"', player?)
+www.youtube.com##+js(trusted-replace-fetch-response, '"adSlots"', '"no_ads"', /^\W+$/)
 !#else
 ||www.youtube.com/playlist?list=$xhr,1p,replace=/"adPlacements"/"no_ads"/
 ||www.youtube.com/playlist?list=$xhr,1p,replace=/"adSlots"/"no_ads"/
