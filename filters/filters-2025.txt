@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2025)
-! Last modified: Thu, 20 Mar 2025 20:45:33 +0000
+! Last modified: Thu, 20 Mar 2025 22:38:19 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -1102,5 +1102,11 @@ concealednation.org##+js(set, advanced_ads_check_adblocker, noopFunc)
 ! https://github.com/uBlockOrigin/uAssets/issues/27652
 bigconv.com##+js(nowoif)
 
-! https://github.com/uBlockOrigin/uAssets/issues/8719#issuecomment-2741582051
+! https://github.com/uBlockOrigin/uAssets/issues/8719
 @@||1001tracklists.com^$ghide
+1001tracklists.com##div[id]:has(> [data-freestar-ad]):remove()
+1001tracklists.com###head + [id] > div:first-child > div:not([id="topLogo"], [id="pageTitle"], [id="hInfo"]):has(> a > :is(img[src*="/"][src*="_"][alt], div[style*="background"]))
+1001tracklists.com##div:has(+ script:has-text(challenge)):has(a :is(img[src*="/"][src*="_"][alt], [style]))
+1001tracklists.com##div[class="nav tabTop"] + div > div:first-child > div:first-child > a:has(> img[src*="/"][src*="_"][alt])
+1001tracklists.com###head + div[id] > div:last-child > div > a:has(> img[src*="/"][src*="_"][alt])
+1001tracklists.com##+js(spoof-css, div[class="nav tabTop"] + div > div:first-child > div:first-child > a:has(> img[src*="/"][src*="_"][alt])\, #head + div[id] > div:last-child > div > a:has(> img[src*="/"][src*="_"][alt]), display, block)
