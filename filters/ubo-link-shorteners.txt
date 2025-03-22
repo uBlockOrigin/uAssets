@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Link shorteners
-! Last modified: Wed, 19 Mar 2025 19:07:54 +0000
+! Last modified: Sat, 22 Mar 2025 21:34:24 +0000
 ! Expires: 5 days
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
@@ -9,10 +9,10 @@
 ! GitHub pull requests: https://github.com/uBlockOrigin/uAssets/pulls
 
 ! gplinks all domains (gplinks.co/EWu8)
-@@*$ghide,domain=gplinks.*|cricketlegacy.com
-cricketlegacy.com##center:others()
-cricketlegacy.com##+js(set, document.hidden, false)
-cricketlegacy.com##+js(set-cookie, imps, 3, , reload, 1)
+@@*$ghide,domain=gplinks.*|sabkiyojana.com
+sabkiyojana.com##center:others()
+sabkiyojana.com##+js(set, document.hidden, false)
+sabkiyojana.com##+js(set-cookie, imps, 3, , reload, 1)
 ||api.gplinks.com/track/js/main.js$script,replace=/(var isOverGoogleAd = false;)([\s\S]*)(sendPostback\([\n\s\S]*?\))/\$1\$3;\$2\$3/
 gplinks.*##a.exclude-pop.smartlink, .exclude-pop.quiz-container, #PlayQuiz, #quiz-frame, .exclude-popad
 gplinks.*##+js(set, blurred, false)
@@ -20,7 +20,16 @@ gplinks.*##+js(aopr, clickCount)
 ||gamezop.com^$domain=gplinks.*
 *$script,3p,denyallow=cloudflare.com|github.io|google.com|googleapis.com|gstatic.com|hwcdn.net|jquery.com|recaptcha.net|tipsforce.com|unpkg.com,domain=gplinks.*
 
-! https://github.com/uBlockOrigin/uAssets/issues/17198
+! modijiurl.com/ZTnw
+modijiurl.com##+js(rpnt, script, /5000|100/gm, 10, condition, set)
+modijiurl.com##.animated.text-center, [href*="t.me/modijiurl"], .captcha-box > p, .ad-container, [src*="blogger"], [src*=".png"]
+kajernews.com,vyaapaarguru.in##+js(trusted-set, document.visibilityState, '{"value": "visible"}')
+kajernews.com,vyaapaarguru.in##+js(nostif, checkAds)
+kajernews.com,vyaapaarguru.in##+js(nano-sib, /.?/, *, 0.002)
+kajernews.com,vyaapaarguru.in##+js(nano-stb, /.?/, *, 0.002)
+kajernews.com,vyaapaarguru.in##[onclick*="handleContinueClick"], #continue-blur, #please-wait, .scroll2, .step:others()
+kajernews.com,vyaapaarguru.in##[onclick*="handleContinueClick"], #continue-blur:style(display: block !important;)
+
 ! https://github.com/uBlockOrigin/uAssets/discussions/17361#discussioncomment-8435355 (https://btcut.io/gC5PAb) (https://psa.btcut.io/OKGo)
 ! https://github.com/uBlockOrigin/uAssets/discussions/17361#discussioncomment-10356862 (https://sharecut .io/27ch9V5)
 ! https://github.com/uBlockOrigin/uAssets/issues/24370 (paycut.io/gMoMhCrN)
@@ -42,23 +51,22 @@ starkroboticsfrc.com,sinonimos.de,antonimos.de,quesignifi.ca,tiktokrealtime.com,
 starkroboticsfrc.com,sinonimos.de,antonimos.de,quesignifi.ca,tiktokrealtime.com,tiktokcounter.net,tpayr.xyz,poqzn.xyz,ashrfd.xyz,rezsx.xyz,tryzt.xyz,ashrff.xyz,rezst.xyz,dawenet.com,erzar.xyz,waezm.xyz,waezg.xyz,blackwoodacademy.org,cryptednews.space,vivuq.com,swgop.com,vbnmll.com,telcoinfo.online,dshytb.com##+js(set, document.hasFocus, trueFunc)
 
 ! https://github.com/uBlockOrigin/uAssets/discussions/17361#discussioncomment-10098663 (https://droplink .co/ekTk)
-yoshare.net###tp-snp1, #go_d, #go_d2:style(display: block !important;)
-yoshare.net##button[onclick^="handleDownload"]
-yoshare.net##+js(trusted-suppress-native-method, eval, '"/chp_?ad/"')
+tech5s.co,game5s.com##+js(nano-sib, /.?/, *, 0.02)
+tech5s.co,game5s.com###go_d2:style(display: inline-block !important;)
+tech5s.co,game5s.com###go_d2, .captcha-check:others()
+tech5s.co,game5s.com##+js(rpnt, script, /false;/gm, true;, condition, isSubscribed)
+tech5s.co,game5s.com##+js(rpnt, script, ('t_modal'), ('go_d2'))
+droplink.co##p, .form-link, footer, .text-left
 droplink.co##+js(aopr, app_vars.force_disable_adblock)
-droplink.co##.text-left
 ||i.gyazo.com^$domain=insurancexblog.blogspot.com
 
 ! XpShort New (http://xpshort.com/Alpha_5_Complete_Batch)
-! https://github.com/uBlockOrigin/uAssets/discussions/17361#discussioncomment-10384772
-gyanlight.com,xpshort.com##+js(set, blurred, false)
-gyanlight.com,xpshort.com##.banner
-odisha-remix.com,themoviesradar.in,forexsalary.com,dailywebsite.in,mamatamusicbanaras.com,missionupsc.com##+js(no-fetch-if, googlesyndication)
-odisha-remix.com,themoviesradar.in,forexsalary.com,dailywebsite.in,mamatamusicbanaras.com,missionupsc.com###wpsafe-link:style(display: block !important;)
-odisha-remix.com,themoviesradar.in,forexsalary.com,dailywebsite.in,mamatamusicbanaras.com,missionupsc.com###wpsafe-link, .wpsafelink-multiple-pages:others()
+lumiaf.com,blogfem.com,apkgg.xyz,newsvsp.com,fnewsn.com,elmarvin.com,coinpurs.com,djamar.xyz,lrmodapk.pro,actuwar.com,alwafag.com###wpsafe-link:style(display: block !important;)
+lumiaf.com,blogfem.com,apkgg.xyz,newsvsp.com,fnewsn.com,elmarvin.com,coinpurs.com,djamar.xyz,lrmodapk.pro,actuwar.com,alwafag.com###wpsafe-link, .wpsafelink-multiple-pages:others()
+xpshort.com,odisha-remix.com##+js(set, go_popup, {})
+odisha-remix.com,xpshort.com##.banner, footer, .navbar-default.navbar
+odisha-remix.com,xpshort.com##+js(set, blurred, false)
 
-! https://github.com/uBlockOrigin/uAssets/issues/20600
-! https://github.com/uBlockOrigin/uAssets/issues/23535
 ! https://github.com/uBlockOrigin/uAssets/discussions/17361#discussioncomment-10229239 (https://publicearn .com/MvpN)
 @@*$ghide,domain=tea-coffee.net|spatsify.com|newedutopics.com|getviralreach.in|edukaroo.com|funkeypagali.com|careersides.com|nayisahara.com|wikifilmia.com|infinityskull.com|viewmyknowledge.com|iisfvirtual.in|starxinvestor.com|jkssbalerts.com
 ||cdn.jsdelivr.net/gh/itspro-dev/*/js/main.js$script
@@ -101,18 +109,6 @@ get-to.link##+js(aopr, document.dispatchEvent)
 get-to.link##+js(nowoif)
 get-to.link###genesis-modal
 
-enit.in,financerites.com##+js(nostif, , 5)
-enit.in##+js(nowoif)
-enit.in##+js(set, blurred, false)
-enit.in,financerites.*##+js(nano-stb, downloadBtn, *)
-enit.in##footer, div#gads.banner-inner
-enit.it###gads[disabled]:remove-attr(disabled)
-enit.in,financerites.*##.footerLink.hidden:style(display: block !important;)
-enit.in,financerites.*##.getlink:others()
-trip.businessnews-nigeria.com,te-it.com,world2our.com,mobi2c.com,tech5s.co,ez4mods.com,bluetechno.net,forexit.online###go_d:remove-attr(disabled)
-trip.businessnews-nigeria.com,te-it.com,world2our.com,mobi2c.com,bluetechno.net,forexit.online###submitBtn, #go_d, #devozon-snp, #submitBtn, #tp-snp1, #go_d2:others()
-trip.businessnews-nigeria.com,te-it.com,world2our.com,mobi2c.com,tech5s.co,ez4mods.com,bluetechno.net,forexit.online###submitBtn, #go_d, #devozon-snp, #submitBtn, #tp-snp1, #go_d2:style(display: block !important;)
-
 ! https://clk.asia/XzNMCt
 junkyponk.com,healthfirstweb.com,vocalley.com,yogablogfit.com,howifx.com,en.financerites.com,mythvista.com,livenewsflix.com,cureclues.com,apekite.com##+js(set, timeSec, 0)
 junkyponk.com,healthfirstweb.com,vocalley.com,yogablogfit.com,howifx.com,en.financerites.com,mythvista.com,livenewsflix.com,cureclues.com,apekite.com##+js(nano-stb, getlink, *, 0.001)
@@ -127,21 +123,6 @@ clk.*##+js(set, blurred, false)
 ||rdrclk.com^
 ||clk.wiki/ads$frame
 ||cmp.quantcast.com^$domain=healthfirstweb.com|vocalley.com|yogablogfit.com|howifx.com|en.financerites.com|junkyponk.com|mythvista.com
-
-! ez4short.com/oynPc14?src=PSA
-ez4short.com##+js(aopr, app_vars.force_disable_adblock)
-ez4short.com##+js(set, blurred, false)
-ez4short.com##.faq
-ez4short.com##footer
-techmody.io##+js(nano-sib, , *, 0)
-tech5s.co##+js(noeval-if, ads)
-tech5s.co,ez4mods.com##+js(nano-sib, /.?/, *, 0.02)
-tech5s.co,ez4mods.com##.btn-primary, #go_d, #tp-snp1, #go_d2:others()
-tech5s.co,ez4mods.com##+js(aopr, adBlockDetected)
-||cmp.quantcast.com^$domain=tech5s.co|themezon.net
-||push-sdk.$3p
-||a.labadena.com^$popup
-||feistyhelicopter.com^$popup
 
 ! easysky.in focus and timer
 ! https://github.com/uBlockOrigin/uAssets/issues/20810
@@ -158,19 +139,6 @@ nichapk.com,easyworldbusiness.com,riveh.com##center, [src*="google.com/recaptcha
 nichapk.com,easyworldbusiness.com,riveh.com##+js(nano-sib, timer, *, 0.02)
 nichapk.com,easyworldbusiness.com,riveh.com###tie-wrapper:style(min-height:initial! important;)
 blog.filepresident.com##.box-main > [src], .content, .r-bg, .short, .download-btn, h4
-
-! https://github.com/uBlockOrigin/uAssets/issues/19345
-naukrilelo.in##+js(no-fetch-if, ads)
-naukrilelo.in##+js(nano-sib, timer, 1300)
-naukrilelo.in###tp98, #tp-snp2:style(display: block !important;)
-naukrilelo.in###tp98, #tp-generate, #tp-snp2, [src*="https://www.google.com/recaptcha"]:others()
-adrinolinks.in##+js(set, blurred, false)
-myprivatejobs.com,wikitraveltips.com,amritadrino.com##+js(noeval-if, /fairAdblock|chp_adblock|adsbygoogle\.js/)
-myprivatejobs.com,wikitraveltips.com,amritadrino.com##.g-recaptcha, #tp-snp2, .captcha-check, [src*="google.com/recaptcha/"]:others()
-myprivatejobs.com,wikitraveltips.com,amritadrino.com##+js(ra, disabled, #tp-snp2)
-myprivatejobs.com,wikitraveltips.com,amritadrino.com###overlay, .popup
-myprivatejobs.com,wikitraveltips.com,amritadrino.com##+js(set, count, 0)
-myprivatejobs.com,wikitraveltips.com,amritadrino.com##+js(set, detectAdBlock, noopFunc)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/16217
 @@||exeo.app^$ghide
@@ -236,27 +204,13 @@ gadgetsreview27.com,newsbawa.com##center:others()
 gadgetsreview27.com,newsbawa.com##+js(nano-sib, /.?/, *, 0.02)
 
 ! https://github.com/uBlockOrigin/uAssets/pull/20826 (fc-lc.com/82YkvH)
-! https://github.com/uBlockOrigin/uAssets/issues/25210
-! https://github.com/uBlockOrigin/uAssets/discussions/17361#discussioncomment-12375600
-/nt.js$domain=fc-lc.xyz|tmail.io|fitdynamos.com
-! https://github.com/AdguardTeam/AdguardFilters/issues/199051
-labgame.io###iframe_id
-labgame.io##[id^="ad"]
-labgame.io##+js(trusted-suppress-native-method, eval, '"ppuQnty"')
-fc-lc.*##+js(aeld, , /_blank/i)
-tmail.io,fitdynamos.com##+js(aopw, detectAdblock)
-fitdynamos.com##+js(set, document.hidden, false)
-fitdynamos.com##+js(set, document.hasFocus, trueFunc)
-fitdynamos.com##+js(aeld, blur, stopCountdown)
-fitdynamos.com##iframe[src="about:blank"]
-fitdynamos.com##.d-md-block:has(> div[style] > [data-placement-id])
-fitdynamos.com##.col-auto:has(> div[style] > [data-placement-id])
-fitdynamos.com###overlay
-tmail.io,fc-lc.*##+js(no-fetch-if, adsbygoogle)
-tmail.io,fc-lc.*##+js(noeval-if, ppuQnty)
-tmail.io,fc-lc.*##+js(nowoif)
-@@||tmail.io^$ghide
-tmail.io###glink:style(display: block !important;)
+fc-lc.xyz###iframe_id, .text-left
+labgame.io###step, #next, #scroll, #glink, #countdown, #surl, #captcha-container, [src*="google.com/recaptcha/"], [src*="recaptcha.net/recaptcha"]:others()
+labgame.io##+js(rpnt, script, /initialTimeSeconds = \d+/, initialTimeSeconds = 7)
+labgame.io##+js(nano-sib, tid, *, 0.02)
+labgame.io##+js(trusted-set-cookie, ad_expire=true;, $now$)
+labgame.io##+js(rmnt, script, window.adblockDetector)
+labgame.io##+js(rmnt, script, DName)
 ||curryfielddistribution.com^$all
 ||antonellapouncedcrewels.com^$all
 ||tophostingapp.com/dwn-$image
