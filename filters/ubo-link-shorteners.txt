@@ -9,10 +9,13 @@
 ! GitHub pull requests: https://github.com/uBlockOrigin/uAssets/pulls
 
 ! gplinks all domains (gplinks.co/EWu8)
-@@*$ghide,domain=gplinks.*|sabkiyojana.com
-sabkiyojana.com##center:others()
-sabkiyojana.com##+js(set, document.hidden, false)
-sabkiyojana.com##+js(set-cookie, imps, 3, , reload, 1)
+@@*$ghide,domain=gplinks.*|sabkiyojana.com|thecryptomen.com
+thecryptomen.com,sabkiyojana.com##center:others()
+thecryptomen.com,sabkiyojana.com##+js(set, document.hidden, false)
+thecryptomen.com,sabkiyojana.com##+js(set-cookie, imps, 3, , reload, 1)
+thecryptomen.com,sabkiyojana.com##+js(aopw, AdBDetected)
+thecryptomen.com,sabkiyojana.com###SmileyBanner:remove()
+||api.gplinks.com/track/js/main.js$script,replace=/(var isOverGoogleAd = false;)([\s\S]*)(sendPostback\([\n\s\S]*?\))/\$1\$3;\$2\$3/
 ||api.gplinks.com/track/js/main.js$script,replace=/(var isOverGoogleAd = false;)([\s\S]*)(sendPostback\([\n\s\S]*?\))/\$1\$3;\$2\$3/
 gplinks.*##a.exclude-pop.smartlink, .exclude-pop.quiz-container, #PlayQuiz, #quiz-frame, .exclude-popad
 gplinks.*##+js(set, blurred, false)
@@ -1115,9 +1118,14 @@ edukaroo.com##+js(nano-sib, count, *, 0.001)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/24050
 ! https://github.com/uBlockOrigin/uAssets/discussions/17361#discussioncomment-10351538 (https://stfly .biz/7gdPs)
-blogesque.net,bookbucketlyst.com,explorosity.net,optimizepics.com,stfly.*,stly.*,torovalley.net,explorosity.net,travize.net,trekcheck.net,metoza.net,techlike.net,snaplessons.net,atravan.net,transoa.net,techmize.net,crenue.net##+js(rmnt, script, justDetectAdblock)
-airevue.net,atravan.net,blogesque.net,bookbucketlyst.com,crenue.net,explorosity.net,explorosity.net,metoza.net,optimizepics.com,snaplessons.net,stfly.*,stly.*,techlike.net,techmize.net,torovalley.net,transoa.net,travize.net,trekcheck.net##+js(acs, EventTarget.prototype.addEventListener, delete window)
-airevue.net##+js(no-xhr-if, ads)
+stfly.biz,airevue.net,atravan.net##+js(rmnt, script, justDetectAdblock)
+stfly.biz,airevue.net,atravan.net##+js(acs, EventTarget.prototype.addEventListener, delete window)
+stfly.biz,airevue.net,atravan.net##+js(no-xhr-if, ads)
+stfly.biz,airevue.net,atravan.net##div.justify-evenly.items-center.flex-wrap.flex.w-full
+stfly.biz,airevue.net,atravan.net##.my-20
+stfly.biz,airevue.net,atravan.net##.max-w-screen-lg.mt-6.prose-lg.prose.mx-auto > div:has(p)
+stfly.biz,airevue.net,atravan.net##.font-medium.text-sm.tracking-wider.uppercase.text-blue-400
+stfly.biz,airevue.net,atravan.net##.lg\:leading-tight.mt-1.lg\:tracking-tight.font-bold.lg\:text-5xl.text-4xl
 
 ! https://github.com/uBlockOrigin/uAssets/issues/24042
 ! https://github.com/uBlockOrigin/uAssets/issues/24313
@@ -1371,10 +1379,11 @@ streamelements.com##+js(set, sensorsDataAnalytic201505, {})
 ! shortylink. store popup
 shortylink.store##+js(aopr, open)
 
-! https://github.com/uBlockOrigin/uAssets/discussions/17361#discussioncomment-11102622
-encurtads.net,financacerta.com,shrtbr.com###adblock-message
-encurtads.net,financacerta.com##.wpsafe-top > div > center > a[href][target="_blank"]
-||encurtads.net/scriptencurmontag.js$script
+! https://github.com/uBlockOrigin/uAssets/discussions/17361#discussioncomment-11102622 (https://financacerta.com/?adlinkfly=ciUFc)
+financacerta.com,encurtads.net##+js(nostif, checkAdBlock)
+financacerta.com,encurtads.net###wpsafe-link:style(display: block !important;)
+financacerta.com,encurtads.net###wpsafe-link, .text-center.wpsafe-top > div > h1:others()
+financacerta.com,encurtads.net##+js(rmnt, script, popUp)
 
 ! https://github.com/uBlockOrigin/uAssets/discussions/17361#discussioncomment-11134851
 khaddavi.net,lokerwfh.net##+js(nano-sib)
