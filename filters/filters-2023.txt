@@ -2795,21 +2795,22 @@ freepublicporn.com##[href*="find-my-girl.com"]
 ! https://shaboysglobal.com/ anti-adb
 @@||shaboysglobal.com^$ghide
 
-! PersianBlocker filters
+! PersianBlocker trusted filters
 ! app.blubank.com, mobileweb.bankmellat.ir - These sites work fine on the desktop and Android but they only allow iPhone useragent
 app.blubank.com,mobileweb.bankmellat.ir##+js(trusted-set, navigator.userAgent, '{"value": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1"}')
 app.blubank.com,mobileweb.bankmellat.ir##+js(set, navigator.standalone, true)
 app.blubank.com##div.fixed[style^="z-index:"]:has-text(گوشی خود را بچرخانید)
 mobileweb.bankmellat.ir##+js(trusted-set, navigator.platform, {"value": "iPhone"})
-! https://uploadboy.com/f64c93jcxy0a - Timer
-uploadboy.com##+js(rpnt, script, self.location.href;, self.location.href; document.addEventListener('DOMContentLoaded'\,()=>{const button=document.querySelector('form > input#method_free');if(button){button.click()}});, sedCount, 1)
-uploadboy.com##+js(rpnt, script, //$('#btn_download').click();, $('#btn_download').click();, sedCount, 1)
+! https://uploadboy.com/rn8iy5v1h3lz - Timer
+uploadboy.com##+js(trusted-rpnt, script, //$('#btn_download').click();, $('#btn_download').click();, sedCount, 1)
 ! https://dehlinks.ir/link_download.php?Mozojadid_Id=166517 - Timer
 ||dehlinks.ir/link_download.php?Mozojadid_Id=$doc,replace=/content="15;/content="0;/
 ! https://github.com/MasterKia/PersianBlocker/issues/218 - Ads on hub.reymit.ir
 reymit.ir##+js(trusted-rpnt, script, /reymit_ads_for_categories\.length>0|reymit_ads_for_streams\.length>0/g, false)
-! "Download app" on my.irancell.ir
+! my.irancell.ir - "Download app" on mobile
 my.irancell.ir##+js(trusted-click-element, div[class^="css-"][style="transition-duration: 0s;"] > div[dir="auto"][data-testid="needDownloadPS"])
+! https://mobo.news/pricelist/xiaomi-poco-m6-pro/#8-256 - Click tracker
+||migmig.affilio.ir/api/v1/Click^$doc,urlskip=?b64 -base64
 
 ! https://github.com/uBlockOrigin/uAssets/pull/10059
 @@||sportdeutschland.tv/assets/*$script,1p
