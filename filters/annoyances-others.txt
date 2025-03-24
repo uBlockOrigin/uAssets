@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Other Annoyances
-! Last modified: Sun, 23 Mar 2025 18:47:48 +0000
+! Last modified: Mon, 24 Mar 2025 03:25:35 +0000
 ! Expires: 7 days
 ! Description: Filters optimized for uBlock Origin, to be used with EasyList's and/or Adguard's "Other Annoyances" list(s)
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -4917,14 +4917,17 @@ cafe.naver.com##+js(aopr, document.ondragstart)
 cafe.naver.com##*:style(-webkit-touch-callout: default !important; -webkit-user-select: text !important; -moz-user-select: text !important; -ms-user-select: text !important; user-select: text !important;)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/12530
-novelpia.com##+js(acs, $, keydown)
-novelpia.com##+js(acs, console.log, devtools)
-novelpia.com##+js(acs, setInterval, playAlert)
-novelpia.com##+js(ra, oncontextmenu|ondragstart|onselectstart)
-novelpia.com##+js(aeld, contextmenu, event.triggered)
 novelpia.com##+js(set, document.ondragstart, trueFunc)
 novelpia.com##+js(set, document.onselectstart, trueFunc)
-novelpia.com##*:style(-webkit-touch-callout: default !important; -webkit-user-select: text !important; -moz-user-select: text !important; -ms-user-select: text !important; user-select: text !important;)
+novelpia.com##+js(rpnt, style, .np{, .dummy{, condition, @media print)
+novelpia.com##.line:style(-webkit-touch-callout: default !important; -webkit-user-select: text !important; -khtml-user-select: text !important; -moz-user-select: text !important; -ms-user-select: text !important; user-select: text !important; -webkit-tap-highlight-color: revert !important; cursor: revert !important;)
+!#if cap_html_filtering
+novelpia.com##^script:has-text(/disableclick|devtool/)
+novelpia.com##[oncontextmenu]:remove-attr(/^on(contextmenu|dragstart|drop|selectstart)$/)
+!#else
+novelpia.com##+js(rmnt, script, /disableclick|devtool/)
+novelpia.com##+js(ra, oncontextmenu|ondragstart|ondrop|onselectstart, [oncontextmenu], complete)
+!#endif
 
 ! https://github.com/uBlockOrigin/uAssets/issues/12534
 stream.bunkr.is##+js(acs, document.oncontextmenu)
