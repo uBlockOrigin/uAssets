@@ -1153,3 +1153,11 @@ mirror.co.uk##.sticky ~ header:style(top: 0px !important;)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/27709
 formatlibrary.com##+js(no-fetch-if, doubleclick)
+
+! https://github.com/uBlockOrigin/uAssets/issues/27717
+*##.pk-page-ready > #sales-banner
+/^https?:\/\/[^\/]+\/_fd$/$xhr,1p,strict1p,header=X-Request-Id:/^[a-f0-9]{8}(-[a-f0-9]{4}){3}-[a-f0-9]{12}$/
+!#if cap_ipaddress
+/^https?:\/\/[^\/]+\/[a-zA-Z]{9}\.js$/$script,1p,strict1p,ipaddress=199.59.243.228
+/^https?:\/\/[^\/]+\/_fd$/$xhr,1p,strict1p,ipaddress=199.59.243.228
+!#endif
