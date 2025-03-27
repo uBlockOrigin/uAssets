@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Cookie Notices
-! Last modified: Thu, 27 Mar 2025 05:14:12 +0000
+! Last modified: Thu, 27 Mar 2025 17:07:00 +0000
 ! Expires: 7 days
 ! Description: Filters optimized for uBlock Origin, to be used with EasyList's and/or Adguard's "Cookie Notices" list(s)
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -3320,7 +3320,7 @@ orange.es##+js(trusted-click-element, button#consent_saveConfig, , 750)
 ! decline
 fdm-travel.dk,jysk.nl,power.no,skousen.dk,velliv.dk,whiteaway.com,whiteaway.no,whiteaway.se,skousen.no,energinet.dk##+js(trusted-click-element, button#declineButton, , 1000)
 ! decline
-altibox.no,elkjop.no##+js(trusted-click-element, button#wp-declineButton, , 1000)
+elkjop.no##+js(trusted-click-element, button#wp-declineButton, , 1000)
 
 ! basic
 medimax.de##+js(trusted-click-element, button.cookies-overlay-dialog__save-btn, , 1000)
@@ -4117,3 +4117,8 @@ lahella.fi##+js(set-local-storage-item, cookieConsentGiven, 1)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/27720
 filen.io##+js(trusted-set-cookie-reload, cookieConsent, onlyNeeded)
+
+! https://github.com/uBlockOrigin/uAssets/issues/27748
+altibox.dk,altibox.no##+js(trusted-click-element, [id="CybotCookiebotDialogBodyButtonDecline"], , 2000)
+@@||consent.cookiebot.com/uc.js^$domain=altibox.dk|altibox.no
+altibox.dk,altibox.no##.CybotCookiebotDialogContentWrapper
