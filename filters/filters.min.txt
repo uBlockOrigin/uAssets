@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Thu, 27 Mar 2025 11:49:18 +0000
+! Last modified: Thu, 27 Mar 2025 13:07:20 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -19228,7 +19228,7 @@ freepublicporn.com##[href*="find-my-girl.com"]
 ! ads /remove filters when fixed in EL
 /sw.js$script,domain=lolabits.se|filechan.org|megaupload.nz|rapidshare.nu|share-online.is|openload.cc|hotfile.io
 @@||shaboysglobal.com^$ghide
-! PersianBlocker trusted filters
+! PersianBlocker filters (trusted)
 ! app.blubank.com, mobileweb.bankmellat.ir - These sites work fine on the desktop and Android but they only allow iPhone useragent
 app.blubank.com,mobileweb.bankmellat.ir##+js(trusted-set, navigator.userAgent, '{"value": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1"}')
 app.blubank.com,mobileweb.bankmellat.ir##+js(set, navigator.standalone, true)
@@ -19240,6 +19240,7 @@ reymit.ir##+js(trusted-rpnt, script, /reymit_ads_for_categories\.length>0|reymit
 ! my.irancell.ir - "Download app" on mobile
 my.irancell.ir##+js(trusted-click-element, div[class^="css-"][style="transition-duration: 0s;"] > div[dir="auto"][data-testid="needDownloadPS"])
 ||migmig.affilio.ir/api/v1/Click^$doc,urlskip=?b64 -base64
+shomareh-yab.ir##+js(trusted-suppress-native-method, Storage.prototype.setItem, searchCount)
 @@||sportdeutschland.tv/assets/*$script,1p
 @@||71i.de/*/loader.js$script,domain=sportdeutschland.tv
 sportdeutschland.tv##+js(set, google.ima.settings.setDisableFlashAds, noopFunc)
