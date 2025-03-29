@@ -161,6 +161,12 @@ function assemble(parts) {
 
 /******************************************************************************/
 
+function normalizeLineSeparators(text) {
+    return text.replace(/\n\r|\r\n|\r/g, '\n');
+}
+
+/******************************************************************************/
+
 async function main() {
     const workingDir = commandLineArgs.get('dir') || '.';
     const inFile = commandLineArgs.get('in');
@@ -174,7 +180,12 @@ async function main() {
 
     console.info(`  Using template at ${inFile}`);
 
-    const inText = fs.readFile(`${workingDir}/${inFile}`, { encoding: 'utf8' });
+    const inText = fs.readFile(
+        `${workingDir}/${inFile}`,
+        { encoding: 'utf8' }
+    ).then(text =>
+        normalizeLineSeparators(text)
+    );
 
     let parts = [ inText ];
     do {
