@@ -188,7 +188,7 @@ smsonline.cloud##aside[class^="css-"]:has(> p:has-text(Advertisement) + ins.adsb
 ! https://github.com/uBlockOrigin/uAssets/pull/26342
 ! https://github.com/uBlockOrigin/uAssets/issues/26393
 ! https://github.com/uBlockOrigin/uAssets/issues/26623
-bing.com##+js(rpnt, script, _w.keyMap=, '(()=>{const e={apply:(e,l,o)=>{const t=Reflect.apply(e,l,o),n=o[0];if(n.includes(":before{")&&!n.includes("b_lineclamp")){const e=n.split(":before")[0];let l=document.querySelector(`ol#b_results>li[class="b_algo"]:has(>div[class="b_caption"]>${e})`);l instanceof HTMLLIElement&&(l.style.display="none")}return t}};document.createTextNode=new Proxy(document.createTextNode,e)})();_w.keyMap=')
+bing.com##+js(rpnt, script, _w.keyMap=, '(()=>{const e={apply:(e,t,n)=>{let o=Reflect.apply(e,t,n);return o instanceof HTMLIFrameElement&&!o.src&&o.contentWindow&&(o.contentWindow.document.body.getElementsByTagName=window.document.body.getElementsByTagName,o.contentWindow.MutationObserver=void 0),o}};HTMLBodyElement.prototype.appendChild=new Proxy(HTMLBodyElement.prototype.appendChild,e);const t={apply:(e,t,n)=>(t instanceof HTMLLIElement&&"b_algo"===t?.classList?.value&&"a"===n?.[0]&&setTimeout((()=>{t.style.display="none"}),100),Reflect.apply(e,t,n))};HTMLBodyElement.prototype.getElementsByTagName=new Proxy(HTMLBodyElement.prototype.getElementsByTagName,t)})();_w.keyMap=')
 bing.com##+js(no-xhr-if, /fd/ls/lsp.aspx)
 bing.com##ol#b_results > li:has(> :is(.b_tpcn, .b_title, h2) a[href^="https://www.bing.com/aclk?"])
 
@@ -202,11 +202,6 @@ bg-gledai.*,gledaitv.*##+js(no-fetch-if, method:HEAD)
 @@||g.doubleclick.net/tag/js/gpt.js$domain=video-ac.com
 @@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$domain=video-ac.com
 @@||safeframe.googlesyndication.com/safeframe/$domain=video-ac.com
-
-! https://github.com/uBlockOrigin/uBlock-issues/issues/3576 - until 1.63 available on Firefox
-!#if env_firefox
-/.*/$permissions=identity-credentials-get=(),document,badfilter
-!#endif
 
 ! https://www.reddit.com/r/uBlockOrigin/comments/1jef4qb/having_adblock_issues_with_faqwikius/
 faqwiki.us##+js(nostif, .offsetHeight>0)
