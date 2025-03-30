@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2022)
-! Last modified: Sun, 30 Mar 2025 17:36:27 +0000
+! Last modified: Sun, 30 Mar 2025 17:59:46 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -2639,16 +2639,9 @@ voirseries.*##.report-pub
 ! https://github.com/uBlockOrigin/uAssets/issues/13827
 *$script,redirect-rule=noopjs,domain=feyorra.site
 
-! hh3dhay.xyz/com popup
-hh3dhay.com##.float-ck-center-lt
-
 ! moviesland. eu/ .xyz
 moviesland.*##+js(aopr, __Y)
 moviesland.*##+js(aopr, AaDetector)
-
-! https://github.com/uBlockOrigin/uAssets/issues/13837
-*$script,domain=doge25.in,redirect-rule=noopjs
-doge25.in##+js(no-fetch-if, /ads|track/)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/13843
 rimworldbase.com##+js(aopr, ai_run_scripts)
@@ -2670,9 +2663,6 @@ nullpk.com##+js(nostif, showModal)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/13868
 @@||tusachxinhxinh.com^$script,1p
-
-! https://github.com/uBlockOrigin/uAssets/issues/13871
-apksafe.in##+js(no-fetch-if, ads)
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/123015
 ||xxx18.uno/*-code.js
@@ -2743,14 +2733,10 @@ nosteam.ro##+js(acs, jQuery, click)
 @@||nosteam.ro/notcaptcha/adheader.js$domain=nosteamgames.ro
 nosteamgames.ro##+js(aopr, _wm)
 
-! https://github.com/AdguardTeam/AdguardFilters/issues/123311
-javenglish.me##+js(aopr, __Y)
-
 ! https://github.com/easylist/easylist/issues/12450
-trustexploration.com,sportsembed.*,sportsonline.*##+js(acs, setTimeout, admc)
+sportsembed.*,sportsonline.*##+js(acs, setTimeout, admc)
 sportsonline.*##+js(acs, Object.defineProperty, break)
 *$script,3p,denyallow=cloudflare.net|jsdelivr.net|fastly.net|swarm.video,domain=sportsonline.*
-*$script,3p,domain=maxsport.one|sportz.football
 ||terribledeliberate.com^$all
 sportsonline.*##^script:has-text("admc")
 sportsonline.*##^script:has-text(\"admc\")
@@ -2763,19 +2749,6 @@ speedynews.xyz##div[id^="speedynews_"]
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/123438
 ps2-bios.com##+js(acs, document.getElementById, innerHTML)
-
-! sports stuff rojadirecta. asia /nstream. to
-*$script,3p,denyallow=cloudflare.com|gstatic.com|jsdelivr.net|fastly.net|swarm.video|zencdn.net,domain=nstream.to
-
-! actusports. eu
-*$script,3p,denyallow=jsdelivr.net|fastly.net|swarm.video,domain=warnforlese.net
-*$script,3p,denyallow=bootstrapcdn.com|cloudflare.net|jquery.com|hwcdn.net|jsdelivr.net|fastly.net|googleapis.com,domain=fclecteur.com
-
-! https://github.com/uBlockOrigin/uAssets/issues/13914
-flixtormovies.co##+js(aopr, AaDetector)
-
-! https://github.com/uBlockOrigin/uAssets/issues/13915
-||flixtor.movie/ajax/script.php$script,1p
 
 ! https://github.com/uBlockOrigin/uAssets/issues/13917
 ! https://github.com/uBlockOrigin/uAssets/issues/15700
@@ -2791,17 +2764,11 @@ sexemix.com##+js(set, flashvars.adv_pre_src, '')
 ! https://www.reddit.com/r/uBlockOrigin/comments/vrljrz/block_popup_overlay_cant_scroll_now/
 *$script,xhr,domain=intibia.com,redirect-rule=noopjs
 
-! https://github.com/uBlockOrigin/uAssets/issues/13930
-mangaprotm.com##+js(acs, eval, replace)
-
 ! https://github.com/easylist/easylist/issues/12454
 *$3p,domain=direct-cloud.*
 
 ! https://github.com/uBlockOrigin/uAssets/issues/13940
 bluedrake42.com##+js(nostif, adb)
-
-! calidadcine. net popups
-calidadcine.net##+js(aopw, afStorage)
 
 ! teachoo. com anti adb
 teachoo.com##+js(aopr, importantFunc)
@@ -2813,30 +2780,11 @@ teachoo.com##+js(rmnt, script, numberPages)
 teachoo.com##+js(rmnt, script, brave)
 !#endif
 
-! https://github.com/AdguardTeam/AdguardFilters/issues/123560
-go.linkbnao.com,link-yz.com##+js(set, blurred, false)
-tecnicalboy.com##fixedbanner
-
 ! pianoweb. fr anti adb
 *$script,domain=pianoweb.fr,redirect-rule=noopjs
 
-! links4u. co popups
-links4u.co##+js(aost, document.createElement, /(?=^(?!.*(http)))/) 
-links4u.co##+js(aost, Object, webpack)
-
 ! https://github.com/uBlockOrigin/uAssets/issues/13948
 apkmagic.com.ar##+js(acs, eval, replace)
-
-! https://rpdrlatino.com/episodio/big-boys-1x4/ popup
-! https://github.com/uBlockOrigin/uAssets/issues/21870
-rpdrlatino.live##+js(aopr, BetterJsPop)
-rpdrlatino.live##+js(set, adblockcheck, false)
-rpdrlatino.live##+js(nowoif, , 10)
-
-! edoujin.net popunder/redirect
-edoujin.net##+js(aost, String.prototype.charCodeAt, /(?=^(?!.*(https|Object)))/)
-edoujin.net##+js(refresh-defuser)
-edoujin.net##^meta[http-equiv="refresh"]
 
 ! https://forums.lanik.us/viewtopic.php?t=47686-maisonbrico-com
 maisonbrico.com##+js(aopr, console.warn)
@@ -2845,23 +2793,10 @@ maisonbrico.com##[id^="pub"]
 ! https://github.com/uBlockOrigin/uAssets/issues/13955
 odum.cl##+js(acs, $, sam)
 
-! pornobae.com popup
-pbtube.co##+js(aopr, BetterJsPop)
-
 ! https://github.com/uBlockOrigin/uAssets/issues/13966
 pl#@#.advert
 elektroda.pl#@#+js(set, loadElement, noopFunc)
 elektroda.pl##*:has(> .top-box-caption:has-text(/REKLAMA|WERBUNG/) + a)
-
-! https://github.com/uBlockOrigin/uAssets/issues/13961
-*$media,domain=link.paid4file.com
-link.paid4file.com##+js(set, go_popup, {})
-link.paid4file.com##+js(nowoif)
-link.paid4file.com##.blog-content
-link.paid4file.com##.banner-inner
-link.paid4file.com##.page-header
-link.paid4file.com##.card-body
-link.paid4file.com##.card-img-top
 
 ! helmiau. com anti adb
 helmiau.com##+js(acs, document.createElement, open)
@@ -2919,11 +2854,6 @@ panda-novel.com,zebranovel.com##[class^="novel-ins"]
 ksl.com##+js(acs, showAdBlock)
 ||imasdk.googleapis.com/js/sdkloader/ima3.js$script,redirect-rule=noopjs,domain=ksl.com
 @@||cloudfront.net/videojs/videojs-contrib-ads.js$script,domain=ksl.com
-
-! https://github.com/uBlockOrigin/uAssets/issues/14011
-mlb66.ir##+js(nowoif)
-mlb66.ir##.overlay-wrapper
-||mlb66.ir/*.php$script,1p
 
 ! https://github.com/uBlockOrigin/uAssets/issues/14014
 technichero.com##+js(nostif, ads)
@@ -3061,12 +2991,6 @@ movierulzhd.*##+js(aost, document.createElement, /(?=^(?!.*(http)))/)
 
 ! https://www.reddit.com/r/uBlockOrigin/comments/w5hu7x/
 ||messaging.sourcepoint.com^$script,domain=autocar.co.uk
-
-! Ads (Indonesian)
-animasu.club###lmd-iklan
-
-! https://github.com/uBlockOrigin/uAssets/issues/14104
-roshiyatech.my.id##+js(nostif, ads)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/14115
 @@||documaniatv.com^$script,xhr,1p
