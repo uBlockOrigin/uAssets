@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2025)
-! Last modified: Sun, 30 Mar 2025 16:44:31 +0000
+! Last modified: Sun, 30 Mar 2025 18:24:24 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -1222,3 +1222,15 @@ apex2nova.com##+js(rmnt, script, delete window)
 
 ! https://github.com/uBlockOrigin/uBlock-discussions/discussions/939
 zone.msn.com##+js(no-fetch-if, googlesyndication, length:40000-60000)
+
+! worthcrete.com ad popups/antiadb
+!#if cap_html_filtering
+worthcrete.com##^script:has-text(pop1stp)
+!#else
+worthcrete.com##+js(rmnt, script, pop1stp)
+worthcrete.com##+js(nowoif)
+worthcrete.com##+js(acs, document.createElement, "'script'")
+worthcrete.com##+js(nostif, offsetHeight)
+!#endif
+||palecount.com^
+||spotlesscomplaint.com^
