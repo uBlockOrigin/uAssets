@@ -242,6 +242,29 @@ spankbang.*##+js(set, BJSShowUnder, {})
 spankbang.*##+js(set, BJSShowUnder.bindTo, noopFunc)
 spankbang.*##+js(set, BJSShowUnder.add, noopFunc)
 
+! kissasian .sh, .li, .sk
+! https://www.reddit.com/r/uBlockOrigin/comments/u8f1c6/blocked_video/
+kissasian.*##+js(nowoif)
+@@||kissasian.*^$ghide
+kissasian.*##.ksAds
+kissasian.*##[id*="ScriptRoot"]
+kissasian.*###videoAd
+kissasian.*###hideAds
+kissasian.*##div[style$="width: 610px;"]:has(.adsbyvli)
+kissasian.*##div[style$="height: 90px;"]:has(.adsbyvli)
+kissasian.*###overplay
+||kissasian.*/Ads/$frame
+! kissanime. nz scammy 3p scripts
+kissanime.*###upgrade_pop
+embed.streamx.me##+js(noeval-if, debugger)
+||kissanime.*/api/pop*$xhr,1p
+||kissasian.*/api/pop.php$xhr,1p
+||ad.kissasian.*^$script,1p
+||kisscartoon.*/api/pop.php$xhr,1p
+||ad.kisscartoon.*^$script,1p
+! https://github.com/uBlockOrigin/uAssets/issues/27799
+kissasian.*>>,~google.com,~youtube.com,~youtube-nocookie.com##+js(nowoif)
+
 ! END: Rules from filters.txt
 
 ! START: Regional lists
