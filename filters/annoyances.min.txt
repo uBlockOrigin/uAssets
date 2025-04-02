@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Annoyances
 ! Expires: 7 days
-! Last modified: Sun, 30 Mar 2025 07:22:48 +0000
+! Last modified: Wed, 02 Apr 2025 11:47:41 +0000
 ! Diff-Path: %diffpath%#ublock-annoyances
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -4081,3 +4081,8 @@ pawastreams.pro##+js(nostif, debugger)
 samurai.wordoco.com##+js(acs, nocontextmenu)
 samurai.wordoco.com##body * :not(input):not(textarea):style(-webkit-touch-callout: default !important; -webkit-user-select: text !important; -khtml-user-select: text !important; -moz-user-select: text !important; -ms-user-select: text !important; user-select: text !important; -webkit-tap-highlight-color: revert !important; cursor: revert !important;)
 bcs16.ro##+js(aopw, document.oncontextmenu)
+!#if !cap_html_filtering
+bilibili.com##+js(aost, player.pause, /stackDepth:(9|10).+https:[./0-9a-z]+\/video\.[0-9a-f]+\.js:1\d{2}:1.+\.emit/)
+!#else
+||s1.hdslb.com/bfs/static/jinkela/video/video.$script,replace=/t\.user\.isLogin\?/1?/,domain=bilibili.com
+!#endif
