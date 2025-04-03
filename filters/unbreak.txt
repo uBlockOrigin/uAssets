@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Unbreak
-! Last modified: Tue, 01 Apr 2025 12:33:45 +0000
+! Last modified: Thu, 03 Apr 2025 03:26:54 +0000
 ! Expires: 5 days
 ! Description: Filters optimized for uBlock Origin, to unbreak sites broken as a result of 3rd-party filter lists enabled by default.
 ! Homepage: https://github.com/uBlockOrigin/uAssets
@@ -301,7 +301,9 @@ hintergrundbild.org#@#.ads1
 ! https://www.reddit.com/r/uBlockOrigin/comments/85oqui/ublock_origin_on_igncom/
 @@||ign.com/newsfeed-block$xhr,1p
 ! https://github.com/uBlockOrigin/uAssets/issues/27666
-||imasdk.googleapis.com/js/sdkloader/ima3.js$script,redirect=google-ima.js,domain=ign.com
+! https://github.com/uBlockOrigin/uAssets/issues/27836
+@@||imasdk.googleapis.com/js/sdkloader/ima3.js$script,domain=ign.com
+@@||cdn.ziffstatic.com/pg/ign.$script,domain=ign.com
 
 ! https://github.com/uBlockOrigin/uAssets/issues/1747
 @@||cxense.com/cx.js$script,domain=letelegramme.fr
@@ -1851,10 +1853,10 @@ order-order.com#@#.tag-sponsored
 *$script,3p,domain=cartoonth12.com,badfilter
 
 ! amazon_apstag.js
-||amazon-adsystem.com/*/apstag.js$xhr,redirect-rule=amazon_apstag.js:5
 ! https://github.com/uBlockOrigin/uAssets/issues/22486
+! https://github.com/uBlockOrigin/uAssets/issues/27836
 ! https://www.thelallantop.com/sports/post/champions-trophy-hosted-by-pakistan-one-match-cost-millions-to-board - webpage error
-||amazon-adsystem.com/*/apstag.js$script,redirect-rule=amazon_apstag.js:5,domain=~republicbharat.com|~thelallantop.com
+||amazon-adsystem.com/*apstag.js^$redirect=amazon_apstag.js:5,domain=~republicbharat.com|~thelallantop.com
 
 ! https://github.com/uBlockOrigin/uAssets/issues/7397
 @@||reference.medscape.com/public/vptrack_iframe.html$frame,1p
