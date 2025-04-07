@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2023)
-! Last modified: Mon, 07 Apr 2025 03:03:16 +0000
+! Last modified: Mon, 07 Apr 2025 03:10:46 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -4516,7 +4516,8 @@ expertplay.net##+js(acis, ips.controller.register)
 royalroad.com##+js(set, isPremium, true)
 royalroad.com##+js(nostif, loadBanners)
 royalroad.com##+js(rmnt, script, /detect|nitroAds/)
-! royalroad.com##[rel$="sponsored"]:upward(.portlet)
+royalroad.com##.text-center:has(> div[id*="_"] > div > div a[rel$="sponsored"] img)
+royalroad.com##.t-center-3 > div:has-text(/^Advertisement$/):upward(1)
 royalroad.com##a[rel$="sponsored"] img
 royalroad.com##.t-center:has(> .bold.uppercase, #Content_Top_Desktop)
 royalroad.com##.portlet:has(> h6)
