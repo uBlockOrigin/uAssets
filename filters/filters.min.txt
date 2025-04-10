@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Thu, 10 Apr 2025 03:50:35 +0000
+! Last modified: Thu, 10 Apr 2025 06:14:45 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -9169,7 +9169,7 @@ reddflix.com##+js(aopr, LieDetector)
 erospots.info##+js(aopr, Pub2)
 gameofporn.com##+js(aeld, , exopop)
 jemontremonminou.com,jemontremasextape.com,jemontremabite.com##+js(aopr, localStorage)
-jizzberry.com,porndollz.com,xnxxvideo.pro,xvideosxporn.com,filmpornofrancais.fr,pictoa.com##+js(aeld, getexoloader)
+hentaihere.com,ganstamovies.com,youngleak.com,jizzberry.com,porndollz.com,xnxxvideo.pro,xvideosxporn.com,filmpornofrancais.fr,pictoa.com##+js(aeld, getexoloader)
 nackte.com##+js(aopr, jsUnda)
 older-mature.net##+js(aopr, doOpen)
 canalporno.com,dreamamateurs.com,eroxia.com,porndoe.com,pornozot.com##+js(aopr, ExoLoader)
@@ -9276,9 +9276,15 @@ nylonbabez.net,nylonpornpictures.net,stockingspornpics.com##.preview:has(.nat-bl
 zhlednito.cz##+js(nosiif, /^/)
 xxxtubepass.com,yourhomemadetube.com##+js(aopr, Aloader.serve)
 yeswegays.com,youramateurtube.com##+js(nowoif)
-ganstamovies.com,youngleak.com##+js(aeld, getexoloader)
 18girlssex.com##+js(aopr, decodeURI)
 ||youramateurtube.com/sw.js$script,1p
+!#if cap_html_filtering
+hentaihere.com##^script:has-text(/shown_at|WebAssembly/)
+!#else
+hentaihere.com##+js(rmnt, script, /shown_at|WebAssembly/)
+!#endif
+||hentaihere.com/ark/$1p
+hentaihere.com##.item:has(a[href^="https://hive.arf.dev"]):upward(div[class])
 ! !SECTION: exoclick ads, popunder - ExoLoader
 ! SECTION: Propeller ads
 ! pp_issues
@@ -23398,14 +23404,6 @@ unlimitedfiles.xyz##+js(nowoif)
 ||publicrecords.netronline.com/js/checkuser.js$script,1p
 moviediskhd.cloud##+js(acs, document.createElement, warning)
 androidadult.com##+js(rmnt, script, ads-blocked)
-!#if cap_html_filtering
-hentaihere.com##^script:has-text(/shown_at|WebAssembly/)
-!#else
-hentaihere.com##+js(rmnt, script, /shown_at|WebAssembly/)
-!#endif
-||hentaihere.com/ark/$1p
-hentaihere.com##+js(aeld, getexoloader)
-hentaihere.com##.item:has(a[href^="https://hive.arf.dev"]):upward(div[class])
 ||remotescout24.com/static/plugins/publicSpace/detect-adblocker/
 ! onlyjerk .net (NSFW) - ads
 *$script,3p,domain=onlyjerk.net
