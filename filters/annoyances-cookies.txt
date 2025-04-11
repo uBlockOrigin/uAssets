@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Cookie Notices
-! Last modified: Fri, 11 Apr 2025 05:31:04 +0000
+! Last modified: Fri, 11 Apr 2025 10:58:38 +0000
 ! Expires: 7 days
 ! Description: Filters optimized for uBlock Origin, to be used with EasyList's and/or Adguard's "Cookie Notices" list(s)
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -1556,7 +1556,6 @@ anghami.com##.cookie-container
 
 ! privacy-mgmt.com cookie banner
 ! accept
-zeit.de##+js(trusted-set-cookie, consentUUID, a05bb3f1-519f-44da-92f3-6a10e3f75e53_32)
 chip.de##+js(trusted-set-cookie, consentUUID, ce12400a-9c73-4bf8-8098-9e756366f942_34_38)
 faz.net##+js(trusted-set-cookie, consentUUID, 798788d9-0aa9-4d39-b8f0-edb272b7ca39_32_38)
 heise.de##+js(trusted-set-cookie, consentUUID, cc3fda07-066e-4c67-a9eb-72d5dce1a921_32_33)
@@ -2403,7 +2402,7 @@ buienradar.nl##+js(trusted-click-element, button.payok__submit, , 750)
 linsenplatz.de##+js(trusted-click-element, button.btn-outline-secondary, , 1000)
 
 ! reject
-turvakauppa.com,badgeland.no##+js(trusted-set-cookie, pr-cookie-consent, [])
+turvakauppa.com,badgeland.no,stickerland.dk##+js(trusted-set-cookie, pr-cookie-consent, [])
 
 ! necessary (option 2)
 budni.de,erstecardclub.hr##+js(trusted-click-element, button#footer_tc_privacy_button_2, , 1000)
@@ -3036,8 +3035,39 @@ universcine.com##+js(trusted-set-cookie, COOKIE_CONSENT, '{"technical-cookies":t
 beam.co.uk##+js(trusted-click-element, div.privacy-more-information, , 600)
 beam.co.uk##+js(trusted-click-element, div#preferences_prompt_submit, , 750)
 
+! allow selected
+autobahn.de##+js(trusted-click-element, button[data-cookieman-save], , 1000)
+
+! selected
+bbb.org##+js(set-cookie, iabbb_cookies_preferences_set, true, , , domain, .bbb.org, , reload, 1)
+bbb.org##+js(trusted-set-cookie, iabbb_cookies_policy, %7B%22necessary%22%3Atrue%2C%22functional%22%3Afalse%2C%22performance%22%3Afalse%2C%22marketing%22%3Afalse%7D, , , domain, .bbb.org)
+
+! Agree (consent wall)
+consent-cdn.zeit.de##+js(trusted-click-element, button[title="Agree and continue"], , 1000)
+
+! accept
+incomeshares.com##+js(set-local-storage-item, policyAccepted, true)
+incomeshares.com##+js(trusted-set-local-storage-item, policyAcceptedDate, $currentDate$)
+
+! mandatory
+1und1.net##+js(set-cookie, cookie-agreed, 2)
+1und1.net##+js(trusted-set-cookie, cookie-agreed-categories, '["mandatory"]')
+1und1.net##+js(trusted-set-cookie, cookie-agreed-version, 1.0.0)
+
+! refuse
+coway-usa.com##+js(trusted-click-element, span.gmt_refuse, , 1000)
+
 ! essential
-ecmrecords.com,malaikaraiss.com##+js(trusted-click-element, a#CookieBoxSaveButton, , 1000)
+mojomortgages.com##+js(trusted-set-cookie, allow-cookies, essential-only)
+
+! save
+steiners.shop##+js(trusted-click-element, span.btn-btn-save, , 1500)
+
+! essential
+javeahouses.com##+js(trusted-set-cookie, cookieControlPrefs, '["essential"]')
+
+! essential
+ecmrecords.com,malaikaraiss.com,koch-mit.de,zeitreisen.zeit.de##+js(trusted-click-element, a#CookieBoxSaveButton, , 1000)
 
 ! refuse
 wefashion.com##+js(trusted-click-element, span[data-content="WEIGEREN"], , 1000)
@@ -3376,7 +3406,7 @@ coastfashion.com,oasisfashion.com,warehousefashion.com,misspap.com,karenmillen.c
 hdt.de##+js(trusted-click-element, .dsgvo-cookie-modal .content .dsgvo-cookie .cookie-permission--content .dsgvo-cookie--consent-manager .cookie-removal--inline-manager .cookie-consent--save .cookie-consent--save-button, , 1000)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/27044
-wolt.com##+js(trusted-click-element, div[data-test-id="CookieConsentsBanner.Root"] button[data-test-id="decline-button"], '', 1000)
+wolt.com##+js(trusted-click-element, .b1m5dgh8 .deorxlo button[data-test-id="decline-button"], '', 1000)
 
 ! DPG Media owns lots of sites which redirect to one of these domains to ask for consent - reject all
 ! Sample pages: hln.be, nu.nl, tweakers.net
@@ -3989,7 +4019,16 @@ cdn.privacy-mgmt.com##+js(trusted-click-element, button[title="ACEPTAR Y GUARDAR
 swiss-sport.tv##+js(trusted-click-element, #cookiescript_reject, , 500)
 
 ! essential
-targobank-magazin.de##+js(trusted-click-element, ._brlbs-refuse-btn > ._brlbs-cursor._brlbs-btn, , 1000)
+targobank-magazin.de,zeit-verlagsgruppe.de##+js(trusted-click-element, ._brlbs-refuse-btn > ._brlbs-cursor._brlbs-btn, , 1000)
+
+! accept
+nltraining.nl##+js(trusted-click-element, .cookie-footer > button[type="submit"], , 1000)
+
+! agree (needed for embedded video)
+kmudigital.at##+js(trusted-click-element, button#cookie-banner-agree-all, , 1000)
+
+! agree
+mintysquare.com##+js(trusted-click-element, button[class="amgdprcookie-button -allow"], , 1000)
 
 ! Necessary, uuid=1
 hellowork.com##+js(trusted-set-cookie, hw-cc-first-party, '{"uuid":"1","statistics":false,"marketing":false}')
