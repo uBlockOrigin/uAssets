@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Other Annoyances
-! Last modified: Fri, 11 Apr 2025 04:28:05 +0000
+! Last modified: Fri, 11 Apr 2025 04:29:06 +0000
 ! Expires: 7 days
 ! Description: Filters optimized for uBlock Origin, to be used with EasyList's and/or Adguard's "Other Annoyances" list(s)
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -7874,6 +7874,7 @@ time.is##html:style(overflow: auto !important;)
 ! https://community.brave.com/t/bilibili/601806
 !#if !cap_html_filtering
 bilibili.com##+js(aost, player.pause, /stackDepth:(9|10).+https:[./0-9a-z]+\/video\.[0-9a-f]+\.js:1\d{2}:1.+\.emit/)
+bilibili.com#@#+js(aost, player.pause, /[0-9a-f]{40}\.js:1\d{2}([\S\s]+\.emit.+core\.){3}/)
 !#else
 ||s1.hdslb.com/bfs/static/jinkela/video/video.$script,replace=/t\.user\.isLogin\?/1?/,domain=bilibili.com
 !#endif
