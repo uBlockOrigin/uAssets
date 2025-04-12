@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Privacy
-! Last modified: Sat, 12 Apr 2025 09:11:17 +0000
+! Last modified: Sat, 12 Apr 2025 12:29:21 +0000
 ! Expires: 7 days
 ! Description: |
 !   Some of these filters make use of the `important` filter option,`
@@ -880,6 +880,9 @@ bing.com##+js(href-sanitizer, a[href^="/rebates/welcome?url=http"], ?url)
 ! https://github.com/uBlockOrigin/uAssets/issues/27950
 ||duckduckgo.com/l/?uddg=http$doc,urlskip=?uddg
 
+! https://boyfriendtv.com
+||link.email.boyfriendtv.com/link/*/aHR0c$doc,urlskip=/link\.email\.boyfriendtv\.com\/link\/[^\/]+\/(aHR0c[^\/?#]+)/ -base64 +https
+
 ! Click Trackers
 ! https://reddit.com/r/uBlockOrigin/comments/14t3y1d/
 html.duckduckgo.com,lite.duckduckgo.com##+js(href-sanitizer, a[href^="//duckduckgo.com/l/?uddg="], ?uddg)
@@ -1736,6 +1739,9 @@ grok.com##+js(no-fetch-if, url:/api/statsig/log_event method:POST)
 
 ! https://px.a8.net/svt/ejp?a8mat=2TMZ7K+6IKXR6+NA2+BW0YB&a8ejpredirect=https%3A%2F%2Fwww.amiami.jp%2Ftop%2Fdetail%2Fdetail%3Fgcode%3DFIGURE-180018
 ||px.a8.net/svt/ejp?*&a8ejpredirect=$doc,urlskip=?a8ejpredirect -uricomponent
+
+! https://github.com/uBlockOrigin/uAssets/issues/27712
+||qa-events-schema.viacom.tech^
 
 ! Merge in resource-abuse.txt
 !#include resource-abuse.txt
