@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Cookie Notices
-! Last modified: Fri, 11 Apr 2025 10:58:38 +0000
+! Last modified: Sun, 13 Apr 2025 07:10:23 +0000
 ! Expires: 7 days
 ! Description: Filters optimized for uBlock Origin, to be used with EasyList's and/or Adguard's "Cookie Notices" list(s)
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -1656,8 +1656,8 @@ euronews.com###poool-fullscreen-widget
 vroomly.com##+js(trusted-set-cookie, cookie_consent_202401, '{"sentry":false,"braze":false,"userpilot":false,"googleAnalytics":false,"amplitude":false,"hotjar":false,"facebookPixel":false,"googleAds":false,"kwanko":false}')
 
 ! https://github.com/easylist/easylist/issues/12871#issuecomment-2211771161
-ryobitools.eu##+js(trusted-click-element, #onetrust-pc-btn-handler)
-ryobitools.eu##+js(trusted-click-element, .save-preference-btn-handler, , 1000)
+ryobitools.eu##+js(trusted-click-element, button#cookie-onetrust-show-info, , 900)
+ryobitools.eu##+js(trusted-click-element, .save-preference-btn-handler, , 1100)
 ryobitools.eu###onetrust-consent-sdk
 
 ! Decline consent, video playback=good. Set expiry date to 1
@@ -2006,7 +2006,22 @@ privacy.maennersache.de##+js(trusted-click-element, button[title="Einwilligen un
 lovo.ai##+js(trusted-set-cookie, cookieConsent, '{"essential":true,"analytical":false,"functional":false,"marketing":false}')
 
 ! Agree (cookie-wall consent)
-cmp.heise.de,cmp.am-online.com,cmp.motorcyclenews.com,consent.newsnow.co.uk##+js(trusted-click-element, button[title="Agree"], , 1000)
+cmp.heise.de,cmp.am-online.com,cmp.motorcyclenews.com,consent.newsnow.co.uk,cmp.todays-golfer.com##+js(trusted-click-element, button[title="Agree"], , 1000)
+
+! accept
+koeser.com##+js(trusted-click-element, a.cookie-permission--accept-button, , 1000)
+
+! essential
+central-bb.de##+js(trusted-click-element, button[title="Alle ablehnen"], , 1800)
+
+! accept
+brainmarket.pl##+js(trusted-click-element, button[data-testid="buttonCookiesAccept"], , 1500)
+
+! essential
+cart-in.re##+js(trusted-click-element, a#cookies-consent-essential, , 1000)
+
+! continue without accepting
+prestonpublishing.pl##+js(trusted-click-element, a.hi-cookie-continue-without-accepting, , 1500)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/26465
 character.ai##+js(trusted-set-cookie, cookie_consent_v1, reject_all)
@@ -2070,8 +2085,8 @@ redcare.it##+js(trusted-set-cookie, usercentrics_consent, '{"ad_storage":0,"anal
 austrian.com,lufthansa.com##+js(trusted-click-element, button[id="cm-acceptNone"], , 1000)
 
 ! Just Essential
-hornetsecurity.com,kayzen.io,wasserkunst-hamburg.de,zahnspange-oelde.de###BorlabsCookieBox
-hornetsecurity.com,kayzen.io,wasserkunst-hamburg.de,zahnspange-oelde.de##+js(trusted-click-element, button.brlbs-btn-accept-only-essential, , 1000)
+kampfkunst-herz.de,hornetsecurity.com,kayzen.io,wasserkunst-hamburg.de,zahnspange-oelde.de###BorlabsCookieBox
+kampfkunst-herz.de,hornetsecurity.com,kayzen.io,wasserkunst-hamburg.de,zahnspange-oelde.de##+js(trusted-click-element, button.brlbs-btn-accept-only-essential, , 1000)
 
 ! disagree
 bnc.ca,decathlon.fr,egora.fr,engelvoelkers.com,estrategiasdeinversion.com,festo.com,francebleu.fr,francemediasmonde.com,geny.com,giphy.com,idealista.com,infolibre.es,information.tv5monde.com,ing.es,knipex.de,laprovence.com,lemondeinformatique.fr,libertaddigital.com,mappy.com,marianne.net,orf.at,philibertnet.com,researchgate.net,rtbf.be,rtl.be,standaard.be,stroilioro.com,taxfix.de,telecinco.es,vistaalegre.com,zimbra.free.fr##+js(trusted-click-element, button[id="didomi-notice-disagree-button"], , 1000)
@@ -2962,8 +2977,7 @@ airbaltic.com##+js(trusted-click-element, button.cookiebanner__buttons__deny, , 
 zorgzaam010.nl##+js(trusted-click-element, button.button-refuse, , 1000)
 
 ! refuse
-etos.nl##+js(trusted-set-cookie, etos-cookie-message, 8.0)
-etos.nl##+js(set-cookie,etos-tracking-consent, 0)
+etos.nl##+js(trusted-click-element, button#cookie-dismiss, , 1000)
 
 ! saveConsent
 paruvendu.fr##+js(trusted-click-element, a[onclick="cmp_pv.cookie.saveConsent('onlyLI');"], , 1000)
@@ -3050,9 +3064,9 @@ incomeshares.com##+js(set-local-storage-item, policyAccepted, true)
 incomeshares.com##+js(trusted-set-local-storage-item, policyAcceptedDate, $currentDate$)
 
 ! mandatory
-1und1.net##+js(set-cookie, cookie-agreed, 2)
-1und1.net##+js(trusted-set-cookie, cookie-agreed-categories, '["mandatory"]')
-1und1.net##+js(trusted-set-cookie, cookie-agreed-version, 1.0.0)
+1und1.net,zdf-studios.com##+js(set-cookie, cookie-agreed, 2)
+1und1.net,zdf-studios.com##+js(trusted-set-cookie, cookie-agreed-categories, '["mandatory"]')
+1und1.net,zdf-studios.com##+js(trusted-set-cookie, cookie-agreed-version, 1.0.0)
 
 ! refuse
 coway-usa.com##+js(trusted-click-element, span.gmt_refuse, , 1000)
@@ -3808,7 +3822,7 @@ roblox.com##+js(trusted-set-cookie, RBXcb, RBXViralAcquisition=false&RBXSource=f
 ceneo.pl##+js(trusted-click-element, button[data-role="reject-rodo"], , 1500)
 
 ! accept, only option
-routershop.nl##+js(trusted-click-element, button#CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll, , 1000)
+cart-in.re,routershop.nl,woo.pt##+js(trusted-click-element, button#CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll, , 1000)
 
 ! reject
 druni.es,druni.pt##+js(trusted-click-element, button[aria-label="Rechazar"], , 1000)
@@ -3844,7 +3858,7 @@ weareethos.com##+js(trusted-set-cookie, gdprcookienotice, '{"date":"1","necessar
 banja-tellig.de##+js(trusted-set-local-storage-item, cookieSettings, '{"essential":true,"statistics":false,"thirdparty":false,"cookiesAccepted":true}')
 
 ! accept paywall
-lequipe.fr##+js(trusted-click-element, button.Cmp__action--yes, , 1000)
+lequipe.fr##+js(trusted-click-element, button.Cmp__action--yes, , 1800)
 
 ! agree only option
 gala.fr##+js(trusted-click-element, button.fig-consent-banner__accept, , 1000)
