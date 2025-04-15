@@ -1831,40 +1831,9 @@ bondagevalley.cc##+js(rmnt, script, innerHTML)
 ||aucdn.net/library/*.mp4|$media,domain=clgt.one
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/177237
-||in-jpn.com^$script,redirect=noop.js
-||xth.jp^$script,redirect=noop.js
-||oninet.ne.jp^$script,redirect=noop.js
-*$script,3p,domain=in-jpn.com|xth.jp
-*$script,3p,denyallow=ampproject.org,domain=oninet.ne.jp
-@@/^https:\/\/[a-z]*\.?in-jpn\.com\/wp-includes\/js\/jquery\/jquery(-migrate)?\.min\.js\?ver=\d\.\d\.\d{1,2}$/$script,1p,strict1p,match-case,domain=in-jpn.com
-@@/^https:\/\/[a-z]*\.?in-jpn\.com\/wp-includes\/js\/wp-emoji-release\.min\.js\?(?:ver=\?)?ver=\d\.\d\.\d{1,2}$/$script,1p,strict1p,match-case,domain=in-jpn.com
-@@/^https:\/\/[a-z]*\.?in-jpn\.com\/wp-content\/themes\/amphibious\/js\/(?:custom|enquire|fitvids|hover-intent|superfish)\.js\?ver=(?:\d\.\d(?:\.\d{1,2})?|r\d)$/$script,1p,strict1p,match-case,domain=in-jpn.com
-@@/\.oninet\.ne\.jp\/sakigakesoft\/(?!sakigake)[a-z]{5,}-[a-z]{4,}-?[a-z]?\.js$/$script,1p,strict1p,domain=oninet.ne.jp
-@@||oninet.ne.jp/sakigakesoft/s/holmes-geojson.js$1p,strict1p
-@@||oninet.ne.jp/sakigakesoft/s/leaf_main.js$script,1p,strict1p
-@@||in-jpn.com^$ghide
-@@||oninet.ne.jp^$ghide
-@@||xth.jp^$ghide
-in-jpn.com,oninet.ne.jp,xth.jp##body:style(color: #000 !important;)
-in-jpn.com,oninet.ne.jp,xth.jp##body div:matches-css(position: fixed):matches-css(background-color: /rgb/):matches-css(z-index: /\d+/)
-in-jpn.com,oninet.ne.jp##img:style(visibility: visible !important;)
-oninet.ne.jp##a[href^="https://hb.afl.rakuten.co.jp/hsc/"]
-oninet.ne.jp##a[href^="https://hb.afl.rakuten.co.jp/hsc/"] ~ img[src="qr-rakuten-travel-logo.png"]
-oninet.ne.jp##a[href^="https://www.amazon.co.jp/dp/"]
-oninet.ne.jp##a[href^="https://www.amazon.co.jp/dp/"] ~ img[src="qr-amazon-logo.png"]
-xth.jp##body:style(background: none !important;)
-in-jpn.com##+js(trusted-replace-xhr-response, /.*/, , pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?)
-@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$xhr,domain=in-jpn.com
-oninet.ne.jp,xth.jp##[id]:has(> ins.adsbygoogle):style(height: 100px !important; position: absolute !important; left: -4000px !important;)
-oninet.ne.jp##table:style(visibility: visible !important;)
-in-jpn.com,oninet.ne.jp,xth.jp##+js(set, myFunc, noopFunc)
 !#if cap_html_filtering
-in-jpn.com,xth.jp##^script:has-text(フィルタリングを無効)
-oninet.ne.jp##^script[defer]:has-text(.clientHeight <)
-||in-jpn.com^$script,replace=/w_mode==1/1/
 ||in-jpn.com^$script,replace=/function myFunc[\s\S\n]+?doSakigake\(\);[\s\S\n]+?\}//
 !#endif
-it.in-jpn.com##body > a[rel*="sponsored"]
 
 ! https://github.com/NanoMeow/QuickReports/issues/21
 ! https://github.com/uBlockOrigin/uAssets/issues/9578
