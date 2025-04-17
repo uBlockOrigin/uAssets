@@ -21,6 +21,16 @@ jobs:
     name: Publish lists
     runs-on: ubuntu-latest
     steps:
+      - name: Repo check
+        run: |
+          if [[ "$GITHUB_REPOSITORY_OWNER" != "uBlockOrigin" ]]; then
+            echo "This GitHub Action is meant to build filter lists for uBO."
+            echo "You shouldn't need to run this GitHub Action in your fork."
+            echo "If you do, please customize the cron expression above, and"
+            echo "the URLs below."
+            exit 1
+          fi
+          exit 0
       - name: Clone uAssets
         uses: actions/checkout@v4
         with:
