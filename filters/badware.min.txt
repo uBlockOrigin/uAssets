@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Badware risks
 ! Expires: 5 days
-! Last modified: Fri, 18 Apr 2025 10:25:33 +0000
+! Last modified: Fri, 18 Apr 2025 10:28:45 +0000
 ! Diff-Path: %diffpath%#ublock-badware
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -3244,21 +3244,22 @@ www.cambe.pr.gov.br##+js(noeval-if, tigervip2)
 /^https:\/\/(?:appeal|contact|page)\.[a-z]{15,}\.com\/appeal_case_id\b/$doc,to=com|~facebook.com
 ||suport-page-help.com^$all
 /\/contract\/support-case-id=\d{14,19}\b/$doc,match-case,to=~facebook.com
-||akuanakmamah.de^$doc,to=~facebook.com
+||akuanakmamah.de^$doc
 ||support-metahelpcenter-id*.netlify.app^$all
 ||support-metahelpcenter-$doc,to=~facebook.com
-||netlify.app/help/support/client_id=$doc,to=~facebook.com
+||netlify.app/help/support/client_id=$doc
 ||reminders-infraction-account.netlify.app^$all
 ||abc-ckd.com/facebook/$all
 ||xyzxyz55.xyz^$all
 ||vercel.app/americaplata.com.html^$doc
 ||atplink.com/responseandresolutioncenter$all
 /^https:\/\/h5\.[a-z0-9]{4}\.com\//$doc,to=com
-||vercel.app/mixcc.html/$doc,to=~facebook.com
+||vercel.app/mixcc.html/$doc
+||vercel.app/metasp.html^$doc
+||vercel.app/decision&copyright^$doc
 /^https?:\/\/[-a-z]{12,}\.vercel\.app\/[^.]+?g_ep=?EgoyMDI/$doc,match-case,to=vercel.app|~facebook.com
 /^https?:\/\/[-a-z]{12,}\.vercel\.app\/[^.]+?=D400e/$doc,match-case,to=vercel.app|~facebook.com
 /^https?:\/\/[-a-z0-9]{25,}\.vercel\.app\/id\/\d{15,17}\.html\b/$doc,match-case,to=vercel.app|~facebook.com
-||vercel.app/metasp.html^$doc,to=~facebook.com
 ||live-metasupport.com^$all
 ||supportadm7tmedia.online^$all
 ||befuls.shop^$all
@@ -3267,8 +3268,9 @@ www.cambe.pr.gov.br##+js(noeval-if, tigervip2)
 ||fb-business.com^$all
 ||faecbook.vn^$all
 ||contact-supportbusinessmanager.ubpages.com^$all
-||counselschambers.co.uk^$doc,to=~facebook.com
+||counselschambers.co.uk^$doc
 ||identityconfirrmpage.com^$all
+||online-ops.mypasschange.com^$all
 ! shopping sites
 /api/user/do_login|$xhr,1p,to=com|info,method=post,header=access-control-allow-headers:/authorization\,content-type\,if-match\,if-modified-since\,if-none-match\,if-unmodified-since\,x-requested-with/i
 /api/user/do_login|$xhr,1p,to=com|info,method=post,header=Access-Control-Allow-Headers:/authorization\,content-type\,if-match\,if-modified-since\,if-none-match\,if-unmodified-since\,x-requested-with/i
@@ -3279,8 +3281,8 @@ www.cambe.pr.gov.br##+js(noeval-if, tigervip2)
 ! sendo
 ||vnsendo.*^$all,to=info|shop|vip|~sendo.vn
 ! dienmayxanh
-||mayxanhsupport.com^$all,to=~dienmayxanh.com
-||trungtam-dienmayxanh.com^$all,to=~dienmayxanh.com
+||mayxanhsupport.com^$all
+||trungtam-dienmayxanh.com^$all
 ! steam
 ||steamproxy.*^$all,to=steamproxy.cc|steamproxy.net|steamproxy.vip
 ||sp.zhabite.com^$all
@@ -3662,20 +3664,20 @@ app##center#yangchen > iframe#external-frame[src="https://im136.mom/"]:not([clas
 ||namecheapsupport-*.codeanyapp.com^$all,to=~namecheap.com
 ||mybluehost.me/vcd/$doc
 ||kvv.jxc.mybluehost.me^$doc
-||web-interface.eu^$doc,to=~kvk.nl
-||mybluehost.me/servizi/assistenza/$doc,to=~mooney.it
-||mybluehost.me/wise/number-account-$doc,to=~wise.com
+||web-interface.eu^$doc
+||mybluehost.me/servizi/assistenza/$doc
+||mybluehost.me/wise/number-account-$doc
 ||smrturl.co/o/*/53458494^$doc
 ||agripro-fr-*.com^$doc,to=~agriaffaires.com
 ||notifyhubss.net^$doc
-||aolmaiillogin.blogspot.$doc,to=~mail.aol.com
-||afflatus.consulting/deutschepost/$all,to=~deutschepost.de
-||drcolomo.com^$doc,to=~orlen.pl
+||aolmaiillogin.blogspot.$doc
+||afflatus.consulting/deutschepost/$all
+||drcolomo.com^$doc
 ||konopslski.top/robot/$doc
-||info-espanol-id-configes*.codeanyapp.com^$all,to=~dgt.es
-||codeanyapp.com/dgte/$doc,to=~dgt.es
-||lcldetecthumainweb*.firebaseapp.com^$all,to=~lcl.fr
-||freewebhostmost.com/consegna-pacchi/avviso/$doc,to=~poste.it
+||info-espanol-id-configes*.codeanyapp.com^$all
+||codeanyapp.com/dgte/$doc
+||lcldetecthumainweb*.firebaseapp.com^$all
+||freewebhostmost.com/consegna-pacchi/avviso/$doc
 ||appinstallcheck.com^$all
 ||copeescan.es^$all
 ||gellyte.es^$all
@@ -3684,6 +3686,7 @@ app##center#yangchen > iframe#external-frame[src="https://im136.mom/"]:not([clas
 /^https?:\/\/[-a-z]{4,}\.(?:com|org)[-.][-a-z]{2,}\.(?:cc|top|vip|world|xin)\/pay\b/$doc,match-case,to=cc|top|vip|world|xin
 /^https?:\/\/[-a-z]{4,}\.(?:com|org)[-.][-a-z]{2,}\.(?:cc|top|vip|world|xin)\/us\b/$doc,match-case,to=cc|top|vip|world|xin
 ||secure.*.win/pay^$doc,to=win
+||shimura-china.com^$all
 ! docusign.com
 ||signature-rho.vercel.app^$all,to=~docusign.com
 ||f1nancier.com^$doc
