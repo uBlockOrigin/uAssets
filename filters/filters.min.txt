@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Fri, 18 Apr 2025 01:30:35 +0000
+! Last modified: Fri, 18 Apr 2025 04:26:55 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -9429,7 +9429,7 @@ goku.sx##+js(aost, Object, inlineScript)
 ! !SECTION: Propeller ads
 ! SECTION: Clickadu
 ! Clickadu reinjection
-18comic.vip,18comic-gquu.vip,asiaon.*,asiaontop.com,bunkrr.*,fapfappy.com,hhkungfu.*,hitomi.la,homemoviestube.com,jav.direct,javmix.tv,klmanga.*,komikmanhwa.me,lovingsiren.com,manga1001.*,mangaraw.*,mangarawjp.*,nelomanga.com,netfapx.com,syosetu.*,xanimeporn.com##+js(acs, WebAssembly, atob)
+18comic.vip,18comic-gquu.vip,asiaon.*,asiaontop.com,bunkrr.*,fapfappy.com,hhkungfu.*,hitomi.la,homemoviestube.com,jav.direct,javmix.tv,klmanga.*,komikmanhwa.me,lovingsiren.com,manga1001.*,mangaraw.*,mangarawjp.*,nekopoi.*,nelomanga.com,netfapx.com,streampoi.com,syosetu.*,xanimeporn.com##+js(acs, WebAssembly, atob)
 /aas/r45d/vki/*$script,redirect=noop.js
 /^https:\/\/[a-z]{8,12}\.com\/en\/(?:[a-z]{2,10}\/){0,2}[a-z]{2,}\?(?:[a-z]+=(?:\d+|[a-z]+)&)*?id=[12]\d{6}/$script,3p,match-case,to=com
 /^https:\/\/[a-z]{8,12}\.com(?:\/[a-z]{2,10}){3}$/$script,3p,match-case,header=etag,to=com
@@ -9440,6 +9440,13 @@ goku.sx##+js(aost, Object, inlineScript)
 /public/assets/js/popunder.js^$script
 /public/assets/js/popunderClickadu.js^$script
 ! !SECTION: Clickadu
+! SECTION: wpadmngr.com ads
+!#if cap_html_filtering
+nekopoi.*,streampoi.com##^script:has-text(wpadmngr.com)
+!#else
+nekopoi.*,streampoi.com##+js(rmnt, script, wpadmngr.com)
+!#endif
+! !SECTION: wpadmngr.com ads
 ! SECTION: pixsera
 pixsera.net##+js(nano-sib, timer)
 pixsera.net##+js(nowoif, !/prcf.fiyar|themes|pixsense|.jpg/)
@@ -21042,7 +21049,6 @@ nekopoi.*##+js(acs, atob, tabunder)
 nekopoi.*##+js(aeld, , adsense)
 nekopoi.*##[href^="http://bit.ly/"]
 .gif$domain=nekopoi.*,image
-nekopoi.*##+js(rmnt, script, wpadmngr.com)
 nekopoi.*##.leftarea
 nekopoi.*###btm_banner
 nekopoi.*>>##+js(nowoif)
