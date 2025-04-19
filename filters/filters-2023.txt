@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2023)
-! Last modified: Fri, 18 Apr 2025 16:51:51 +0000
+! Last modified: Sat, 19 Apr 2025 13:03:16 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -4831,7 +4831,7 @@ dudestream.com##+js(noeval-if, ads)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/21023
 filmweb.pl##+js(rmnt, script, window.open)
-filmweb.pl###mainSkyBanner-pl_PL
+!filmweb.pl###mainSkyBanner-pl_PL
 filmweb.pl##[href*="smartadserver.com/click"]
 filmweb.pl##.HomePromotedSection
 filmweb.pl##[style*="-ad-"]
@@ -4842,6 +4842,14 @@ filmweb.pl##.faBannerPromo
 fwcdn.pl###clickArea
 fwcdn.pl###link-container-all
 fwcdn.pl##[id*="banner"]
+! https://github.com/uBlockOrigin/uAssets/issues/27532
+filmweb.pl##+js(rc, rodo, body.rodo)
+filmweb.pl##+js(set, rodo.checkIsDidomiConsent, noopFunc)
+filmweb.pl##+js(set, rodo.waitForConsent, noopPromiseResolve)
+! https://github.com/uBlockOrigin/uAssets/issues/28023
+@@||filmweb.pl^$ghide
+filmweb.pl#@##ad
+filmweb.pl#@#+js(acs, decodeURIComponent, newAdblockBoardDisplayed)
 
 ! https://github.com/easylist/easylist/issues/17915
 thespruce.com##.mntl-leaderboard-spacer:style(min-height: 0px !important;)
