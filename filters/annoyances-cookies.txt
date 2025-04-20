@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Cookie Notices
-! Last modified: Sat, 19 Apr 2025 12:38:48 +0000
+! Last modified: Sun, 20 Apr 2025 04:31:47 +0000
 ! Expires: 7 days
 ! Description: Filters optimized for uBlock Origin, to be used with EasyList's and/or Adguard's "Cookie Notices" list(s)
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -1019,7 +1019,8 @@ chrono24.*##+js(trusted-click-element, button[data-label="accept-button"], , 100
 chrono24.*##dialog.gdpr-layer
 
 ! https://github.com/uBlockOrigin/uAssets/issues/20744
-wetter.com##+js(trusted-click-element, #cmp-btn-accept, !cookie:/^gpt_ppid[^=]+=/, 5000)
+! .cmp-info[style] fixes endless reload
+wetter.com##+js(trusted-click-element, .cmp-scroll-padding .cmp-info[style] #cmp-paywall #cmp-consent #cmp-btn-accept, , 2000)
 wetter.com###cmp-style-reset
 wetter.com##body:style(overflow: auto !important)
 
@@ -1728,7 +1729,7 @@ consent.spielaffe.de##+js(trusted-click-element, button[title="Accept All & Clos
 ! just Use necessary cookies only
 tfl.gov.uk###cb-cookieoverlay
 mineralstech.com##.consent-dialog-overlay
-degiro.*,epochtimes.de,vikingline.com,tfl.gov.uk,drklein.de,hildegardis-krankenhaus.de,lotto.pl,mineralstech.com,volunteer.digitalboost.org.uk,starhotels.com,tefl.com,universumglobal.com##+js(trusted-click-element, #CybotCookiebotDialogBodyButtonDecline, , 1000)
+degiro.*,epochtimes.de,vikingline.com,tfl.gov.uk,drklein.de,hildegardis-krankenhaus.de,kleer.se,lotto.pl,mineralstech.com,volunteer.digitalboost.org.uk,starhotels.com,tefl.com,universumglobal.com##+js(trusted-click-element, #CybotCookiebotDialogBodyButtonDecline, , 1000)
 
 ! Necessary + functional cookies
 interactivebrokers.*##+js(trusted-set-local-storage-item, consentMode, '{"functionality_storage":"granted","security_storage":"granted","ad_storage":"denied","analytics_storage":"denied","ad_personalization":"denied","ad_user_data":"denied"}')
@@ -1991,7 +1992,7 @@ salzburg.info##+js(set-attr, img.js-lazy-img[src^="data:image/"], src, [data-src
 verksamt.se##+js(trusted-click-element, [data-testid="consent-necessary"])
 
 ! decline (reported, allow search to work)
-acmemarkets.com,amtrak.com,beko.com,bepanthen.com.au,berocca.com.au,booking.com,centrum.sk,claratyne.com.au,credit-suisse.com,ceskatelevize.cz,deporvillage.*,de.vanguard,dhl.de,digikey.*,dunelm.com,fello.se,flashscore.fr,flightradar24.com,fnac.es,foodandwine.com,fourseasons.com,khanacademy.org,konami.com,jll.*,jobs.redbull.com,hellenicbank.com,intersport.*,gemini.pl,groceries.asda.com,lamborghini.com,menshealth.com,n26.com,nintendo.com,oneweb.net,panasonic.com,parkside-diy.com,pluto.tv,popularmechanics.com,polskieradio.pl,radissonhotels.com,ricardo.ch,rockstargames.com,rte.ie,salesforce.com,samsonite.*,spirit.com,stenaline.co.uk,swisscom.ch,swisspass.ch,technologyfromsage.com,telenet.be,theepochtimes.com,toujeo.com,questdiagnostics.com,wallapop.com,workingtitlefilms.com,vattenfall.de,winparts.fr,yoigo.com,zoominfo.com##+js(trusted-click-element, button[id="onetrust-reject-all-handler"], , 1000)
+acmemarkets.com,amtrak.com,beko.com,bepanthen.com.au,berocca.com.au,booking.com,centrum.sk,claratyne.com.au,credit-suisse.com,ceskatelevize.cz,deporvillage.*,de.vanguard,dhl.de,digikey.*,drafthouse.com,dunelm.com,fello.se,flashscore.fr,flightradar24.com,fnac.es,foodandwine.com,fourseasons.com,khanacademy.org,konami.com,jll.*,jobs.redbull.com,hellenicbank.com,intersport.*,gemini.pl,groceries.asda.com,lamborghini.com,menshealth.com,n26.com,nintendo.com,oneweb.net,panasonic.com,parkside-diy.com,pluto.tv,popularmechanics.com,polskieradio.pl,radissonhotels.com,ricardo.ch,rockstargames.com,rte.ie,salesforce.com,samsonite.*,spirit.com,stenaline.co.uk,swisscom.ch,swisspass.ch,technologyfromsage.com,telenet.be,theepochtimes.com,toujeo.com,questdiagnostics.com,wallapop.com,workingtitlefilms.com,vattenfall.de,winparts.fr,yoigo.com,zoominfo.com##+js(trusted-click-element, button[id="onetrust-reject-all-handler"], , 1000)
 ! onetrust-close
 allegiantair.com,hallmarkchannel.com,incorez.com,noovle.com,otter.ai,plarium.com,telsy.com,timenterprise.it,tim.it,tradersunion.com,fnac.*,yeti.com##+js(trusted-click-element, button.onetrust-close-btn-handler, , 1000)
 
@@ -4273,6 +4274,12 @@ portalridice.cz##+js(trusted-click-element, a[data-gtm-action="accept-all"], , 1
 
 ! rejected
 rajsvitidel.cz##+js(trusted-set-cookie, _cc_20240307, '{"functionality_storage":"granted","analytics_storage":"denied","ad_user_data":"denied","ad_storage":"denied","ad_personalization":"denied"}')
+
+! rejected, date=1
+h1key-official.com,artms.mod-haus.shop##+js(trusted-set-cookie, bmf_bstage_accept_cookie, '{"e":true,"f":false,"a":false,"d":1}')
+
+! "OK"
+kitsapcu.org##+js(trusted-click-element, input[value="I agree"], , 1000)
 
 ! Essential
 nutsinbulk.*##+js(trusted-click-element, button[label*="Essential"], , 1800)
