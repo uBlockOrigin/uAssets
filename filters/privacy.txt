@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Privacy
-! Last modified: Mon, 21 Apr 2025 04:19:16 +0000
+! Last modified: Tue, 22 Apr 2025 04:56:33 +0000
 ! Expires: 7 days
 ! Description: |
 !   Some of these filters make use of the `important` filter option,`
@@ -882,6 +882,12 @@ bing.com##+js(href-sanitizer, a[href^="/rebates/welcome?url=http"], ?url)
 
 ! https://www.jeuxvideo.com/ - email tracking
 ||mjt.lu/lnk/*/aHR0c$doc,urlskip=/\/lnk\/.+?\/(aHR0c[^\/?#]+)/ -safebase64
+
+! https://athome.fandango.com - mail tracking
+||link.athome.fandango.com/click/*/aHR0c$doc,urlskip=/\/click\/[^\/]+\/(aHR0c[^\/?#]+)/ -base64
+
+! https://github.com/AdguardTeam/AdguardFilters/issues/203552
+||tc.tradetracker.net/*^u=http$doc,urlskip=?u
 
 ! Click Trackers
 ! https://reddit.com/r/uBlockOrigin/comments/14t3y1d/
