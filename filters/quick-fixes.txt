@@ -1,5 +1,5 @@
 ! Title: uBlock₀ filters – Quick fixes
-! Last modified: Tue, 22 Apr 2025 02:01:26 +0000
+! Last modified: Tue, 22 Apr 2025 09:59:55 +0000
 ! Expires: 8 hours
 ! Description: Immediate, temporary filters to fix websites
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -273,3 +273,6 @@ hulu.com##+js(json-prune-fetch-response, breaks custom_breaks_data pause_ads vid
 hulu.com##+js(json-prune, breaks custom_breaks_data pause_ads video_metadata.end_credits_time, pause_ads)
 hulu.com##+js(json-prune, breaks custom_breaks_data pause_ads video_metadata.end_credits_time, breaks)
 hulu.com##+js(xml-prune, 'xpath(//*[name()="MPD"]/@mediaPresentationDuration | //*[name()="Period"][.//*[name()="BaseURL" and contains(text(),"/ads-")]] | //*[name()="Period"][starts-with(@id,"ad")] | //*[name()="Period"][starts-with(@id,"Ad")] | //*[name()="Period"]/@start)', Period[id^="Ad"i], .mpd)
+
+! https://github.com/AdguardTeam/AdguardFilters/issues/203738
+||sw.broadcom.com^$badfilter
