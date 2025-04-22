@@ -1,5 +1,5 @@
 ! Title: uBlock filters
-! Last modified: Fri, 18 Apr 2025 16:51:51 +0000
+! Last modified: Tue, 22 Apr 2025 01:37:47 +0000
 ! Expires: 5 days
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
@@ -5896,26 +5896,6 @@ milfzr.com###post-0
 
 ! https://forums.lanik.us/viewtopic.php?f=62&t=42364
 wemakesites.net##+js(acs, $, adBlockChecker)
-
-! https://github.com/uBlockOrigin/uAssets/issues/8269
-! https://www.reddit.com/r/uBlockOrigin/comments/9lom6n/help_blocking_ads_on_hulu/
-! https://www.reddit.com/r/uBlockOrigin/comments/eexi26/
-hulu.com##+js(set, Object.prototype._parseVAST, noopFunc)
-hulu.com##+js(set, Object.prototype.createAdBlocker, noopFunc)
-hulu.com##+js(set, Object.prototype.isAdPeriod, falseFunc)
-||assetshuluimcom-a.akamaihd.net/*.mp3$media,redirect=noopmp3-0.1s,domain=hulu.com
-@@||hulu.com^$ghide
-hulu.com###banner-ad-container
-hulu.com##.ad-choices
-! https://github.com/uBlockOrigin/uAssets/issues/17382
-! https://www.reddit.com/r/uBlockOrigin/comments/14b5lbw/
-! https://www.reddit.com/r/uBlockOrigin/comments/158nvca/not_blocking_hulu_ads/jti29qk/
-! https://www.reddit.com/r/uBlockOrigin/comments/16hr6pk/hulu_subtitles_getting_delayed_again/
-hulu.com##+js(json-prune-fetch-response, breaks pause_ads video_metadata.end_credits_time, pause_ads, propsToMatch, /playlist)
-hulu.com##+js(json-prune-fetch-response, breaks pause_ads video_metadata.end_credits_time, breaks, propsToMatch, /playlist)
-hulu.com##+js(json-prune, breaks pause_ads video_metadata.end_credits_time, pause_ads)
-hulu.com##+js(json-prune, breaks pause_ads video_metadata.end_credits_time, breaks)
-hulu.com##+js(xml-prune, xpath(//*[name()="MPD"]/@mediaPresentationDuration | //*[name()="Period"][.//*[name()="BaseURL" and contains(text()\,'/ads-')]] | //*[name()="Period"]/@start), Period[id^="Ad"i], .mpd)
 
 ! https://github.com/NanoAdblocker/NanoCore/issues/235
 myjest.com##+js(nosiif, _$, 12345)

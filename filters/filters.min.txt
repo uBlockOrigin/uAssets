@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Tue, 22 Apr 2025 01:15:09 +0000
+! Last modified: Tue, 22 Apr 2025 01:37:47 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -3687,18 +3687,6 @@ milfzr.com##.wpfp_custom_ad_content
 milfzr.com###post-0
 ||milfzr.com/*.gif$image
 wemakesites.net##+js(acs, $, adBlockChecker)
-hulu.com##+js(set, Object.prototype._parseVAST, noopFunc)
-hulu.com##+js(set, Object.prototype.createAdBlocker, noopFunc)
-hulu.com##+js(set, Object.prototype.isAdPeriod, falseFunc)
-||assetshuluimcom-a.akamaihd.net/*.mp3$media,redirect=noopmp3-0.1s,domain=hulu.com
-@@||hulu.com^$ghide
-hulu.com###banner-ad-container
-hulu.com##.ad-choices
-hulu.com##+js(json-prune-fetch-response, breaks pause_ads video_metadata.end_credits_time, pause_ads, propsToMatch, /playlist)
-hulu.com##+js(json-prune-fetch-response, breaks pause_ads video_metadata.end_credits_time, breaks, propsToMatch, /playlist)
-hulu.com##+js(json-prune, breaks pause_ads video_metadata.end_credits_time, pause_ads)
-hulu.com##+js(json-prune, breaks pause_ads video_metadata.end_credits_time, breaks)
-hulu.com##+js(xml-prune, xpath(//*[name()="MPD"]/@mediaPresentationDuration | //*[name()="Period"][.//*[name()="BaseURL" and contains(text()\,'/ads-')]] | //*[name()="Period"]/@start), Period[id^="Ad"i], .mpd)
 myjest.com##+js(nosiif, _$, 12345)
 *$frame,domain=9ig.de,3p
 rgl.vn##+js(set, blurred, false)
@@ -23302,6 +23290,18 @@ ignboards.com##+js(acs, JSON.stringify)
 *$xhr,redirect-rule=1x1.gif,domain=ign.com
 *$script,redirect-rule=noopjs,domain=ignboards.com
 ||btloader.com^$script,redirect=noopjs,domain=ign.com
+hulu.com##+js(set, Object.prototype._parseVAST, noopFunc)
+hulu.com##+js(set, Object.prototype.createAdBlocker, noopFunc)
+hulu.com##+js(set, Object.prototype.isAdPeriod, falseFunc)
+||assetshuluimcom-a.akamaihd.net/*.mp3$media,redirect=noopmp3-0.1s,domain=hulu.com
+@@||hulu.com^$ghide
+hulu.com###banner-ad-container
+hulu.com##.ad-choices
+hulu.com##+js(json-prune-fetch-response, breaks custom_breaks_data pause_ads video_metadata.end_credits_time, pause_ads, propsToMatch, /playlist)
+hulu.com##+js(json-prune-fetch-response, breaks custom_breaks_data pause_ads video_metadata.end_credits_time, breaks, propsToMatch, /playlist)
+hulu.com##+js(json-prune, breaks pause_ads video_metadata.end_credits_time, pause_ads)
+hulu.com##+js(json-prune, breaks pause_ads video_metadata.end_credits_time, breaks)
+hulu.com##+js(xml-prune, xpath(//*[name()="MPD"]/@mediaPresentationDuration | //*[name()="Period"][.//*[name()="BaseURL" and contains(text()\,'/ads-')]] | //*[name()="Period"]/@start), Period[id^="Ad"i], .mpd)
 ! END: Rules from filters.txt
 ! START: Regional lists
 ! <<<<< ABPVN >>>>>
