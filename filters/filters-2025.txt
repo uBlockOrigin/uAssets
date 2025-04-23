@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2025)
-! Last modified: Tue, 22 Apr 2025 17:27:27 +0000
+! Last modified: Wed, 23 Apr 2025 00:15:40 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -1439,3 +1439,10 @@ tv-films.co.uk##+js(nostif, AdBlocker)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/28066
 ||adultconfessions.com/js/abdetectorpro.script.js
+
+! https://www.reddit.com/r/uBlockOrigin/comments/1k5eoha/ad_block_detection_on_pcbuildscom_plus_ff/
+!#if cap_html_filtering
+pc-builds.com##^script:has-text(freestar)
+!#else
+pc-builds.com##+js(rmnt, script, freestar)
+!#endif
