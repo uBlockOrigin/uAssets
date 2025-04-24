@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Quick fixes
 ! Expires: 12 hours
-! Last modified: Wed, 23 Apr 2025 15:41:24 +0000
+! Last modified: Thu, 24 Apr 2025 04:54:26 +0000
 ! Diff-Path: %diffpath%#ublock-quick-fixes
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -202,3 +202,4 @@ hulu.com##+js(json-prune, breaks custom_breaks_data pause_ads video_metadata.end
 hulu.com##+js(json-prune, breaks custom_breaks_data pause_ads video_metadata.end_credits_time, breaks)
 hulu.com##+js(xml-prune, 'xpath(//*[name()="MPD"]/@mediaPresentationDuration | //*[name()="Period"][.//*[name()="BaseURL" and contains(text(),"/ads-")]] | //*[name()="Period"][starts-with(@id,"ad")] | //*[name()="Period"][starts-with(@id,"Ad")] | //*[name()="Period"]/@start)', Period[id^="Ad"i], .mpd)
 ||sw.broadcom.com^$badfilter
+/^https:\/\/(?:seller\.)?ebay-[a-z]{8,15}\.com\//$doc,to=com,badfilter
