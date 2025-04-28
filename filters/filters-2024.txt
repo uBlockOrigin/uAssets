@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2024)
-! Last modified: Mon, 28 Apr 2025 08:17:35 +0000
+! Last modified: Mon, 28 Apr 2025 08:28:03 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -3308,14 +3308,12 @@ vidco.pro##+js(rmnt, script, adserverDomain)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/25085
 mlbbox.me##.position-absolute
-mlbbox.me,kenitv.me##+js(acs, EventTarget.prototype.addEventListener, delete window)
-mlbbox.me,kenitv.me##+js(acs, document.documentElement, break;case $.)
+mlbbox.me##+js(acs, EventTarget.prototype.addEventListener, delete window)
+mlbbox.me##+js(acs, document.documentElement, break;case $.)
 !#if cap_html_filtering
 mlbbox.me##^script:has-text(FingerprintJS)
-kenitv.me##^script[data-cfasync]:has-text(/h=decodeURIComponent|popundersPerIP/)
 !#else
 mlbbox.me##+js(rmnt, script, FingerprintJS)
-kenitv.me##+js(rmnt, script, /h=decodeURIComponent|popundersPerIP/)
 !#endif
 
 ! https://github.com/uBlockOrigin/uAssets/issues/25073
