@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2025)
-! Last modified: Tue, 29 Apr 2025 00:56:22 +0000
+! Last modified: Tue, 29 Apr 2025 17:10:35 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -303,6 +303,21 @@ hulu.com##.ad-choices
 ! hulu.com##+js(json-prune, breaks pause_ads video_metadata.end_credits_time, pause_ads)
 ! hulu.com##+js(json-prune, breaks pause_ads video_metadata.end_credits_time, breaks)
 ! hulu.com##+js(xml-prune, xpath(//*[name()="MPD"]/@mediaPresentationDuration | //*[name()="Period"][.//*[name()="BaseURL" and contains(text()\,'/ads-')]] | //*[name()="Period"]/@start), Period[id^="Ad"i], .mpd)
+
+! https://github.com/uBlockOrigin/uAssets/issues/7348
+! https://github.com/uBlockOrigin/uAssets/issues/28125
+hentai2read.com##+js(nowoif)
+hentai2read.com##[target="_blank"]:has([src^="//"])
+hentai2read.com##[src^="data: ;base64,"]
+||hentai2read.com/ark/*.js^$script,1p
+||hentaicdn.com^*/NATORI.$script,3p
+/\.com\/\d+/[0-9a-z]+\.js$/$script,1p,domain=hentai2w.com
+||hentai2w.com/templates/default/js/ab.functions.js
+||hentai2w.com/templates/default/js/arf-
+hentai2w.com##+js(acs, Math.random, ExoLoader)
+hentai2w.com##+js(aeld, getexoloader)
+hentai2w.com##.arf-sec
+hentai2w.com##.ark-noAB
 
 ! END: Rules from filters.txt
 
