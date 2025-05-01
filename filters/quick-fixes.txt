@@ -1,5 +1,5 @@
 ! Title: uBlock₀ filters – Quick fixes
-! Last modified: Thu, 01 May 2025 13:01:19 +0000
+! Last modified: Thu, 01 May 2025 13:32:34 +0000
 ! Expires: 8 hours
 ! Description: Immediate, temporary filters to fix websites
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -265,11 +265,6 @@ aol.com#@#.maas-item:has-text(our Partners)
 ||r2.e-z.host^$badfilter
 
 ! https://github.com/uBlockOrigin/uAssets/issues/22825
-hulu.com#@#+js(json-prune-fetch-response, breaks pause_ads video_metadata.end_credits_time, pause_ads, propsToMatch, /playlist)
-hulu.com#@#+js(json-prune-fetch-response, breaks pause_ads video_metadata.end_credits_time, breaks, propsToMatch, /playlist)
-hulu.com#@#+js(json-prune, breaks pause_ads video_metadata.end_credits_time, pause_ads)
-hulu.com#@#+js(json-prune, breaks pause_ads video_metadata.end_credits_time, breaks)
-hulu.com#@#+js(xml-prune, xpath(//*[name()="MPD"]/@mediaPresentationDuration | //*[name()="Period"][.//*[name()="BaseURL" and contains(text()\,'/ads-')]] | //*[name()="Period"]/@start), Period[id^="Ad"i], .mpd)
 hulu.com##+js(json-prune-fetch-response, breaks custom_breaks_data pause_ads video_metadata.end_credits_time, pause_ads, propsToMatch, /playlist)
 hulu.com##+js(json-prune-fetch-response, breaks custom_breaks_data pause_ads video_metadata.end_credits_time, breaks, propsToMatch, /playlist)
 hulu.com##+js(json-prune-fetch-response, breaks custom_breaks_data pause_ads, , propsToMatch, /playlist)
