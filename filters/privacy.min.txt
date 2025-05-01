@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Privacy
 ! Expires: 7 days
-! Last modified: Thu, 01 May 2025 05:19:43 +0000
+! Last modified: Thu, 01 May 2025 13:22:16 +0000
 ! Diff-Path: %diffpath%#ublock-privacy
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -549,9 +549,11 @@ disqus.com##+js(trusted-set-cookie, disqus_unique, 0, , , domain, disqus.com)
 ozlosleep.com##+js(remove-cookie, /_shopify_(y|sa_)/, when, scroll keydown)
 naszemiasto.pl##+js(trusted-set-cookie, _sharedid, , 0, , domain, .naszemiasto.pl)
 worldstar.com##+js(remove-cookie, /ana_client_session_id|wshh_uid/)
-cbsnews.com##+js(remove-cookie, fly_vid)
+cbsnews.com##+js(remove-cookie, fly_vid, when, scroll keydown)
 cbsnews.com##+js(set-local-storage-item, /fmscw_resp|intercom/, $remove$)
 cbsnews.com##+js(set-session-storage-item, CBSNEWS.features.fms-params, $remove$)
+diariovasco.com##+js(remove-cookie, /^(ev|vocuser)_/, when, scroll keydown)
+cbsnews.com##+js(remove-cookie, fly_vid, when, scroll keydown)
 ! Query parameter stripping
 ! Google ads/analytics
 $removeparam=gbraid
@@ -852,6 +854,8 @@ nytimes.com##+js(no-fetch-if, api.theathletic.com/graphql body:/PostEvent|PostIm
 blog.cloudflare.com,www.cloudflare.com##+js(no-fetch-if, method:POST body:zaraz)
 ||radar.cloudflare.com/api/analytics
 ||udc.yahoo.com^
+||s.yimg.com/ss/analytics3.js
+||s.yimg.com/du/ay/
 ||gitbook.com/v1/integrations/googleanalytics/
 !#if env_firefox
 forum.blu-ray.com##a[href][onclick*="this.href"]:remove-attr(/^on(?:click|contextmenu|mouseover)$/)

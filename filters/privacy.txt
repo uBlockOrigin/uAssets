@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Privacy
-! Last modified: Thu, 01 May 2025 05:19:43 +0000
+! Last modified: Thu, 01 May 2025 13:22:16 +0000
 ! Expires: 7 days
 ! Description: |
 !   Some of these filters make use of the `important` filter option,`
@@ -1062,9 +1062,13 @@ naszemiasto.pl##+js(trusted-set-cookie, _sharedid, , 0, , domain, .naszemiasto.p
 ! https://www.reddit.com/r/uBlockOrigin/comments/1jeq4th/worldstar_videos_take_6_secs_to_play_how_do_i_fix/
 worldstar.com##+js(remove-cookie, /ana_client_session_id|wshh_uid/)
 ! https://www.cbsnews.com/
-cbsnews.com##+js(remove-cookie, fly_vid)
+cbsnews.com##+js(remove-cookie, fly_vid, when, scroll keydown)
 cbsnews.com##+js(set-local-storage-item, /fmscw_resp|intercom/, $remove$)
 cbsnews.com##+js(set-session-storage-item, CBSNEWS.features.fms-params, $remove$)
+! https://www.diariovasco.com/
+diariovasco.com##+js(remove-cookie, /^(ev|vocuser)_/, when, scroll keydown)
+! https://www.cbsnews.com/
+cbsnews.com##+js(remove-cookie, fly_vid, when, scroll keydown)
 
 ! Query parameter stripping
 ! Google ads/analytics
@@ -1516,6 +1520,9 @@ blog.cloudflare.com,www.cloudflare.com##+js(no-fetch-if, method:POST body:zaraz)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/25532
 ||udc.yahoo.com^
+! https://www.aol.com/rare-baby-animal-born-tacoma-215500521.html
+||s.yimg.com/ss/analytics3.js
+||s.yimg.com/du/ay/
 
 ! https://github.com/uBlockOrigin/uAssets/issues/25558
 ||gitbook.com/v1/integrations/googleanalytics/
