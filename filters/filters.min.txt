@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Thu, 01 May 2025 07:22:48 +0000
+! Last modified: Thu, 01 May 2025 08:48:02 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -9381,6 +9381,37 @@ dmovies.top##+js(aopr, Adcash)
 dmovies.top##+js(acs, document.write, .js?_=)
 dmovies.top##+js(nowoif)
 ! !SECTION: Adcash
+! SECTION: FingerprintJS
+! FingerprintJS popups
+arcjav.com,buffstreams.*,game3rb.com,igg-games.com,manhwalist.com,mc-hacks.net,miraculous.*,mycivillinks.com,nflstreams.me,s2dfree.to,soap2day.*,tennisstreams.*,tv247.us,vidsrc.*,vipboxtv.*,woiden.com,wonderapk.com,worldcupstream.pm##+js(acs, navigator, FingerprintJS)
+manhwalist.com##+js(aost, btoa, /https|stackDepth:3/)
+mc-hacks.net##+js(aopw, ai_front)
+!#if cap_html_filtering
+bowfile.com,cloudvideo.tv,cloudvideotv.*,coloredmanga.com,cracksports.me,embedstream.me,exeo.app,hiphopa.net,kenitv.me,megaup.net,olympicstreams.co,qatarstreams.me,soccerworldcup.me,tv247.us,uploadhaven.com,userscloud.com,vidsrc.*##^script:has-text(FingerprintJS)
+soap2day.*##^script:has-text(Reflect)
+!#else
+bowfile.com,cloudvideo.tv,cloudvideotv.*,coloredmanga.com,cracksports.me,embedstream.me,exeo.app,hiphopa.net,kenitv.me,megaup.net,olympicstreams.co,qatarstreams.me,soccerworldcup.me,tv247.us,uploadhaven.com,userscloud.com,vidsrc.*##+js(rmnt, script, FingerprintJS)
+soap2day.*##+js(rmnt, script, Reflect)
+!#endif
+! FingerprintJS servers
+/^https?:\/\/[a-z]{7,}\.buzz\/[+\/0-9a-zA-Z]{140,400}$/$image,3p,match-case
+/^https?:\/\/[a-z]{7,}\.buzz\/[+\/0-9a-zA-Z]{400,1000}$/$frame,3p,match-case
+/^https?:\/\/[a-z]{7,}\.co\/(?=[\/a-zA-Z]*[+0-9])(?=[+\/0-9a-z]*[A-Z])[+\/0-9a-zA-Z]{140,400}$/$image,3p,match-case,from=~edu|~gov,to=co
+/^https?:\/\/[a-z]{7,}\.co\/(?=[\/a-zA-Z]*[+0-9])(?=[+\/0-9a-z]*[A-Z])[+\/0-9a-zA-Z]{400,1000}$/$frame,3p,match-case,from=~edu|~gov,to=co,header=x-amz-cf-pop
+/^https?:\/\/[a-z]{7,}\.com\/(?=[\/a-zA-Z]*[+0-9])(?=[+\/0-9a-z]*[A-Z])[+\/0-9a-zA-Z]{140,400}$/$image,3p,match-case,from=~edu|~gov,to=com
+/^https?:\/\/[a-z]{7,}\.com\/(?=[\/a-zA-Z]*[+0-9])(?=[+\/0-9a-z]*[A-Z])[+\/0-9a-zA-Z]{400,1000}$/$frame,3p,match-case,from=~edu|~gov,to=com,header=x-amz-cf-pop
+/^https?:\/\/[a-z]{7,}\.info\/[+\/0-9a-zA-Z]{140,400}$/$image,3p,match-case
+/^https?:\/\/[a-z]{7,}\.info\/[+\/0-9a-zA-Z]{400,1000}$/$frame,3p,match-case
+/^https?:\/\/[a-z]{7,}\.lol\/[+\/0-9a-zA-Z]{140,400}$/$image,3p,match-case
+/^https?:\/\/[a-z]{7,}\.lol\/[+\/0-9a-zA-Z]{400,1000}$/$frame,3p,match-case
+/^https?:\/\/[a-z]{7,}\.one\/[+\/0-9a-zA-Z]{140,400}$/$image,3p,match-case
+/^https?:\/\/[a-z]{7,}\.one\/[+\/0-9a-zA-Z]{400,1000}$/$frame,3p,match-case
+/^https?:\/\/[a-z]{7,}\.org\/(?=[\/a-zA-Z]*[+0-9])(?=[+\/0-9a-z]*[A-Z])[+\/0-9a-zA-Z]{140,400}$/$image,3p,match-case,domain=~edu|~gov
+/^https?:\/\/[a-z]{7,}\.org\/(?=[\/a-zA-Z]*[+0-9])(?=[+\/0-9a-z]*[A-Z])[+\/0-9a-zA-Z]{400,1000}$/$frame,3p,match-case,domain=~edu|~gov
+/^https?:\/\/[a-z]{7,}\.xyz\/[+\/0-9a-zA-Z]{140,400}$/$image,3p,match-case
+/^https?:\/\/[a-z]{7,}\.xyz\/[+\/0-9a-zA-Z]{400,1000}$/$frame,3p,match-case
+##body > div[style$="z-index: 2147483647; top: 0px; left: 0px; position: fixed; display: block;"]
+! !SECTION: FingerprintJS
 ! SECTION: pixsera
 pixsera.net##+js(nano-sib, timer)
 pixsera.net##+js(nowoif, !/prcf.fiyar|themes|pixsense|.jpg/)
@@ -17299,35 +17330,6 @@ hqporner.com##+js(acs, document.querySelectorAll, popMagic)
 hqporner.com##.uvb_wrapper
 javchill.com##+js(ra, href, [onclick^="pop"])
 javchill.com##.thumb:style(cursor:pointer !important)
-! FingerprintJS popups
-arcjav.com,buffstreams.*,game3rb.com,igg-games.com,manhwalist.com,mc-hacks.net,miraculous.*,mycivillinks.com,nflstreams.me,s2dfree.to,soap2day.*,tennisstreams.*,tv247.us,vidsrc.*,vipboxtv.*,woiden.com,wonderapk.com,worldcupstream.pm##+js(acs, navigator, FingerprintJS)
-manhwalist.com##+js(aost, btoa, /https|stackDepth:3/)
-mc-hacks.net##+js(aopw, ai_front)
-!#if cap_html_filtering
-bowfile.com,cloudvideo.tv,cloudvideotv.*,coloredmanga.com,cracksports.me,embedstream.me,exeo.app,hiphopa.net,kenitv.me,megaup.net,olympicstreams.co,qatarstreams.me,soccerworldcup.me,tv247.us,uploadhaven.com,userscloud.com,vidsrc.*##^script:has-text(FingerprintJS)
-soap2day.*##^script:has-text(Reflect)
-!#else
-bowfile.com,cloudvideo.tv,cloudvideotv.*,coloredmanga.com,cracksports.me,embedstream.me,exeo.app,hiphopa.net,kenitv.me,megaup.net,olympicstreams.co,qatarstreams.me,soccerworldcup.me,tv247.us,uploadhaven.com,userscloud.com,vidsrc.*##+js(rmnt, script, FingerprintJS)
-soap2day.*##+js(rmnt, script, Reflect)
-!#endif
-! FingerprintJS servers
-/^https?:\/\/[a-z]{7,}\.buzz\/[+\/0-9a-zA-Z]{140,400}$/$image,3p,match-case
-/^https?:\/\/[a-z]{7,}\.buzz\/[+\/0-9a-zA-Z]{400,1000}$/$frame,3p,match-case
-/^https?:\/\/[a-z]{7,}\.co\/(?=[\/a-zA-Z]*[+0-9])(?=[+\/0-9a-z]*[A-Z])[+\/0-9a-zA-Z]{140,400}$/$image,3p,match-case,from=~edu|~gov,to=co
-/^https?:\/\/[a-z]{7,}\.co\/(?=[\/a-zA-Z]*[+0-9])(?=[+\/0-9a-z]*[A-Z])[+\/0-9a-zA-Z]{400,1000}$/$frame,3p,match-case,from=~edu|~gov,to=co,header=x-amz-cf-pop
-/^https?:\/\/[a-z]{7,}\.com\/(?=[\/a-zA-Z]*[+0-9])(?=[+\/0-9a-z]*[A-Z])[+\/0-9a-zA-Z]{140,400}$/$image,3p,match-case,from=~edu|~gov,to=com
-/^https?:\/\/[a-z]{7,}\.com\/(?=[\/a-zA-Z]*[+0-9])(?=[+\/0-9a-z]*[A-Z])[+\/0-9a-zA-Z]{400,1000}$/$frame,3p,match-case,from=~edu|~gov,to=com,header=x-amz-cf-pop
-/^https?:\/\/[a-z]{7,}\.info\/[+\/0-9a-zA-Z]{140,400}$/$image,3p,match-case
-/^https?:\/\/[a-z]{7,}\.info\/[+\/0-9a-zA-Z]{400,1000}$/$frame,3p,match-case
-/^https?:\/\/[a-z]{7,}\.lol\/[+\/0-9a-zA-Z]{140,400}$/$image,3p,match-case
-/^https?:\/\/[a-z]{7,}\.lol\/[+\/0-9a-zA-Z]{400,1000}$/$frame,3p,match-case
-/^https?:\/\/[a-z]{7,}\.one\/[+\/0-9a-zA-Z]{140,400}$/$image,3p,match-case
-/^https?:\/\/[a-z]{7,}\.one\/[+\/0-9a-zA-Z]{400,1000}$/$frame,3p,match-case
-/^https?:\/\/[a-z]{7,}\.org\/(?=[\/a-zA-Z]*[+0-9])(?=[+\/0-9a-z]*[A-Z])[+\/0-9a-zA-Z]{140,400}$/$image,3p,match-case,domain=~edu|~gov
-/^https?:\/\/[a-z]{7,}\.org\/(?=[\/a-zA-Z]*[+0-9])(?=[+\/0-9a-z]*[A-Z])[+\/0-9a-zA-Z]{400,1000}$/$frame,3p,match-case,domain=~edu|~gov
-/^https?:\/\/[a-z]{7,}\.xyz\/[+\/0-9a-zA-Z]{140,400}$/$image,3p,match-case
-/^https?:\/\/[a-z]{7,}\.xyz\/[+\/0-9a-zA-Z]{400,1000}$/$frame,3p,match-case
-##body > div[style$="z-index: 2147483647; top: 0px; left: 0px; position: fixed; display: block;"]
 @@||nbk.io^$ghide
 xhvid1.com##+js(acs, Array.prototype.indexOf, popunder)
 xhvid1.com##.player-add-overlay
