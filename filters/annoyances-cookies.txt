@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Cookie Notices
-! Last modified: Wed, 30 Apr 2025 10:03:43 +0000
+! Last modified: Thu, 01 May 2025 13:35:12 +0000
 ! Expires: 7 days
 ! Description: Filters optimized for uBlock Origin, to be used with EasyList's and/or Adguard's "Cookie Notices" list(s)
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -1499,7 +1499,7 @@ eurobaustoff.com##+js(trusted-set-local-storage-item, ccm_consent, '{"/":{"gen":
 
 ! usercentrics consents
 ! deny consent
-s-pankki.fi,srf.ch,alternate.de,bayer04.de,douglas.de,dr-beckmann.com,falke.com,fitnessfirst.de,flaschenpost.de,gloeckle.de,hornbach.nl,hypofriend.de,lactostop.de,postbank.de##+js(trusted-click-element, #usercentrics-root >>> button[data-testid="uc-deny-all-button"], , 1000)
+s-pankki.fi,srf.ch,alternate.de,bayer04.de,douglas.de,dr-beckmann.com,falke.com,fitnessfirst.de,flaschenpost.de,gloeckle.de,hornbach.nl,hypofriend.de,lactostop.de,neumann.com,postbank.de##+js(trusted-click-element, #usercentrics-root >>> button[data-testid="uc-deny-all-button"], , 1000)
 ! accept (no other option)
 immowelt.de,joyn.*,morenutrition.de##+js(trusted-click-element, #usercentrics-root >>> button[data-testid="uc-accept-all-button"], , 1000)
 
@@ -1990,7 +1990,7 @@ salzburg.info##+js(set-attr, img.js-lazy-img[src^="data:image/"], src, [data-src
 verksamt.se##+js(trusted-click-element, [data-testid="consent-necessary"])
 
 ! decline (reported, allow search to work)
-acmemarkets.com,amtrak.com,beko.com,bepanthen.com.au,berocca.com.au,booking.com,centrum.sk,claratyne.com.au,credit-suisse.com,ceskatelevize.cz,deporvillage.*,de.vanguard,dhl.de,digikey.*,drafthouse.com,dunelm.com,fello.se,flashscore.fr,flightradar24.com,fnac.es,foodandwine.com,fourseasons.com,khanacademy.org,konami.com,jll.*,jobs.redbull.com,hellenicbank.com,intersport.*,gemini.pl,groceries.asda.com,lamborghini.com,menshealth.com,n26.com,nintendo.com,oneweb.net,panasonic.com,parkside-diy.com,pluto.tv,popularmechanics.com,polskieradio.pl,radissonhotels.com,ricardo.ch,rockstargames.com,rte.ie,salesforce.com,samsonite.*,spirit.com,stenaline.co.uk,swisscom.ch,swisspass.ch,technologyfromsage.com,telenet.be,tntsports.co.uk,theepochtimes.com,toujeo.com,questdiagnostics.com,wallapop.com,wickes.co.uk,workingtitlefilms.com,vattenfall.de,winparts.fr,yoigo.com,zoominfo.com##+js(trusted-click-element, button[id="onetrust-reject-all-handler"], , 1000)
+acmemarkets.com,amtrak.com,beko.com,bepanthen.com.au,berocca.com.au,booking.com,carrefour.fr,centrum.sk,claratyne.com.au,credit-suisse.com,ceskatelevize.cz,deporvillage.*,de.vanguard,dhl.de,digikey.*,drafthouse.com,dunelm.com,fello.se,flashscore.fr,flightradar24.com,fnac.es,foodandwine.com,fourseasons.com,khanacademy.org,konami.com,jll.*,jobs.redbull.com,hellenicbank.com,intersport.*,gemini.pl,groceries.asda.com,lamborghini.com,menshealth.com,n26.com,nintendo.com,oneweb.net,panasonic.com,parkside-diy.com,pluto.tv,popularmechanics.com,polskieradio.pl,radissonhotels.com,ricardo.ch,rockstargames.com,rte.ie,salesforce.com,samsonite.*,spirit.com,stenaline.co.uk,swisscom.ch,swisspass.ch,technologyfromsage.com,telenet.be,tntsports.co.uk,theepochtimes.com,toujeo.com,questdiagnostics.com,wallapop.com,wickes.co.uk,workingtitlefilms.com,vattenfall.de,winparts.fr,yoigo.com,zoominfo.com##+js(trusted-click-element, button[id="onetrust-reject-all-handler"], , 1000)
 ! onetrust-close
 allegiantair.com,hallmarkchannel.com,incorez.com,noovle.com,otter.ai,plarium.com,telsy.com,timenterprise.it,tim.it,tradersunion.com,fnac.*,yeti.com##+js(trusted-click-element, button.onetrust-close-btn-handler, , 1000)
 
@@ -2901,9 +2901,14 @@ refurbed.*##+js(trusted-click-element, button#acceptNecessaryCookiesBtn, , 1000)
 lanxshoes.com##+js(trusted-set-cookie, _consentik_cookie, '[{"categoriesSelected":["necessary"]}]')
 
 ! cc-deny (ahref)
-flyingtiger.com,borgomontecedrone.it,recaro-shop.com,gartenhotel-crystal.at,swffm.de##+js(trusted-click-element, a.cc-deny, , 1000)
+flyingtiger.com,borgomontecedrone.it,recaro-shop.com,gartenhotel-crystal.at##+js(trusted-click-element, a.cc-deny, , 1000)
 ! cc-deny (button)
 fayn.com##+js(trusted-click-element, button.cc-deny, , 1000)
+
+swffm.de##+js(trusted-set-cookie, dp_cookieconsent_status, '{"status":"approved","checkboxes":[{"name":"statistics","checked":false},{"name":"marketing","checked":false},{"name":"googlemaps","checked":false},{"name":"require","checked":true}]}')
+
+! reject
+sklavenitis.gr##+js(trusted-click-element, button.consent-reject, , 1500)
 
 ! reject
 eam-netz.de##+js(trusted-click-element, button[data-omcookie-panel-save="min"], , 3500)
@@ -3057,8 +3062,26 @@ isarradweg.de##+js(trusted-click-element, button.btn.btn-success, , 750)
 finlayson.fi,cowaymega.ca##+js(trusted-click-element, a[aria-label="settings cookies"], , 600)
 finlayson.fi,cowaymega.ca##+js(trusted-click-element, a[onclick="Pandectes.fn.savePreferences()"], , 750)
 
-! agree
+! agree (a href)
 arktis.de,desktronic.de,belleek.com,brauzz.com,cowaymega.com,dockin.de,dryrobe.com,formswim.com,hairtalk.se,hallmark.co.uk,loopearplugs.com,oleus.com,peopleofshibuya.com,pullup-dip.com,sanctum.shop,tartanblanketco.com##+js(trusted-click-element, a[aria-label="allow cookies"], , 1000)
+
+! agree (button)
+desktronic.lt,pullup-dip.*##+js(trusted-click-element, button[aria-label="allow cookies"], , 1000)
+
+! necessary
+breeam.nl##+js(trusted-set-cookie, cookieConsent, '{"necessary":"1","statistics":"0","advertising":"0"}', , , reload, 1)
+
+! necessary
+letec.be##+js(trusted-set-cookie, GDPR_Consent, '{"essential":true,"functional":true,"analytical":false,"advertising":false}')
+
+! reject
+smythstoys.com##+js(trusted-click-element, button.ios-modal-cookie, , 1000)
+
+! necessary
+cotswoldoutdoor.com##+js(trusted-set-cookie, consent_setting, analytics:0|functional:1|marketing:0, , ,reload, 1)
+
+! reject
+neonet.pl##+js(trusted-set-local-storage-item, user_cookies_acceptance, '{"necessary":true,"analytics":false,"functional":false,"marketing":false}')
 
 ! close
 universcine.com##+js(trusted-set-cookie, COOKIE_CONSENT, '{"technical-cookies":true,"analytics":false,"ads":false}')
