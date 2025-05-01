@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Thu, 01 May 2025 05:14:09 +0000
+! Last modified: Thu, 01 May 2025 05:46:01 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -19473,6 +19473,13 @@ lifestyle.bg,news.bg,topsport.bg,webcafe.bg##+js(aeld, DOMContentLoaded, locatio
 lifestyle.bg,news.bg,topsport.bg,webcafe.bg##+js(no-fetch-if, method:HEAD)
 @@/securepubads.$domain=lifestyle.bg|news.bg|topsport.bg,badfilter
 lifestyle.bg,news.bg,topsport.bg,webcafe.bg##.mc-layout__bannerContent
+news.bg##+js(nostif, location.href)
+!#if cap_html_filtering
+news.bg##^script:has-text(baitElements)
+!#else
+news.bg##+js(rmnt, script, baitElements)
+!#endif
+news.bg##+js(set-local-storage-item, ublock_trace_id, $remove$)
 mtg-print.com##+js(no-fetch-if, ads)
 scripai.com##+js(nostif, /adblock/i)
 *$xhr,3p,method=head,redirect-rule=nooptext:-1,to=~adblockanalytics.com|~doubleclick.net|~pagead2.googlesyndication.com
@@ -23862,7 +23869,6 @@ cbssports.com##+js(rmnt, script, /admiral/i)
 ||epoznan.pl/getAdsysCode?
 watch-dbz57.funonline.co.in##+js(rmnt, script, /AdBlock/i)
 watch-dbz57.funonline.co.in###sright
-news.bg##+js(nostif, location.href)
 gaypornhot.com##+js(aost, atob, /HTMLDocument|blob/)
 gaypornhot.com##+js(no-fetch-if, /doubleclick|googlesyndication/, length:10, {"type":"cors"})
 gaypornhot.com##+js(no-xhr-if, /doubleclick|googlesyndication/)
