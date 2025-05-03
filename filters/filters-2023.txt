@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2023)
-! Last modified: Thu, 01 May 2025 18:21:37 +0000
+! Last modified: Sat, 03 May 2025 12:57:22 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -3431,11 +3431,10 @@ lifestyle.bg,news.bg,topsport.bg,webcafe.bg##+js(no-fetch-if, method:HEAD)
 @@/securepubads.$domain=lifestyle.bg|news.bg|topsport.bg,badfilter
 lifestyle.bg,news.bg,topsport.bg,webcafe.bg##.mc-layout__bannerContent
 ! https://github.com/uBlockOrigin/uAssets/issues/28116
-news.bg##+js(nostif, location.href)
 !#if cap_html_filtering
-news.bg##^script:has-text(baitElements)
+news.bg##^script:has-text('href')
 !#else
-news.bg##+js(rmnt, script, baitElements)
+news.bg##+js(rmnt, script, "'href'")
 !#endif
 news.bg##+js(set-local-storage-item, ublock_trace_id, $remove$)
 
