@@ -15,6 +15,13 @@
 ! https://www.homemoviestube.com/
 /^https:\/\/[a-z]{3,5}\.[a-z]{10,14}\.top\/[a-z]{10,16}\/[a-z]{5,6}(?:\?d=\d)?$/$script,xhr,3p,match-case,to=top
 /^https:\/\/[a-z]{3,5}\.[a-z]{10,14}\.top\/[A-Za-z]{10,16}\/[A-Za-z]{5,6}$/$popup,3p,to=top
+! https://www.reddit.com/r/uBlockOrigin/comments/14l1nyq/
+actvid.*##.block_area iframe:upward(.block_area)
+!#if cap_html_filtering
+actvid.*,gomovies.sx,zoechip.com##^script:has-text(HTMLAllCollection)
+!#else
+actvid.*,gomovies.sx,zoechip.com##+js(rmnt, script, HTMLAllCollection)
+!#endif
 ! https://github.com/easylist/easylist/issues/6471
 /\/t\/[0-9]{3}\/[0-9]{3}\/a[0-9]{4,9}\.js$/$script
 /^https?:\/\/[0-9a-z]{13,14}\.cloudfront\.net\/\?[a-z]{3,5}=\d{6,7}$/$script,xhr,3p
