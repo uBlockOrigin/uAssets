@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Wed, 07 May 2025 19:33:37 +0000
+! Last modified: Wed, 07 May 2025 19:36:43 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -23891,4 +23891,8 @@ hornyhill.se###adblock-dialog
 hornyhill.se##.card:has(> center:only-child > .adContainer)
 hornyhill.se##div[class="col-6 col-md-4 col-lg-3 col-xl-2 px-5"]:has([data-zoneid])
 latinluchas.com##+js(no-xhr-if, googlesyndication)
-@@||live4all.net^$ghide
+!#if cap_html_filtering
+live4all.net##^script:has-text(/andbox|adBlock|data-zone|histats|contextmenu|ConsoleBan/)
+!#else
+live4all.net##+js(rmnt, script, /andbox|adBlock|data-zone|histats|contextmenu|ConsoleBan/)
+!#endif
