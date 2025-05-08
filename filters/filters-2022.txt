@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2022)
-! Last modified: Thu, 08 May 2025 13:30:09 +0000
+! Last modified: Thu, 08 May 2025 13:36:32 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -282,11 +282,6 @@ rocklink.in##+js(set, blurred, false)
 @@||noviny.sk^$xhr,1p
 *$frame,domain=noviny.sk,redirect-rule=noopframe
 
-! piracy.moe ads
-piracy.moe##main > h2:nth-of-type(1):has-text(Sponsored)
-piracy.moe##[class*="Card_sponsored__"]
-piracy.moe##[class^="SupportBanner_banner__"]
-
 ! https://github.com/uBlockOrigin/uAssets/issues/15392
 digminecraft.com##div > [id$="_slot"]:upward(div)
 
@@ -304,20 +299,11 @@ hispasexy.org##+js(acs, decodeURI, decodeURIComponent)
 hispasexy.org##+js(aopr, _cpp)
 hispasexy.org##+js(aopr, popns)
 
-! https://github.com/AdguardTeam/AdguardFilters/issues/108205
-mp3juices.yt##+js(nowoif, !ytcutter.net)
-
-! https://github.com/uBlockOrigin/uAssets/issues/11473
-@@||plg.ovakode.com^$ghide
-plg.ovakode.com##ins.adsbygoogle
-plg.ovakode.com##.x300bnx
-
 ! https://github.com/uBlockOrigin/uAssets/issues/11480
 javplaya.com##+js(aopr, __Y)
 
 ! https://github.com/AdguardTeam/AdguardFilters/commit/f73e930289cf09ceff902f7c71f42781551dfaaa
 javfindx.com###previewBox
-mycloudzz.com##+js(aopr, __Y)
 ||javfindx.com/sw.js
 
 ! https://www.reddit.com/r/uBlockOrigin/comments/sdowvy/masterduelmeta_and_duelinksmeta_adblock_popups/
@@ -339,17 +325,10 @@ gcertificationcourse.com##+js(no-xhr-if, adsbygoogle)
 @@||getfree.co.in^$script,1p
 
 ! https://github.com/uBlockOrigin/uAssets/issues/11505
-sampledrive.in##+js(acs, eval, replace)
-sampledrive.in###block-4
-sampledrive.in###block-6
-*$script,3p,redirect=noop.js,domain=sampledrive.in|shorttrick.in
+*$script,3p,redirect=noop.js,domain=shorttrick.in
 ! https://www.reddit.com/r/uBlockOrigin/comments/17ux6t3/ublock_is_not_able_to_block_ads_on_this_website/
-sampledrive.in##+js(acs, document.createElement, onerror)
 shorttrick.in###wpsafe-generate, #wpsafe-link:style(display: block !important;)
 @@||shorttrick.in^$ghide
-||sampledrive.in/wp-content/uploads/*.js?ver=$script,1p
-sampledrive.in##+js(aeld, DOMContentLoaded, adsSrc)
-sampledrive.in##+js(aost, document.getElementById, adsBlocked)
 shorttrick.in##+js(aost, fetch, https)
 shorttrick.in##+js(aopr, checkAdsStatus)
 
