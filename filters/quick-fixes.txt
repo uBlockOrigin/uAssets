@@ -1,5 +1,5 @@
 ! Title: uBlock₀ filters – Quick fixes
-! Last modified: Fri, 09 May 2025 10:59:02 +0000
+! Last modified: Fri, 09 May 2025 11:17:14 +0000
 ! Expires: 8 hours
 ! Description: Immediate, temporary filters to fix websites
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -211,9 +211,6 @@ bg-gledai.*,gledaitv.*##+js(no-fetch-if, method:HEAD)
 faqwiki.us##+js(nostif, .offsetHeight>0)
 faqwiki.*##+js(rmnt, script, /adblock/i)
 
-! https://www.reddit.com/r/uBlockOrigin/comments/1ji7r4o/mirurotv_displays_a_totally_black_page/
-@@||miruro.*/assets/components-shared-popunder-$script,1p
-
 ! https://github.com/AdguardTeam/AdguardFilters/issues/199124
 pvpoke-re.com##+js(trusted-suppress-native-method, Element.prototype.insertAdjacentHTML, '"afterbegin"', prevent, /\/[A-Za-z]+\.min\.js\?/)
 pvpoke-re.com##body:style(overflow-y: auto !important; position: static !important; width: auto !important; height: auto !important;)
@@ -244,15 +241,6 @@ cool--web-de.translate.goog,gps--cache-de.translate.goog,web--spiele-de.translat
 royalroad.com##.dKKumhSnWiFq75vPUVtmTanQ:has(a[href^="https://www.royalroad.com/a/r?campaign="]:not([href*="&url=https%3A%2F%2Fwww.royalroad.com"]))
 ! ||royalroad.com/bd/cr?$xhr,method=get,1p,strict1p
 
-! https://github.com/uBlockOrigin/uAssets/issues/27925
-||massariuscdn.com^$badfilter
-
-! https://github.com/uBlockOrigin/uAssets/issues/27928
-#@#a[href="#"][title^="Scroll "] + div[id][class*=" "]
-
-! https://github.com/easylist/easylist/issues/21629
-radaronline.com#@#.sc-fTZrbU
-
 ! https://github.com/uBlockOrigin/uAssets/issues/17012
 mail.yahoo.com##+js(nostif, adblock)
 
@@ -260,17 +248,8 @@ mail.yahoo.com##+js(nostif, adblock)
 gecmisi.com.tr##+js(trusted-replace-argument, String.prototype.includes, 0, json:"gecmisi", condition, googleads)
 gecmisi.com.tr##+js(trusted-replace-argument, String.prototype.includes, 0, json:"googleads", condition, gecmisi)
 
-! https://github.com/uBlockOrigin/uAssets/issues/28005
-@@||outbrain.com^$redirect-rule,domain=stuff.co.nz
-
 ! https://www.aol.com/ - homepage breakage
 aol.com#@#.maas-item:has-text(our Partners)
-
-! https://github.com/uBlockOrigin/uAssets/issues/28050
-||do7go.com^$badfilter
-
-! https://github.com/uBlockOrigin/uAssets/issues/28049
-||r2.e-z.host^$badfilter
 
 ! https://github.com/uBlockOrigin/uAssets/issues/22825
 hulu.com##+js(json-prune-fetch-response, breaks custom_breaks_data pause_ads video_metadata.end_credits_time, pause_ads, propsToMatch, /playlist)
@@ -280,18 +259,6 @@ hulu.com##+js(json-prune, breaks custom_breaks_data pause_ads)
 hulu.com##+js(json-prune, breaks custom_breaks_data pause_ads video_metadata.end_credits_time, pause_ads)
 hulu.com##+js(json-prune, breaks custom_breaks_data pause_ads video_metadata.end_credits_time, breaks)
 hulu.com##+js(xml-prune, 'xpath(//*[name()="MPD"]/@mediaPresentationDuration | //*[name()="Period"][.//*[name()="BaseURL" and contains(text(),"/ads-")]] | //*[name()="Period"][starts-with(@id,"ad")] | //*[name()="Period"][starts-with(@id,"Ad")] | //*[name()="Period"]/@start)', MPD Period[id^="Ad"i], .mpd)
-
-! https://github.com/uBlockOrigin/uAssets/issues/26880#issuecomment-2848908922
-||vidlink.pro/script.js$badfilter
-
-! https://github.com/uBlockOrigin/uAssets/issues/28175
-@@||k5a.io^$~ping,domain=itavisen.no
-
-! https://github.com/uBlockOrigin/uAssets/issues/28171
-/api/metrics|$xmlhttprequest,badfilter
-
-! https://github.com/uBlockOrigin/uAssets/issues/28179
-||e.mp4.center^$badfilter
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/204507#issuecomment-2848611683
 *$popup,domain=lulustream.com,badfilter
