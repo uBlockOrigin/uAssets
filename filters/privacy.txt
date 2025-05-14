@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Privacy
-! Last modified: Sun, 11 May 2025 18:19:48 +0000
+! Last modified: Wed, 14 May 2025 00:29:21 +0000
 ! Expires: 7 days
 ! Description: |
 !   Some of these filters make use of the `important` filter option,`
@@ -1842,6 +1842,10 @@ grok.com##+js(no-fetch-if, url:/api/statsig/log_event method:POST)
 
 ! https://www.mercari.com/
 ||gateway.us.zip.co/analytics^
+
+! https://www.reddit.com/r/uBlockOrigin/comments/1kkytyz/how_to_filter_javascript_url_by_id_attribute/
+/^https:\/\/www\.vogue\.com\/[-\w]{120,}$/$script,1p,strict1p,domain=vogue.com
+vogue.com##+js(set-local-storage-item, /^avoinspector/, $remove$)
 
 ! Merge in resource-abuse.txt
 !#include resource-abuse.txt
