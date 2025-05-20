@@ -349,7 +349,6 @@ porndoe.com##.bunny-icon[disabled]:remove-attr(disabled)
 torrentdownloads.*##+js(nowebrtc)
 torrentdownload.*,torrentdownloads.*##+js(acs, adcashMacros)
 torrentdownload.*,torrentdownloads.*##[href^="/td/?"]
-torrentdownload.*##+js(rmnt, script, shown_at)
 torrentdownload.*##+js(acs, JSON.parse, break;case)
 torrentdownload.*##+js(nowoif)
 torrentdownload.*##[href^="/bing."]
@@ -620,9 +619,8 @@ mangaku.*,~mangaku.win##+js(acs, $, onclick)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/2484
 ! https://mkvcinemas.cat/
-/\/data\/cache\/min\/1\/[a-f0-9]+\.js\b/$script,1p,domain=mkvcinemas.*
+/\/data\/cache\/min\/1\/[a-f0-9]+\.js\b/$script,1p,domain=mkvcinemas.*|mkvcinemas.cat|mkvcinemas.kim|mkvcinemas.pet
 mkvcinemas.*##a[title="mkvAnime"]
-mkvcinemas.*##+js(rmnt, script, shown_at)
 mkvcinemas.*##+js(nowoif)
 *$script,3p,denyallow=googleapis.com,domain=mkvcinemas.*
 mkvcinemas.*###SH-Ads
@@ -1213,6 +1211,7 @@ plc4me.com##+js(rmnt, script, deblocker)
 ! krx18.com
 krx18.com##center > [src*="/ads/"]
 krx18.com###dynamic-image
+||krx18.com/show-promote.js
 
 ! https://old.reddit.com/r/uBlockOrigin/comments/19cwuo4/
 ||ezodn.com^$redirect-rule=noopjs,domain=tv.bdix.app
@@ -3118,12 +3117,6 @@ m9.news##body:style(display: block !important;)
 /wp-content/uploads/pum/pum-site-scripts.js^$domain=honghotduongpho.com
 
 ! https://github.com/uBlockOrigin/uAssets/issues/25015
-!#if cap_html_filtering
-cineb.rs##^script:has-text(shown_at)
-!#else
-cineb.rs##+js(rmnt, script, shown_at)
-!#endif
-cineb.rs##+js(aeld, mousedown, shown_at)
 cineb.rs##+js(nowoif)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/25023
@@ -4392,13 +4385,6 @@ tab-maker.com##+js(no-fetch-if, googletagmanager, length:10)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/24914
 netflix.com##+js(json-prune, result.adverts)
-
-! https://www.reddit.com/r/uBlockOrigin/comments/1hk3x2p/123anime_misbehaving_while_using_ublock_origin/
-!#if cap_html_filtering
-123animehub.cc##^script:has-text(shown_at)
-!#else
-123animehub.cc##+js(rmnt, script, shown_at)
-!#endif
 
 ! https://github.com/uBlockOrigin/uAssets/issues/26594
 worldpopulationreview.com###top_ad_container + div:style(padding-top: 4rem !important;)
