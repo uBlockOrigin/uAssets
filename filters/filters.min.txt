@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Wed, 21 May 2025 10:26:44 +0000
+! Last modified: Wed, 21 May 2025 12:56:26 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -19325,6 +19325,8 @@ sotwe.com##.tweet-card .v-responsive.media-carousel-image .v-responsive__content
 *$frame,redirect-rule=noopframe,domain=megaup.net
 download.megaup.net##a img:not([src="images/main_logo_inverted.png"]):matches-css(height: /^([2-4]{1}[0-9]{2}(\.[0-9]+)?px|0px)$/):style(visibility: hidden !important;)
 download.megaup.net##+js(spoof-css, a img:not([src="images/main_logo_inverted.png"]), visibility, visible)
+download.megaup.net##a[href][target="_blank"],[src^="//ad.a-ads.com/"]:style(visibility:hidden !important)
+download.megaup.net##+js(spoof-css, a[href][target="_blank"]\,[src^="//ad.a-ads.com/"], visibility, visible)
 download.megaup.net##+js(rpnt, script, /for\s*\(\s*(const|let|var).*?\)\;return\;\}_/g,_ , condition, attribute)
 download.megaup.net##a:has(img[src*="/download"]):style(width: 300px !important; height: 300px !important; display: block !important;)
 @@||megaup.net/imageads/$image,1p
