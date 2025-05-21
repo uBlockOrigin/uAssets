@@ -907,6 +907,12 @@ bing.com##+js(href-sanitizer, a[href^="/rebates/welcome?url=http"], ?url)
 ! https://x.com/JoanaCotar/status/1488443950864216072
 ||exactag.com/cl.aspx?*url=http$doc,urlskip=?url
 
+! https://github.com/uBlockOrigin/uAssets/issues/28429
+||deeplink.musescore.com/redirect?to=http$doc,urlskip=?to
+musescore.com##+js(href-sanitizer, a[href^="https://deeplink.musescore.com/redirect?to=http"], ?to)
+musescore.com##+js(remove-cookie, /^_m[su]_/)
+musescore.com##+js(set-local-storage-item, /^rt_/, $remove$)
+
 ! Click Trackers
 ! https://reddit.com/r/uBlockOrigin/comments/14t3y1d/
 html.duckduckgo.com,lite.duckduckgo.com##+js(href-sanitizer, a[href^="//duckduckgo.com/l/?uddg="], ?uddg)
