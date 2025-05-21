@@ -1,19 +1,16 @@
 name: del-runs-comments
-on: workflow_dispatch
+on: 
+  workflow_dispatch
+
 jobs:
   runx:
     runs-on: ubuntu-latest
     permissions: write-all
     steps:
-      - uses: christosgalano/delete-gh-workflow-runs@v1.0.0
+      - name: Delete GitHub Workflow Runs
+        uses: christosgalano/delete-gh-workflow-runs@v1.0.0
         with:
           owner: uBlockOrigin
           repo: uAssets
           token: ${{ secrets.GITHUB_TOKEN }}
           workflow: on-issue-comment
-          
-          
-
-
-    
-    
