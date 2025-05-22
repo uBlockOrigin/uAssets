@@ -1710,3 +1710,11 @@ tubtic.com##+js(no-fetch-if, mode:no-cors)
 
 ! https://forums.lanik.us/viewtopic.php?t=48760-www-seir-sanduk-com
 @@||ads.poshtata.online/adsbygoogle.js$script,domain=seir-sanduk.com
+
+! https://github.com/uBlockOrigin/uAssets/issues/28454
+!#if cap_html_filtering
+streamhls.to##^script:has-text(/setADBFlag|cRAds|\;break\;case|adManager|const popup/)
+!#else
+streamhls.to##+js(rmnt, script, /setADBFlag|cRAds|\;break\;case|adManager|const popup/)
+!#endif
+||streamhls.to/js/noadblocker.js
