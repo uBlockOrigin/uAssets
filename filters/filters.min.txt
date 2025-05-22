@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Thu, 22 May 2025 18:54:10 +0000
+! Last modified: Thu, 22 May 2025 20:06:02 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -23842,3 +23842,9 @@ tubtic.com##+js(no-fetch-if, mode:no-cors)
 @@||wiadomosci.onet.pl^$ghide
 ||vntsm.com^$script,redirect=noopjs,3p,domain=trueachievements.com|truesteamachievements.com|truetrophies.com
 @@||ads.poshtata.online/adsbygoogle.js$script,domain=seir-sanduk.com
+!#if cap_html_filtering
+streamhls.to##^script:has-text(/setADBFlag|cRAds|\;break\;case|adManager|const popup/)
+!#else
+streamhls.to##+js(rmnt, script, /setADBFlag|cRAds|\;break\;case|adManager|const popup/)
+!#endif
+||streamhls.to/js/noadblocker.js
