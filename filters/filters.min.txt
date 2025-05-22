@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Thu, 22 May 2025 22:32:39 +0000
+! Last modified: Thu, 22 May 2025 22:36:27 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -23692,6 +23692,12 @@ savefiles.com##div[id^="clickCatcher"]
 ###clickCatcher31
 ###clickCatcher32
 ||savefiles.com/js/noadblocker.js
+!#if cap_html_filtering
+streamhls.to##^script:has-text(/setADBFlag|cRAds|\;break\;case|adManager|const popup/)
+!#else
+streamhls.to##+js(rmnt, script, /setADBFlag|cRAds|\;break\;case|adManager|const popup/)
+!#endif
+||streamhls.to/js/noadblocker.js
 xmalay1.net##+js(rmnt, script, /isAdBlockActive|WebAssembly/)
 ! europix.top ad popups
 europix.top##a[href][target^="_blank"]:style(pointer-events:none!important)
@@ -23842,9 +23848,3 @@ tubtic.com##+js(no-fetch-if, mode:no-cors)
 @@||wiadomosci.onet.pl^$ghide
 ||vntsm.com^$script,redirect=noopjs,3p,domain=trueachievements.com|truesteamachievements.com|truetrophies.com
 @@||ads.poshtata.online/adsbygoogle.js$script,domain=seir-sanduk.com
-!#if cap_html_filtering
-streamhls.to##^script:has-text(/setADBFlag|cRAds|\;break\;case|adManager|const popup/)
-!#else
-streamhls.to##+js(rmnt, script, /setADBFlag|cRAds|\;break\;case|adManager|const popup/)
-!#endif
-||streamhls.to/js/noadblocker.js
