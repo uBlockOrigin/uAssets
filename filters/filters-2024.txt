@@ -3515,6 +3515,9 @@ playtube.tv##+js(acs, EventTarget.prototype.addEventListener, delete window)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/25602
 komikindo.lol##^script[data-cfasync][data-rocket-src]:not([data-rocket-src*="komikindo.lol"])
+!#if ext_ubol
+*$script,3p,domain=komikindo.lol|komikindo4.com,denyallow=cloudfront.net|disqus.com|disquscdn.com|fastlylb.net|googleapis.com
+!#endif
 
 ! https://github.com/uBlockOrigin/uAssets/issues/25603
 ||vidlink.pro/api/*cash
@@ -3544,6 +3547,10 @@ secondhandsongs.com##+js(aost, document.getElementById, inlineScript)
 
 ! https://www.reddit.com/r/uBlockOrigin/comments/1g1uqng/adblock_detected_on_two_sites/
 @@||seirsanduk.*?loader.js^$script,domain=seirsanduk.*
+! MV3 wildcard issue
+!#if ext_ubol
+@@||seirsanduk.*?loader.js^$script,domain=seirsanduk.com|seirsanduk.online
+!#endif
 
 ! https://github.com/uBlockOrigin/uAssets/issues/25640
 textreverse.com##+js(no-fetch-if, snigelweb.com)
@@ -3973,6 +3980,11 @@ upns.*##+js(trusted-override-element-method, HTMLAnchorElement.prototype.click, 
 ||imasdk.googleapis.com/js/sdkloader/ima3.js$script,domain=upns.*,redirect=google-ima.js
 upns.ink,upns.one,upns.xyz##div[style^="position: fixed; inset: 0px; z-index: 2147483647; background: black; opacity: 0.01; cursor: pointer;"]
 ||restedpealimagine.com^$popup,doc
+! MV3 wildcard issue
+! https://github.com/uBlockOrigin/uAssets/commit/7195c0851eb9e814480781e6f9f14124d2f0311e
+!#if ext_ubol
+||imasdk.googleapis.com/js/sdkloader/ima3.js$script,redirect=google-ima.js,domain=upns.live|upns.one|upns.xyz
+!#endif
 
 ! movielinkbd ads
 1movielinkbd.com,filecloud.*,gdfile.org,movieliinkbd.com##+js(nowoif)
@@ -4107,6 +4119,9 @@ rubystm.com,rubyvid.com,rubyvidhub.com,stmruby.com,streamruby.com##+js(rmnt, scr
 rubystm.com,rubyvid.com,rubyvidhub.com,stmruby.com,streamruby.com##+js(set, cRAds, false)
 rubystm.com,rubyvid.com,rubyvidhub.com,stmruby.com,streamruby.com##+js(aopw, showADBOverlay)
 rubystm.com,rubyvid.com,rubyvidhub.com,stmruby.com,streamruby.com##+js(acs, WebAssembly, atob)
+!#if ext_ubol
+*$script,3p,denyallow=gstatic.net,domain=rubystm.com|rubyvid.com|rubyvidhub.com|stmruby.com|streamruby.com
+!#endif
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/193664
 ! https://github.com/uBlockOrigin/uAssets/issues/26540
@@ -4296,6 +4311,9 @@ dynamicminister.net##+js(aeld, click, window.open)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/26459
 nunflix.org##+js(nowoif)
+!#if ext_ubol
+*$script,3p,denyallow=google.com|youtube.com|youtube-nocookie.com,domain=nunflix.org
+!#endif
 
 ! https://github.com/uBlockOrigin/uAssets/issues/26470
 youtubetowav.net##+js(nowoif, _blank)
@@ -4351,6 +4369,9 @@ zinkmovies.in##+js(aopr, app_advert)
 pornhoarder.*##^script:has-text(/wpadmngr|adserverDomain/)
 !#else
 pornhoarder.*##+js(rmnt, script, /wpadmngr|adserverDomain/)
+!#endif
+!#if ext_ubol
+||com/*.js|$script,3p,domain=pornhoarder.tv|pornhoarder.tw
 !#endif
 
 ! https://github.com/uBlockOrigin/uAssets/issues/26524
