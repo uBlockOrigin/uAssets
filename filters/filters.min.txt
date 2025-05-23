@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Fri, 23 May 2025 05:14:18 +0000
+! Last modified: Fri, 23 May 2025 05:17:45 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -716,6 +716,10 @@ sxyprn.*##+js(aopw, __aaZoneid)
 sxyprn.*##.tbd
 sxyprn.*##.cbd
 *$frame,script,3p,denyallow=google.com|googleapis.com|gstatic.com|hcaptcha.com|recaptcha.net,domain=sxyprn.*
+! MV3 wildcard issue
+!#if ext_ubol
+*$frame,script,3p,denyallow=google.com|googleapis.com|gstatic.com|hcaptcha.com|recaptcha.net,domain=sxyprn.com|sxyprn.net
+!#endif
 lacuevadeguns.com##+js(aost, onload, inlineScript)
 ||cdn.jsdelivr.net/npm/@rimiti/abm@latest/dist/$script,css,3p
 !#if cap_html_filtering
@@ -4146,6 +4150,9 @@ ovagames.com##+js(acs, JSON, _0x)
 ovagames.com###adter:upward(3)
 ovagames.com##.single-entry-titles:has-text(Sponsor)
 @@||ovagames.com^$ghide
+!#if ext_ubol
+*$script,3p,from=ovagames.com,to=~facebook.net|~fbcdn.net
+!#endif
 mmacore.tv##+js(rmnt, script, /adb/i)
 symbolab.com##.googleLeftSkyScrapper
 @@||googlesyndication.com/pagead/js/adsbygoogle.js$script,domain=safelinkunited.blogspot.com
@@ -9269,6 +9276,7 @@ vidsrc.cc#@#+js(acs, EventTarget.prototype.addEventListener, delete window)
 ||raiphafimept.net^
 ||sefeethameel.com^
 ||sisaurgeegh.net^
+||smahxdfxxdc.com^
 ||souhoazapee.net^
 ||staukaptaicm.net^
 ||zaisofohow.net^
@@ -9295,6 +9303,9 @@ aagmaal.*##+js(rpnt, script, break;case $.)
 ||linkspop.xyz^$csp=script-src 'self'
 goku.sx##+js(aost, Object, inlineScript)
 *$xhr,3p,domain=nxbrew.com
+!#if ext_ubol
+*$script,3p,from=minoplres.xyz,to=~jwpcdn.com
+!#endif
 ! !SECTION: Propeller ads
 ! SECTION: Clickadu
 ! Clickadu reinjection
@@ -22319,6 +22330,9 @@ playtube.tv##+js(acs, EventTarget.prototype.addEventListener, delete window)
 ||hentalk.pw/public/hentalk-loader.js
 ||85po.com/player/stats.php?$1p,image,redirect=1x1.gif
 komikindo.lol##^script[data-cfasync][data-rocket-src]:not([data-rocket-src*="komikindo.lol"])
+!#if ext_ubol
+*$script,3p,domain=komikindo.lol|komikindo4.com,denyallow=cloudfront.net|disqus.com|disquscdn.com|fastlylb.net|googleapis.com
+!#endif
 ||vidlink.pro/api/*cash
 vidlink.pro##+js(aopw, Adcash)
 vidlink.pro##+js(aopr, aclib)
@@ -22336,6 +22350,10 @@ secondhandsongs.com##+js(aost, document.getElementById, inlineScript)
 3bmeteo.com##+js(set, elimina_profilazione, 1)
 3bmeteo.com##+js(set, elimina_pubblicita, 1)
 @@||seirsanduk.*?loader.js^$script,domain=seirsanduk.*
+! MV3 wildcard issue
+!#if ext_ubol
+@@||seirsanduk.*?loader.js^$script,domain=seirsanduk.com|seirsanduk.online
+!#endif
 textreverse.com##+js(no-fetch-if, snigelweb.com)
 textreverse.com##.clearfix
 textreverse.com##.moretooladd
@@ -22567,6 +22585,10 @@ upns.*##+js(trusted-override-element-method, HTMLAnchorElement.prototype.click, 
 ||imasdk.googleapis.com/js/sdkloader/ima3.js$script,domain=upns.*,redirect=google-ima.js
 upns.ink,upns.one,upns.xyz##div[style^="position: fixed; inset: 0px; z-index: 2147483647; background: black; opacity: 0.01; cursor: pointer;"]
 ||restedpealimagine.com^$popup,doc
+! MV3 wildcard issue
+!#if ext_ubol
+||imasdk.googleapis.com/js/sdkloader/ima3.js$script,redirect=google-ima.js,domain=upns.live|upns.one|upns.xyz
+!#endif
 ! movielinkbd ads
 1movielinkbd.com,filecloud.*,gdfile.org,movieliinkbd.com##+js(nowoif)
 movielinkbd.*##+js(nowoif, _blank)
@@ -22644,6 +22666,9 @@ rubystm.com,rubyvid.com,rubyvidhub.com,stmruby.com,streamruby.com##+js(rmnt, scr
 rubystm.com,rubyvid.com,rubyvidhub.com,stmruby.com,streamruby.com##+js(set, cRAds, false)
 rubystm.com,rubyvid.com,rubyvidhub.com,stmruby.com,streamruby.com##+js(aopw, showADBOverlay)
 rubystm.com,rubyvid.com,rubyvidhub.com,stmruby.com,streamruby.com##+js(acs, WebAssembly, atob)
+!#if ext_ubol
+*$script,3p,denyallow=gstatic.net,domain=rubystm.com|rubyvid.com|rubyvidhub.com|stmruby.com|streamruby.com
+!#endif
 ||ads.the.tube^
 ||the.tube/js/simpleblocker.js^
 videocdnal24.xyz##+js(nowoif)
@@ -22754,6 +22779,9 @@ anroll.net##+js(acs, EventTarget.prototype.addEventListener, delete window)
 dynamicminister.net##+js(aeld, click, window.open)
 ||redditsoccerstreams.watch/wp-content/uploads/2024/10/watch-live-stream.gif$image
 nunflix.org##+js(nowoif)
+!#if ext_ubol
+*$script,3p,denyallow=google.com|youtube.com|youtube-nocookie.com,domain=nunflix.org
+!#endif
 youtubetowav.net##+js(nowoif, _blank)
 ||comfortablepossibilitycarlos.com^$all
 !#if cap_html_filtering
@@ -22791,6 +22819,9 @@ zinkmovies.in##+js(aopr, app_advert)
 pornhoarder.*##^script:has-text(/wpadmngr|adserverDomain/)
 !#else
 pornhoarder.*##+js(rmnt, script, /wpadmngr|adserverDomain/)
+!#endif
+!#if ext_ubol
+||com/*.js|$script,3p,domain=pornhoarder.tv|pornhoarder.tw
 !#endif
 studwiz.com###KySENPmBUJDe
 wooflix.tv##+js(aopw, Adcash)
