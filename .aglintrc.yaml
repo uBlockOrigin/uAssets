@@ -1,0 +1,19 @@
+# Keep in mind that in regexp rules, dots may or may not be escaped.
+# So if you want to exclude a rule like:
+# `/example.(com|org)\/ads/`
+# You should replace the dot `.` with `(\.|\\\.)`, resulting in:
+# `\/example(\.|\\\.)\(com\|org\)\\\/ads\/`
+# This regexp will match and block both:
+# `/example.(com|org)\/ads/`
+# `/example\.(com|org)\/ads/`
+# See an example: https://regex101.com/r/L7CsOZ/1
+#
+# https://github.com/AdguardTeam/AGLint#configuration
+root: true
+extends:
+  - aglint:recommended
+syntax:
+  - AdGuard
+rules:
+  invalid-modifiers: "off"
+  invalid-domain-list: "off"
