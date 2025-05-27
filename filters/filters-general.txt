@@ -99,7 +99,11 @@
 ! https://github.com/uBlockOrigin/uAssets/issues/24812#issuecomment-2762608201
 /\/[0-9a-f]{32}\.js\b/$script,3p,to=com,from=141jav.com|2embed.cc|andydaytv.click|aniworld.to|asiaflix.net|azmovies.ag|bigwarp.art|bookfrom.net|bstsrs.in|desiupload.co|djpunjab.me|drop.download|fsportshd.net|fztvseries.ng|hianime.to|hianimez.to|hikari.gg|indi-share.com|javboys.cam|javbraze.com|javhat.tv|javhd.today|javhdz.today|javseen.tv|koshalworld.com|loadedfiles.org|media.cm|moviemaniak.com|nekolink.site|nekopoi.care|neymartv.net|noxx.to|omegascans.org|onejav.com|pagalfree.com|pagalnew.com|pagalworld.us|photocall.site|photocalltv.org|player4u.xyz|poapan.xyz|poophd.pm|pornhoarder.tv|pornohd.blue|s.to|sexiezpix.com|songspk.com.se|srstop.link|streampoi.com|streams.lat|streamtape.to|streamup.ws|tokyomotion.net|torrentgalaxy-official.com|vegamovvies.to|vidjoy.pro
 ! vidguard
-/\/[0-9a-f]{32}\.js\b/$script,3p,to=com,from=bembed.net|embedv.net|fslinks.org|listeamed.net|v6embed.xyz|vgplayer.xyz|vid-guard.com
+/\/[0-9a-f]{32}\.js\b/$script,3p,to=com,from=bembed.net|embedv.net|fslinks.org|listeamed.net|moflix-stream.*|v6embed.xyz|vgplayer.xyz|vid-guard.com
+! MV3 wildcard issue
+!#if ext_ubol
+/\/[0-9a-f]{32}\.js\b/$script,3p,to=com,from=moflix-stream.day|moflix-stream.fans
+!#endif
 ||thankstoyou.website^$all
 
 ! https://github.com/uBlockOrigin/uBlock-discussions/discussions/790#discussioncomment-6049753
@@ -1210,8 +1214,10 @@ soap2day.*##+js(rmnt, script, Reflect)
 ! https://cataz.to/
 !#if cap_html_filtering
 123animehub.cc,123animes.ru,actvid.*,boosterx.stream,cataz.to,cineb.rs,demonicscans.org,flixhq.to,gomovies.sx,gomoviestv.to,limetorrents.lol,luluvdoo.com,mgeko.cc,mkvcinemas.*,mov18plus.cloud,moviesapi.to,netmovies.to,torrentdownload.*,torrentdownloads.*,tukipasti.com,vidfast.pro,zoechip.com##^script:has-text(shown_at)
+moflix-stream.fans##^script:has-text(HTMLAllCollection)
 !#else
 123animehub.cc,123animes.ru,actvid.*,boosterx.stream,cataz.to,cineb.rs,demonicscans.org,flixhq.to,gomovies.sx,gomoviestv.to,limetorrents.lol,luluvdoo.com,mgeko.cc,mkvcinemas.*,mov18plus.cloud,moviesapi.to,netmovies.to,torrentdownload.*,torrentdownloads.*,tukipasti.com,vidfast.pro,zoechip.com##+js(rmnt, script, shown_at)
+moflix-stream.fans##+js(rmnt, script, HTMLAllCollection)
 cataz.to##+js(nowoif)
 !#endif
 cineb.rs,moviesjoyhd.to,rawkuma.com##+js(aeld, mousedown, shown_at)
@@ -1250,6 +1256,10 @@ pistona.xyz,vinomo.xyz##+js(nostif, afterOpen)
 pistona.xyz,vinomo.xyz##+js(json-prune, AffiliateAdBlock)
 vinomo.xyz##+js(set, PlayerConfig.config.CustomAdSetting, [])
 *$xhr,3p,redirect-rule=nooptext,domain=vinomo.xyz
+
+! https://www.reddit.com/r/uBlockOrigin/comments/1gk2o42/help_me_to_block_new_tab_popup/
+moflix-stream.*##+js(nostif, affiliate)
+moflix-stream.*##+js(nostif, afterOpen)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/28525
 nekolink.site##+js(aost, document.getElementsByTagName, _createCatchAllDiv)
