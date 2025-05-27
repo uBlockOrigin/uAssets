@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Tue, 27 May 2025 00:50:45 +0000
+! Last modified: Tue, 27 May 2025 01:02:41 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -9418,6 +9418,29 @@ actvid.*##.block_area iframe:upward(.block_area)
 ||111movies.com/ad2.js
 ! !SECTION: shown_at popunder
 ! SECTION: afterOpen popup
+! vidguard
+||acacdn.com^$script,redirect-rule=noopjs
+bembed.net,embedv.net,fslinks.org,listeamed.net,v6embed.xyz,vembed.*,vgplayer.xyz,vid-guard.com,vidguardto.xyz##+js(nostif, afterOpen)
+bembed.net,embedv.net,fslinks.org,v6embed.xyz,vembed.*,vgplayer.xyz,vid-guard.com,vidguardto.xyz##+js(nowoif)
+listeamed.net##+js(nowoif, !/d/)
+listeamed.net##+js(json-prune, AffiliateAdBlock)
+bembed.net,embedv.net,fslinks.org,listeamed.net,v6embed.xyz,vembed.*,vgplayer.xyz,vid-guard.com##+js(set, PlayerConfig.config.CustomAdSetting, [])
+bembed.net,embedv.net,fslinks.org,listeamed.net,v6embed.xyz,vembed.*,vgplayer.xyz,vid-guard.com##body > div[class]:empty
+*$script,3p,redirect-rule=noopjs,domain=bembed.net|embedv.net
+*$xhr,3p,redirect-rule=nooptext,domain=listeamed.net
+||oaphoace.net^$script,3p,redirect-rule=noopjs
+! yesmovies .vc/.ws/.org/.mn/.ag
+yesmovies.*##+js(nowoif)
+yesmovies.*##+js(aopr, AaDetector)
+yesmovies.*##+js(nowebrtc)
+/sw-vodlocker.to.js$script
+yesmovies.*##a.btn-successful
+yesmovies.*>>,~vvid30c.*##+js(nostif, afterOpen)
+yesmovies.*>>,~vvid30c.*##+js(json-prune, AffiliateAdBlock)
+pistona.xyz,vinomo.xyz##+js(nostif, afterOpen)
+pistona.xyz,vinomo.xyz##+js(json-prune, AffiliateAdBlock)
+vinomo.xyz##+js(set, PlayerConfig.config.CustomAdSetting, [])
+*$xhr,3p,redirect-rule=nooptext,domain=vinomo.xyz
 nekolink.site##+js(aost, document.getElementsByTagName, _createCatchAllDiv)
 nekolink.site##+js(aeld, /click|mouse/, [native code], elements, document)
 nekolink.site##+js(set, PlayerConfig.trusted, true)
@@ -18852,29 +18875,6 @@ screenflash.io##.ins-large.adsbygoogle
 screenflash.io##+js(aost, localStorage, tryShowVideoAdAsync)
 @@||imasdk.googleapis.com/js/sdkloader/ima3.js$script,domain=pik.bg
 idoitmyself.xyz##+js(rpnt, script, /devtoolsDetector\.launch\(\)\;/)
-! vidguard
-||acacdn.com^$script,redirect-rule=noopjs
-bembed.net,embedv.net,fslinks.org,listeamed.net,v6embed.xyz,vembed.*,vgplayer.xyz,vid-guard.com,vidguardto.xyz##+js(nostif, afterOpen)
-bembed.net,embedv.net,fslinks.org,v6embed.xyz,vembed.*,vgplayer.xyz,vid-guard.com,vidguardto.xyz##+js(nowoif)
-listeamed.net##+js(nowoif, !/d/)
-listeamed.net##+js(json-prune, AffiliateAdBlock)
-bembed.net,embedv.net,fslinks.org,listeamed.net,v6embed.xyz,vembed.*,vgplayer.xyz,vid-guard.com##+js(set, PlayerConfig.config.CustomAdSetting, [])
-bembed.net,embedv.net,fslinks.org,listeamed.net,v6embed.xyz,vembed.*,vgplayer.xyz,vid-guard.com##body > div[class]:empty
-*$script,3p,redirect-rule=noopjs,domain=bembed.net|embedv.net
-*$xhr,3p,redirect-rule=nooptext,domain=listeamed.net
-||oaphoace.net^$script,3p,redirect-rule=noopjs
-! yesmovies .vc/.ws/.org/.mn/.ag
-yesmovies.*##+js(nowoif)
-yesmovies.*##+js(aopr, AaDetector)
-yesmovies.*##+js(nowebrtc)
-/sw-vodlocker.to.js$script
-yesmovies.*##a.btn-successful
-yesmovies.*>>,~vvid30c.*##+js(nostif, afterOpen)
-yesmovies.*>>,~vvid30c.*##+js(json-prune, AffiliateAdBlock)
-pistona.xyz,vinomo.xyz##+js(nostif, afterOpen)
-pistona.xyz,vinomo.xyz##+js(json-prune, AffiliateAdBlock)
-vinomo.xyz##+js(set, PlayerConfig.config.CustomAdSetting, [])
-*$xhr,3p,redirect-rule=nooptext,domain=vinomo.xyz
 ||compassionatecheek.com^$popunder
 /adblock_detector.$badfilter
 eska.pl,eskarock.pl,voxfm.pl##+js(nostif, adb)
