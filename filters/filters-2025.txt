@@ -1852,3 +1852,18 @@ redisex.*##+js(aopr, close)
 
 ! https://daftsex.org - popup
 daftsex.org##+js(acs, document.addEventListener, lastPopupTime)
+
+! https://safefileku.com/download/dMgiWJaul1T77uOa
+!#if cap_html_filtering
+safefileku.com##^meta[http-equiv="refresh"]
+!#else
+safefileku.com##+js(refresh-defuser)
+!#endif
+!#if env_firefox
+safefileku.com##button#download[onclick]:remove-attr(onclick)
+!#else
+safefileku.com##+js(ra, onclick, button#download, complete)
+!#endif
+safefileku.com##+js(nowoif, _blank)
+safefileku.com##.cHNI
+safefileku.com##button#download ~ div:has(> a[target="_blank"])
