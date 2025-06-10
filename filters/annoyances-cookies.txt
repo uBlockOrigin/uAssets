@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Cookie Notices
-! Last modified: Sat, 07 Jun 2025 15:56:35 +0000
+! Last modified: Tue, 10 Jun 2025 13:00:47 +0000
 ! Expires: 7 days
 ! Description: Filters optimized for uBlock Origin, to be used with EasyList's and/or Adguard's "Cookie Notices" list(s)
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -1754,6 +1754,28 @@ bondekompaniet.no,degiro.*,epochtimes.de,vikingline.com,tfl.gov.uk,drklein.de,hi
 interactivebrokers.*##+js(trusted-set-local-storage-item, consentMode, '{"functionality_storage":"granted","security_storage":"granted","ad_storage":"denied","analytics_storage":"denied","ad_personalization":"denied","ad_user_data":"denied"}')
 interactivebrokers.*##+js(trusted-set-cookie, IB_PRIV_PREFS, 1%7C0%7C1, , , reload, 1)
 
+! Necessary
+shipping-portal.com##+js(trusted-set-cookie, GDPR_CONSENT, ACCEPT_NECESSARY)
+
+! reject
+tui.com##+js(trusted-click-element, div.decline, , 1000)
+
+! reject
+rexel.*##+js(trusted-click-element, button#declineAllConsentSummary, , 1500)
+
+! reject
+caib.es##+js(trusted-set-cookie, klaro, '{"principal":true,"googleanalytics":false,"youtube":false}')
+
+! deny
+csob.sk##+js(trusted-click-element, button.deny-btn, , 1000)
+
+! reject
+greenstuffworld.com##+js(trusted-click-element, span#idxrcookiesKO, , 1000)
+
+! basic
+morele.net##+js(trusted-click-element, button[data-action="cookie-consent#onToggleShowManager"], , 900)
+morele.net##+js(trusted-click-element, button[data-action="cookie-consent#onSaveSetting"], , 1200)
+
 ! decline
 mundwerk-rottweil.de##+js(set-local-storage-item, cookieConsent, denied)
 
@@ -2262,6 +2284,8 @@ nike.com,consent.fastcar.co.uk,tapmaster.ca##+js(trusted-click-element, button[a
 ! essential only
 sailgp.com##+js(trusted-set-cookie, cookieConsent, '{"ad_storage":"denied","analytics_storage":"denied","ad_user_data":"denied","ad_personalization":"denied"}')
 sailgp.com##+js(set-cookie, sgp-cp-acceptance, true)
+! reject
+vivenu-tickets-usa.sailgp.com##+js(trusted-set-local-storage-item, cookies-consent-674994311cb8576b78bbaad6, '{"functional":true,"performance":false,"marketing":false}')
 
 ! accept
 wells.pt##+js(trusted-click-element, button.CybotCookiebotDialogBodyButton, , 1000)
@@ -2289,7 +2313,7 @@ thomann.*##+js(trusted-click-element, button.js-decline-all-cookies, , 1500)
 landkreis-kronach.de##+js(trusted-click-element, button.cookieselection-confirm-selection, , 1000)
 
 ! reject
-northcoast.com,chaingpt.org##+js(trusted-click-element, button#btn-reject-all, ,  1000)
+effectiefgeven.be,northcoast.com,chaingpt.org##+js(trusted-click-element, button#btn-reject-all, ,  1000)
 
 ! required/functional only
 sogeti.*##+js(trusted-set-cookie, ConsentCookie, 'required:1,functional:1,analytic:0', , , reload, 1)
