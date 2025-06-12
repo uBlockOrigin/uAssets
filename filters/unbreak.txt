@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Unbreak
-! Last modified: Sun, 08 Jun 2025 08:01:21 +0000
+! Last modified: Thu, 12 Jun 2025 02:13:32 +0000
 ! Expires: 5 days
 ! Description: Filters optimized for uBlock Origin, to unbreak sites broken as a result of 3rd-party filter lists enabled by default.
 ! Homepage: https://github.com/uBlockOrigin/uAssets
@@ -4526,16 +4526,6 @@ futura-sciences.com##+js(set, pa.privacy, {})
 
 ! https://github.com/uBlockOrigin/uAssets/issues/19164
 ||adobe.com/newrelic.js$script,redirect=noopjs,1p
-
-! https://github.com/uBlockOrigin/uAssets/issues/19168
-wikihow.com##+js(set, Object.prototype.getTargetingMap, noopFunc)
-!#if env_chromium
-@@||wikihow.com^$ghide
-@@||securepubads.g.doubleclick.net/tag/js/gpt.js$script,domain=wikihow.com
-@@||securepubads.g.doubleclick.net/pagead/managed/js/gpt/*/pubads_impl.js$script,domain=wikihow.com
-wikihow.com##ins.adsbygoogle
-wikihow.com##.wh_ad_active:style(margin: 0 !important; visibility: collapse !important;)
-!#endif
 
 ! https://github.com/uBlockOrigin/uAssets/issues/19169
 ||imasdk.googleapis.com/js/sdkloader/ima3.js$script,redirect=google-ima.js,domain=startrek.com
