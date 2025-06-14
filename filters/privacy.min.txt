@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Privacy
 ! Expires: 7 days
-! Last modified: Fri, 13 Jun 2025 16:44:05 +0000
+! Last modified: Sat, 14 Jun 2025 02:28:11 +0000
 ! Diff-Path: %diffpath%#ublock-privacy
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -569,6 +569,7 @@ lifehacker.com##+js(remove-cookie, gtagSessionId)
 680thefan.com##+js(set-local-storage-item, uuid, $remove$)
 katu.com##+js(remove-cookie, /^_pubcid|sbgtvNonce|SUID/)
 katu.com##+js(set-local-storage-item, /^uw-/, $remove$)
+miro.com##+js(remove-cookie, ajs_anonymous_id, when, scroll keydown)
 ! Query parameter stripping
 ! Google ads/analytics
 $removeparam=gbraid
@@ -1157,3 +1158,4 @@ smallpdf.com##+js(no-fetch-if, pluto.smallpdf.com)
 chatgpt.com##+js(no-fetch-if, method:/post/i url:/^https?:\/\/chatgpt\.com\/ces\/v1\/[a-z]$/)
 chatgpt.com##+js(no-fetch-if, method:/post/i url:ab.chatgpt.com/v1/rgstr)
 barstoolsports.com##+js(no-fetch-if, method:HEAD)
+miro.com##+js(no-xhr-if, /eventhub\.\w+\.miro\.com\/api\/stream/)
