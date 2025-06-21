@@ -262,19 +262,9 @@ hulu.com##+js(json-prune, breaks custom_breaks_data pause_ads video_metadata.end
 hulu.com##+js(json-prune, breaks custom_breaks_data pause_ads video_metadata.end_credits_time, breaks)
 hulu.com##+js(xml-prune, 'xpath(//*[name()="MPD"]/@mediaPresentationDuration | //*[name()="Period"][.//*[name()="BaseURL" and contains(text(),"/ads-")]] | //*[name()="Period"][starts-with(@id,"ad")] | //*[name()="Period"][starts-with(@id,"Ad")] | //*[name()="Period"]/@start)', MPD Period[id^="Ad"i], .mpd)
 
-! https://github.com/uBlockOrigin/uAssets/issues/18260
-client.falixnodes.net##+js(rpnt, script, window.location.href = '/disableadblock';)
-client.falixnodes.net##+js(set, amzn_aps_csm.init, noopFunc)
-client.falixnodes.net##+js(set, amzn_aps_csm.log, noopFunc)
-
 ! https://github.com/uBlockOrigin/uAssets/issues/1545
 elektroda.pl##div[class="topic-box clearfix "] + div[class]:last-child:has(> b:only-child > a[class][rel="nofollow"]:only-child)
 elektroda.pl##*:has(> div[style*="height"] > div > a[href*=".php?"]:only-child > i:only-child)
-
-! temp address https://github.com/uBlockOrigin/uAssets/commit/53a86edefc152610cf6b81626c64a1e00c29eed7#commitcomment-157540745
-! https://github.com/uBlockOrigin/uAssets/issues/28557
-! https://www.reddit.com/r/uBlockOrigin/comments/1kx35ii/adblock_detection_on_southparkcccom/
-southpark.*,southpark.cc.com,southparkstudios.*##+js(no-fetch-if, dai_iframe)
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/205907
 vook.vc#@#[class*="-spnsr"]
@@ -288,15 +278,9 @@ vook.vc##.note-sp-spnsr
 ||sbisec.co.jp/etgate/^$all,badfilter
 ||banei-keiba.or.jp^$badfilter
 
-! https://github.com/easylist/easylist/commit/45de5b7d5d44fa42dce3fbbb5b1b38c9669468b3
-||pons.com/*/pons-ads-idm.js$badfilter
-
 ! https://github.com/uBlockOrigin/uAssets/issues/26537
 www.google.*#@#+js(trusted-set-cookie, SOCS, CAESHAgBEhJnd3NfMjAyNTA2MDQtMF9SQzEaAnJvIAEaBgiAgo7CBg, 1year)
 !www.google.*##+js(trusted-rpnt, script, /$/, (()=>{const cookies=document.cookie.split(';').map(c=>c.trim());const socsCookie=cookies.find(c=>c.split('=')[0]==='SOCS');if(socsCookie&&location.hostname.startsWith('www.google.')){document.cookie="SOCS=; path=/; expires=Thu\, 01 Jan 1970 00:00:00 GMT;";}})();, sedCount, 1)
-
-! https://github.com/uBlockOrigin/uAssets/issues/28838
-||vkvideo.ru/al_video.php?$badfilter
 
 ! Disable previous trusted-set-cookie filters
 www.google.*#@#+js(trusted-set-cookie, SOCS, CAESHAgBEhJnd3NfMjAyNTA2MDQtMF9SQzEaAnJvIAEaBgiAgo7CBg, 1year, , domain, /\bgoogle\..+$/, dontOverwrite, 1)
