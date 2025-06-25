@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2025)
-! Last modified: Tue, 24 Jun 2025 14:46:01 +0000
+! Last modified: Wed, 25 Jun 2025 02:09:44 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -1425,12 +1425,13 @@ savefiles.com##+js(aopw, showADBOverlay)
 savefiles.com##+js(set, SaveFiles.add, noopFunc)
 savefiles.com##body > div[class][oncontextmenu][style="display: block;"]
 ! https://github.com/uBlockOrigin/uAssets/issues/28017
+! https://www.reddit.com/r/uBlockOrigin/comments/1ljg8z6/savefilestop_popups/
 !#if cap_html_filtering
-savefiles.com##^script:has-text(catcher)
+savefiles.*##^script:has-text(catcher)
 !#else
-savefiles.com##+js(rmnt, script, catcher)
+savefiles.*##+js(rmnt, script, catcher)
 !#endif
-savefiles.com##div[id^="clickCatcher"]
+savefiles.*##div[id^="clickCatcher"]
 ###clickCatcher31
 ###clickCatcher32
 ||savefiles.com/js/noadblocker.js
