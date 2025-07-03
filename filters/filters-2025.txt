@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2025)
-! Last modified: Thu, 03 Jul 2025 14:14:37 +0000
+! Last modified: Thu, 03 Jul 2025 20:06:14 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -2103,3 +2103,8 @@ kijk.nl##+js(no-xhr-if, url:ad/banner.gif)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/29064
 ||securepubads.g.doubleclick.net/tag/js/gpt.js$script,redirect=noop.js:6,from=tvaplus.ca
+
+! Fixes gap caused by removed ad
+!#if env_mobile
+outlook.live.com##main > div[style] .vPfg_:has(.wOYnU) ~ *:style(transform: translateY(-80px) !important)
+!#endif
