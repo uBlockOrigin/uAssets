@@ -50,6 +50,9 @@ partner.co.il##.cookie-message
 !!! Trusted scriptlets------------------------------------------------------------
 
 !! Accept mandatory cookies / reject all additional cookies
+! Do not use trusted-set-cookie for Google - it will cause captcha prompts for many users (maybe Google's antibot systems don't like the same cookie value being shared?) The issue doesn't appear in every region though
+! https://old.reddit.com/r/uBlockOrigin/comments/1l8i7qu/unusual_traffic_warning_from_google_search_in/
+www.google.*##+js(trusted-click-element, button#W0wltc, , 500)
 ! When moving from Google search to other Google services or opening them directly. E.G. https://translate.google.com/ 
 consent.google.*##+js(trusted-click-element, form[action] button[jsname="tWT92d"])
 ! https://github.com/DandelionSprout/adfilt/discussions/932#discussioncomment-8260397
@@ -482,16 +485,6 @@ cencenelec.eu##+js(trusted-set-cookie, cookieconsent, saved=1&functional=0&analy
 kick.com##+js(trusted-set-cookie, cookie_preferences_set_v1, %7B%22state%22%3A%7B%22preferences%22%3A%7B%22necessary%22%3Atrue%2C%22functional%22%3Afalse%2C%22performance%22%3Afalse%2C%22targeting%22%3Afalse%2C%22userHasMadeChoice%22%3Atrue%7D%2C%22functionalEnabled%22%3Afalse%2C%22performanceEnabled%22%3Afalse%2C%22targetingEnabled%22%3Afalse%7D%2C%22version%22%3A0%7D, , , domain, .kick.com)
 
 !! Needs additional cookies
-
-! https://github.com/uBlockOrigin/uAssets/issues/23701
-! Doesn't enable search customization anymore, reject all now
-! Expire time can't be for a session only: https://www.reddit.com/r/uBlockOrigin/comments/1dh4mi4/google_reverts_to_light_theme_between_sessions_in/
-! https://www.reddit.com/r/uBlockOrigin/comments/1ekkkp1/google_constantly_reverting_to_light_mode_and/
-! https://github.com/uBlockOrigin/uAssets/issues/26537#issuecomment-2952259241
-! Better to use domain option to make sure the scriptlet sets the cookie to the same place as the site would naturally set it
-! https://old.reddit.com/r/uBlockOrigin/comments/1l8i7qu/unusual_traffic_warning_from_google_search_in/
-! Trusted-set-cookie causes Google captcha issues, clicker is safer
-www.google.*##+js(trusted-click-element, button#W0wltc, , 500)
 
 ! Closing Optanon Alert Box
 1001games.com,1001hry.cz,1001jeux.fr,1001jocuri.ro,1001jogos.com.br,1001jogos.pt,1001pelit.com,1001spiele.de,elkspel.nl,gamespot.com,giochixl.it,glamour.com,grajteraz.pl,isladejuegos.com,jatekokxl.hu,mtvuutiset.fi,paixnidiaxl.gr,pushsquare.com,spelo.se,spillespill.no,spilxl.dk,thejournal.ie,thetrainline.com,vkmag.com,zdnet.com##+js(trusted-set-cookie, OptanonAlertBoxClosed, $currentDate$, 1year)
