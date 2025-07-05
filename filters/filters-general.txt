@@ -59,7 +59,17 @@ hdhub4u.fail,moviesubtitles.click,telegratuita.com##+js(aeld, DOMContentLoaded, 
 !#endif
 ! https://github.com/uBlockOrigin/uAssets/issues/26815 - superembed server
 /^https:\/\/[0-9a-f]{10}\.[0-9a-f]{10}\.com\/[0-9a-f]{32}\/\d{6}\b/$xhr,3p,match-case,to=com
-! globalThis
+! globalThis a
+/sw.js?puid=$script,1p
+/utx?tid=$xhr,3p
+/^https?:\/\/[a-z]{8,15}\.club\/[%0-9a-zA-Z]{170,}$/$script,3p
+/^https?:\/\/[a-z]{8,15}\.fun\/[%0-9a-zA-Z]{170,}$/$script,3p
+/^https?:\/\/[a-z]{8,15}\.hair\/[%0-9a-zA-Z]{170,}$/$script,3p
+/^https?:\/\/[a-z]{8,15}\.info\/[%0-9a-zA-Z]{170,}$/$script,3p
+/^https?:\/\/[a-z]{8,15}\.work\/[%0-9a-zA-Z]{170,}$/$script,3p
+/^https?:\/\/[a-z]{8,15}\.xyz\/[%0-9a-zA-Z]{170,}$/$script,3p
+/^https?:\/\/[a-z]{8,15}\.com?\/(?=[0-9a-zA-Z]*%)(?=[%a-zA-Z]*\d)(?=[%0-9a-z]*[A-Z])[%0-9a-zA-Z]{170,}$/$script,3p,match-case,from=~edu|~gov,to=co|com
+! globalThis b
 /^https?:\/\/[0-9a-f]{50,}\.s3\.amazonaws\.com\/[0-9a-f]{10}$/$xhr,3p
 /^https?:\/\/s3\.us-east-1\.amazonaws\.com\/[0-9a-f]{50,}\/[0-9a-f]{10}$/$xhr,3p,match-case
 !#if ext_ubol
@@ -117,6 +127,12 @@ hdhub4u.fail,moviesubtitles.click,telegratuita.com##+js(aeld, DOMContentLoaded, 
 /^https:\/\/[a-z][a-z][a-z][a-z]?[a-z]?\.[a-z][a-z][a-z][a-z][a-z][a-z][a-z][a-z][a-z][a-z][a-z]?[a-z]?[a-z]?[a-z]?\.top\/[a-z][a-z][a-z][a-z][a-z][a-z][a-z][a-z][a-z][a-z][a-z]?[a-z]?[a-z]?[a-z]?[a-z]?[a-z]?\/[a-z][a-z][a-z][a-z][a-z][a-z]?\?d=[0-9]$/$script,xhr,3p,match-case
 !#endif
 
+! generic adserver rules
+/gb/zone?zid=$xhr,3p
+.club/js/popunder.js$3p
+.life/js/popunder.js$3p
+.com/ipp.js?id=$3p
+.top/ps/ps.js?id=$3p
 ! Arbitrary adservers / URLs
 ||civilactually.com^
 ||giuntaexhort.com^
