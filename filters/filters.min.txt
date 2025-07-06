@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Sat, 05 Jul 2025 20:27:27 +0000
+! Last modified: Sun, 06 Jul 2025 02:01:51 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -23484,20 +23484,17 @@ lecrabeinfo.net##+js(set, LCI.adBlockDetectorEnabled, false)
 y2meta.mobi##+js(nowoif, !y2meta)
 ||ads.pruc.org^$frame,1p,redirect=noopframe
 ! === Filtros para redecanais.* ===
-redecanais.*##.swal2-popup
-redecanais.*##div[style*="z-index:2147483647"]
-||cdn.jsdelivr.net/npm/disable-devtool@*$script,domain=redecanais.*
-redecanais.*##+js(set-cookie, modalVisited, true)
+||cdn.jsdelivr.net/npm/disable-devtool@$script,domain=redecanais.*
 redecanais.*##+js(aopr, ConsoleBan) 
 redecanais.*##+js(aopr, disableDevtool)
 redecanais.*##+js(aopr, ondevtoolopen)
 redecanais.*##+js(aopr, onkeydown)
 redecanais.*##+js(aopr, window.location.href)
 redecanais.*##+js(aopr, window.history.back)
+||du5tgbgue65er.cloudfront.net/redecanais.js$script
+redecanais.*,redecanaistv.*,redisex.*##style:has-text(.unlockr-no-scroll):remove()
+redecanais.*,redecanaistv.*,redisex.*##.unlockr-overlay
 ! === Filtros para redecanaistv.* ===
-redecanaistv.*##.swal2-popup
-redecanaistv.*##div[style*="z-index:2147483647"]
-redecanaistv.*#%#//scriptlet('set-cookie', 'modalVisited', 'true')
 ||cdn.jsdelivr.net/npm/disable-devtool@$script,domain=redecanaistv.*
 ! === Filtros para redisex.* ===
 ! Bloqueia os cards anti-adblock
@@ -23505,12 +23502,6 @@ redisex.*##.swal2-popup
 redisex.*##div[style*="z-index:2147483647"]
 ||cdn.jsdelivr.net/npm/disable-devtool@$script,domain=redisex.*
 ||redisex.*/player3/dt.api$xhr,domain=redisex.*
-||redisex.*/*consoleban*$script,domain=redisex.*
-||redisex.*/*ban()$script,domain=redisex.*
-||redisex.*/*closeWindow*$script,domain=redisex.*
-||redisex.*/*keydown*$script,domain=redisex.*
-||redisex.*/*ondevtoolopen*$script,domain=redisex.*
-||redisex.*/*window.close()$script,domain=redisex.*
 redisex.*##+js(aopr, onkeydown)
 redisex.*##+js(aopr, document.onkeydown)
 redisex.*##+js(aopr, document.oncontextmenu)
