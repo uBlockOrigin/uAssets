@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Mon, 07 Jul 2025 04:52:08 +0000
+! Last modified: Mon, 07 Jul 2025 04:54:01 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -8252,6 +8252,8 @@ timesofindia.indiatimes.com##+js(set, Object.prototype.isAdActive, false)
 redd.tube##+js(set, Object.prototype.vastOptions, {})
 redd.tube###closeable_widget
 mdpr.jp##+js(trusted-set-attr, #gn-rwd-target-hidden, class, rewareded)
+! Fixes gap caused by removed ad
+outlook.live.com##main > div[style] .vPfg_:has(.wOYnU) ~ *:style(transform: translateY(-80px) !important)
 !#endif
 ! *** uAssets:filters/filters-general.txt ***
 ! Lockdown
@@ -23645,10 +23647,6 @@ vegamoviese.blog##+js(nowoif)
 @@||madarascans.com^$ghide
 kijk.nl##+js(no-xhr-if, url:ad/banner.gif)
 ||securepubads.g.doubleclick.net/tag/js/gpt.js$script,redirect=noop.js:6,from=tvaplus.ca
-! Fixes gap caused by removed ad
-!#if env_mobile
-outlook.live.com##main > div[style] .vPfg_:has(.wOYnU) ~ *:style(transform: translateY(-80px) !important)
-!#endif
 la7.it##+js(no-xhr-if, doubleclick)
 ||imasdk.googleapis.com/js/sdkloader/ima3.js^$script,3p,redirect=noopjs,domain=minefun.io
 santafenewmexican.com##+js(nostif, TNCMS.DMP)
