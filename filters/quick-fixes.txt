@@ -1,5 +1,5 @@
 ! Title: uBlock₀ filters – Quick fixes
-! Last modified: Sun, 06 Jul 2025 19:59:13 +0000
+! Last modified: Tue, 08 Jul 2025 06:13:19 +0000
 ! Expires: 8 hours
 ! Description: Immediate, temporary filters to fix websites
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -279,9 +279,10 @@ vook.vc##.note-sp-spnsr
 @@||adobe.com.ssl.d1.sc.omtrdc.net^$xmlhttprequest,domain=www.adobe.com
 
 ! https://github.com/uBlockOrigin/uAssets/issues/28776
-nontonx.com##+js(rpnt, script, /if \(!check\(\)/g, if(!1)
+nontonx.com##+js(rpnt, script, /if \(!.+\(\)\) return;/g)
 nontonx.com##+js(rmnt, script, location.reload)
 nontonx.com###rules-nontonx
+||raw.githubusercontent.com^$domain=nontonx.com
 
 ! https://github.com/uBlockOrigin/uAssets/issues/28966
 ||s.yimg.com/ss/analytics3.js$badfilter
