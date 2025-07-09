@@ -3044,16 +3044,16 @@ smostafa.ir##:matches-path(/utm_source=footer/i) html:remove()
 upiapi.in##+js(set, detectAdBlock, noopFunc)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/8532
+! https://github.com/uBlockOrigin/uAssets/issues/21255
 ||video-ads-module.ad-tech.nbcuni.com/$xhr,redirect=nooptext,domain=peacocktv.com
+||freewheel.tv^$image,redirect=1x1.gif,domain=peacocktv.com
+||peacocktv.com/*/tracking/
 ! https://github.com/uBlockOrigin/uAssets/issues/18244
 ! https://github.com/uBlockOrigin/uAssets/issues/19433
 ! https://github.com/uBlockOrigin/uAssets/issues/22074
 *&caid=$xhr,removeparam=caid,domain=max.com
 play.max.com##+js(json-prune, ssaiInfo fallback.ssaiInfo)
 play.max.com##+js(json-prune, adtech-brightline adtech-google-pal adtech-iab-om)
-! https://github.com/uBlockOrigin/uAssets/issues/21255
-||freewheel.tv^$image,redirect=1x1.gif,domain=peacocktv.com
-||peacocktv.com/*/tracking/
 peacocktv.com,play.max.com##+js(xml-prune, xpath(//*[name()="MPD"]/@mediaPresentationDuration | //*[name()="Period"]/@start | //*[name()="Period"][not(.//*[name()="SegmentTimeline"])][not(.//*[name()="ContentProtection"])] | //*[name()="Period"][./*[name()="BaseURL"]][not(.//*[name()="ContentProtection"])]), , .mpd)
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/130913
