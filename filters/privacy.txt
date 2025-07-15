@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Privacy
-! Last modified: Tue, 15 Jul 2025 09:51:09 +0000
+! Last modified: Tue, 15 Jul 2025 10:21:41 +0000
 ! Expires: 7 days
 ! Description: |
 !   Some of these filters make use of the `important` filter option,`
@@ -635,8 +635,8 @@ bikesales.com.au##^html > head > :is([name="canonical"], [rel="canonical"]):not(
 /^https?:\/\/(?:[^.]+\.){2}(?:com|io|net)\/c(?:\/\d+){3}\/?\?.*?&?u=http/$doc,to=com|io|net,urlskip=?u
 /^https?:\/\/(?:[^.]+\.){2}(?:com|io|net)\/c(?:\/\d+){3}\/?\?.*?&?url=http/$doc,to=com|io|net,match-case,urlskip=?url
 /^https?:\/\/(?:[^.]+\.){2}(?:com|io|net)\/c(?:\/\d+){3}\/?\?.*?&?URL=http/$doc,to=com|io|net,match-case,urlskip=?URL
-/^https?:\/\/www\.[a-z]+\.(?:com|net)\/click-\d{6,7}-\d{8}\b.*?[?&]url=http/$doc,to=com|net,match-case,urlskip=?url
-/^https?:\/\/www\.[a-z]+\.(?:com|net)\/click-\d{6,7}-\d{8}\b.*?[?&]URL=http/$doc,to=com|net,match-case,urlskip=?URL
+/^https?:\/\/www\.[a-z]+\.(?:com|net)\/click-\d{6,9}-\d{8}\b.*?[?&]url=http/$doc,to=com|net,match-case,urlskip=?url
+/^https?:\/\/www\.[a-z]+\.(?:com|net)\/click-\d{6,9}-\d{8}\b.*?[?&]URL=http/$doc,to=com|net,match-case,urlskip=?URL
 /Proxy.ashx?*&GR_URL=http$doc,urlskip=?GR_URL
 ||clicks.trx-hub.com/*^q=http$doc,urlskip=?q
 ||shop-links.co/link*^url=http$doc,urlskip=?url
@@ -645,6 +645,8 @@ bikesales.com.au##^html > head > :is([name="canonical"], [rel="canonical"]):not(
 ! https://github.com/uBlockOrigin/uAssets/issues/23729
 ||go.redirectingat.com/*^url=http$doc,urlskip=?url
 ||go.skimresources.com/*^url=http$doc,urlskip=?url
+! https://backpackmoments.com/fergana-valley-uzbekistan-full-guide/
+||jdoqocy.com/click-*&url=$urlskip=?url -uricomponent
 
 ! https://github.com/uBlockOrigin/uAssets/issues/26126
 ||click.linksynergy.com/*^murl=http$doc,urlskip=?murl
@@ -1991,9 +1993,6 @@ mediamarkt.de##+js(aopw, ftr__startScriptLoad)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/29175
 ||aram.zone/pageview
-
-! https://backpackmoments.com/fergana-valley-uzbekistan-full-guide/
-||jdoqocy.com/click-*&url=$urlskip=?url -uricomponent
 
 ! Merge in resource-abuse.txt
 !#include resource-abuse.txt
