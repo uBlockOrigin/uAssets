@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Fri, 18 Jul 2025 11:50:33 +0000
+! Last modified: Fri, 18 Jul 2025 13:27:57 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -8129,6 +8129,11 @@ canalobra.com,tulink.org##+js(no-fetch-if, /doubleclick|googlesyndication/)
 ||storz.ma/redigoto?to=aHR0c$doc,urlskip=?to -base64
 recut.ru##a#more
 /yzfdmoan.js$script,domain=lockr.so,redirect=noopjs
+!#if cap_html_filtering
+up4load.com##^script:has-text(/\);break;case|advert_|POPUNDER_URL|adblock/)
+!#else
+up4load.com##+js(rmnt, script, /\);break;case|advert_|POPUNDER_URL|adblock/)
+!#endif
 !#if env_mobile
 ! *** filters/filters-mobile.txt ***
 !----- 2020 -----
