@@ -1562,3 +1562,10 @@ recut.ru##a#more
 
 ! https://lockr.so/54ULGrZfh - anti-adblock
 /yzfdmoan.js$script,domain=lockr.so,redirect=noopjs
+
+! https://github.com/uBlockOrigin/uAssets/issues/29237
+!#if cap_html_filtering
+up4load.com##^script:has-text(/\);break;case|advert_|POPUNDER_URL|adblock/)
+!#else
+up4load.com##+js(rmnt, script, /\);break;case|advert_|POPUNDER_URL|adblock/)
+!#endif
