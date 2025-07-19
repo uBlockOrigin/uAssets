@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Sat, 19 Jul 2025 09:46:27 +0000
+! Last modified: Sat, 19 Jul 2025 09:53:59 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -721,11 +721,6 @@ sxyprn.*##.cbd
 !#endif
 lacuevadeguns.com##+js(aost, onload, inlineScript)
 ||cdn.jsdelivr.net/npm/@rimiti/abm@latest/dist/$script,css,3p
-!#if cap_html_filtering
-magesypro.com##^script:has-text(deblocker)
-!#else
-magesypro.com##+js(rmnt, script, deblocker)
-!#endif
 hqq.*##+js(aopr, adBlockDetected)
 hqq.*##+js(set, sadbl, false)
 hqq.*##+js(nowoif)
@@ -1411,12 +1406,6 @@ mylust.com###main_video_fluid_html_on_pause
 ||mylust.com/*.jsx
 deepbrid.com##+js(acs, document.getElementById, undefined)
 deepbrid.com##+js(set, adsenseadBlock, noopFunc)
-pinsystem.co.uk##+js(aeld, /^(?:click|mousedown)$/, _0x)
-@@||pinsystem.co.uk^$ghide
-pinsystem.co.uk##ins.adsbygoogle
-pinsystem.co.uk##+js(no-xhr-if, /adsbygoogle|doubleclick/)
-pinsystem.co.uk##+js(acs, eval, replace)
-pinsystem.co.uk##+js(rmnt, script, deblocker)
 boysfood.com##+js(aopw, encodeURIComponent)
 boysfood.com###pause-container
 sextingforum.net##+js(aopw, stagedPopUnder)
@@ -1751,8 +1740,6 @@ porntube.com##.relatedContainer
 porntube.com##.col-md-3:has(> iframe[src^="/external"])
 ||porntube.com/external/
 ||porntube.com/nativeexternal/
-elrellano.com##+js(rmnt, script, deblocker)
-elrellano.com##.widget_media_image
 jeuxvideo.com##^script:has-text(wadsBlocking)
 comunidadgzone.es##+js(nostif, nextFunction, 2000)
 tubous.com##+js(aopr, popMagic.init)
@@ -3158,7 +3145,6 @@ porconocer.com##+js(acs, document.getElementById, onscroll)
 0123movies.*##.les-title:has-text(HD)
 0123movies.*##.mvic-btn
 sholah.net,2rdroid.com##+js(nostif, keep-ads, 2000)
-tinyppt.com##+js(rmnt, script, deblocker)
 internetretailing.com.au##.textwidget:has(> div > div[id^="IRN_Homepage_300x250"])
 @@||mygoodstream.pw^$ghide
 bisceglielive.it##+js(nostif, #rbm_block_active, 1000)
@@ -9570,7 +9556,11 @@ filmyzones.com,gamer18.net,pornflixhd.com##+js(aeld, DOMContentLoaded, src=atob)
 filmyzones.com##+js(nostif, ai_adb)
 idlixvip.*##img[alt]:style(display: block !important;)
 .gif^$image,domain=idlixvip.*|idlixvip.asia
+!#if cap_html_filtering
+shemaleraw.com##^script:has-text(deblocker)
+!#else
 shemaleraw.com##+js(rmnt, script, deblocker)
+!#endif
 ! !SECTION: mdpDeBlocker
 ! SECTION: tie-adblock
 jnews5.com##+js(set, tie.ad_blocker_detector, false)
