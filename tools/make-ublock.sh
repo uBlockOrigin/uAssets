@@ -19,3 +19,6 @@ node ./tools/make-easylist.mjs in=templates/ublock-badware.template out=filters/
 
 echo "*** uAssets: Assembling filters/annoyances.txt"
 node ./tools/make-easylist.mjs in=templates/ublock-annoyances.template out=filters/annoyances.min.txt minify=1
+
+echo "*** uAssets: Assembling filters/experimental.txt"
+node ./tools/make-easylist.mjs in=templates/ublock-experimental.template out=filters/experimental.min.txt minify=1
