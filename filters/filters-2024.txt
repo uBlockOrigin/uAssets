@@ -2751,12 +2751,20 @@ dreamdth.com,freemodsapp.in,onlytech.com##+js(nostif, document.createElement)
 freemodsapp.in,onlytech.com##^script:has-text(/eval\(.+?decodeURIComponent/)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/26229
+! https://github.com/uBlockOrigin/uAssets/issues/28913
+! https://github.com/uBlockOrigin/uAssets/issues/29284
+||imasdk.googleapis.com/js/sdkloader/ima3.js$script,redirect=google-ima.js,domain=p2pplay.pro
 !#if env_firefox
 tokuzilla.net##[onclick*="_blank"]:remove-attr(onclick)
+tokuzl.net##[onclick="goToURL();"]:remove-attr(onclick)
 !#else
-tokuzilla.net##+js(ra, onclick, [onclick*="_blank"], stay)
+tokuzilla.net##+js(ra, onclick, [onclick*="_blank"], complete)
+tokuzl.net##+js(ra, onclick, [onclick="goToURL();"], complete)
 !#endif
-tokuzilla.net##+js(nowoif, _blank)
+tokuzilla.net,tokuzl.net##+js(nowoif, _blank)
+tokuzilla.net,tokuzl.net##+js(aeld, click, overlay)
+tokuzilla.net,tokuzl.net##.overlay
+p2pplay.pro##div[style^="position: fixed; inset: 0px; z-index: 2147483647; background: black; opacity: 0.01"]
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/183713
 javball.com##+js(no-fetch-if, adsbygoogle)
