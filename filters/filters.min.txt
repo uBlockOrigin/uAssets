@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Tue, 22 Jul 2025 03:58:43 +0000
+! Last modified: Tue, 22 Jul 2025 04:14:23 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -21433,12 +21433,18 @@ service.webgoto.net##:not(:matches-path(/amafav/)) a[href^="https://www.amazon.c
 dreamdth.com,freemodsapp.in,onlytech.com##+js(acs, eval, replace)
 dreamdth.com,freemodsapp.in,onlytech.com##+js(nostif, document.createElement)
 freemodsapp.in,onlytech.com##^script:has-text(/eval\(.+?decodeURIComponent/)
+||imasdk.googleapis.com/js/sdkloader/ima3.js$script,redirect=google-ima.js,domain=p2pplay.pro
 !#if env_firefox
 tokuzilla.net##[onclick*="_blank"]:remove-attr(onclick)
+tokuzl.net##[onclick="goToURL();"]:remove-attr(onclick)
 !#else
-tokuzilla.net##+js(ra, onclick, [onclick*="_blank"], stay)
+tokuzilla.net##+js(ra, onclick, [onclick*="_blank"], complete)
+tokuzl.net##+js(ra, onclick, [onclick="goToURL();"], complete)
 !#endif
-tokuzilla.net##+js(nowoif, _blank)
+tokuzilla.net,tokuzl.net##+js(nowoif, _blank)
+tokuzilla.net,tokuzl.net##+js(aeld, click, overlay)
+tokuzilla.net,tokuzl.net##.overlay
+p2pplay.pro##div[style^="position: fixed; inset: 0px; z-index: 2147483647; background: black; opacity: 0.01"]
 javball.com##+js(no-fetch-if, adsbygoogle)
 javball.com##+js(aopr, popns)
 eurostreaming.casino##+js(acs, document.documentElement, break;case $.)
@@ -23557,15 +23563,6 @@ leeapk.com##+js(rmnt, script, adblock)
 condorsoft.co##+js(no-xhr-if, googlesyndication)
 ||poweredby.jads.co/js/jads.js$script,domain=216.219.94.112,redirect=noopjs
 /\.gsmarena\.com\/[0-9]+\.php3/$xhr,1p,domain=gsmarena.com
-||imasdk.googleapis.com/js/sdkloader/ima3.js$script,redirect=google-ima.js,domain=p2pplay.pro
-!#if env_firefox
-tokuzl.net##[onclick="goToURL();"]:remove-attr(onclick)
-!#else
-tokuzl.net##+js(ra, onclick, [onclick="goToURL();"], complete)
-!#endif
-tokuzl.net##+js(aeld, click, overlay)
-tokuzl.net##+js(nowoif, _blank)
-tokuzl.net##.overlay
 cosplay-xxx.com##+js(no-fetch-if, adsbygoogle)
 remotejobzone.online##+js(no-fetch-if, adsbygoogle)
 cosmicapp.co,hentaicovid.org,sexwebvideo.com##+js(no-fetch-if, adsbygoogle)
