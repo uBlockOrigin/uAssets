@@ -92,25 +92,35 @@ jilliandescribecompany.com##+js(acs, globalThis, break;case)
 @@||pagead2.googlesyndication.com^$script,domain=next-episode.net
 
 ! https://github.com/uBlockOrigin/uAssets/issues/23806
-*$image,redirect-rule=1x1.gif,domain=japscan.lol
-japscan.lol##+js(norafif, /^/)
-japscan.lol##+js(trusted-set-attr, .navbar-nav > li#navpromo2.nav-item > a, onclick, 'let a=function(){};return false;')
-japscan.lol##+js(no-fetch-if, /\/\/ansuksar\.com\/[0-9a-zA-Z]{3\,26}\/\d{4\,6}\b/, length:125746)
+!#if ext_ubol
+*$image,redirect-rule=1x1.gif,domain=japscan.lol|japscan.si
+@@*$image,xhr,script,domain=japscan.lol|japscan.si
+*$script,xhr,3p,denyallow=acscdn.com|ansuksar.com|aozoiekopoaka.shop|base64easy.com|base64hub.com|challenges.cloudflare.com|cdn.jsdelivr.net|cdnjs.cloudflare.com|code.jquery.com|coutaricho.shop|curltophp.com|ebooksmangaia.com|faireundon.vip|fkourazirop.shop|fourino.shop|frjelsoieapoas.shop|hakoroubita.shop|mamamiaroubita.shop|morinavotarius.top|platform.pubadx.one|regexgenius.com|reoiamlsa.shop|routinato.shop|smaltourinto.shop|static.cloudflareinsights.com|toueapo.shop|tourpowouro.shop,domain=japscan.lol|japscan.si,important
+/^https?:\/\/(?:[a-z]{2}\.)?[0-9a-z]{5,16}\.[a-z]{3,7}\/[a-z](?=[a-z]{0,25}[0-9A-Z])[0-9a-zA-Z]{3,26}\/\d{4,6}(?:\?[_a-z]=[-0-9a-z]+)?$/$script,3p,match-case,redirect=noop.js,important,domain=japscan.lol|japscan.si
+/^https:\/\/acscdn\.com\/script\/(?:aclib|atg|compatibility|ippg|suv4|ut)\.js(\?cb=\d{13})?$/$script,3p,match-case,important,domain=japscan.lol|japscan.si
+||platform.pubadx.one/pubadx-ad.js$script,domain=japscan.lol|japscan.si,important
+||static.cloudflareinsights.com/beacon.min.js/$script,domain=japscan.lol|japscan.si,important
+!#else
+*$image,redirect-rule=1x1.gif,domain=japscan.*
+@@*$image,xhr,script,domain=japscan.*
+*$script,xhr,3p,denyallow=acscdn.com|ansuksar.com|aozoiekopoaka.shop|base64easy.com|base64hub.com|challenges.cloudflare.com|cdn.jsdelivr.net|cdnjs.cloudflare.com|code.jquery.com|coutaricho.shop|curltophp.com|ebooksmangaia.com|faireundon.vip|fkourazirop.shop|fourino.shop|frjelsoieapoas.shop|hakoroubita.shop|mamamiaroubita.shop|morinavotarius.top|platform.pubadx.one|regexgenius.com|reoiamlsa.shop|routinato.shop|smaltourinto.shop|static.cloudflareinsights.com|toueapo.shop|tourpowouro.shop,domain=japscan.*,important
+/^https?:\/\/(?:[a-z]{2}\.)?[0-9a-z]{5,16}\.[a-z]{3,7}\/[a-z](?=[a-z]{0,25}[0-9A-Z])[0-9a-zA-Z]{3,26}\/\d{4,6}(?:\?[_a-z]=[-0-9a-z]+)?$/$script,3p,match-case,redirect=noop.js,important,domain=japscan.*
+/^https:\/\/acscdn\.com\/script\/(?:aclib|atg|compatibility|ippg|suv4|ut)\.js(\?cb=\d{13})?$/$script,3p,match-case,important,domain=japscan.*
+||platform.pubadx.one/pubadx-ad.js$script,domain=japscan.*,important
+||static.cloudflareinsights.com/beacon.min.js/$script,domain=japscan.*,important
+!#endif
+japscan.*##+js(norafif, /^/)
+japscan.*##+js(trusted-set-attr, .navbar-nav > li#navpromo2.nav-item > a, onclick, 'let a=function(){};return false;')
+japscan.*##+js(no-fetch-if, /\/\/ansuksar\.com\/[0-9a-zA-Z]{3\,26}\/\d{4\,6}\b/, length:125746)
 ! START: Counter Liste FR rules
-japscan.lol#@#div.container > [href]
+japscan.*#@#div.container > [href]
 ! END
-||japscan.lol/zjs/$script,replace=/function GoodDay\(\)\{.+?\}\}\}//
-@@*$image,xhr,script,domain=japscan.lol
-*$script,xhr,3p,denyallow=acscdn.com|ansuksar.com|aozoiekopoaka.shop|base64easy.com|base64hub.com|challenges.cloudflare.com|cdn.jsdelivr.net|cdnjs.cloudflare.com|code.jquery.com|coutaricho.shop|curltophp.com|ebooksmangaia.com|faireundon.vip|fkourazirop.shop|fourino.shop|frjelsoieapoas.shop|hakoroubita.shop|mamamiaroubita.shop|morinavotarius.top|platform.pubadx.one|regexgenius.com|reoiamlsa.shop|routinato.shop|smaltourinto.shop|static.cloudflareinsights.com|tourpowouro.shop,domain=japscan.lol,important
-/^https?:\/\/(?:[a-z]{2}\.)?[0-9a-z]{5,16}\.[a-z]{3,7}\/[a-z](?=[a-z]{0,25}[0-9A-Z])[0-9a-zA-Z]{3,26}\/\d{4,6}(?:\?[_a-z]=[-0-9a-z]+)?$/$script,3p,match-case,redirect=noop.js,important,domain=japscan.lol
-/^https:\/\/acscdn\.com\/script\/(?:aclib|atg|compatibility|ippg|suv4|ut)\.js(\?cb=\d{13})?$/$script,3p,match-case,important,domain=japscan.lol
-||platform.pubadx.one/pubadx-ad.js$script,domain=japscan.lol,important
-||static.cloudflareinsights.com/beacon.min.js/$script,domain=japscan.lol,important
-japscan.lol##+js(trusted-suppress-native-method, Document.prototype.querySelectorAll, '"/^#/"', prevent, /nawNA inlineScript/)
-japscan.lol##+js(nostif, =document[_0x)
-japscan.lol##+js(trusted-set, aclib, json:{"isShowingPop": false})
-japscan.lol##+js(set, aclib.runInPagePush, {}, as, callback)
-japscan.lol##+js(trusted-replace-outbound-text, Function.prototype.toString, ( ) => (( ) => value), runInPagePush(t){})
+||japscan.*/zjs/$script,replace=/function GoodDay\(\)\{.+?\}\}\}//
+japscan.*##+js(trusted-suppress-native-method, Document.prototype.querySelectorAll, '"/^#/"', prevent, /nawNA inlineScript/)
+japscan.*##+js(nostif, =document[_0x)
+japscan.*##+js(trusted-set, aclib, json:{"isShowingPop": false})
+japscan.*##+js(set, aclib.runInPagePush, {}, as, callback)
+japscan.*##+js(trusted-replace-outbound-text, Function.prototype.toString, ( ) => (( ) => value), runInPagePush(t){ })
 
 ! https://github.com/uBlockOrigin/uAssets/issues/21064
 ! https://github.com/uBlockOrigin/uAssets/issues/24220
