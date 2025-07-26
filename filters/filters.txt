@@ -662,7 +662,11 @@ wcoforever.net##.anti-ad
 wcoforever.net###sidebar_r1
 @@||embed.watchanimesub.net^$script,1p
 ! https://github.com/uBlockOrigin/uAssets/issues/29349
-@@||embed.wcostream.com^$ghide
+!#if cap_html_filtering
+embed.wcostream.com##^script:has-text(/google_jobrunner|blockAdBlock/)
+!#else
+embed.wcostream.com##+js(rmnt, script, /google_jobrunner|blockAdBlock/)
+!#endif
 
 ! https://github.com/uBlockOrigin/uAssets/issues/331
 ! https://github.com/uBlockOrigin/uAssets/issues/10133
