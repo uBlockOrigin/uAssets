@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Privacy
 ! Expires: 7 days
-! Last modified: Sat, 26 Jul 2025 04:23:35 +0000
+! Last modified: Sat, 26 Jul 2025 04:39:38 +0000
 ! Diff-Path: %diffpath%#ublock-privacy
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -596,7 +596,10 @@ mais.sbt.com.br##+js(set-local-storage-item, youbora.youboraDeviceUUID, $remove$
 pixabay.com##+js(remove-cookie, anonymous_user_id)
 redis.io##+js(remove-cookie, rdsTracking, when, scroll keydown)
 boredpanda.com##+js(set-local-storage-item, bp-analytics, $remove$)
-galaxus.de##+js(remove-cookie, /^\.(b|s|xp|ub\.)id/)
+galaxus.de##+js(remove-cookie, /^\.(b|s|xp|ub\.)id/, when, scroll keydown)
+healf.com##+js(remove-cookie, /^ig-|ph_phc_/, when, scroll keydown)
+healf.com##+js(set-local-storage-item, /^ph_phc_/, $remove$)
+healf.com##+js(set-session-storage-item, /^ph_phc_/, $remove$)
 ! Query parameter stripping
 ! Google ads/analytics
 $removeparam=gbraid
