@@ -9515,7 +9515,9 @@ spiegel.de##^script:has-text(homad)
 ||cinema.de/sites/default/files/js/js_$script,1p,replace=/var conf=\{'globalConfig'.*?'vpaid':'true'\};var exportz=/var conf={}; var exportz=/
 ||svonm.com^$xhr,replace=/"enabled":\s*true/"enabled":false/,domain=desired.de|giga.de
 !#else
-giga.de,welt.de##+js(aost, XMLHttpRequest.prototype.open, svonm.com)
+! https://github.com/uBlockOrigin/uAssets/issues/15918#issuecomment-3121578415
+welt.de##+js(set, weltConfig.switches.videoAdBlockBlocker, false)
+giga.de##+js(aost, XMLHttpRequest.prototype.open, svonm.com)
 spiegel.de##+js(rmnt, script, homad)
 desired.de##+js(trusted-replace-xhr-response, /"enabled":\s*true/, "enabled":false, svonm.com)
 !#endif
