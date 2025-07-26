@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Sat, 26 Jul 2025 04:57:21 +0000
+! Last modified: Sat, 26 Jul 2025 11:40:25 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -5785,7 +5785,8 @@ spiegel.de##^script:has-text(homad)
 ||cinema.de/sites/default/files/js/js_$script,1p,replace=/var conf=\{'globalConfig'.*?'vpaid':'true'\};var exportz=/var conf={}; var exportz=/
 ||svonm.com^$xhr,replace=/"enabled":\s*true/"enabled":false/,domain=desired.de|giga.de
 !#else
-giga.de,welt.de##+js(aost, XMLHttpRequest.prototype.open, svonm.com)
+welt.de##+js(set, weltConfig.switches.videoAdBlockBlocker, false)
+giga.de##+js(aost, XMLHttpRequest.prototype.open, svonm.com)
 spiegel.de##+js(rmnt, script, homad)
 desired.de##+js(trusted-replace-xhr-response, /"enabled":\s*true/, "enabled":false, svonm.com)
 !#endif
