@@ -30,7 +30,6 @@ www.youtube.com##+js(nano-stb, [native code], 17000, 0.001)
 ! https://www.reddit.com/r/uBlockOrigin/comments/1ebwr6c/is_ublock_broken_again_or_am_i_doing_something/
 !www.youtube.com##+js(json-prune-fetch-response, playerAds adPlacements adSlots no_ads playerResponse.playerAds playerResponse.adPlacements playerResponse.adSlots playerResponse.no_ads [].playerResponse.adPlacements [].playerResponse.playerAds [].playerResponse.adSlots [].playerResponse.no_ads, , propsToMatch, /player\?|get_watch|^\W+$/)
 www.youtube.com##+js(json-prune-fetch-response, adPlacements adSlots no_ads playerResponse.adPlacements playerResponse.adSlots playerResponse.no_ads [].playerResponse.adPlacements [].playerResponse.adSlots [].playerResponse.no_ads, , propsToMatch, /player?)
-www.youtube.com##+js(json-prune, playerResponse.adPlacements playerResponse.adSlots, playerResponse.streamingData.serverAbrStreamingUrl)
 ! https://github.com/uBlockOrigin/uAssets/issues/20586#issuecomment-2144781835
 www.youtube.com##+js(json-prune-fetch-response, playerAds adPlacements adSlots no_ads playerResponse.playerAds playerResponse.adPlacements playerResponse.adSlots playerResponse.no_ads, , propsToMatch, /playlist?)
 ! https://github.com/uBlockOrigin/uAssets/issues/20586#issuecomment-2271325338
@@ -68,6 +67,7 @@ youtube.com#@##player-ads
 ! https://github.com/uBlockOrigin/uAssets/issues/27415#issuecomment-2998301771
 www.youtube.com##+js(trusted-replace-outbound-text, JSON.stringify, "clientScreen":"WATCH", "clientScreen":"ADUNIT", condition, contentPlaybackContext)
 ! https://github.com/uBlockOrigin/uAssets/issues/27415#issuecomment-3124430383
+www.youtube.com##+js(trusted-replace-fetch-response, '"adSlots"', '"no_ads"', /get_watch?)
 www.youtube.com##+js(trusted-json-edit-fetch-request, .context.client+={"clientScreen":"ADUNIT"}, /get_watch?)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/3367
