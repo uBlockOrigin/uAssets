@@ -1148,6 +1148,10 @@ terra.com.br##+js(remove-cookie, X-XAct-ID)
 ! https://vnexpress.net/
 vnexpress.net##+js(remove-cookie, /^fosp_|orig_aid/)
 vnexpress.net##+js(set-local-storage-item, /^fosp_|orig_aid/, $remove$)
+! https://briefly.co.za/
+briefly.co.za##+js(set-local-storage-item, /^recommendation_uuid/, $remove$)
+! https://www.carparts.com/
+carparts.com##+js(set-local-storage-item, optimizely-vuid, $remove$)
 
 ! Query parameter stripping
 ! Google ads/analytics
@@ -2036,6 +2040,10 @@ mediamarkt.de##+js(aopw, ftr__startScriptLoad)
 ||vnexpress.net/microservice/fc^
 ||vnecdn.net/vnexpress/restruct/*/eclick/
 ||static.eclick.vn^$image,redirect=1x1.gif
+
+! carparts.com,nba.com
+/newrelic-prod.js|$script,1p
+||nba.com/*/*/*/*/$script,1p
 
 ! Merge in resource-abuse.txt
 !#include resource-abuse.txt
