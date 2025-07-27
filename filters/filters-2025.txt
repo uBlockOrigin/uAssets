@@ -2301,3 +2301,12 @@ criticker.com##+js(json-prune, bannerad sidebar ti_sidebar)
 ||cdn.briefly.co.za/briefly/js/monetization.
 briefly.co.za##.c-adv
 briefly.co.za##.c-adv-branding__top
+
+! https://github.com/uBlockOrigin/uAssets/issues/14480 - soft98.ir
+!#if cap_html_filtering
+||soft98.ir/templates/*/js/application.min.packed.js$script,1p,replace=/visibility/backfaceVisibility/
+soft98.ir,~forum.soft98.ir###abddh > *, div:has(> header + div > [data-href="https://cdn.hostdl.com/goto/soft98"]), section:has(> header + div > div > div > a[href*="utm_"]), [data-href^="https://padvish.com/"]:style(visibility: hidden !important;)
+!#else
+soft98.ir,~forum.soft98.ir##+js(aost, NodeList.prototype.forEach, /\bRi[@\s][^\t]+\/application\.min\.packed\.js/)
+soft98.ir,~forum.soft98.ir###abddh > *, div:has(> header + div > [data-href="https://cdn.hostdl.com/goto/soft98"]), section:has(> header + div > div > div > a[href*="utm_"]), [data-href^="https://padvish.com/"]
+!#endif
