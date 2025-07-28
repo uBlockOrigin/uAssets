@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Privacy
 ! Expires: 7 days
-! Last modified: Mon, 28 Jul 2025 04:37:32 +0000
+! Last modified: Mon, 28 Jul 2025 07:50:21 +0000
 ! Diff-Path: %diffpath%#ublock-privacy
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -469,6 +469,9 @@ musescore.com##+js(href-sanitizer, a[href^="https://deeplink.musescore.com/redir
 musescore.com##+js(set-local-storage-item, /^rt_/, $remove$)
 ||laylo.co/e/*^url=http$doc,urlskip=?url
 ||comohoy.com/view/out.html?url1=aHR0c$doc,urlskip=?url1 -base64
+! shopee
+||shopee.*/universal-link?redir=http$doc,urlskip=?redir
+||shp.ee/open/noti_email?redir=http$doc,urlskip=?redir
 ! Click Trackers
 html.duckduckgo.com,lite.duckduckgo.com##+js(href-sanitizer, a[href^="//duckduckgo.com/l/?uddg="], ?uddg)
 starstyle.com##+js(href-sanitizer, a[href^="https://go.skimresources.com/"][href*="&url=http"], ?url)
@@ -990,7 +993,7 @@ delighted.com%2Fe%2F$image
 ! patch.com
 snl.patch.com/imp?$image
 link.patch.com/img/*.gif$image
-://pixel.patch.com/
+/pixel.patch.com/*
 snl.patch.com%2Fimp%3F$image
 link.patch.com%2Fimg%2F*.gif$image
 pixel.patch.com%2F$image
@@ -1018,20 +1021,29 @@ r.mail.wowvegas.com%2Ftr%2Fop%2F$image
 .customeriomail.com/e/o/$image
 .customeriomail.com%2Fe%2Fo%2F$image
 ! microsoft
-://mucp.api.account.microsoft.com/m/v2/v?d=$image
+/mucp.api.account.microsoft.com/m/v2/v?d=$image
 %3A%2F%2Fmucp.api.account.microsoft.com%2Fm%2Fv2%2Fv%3Fd%3D$image
 ! klinkfinance
-://dedxk.r.ag.d.sendibm3.com/$image
-%3A%2F%2Fdedxk.r.ag.d.sendibm3.com%2F$image
+/dedxk.r.ag.d.sendibm3.com/*$image
+%2Fdedxk.r.ag.d.sendibm3.com%2F$image
 ! coinbase
-://comm.coinbase.com/$image
-%3A%2F%2Fcomm.coinbase.com%2F$image
+/comm.coinbase.com/*$image
+%2Fcomm.coinbase.com%2F$image
 ! bitcasinao
-://cmail.bitcasino.io/$image
-%3A%2F%2Fcmail.bitcasino.io%2F$image
+/cmail.bitcasino.io/*$image
+%2Fcmail.bitcasino.io%2F$image
 ! twitter
-://twitter.com/scribe/ibis?$image
-%3A%2F%2Ftwitter.com%2Fscribe%2Fibis%3F$image
+/twitter.com/scribe/ibis?$image
+%2Ftwitter.com%2Fscribe%2Fibis%3F$image
+! shopee
+/tracking.mail.shopee.$image
+%2Ftracking.mail.shopee.$image
+! windscribe
+/windscribe.com/pixel?$image
+%2Fwindscribe.com%2Fpixel%3F$image
+! vegasgems
+/tracking.vegasgems.com/*$image
+%2Ftracking.vegasgems.com%2F$image
 ! others
 static.adsugar.ch/img?ord=$image
 static.adsugar.ch%2Fimg%3Ford%3D$image
