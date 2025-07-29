@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Privacy
 ! Expires: 7 days
-! Last modified: Tue, 29 Jul 2025 04:27:45 +0000
+! Last modified: Tue, 29 Jul 2025 07:41:31 +0000
 ! Diff-Path: %diffpath%#ublock-privacy
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -473,6 +473,7 @@ musescore.com##+js(set-local-storage-item, /^rt_/, $remove$)
 ||shopee.*/universal-link?redir=http$doc,urlskip=?redir
 ||shp.ee/open/noti_email?redir=http$doc,urlskip=?redir
 ||forums.socialmediagirls.com/goto/link-confirmation?url=aHR0$doc,urlskip=?url -base64
+||dogdrip.net/link.php?url=http$doc,urlskip=?url
 ! Click Trackers
 html.duckduckgo.com,lite.duckduckgo.com##+js(href-sanitizer, a[href^="//duckduckgo.com/l/?uddg="], ?uddg)
 starstyle.com##+js(href-sanitizer, a[href^="https://go.skimresources.com/"][href*="&url=http"], ?url)
@@ -528,6 +529,7 @@ slant.co##+js(trusted-replace-argument, HTMLAnchorElement.prototype.getAttribute
 ||static.accesstrade.vn/js/atsmarttag.min.js
 voz.vn##a.link.link--external[href][data-proxy-href]:remove-attr(data-proxy-href)
 spreaker.com##+js(href-sanitizer, a[href^="https://spreaker.onelink.me/"][href*="&af_web_dp=http"], ?af_web_dp)
+dogdrip.net##+js(href-sanitizer, a[href^="/link.php?url=http"], ?url)
 ||cdn.digg.com/fragments/homepage/static/view-frontpage.js
 /detroitchicago/dpv.gif?$image
 /detroitchicago/imp.gif$ping
