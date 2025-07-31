@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Quick fixes
 ! Expires: 12 hours
-! Last modified: Thu, 31 Jul 2025 13:29:31 +0000
+! Last modified: Thu, 31 Jul 2025 15:44:34 +0000
 ! Diff-Path: %diffpath%#ublock-quick-fixes
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -228,3 +228,8 @@ corsaires-paris.com#@#.adhesion:not(body)
 ||api-iam.intercom.io/messenger/web/ping$badfilter
 ||nba.com/*/*/*/*/$script,1p,badfilter
 @@||embed.wcostream.com^$script,1p
+!#if cap_html_filtering
+embed.wcostream.com##^script:has-text(/google_jobrunner|AdBlock|pubadx|embed\.html/i)
+!#else
+embed.wcostream.com##+js(rmnt, script, /google_jobrunner|AdBlock|pubadx|embed\.html/i)
+!#endif
