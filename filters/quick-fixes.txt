@@ -303,3 +303,8 @@ corsaires-paris.com#@#.adhesion:not(body)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/29349
 @@||embed.wcostream.com^$script,1p
+!#if cap_html_filtering
+embed.wcostream.com##^script:has-text(/google_jobrunner|AdBlock|pubadx|embed\.html/i)
+!#else
+embed.wcostream.com##+js(rmnt, script, /google_jobrunner|AdBlock|pubadx|embed\.html/i)
+!#endif
