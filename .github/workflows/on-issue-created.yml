@@ -8,26 +8,25 @@ env:
   GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   GH_REPO: ${{ github.repository }}
   NUMBER: ${{ github.event.issue.number }}
-  BODY: ${{ github.event.issue.body }}
 
 jobs:
   label-chromium:
     runs-on: ubuntu-latest
-    if: "${{ contains(env.BODY, 'browser: Chrome') || contains(env.BODY, 'browser: Edge') }}"
+    if: "contains(github.event.issue.body, 'browser: Chrome') || contains(github.event.issue.body, 'browser: Edge')"
     permissions:
       issues: write
     steps:
       - run: gh issue edit "$NUMBER" --add-label "Chromium"
   label-firefox:
     runs-on: ubuntu-latest
-    if: "${{ contains(env.BODY, 'browser: Firefox') }}"
+    if: "contains(github.event.issue.body, 'browser: Firefox')"
     permissions:
       issues: write
     steps:
       - run: gh issue edit "$NUMBER" --add-label "Firefox"
   label-safari:
     runs-on: ubuntu-latest
-    if: "${{ contains(env.BODY, 'browser: Safari') }}"
+    if: "contains(github.event.issue.body, 'browser: Safari')"
     permissions:
       issues: write
     steps:
