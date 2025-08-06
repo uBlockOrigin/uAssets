@@ -14,18 +14,21 @@ jobs:
   label-chromium:
     runs-on: ubuntu-latest
     if: "contains(env.BODY, 'browser: Chrome') || contains(env.BODY, 'browser: Edge')"
-    permissions: write
+    permissions:
+      issues: write
     steps:
       - run: gh issue edit "$NUMBER" --add-label "Chromium"
   label-firefox:
     runs-on: ubuntu-latest
     if: "contains(env.BODY, 'browser: Firefox')"
-    permissions: write
+    permissions:
+      issues: write
     steps:
       - run: gh issue edit "$NUMBER" --add-label "Firefox"
   label-safari:
     runs-on: ubuntu-latest
     if: "contains(env.BODY, 'browser: Safari')"
-    permissions: write
+    permissions:
+      issues: write
     steps:
       - run: gh issue edit "$NUMBER" --add-label "Safari"
