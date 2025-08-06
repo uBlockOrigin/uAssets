@@ -1,0 +1,30 @@
+name: on-issue-created
+
+on:
+  issues:
+    types: opened
+
+env:
+  GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  GH_REPO: ${{ github.repository }}
+  NUMBER: ${{ github.event.issue.number }}
+
+jobs:
+  label-chromium:
+    runs-on: ubuntu-latest
+    if: (( contains(github.event.comment.body, 'browser: Chrome') || contains(github.event.comment.body, 'browser: Edge') ))
+    permissions: write
+    steps:
+      - run: gh issue edit "$NUMBER" --add-label "Chromium"
+  label-firefox:
+    runs-on: ubuntu-latest
+    if: (( contains(github.event.comment.body, 'browser: Firefox') ))
+    permissions: write
+    steps:
+      - run: gh issue edit "$NUMBER" --add-label "Firefox"
+  label-safari:
+    runs-on: ubuntu-latest
+    if: (( contains(github.event.comment.body, 'browser: Safari') ))
+    permissions: write
+    steps:
+      - run: gh issue edit "$NUMBER" --add-label "Safari"
