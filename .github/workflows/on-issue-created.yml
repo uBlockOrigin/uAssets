@@ -12,19 +12,19 @@ env:
 jobs:
   label-chromium:
     runs-on: ubuntu-latest
-    if: (( contains(github.event.comment.body, 'browser: Chrome') || contains(github.event.comment.body, 'browser: Edge') ))
+    if: contains(github.event.comment.body, 'browser: Chrome') || contains(github.event.comment.body, 'browser: Edge')
     permissions: write
     steps:
       - run: gh issue edit "$NUMBER" --add-label "Chromium"
   label-firefox:
     runs-on: ubuntu-latest
-    if: (( contains(github.event.comment.body, 'browser: Firefox') ))
+    if: contains(github.event.comment.body, 'browser: Firefox')
     permissions: write
     steps:
       - run: gh issue edit "$NUMBER" --add-label "Firefox"
   label-safari:
     runs-on: ubuntu-latest
-    if: (( contains(github.event.comment.body, 'browser: Safari') ))
+    if: contains(github.event.comment.body, 'browser: Safari')
     permissions: write
     steps:
       - run: gh issue edit "$NUMBER" --add-label "Safari"
