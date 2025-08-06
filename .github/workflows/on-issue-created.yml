@@ -13,25 +13,19 @@ env:
 jobs:
   label-chromium:
     runs-on: ubuntu-latest
-    if: contains(env.BODY, 'browser: Chrome')
-    permissions: write
-    steps:
-      - run: gh issue edit "$NUMBER" --add-label "Chromium"
-  label-edge:
-    runs-on: ubuntu-latest
-    if: contains(env.BODY, 'browser: Edge')
+    if: "contains(env.BODY, 'browser: Chrome') || contains(env.BODY, 'browser: Edge')"
     permissions: write
     steps:
       - run: gh issue edit "$NUMBER" --add-label "Chromium"
   label-firefox:
     runs-on: ubuntu-latest
-    if: contains(env.BODY, 'browser: Firefox')
+    if: "contains(env.BODY, 'browser: Firefox')"
     permissions: write
     steps:
       - run: gh issue edit "$NUMBER" --add-label "Firefox"
   label-safari:
     runs-on: ubuntu-latest
-    if: contains(env.BODY, 'browser: Safari')
+    if: "contains(env.BODY, 'browser: Safari')"
     permissions: write
     steps:
       - run: gh issue edit "$NUMBER" --add-label "Safari"
