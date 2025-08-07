@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Thu, 07 Aug 2025 07:29:36 +0000
+! Last modified: Thu, 07 Aug 2025 07:53:38 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -23581,6 +23581,11 @@ gadgetbond.com##+js(no-fetch-if, adsbygoogle)
 updateroj24.com##+js(no-fetch-if, adsbygoogle)
 updateroj24.com##.ad-container
 mega.nz##+js(json-prune-fetch-response, *, *.aurl, propsToMatch, /cs?id=)
+!#if cap_html_filtering
+||g.api.mega.co.nz/cs?id=$xhr,domain=mega.nz,replace=/^\[.+"aurl".+/[null,null]/
+!#else
+mega.nz##+js(trusted-replace-argument, RegExp.prototype.test, 0, repl:/\.mp4$/.mp3/, condition, .mp4)
+!#endif
 umatechnology.org##+js(aeld, DOMContentLoaded, -banner)
 ||outebytech.com^$all
 rarbg.how##+js(aeld, click, PopURL)
