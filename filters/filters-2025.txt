@@ -1846,6 +1846,11 @@ updateroj24.com##.ad-container
 ! https://www.reddit.com/r/uBlockOrigin/comments/1kxmdab/video_ads_in_embedded_videos_of_mega/
 ! https://www.reddit.com/r/uBlockOrigin/comments/1lssmxc/mega_filehoster_showing_ads_in_uploaded_videos/
 mega.nz##+js(json-prune-fetch-response, *, *.aurl, propsToMatch, /cs?id=)
+!#if cap_html_filtering
+||g.api.mega.co.nz/cs?id=$xhr,domain=mega.nz,replace=/^\[.+"aurl".+/[null,null]/
+!#else
+mega.nz##+js(trusted-replace-argument, RegExp.prototype.test, 0, repl:/\.mp4$/.mp3/, condition, .mp4)
+!#endif
 
 ! https://github.com/uBlockOrigin/uAssets/issues/28595
 umatechnology.org##+js(aeld, DOMContentLoaded, -banner)
