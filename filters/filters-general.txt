@@ -1140,6 +1140,10 @@ nekopoicare.*>>##+js(acs, EventTarget.prototype.addEventListener, delete window)
 /^https?:\/\/[-a-z]{8,15}\.(?:com|net)\/400\/\d{7}(?:\?v=\d+)?$/$script,3p,to=com|net
 /^https?:\/\/[-a-z]{8,15}\.(?:com|net)\/401\/\d{7}(?:\?v=\d+)?$/$script,3p,to=com|net
 /^https?:\/\/[-a-z]{8,15}\.(?:com|net)\/500\/\d{7}\?/$xhr,3p,to=com|net
+!#if env_safari
+/^https?:\/\/[a-z][a-z][a-z][a-z][a-z][a-z][a-z][a-z][a-z]?[a-z]?[a-z]?[a-z]?[a-z]?[a-z]?[a-z]?\.com\/$/$xhr,3p,to=com,method=head,header=access-control-expose-headers:*X-DirectionPartner-Id*
+/^https?:\/\/[a-z][a-z][a-z][a-z][a-z][a-z][a-z][a-z][a-z]?[a-z]?[a-z]?[a-z]?[a-z]?[a-z]?[a-z]?\.xyz\/$/$xhr,3p,to=xyz,method=head,header=access-control-expose-headers:*X-DirectionPartner-Id*
+!#endif
 ! https://github.com/uBlockOrigin/uAssets/issues/27734
 ! https://github.com/uBlockOrigin/uAssets/issues/27752
 /^https?:\/\/[a-z0-9]{5,15}\.(?:com|net)\/tag\.min\.js$/$script,3p,to=com|net,redirect=noopjs
