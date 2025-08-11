@@ -69,6 +69,9 @@ youtube.com#@##player-ads
 ! https://github.com/uBlockOrigin/uAssets/issues/27415#issuecomment-3124430383
 www.youtube.com##+js(trusted-replace-fetch-response, '"adSlots"', '"no_ads"', /get_watch?)
 ! www.youtube.com##+js(trusted-json-edit-fetch-request, .context.client+={"clientScreen":"ADUNIT"}, /get_watch?)
+! https://github.com/uBlockOrigin/uAssets/issues/27415#issuecomment-3167545931
+www.youtube.com##+js(trusted-replace-outbound-text, JSON.stringify, "params":", "params":"yAEB, condition, /("contentPlaybackContext":{".*\,"params":"|"params":".*"contentPlaybackContext":{")/)
+www.youtube.com##+js(trusted-replace-outbound-text, JSON.stringify, "contentCheckOk":false, "params":"yAEB"\,"contentCheckOk":false, condition, /^(?=.*"contentPlaybackContext":{")(?!.*"params":").*$/)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/3367
 ! web.facebook.com,www.facebook.com##+js(json-prune, require.0.3.0.__bbox.require.[].3.1.__bbox.result.data.viewer.sideFeed.nodes.0.{-}.nodes.0.rhc_ad)
