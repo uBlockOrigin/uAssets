@@ -1346,9 +1346,7 @@ $removeparam=asc_campaign,domain=aboutamazon.com|amazon.*|amzn.to
 $removeparam=asc_refurl,domain=aboutamazon.com|amazon.*|amzn.to
 $removeparam=asc_source,domain=aboutamazon.com|amazon.*|amzn.to
 ! https://www.reddit.com/r/uBlockOrigin/comments/1md3391/amazon_urls_ublock_origin_clear_urls_extension/
-!#if !ext_ubol
 ||amazon.*/dp/$doc,removeparam=ref_,to=amazon.*
-!#endif
 ! youtube.com - Copy video URL at its search result via mouse right click.
 ||youtube.com^$removeparam=pp
 ! https://github.com/AdguardTeam/AdguardFilters/issues/173471
@@ -2123,6 +2121,11 @@ mediamarkt.de##+js(aopw, ftr__startScriptLoad)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/29575
 ||swetrix.com/log^
+
+! https://github.com/uBlockOrigin/uAssets/issues/29578
+!#if !ext_ubol
+||brighteon.com/api-v*/public/visit-tracking
+!#endif
 
 ! Merge in resource-abuse.txt
 !#include resource-abuse.txt
