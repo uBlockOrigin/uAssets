@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Privacy
 ! Expires: 7 days
-! Last modified: Mon, 11 Aug 2025 01:15:12 +0000
+! Last modified: Mon, 11 Aug 2025 01:19:57 +0000
 ! Diff-Path: %diffpath%#ublock-privacy
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -748,21 +748,26 @@ $removeparam=ttclid
 $removeparam=sc_customer
 $removeparam=sc_eh
 $removeparam=sc_uid
-$removeparam=asc_campaign,domain=aboutamazon.com|amazon.*|amzn.to
-$removeparam=asc_refurl,domain=aboutamazon.com|amazon.*|amzn.to
-$removeparam=asc_source,domain=aboutamazon.com|amazon.*|amzn.to
-||amazon.*/dp/$doc,removeparam=ref_,to=amazon.*
+$removeparam=asc_campaign,to=aboutamazon.com|amazon.*|amzn.to
+$removeparam=asc_refurl,to=aboutamazon.com|amazon.*|amzn.to
+$removeparam=asc_source,to=aboutamazon.com|amazon.*|amzn.to
+!#if ext_ubol
+$removeparam=asc_campaign,to=amazon.ae|amazon.ca|amazon.cn|amazon.co.jp|amazon.co.uk|amazon.com|amazon.com.au|amazon.de|amazon.es|amazon.fr|amazon.in|amazon.nl|amazon.sg
+$removeparam=asc_refurl,to=amazon.ae|amazon.ca|amazon.cn|amazon.co.jp|amazon.co.uk|amazon.com|amazon.com.au|amazon.de|amazon.es|amazon.fr|amazon.in|amazon.nl|amazon.sg
+$removeparam=asc_source,to=amazon.ae|amazon.ca|amazon.cn|amazon.co.jp|amazon.co.uk|amazon.com|amazon.com.au|amazon.de|amazon.es|amazon.fr|amazon.in|amazon.nl|amazon.sg
+!#endif
+||amazon.*/dp/$doc,removeparam=ref_,to=amazon.*|amazon.ae|amazon.ca|amazon.cn|amazon.co.jp|amazon.co.uk|amazon.com|amazon.com.au|amazon.de|amazon.es|amazon.fr|amazon.in|amazon.nl|amazon.sg
 ! youtube.com - Copy video URL at its search result via mouse right click.
 ||youtube.com^$removeparam=pp
 ||youtu.be^$removeparam=si
 ://youtube.com/@*?si=$doc,removeparam=si
 ! Embedded tweets
-$removeparam=refsrc,domain=twitter.com|x.com
-$removeparam=ref_src,domain=twitter.com|x.com
-$removeparam=ref_url,domain=twitter.com|x.com
+$removeparam=refsrc,to=twitter.com|x.com
+$removeparam=ref_src,to=twitter.com|x.com
+$removeparam=ref_url,to=twitter.com|x.com
 ! Twitter
-$removeparam=cxt,domain=twitter.com|x.com
-$removeparam=s,domain=twitter.com|x.com
+$removeparam=cxt,to=twitter.com|x.com
+$removeparam=s,to=twitter.com|x.com
 ! eBay tracking parameters
 ||www.ebay.$removeparam=ssspo
 ||www.ebay.$removeparam=sssrc
@@ -816,9 +821,9 @@ $removeparam=igshid,domain=instagram.com|threads.net
 ! Exceptions
 @@||web.archive.org/*/http$removeparam
 @@||urldefense.com^$removeparam
-/dp/*/ref=$doc,uritransform=/\/ref=[^\/?#]+//,to=www.amazon.*
+/dp/*/ref=$doc,uritransform=/\/ref=[^\/?#]+//,to=www.amazon.*|www.amazon.ae|www.amazon.ca|www.amazon.cn|www.amazon.co.jp|www.amazon.co.uk|www.amazon.com|www.amazon.com.au|www.amazon.de|www.amazon.es|www.amazon.fr|www.amazon.in|www.amazon.nl|www.amazon.sg
 ||amazon.com/s/ref=$doc,uritransform=/\/ref=[^\/?#]+//
-/gp/*/ref=$doc,uritransform=/\/ref=[^\/?#]+//,to=www.amazon.*
+/gp/*/ref=$doc,uritransform=/\/ref=[^\/?#]+//,to=www.amazon.*|www.amazon.ae|www.amazon.ca|www.amazon.cn|www.amazon.co.jp|www.amazon.co.uk|www.amazon.com|www.amazon.com.au|www.amazon.de|www.amazon.es|www.amazon.fr|www.amazon.in|www.amazon.nl|www.amazon.sg
 /^https:\/\/www\.primevideo\.com\/(?:detail|help|offers)[^=]*?\/ref=/$doc,to=primevideo.com,uritransform=/\/ref=[^\/?#]+//
 ||bhphotovideo.com/c/product/*.html/$doc,uritransform=/\.html\/[^?#]+/.html/
 natgeotv.com##+js(no-xhr-if, /VisitorAPI|AppMeasurement/)
