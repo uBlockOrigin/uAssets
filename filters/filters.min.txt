@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Fri, 22 Aug 2025 03:29:27 +0000
+! Last modified: Fri, 22 Aug 2025 05:19:26 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -309,7 +309,12 @@ bild.de##+js(aopr, SmartAdServerASMI)
 !#else
 bild.de##+js(rpnt, script, "adBlockWallEnabled":true, "adBlockWallEnabled":false)
 !#endif
+!#if !ext_ubol
+bild.de##+js(json-prune, CLIENT_STORE_INITIAL_STATE.pageAggregation.advertisement.adBlockWallEnabled)
+bild.de##+js(json-prune, CLIENT_STORE_INITIAL_STATE.pageAggregation.advertisement.adsOn)
+!#else
 bild.de##+js(trusted-replace-argument, JSON.parse, 0, repl:/"adBlockWallEnabled":true/"adBlockWallEnabled":false/, condition, adBlockWallEnabled)
+!#endif
 sport.bild.de#@#.ad-wrapper
 spiele.bild.de##+js(nano-stb, , 10000)
 @@||imasdk.googleapis.com/js/sdkloader/ima3.js$script,xhr,domain=spiele.bild.de
