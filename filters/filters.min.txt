@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Sat, 23 Aug 2025 12:32:52 +0000
+! Last modified: Sat, 23 Aug 2025 12:55:10 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -4913,10 +4913,6 @@ allporncomic.com##[href^="https://s.zlink0.com/"]
 reactgo.com##ins.adsbygoogle
 ! pharmaguideline.com anti adb
 pharmaguideline.com##+js(aeld, load, 2000)
-||videorolls.row.aiv-cdn.net/*.mp4$media,redirect=noopmp3-0.1s,domain=amazon.com
-www.amazon.co.jp,www.amazon.co.uk,www.amazon.com,www.amazon.de,www.primevideo.com##+js(json-prune, cuepointPlaylist vodPlaybackUrls.result.playbackUrls.cuepoints)
-www.amazon.co.jp,www.amazon.co.uk,www.amazon.com,www.amazon.de,www.primevideo.com##+js(xml-prune, xpath(//*[name()="Period"][.//*[@value="Ad"]] | //*[name()="Period"]/@start), [value="Ad"], .mpd)
-primevideo.com##+js(set, ue_adb_chk, 1)
 @@||novelgo.id^$ghide
 novelgo.id##ins.adsbygoogle
 lyricsongation.com##+js(nobab)
@@ -22808,6 +22804,16 @@ porn00.org##div.headline[style]
 porn00.*##.member2link
 porn00.*##.content [class^="headline"][style^="margin:"]
 porn00.*##a[href="https://porn00.org/best-casino/"]
+||videorolls.row.aiv-cdn.net/*.mp4$media,redirect=noopmp3-0.1s,domain=amazon.com
+www.amazon.co.jp,www.amazon.co.uk,www.amazon.com,www.amazon.de,www.primevideo.com##+js(json-prune, cuepointPlaylist vodPlaybackUrls.result.playbackUrls.cuepoints)
+www.amazon.co.jp,www.amazon.co.uk,www.amazon.com,www.amazon.de,www.primevideo.com##+js(xml-prune, xpath(//*[name()="Period"][.//*[@value="Ad"]] | //*[name()="Period"]/@start), [value="Ad"], .mpd)
+primevideo.com##+js(set, ue_adb_chk, 1)
+/GetPlaybackResources?$xhr,removeparam=deviceAdInsertionTypeOverride,domain=www.amazon.co.jp|www.amazon.co.uk|www.amazon.com|www.amazon.de|www.primevideo.com
+!#if ext_ubol
+/(.*\/GetPlaybackResources\?.*)%2CCuepointPlaylist(%2C.*)/$xhr,uritransform=//$1$2/,domain=www.amazon.co.jp|www.amazon.co.uk|www.amazon.com|www.amazon.de|www.primevideo.com
+!#else
+/GetPlaybackResources?*%2CCuepointPlaylist%2C$xhr,uritransform=/%2CCuepointPlaylist%2C/%2C/,domain=www.amazon.co.jp|www.amazon.co.uk|www.amazon.com|www.amazon.de|www.primevideo.com
+!#endif
 ! END: Rules from filters.txt
 ! START: Regional lists
 ! <<<<< ABPVN >>>>>
