@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Privacy
-! Last modified: Sat, 23 Aug 2025 10:15:37 +0000
+! Last modified: Sat, 23 Aug 2025 10:55:06 +0000
 ! Expires: 7 days
 ! Description: |
 !   Some of these filters make use of the `important` filter option,`
@@ -1209,6 +1209,26 @@ aihumanizer.ai,humbot.ai##+js(set-local-storage-item, /__anon_id|browserId/, $re
 hk01.com##+js(remove-cookie, /_pk_id|hk01_annonymous_id/, when, scroll keydown)
 ! https://oilprice.com/
 oilprice.com##+js(remove-cookie, ga_store_user_id)
+! https://buildtheearth.net/
+buildtheearth.net##+js(remove-cookie, /^_pk_id./, when, scroll keydown)
+! https://www.allrecipes.com/
+allrecipes.com##+js(remove-cookie, /_sharedid|_lc2_fpi/)
+allrecipes.com##+js(set-local-storage-item, /_li_duid|_lc2_fpi/, $remove$)
+! https://www.trendyol.com/
+||demeter-tr-core-collect.trendyol.com^
+||collect.trendyol.com^
+! test on uBO first
+!#if !ext_ubol
+||cdn.dsmcdn.com/sfx/mergen/
+trendyol.com##+js(set, process, {})
+!#endif
+trendyol.com##+js(remove-cookie, /anonUserId|pid|sid/)
+! https://www.bostonscally.com/
+bostonscally.com##+js(remove-cookie, /__ta_|_shopify_y/, when, scroll keydown)
+! test on uBO first
+!#if !ext_ubol
+||api.intelligems.io/v*/track|
+!#endif
 
 ! Query parameter stripping
 ! Google ads/analytics
