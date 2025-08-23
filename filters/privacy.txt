@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Privacy
-! Last modified: Fri, 22 Aug 2025 14:14:39 +0000
+! Last modified: Sat, 23 Aug 2025 03:22:52 +0000
 ! Expires: 7 days
 ! Description: |
 !   Some of these filters make use of the `important` filter option,`
@@ -1196,6 +1196,15 @@ shoebacca.com##+js(set-local-storage-item, /^boostSD/, $remove$)
 wpde.com##+js(remove-cookie, /bitmovin_analytics_uuid|sbgtvNonce|SUID/, when, scroll keydown)
 ! https://sky.pro/wiki/gadgets/monitory-2k-chto-eto-i-zachem/
 sky.pro##+js(set-local-storage-item, /sales-ninja|snj/, $remove$)
+! https://www.lexpress.fr/monde/amerique/sommet-sur-lukraine-face-a-vladimir-poutine-donald-trump-na-pas-grand-chose-a-perdre-IAAWQ5CB2BAVHBM7YDQNY3LYF4/
+lexpress.fr##+js(set-local-storage-item, etx-settings, $remove$)
+! https://aihumanizer.ai/
+! https://humbot.ai/
+! test with uBO first
+!#if !ext_ubol
+/api/trpc/event.tracking|$xhr
+!#endif
+aihumanizer.ai,humbot.ai##+js(set-local-storage-item, /__anon_id|browserId/, $remove$)
 
 ! Query parameter stripping
 ! Google ads/analytics

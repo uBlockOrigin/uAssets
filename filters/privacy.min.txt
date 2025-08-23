@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Privacy
 ! Expires: 7 days
-! Last modified: Fri, 22 Aug 2025 14:14:39 +0000
+! Last modified: Sat, 23 Aug 2025 03:22:52 +0000
 ! Diff-Path: %diffpath%#ublock-privacy
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -629,6 +629,12 @@ shoebacca.com##+js(set-local-storage-item, /^boostSD/, $remove$)
 /api.kimonix.com/kimonix_analytics.js
 wpde.com##+js(remove-cookie, /bitmovin_analytics_uuid|sbgtvNonce|SUID/, when, scroll keydown)
 sky.pro##+js(set-local-storage-item, /sales-ninja|snj/, $remove$)
+lexpress.fr##+js(set-local-storage-item, etx-settings, $remove$)
+! test with uBO first
+!#if !ext_ubol
+/api/trpc/event.tracking|$xhr
+!#endif
+aihumanizer.ai,humbot.ai##+js(set-local-storage-item, /__anon_id|browserId/, $remove$)
 ! Query parameter stripping
 ! Google ads/analytics
 $removeparam=gbraid
