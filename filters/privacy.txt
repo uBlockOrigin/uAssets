@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Privacy
-! Last modified: Sat, 23 Aug 2025 09:23:35 +0000
+! Last modified: Sat, 23 Aug 2025 09:36:40 +0000
 ! Expires: 7 days
 ! Description: |
 !   Some of these filters make use of the `important` filter option,`
@@ -1205,6 +1205,10 @@ aihumanizer.ai,humbot.ai##+js(set-local-storage-item, /__anon_id|browserId/, $re
 !#if !ext_ubol
 /api/trpc/event.tracking|$xhr
 !#endif
+! https://www.hk01.com/
+hk01.com##+js(remove-cookie, /_pk_id|hk01_annonymous_id/, when, scroll keydown)
+! https://oilprice.com/
+oilprice.com##+js(remove-cookie, ga_store_user_id)
 
 ! Query parameter stripping
 ! Google ads/analytics
@@ -1864,6 +1868,9 @@ r.mail.wowvegas.com%2Ftr%2Fop%2F$image
 ! viki.com
 /platform-collector.viki.com/email/*$image
 %2Fplatform-collector.viki.com%2Femail%2F$image
+! atlassian
+-track.atlassian.com/CI0/$image
+-track.atlassian.com%2FCI0%2F$image
 ! others
 static.adsugar.ch/img?ord=$image
 static.adsugar.ch%2Fimg%3Ford%3D$image
@@ -2180,6 +2187,12 @@ mediamarkt.de##+js(aopw, ftr__startScriptLoad)
 
 ! https://app.tophat.com/catalog/
 ||publictelemetry.tophat.com^
+
+! https://www.wolverine.com/
+! test on uBO first
+!#if !ext_ubol
+||wolverine.com/on/demandware.static/*/internal/jscript/dwac-*.js
+!#endif
 
 ! Merge in resource-abuse.txt
 !#include resource-abuse.txt
