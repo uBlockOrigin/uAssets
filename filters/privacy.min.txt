@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Privacy
 ! Expires: 7 days
-! Last modified: Sun, 24 Aug 2025 01:11:59 +0000
+! Last modified: Sun, 24 Aug 2025 01:21:19 +0000
 ! Diff-Path: %diffpath%#ublock-privacy
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -653,6 +653,7 @@ bostonscally.com##+js(remove-cookie, /__ta_|_shopify_y/, when, scroll keydown)
 !#if !ext_ubol
 ||api.intelligems.io/v*/track|
 !#endif
+4gamers.com.tw##+js(remove-cookie, _pkc, when, scroll keydown)
 ! Query parameter stripping
 ! Google ads/analytics
 $removeparam=gbraid
@@ -1275,6 +1276,10 @@ mediamarkt.de##+js(aopw, ftr__startScriptLoad)
 ||minerva.devices.a2z.com^
 ||global.telemetry.insights.video.a2z.com^
 ||amazon.com/1/action-impressions/
+! test on uBO first
+!#if !ext_ubol
+/wp-content/plugins/pixelyoursite-pro/*
+!#endif
 ! Merge in resource-abuse.txt
 ! *** uAssets:filters/resource-abuse.txt ***
 /edgemesh.*.js$script,domain=~edgemesh.com|~edgeno.de
