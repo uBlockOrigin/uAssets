@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Privacy
 ! Expires: 7 days
-! Last modified: Tue, 26 Aug 2025 03:44:10 +0000
+! Last modified: Tue, 26 Aug 2025 04:04:13 +0000
 ! Diff-Path: %diffpath%#ublock-privacy
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -657,6 +657,13 @@ bostonscally.com##+js(remove-cookie, /__ta_|_shopify_y/, when, scroll keydown)
 ||api.intelligems.io/v*/track|
 !#endif
 4gamers.com.tw##+js(remove-cookie, _pkc, when, scroll keydown)
+! test on uBO first
+!#if !ext_ubol
+4game.com##+js(trusted-set-cookie, trk, , 0, , domain, .4game.com)
+4game.ru##+js(trusted-set-cookie, trk, , 0, , domain, .4game.ru)
+4game.com,4game.ru##+js(set-local-storage-item, /fingerprint|trackingEvents/, $remove$)
+||sdk.optimove.net^
+!#endif
 ! Query parameter stripping
 ! Google ads/analytics
 $removeparam=gbraid
@@ -1285,10 +1292,6 @@ mediamarkt.de##+js(aopw, ftr__startScriptLoad)
 /wp-content/plugins/pixelyoursite-pro/*
 !#endif
 ||api-widget.soundcloud.com/me?client_id=
-! test on uBO first
-!#if !ext_ubol
-||sdk.optimove.net^
-!#endif
 ! Merge in resource-abuse.txt
 ! *** uAssets:filters/resource-abuse.txt ***
 /edgemesh.*.js$script,domain=~edgemesh.com|~edgeno.de
