@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Fri, 29 Aug 2025 13:27:09 +0000
+! Last modified: Fri, 29 Aug 2025 14:04:00 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -23155,7 +23155,12 @@ laurelberninteriors.com##+js(rmnt, script, __adblocker)
 darts-scoring.com##+js(no-fetch-if, googlesyndication)
 ###close-teaser
 ###teaser3[style^="width: 100%;height:0;text-align: center;display: scroll;position:fixed;"]
-dramafren.org##+js(noeval-if, rejectMethod)
+!#if cap_html_filtering
+dramafren.org##^script:has-text(/eval\(.+?RegExp/)
+!#else
+dramafren.org##+js(acs, eval, replace)
+!#endif
+dramafren.org##+js(acs, EventTarget.prototype.addEventListener, delete window)
 dramafren.org##+js(nowoif, _blank)
 ||imasdk.googleapis.com/js/sdkloader/ima3.js$script,redirect=google-ima.js,domain=ryderjet.com
 ||ryderjet.com/assets/jquery/css100.js
