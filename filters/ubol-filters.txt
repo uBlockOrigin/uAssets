@@ -1,5 +1,5 @@
 ! Title: uBO Lite filters
-! Last modified: Mon, 25 Aug 2025 03:03:31 +0000
+! Last modified: Fri, 29 Aug 2025 05:54:44 +0000
 ! Expires: 4 days
 ! Description: Filters optimized for uBO Lite
 ! Homepage: https://github.com/uBlockOrigin/uAssets
@@ -18,6 +18,20 @@ playeriframe.lol,stream.hownetwork.xyz###donate > a[href][style][onclick="thank_
 fuqster.com##a[href^="https://landing.brazzersnetwork.com/"]
 
 ! END: Specific cosmetic filters
+
+! START: Safari's redirect issues
+!#if env_safari
+! https://github.com/uBlockOrigin/uBOL-home/issues/434
+||npttech.com^$badfilter
+||npttech.com^$redirect=noopjs
+
+! https://github.com/uBlockOrigin/uAssets/issues/29816
+||amazon-adsystem.com^$badfilter
+||amazon-adsystem.com^$to=~client.aps.amazon-adsystem.com
+||client.aps.amazon-adsystem.com^$redirect=amazon_apstag.js
+!#endif
+
+! END: Safari's redirect issues
 
 ! https://github.com/uBlockOrigin/uBOL-issues/issues/8
 ||pushbullet.com^$3p,badfilter
@@ -201,12 +215,6 @@ open.spotify.com##+js(trusted-json-edit-fetch-response, '.cdnurl=["data:video/mp
 
 ! https://github.com/uBlockOrigin/uAssets/issues/29682
 turboplayers.xyz###pop.div_pop:remove()
-
-! https://github.com/uBlockOrigin/uBOL-home/issues/434
-!#if env_safari
-||npttech.com^$badfilter
-||npttech.com^$redirect=noopjs
-!#endif
 
 ! https://github.com/uBlockOrigin/uAssets/issues/27415
 !#if env_safari
