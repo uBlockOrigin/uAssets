@@ -1,5 +1,5 @@
 ! Title: uBlock₀ filters – Quick fixes
-! Last modified: Thu, 28 Aug 2025 05:02:06 +0000
+! Last modified: Fri, 29 Aug 2025 04:41:50 +0000
 ! Expires: 8 hours
 ! Description: Immediate, temporary filters to fix websites
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -243,7 +243,7 @@ bing.com##ol#b_results > li.b_algo:has(.b_lineclamp3:matches-css-before(content:
 ! https://www.reddit.com/r/uBlockOrigin/comments/197760n/adblock_detected_httpswwwbggledailive/
 cdn.bg-gledai.*,cdn.gledaitv.*##+js(no-fetch-if, method:HEAD)
 cdn.bg-gledai.*,cdn.gledaitv.*##+js(no-xhr-if, method:HEAD)
-cdn.bg-gledai.*,cdn.gledaitv.*##+js(rmnt, script, /\.textContent|createObjectURL/)
+cdn.gledaitv.*##+js(rmnt, script, /\.textContent|createObjectURL|Function\(decodedScript\)/)
 cdn.bg-gledai.*,cdn.gledaitv.*##[id^="anti-pedali-"]
 
 ! https://github.com/uBlockOrigin/uAssets/issues/28024
@@ -328,9 +328,6 @@ global.novelpia.com##+js(no-fetch-if, g.doubleclick.net, length:100000)
 global.novelpia.com##+js(trusted-replace-argument, String.prototype.includes, 0, , condition, /Copyright|doubleclick$/)
 global.novelpia.com##+js(no-fetch-if, favicon, length:252)
 global.novelpia.com##div[id^="novelpia_"]:remove()
-
-! https://tv6.idlixku.com/
-||idlixku.com^$badfilter
 
 ! https://github.com/AdguardTeam/AdguardFilters/commit/7c24a684163b47fa15802d40ba993b9e1a7b7b64
 newsphere.jp#@#.wprt-container > center
