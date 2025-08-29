@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2023)
-! Last modified: Fri, 29 Aug 2025 04:44:57 +0000
+! Last modified: Fri, 29 Aug 2025 04:56:56 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -1522,6 +1522,12 @@ tv.wp.pl#@#html, html > body:style(overflow: auto !important;)
 ||criteo.net^$domain=open.fm,script,redirect=noop.js
 /fbevents.js^$domain=open.fm,script,redirect=noop.js
 ||open.fm^$csp=worker-src 'none'
+! https://github.com/uBlockOrigin/uAssets/issues/29812
+wirtualnemedia.pl##+js(rmnt, script, randvar)
+wirtualnemedia.pl##.wm-categoryteasersection-ad-large
+wirtualnemedia.pl##.wp-screening-placeholder-container
+wirtualnemedia.pl##body div[class]:not([id]):has(> img[src="/staticfiles/wm-placeholder.png"])
+wirtualnemedia.pl##.py-12:not([data-testid="screening-main"]):has(img[src="/staticfiles/wm-placeholder.png"])
 
 ! https://github.com/uBlockOrigin/uAssets/issues/17527
 tralhasvarias.blogspot.com##+js(nano-stb, decodeURL, *)
