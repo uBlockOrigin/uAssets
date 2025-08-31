@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Privacy
 ! Expires: 7 days
-! Last modified: Sun, 31 Aug 2025 04:05:35 +0000
+! Last modified: Sun, 31 Aug 2025 04:07:54 +0000
 ! Diff-Path: %diffpath%#ublock-privacy
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -1241,8 +1241,12 @@ edikted.com##+js(remove-cookie, /_shopify_y|yotpo_pixel/, when, scroll keydown)
 ||insights.mtv.a2d.tv^
 mediamarkt.de##+js(aopw, ftr__startScriptLoad)
 ||swatalk.com/wp-admin/admin-ajax.php?action=bill_minozzi_js_error_catched
-||ob.*.com/i/*.js|$script,3p,domain=apothekenaratgeber.com|apothekenaratgeber.de|massagechairs.com
-/^https:\/\/ob\.[a-z]{8,}\.com\/i\/[a-f0-9]{32}\.js$/$script,3p,match-case,to=com
+! ||ob.*.com/i/*.js|$script,3p,domain=apothekenaratgeber.com|apothekenaratgeber.de|massagechairs.com
+! /^https:\/\/ob\.[a-z]{8,}\.com\/i\/[a-f0-9]{32}\.js$/$script,3p,match-case,to=com
+! test on uBO first
+!#if !ext_ubol
+||ob.*.com/i/*.js|$script,3p
+!#endif
 !#if env_safari
 /^https:\/\/ob\.[a-z][a-z][a-z][a-z][a-z][a-z][a-z][a-z]+\.com\/i\/[a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9]\.js$/$script,3p,match-case,to=com
 !#endif
