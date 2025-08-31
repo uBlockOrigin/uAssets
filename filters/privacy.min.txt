@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Privacy
 ! Expires: 7 days
-! Last modified: Sun, 31 Aug 2025 13:56:50 +0000
+! Last modified: Sun, 31 Aug 2025 16:54:20 +0000
 ! Diff-Path: %diffpath%#ublock-privacy
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -673,6 +673,16 @@ shutterstock.com##+js(set-local-storage-item, /htjs_|stck_|statsig/, $remove$)
 ||lambda-url.*.on.aws/v1/rgstr?
 !#endif
 mobalytics.gg##+js(set-local-storage-item, /mixpanel/, $remove$)
+investing.com##+js(trusted-set-cookie, inudid, , 0, , domain, .investing.com)
+investing.com##+js(trusted-set-cookie, udid, , 0, , domain, .investing.com)
+investing.com##+js(trusted-set-cookie, smd, , 0, , domain, .investing.com)
+! test on uBO first
+!#if !ext_ubol
+||investing.com/gcode/
+||promos.investing.com^
+||monetization.prod.invmed.co^
+!#endif
+form.typeform.com##+js(trusted-set-cookie, attribution_user_id, , 0, , domain, .typeform.com)
 ! Query parameter stripping
 ! Google ads/analytics
 $removeparam=gbraid
@@ -1312,12 +1322,6 @@ linklog.tiagorangel.com##+js(set, data, true)
 ! test on uBO first
 !#if !ext_ubol
 ||umami.*/script.js|$script
-!#endif
-! test on uBO first
-!#if !ext_ubol
-||investing.com/gcode/
-||promos.investing.com^
-||monetization.prod.invmed.co^
 !#endif
 ! Merge in resource-abuse.txt
 ! *** uAssets:filters/resource-abuse.txt ***
