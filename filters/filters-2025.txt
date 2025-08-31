@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2025)
-! Last modified: Sat, 30 Aug 2025 17:11:04 +0000
+! Last modified: Sun, 31 Aug 2025 03:29:38 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -256,7 +256,6 @@ kissasian.*###overplay
 ||kissasian.*/Ads/$frame
 ! kissanime. nz scammy 3p scripts
 kissanime.*###upgrade_pop
-embed.streamx.me##+js(noeval-if, debugger)
 ||kissanime.*/api/pop*$xhr,1p
 ||kissasian.*/api/pop.php$xhr,1p
 ||ad.kissasian.*^$script,1p
@@ -466,7 +465,6 @@ porn00.*##.content [class^="headline"][style^="margin:"]
 porn00.*##a[href="https://porn00.org/best-casino/"]
 
 ! https://github.com/uBlockOrigin/uAssets/issues/5988
-||videorolls.row.aiv-cdn.net/*.mp4$media,redirect=noopmp3-0.1s,domain=amazon.com
 ! https://github.com/uBlockOrigin/uAssets/issues/14512
 ! https://github.com/uBlockOrigin/uAssets/issues/29826
 ! https://www.reddit.com/r/uBlockOrigin/comments/14ftp7a/
@@ -503,11 +501,6 @@ m.shuhaige.net##^script:has-text(return a.split)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/27162
 ||2dingdian.com/static/idingdian/idd.js
-
-! <<<<< AG Français - Liste FR >>>>>
-! https://github.com/uBlockOrigin/uAssets/issues/27009
-senpai-stream.net##div[x-show="!cf_turnstile_response"]
-senpai-stream.net##div[wire\:click="watching"]:style(display: flex !important;)
 
 ! <<<<< EasyList Thailand >>>>>
 ! https://github.com/uBlockOrigin/uAssets/issues/27043
@@ -587,8 +580,6 @@ streamingnow.mov##^script:has-text(/popundersPerIP|adserverDomain|wpadmngr/)
 !#else
 streamingnow.mov##+js(rmnt, script, /popundersPerIP|adserverDomain|wpadmngr/)
 !#endif
-vidbinge.com##+js(rmnt, script, HTMLAllCollection)
-*$script,3p,denyallow=gstatic.com,domain=vidbinge.com
 
 ! https://github.com/uBlockOrigin/uAssets/issues/26738
 thesciencetoday.com##+js(rmnt, script, =="])
@@ -1262,9 +1253,6 @@ forgee.xyz,gamehub.cam##a[href][target^="_blank"] > button[onclick^="hideButton(
 forgee.xyz,gamehub.cam##.downloadbtn:style(display: block !important)
 forgee.xyz,gamehub.cam###clickme
 
-! https://github.com/uBlockOrigin/uAssets/issues/27597
-poophd.video-src.com##+js(no-fetch-if, method:GET)
-
 ! https://github.com/uBlockOrigin/uAssets/issues/27601
 skill4ltu.eu##div[id^="top-bannner"]
 
@@ -1415,9 +1403,7 @@ livestreams.*,maxicast.*###openLinks
 apex2nova.com##+js(rmnt, script, delete window)
 ||apl*.me/js/pop.js^
 ###adbtm[onclick="badr();"]
-nflbuddy.net##[href^="https://bit.ly/"]
-championdrive.co,duplex-full.lol##+js(nowoif)
-championdrive.co##+js(aeld, DOMContentLoaded, history.go)
+duplex-full.lol##+js(nowoif)
 hoca5.com##+js(rmnt, script, delete window)
 total-sportek.to##+js(rmnt, script, /adbl/i)
 pawastreams.*##+js(nowoif)
@@ -1482,7 +1468,6 @@ askattest.com##+js(set, attestHasAdBlockerActivated, true)
 ! https://github.com/uBlockOrigin/uAssets/issues/27842
 babaktv.com##+js(rmnt, script, ai_adb)
 babaktv.com##+js(nowoif)
-affordwonder.net##+js(aopr, Adcash)
 babaktv.com##.code-block
 babaktv.com##.vidoverlay
 
@@ -1654,10 +1639,6 @@ cbssports.com##+js(rmnt, script, /admiral/i)
 ! https://github.com/MajkiIT/polish-ads-filter/issues/22746
 ||epoznan.pl/getAdsysCode?
 
-! https://github.com/uBlockOrigin/uAssets/issues/28115
-watch-dbz57.funonline.co.in##+js(rmnt, script, /AdBlock/i)
-watch-dbz57.funonline.co.in###sright
-
 ! https://github.com/uBlockOrigin/uAssets/issues/27722#issuecomment-2835425108
 gaypornhot.com##+js(aost, atob, /HTMLDocument|blob/)
 gaypornhot.com##+js(no-fetch-if, /doubleclick|googlesyndication/, length:10, {"type":"cors"})
@@ -1685,9 +1666,6 @@ series9movies.com##a[href*="?key="][target="_blank"]
 ||simptown.su/api/juice/all
 
 ! https://turbostream.tv//watch.php?id=370 - popups, detection
-turbostream.tv##+js(rpnt, script, adClicks = 0;, adClicks = 2;)
-turbostream.tv##+js(rpnt, script, (firstAdOpened), (true))
-turbostream.tv##+js(nowoif)
 ||mowcoordinateegypt.com^$popup,doc
 
 ! https://stickers.gg/ - anti-adb
@@ -1972,9 +1950,6 @@ buzzheavier.com##+js(set, window.adLink, null)
 ! moviesonlinefree.site popunder / popup
 moviesonlinefree.*##+js(rmnt, script, _0x)
 moviesonlinefree.*##+js(nowoif)
-
-! https://watch.yosintvlive.com/ct - anti-adb
-watch.yosintvlive.com##+js(acs, addEventListener, detect)
 
 ! https://moviesmod.com.pl/ - anti-adb
 ||temp.urlshortpro.xyz/moviesmod*.js^

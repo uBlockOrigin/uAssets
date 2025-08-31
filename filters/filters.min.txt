@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Sun, 31 Aug 2025 02:12:54 +0000
+! Last modified: Sun, 31 Aug 2025 03:29:38 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -22596,7 +22596,6 @@ kissasian.*###overplay
 ||kissasian.*/Ads/$frame
 ! kissanime. nz scammy 3p scripts
 kissanime.*###upgrade_pop
-embed.streamx.me##+js(noeval-if, debugger)
 ||kissanime.*/api/pop*$xhr,1p
 ||kissasian.*/api/pop.php$xhr,1p
 ||ad.kissasian.*^$script,1p
@@ -22757,7 +22756,6 @@ porn00.org##div.headline[style]
 porn00.*##.member2link
 porn00.*##.content [class^="headline"][style^="margin:"]
 porn00.*##a[href="https://porn00.org/best-casino/"]
-||videorolls.row.aiv-cdn.net/*.mp4$media,redirect=noopmp3-0.1s,domain=amazon.com
 www.amazon.co.jp,www.amazon.co.uk,www.amazon.com,www.amazon.de,www.primevideo.com##+js(json-prune, cuepointPlaylist vodPlaybackUrls.result.playbackUrls.cuepoints)
 www.amazon.co.jp,www.amazon.co.uk,www.amazon.com,www.amazon.de,www.primevideo.com##+js(xml-prune, xpath(//*[name()="Period"][.//*[@value="Ad"]] | /*[name()="MPD"]/@mediaPresentationDuration | //*[name()="Period"]/@start), [value="Ad"], .mpd)
 www.amazon.co.jp,www.amazon.co.uk,www.amazon.com,www.amazon.de,www.primevideo.com##+js(xml-prune, xpath(//*[name()="Period"][.//*[@value="Draper"]] | /*[name()="MPD"]/@mediaPresentationDuration | //*[name()="Period"]/@start), [value="Draper"], .mpd)
@@ -22780,9 +22778,6 @@ primevideo.com##+js(set, ue_adb_chk, 1)
 m.shuhaige.net##+js(rmnt, script, return a.split)
 m.shuhaige.net##^script:has-text(return a.split)
 ||2dingdian.com/static/idingdian/idd.js
-! <<<<< AG Français - Liste FR >>>>>
-senpai-stream.net##div[x-show="!cf_turnstile_response"]
-senpai-stream.net##div[wire\:click="watching"]:style(display: flex !important;)
 ! <<<<< EasyList Thailand >>>>>
 ||adsok.co^$3p
 ! <<<<< AG Turkish >>>>>
@@ -22828,8 +22823,6 @@ streamingnow.mov##^script:has-text(/popundersPerIP|adserverDomain|wpadmngr/)
 !#else
 streamingnow.mov##+js(rmnt, script, /popundersPerIP|adserverDomain|wpadmngr/)
 !#endif
-vidbinge.com##+js(rmnt, script, HTMLAllCollection)
-*$script,3p,denyallow=gstatic.com,domain=vidbinge.com
 thesciencetoday.com##+js(rmnt, script, =="])
 sportnews.to##+js(rmnt, script, =="])
 evaki.fun,sportshub.to,sportnews.to##+js(trusted-suppress-native-method, DOMTokenList.prototype.add, '"-"')
@@ -23208,7 +23201,6 @@ forgee.xyz,gamehub.cam##+js(aeld, click, window.open)
 forgee.xyz,gamehub.cam##a[href][target^="_blank"] > button[onclick^="hideButton()"]
 forgee.xyz,gamehub.cam##.downloadbtn:style(display: block !important)
 forgee.xyz,gamehub.cam###clickme
-poophd.video-src.com##+js(no-fetch-if, method:GET)
 skill4ltu.eu##div[id^="top-bannner"]
 edgedeliverynetwork.com##+js(nowoif, _blank)
 *$script,3p,denyallow=ajax.googleapis.com|cloudflare.com|gstatic.com|vidsrc.stream,domain=edgedeliverynetwork.com
@@ -23291,9 +23283,7 @@ livestreams.*,maxicast.*###openLinks
 apex2nova.com##+js(rmnt, script, delete window)
 ||apl*.me/js/pop.js^
 ###adbtm[onclick="badr();"]
-nflbuddy.net##[href^="https://bit.ly/"]
-championdrive.co,duplex-full.lol##+js(nowoif)
-championdrive.co##+js(aeld, DOMContentLoaded, history.go)
+duplex-full.lol##+js(nowoif)
 hoca5.com##+js(rmnt, script, delete window)
 total-sportek.to##+js(rmnt, script, /adbl/i)
 pawastreams.*##+js(nowoif)
@@ -23344,7 +23334,6 @@ teleboy.ch##+js(no-xhr-if, googlesyndication, war:googlesyndication_adsbygoogle.
 askattest.com##+js(set, attestHasAdBlockerActivated, true)
 babaktv.com##+js(rmnt, script, ai_adb)
 babaktv.com##+js(nowoif)
-affordwonder.net##+js(aopr, Adcash)
 babaktv.com##.code-block
 babaktv.com##.vidoverlay
 opensubtitles.com##+js(set, extInstalled, true)
@@ -23444,8 +23433,6 @@ glamour.com###main-content:style(margin-top: 125px !important;)
 !#endif
 cbssports.com##+js(rmnt, script, /admiral/i)
 ||epoznan.pl/getAdsysCode?
-watch-dbz57.funonline.co.in##+js(rmnt, script, /AdBlock/i)
-watch-dbz57.funonline.co.in###sright
 gaypornhot.com##+js(aost, atob, /HTMLDocument|blob/)
 gaypornhot.com##+js(no-fetch-if, /doubleclick|googlesyndication/, length:10, {"type":"cors"})
 gaypornhot.com##+js(no-xhr-if, /doubleclick|googlesyndication/)
@@ -23459,9 +23446,6 @@ series9movies.com##+js(nowoif)
 series9movies.com##a[href*="?key="][target="_blank"]
 ||vulnerableimmigrateaboveaverage.com^$all
 ||simptown.su/api/juice/all
-turbostream.tv##+js(rpnt, script, adClicks = 0;, adClicks = 2;)
-turbostream.tv##+js(rpnt, script, (firstAdOpened), (true))
-turbostream.tv##+js(nowoif)
 ||mowcoordinateegypt.com^$popup,doc
 stickers.gg##+js(no-xhr-if, adsbygoogle)
 asianboy.fans##+js(trusted-suppress-native-method, DOMTokenList.prototype.add, '"-"', prevent, stack, /wp-content\/uploads\/[a-z]+\/[a-z]+\.js/)
@@ -23618,7 +23602,6 @@ buzzheavier.com##+js(set, window.adLink, null)
 ! moviesonlinefree.site popunder / popup
 moviesonlinefree.*##+js(rmnt, script, _0x)
 moviesonlinefree.*##+js(nowoif)
-watch.yosintvlive.com##+js(acs, addEventListener, detect)
 ||temp.urlshortpro.xyz/moviesmod*.js^
 kio.ac##[data-placement-id^="revbid-"]
 kio.ac##canvas[width="300"][height="150"]
