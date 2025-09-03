@@ -1,5 +1,5 @@
 ! Title: uBO Lite filters
-! Last modified: Sun, 31 Aug 2025 13:56:50 +0000
+! Last modified: Wed, 03 Sep 2025 08:02:16 +0000
 ! Expires: 4 days
 ! Description: Filters optimized for uBO Lite
 ! Homepage: https://github.com/uBlockOrigin/uAssets
@@ -86,16 +86,6 @@ post-gazette.com##+js(aopr, setNptTechAdblockerCookie)
 
 ! https://github.com/uBlockOrigin/uBOL-issues/issues/30
 ||intuitcdn.net/*/intuit-analytics.$script,3p,redirect=noop.js
-
-! https://github.com/uBlockOrigin/uBOL-home/issues/177
-! https://github.com/uBlockOrigin/uAssets/issues/29695
-!#if env_chromium
-! ||cbsnews.com^$csp=worker-src 'none'
-! cbsnews.com##+js(rpnt, script, var CBSNEWS =, navigator.serviceWorker.getRegistrations().then((registrations=>{for(const registration of registrations){if(registration.scope.includes("cbsnews.com")){registration.unregister()}}}));var CBSNEWS =)
-cbsnews.com>>##+js(no-fetch-if, v.fwmrm.net/ad/g/, war:noop-vmap1.xml)
-!#else
-||imasdk.googleapis.com/js/sdkloader/ima3_debug.js$domain=cbsnews.com,redirect=google-ima.js,important
-!#endif
 
 ! https://github.com/uBlockOrigin/uAssets/issues/23471
 ||ads-twitter.com^$frame,redirect=noopframe,domain=media.cms.markiza.sk
