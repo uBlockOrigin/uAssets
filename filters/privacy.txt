@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Privacy
-! Last modified: Tue, 02 Sep 2025 16:18:54 +0000
+! Last modified: Thu, 04 Sep 2025 09:34:06 +0000
 ! Expires: 7 days
 ! Description: |
 !   Some of these filters make use of the `important` filter option,`
@@ -1212,9 +1212,7 @@ lexpress.fr##+js(set-local-storage-item, etx-settings, $remove$)
 ! https://humbot.ai/
 aihumanizer.ai,humbot.ai##+js(set-local-storage-item, /__anon_id|browserId/, $remove$)
 ! test with uBO first
-!#if !ext_ubol
 /api/trpc/event.tracking|$xhr
-!#endif
 ! https://www.hk01.com/
 hk01.com##+js(remove-cookie, /_pk_id|hk01_annonymous_id/, when, scroll keydown)
 ! https://oilprice.com/
@@ -1229,18 +1227,14 @@ allrecipes.com##+js(set-local-storage-item, /_li_duid|_lc2_fpi/, $remove$)
 ||collect.trendyol.com^
 ! test on uBO first
 ! https://www.trendyol.com/kadin-mont-x-g1-c118
-!#if !ext_ubol
 ||cdn.dsmcdn.com/sfx/mergen/
 trendyol.com##+js(set, process, {})
 trendyol.com##+js(set, process.env, {})
-!#endif
 trendyol.com##+js(remove-cookie, /anonUserId|pid|sid/)
 ! https://www.bostonscally.com/
 bostonscally.com##+js(remove-cookie, /__ta_|_shopify_y/, when, scroll keydown)
 ! test on uBO first
-!#if !ext_ubol
 ||api.intelligems.io/v*/track|
-!#endif
 ! https://www.4gamers.com.tw/
 4gamers.com.tw##+js(remove-cookie, _pkc, when, scroll keydown)
 ! https://eu.4game.com/ 
