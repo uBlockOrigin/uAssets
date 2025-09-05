@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2025)
-! Last modified: Fri, 05 Sep 2025 10:44:30 +0000
+! Last modified: Fri, 05 Sep 2025 12:18:48 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -2464,9 +2464,12 @@ pogdesign.co.uk##.box728
 ! https://olamovies.mom/generate/?id=8395 - anti-adb and browser
 olamovies.*##+js(aeld, DOMContentLoaded, /navigator|location\.href/)
 olamovies.*##+js(no-xhr-if, googlesyndication)
-olamovies.*##+js(no-fetch-if, '/\/\/.{1,5}\..*\..{2,7}\/.{1,20}\/\d+$/')
 olamovies.*##+js(no-fetch-if, mode:cors)
-olamovies.*##+js(rpnt, script, showAdBlockMessage, hideAdBlockMessage)
+!olamovies.*##+js(no-fetch-if, '/\/\/.{1,5}\..*\..{2,7}\/.{1,20}\/\d+$/')
+!olamovies.*##+js(rpnt, script, showAdBlockMessage, hideAdBlockMessage)
+olamovies.*##+js(nowoif, !self)
+olamovies.*##*:style(filter: none !important; pointer-events: auto !important)
+olamovies.*##*[style="display: flex;"]
 
 ! https://github.com/uBlockOrigin/uAssets/issues/29569
 online-smss.com##+js(no-fetch-if, widgets.outbrain.com)
