@@ -1885,11 +1885,7 @@ privacy.maennersache.de##+js(trusted-click-element, button[title="Einwilligen un
 lovo.ai##+js(trusted-set-cookie, cookieConsent, '{"essential":true,"analytical":false,"functional":false,"marketing":false}')
 
 ! Agree (cookie-wall consent)
-cmp.heise.de,cmp.am-online.com,cmp.motorcyclenews.com,consent.newsnow.co.uk,cmp.todays-golfer.com##+js(trusted-click-element, button[title="Agree"], , 1500)
-! https://www.heise.de/bestenlisten/testbericht/ugreen-nexode-pro-65w-im-test-usb-c-ladegeraet-noch-kleiner-als-der-vorgaenger/2mxgq5n 
-! Accept
-cmp.heise.de##+js(trusted-click-element, button[title="Zustimmen"], , 1000)
-heise.de##+js(trusted-click-element, button.sp_choice_type_11)
+cmp.am-online.com,cmp.motorcyclenews.com,consent.newsnow.co.uk,cmp.todays-golfer.com##+js(trusted-click-element, button[title="Agree"], , 1500)
 
 ! accept
 koeser.com,shop.schaette-pferd.de,schaette.de##+js(trusted-click-element, a.cookie-permission--accept-button, , 1600)
@@ -4141,9 +4137,6 @@ winparts.eu,winparts.ie,winparts.se##+js(trusted-click-element, a.aanvaarden.gre
 sportano.*##+js(trusted-click-element, button.button--preferences, , 900)
 sportano.*##+js(trusted-click-element, button.button--confirm, , 1100)
 
-! accept-wall
-kleinanzeigen.de##+js(trusted-click-element, button#gdpr-banner-accept, , 1000)
-
 ! reject
 crocs.*##+js(trusted-click-element, button.js-btn-reject-all, , 1300)
 
@@ -4812,3 +4805,14 @@ helsenorge.no##+js(trusted-set-cookie, HN-Cookie-Consent, base64:eyJWaWRlb0Nvb2t
 
 ! https://github.com/uBlockOrigin/uAssets/issues/29898
 imaios.com##+js(trusted-click-element, div#continueWithoutAccepting, , 1000)
+
+! https://www.heise.de/bestenlisten/testbericht/ugreen-nexode-pro-65w-im-test-usb-c-ladegeraet-noch-kleiner-als-der-vorgaenger/2mxgq5n 
+! Reject all possible providers
+cmp.heise.de##button.sp_choice_type_SAVE_AND_EXIT:watch-attr(disabled):remove-attr(disabled)
+cmp.heise.de##div.pur-buttons-container button:style(visibility: initial !important; pointer-events: initial !important)
+cmp.heise.de##+js(trusted-click-element, button[aria-label="Einstellungen"],, 500)
+cmp.heise.de##+js(trusted-click-element, 'div.pm-main > div:nth-child(1) div.stack-row > div > button:nth-child(2), div.message-component.message-column.cmp-buttons-accept > button',, 500,)
+
+! Reject, kleinanzeigen.de does A/B testing with consent banner, should work with all 3 types
+kleinanzeigen.de##+js(trusted-click-element, #gdpr-banner-cmp-button,, 1000)
+kleinanzeigen.de##+js(trusted-click-element, button[aria-label="Datenschutzbestimmungen und Einstellungen ablehnen"],, 1200)
