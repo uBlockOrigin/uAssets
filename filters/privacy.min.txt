@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Privacy
 ! Expires: 7 days
-! Last modified: Sat, 06 Sep 2025 04:53:22 +0000
+! Last modified: Sat, 06 Sep 2025 04:56:00 +0000
 ! Diff-Path: %diffpath%#ublock-privacy
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -635,7 +635,6 @@ wpde.com##+js(remove-cookie, /bitmovin_analytics_uuid|sbgtvNonce|SUID/, when, sc
 sky.pro##+js(set-local-storage-item, /sales-ninja|snj/, $remove$)
 lexpress.fr##+js(set-local-storage-item, etx-settings, $remove$)
 aihumanizer.ai,humbot.ai##+js(set-local-storage-item, /__anon_id|browserId/, $remove$)
-! test with uBO first
 /api/trpc/event.tracking|$xhr
 hk01.com##+js(remove-cookie, /_pk_id|hk01_annonymous_id/, when, scroll keydown)
 oilprice.com##+js(remove-cookie, ga_store_user_id)
@@ -644,22 +643,17 @@ allrecipes.com##+js(remove-cookie, /_sharedid|_lc2_fpi/)
 allrecipes.com##+js(set-local-storage-item, /_li_duid|_lc2_fpi/, $remove$)
 ||demeter-tr-core-collect.trendyol.com^
 ||collect.trendyol.com^
-! test on uBO first
 ||cdn.dsmcdn.com/sfx/mergen/
 trendyol.com##+js(set, process, {})
 trendyol.com##+js(set, process.env, {})
 trendyol.com##+js(remove-cookie, /anonUserId|pid|sid/)
 bostonscally.com##+js(remove-cookie, /__ta_|_shopify_y/, when, scroll keydown)
-! test on uBO first
 ||api.intelligems.io/v*/track|
 4gamers.com.tw##+js(remove-cookie, _pkc, when, scroll keydown)
-! test on uBO first
-!#if !ext_ubol
 4game.com##+js(trusted-set-cookie, trk, , 0, , domain, .4game.com)
 4game.ru##+js(trusted-set-cookie, trk, , 0, , domain, .4game.ru)
 4game.com,4game.ru##+js(set-local-storage-item, /fingerprint|trackingEvents/, $remove$)
 ||sdk.optimove.net^
-!#endif
 shutterstock.com##+js(remove-cookie, /sstk_|stck_|htjs_anonymous_id/, when, scroll keydown)
 shutterstock.com##+js(set-local-storage-item, /htjs_|stck_|statsig/, $remove$)
 ! test on uBO first
