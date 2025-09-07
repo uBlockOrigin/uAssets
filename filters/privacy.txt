@@ -1082,7 +1082,7 @@ heavyfetish.com##+js(cookie-remover, kt_referer)
 ! https://github.com/uBlockOrigin/uAssets/commit/bae8d13992b1c754f83dc268060a8079973d3253#commitcomment-118856194
 ! https://github.com/uBlockOrigin/uAssets/issues/28257
 nypost.com,pagesix.com##+js(json-prune, dataLayer.trackingId user.trackingId)
-columbian.com,pagesix.com##+js(cookie-remover, blaize_tracking_id)
+columbian.com,pagesix.com,theverge.com##+js(cookie-remover, /^blaize_/, when, scroll keydown)
 ! https://www.factable.com/history/maps-that-show-us-a-new-perspective/3/
 factable.com##+js(cookie-remover, akaclientip)
 factable.com##+js(cookie-remover, hive_geoloc)
@@ -1266,6 +1266,16 @@ form.typeform.com##+js(trusted-set-cookie, attribution_user_id, , 0, , domain, .
 hopper.com##+js(set-local-storage-item, ld:$anonUserId, $remove$)
 ! https://www.mumuplayer.com/
 mumuplayer.com##+js(set-local-storage-item, /_user_id$/, $remove$)
+! https://www.theverge.com/
+! test on uBO first
+!#if !ext_ubol
+||cdn.concert.io/fins/segment
+||cdn.concert.io/pins/segment
+||theverge.com/SendEventData
+||theverge.com/api/coral-counts
+!#endif
+theverge.com##+js(remove-cookie, vmidv1)
+theverge.com##+js(set-local-storage-item, csg_uid, $remove$)
 
 ! Query parameter stripping
 ! Google ads/analytics
