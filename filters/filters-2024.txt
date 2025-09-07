@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2024)
-! Last modified: Sat, 06 Sep 2025 16:46:07 +0000
+! Last modified: Sun, 07 Sep 2025 03:05:37 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -481,6 +481,7 @@ channel4.com##.block--mpu
 channel4.com##+js(json-prune, adverts.breaks)
 
 ! mail.yahoo.com stuff
+mail.yahoo.com##+js(json-prune, result.responses.[].response.result.cards.[-].data.offers)
 mail.yahoo.com##[data-test-id="right-rail-ad"]
 ! https://github.com/uBlockOrigin/uAssets/issues/13439
 mail.yahoo.com##[data-test-id="video-container"]
@@ -503,6 +504,8 @@ www.yahoo.com##.sticky[class*="top-"]:has(style)
 www.yahoo.com##div[id]:has(> div[id^="top_center-frontpage_"])
 ! https://sports.yahoo.com/mlb/gamechannel/
 sports.yahoo.com###defaultLDRB-sizer
+! https://github.com/uBlockOrigin/uAssets/issues/17012
+mail.yahoo.com##+js(nostif, ADB)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/1802
 jpopsingles.eu##+js(nano-sib, downloadTimer)
