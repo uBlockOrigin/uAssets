@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Privacy
-! Last modified: Sun, 07 Sep 2025 03:51:05 +0000
+! Last modified: Sun, 07 Sep 2025 04:06:48 +0000
 ! Expires: 7 days
 ! Description: |
 !   Some of these filters make use of the `important` filter option,`
@@ -593,7 +593,6 @@ bikesales.com.au##^html > head > :is([name="canonical"], [rel="canonical"]):not(
 ||simonzody.com^
 
 ! https://www.nickjr.com/video/n0d0md/gabby-s-dollhouse-gabby-s-dollhouse-official-trailer
-||tags.tiqcdn.com^$domain=nickjr.com
 ||events.paramount.tech^$redirect=nooptext,domain=nickjr.com
 
 ! https://github.com/uBlockOrigin/uAssets/issues/19194
@@ -1098,9 +1097,6 @@ microsoft.com##+js(trusted-set-cookie, MicrosoftApplicationsTelemetryDeviceId, ,
 fandom.com##+js(set-cookie, Geo, OK)
 ! https://www.clickorlando.com/weather/2023/09/06/cone-computer-models-more-lee-forecast-to-become-major-hurricane/
 clickorlando.com##+js(set-cookie, bitmovin_analytics_uuid, OK)
-! https://www.1und1.de/
-1und1.de##+js(cookie-remover, /optimizelyEndUserId|s_fid|sc_tcr|s_cc/)
-1und1.de##+js(set-local-storage-item, /optimizely_data|tealium_timing/, $remove$)
 ! Sending tracking cookies
 imgur.com##+js(set, Object.prototype.has_opted_out_tracking, trueFunc)
 ! https://www.boundless.com/
@@ -2313,6 +2309,13 @@ linklog.tiagorangel.com##+js(set, data, true)
 !#if !ext_ubol
 /dfxaf3-*.js|$script
 ||terabox.app/wfm/jnqp
+!#endif
+
+! Tealium
+! test on uBO first
+!#if !ext_ubol
+||tags.tiqcdn.com/utag/*/prod/utag.js$domain=1und1.de|adidas.co.uk|adidas.nl|adidas.pl|anantara.com|brother-usa.com|calvinklein.ca|cnet.com|grubhub.com|help.dropbox.com|hulu.com|iflscience.com|krymr.com|lineadirecta.com|louisvuitton.com|mcafee.com|mitsubishi-motors.co.jp|modernatx.com|monroeandmain.com|mtv.co.uk|mtv.de|mtv.it|mtvema.com|nickjr.com|post.ch|qvc.jp|radissonhotels.com|sibreal.org|simplybusiness.co.uk|talksport.com|taylor.com|thesun.co.uk|totaljobs.com|truecar.com|uber.com|ubereats.com|usnews.com
+||tags.tiqcdn.com/utag/*/utag.sync.js$domain=calvinklein.ca|hosteurope.de|sibreal.org|yousee.dk
 !#endif
 
 ! Merge in resource-abuse.txt

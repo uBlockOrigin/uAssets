@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Privacy
 ! Expires: 7 days
-! Last modified: Sun, 07 Sep 2025 03:51:05 +0000
+! Last modified: Sun, 07 Sep 2025 04:06:48 +0000
 ! Diff-Path: %diffpath%#ublock-privacy
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -329,7 +329,6 @@ bikesales.com.au##^html > head > :is([name="canonical"], [rel="canonical"]):not(
 !#endif
 /^https:\/\/kick\.com\/[0-9A-z]{16}\/[0-9A-z]{16}\?apiKey=/$script,1p,match-case,domain=kick.com
 ||simonzody.com^
-||tags.tiqcdn.com^$domain=nickjr.com
 ||events.paramount.tech^$redirect=nooptext,domain=nickjr.com
 ||mps.nbcuni.com/images/MPS-STATISTIC-REPORTING.png
 ||ab.blogs.es/abtest.png^$image,3p,domain=xataka.com|trendencias.com,redirect=1x1.gif,important
@@ -560,8 +559,6 @@ microsoft.com##+js(trusted-set-cookie, MicrosoftApplicationsTelemetryDeviceId, ,
 ! fandom.com##+js(set-cookie, tracking_session_id, OK, , reload, 1)
 fandom.com##+js(set-cookie, Geo, OK)
 clickorlando.com##+js(set-cookie, bitmovin_analytics_uuid, OK)
-1und1.de##+js(cookie-remover, /optimizelyEndUserId|s_fid|sc_tcr|s_cc/)
-1und1.de##+js(set-local-storage-item, /optimizely_data|tealium_timing/, $remove$)
 ! Sending tracking cookies
 imgur.com##+js(set, Object.prototype.has_opted_out_tracking, trueFunc)
 boundless.com##+js(cookie-remover, _boundless_tracking_id)
@@ -1336,6 +1333,12 @@ linklog.tiagorangel.com##+js(set, data, true)
 !#if !ext_ubol
 /dfxaf3-*.js|$script
 ||terabox.app/wfm/jnqp
+!#endif
+! Tealium
+! test on uBO first
+!#if !ext_ubol
+||tags.tiqcdn.com/utag/*/prod/utag.js$domain=1und1.de|adidas.co.uk|adidas.nl|adidas.pl|anantara.com|brother-usa.com|calvinklein.ca|cnet.com|grubhub.com|help.dropbox.com|hulu.com|iflscience.com|krymr.com|lineadirecta.com|louisvuitton.com|mcafee.com|mitsubishi-motors.co.jp|modernatx.com|monroeandmain.com|mtv.co.uk|mtv.de|mtv.it|mtvema.com|nickjr.com|post.ch|qvc.jp|radissonhotels.com|sibreal.org|simplybusiness.co.uk|talksport.com|taylor.com|thesun.co.uk|totaljobs.com|truecar.com|uber.com|ubereats.com|usnews.com
+||tags.tiqcdn.com/utag/*/utag.sync.js$domain=calvinklein.ca|hosteurope.de|sibreal.org|yousee.dk
 !#endif
 ! Merge in resource-abuse.txt
 ! *** uAssets:filters/resource-abuse.txt ***
