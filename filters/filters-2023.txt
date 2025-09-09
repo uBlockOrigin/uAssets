@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2023)
-! Last modified: Tue, 09 Sep 2025 10:57:42 +0000
+! Last modified: Tue, 09 Sep 2025 11:43:24 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -3063,6 +3063,8 @@ cnn.com##.ad-slot-header__wrapper:style(display: none !important; top: 0 !import
 ! https://www.reddit.com/r/uBlockOrigin/comments/1n9lexf/cnn_video_ads_arent_being_blocked_by_ubo/
 cnn.com##+js(json-prune-fetch-response, ssaiInfo fallback.ssaiInfo, , propsToMatch, /playbackInfo)
 cnn.com##+js(json-prune-xhr-response, ssaiInfo fallback.ssaiInfo, , propsToMatch, /playbackInfo)
+! https://www.reddit.com/r/uBlockOrigin/comments/1nbtnmb/cnncom_ads_in_the_videos/
+cnn.com##+js(xml-prune, xpath(//*[name()="MPD"]/@mediaPresentationDuration | //*[name()="Period"]/@start | //*[name()="Period"][.//*[name()="BaseURL" and contains(text()\,".prd.media.max.com/")]]), , .mpd)
 
 ! https://github.com/bogachenko/fuckfuckadblock/issues/446
 /adblocker.js$domain=hindimearticles.net|solution-hub.com
