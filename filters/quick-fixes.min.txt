@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Quick fixes
 ! Expires: 12 hours
-! Last modified: Wed, 10 Sep 2025 03:51:06 +0000
+! Last modified: Thu, 11 Sep 2025 00:40:55 +0000
 ! Diff-Path: %diffpath%#ublock-quick-fixes
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -59,6 +59,7 @@ www.youtube.com##+js(trusted-replace-fetch-response, '"adSlots"', '"no_ads"', /g
 ! www.youtube.com##+js(trusted-replace-outbound-text, JSON.stringify, "params":", "params":"yAEB, condition, /("contentPlaybackContext":{".*\,"params":"|"params":".*"contentPlaybackContext":{")/)
 ! www.youtube.com##+js(trusted-replace-outbound-text, JSON.stringify, "contentCheckOk":false, "params":"yAEB"\,"contentCheckOk":false, condition, /^(?=.*"contentPlaybackContext":{")(?!.*"params":").*$/)
 /\.googlevideo\.com\/videoplayback\?expire=(?:[02-9]+|1[1-68-9]\d+|17[1-48-9]\d+)&/$xhr,3p,method=get,domain=www.youtube.com
+||youtube.com/api/stats/atr?ns=$badfilter
 ! web.facebook.com,www.facebook.com##+js(json-prune, require.0.3.0.__bbox.require.[].3.1.__bbox.result.data.viewer.sideFeed.nodes.0.{-}.nodes.0.rhc_ad)
 ! web.facebook.com,www.facebook.com##+js(json-prune-xhr-response, data.viewer.sideFeed.nodes.0.{-}.nodes.0.rhc_ad, , propsToMatch, /api/graphql)
 web.facebook.com,www.facebook.com##+js(json-prune, require.0.3.0.__bbox.require.[].3.1.__bbox.result.data.viewer.sideFeedUnit.nodes.[].new_adverts.nodes.[-].sponsored_data)
