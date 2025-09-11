@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Thu, 11 Sep 2025 15:11:54 +0000
+! Last modified: Thu, 11 Sep 2025 15:37:54 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -19425,6 +19425,9 @@ twitter.com,x.com,~platform.twitter.com##+js(json-prune-xhr-response, data.user.
 twitter.com,x.com,~platform.twitter.com##+js(json-prune-xhr-response, data.immersiveMedia.timeline.instructions.[].entries.[-].content.itemContent.promotedMetadata, , propsToMatch, url:/ImmersiveMedia)
 x.com##article[data-testid="tweet"] a[href^="https://linkneverdiel.com"]
 x.com##+js(nowoif, /\.php\b.*_blank/)
+x.com##+js(trusted-json-edit, .[?.media_entities.*.video_info.variants]..url_data.url="https://twitter.undefined")
+x.com##+js(nowoif, twitter.undefined)
+x.com##a[href="https://twitter.undefined/"]
 jornadaperfecta.com##+js(rmnt, script, ad-block-activated)
 greentumble.com##.cp-module
 greentumble.com##html:style(overflow: auto !important)
