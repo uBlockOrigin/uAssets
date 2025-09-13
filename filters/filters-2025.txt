@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2025)
-! Last modified: Sat, 13 Sep 2025 08:23:02 +0000
+! Last modified: Sat, 13 Sep 2025 10:48:54 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -501,6 +501,20 @@ nfl.com##+js(no-fetch-if, imasdk)
 savelinks.*##+js(aopr, LieDetector)
 savelinks.*##+js(nowoif)
 savelinks.*##+js(aeld, DOMContentLoaded, window.open)
+
+! https://www.reddit.com/r/uBlockOrigin/comments/85m6fp/ublock_origin_is_showing_adds_on_a_website_for_me/
+op.gg##+js(aopw, lifeOnwer)
+op.gg##+js(nostif, adblock, 2000)
+! https://github.com/uBlockOrigin/uAssets/issues/13033
+op.gg##div[class^="css-"]:has(> div:not([class], [id]) > .vm-placement:not([style]))
+op.gg##div[class^="css-"]:has(> div:not([class], [id]) > .vm-placement[data-display-type="hybrid-banner"])
+op.gg##main > .flex-col:has(div[style] > div[data-opgg-beer-id])
+||opgg.beer^
+! https://github.com/uBlockOrigin/uAssets/issues/13023
+op.gg##[id^="div-gpt-ad"]:not([class]):upward(div[class])
+@@||doubleclick.net^$xhr,domain=op.gg
+@@||vntsm.com^$xhr,domain=op.gg
+@@||pagead2.googlesyndication.com^$xhr,domain=op.gg
 
 ! END: Rules from filters.txt
 
