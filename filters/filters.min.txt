@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Sat, 13 Sep 2025 01:51:17 +0000
+! Last modified: Sat, 13 Sep 2025 02:12:31 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -19979,16 +19979,11 @@ torrentdownload.*##[href^="https://goo.gl/"]
 torrentdownload.*##TR:has-text(Stream:)
 torrentdownload.*##.table2:has-text(Sponsored)
 ||torrentdownload.*/*.gif$image
-katfile.com##+js(acs, document.createElement, onerror)
-katfile.com##+js(nano-stb)
-katfile.com##+js(nowoif)
-katfile.com##+js(set, adblock, false)
-katfile.com##+js(rpnt, script, (adEnable), (true))
-katfile.com##+js(set, download_click, true)
-katfile.com##+js(aeld, click, , elements, a#dlink)
-katfile.com##a[href][target="_blank"] img
-katfile.com###container > p > a[href*="?"]:has(> img)
-||katfile.com/images/dlli.png$image
+katfile.*##+js(nowoif)
+katfile.*##+js(nano-stb, tick)
+katfile.*##+js(nostif, /adblock/i)
+katfile.*##+js(rpnt, script, (adEnable), (true))
+katfile.*##+js(rpnt, script, (download_click == false), (false))
 homemoviestube.com##+js(aopr, decodeURI)
 homemoviestube.com##.film-aside-ads
 homemoviestube.com##+js(aeld, click, clickCount)
