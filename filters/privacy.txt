@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Privacy
-! Last modified: Sun, 14 Sep 2025 05:32:29 +0000
+! Last modified: Sun, 14 Sep 2025 15:27:14 +0000
 ! Expires: 7 days
 ! Description: |
 !   Some of these filters make use of the `important` filter option,`
@@ -2368,6 +2368,17 @@ linklog.tiagorangel.com##+js(set, data, true)
 
 ! https://www.justwatch.com/
 ||justwatch.com/appassets/js/sp-*.lite.min.js
+
+! https://www.forbes.com/sites/jacksonweimer/2021/04/10/that-twitter-family-tree-trend-is-secretly-following-random-accounts--without-your-consent/ - "related" video ads
+||elements.video^
+forbes.com##.recirc-rail
+forbes.com##main div[class][style^="top:"]:has-text(FORBES’ FEATURED Video)
+forbes.com##main div[class][style^="top:"]:has(> div > fbs-video[ad-unit-path])
+
+! https://github.com/uBlockOrigin/uAssets/issues/848#issuecomment-3289573073
+!#if !ext_ubol
+digitalspy.com##section.inline-content-module
+!#endif
 
 ! Merge in resource-abuse.txt
 !#include resource-abuse.txt
