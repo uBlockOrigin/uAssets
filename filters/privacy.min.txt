@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Privacy
 ! Expires: 7 days
-! Last modified: Sun, 14 Sep 2025 02:56:14 +0000
+! Last modified: Sun, 14 Sep 2025 05:18:08 +0000
 ! Diff-Path: %diffpath%#ublock-privacy
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -689,6 +689,13 @@ goodcar.com##+js(set-local-storage-item, uw-uid, $remove$)
 ici.radio-canada.ca##+js(set-local-storage-item, RC_PLAYER_USER_ID, $remove$)
 soundcloud.com##+js(remove-cookie, /sc_anonymous_id|sc_tracking_anonymous_id/, when, scroll keydown)
 soundcloud.com##+js(set-local-storage-item, /sc_tracking_anonymous_id|statsig/, $remove$)
+mykitsch.com##+js(remove-cookie, _shopify_y, when, scroll keydown)
+mykitsch.com##+js(set-local-storage-item, /lc_anon_user_id|_constructorio_search_client_id/, $remove$)
+! test on uBO first
+!#if !ext_ubol
+||lumhdco.mykitsch.com/*/js|$script
+||rakutenadvertising.io^$3p
+!#endif
 ! Query parameter stripping
 ! Google ads/analytics
 $removeparam=gbraid
@@ -1352,6 +1359,14 @@ linklog.tiagorangel.com##+js(set, data, true)
 ||tags.tiqcdn.com/utag/*/prod/utag.js$domain=1und1.de|adidas.co.uk|adidas.nl|adidas.pl|anantara.com|brother-usa.com|calvinklein.ca|cnet.com|grubhub.com|help.dropbox.com|hulu.com|iflscience.com|krymr.com|lineadirecta.com|louisvuitton.com|mcafee.com|mitsubishi-motors.co.jp|modernatx.com|monroeandmain.com|mtv.co.uk|mtv.de|mtv.it|mtvema.com|nickjr.com|post.ch|qvc.jp|radissonhotels.com|sibreal.org|simplybusiness.co.uk|talksport.com|taylor.com|thesun.co.uk|totaljobs.com|truecar.com|uber.com|ubereats.com|usnews.com
 ||tags.tiqcdn.com/utag/*/utag.sync.js$domain=calvinklein.ca|hosteurope.de|sibreal.org|yousee.dk
 ||ast.techbook.de^
+!#endif
+! Shopify
+! test on uBO first
+!#if !ext_ubol
+/web-pixel-*/worker.modern.js
+/web-pixels@*/web-pixel-*/sandbox/modern/*
+/shopifycloud/shopify/assets/shop_events_listener-*.js
+/cdn/shopifycloud/consent-tracking-api/*
 !#endif
 ||log.tinxe.vn^
 ||log.oto.com.vn^
