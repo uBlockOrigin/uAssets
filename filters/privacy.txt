@@ -1297,6 +1297,14 @@ ici.radio-canada.ca##+js(set-local-storage-item, RC_PLAYER_USER_ID, $remove$)
 ! https://soundcloud.com/
 soundcloud.com##+js(remove-cookie, /sc_anonymous_id|sc_tracking_anonymous_id/, when, scroll keydown)
 soundcloud.com##+js(set-local-storage-item, /sc_tracking_anonymous_id|statsig/, $remove$)
+! https://www.mykitsch.com/
+mykitsch.com##+js(remove-cookie, _shopify_y, when, scroll keydown)
+mykitsch.com##+js(set-local-storage-item, /lc_anon_user_id|_constructorio_search_client_id/, $remove$)
+! test on uBO first
+!#if !ext_ubol
+||lumhdco.mykitsch.com/*/js|$script
+||rakutenadvertising.io^$3p
+!#endif
 
 ! Query parameter stripping
 ! Google ads/analytics
@@ -2341,6 +2349,15 @@ linklog.tiagorangel.com##+js(set, data, true)
 ||tags.tiqcdn.com/utag/*/utag.sync.js$domain=calvinklein.ca|hosteurope.de|sibreal.org|yousee.dk
 ! https://github.com/AdguardTeam/AdguardFilters/issues/213050
 ||ast.techbook.de^
+!#endif
+
+! Shopify
+! test on uBO first
+!#if !ext_ubol
+/web-pixel-*/worker.modern.js
+/web-pixels@*/web-pixel-*/sandbox/modern/*
+/shopifycloud/shopify/assets/shop_events_listener-*.js
+/cdn/shopifycloud/consent-tracking-api/*
 !#endif
 
 ! https://tinxe.vn/
