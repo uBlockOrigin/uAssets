@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Sun, 14 Sep 2025 15:37:13 +0000
+! Last modified: Sun, 14 Sep 2025 15:45:05 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -8753,6 +8753,9 @@ akaihentai.com##+js(rmnt, script, popMagic)
 /^https:\/\/www\.[a-z]{8,14}\.com\/[a-z]{1,4}\.js$/$script,3p,match-case,header=x-powered-by:Express,from=~edu|~gov,to=com|~exploretock.com|~photopea.com
 /^https:\/\/www\.[a-z]{8,16}\.com\/(?:[A-Za-z]+\/)*(?:[_0-9A-Za-z]{1,20}[-.])*[_0-9A-Za-z]{1,20}\.js$/$script,xhr,3p,match-case,to=com,header=popads-node
 /^https:\/\/www\.[a-z]{8,16}\.com\/(?:[A-Za-z]+\/)*(?:[_0-9A-Za-z]{1,20}[-.])*[_0-9A-Za-z]{1,20}\.js$/$script,xhr,3p,match-case,to=com,header=link:/adsco\.re\/>;rel=preconnect/
+!#if ext_ubol
+/^https:\/\/www\.[a-z]{8,16}\.com\/[a-z]{7,}\.min\.js$/$script,3p,match-case,to=com,header=popads-node
+!#endif
 ://www.*.css|$script,xhr,3p,to=com,header=link:/\/>;rel=preconnect/
 ://www.*/images/*.min.js|$script,xhr,3p,to=com
 ://www.*.com/css/$script,xhr,3p,to=com|~principalcdn.com,header=link:/\/>;rel=preconnect/
