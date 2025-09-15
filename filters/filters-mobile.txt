@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Mobile
-! Last modified: Fri, 29 Aug 2025 13:27:09 +0000
+! Last modified: Mon, 15 Sep 2025 15:34:48 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -165,3 +165,8 @@ outlook.live.com##main > div[style] .vPfg_:has(.wOYnU) ~ *:style(transform: tran
 !#if env_safari
 ||googlevideo.com/videoplayback*ctier=L&*%2Cxpc%2Cctier%2C$xhr,3p,domain=m.youtube.com|music.youtube.com|www.youtube.com
 !#endif
+
+! https://github.com/uBlockOrigin/uAssets/issues/23691#issuecomment-3291721218
+dailymotion.com##+js(xml-prune, [breakId], , _VMAP_)
+dailymotion.com##+js(json-prune-fetch-response, advertising, , propsToMatch, /player/metadata)
+dailymotion.com##+js(json-prune-xhr-response, advertising, , propsToMatch, .json)

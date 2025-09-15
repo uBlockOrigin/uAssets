@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Mon, 15 Sep 2025 15:09:34 +0000
+! Last modified: Mon, 15 Sep 2025 15:34:48 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -8142,6 +8142,9 @@ outlook.live.com##main > div[style] .vPfg_:has(.wOYnU) ~ *:style(transform: tran
 !#if env_safari
 ||googlevideo.com/videoplayback*ctier=L&*%2Cxpc%2Cctier%2C$xhr,3p,domain=m.youtube.com|music.youtube.com|www.youtube.com
 !#endif
+dailymotion.com##+js(xml-prune, [breakId], , _VMAP_)
+dailymotion.com##+js(json-prune-fetch-response, advertising, , propsToMatch, /player/metadata)
+dailymotion.com##+js(json-prune-xhr-response, advertising, , propsToMatch, .json)
 !#endif
 ! *** uAssets:filters/filters-general.txt ***
 ! Lockdown
@@ -23761,3 +23764,4 @@ filmyzilla.*,moviespur.*###clickfakeplayer[href]:remove-attr(href)
 ||imasdk.googleapis.com/js/sdkloader/ima3.js$script,3p,redirect=google-ima.js,domain=venevisionplay.com
 ||imasdk.googleapis.com/js/sdkloader/ima3_dai.js$script,3p,redirect=noopjs,domain=venevisionplay.com
 @@||dailymotion.com/nativeads.js|
+||dmads.dailymotion.com^
