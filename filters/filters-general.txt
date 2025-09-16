@@ -708,11 +708,6 @@ akaihentai.com##+js(rmnt, script, popMagic)
 ! https://github.com/uBlockOrigin/uAssets/issues/25279
 /^https:\/\/www\.[a-z]{8,16}\.com\/(?:[A-Za-z]+\/)*(?:[_0-9A-Za-z]{1,20}[-.])*[_0-9A-Za-z]{1,20}\.js$/$script,xhr,3p,match-case,to=com,header=popads-node
 /^https:\/\/www\.[a-z]{8,16}\.com\/(?:[A-Za-z]+\/)*(?:[_0-9A-Za-z]{1,20}[-.])*[_0-9A-Za-z]{1,20}\.js$/$script,xhr,3p,match-case,to=com,header=link:/adsco\.re\/>;rel=preconnect/
-!#if ext_ubol
-/^https:\/\/www\.[a-z]{8,16}\.com\/(?:[a-z]{2}\/)?[a-z](?:client|favico|random)\.min\.js$/$script,3p,match-case,to=com,header=link:*/>;rel=preconnect
-/^https:\/\/www\.[a-z]{8,16}\.com\/(?:[a-z]{2}\/)?[a-z](?:client|favico|random)\.min\.js$/$script,3p,match-case,to=com,header=popads-node
-/^https:\/\/www\.[a-z]{8,16}\.com\/(?:[a-zA-Z]{6}\/){2}[a-z](?:client|favico|random)\.min\.js$/$script,3p,match-case,to=com,header=popads-node
-!#endif
 ://www.*.css|$script,xhr,3p,to=com,header=link:/\/>;rel=preconnect/
 ://www.*/images/*.min.js|$script,xhr,3p,to=com
 ://www.*.com/css/$script,xhr,3p,to=com|~principalcdn.com,header=link:/\/>;rel=preconnect/
@@ -721,6 +716,17 @@ akaihentai.com##+js(rmnt, script, popMagic)
 =e3&*,1|$script,3p,to=com
 =3&*,0|$script,3p,to=com
 =3&*,1|$script,3p,to=com
+!#if ext_ubol
+/^https:\/\/www\.[a-z]{8,16}\.com\/(?:[a-zA-Z]{1,6}\/){0,2}[a-z](?:client|favico|random)\.min\.js$/$script,3p,match-case,to=com,header=link:*/>;rel=preconnect
+/^https:\/\/www\.[a-z]{8,16}\.com\/(?:[a-zA-Z]{1,6}\/){0,2}[a-z](?:client|favico|random)\.min\.js$/$script,3p,match-case,to=com,header=popads-node
+://www.*.css|$script,xhr,3p,to=com,header=link:*/>;rel=preconnect
+!#endif
+!#if env_safari
+/^https?:\/\/www\.[a-z][a-z][a-z][a-z][a-z][a-z][a-z][a-z][a-z]?[a-z]?[a-z]?[a-z]?[a-z]?[a-z]?[a-z]?[a-z]?\.com\/([a-zA-Z][a-zA-Z]?[a-zA-Z]?[a-zA-Z]?[a-zA-Z]?[a-zA-Z]?\/)?([a-zA-Z][a-zA-Z]?[a-zA-Z]?[a-zA-Z]?[a-zA-Z]?[a-zA-Z]?\/)?[a-z]client\.min\.js$/$script,3p,match-case,to=com
+/^https?:\/\/www\.[a-z][a-z][a-z][a-z][a-z][a-z][a-z][a-z][a-z]?[a-z]?[a-z]?[a-z]?[a-z]?[a-z]?[a-z]?[a-z]?\.com\/([a-zA-Z][a-zA-Z]?[a-zA-Z]?[a-zA-Z]?[a-zA-Z]?[a-zA-Z]?\/)?([a-zA-Z][a-zA-Z]?[a-zA-Z]?[a-zA-Z]?[a-zA-Z]?[a-zA-Z]?\/)?[a-z]favico\.min\.js$/$script,3p,match-case,to=com
+/^https?:\/\/www\.[a-z][a-z][a-z][a-z][a-z][a-z][a-z][a-z][a-z]?[a-z]?[a-z]?[a-z]?[a-z]?[a-z]?[a-z]?[a-z]?\.com\/([a-zA-Z][a-zA-Z]?[a-zA-Z]?[a-zA-Z]?[a-zA-Z]?[a-zA-Z]?\/)?([a-zA-Z][a-zA-Z]?[a-zA-Z]?[a-zA-Z]?[a-zA-Z]?[a-zA-Z]?\/)?[a-z]random\.min\.js$/$script,3p,match-case,to=com
+/^https?:\/\/www\.[a-z][a-z][a-z][a-z][a-z][a-z][a-z][a-z][a-z]?[a-z]?[a-z]?[a-z]?[a-z]?[a-z]?[a-z]?[a-z]?\.com\/([a-zA-Z][a-zA-Z]?[a-zA-Z]?[a-zA-Z]?[a-zA-Z]?[a-zA-Z]?\/)?([a-zA-Z][a-zA-Z]?[a-zA-Z]?[a-zA-Z]?[a-zA-Z]?[a-zA-Z]?\/)?amock-min\.css$/$script,3p,match-case,to=com
+!#endif
 !#if cap_ipaddress
 /^https:\/\/www\.[a-z]{8,16}\.com\/(?:[A-Za-z]+\/)*(?:[_0-9A-Za-z]{1,20}[-.])*[_0-9A-Za-z]{1,20}\.js$/$script,3p,match-case,to=com,ipaddress=/^([78]9\.1[28]7\.[12]\d{2}\.\d{1,3}|84\.17\.57\.\d{1,2}|207\.211\.208\.184|2a02:6ea0:d[16]0[0c]::\d{1,2})$/
 ://www.*.css|$script,3p,to=com,ipaddress=/^(84\.17\.57\.\d{1,2}|2a02:6ea0:d600::(2|3|10))$/
