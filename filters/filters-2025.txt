@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2025)
-! Last modified: Wed, 17 Sep 2025 08:30:46 +0000
+! Last modified: Wed, 17 Sep 2025 08:37:02 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -1717,8 +1717,15 @@ series9movies.com##a[href*="?key="][target="_blank"]
 ! https://turbostream.tv//watch.php?id=370 - popups, detection
 ||mowcoordinateegypt.com^$popup,doc
 
+! https://github.com/uBlockOrigin/uAssets/issues/7631
+! https://github.com/uBlockOrigin/uAssets/issues/18102
 ! https://stickers.gg/ - anti-adb
-stickers.gg##+js(no-xhr-if, adsbygoogle)
+||intergient.com^$script,domain=emoji.gg,redirect=noopjs
+emoji.gg,pngs.gg,stickers.gg,soundboards.gg##+js(no-xhr-if, adsbygoogle)
+emoji.gg##+js(rmnt, script, self.loadPW)
+! https://github.com/uBlockOrigin/uAssets/issues/10824
+pfps.gg##+js(set, ga, trueFunc)
+pfps.gg##+js(rmnt, script, onload)
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/204502
 asianboy.fans##+js(trusted-suppress-native-method, DOMTokenList.prototype.add, '"-"', prevent, /wp-content\/uploads\/[a-z]+\/[a-z]+\.js/)
