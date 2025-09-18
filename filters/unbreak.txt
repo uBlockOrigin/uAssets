@@ -5854,3 +5854,12 @@ hindustantimes.com##.rgtWidget.ht-ad-holder-right
 ! https://github.com/uBlockOrigin/uAssets/issues/30065
 mandai.com##+js(set, adobeDataLayer, {})
 mandai.com##+js(set, adobeDataLayer.push, noopFunc)
+
+! https://github.com/uBlockOrigin/uAssets/issues/30079
+@@||ads.adthrive.com/sites/*/ads.min.$script,css,domain=damndelicious.net
+@@||ads.adthrive.com/builds/core/*/js/adthrive.min.js$script,domain=damndelicious.net
+||imasdk.googleapis.com/js/sdkloader/ima3.js$redirect=google-ima.js,domain=damndelicious.net
+damndelicious.net##+js(set, Object.prototype._adsDisabled, true)
+damndelicious.net##+js(trusted-replace-argument, Object.defineProperty, 1, json:"_adsEnabled", condition, _adsDisabled)
+damndelicious.net#@#.adthrive
+damndelicious.net#@#.adthrive-video-player
