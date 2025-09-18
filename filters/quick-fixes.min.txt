@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Quick fixes
 ! Expires: 12 hours
-! Last modified: Thu, 18 Sep 2025 13:05:31 +0000
+! Last modified: Thu, 18 Sep 2025 13:11:00 +0000
 ! Diff-Path: %diffpath%#ublock-quick-fixes
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -206,7 +206,8 @@ bing.com##ol#b_results > li:has(> :is(.b_tpcn, .b_title, h2) a[href^="https://ww
 bing.com##ol#b_results > li.b_algo:has(.b_lineclamp3:matches-css-before(content:/^url\(\Sdata:image\/png;base64,iVBORw0KGgoAAAANSUhEUgAAAD.AAAA/))
 cdn.bg-gledai.*,cdn.gledaitv.*##+js(no-fetch-if, method:HEAD)
 cdn.bg-gledai.*,cdn.gledaitv.*##+js(no-xhr-if, method:HEAD)
-cdn.gledaitv.*##+js(rmnt, script, /\.textContent|createObjectURL|Function\(decodedScript\)|script\.innerHTML/)
+cdn.gledaitv.*##+js(rmnt, script, /\.textContent|createObjectURL|Function\(decodedScript\)/)
+cdn.gledaitv.*##+js(trusted-replace-argument, decodeURIComponent, 0, , condition, script.innerHTML)
 cdn.bg-gledai.*,cdn.gledaitv.*##[id^="anti-pedali-"]
 faqwiki.us##+js(nostif, .offsetHeight>0)
 faqwiki.*##+js(rmnt, script, /adblock/i)
