@@ -830,9 +830,10 @@ ikramlar.online##+js(no-fetch-if, googlesyndication)
 
 ! https://tpi.li/FKsK
 !#if cap_html_filtering
-tpi.li,oii.la##^script:has-text(/;break;case \$\.|adb_detected/)
+tpi.li,oii.la##^script:has-text(/;break;case \$\.|adb_detected|AdBlockCheck/)
 !#else
 tpi.li,oii.la##+js(rmnt, script, /adb_detected|;break;case \$\./)
+tpi.li##+js(remove-node-text, script, /adb_detected|AdBlockCheck|;break;case \$\./i)
 !#endif
 tpi.li,oii.la##+js(nowoif)
 tpi.li,oii.la##+js(no-fetch-if, googlesyndication)
