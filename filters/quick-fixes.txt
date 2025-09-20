@@ -262,6 +262,7 @@ cdn.bg-gledai.*,cdn.gledaitv.*##+js(no-fetch-if, method:HEAD)
 cdn.bg-gledai.*,cdn.gledaitv.*##+js(no-xhr-if, method:HEAD)
 cdn.gledaitv.*##+js(rmnt, script, /\.textContent|Function\(decodedScript\)/)
 cdn.gledaitv.*##+js(trusted-replace-argument, decodeURIComponent, 0, , condition, script.innerHTML)
+cdn.gledaitv.*##+js(trusted-replace-outbound-text, atob, /.+/g, , condition, script.innerHTML)
 cdn.bg-gledai.*,cdn.gledaitv.*##[id^="anti-pedali-"]
 
 ! https://github.com/uBlockOrigin/uAssets/issues/28024
@@ -344,9 +345,6 @@ global.novelpia.com##+js(no-fetch-if, g.doubleclick.net, length:100000)
 global.novelpia.com##+js(trusted-replace-argument, String.prototype.includes, 0, , condition, /Copyright|doubleclick$/)
 global.novelpia.com##+js(no-fetch-if, favicon, length:252)
 global.novelpia.com##div[id^="novelpia_"]:remove()
-
-! https://www.reddit.com/r/uBlockOrigin/comments/1nc7jwl/nsfw_site_seems_to_be_blocking_trailers_with/
-||trailerhg.xyz^$badfilter
 
 ! https://github.com/uBlockOrigin/uAssets/issues/29995
 shopee.sg#@#.shopee-search-item-result__item:has-text(Ad)
