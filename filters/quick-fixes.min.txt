@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Quick fixes
 ! Expires: 12 hours
-! Last modified: Sun, 21 Sep 2025 06:59:09 +0000
+! Last modified: Sun, 21 Sep 2025 16:52:05 +0000
 ! Diff-Path: %diffpath%#ublock-quick-fixes
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -218,7 +218,7 @@ bg-gledai.*##+js(no-xhr-if, adapex)
 cdn.gledaitv.*##+js(rmnt, script, /\.textContent|Function\(decodedScript\)/)
 cdn.gledaitv.*##+js(trusted-replace-argument, decodeURIComponent, 0, , condition, script.innerHTML)
 cdn.gledaitv.*##+js(trusted-replace-outbound-text, atob, /.+/g, , condition, script.innerHTML)
-cdn.gledaitv.*##+js(prevent-innerHTML, , test)
+cdn.gledaitv.*##+js(prevent-innerHTML, , '/test.{1000,}onerror.{1000,}/s')
 cdn.bg-gledai.*,cdn.gledaitv.*##[id^="anti-pedali-"]
 faqwiki.us##+js(nostif, .offsetHeight>0)
 faqwiki.*##+js(rmnt, script, /adblock/i)
