@@ -408,10 +408,13 @@ oploverz.*###overplay
 *$script,3p,denyallow=cloudflare.com|disqus.com|disquscdn.com|facebook.com|fastlylb.net|fbcdn.net|facebook.net|googleapis.com|jsdelivr.net|statically.io|githack.com|gitcdn.link|gitcdn.herokuapp.com|arc.io|fluidplayer.com,domain=oploverz.*
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/50179
-*$xhr,redirect-rule=noop.txt,domain=tunein.com
+*$xhr,redirect-rule=noop.txt,to=~pagead2.googlesyndication.com,from=tunein.com
 ! https://github.com/uBlockOrigin/uAssets/issues/22351
 ||imasdk.googleapis.com/js/sdkloader/ima3.js$script,3p,redirect=google-ima.js,domain=tunein.com,important
 ||imasdk.googleapis.com/pal/sdkloader/pal.js$script,3p,redirect=noopjs,domain=tunein.com,important
+! https://www.reddit.com/r/uBlockOrigin/comments/1nrob3d/tunein_radio_wont_play_with_ubo/
+tunein.com##+js(set, Object.prototype.skipPreroll, true)
+tunein.com##div[class^="bottom-banner"]
 
 ! https://www.reddit.com/r/uBlockOrigin/comments/7wpk97/cant_block_ad_at_the_bottom_of_readcomiconline/
 ! https://www.reddit.com/r/uBlockOrigin/comments/1dkss3r/readcomiconline_detecting_adblock/
