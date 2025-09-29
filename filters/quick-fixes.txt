@@ -147,9 +147,10 @@ japscan.*##+js(trusted-replace-argument, String.prototype.includes, 0, json:'', 
 japscan.*##+js(trusted-replace-argument, String.prototype.indexOf, 0, json:'', condition, function runAutoTag() { [native code] })
 japscan.*##+js(trusted-replace-argument, String.prototype.split, 0, json:'', condition, function runAutoTag() { [native code] })
 japscan.*##+js(nostif, /&&\s*[A-Z]{4\,}\(\)/)
-japscan.*##+js(nostif, /\(\s*[\s$0-9A-Z_a-z]*\)\s*=>|^\s*function\s*\(\s*[\s$0-9A-Z_a-z]*\)\s*\{.{35\,100}|innerHTML/, 1000)
+japscan.*##+js(nostif, /\(\s*[\s$0-9A-Z_a-z]*\)\s*=>|^\s*function\s*\(\s*[\s$0-9A-Z_a-z]*\)\s*\{.{35\,100}|document\[|nextElementSibling/, 1000)
 japscan.*##+js(trusted-suppress-native-method, Document.prototype.querySelector, '"/^[.#][A-Za-z]+_[A-Za-z]*$/"', prevent, /stackDepth:[4-7].+inlineScript/)
 japscan.*##+js(trusted-suppress-native-method, Document.prototype.querySelector, '"/^\[class~=/"', prevent, inlineScript)
+japscan.*##.iiaA_1:remove-attr(class)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/21064
 ! https://github.com/uBlockOrigin/uAssets/issues/24220
