@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2025)
-! Last modified: Mon, 29 Sep 2025 12:54:53 +0000
+! Last modified: Tue, 30 Sep 2025 00:44:12 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -1737,7 +1737,11 @@ asianboy.fans##+js(trusted-suppress-native-method, DOMTokenList.prototype.add, '
 
 ! https://github.com/uBlockOrigin/uAssets/issues/28189
 @@||seelen.io^$script,1p
+!#if ext_ubol
+seelen.io##+js(trusted-prevent-fetch, pagead2.googlesyndication.com/pagead/js/adsbygoogle.js, google)
+!#else
 seelen.io##+js(prevent-fetch, pagead2.googlesyndication.com/pagead/js/adsbygoogle.js, war:googlesyndication_adsbygoogle.js)
+!#endif
 
 ! https://github.com/uBlockOrigin/uAssets/pull/28192
 ||physicsandmathstutor.com/pdf-pages/?pdf=http$doc,urlskip=?pdf
