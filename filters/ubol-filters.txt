@@ -19,24 +19,32 @@ fuqster.com##a[href^="https://landing.brazzersnetwork.com/"]
 
 ! END: Specific cosmetic filters
 
-! START: Safari's redirect issues
+! START: Safari's issues
 
 !#if env_safari
+
+! redirect
 ! https://github.com/uBlockOrigin/uBOL-home/issues/434
 ||npttech.com^$badfilter
 ||npttech.com^$redirect=noopjs
-!#endif
 
-! END: Safari's redirect issues
-
-! START: Block doc on Safari
-
-!#if env_safari
+! block doc on Safari
 ! https://www.reddit.com/r/uBlockOrigin/comments/1ntc3nt/why_was_strict_blocking_removed_from_ubo_lite/
 ||twinrdengine.com^$doc
+
+! others
+! https://github.com/uBlockOrigin/uAssets/issues/29624
+||tagdeliver.com^$script,redirect=noop.js,domain=thepinknews.com
+
+! https://github.com/uBlockOrigin/uBOL-home/issues/445
+||platform.twitter.com/embed/$~stylesheet,~subdocument,third-party,badfilter
+
+! https://github.com/uBlockOrigin/uAssets/issues/30281
+ebay.*##+js(href-sanitizer, li.nav--list > a[href^="http://"], +https)
+
 !#endif
 
-! END
+! END: Safari's issues
 
 ! https://github.com/uBlockOrigin/uBOL-issues/issues/8
 ||pushbullet.com^$3p,badfilter
@@ -195,16 +203,6 @@ open.spotify.com##+js(trusted-json-edit-fetch-response, '.cdnurl=["data:video/mp
 ! https://github.com/uBlockOrigin/uBlock-discussions/discussions/833#discussioncomment-14008173
 ! TODO: remove once exceptions for highly-generic cosmetics are implemented
 @@||kojodan.jp^$ghide
-
-! https://github.com/uBlockOrigin/uAssets/issues/29624
-!#if env_safari
-||tagdeliver.com^$script,redirect=noop.js,domain=thepinknews.com
-!#endif
-
-! https://github.com/uBlockOrigin/uBOL-home/issues/445
-!#if env_safari
-||platform.twitter.com/embed/$~stylesheet,~subdocument,third-party,badfilter
-!#endif
 
 ! https://github.com/uBlockOrigin/uAssets/issues/29682
 turboplayers.xyz###pop.div_pop:remove()
