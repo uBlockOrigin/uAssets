@@ -12,11 +12,18 @@ env:
 jobs:
   label-chromium:
     runs-on: ubuntu-latest
-    if: "contains(github.event.issue.body, 'browser: Chrome') || contains(github.event.issue.body, 'browser: Edge')"
+    if: "contains(github.event.issue.body, 'browser: Chrome')"
     permissions:
       issues: write
     steps:
       - run: gh issue edit "$NUMBER" --add-label "Chromium"
+  label-edge:
+    runs-on: ubuntu-latest
+    if: "contains(github.event.issue.body, 'browser: Edge')"
+    permissions:
+      issues: write
+    steps:
+      - run: gh issue edit "$NUMBER" --add-label "Edge"
   label-firefox:
     runs-on: ubuntu-latest
     if: "contains(github.event.issue.body, 'browser: Firefox')"
@@ -31,3 +38,10 @@ jobs:
       issues: write
     steps:
       - run: gh issue edit "$NUMBER" --add-label "Safari"
+  label-ubol:
+    runs-on: ubuntu-latest
+    if: "contains(github.event.issue.body, 'name: uBlock Origin Lite')"
+    permissions:
+      issues: write
+    steps:
+      - run: gh issue edit "$NUMBER" --add-label "uBOL"
