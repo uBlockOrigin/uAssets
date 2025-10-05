@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Sun, 05 Oct 2025 01:29:07 +0000
+! Last modified: Sun, 05 Oct 2025 01:50:51 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -9995,6 +9995,10 @@ dl-protect.link##a[href^="https://planetwealthbuilders.net/trck/"]
 ||dl-protect.link/images2/afl*.png
 ||planetwealthbuilders.net^$all
 ||pmur.org/*_abChoice.
+!#if env_firefox
+qub.ca##.jss2
+!#endif
+qub.ca##+js(set, __NEXT_DATA__.runtimeConfig._qub_sdk.qubConfig.video.adBlockerDetectorEnabled, false)
 ! NOTE: Georgian
 ||forum.ge/trash/ads_
 ||sab.fast.ge^$subdocument
@@ -12859,9 +12863,6 @@ sudoku-aktuell.de###billboard
 sudoku-aktuell.de###blockdiv
 ! host2.jptorrent.org timer
 jptorrent.org##+js(nano-stb)
-!#if env_firefox
-qub.ca##.jss2
-!#endif
 ! xtube.com PH
 xtube.com##.pageBanner
 xtube.com##.panelBottomSpace > li.pull-right
