@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Tue, 07 Oct 2025 09:35:59 +0000
+! Last modified: Tue, 07 Oct 2025 11:01:38 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -9957,6 +9957,12 @@ auto.am##.toggle-adv-search
 hraparak.am##.big_advert
 ! NOTE: Bulgarian
 ||advertere.zamunda.net^
+@@||seirsanduk.*?loader.js^$script,domain=seirsanduk.*
+@@||ads.poshtata.online/loader.js$script,domain=seirsanduk.*|seirsanduk.com
+! MV3 wildcard issue
+!#if ext_ubol
+@@||seirsanduk.*?loader.js^$script,domain=seirsanduk.com|seirsanduk.online
+!#endif
 ! NOTE: Chinese
 @@||cdn.jsdmirror.com/gh/justlovemaki/imagehub@main/js/adview_pic_cpc_cpm_cpa_guanggao_gg_guge__ads_300x250.js
 !#if !env_mobile
@@ -21732,11 +21738,6 @@ secondhandsongs.com##+js(aost, document.getElementById, inlineScript)
 !#endif
 3bmeteo.com##+js(set, elimina_profilazione, 1)
 3bmeteo.com##+js(set, elimina_pubblicita, 1)
-@@||seirsanduk.*?loader.js^$script,domain=seirsanduk.*
-! MV3 wildcard issue
-!#if ext_ubol
-@@||seirsanduk.*?loader.js^$script,domain=seirsanduk.com|seirsanduk.online
-!#endif
 textreverse.com##+js(no-fetch-if, snigelweb.com)
 textreverse.com##.clearfix
 textreverse.com##.moretooladd
