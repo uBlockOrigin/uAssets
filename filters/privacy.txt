@@ -85,7 +85,6 @@ old.reddit.com##a.outbound[data-outbound-url]:remove-attr(data-outbound-url)
 ! https://github.com/uBlockOrigin/uAssets/issues/18938
 www.reddit.com##+js(json-prune, data.*.elements.edges.[].node.outboundLink)
 www.reddit.com##+js(json-prune, data.children.[].data.outbound_link)
-||redditstatic.com/shreddit/sentry-$domain=reddit.com
 ||reddit.com^$doc,removeparam=/web_only=/
 ||reddit.com^$doc,removeparam=/deep_link=/
 ||reddit.com^$doc,removeparam=correlation_id
@@ -131,7 +130,6 @@ brillen.de##+js(acs, document.createElement, 'script')
 
 ! https://github.com/uBlockOrigin/uAssets/issues/478#issuecomment-612229916
 /analytics/analytics.$~xmlhttprequest,3p
-/ga_setup.js$3p
 /googleanalytics.js$3p
 ! https://github.com/uBlockOrigin/uAssets/issues/11262
 -google-analytics/$domain=~wordpress.org,badfilter
@@ -412,7 +410,6 @@ ericdraken.com##^script[async]
 /images/*/analytics.js$domain=girlsofdesire.org
 
 ! t3n.de tracking
-||cl.t3n.de^
 ||c2shb.pubgw.yahoo.com/admax/bid/partners/PBJS
 
 ! doucolle.net analytics
@@ -1247,7 +1244,6 @@ kimbino.bg,kimbino.ro##+js(remove-cookie, kim-tracker-uid)
 ! https://www.shoebacca.com/search
 shoebacca.com##+js(remove-cookie, /swym-|yotpo_/, when, scroll keydown)
 shoebacca.com##+js(set-local-storage-item, /^boostSD/, $remove$)
-/api.kimonix.com/kimonix_analytics.js
 ! https://wpde.com/news/local/georgetown-county-zoning-golf-course-rezoning-housing-density
 wpde.com##+js(remove-cookie, /bitmovin_analytics_uuid|sbgtvNonce|SUID/, when, scroll keydown)
 ! https://sky.pro/wiki/gadgets/monitory-2k-chto-eto-i-zachem/
@@ -1784,7 +1780,6 @@ spankbang.*##+js(set, send_recommendation_event, noopFunc)
 ! https://github.com/uBlockOrigin/uAssets/issues/25180
 perplexity.ai##+js(aost, window.screen.height, setTimeout)
 ||perplexity.ai/rest/metrics/collect^$xhr,1p,method=post
-||perplexity.ai/rest/event/analytics
 
 ! https://github.com/uBlockOrigin/uAssets/issues/25204
 nytimes.com##+js(no-fetch-if, api.theathletic.com/graphql body:/PostEvent|PostImpressions/)
@@ -1855,9 +1850,6 @@ mirror.co.uk##+js(set-local-storage-item, /_analytics|ppid/, $remove$)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/25842
 ||an.yandex.ru^$script,redirect=noopjs,domain=moyaposylka.ru
-
-! https://github.com/uBlockOrigin/uAssets/issues/25871
-||flaticon.com/_ga?
 
 ! https://github.com/uBlockOrigin/uAssets/issues/25885
 ||googletagmanager.com/gtag/js$domain=17track.net,important
@@ -1957,7 +1949,6 @@ tlr.stripocdn.email%2Fcontent%2Fguids%2F$image
 .avforums.com/b/image.gif?$image
 .avforums.com%2Fb%2Fimage.gif%3F$image
 ! fiverr.com
-.fiverr.com/js_event_tracking/v1/track_email_open/$image
 .fiverr.com%2Fjs_event_tracking%2Fv1%2Ftrack_email_open%2F$image
 ! sahibinden.com
 .sahibinden.com/mail/readStatistics/$image
@@ -2037,10 +2028,7 @@ newsletter.adnz.co%2F$image
 ||g.doubleclick.net/gpt/pubads_impl_$domain=cornwalllive.com,important
 
 ! https://github.com/AdguardTeam/AdguardFilters/commit/4daa90c90372f1413f6c6790386c80886526a169
-||f.pie.org^
 ||s.pie.org^
-||t.pie.org^
-||pie.org/v1/experiments/view
 
 ! https://github.com/uBlockOrigin/uAssets/issues/26644
 ||tonordersitye.com/s*&r$urlskip=?r -base64
@@ -2122,7 +2110,6 @@ farmersjournal.ie##+js(set-local-storage-item, /^_vid_(lr|t)$/, $remove$)
 
 ! https://www.reddit.com/r/uBlockOrigin/comments/1j7yh8b/adblock_detected_on_souqdesigncom_blur_persists/
 ||wsimg.com/traffic-assets/$script,3p
-||wsimg.com/signals/$script,3p
 souq-design.com##+js(remove-cookie, /^(_tccl_|_scc_session|fpfid)/)
 
 ! https://github.com/easylist/easylist/pull/21305
@@ -2153,9 +2140,6 @@ grok.com##+js(no-fetch-if, url:/api/statsig/log_event method:POST)
 ||al.fanza.co.jp/?lurl=$doc,urlskip=?lurl
 ||ck.jp.ap.valuecommerce.com/servlet/referral?*&vc_url=$doc,urlskip=?vc_url
 ||hb.afl.rakuten.co.jp/hgc/*/?pc=$doc,urlskip=?pc
-
-! https://github.com/uBlockOrigin/uAssets/issues/27712
-||qa-events-schema.viacom.tech^
 
 ! https://pagalfree.com/
 ||spexjs.com^
@@ -2215,9 +2199,6 @@ abs-cbn.com##+js(set-session-storage-item, VR-INJECTOR-INSTANCES-MAP, $remove$)
 ! https://github.com/AdguardTeam/AdguardFilters/issues/213386
 /hog/*^ip=
 
-! https://visualstudio.microsoft.com
-||js.monitor.azure.com/scripts/c/ms.shared.analytics.
-
 ! https://edikted.com/
 ! https://github.com/uBlockOrigin/uAssets/issues/29131
 ||rldcr.madeincookware.com/tag?name=
@@ -2260,7 +2241,6 @@ mediamarkt.de##+js(aopw, ftr__startScriptLoad)
 
 ! https://anizm.net/
 /metrics^|$script,1p,domain=anizle.com|anizm.net|puffytr.com
-||ping.anizm.net^
 
 ! https://docs.usetrmnl.com/go/
 ! https://github.com/uBlockOrigin/uAssets/issues/29376
