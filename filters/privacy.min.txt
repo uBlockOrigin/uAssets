@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Privacy
 ! Expires: 7 days
-! Last modified: Sun, 05 Oct 2025 07:01:11 +0000
+! Last modified: Tue, 07 Oct 2025 14:00:23 +0000
 ! Diff-Path: %diffpath%#ublock-privacy
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -39,7 +39,6 @@ old.reddit.com##a.outbound[data-outbound-url]:remove-attr(data-outbound-url)
 !reddit.com##+js(set, Object.prototype.allowClickTracking, false)
 www.reddit.com##+js(json-prune, data.*.elements.edges.[].node.outboundLink)
 www.reddit.com##+js(json-prune, data.children.[].data.outbound_link)
-||redditstatic.com/shreddit/sentry-$domain=reddit.com
 ||reddit.com^$doc,removeparam=/web_only=/
 ||reddit.com^$doc,removeparam=/deep_link=/
 ||reddit.com^$doc,removeparam=correlation_id
@@ -69,7 +68,6 @@ brillen.de##+js(acs, document.createElement, 'script')
 ||carsensor.net/usedcar/modules/clicklog_$xhr,1p,important,redirect=noop.txt
 !#endif
 /analytics/analytics.$~xmlhttprequest,3p
-/ga_setup.js$3p
 /googleanalytics.js$3p
 -google-analytics/$domain=~wordpress.org,badfilter
 -google-analytics/$3p,domain=~wordpress.org|~brookson.co.uk
@@ -220,7 +218,6 @@ ericdraken.com##^script[async]
 ||brave.com/static-assets/js/analysis.js
 /images/*/analytics.js$domain=girlsofdesire.org
 ! t3n.de tracking
-||cl.t3n.de^
 ||c2shb.pubgw.yahoo.com/admax/bid/partners/PBJS
 ! doucolle.net analytics
 ||blozoo.info/js/inouttool/
@@ -650,7 +647,6 @@ lared.cl##+js(remove-cookie, device_id)
 kimbino.bg,kimbino.ro##+js(remove-cookie, kim-tracker-uid)
 shoebacca.com##+js(remove-cookie, /swym-|yotpo_/, when, scroll keydown)
 shoebacca.com##+js(set-local-storage-item, /^boostSD/, $remove$)
-/api.kimonix.com/kimonix_analytics.js
 wpde.com##+js(remove-cookie, /bitmovin_analytics_uuid|sbgtvNonce|SUID/, when, scroll keydown)
 sky.pro##+js(set-local-storage-item, /sales-ninja|snj/, $remove$)
 lexpress.fr##+js(set-local-storage-item, etx-settings, $remove$)
@@ -1015,7 +1011,6 @@ spankbang.*##+js(set, send_gravity_event, noopFunc)
 spankbang.*##+js(set, send_recommendation_event, noopFunc)
 perplexity.ai##+js(aost, window.screen.height, setTimeout)
 ||perplexity.ai/rest/metrics/collect^$xhr,1p,method=post
-||perplexity.ai/rest/event/analytics
 nytimes.com##+js(no-fetch-if, api.theathletic.com/graphql body:/PostEvent|PostImpressions/)
 !#if cap_ipaddress
 *$strict3p,ipaddress=0.0.0.0,domain=~0.0.0.0|~127.0.0.1|~[::1]|~[::]|~local|~localhost
@@ -1051,7 +1046,6 @@ mirror.co.uk##+js(trusted-set-cookie, _sharedid, , 0, , domain, .mirror.co.uk)
 mirror.co.uk##+js(remove-cookie, /_vf|mantisid|pbjs_/)
 mirror.co.uk##+js(set-local-storage-item, /_analytics|ppid/, $remove$)
 ||an.yandex.ru^$script,redirect=noopjs,domain=moyaposylka.ru
-||flaticon.com/_ga?
 ||googletagmanager.com/gtag/js$domain=17track.net,important
 bentasker.co.uk##+js(no-xhr-if, method:POST url:pfanalytics.bentasker.co.uk)
 ||data.cheatography.com^
@@ -1121,7 +1115,6 @@ tlr.stripocdn.email%2Fcontent%2Fguids%2F$image
 .avforums.com/b/image.gif?$image
 .avforums.com%2Fb%2Fimage.gif%3F$image
 ! fiverr.com
-.fiverr.com/js_event_tracking/v1/track_email_open/$image
 .fiverr.com%2Fjs_event_tracking%2Fv1%2Ftrack_email_open%2F$image
 ! sahibinden.com
 .sahibinden.com/mail/readStatistics/$image
@@ -1189,10 +1182,7 @@ newsletter.adnz.co%2F$image
 ||joinhoney.com/evs
 ||g.doubleclick.net/tag/js/gpt.js$script,xhr,domain=cornwalllive.com,important
 ||g.doubleclick.net/gpt/pubads_impl_$domain=cornwalllive.com,important
-||f.pie.org^
 ||s.pie.org^
-||t.pie.org^
-||pie.org/v1/experiments/view
 ||tonordersitye.com/s*&r$urlskip=?r -base64
 ||suno.com/metrics/
 ||suno.com/v1//rgstr
@@ -1236,7 +1226,6 @@ farmersjournal.ie##+js(rmnt, script, /detect|FingerprintJS/)
 farmersjournal.ie##+js(remove-cookie, _vid_t)
 farmersjournal.ie##+js(set-local-storage-item, /^_vid_(lr|t)$/, $remove$)
 ||wsimg.com/traffic-assets/$script,3p
-||wsimg.com/signals/$script,3p
 souq-design.com##+js(remove-cookie, /^(_tccl_|_scc_session|fpfid)/)
 ||optable.co^$3p
 laurelberninteriors.com##+js(set-local-storage-item, /adthrive|ccuid|at_sticky_data|geo-location|OPTABLE_/, $remove$)
@@ -1253,7 +1242,6 @@ grok.com##+js(no-fetch-if, url:/api/statsig/log_event method:POST)
 ||al.fanza.co.jp/?lurl=$doc,urlskip=?lurl
 ||ck.jp.ap.valuecommerce.com/servlet/referral?*&vc_url=$doc,urlskip=?vc_url
 ||hb.afl.rakuten.co.jp/hgc/*/?pc=$doc,urlskip=?pc
-||qa-events-schema.viacom.tech^
 ||spexjs.com^
 ||buttondown.com/ladybird/subscribers/*/archive/$doc,uritransform=/\/subscribers\/[-0-9a-f]+\/archive\//\/archive\//
 ||myanimelist.net/ma/s$redirect=nooptext
@@ -1282,7 +1270,6 @@ abs-cbn.com##+js(set-session-storage-item, VR-INJECTOR-INSTANCES-MAP, $remove$)
 /ingest/*^ip=
 /ingress/*^ip=
 /hog/*^ip=
-||js.monitor.azure.com/scripts/c/ms.shared.analytics.
 ||rldcr.madeincookware.com/tag?name=
 edikted.com##+js(remove-cookie, /_shopify_y|yotpo_pixel/, when, scroll keydown)
 ||api.bilibili.com/x/web-frontend/data/collector^
@@ -1303,7 +1290,6 @@ mediamarkt.de##+js(aopw, ftr__startScriptLoad)
 ||data.anisearch.
 ||aram.zone/pageview
 /metrics^|$script,1p,domain=anizle.com|anizm.net|puffytr.com
-||ping.anizm.net^
 ||app.gitbook.com/__session?proposed=
 ||api.gitbook.com/v1/orgs/*/insights/events
 ||ps.vnexpress.net/ps/chk?
