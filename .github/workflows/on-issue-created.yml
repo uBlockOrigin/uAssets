@@ -45,3 +45,10 @@ jobs:
       issues: write
     steps:
       - run: gh issue edit "$NUMBER" --add-label "uBOL"
+  label-mobile:
+    runs-on: ubuntu-latest
+    if: "contains(github.event.issue.body, 'browser: Chrome Mobile') || contains(github.event.issue.body, 'browser: Edge Mobile') || contains(github.event.issue.body, 'browser: Firefox Mobile') || contains(github.event.issue.body, 'browser: Safari Mobile')"
+    permissions:
+      issues: write
+    steps:
+      - run: gh issue edit "$NUMBER" --add-label "mobile"
