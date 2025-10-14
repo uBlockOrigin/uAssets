@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Privacy
 ! Expires: 7 days
-! Last modified: Tue, 14 Oct 2025 10:39:57 +0000
+! Last modified: Tue, 14 Oct 2025 11:47:00 +0000
 ! Diff-Path: %diffpath%#ublock-privacy
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -412,8 +412,8 @@ bikesales.com.au##^html > head > :is([name="canonical"], [rel="canonical"]):not(
 ||fsx.i-run.fr/*^redir=http$doc,urlskip=?redir
 ||mcpedl.com/leaving/?url=http$doc,urlskip=?url +https
 ||c212.net/c/link/*^u=http$doc,urlskip=?u +https
-threads.net##+js(json-prune, require.0.3.0.__bbox.define.[].2.is_linkshim_supported)
-||l.threads.net/?u=http$doc,urlskip=?u
+threads.com,threads.net##+js(json-prune, require.0.3.0.__bbox.define.[].2.is_linkshim_supported)
+||l.threads.*/?u=http$doc,to=threads.com|threads.net,urlskip=?u
 ||search.app^*link=http$doc,urlskip=?link
 bing.com##+js(href-sanitizer, body a[href^="/rebates/welcome?url=http"], ?url)
 ||bing.com/ck/a*^u=a1aHR0c$doc,urlskip=/[?&]u=a1(aHR0c[^&#]+)/ -safebase64
@@ -479,6 +479,7 @@ musescore.com##+js(set-local-storage-item, /^rt_/, $remove$)
 ||adj.st/*^url=http$doc,urlskip=?url
 ||lit.link/redirects/link-ad?redirectUrl=aHR0c$doc,urlskip=?redirectUrl -base64
 lit.link##+js(href-sanitizer, a[href^="/redirects/link-ad?redirectUrl=aHR0c"], ?redirectUrl -base64)
+||link.fmkorea.org/link.php?url=http$doc,urlskip=?url
 ! Click Trackers
 html.duckduckgo.com,lite.duckduckgo.com##+js(href-sanitizer, a[href^="//duckduckgo.com/l/?uddg="], ?uddg)
 starstyle.com##+js(href-sanitizer, a[href^="https://go.skimresources.com/"][href*="&url=http"], ?url)
