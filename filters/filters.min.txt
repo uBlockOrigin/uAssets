@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Sat, 25 Oct 2025 06:08:10 +0000
+! Last modified: Sat, 25 Oct 2025 06:25:28 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -16834,11 +16834,6 @@ yesdownloader.com##+js(nano-sib)
 hackr.io##+js(no-fetch-if, googlesyndication)
 ! termux. xyz anti adb
 *$script,domain=termux.xyz,redirect-rule=noopjs
-! weloma.art popup
-weloma.art##+js(nowoif)
-weloma.art##+js(acs, document.addEventListener, openPopup)
-*$script,3p,denyallow=cloudflare.net|cloudfront.net|disqus.com|disquscdn.com|fastlylb.net|jsdelivr.net,domain=weloma.art
-weloma.art###welcome-bar
 namasce.pl##+js(nostif, , 1)
 @@||request.dqst.pl/*/reader$xhr,domain=namasce.pl
 afly.pro##.g-recaptcha, iframe[src*="google.com/recaptcha"], .btn-captcha, .btn-black-outline:others()
@@ -17172,9 +17167,15 @@ thisisrussia.io##+js(nowoif)
 blog.textpage.xyz##+js(aopr, eazy_ad_unblocker)
 additudemag.com##body:not(.home) #content:style(margin-top: 13px !important;)
 additudemag.com##.primary-sidebar-ad
+! weloma.art popup
+weloma.art##+js(nowoif)
+weloma.art##+js(acs, document.addEventListener, openPopup)
+*$script,3p,denyallow=cloudflare.net|cloudfront.net|disqus.com|disquscdn.com|fastlylb.net|jsdelivr.net,domain=weloma.art
+weloma.art###welcome-bar
 welovemanga.one##+js(acs, document.addEventListener, openPopup)
 *$script,3p,denyallow=cloudflare.com|cloudflare.net|cloudfront.net|disqus.com|disquscdn.com|fastly.net|fastlylb.net|jsdelivr.net,domain=welovemanga.one
 *$frame,3p,denyallow=disqus.com,domain=welovemanga.one
+nihonkuni.com,rawinu.com,weloma.art,welovemanga.one##+js(set-cookie, smartlink_shown, 1)
 techpp.com##.tppAds
 techpp.com##.side-inserter
 techpp.com##.brxe-div > div[class="brxe-container"] .adsbygoogle:upward(.brxe-container)
