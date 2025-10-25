@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Sat, 25 Oct 2025 13:34:31 +0000
+! Last modified: Sat, 25 Oct 2025 13:59:17 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -8213,7 +8213,7 @@ hdhub4u.fail,hubdrive.*,moviesubtitles.click,telegratuita.com##+js(aeld, DOMCont
 /^https?:\/\/(?:[0-9a-z]{1,30}\.){1,2}cfd\/[a-z](?=[a-z]*[0-9A-Z])[0-9A-Za-z]{10,27}\/[A-Za-z]{5}(?:\?(?:param|_)=\w+)?$/$script,xhr,3p,match-case
 /^https?:\/\/(?:[0-9a-z]{1,30}\.){1,2}rest\/[a-z](?=[a-z]*[0-9A-Z])[0-9A-Za-z]{10,27}\/[A-Za-z]{5}(?:\?(?:param|_)=\w+)?$/$script,xhr,3p,match-case
 !#if ext_ubol
-/^https:\/\/[a-z]{7,16}\.[a-z]{3,7}\/[a-z0-9]{14}\/\d{5}$/$script,3p,,match-case
+/^https:\/\/[a-z]{7,16}\.[a-z]{3,7}\/[a-z0-9]{14}\/\d{5}$/$script,3p,match-case
 /^https:\/\/[a-z]{2}\.[a-z]{7,14}\.com\/r[0-9A-Za-z]{10,16}\/[A-Za-z]{5}$/$script,3p,match-case
 /^https:\/\/[0-9a-z]+\.[0-9a-z]+\.(cfd|rest)\/[a-z][0-9A-Za-z]{10,20}\/[A-Za-z]{5}$/$script,3p,to=cfd|rest
 !#endif
@@ -10061,6 +10061,8 @@ otakudesu.*##.box_item_ads_popup
 .gif$image,domain=otakudesu.*|otakudesu.best|otakudesu.org
 otakudesu.*##+js(nowoif)
 ||ads.desustream.com^
+||playeriframe.sbs^$csp=sandbox allow-forms allow-same-origin allow-scripts allow-modals allow-orientation-lock allow-pointer-lock allow-presentation allow-top-navigation
+cloud.hownetwork.xyz###overlay
 ! NOTE: Korean
 map.naver.com##+js(json-edit-xhr-response, .layers.*[?.metadata.name=="POI_Ads"], propsToMatch, /PCWeb_Real.json)
 ! NOTE: Polish
@@ -24051,4 +24053,3 @@ playoffsstream.com###opalayer
 moviesjoytv.click##a[href="/play"]:remove-attr(href)
 ! xmorex.com popup
 xmorex.com##+js(nowoif, /pop?)
-||playeriframe.sbs^$csp=sandbox allow-forms allow-same-origin allow-scripts allow-modals allow-orientation-lock allow-pointer-lock allow-presentation allow-top-navigation
