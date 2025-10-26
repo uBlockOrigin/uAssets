@@ -336,11 +336,16 @@ embed.wcostream.com##+js(rmnt, script, /google_jobrunner|AdBlock|pubadx|embed\.h
 !#endif
 
 ! https://github.com/uBlockOrigin/uAssets/issues/18260
-client.falixnodes.net##+js(rmnt, script, /aps_csm|snigelweb|redirectsomethingidkatthispoint|myveryveryverysuperdupercoolfeature|getthetitle|YWRuZ2lu|adngin|window\.location\.replace|101vh|Segoe UI|ffffff|style \= \"height|style\=\"text-shadow|Please disable adblock/)
-client.falixnodes.net##^script:has-text(aps_csm) + script
-client.falixnodes.net##^script:has-text(snigelPubConf) + script
+!#if ext_ubol
+@@||cdn.snigelweb.com/adengine/falixnodes.net/loader.js$script,domain=client.falixnodes.net
+@@||amazon-adsystem.com/bao-csm/aps-comm/aps_csm.js$script,domain=client.falixnodes.net
+@@||adengine.snigelweb.com/falixnodes.net/$script,domain=client.falixnodes.net
+!#endif
+client.falixnodes.net##+js(rmnt, script, /aps_csm|snigelweb|userredirect|checkvariablething|getdavalue|YWRuZ2lu|adngin|window\.location\.replace|101vh|Segoe UI|ffffff|style \= \"height|style\=\"text-shadow|Please disable adblock/)
+client.falixnodes.net##+js(rmnt, script, /^.{\,150}location\.href/)
 client.falixnodes.net##+js(rpnt, script, /googletag.*?enableServices\(\)\;/s)
 client.falixnodes.net##+js(rpnt, script, /googletag\.pubads\(\).*rewardedSlot\)\;\s+\}\)\;/s)
+client.falixnodes.net##+js(rpnt, script, window.location.href = '/disableadblock';)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/23131
 ||rm.freex2line.online/*.js|$domain=cimanow.cc
