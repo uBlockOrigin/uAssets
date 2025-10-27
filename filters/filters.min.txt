@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Mon, 27 Oct 2025 05:16:40 +0000
+! Last modified: Mon, 27 Oct 2025 07:46:14 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -10008,6 +10008,12 @@ lidovky.cz###content > div[id^="space-"]:has(> script)
 lidovky.cz##.s_nativ_advertorial
 ||1gr.cz/*/js/uni/paticka.js
 ||1gr.cz/*/reklama.svg
+!#if cap_html_filtering
+sbazar.cz##^script:has-text(ads)
+!#else
+sbazar.cz##+js(rmnt, script, ads)
+!#endif
+||seznam.cz/html/adform_sync.html$frame,domain=sbazar.cz
 ! NOTE: Dutch
 alleveilingen.be,alleveilingen.nl##+js(acs, document.addEventListener, fakeAd)
 ||2mdn.net/instream/html5/ima3.js$redirect=google-ima.js,domain=puna.bbvms.com,important
