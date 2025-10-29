@@ -254,9 +254,9 @@ cdn.gledaitv.*##+js(trusted-replace-outbound-text, atob, /.+/g, , condition, scr
 cdn.gledaitv.*##+js(no-fetch-if, method:/head/i)
 cdn.gledaitv.*##+js(nosiif, await)
 ! cdn.bg-gledai.*,cdn.gledaitv.*##[id^="anti-pedali-"]
-@@*$image,xhr,domain=cdn.bg-gledai.*|cdn.gledaitv.*|cdn.bg-gledai.video|cdn.gledaitv.fan|cdn.gledaitv.live
 cdn.bg-gledai.video,cdn.gledaitv.fan,cdn.gledaitv.live##+js(aost, document.createElement, createAdblockWarning)
-@@||cdn.gledaitv.$ghide
+@@*$image,xhr,domain=bg-gledai.*|gledaitv.*|bg-gledai.video|gledaitv.fan|gledaitv.live
+@@||gledaitv.$ghide
 
 ! https://github.com/uBlockOrigin/uAssets/issues/28024
 ! https://www.reddit.com/r/uBlockOrigin/comments/1jef4qb/having_adblock_issues_with_faqwikius/
@@ -337,12 +337,9 @@ embed.wcostream.com##+js(rmnt, script, /google_jobrunner|AdBlock|pubadx|embed\.h
 @@||amazon-adsystem.com/bao-csm/aps-comm/aps_csm.js$script,domain=client.falixnodes.net
 @@||adengine.snigelweb.com/falixnodes.net/$script,domain=client.falixnodes.net
 !#else
-client.falixnodes.net##+js(rmnt, script, /^.{\,150}location\.href/)
 client.falixnodes.net##+js(rpnt, script, /googletag.*?enableServices\(\)\;/s)
 client.falixnodes.net##+js(rpnt, script, /googletag\.pubads\(\).*rewardedSlot\)\;\s+\}\)\;/s)
 client.falixnodes.net##+js(rpnt, script, .onerror, .ffffff)
-client.falixnodes.net##+js(rpnt, script, /window\.location\.href \= \'\/(please-disable|neptune|disableadblock|yeahblock)\'\;/)
-client.falixnodes.net##+js(aeld, error, function, elements, [src="https://cdn.snigelweb.com/adengine/falixnodes.net/loader.js"])
 *$script,redirect-rule=none:5,domain=client.falixnodes.net
 !#endif
 
@@ -385,6 +382,7 @@ th.gl##+js(nosiif, error)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/30529
 tvtropes.org##+js(nostif, /offsetHeight|loaded/)
+tvtropes.org##+js(aeld, DOMContentLoaded, ;setTimeout)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/30583
 .salesforce.com/servlet/servlet.ImageServer?$image,badfilter
