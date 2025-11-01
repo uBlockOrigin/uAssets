@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2020)
-! Last modified: Tue, 07 Oct 2025 14:21:54 +0000
+! Last modified: Sat, 01 Nov 2025 13:32:01 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -228,7 +228,10 @@ firefile.cc##+js(set, blockAdBlock._options.baitClass, null)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/7283
 uploadhub.*##+js(nowoif)
+uploadhub.*##+js(no-fetch-if, adsbygoogle)
+uploadhub.*##+js(nostif, location.href, 1000)
 *$script,3p,denyallow=bootstrapcdn.com|cloudflare.com,domain=uploadhub.*
+uploadhub.*##[src^="https://blogger.googleusercontent.com/"]
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/54403
 verteleseriesonline.com##+js(aopr, adBlockDetected)
