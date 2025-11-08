@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Sat, 08 Nov 2025 04:23:29 +0000
+! Last modified: Sat, 08 Nov 2025 04:48:28 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -22717,6 +22717,19 @@ primevideo.com##+js(set, ue_adb_chk, 1)
 !#else
 /GetPlaybackResources?*%2CCuepointPlaylist$xhr,uritransform=/%2CCuepointPlaylist//,domain=www.amazon.co.jp|www.amazon.co.uk|www.amazon.com|www.amazon.de|www.primevideo.com
 !#endif
+amazon.*###s-results-list-atf > .s-result-item:has(> .s-item-container h5.s-sponsored-list-header)
+amazon.*###s-results-list-atf > .s-result-item:has(.s-item-container h5.s-sponsored-header)
+amazon.*##.s-result-item:has(> .s-item-container > h5 .s-sponsored-info-icon)
+amazon.*##.s-widget:has(> [data-cel-widget^="MAIN"] > [data-cel-widget^="tetris"] > div[id^="CardInstance"][class^="_tetris-"])
+amazon.*##.a-carousel-card:has(> div > div[cel_widget_id^="adplacements:"]):remove()
+amazon.*##.AdHolder
+amazon.*###similarities_feature_div:has(span[id^="ad-feedback-text"])
+amazon.*##div[cel_widget_id="sims-consolidated-5_csm_instrumentation_wrapper"]
+www.amazon.com##+js(rmnt, script, /introSplashVideo.+renderStoresWidgetsPendingList/s)
+read.amazon.*##+js(set, canRunAds, 1)
+read.amazon.*##+js(set, ue_adb_chk, 1)
+read.amazon.*##+js(trusted-click-element, .kw-ads-pagination-button:first-child\,.kw-ads-pagination-button:first-child, , 1000)
+*$script,redirect-rule=prebid-ads.js,domain=read.amazon.*
 9gag.com##[id^="sidebar-stream-"] > h4:has-text(Advertisement)
 9gag.com##.billboard-top-wrapper
 9gag.com###top-navb:style(top: 0 !important;)
@@ -23250,19 +23263,6 @@ vidfast.pro###Advert1
 *$script,3p,domain=player.videasy.net
 ! besthdmovies. com ad popups
 besthdmovies.com##+js(nowoif)
-amazon.*###s-results-list-atf > .s-result-item:has(> .s-item-container h5.s-sponsored-list-header)
-amazon.*###s-results-list-atf > .s-result-item:has(.s-item-container h5.s-sponsored-header)
-amazon.*##.s-result-item:has(> .s-item-container > h5 .s-sponsored-info-icon)
-amazon.*##.s-widget:has(> [data-cel-widget^="MAIN"] > [data-cel-widget^="tetris"] > div[id^="CardInstance"][class^="_tetris-"])
-amazon.*##.a-carousel-card:has(> div > div[cel_widget_id^="adplacements:"]):remove()
-amazon.*##.AdHolder
-amazon.*###similarities_feature_div:has(span[id^="ad-feedback-text"])
-amazon.*##div[cel_widget_id="sims-consolidated-5_csm_instrumentation_wrapper"]
-! www.amazon.com##+js(rmnt, script, renderStoresWidgetsPendingList)
-read.amazon.*##+js(set, canRunAds, 1)
-read.amazon.*##+js(set, ue_adb_chk, 1)
-read.amazon.*##+js(trusted-click-element, .kw-ads-pagination-button:first-child\,.kw-ads-pagination-button:first-child, , 1000)
-*$script,redirect-rule=prebid-ads.js,domain=read.amazon.*
 panel.play.hosting##+js(rmnt, script, /adbl/i)
 uxjvp.pro##+js(nowoif)
 mirror.co.uk##div[data-testid*="commercial-"]
