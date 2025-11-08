@@ -497,6 +497,31 @@ primevideo.com##+js(set, ue_adb_chk, 1)
 /GetPlaybackResources?*%2CCuepointPlaylist$xhr,uritransform=/%2CCuepointPlaylist//,domain=www.amazon.co.jp|www.amazon.co.uk|www.amazon.com|www.amazon.de|www.primevideo.com
 !#endif
 
+! https://forums.lanik.us/viewtopic.php?p=102620#p102620
+amazon.*###s-results-list-atf > .s-result-item:has(> .s-item-container h5.s-sponsored-list-header)
+! https://github.com/uBlockOrigin/uAssets/issues/1278
+amazon.*###s-results-list-atf > .s-result-item:has(.s-item-container h5.s-sponsored-header)
+! https://github.com/uBlockOrigin/uAssets/issues/399
+amazon.*##.s-result-item:has(> .s-item-container > h5 .s-sponsored-info-icon)
+! https://github.com/AdguardTeam/AdguardFilters/issues/83145
+amazon.*##.s-widget:has(> [data-cel-widget^="MAIN"] > [data-cel-widget^="tetris"] > div[id^="CardInstance"][class^="_tetris-"])
+! https://jbbs.shitaraba.net/bbs/read.cgi/internet/25463/1618326670/80 blank slide on top page
+amazon.*##.a-carousel-card:has(> div > div[cel_widget_id^="adplacements:"]):remove()
+! https://github.com/uBlockOrigin/uAssets/issues/12268
+amazon.*##.AdHolder
+! https://jbbs.shitaraba.net/bbs/read.cgi/internet/25463/1598352715/851
+amazon.*###similarities_feature_div:has(span[id^="ad-feedback-text"])
+! https://github.com/easylist/easylist/commit/73701244b11d5d916bef99627dbfb409e7e14e44
+amazon.*##div[cel_widget_id="sims-consolidated-5_csm_instrumentation_wrapper"]
+! https://www.reddit.com/r/uBlockOrigin/comments/1opkqpe/amazoncom_full_screen_video_ads_when_opening/
+! https://github.com/uBlockOrigin/uAssets/issues/30725
+www.amazon.com##+js(rmnt, script, /introSplashVideo.+renderStoresWidgetsPendingList/s)
+! https://github.com/AdguardTeam/AdguardFilters/issues/201324
+read.amazon.*##+js(set, canRunAds, 1)
+read.amazon.*##+js(set, ue_adb_chk, 1)
+read.amazon.*##+js(trusted-click-element, .kw-ads-pagination-button:first-child\,.kw-ads-pagination-button:first-child, , 1000)
+*$script,redirect-rule=prebid-ads.js,domain=read.amazon.*
+
 ! https://github.com/uBlockOrigin/uAssets/issues/6694
 9gag.com##[id^="sidebar-stream-"] > h4:has-text(Advertisement)
 9gag.com##.billboard-top-wrapper
@@ -1423,31 +1448,6 @@ vidfast.pro###Advert1
 
 ! besthdmovies. com ad popups
 besthdmovies.com##+js(nowoif)
-
-! https://forums.lanik.us/viewtopic.php?p=102620#p102620
-amazon.*###s-results-list-atf > .s-result-item:has(> .s-item-container h5.s-sponsored-list-header)
-! https://github.com/uBlockOrigin/uAssets/issues/1278
-amazon.*###s-results-list-atf > .s-result-item:has(.s-item-container h5.s-sponsored-header)
-! https://github.com/uBlockOrigin/uAssets/issues/399
-amazon.*##.s-result-item:has(> .s-item-container > h5 .s-sponsored-info-icon)
-! https://github.com/AdguardTeam/AdguardFilters/issues/83145
-amazon.*##.s-widget:has(> [data-cel-widget^="MAIN"] > [data-cel-widget^="tetris"] > div[id^="CardInstance"][class^="_tetris-"])
-! https://jbbs.shitaraba.net/bbs/read.cgi/internet/25463/1618326670/80 blank slide on top page
-amazon.*##.a-carousel-card:has(> div > div[cel_widget_id^="adplacements:"]):remove()
-! https://github.com/uBlockOrigin/uAssets/issues/12268
-amazon.*##.AdHolder
-! https://jbbs.shitaraba.net/bbs/read.cgi/internet/25463/1598352715/851
-amazon.*###similarities_feature_div:has(span[id^="ad-feedback-text"])
-! https://github.com/easylist/easylist/commit/73701244b11d5d916bef99627dbfb409e7e14e44
-amazon.*##div[cel_widget_id="sims-consolidated-5_csm_instrumentation_wrapper"]
-! https://www.reddit.com/r/uBlockOrigin/comments/1opkqpe/amazoncom_full_screen_video_ads_when_opening/
-! https://github.com/uBlockOrigin/uAssets/issues/30725
-! www.amazon.com##+js(rmnt, script, renderStoresWidgetsPendingList)
-! https://github.com/AdguardTeam/AdguardFilters/issues/201324
-read.amazon.*##+js(set, canRunAds, 1)
-read.amazon.*##+js(set, ue_adb_chk, 1)
-read.amazon.*##+js(trusted-click-element, .kw-ads-pagination-button:first-child\,.kw-ads-pagination-button:first-child, , 1000)
-*$script,redirect-rule=prebid-ads.js,domain=read.amazon.*
 
 ! https://github.com/uBlockOrigin/uAssets/issues/27696
 panel.play.hosting##+js(rmnt, script, /adbl/i)
