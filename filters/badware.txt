@@ -1,5 +1,5 @@
 ! Title: uBlock₀ filters – Badware risks
-! Last modified: Sun, 09 Nov 2025 12:58:18 +0000
+! Last modified: Mon, 10 Nov 2025 01:18:13 +0000
 ! Expires: 5 days
 ! Description: For sites documented to put users at risk of installing adware/crapware/malware, having login credentials stolen, etc.
 ! The purpose is to at least ensure a user is warned of the risks ahead.
@@ -6202,3 +6202,9 @@ sport.elwatannews.com##+js(aost, Array.prototype.indexOf, isWin)
 
 ! https://survey.dawn .com/MetaMask-Help.html - phishing
 ||survey.dawn.com^$all
+
+! https://github.com/AdguardTeam/AdguardFilters/issues/217414
+/\.[a-z]{3}-adguard\.pro\//$all,to=pro
+!#if env_safari
+/\.[a-z][a-z][a-z]-adguard\.pro\//$all
+!#endif
