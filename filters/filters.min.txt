@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Fri, 14 Nov 2025 12:18:14 +0000
+! Last modified: Sat, 15 Nov 2025 03:29:58 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -5764,15 +5764,6 @@ upzone.cc##+js(acs, document.getElementById, undefined)
 ##.rkads
 ###bt-ads
 @@||lutontoday.co.uk^$ghide
-@@||cdntvn.pl^$script,domain=player.pl
-@@||player.pl^$cname
-@@||player.pl^$ehide
-/ad.xml$xhr,badfilter
-player.pl#@#+js(json-prune, movie.advertising.ad_server)
-$xhr,redirect-rule=noopjs,domain=player.pl
-player.pl##div.adsbygoogle.prebid.adocean.ado.ad.ads.advert.banner.reklama.linkSponsorowany.adsense.advertisments.reklama-top.adv_container:style(display: block !important)
-*$media,domain=player.pl,redirect=noopmp3-0.1s
-@@||tvn.hit.gemius.pl^$xhr,domain=player.pl
 @@||jbzd.com.pl^$ghide
 ! irisbuddies.ml (dead) anti adb
 ||rawgit.com/fahimraza/FK/master/ad-unblocker.js^$script
@@ -22780,6 +22771,17 @@ wcoforever.net###sidebar_r1
 @@||embed.watchanimesub.net^$script,1p
 @@||embed.wcostream.com^$ghide
 embed.wcostream.com##+js(remove-cookie, PHPSESSID)
+@@||cdntvn.pl^$script,domain=player.pl
+@@||player.pl^$cname
+@@||player.pl^$ehide
+/ad.xml$xhr,badfilter
+player.pl#@#+js(json-prune, movie.advertising.ad_server)
+$xhr,redirect-rule=noopjs,domain=player.pl
+player.pl##div.adsbygoogle.prebid.adocean.ado.ad.ads.advert.banner.reklama.linkSponsorowany.adsense.advertisments.reklama-top.adv_container:style(display: block !important)
+*$media,domain=player.pl,redirect=noopmp3-0.1s
+@@||tvn.hit.gemius.pl^$xhr,domain=player.pl
+player.pl##+js(json-prune-xhr-response, movie.advertising, , propsToMatch, /playlist?)
+player.pl##+js(trusted-json-edit-xhr-response, .mandatoryAdvertising=false, /player/configuration)
 ! END: Rules from filters.txt
 ! START: Regional lists
 ! <<<<< ABPVN >>>>>
