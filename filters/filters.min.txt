@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Fri, 21 Nov 2025 10:50:49 +0000
+! Last modified: Fri, 21 Nov 2025 22:08:34 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -18170,6 +18170,10 @@ tv.wp.pl#@#html, html > body:style(overflow: auto !important;)
 ||criteo.net^$domain=open.fm,script,redirect=noop.js
 /fbevents.js^$domain=open.fm,script,redirect=noop.js
 ||open.fm^$csp=worker-src 'none'
+/dot.gif?$css,redirect=noop.css,domain=open.fm
+||wpcdn.pl/images/adv/$image,redirect=1x1.gif,domain=open.fm
+open.fm#@#style + div[class]
+open.fm##style + div[class]:style(position: absolute !important; top: -9999px !important; visibility: hidden !important;)
 ||std.wpcdn.pl^$domain=wirtualnemedia.pl
 wirtualnemedia.pl##.wm-categoryteasersection-ad-large
 wirtualnemedia.pl##.wp-screening-placeholder-container
