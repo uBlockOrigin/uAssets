@@ -1,5 +1,5 @@
 ! Title: uBlock₀ filters – Badware risks
-! Last modified: Fri, 21 Nov 2025 14:45:42 +0000
+! Last modified: Sat, 22 Nov 2025 07:22:25 +0000
 ! Expires: 5 days
 ! Description: For sites documented to put users at risk of installing adware/crapware/malware, having login credentials stolen, etc.
 ! The purpose is to at least ensure a user is warned of the risks ahead.
@@ -6124,7 +6124,7 @@ $doc,ipaddress=185.216.143.121
 ! https://github.com/uBlockOrigin/uAssets/issues/30533
 pages.dev##html[lang="ja"] > body > .main-container > #landing.auth-container
 pages.dev##html[lang="ja"] > body.flex.items-center.min-h-screen > div.w-full.max-w-md.mx-auto > form#login-form
-/^https:\/\/[a-z0-9]{4,15}\.pages\.dev\/\d\/login\b/$doc,match-case,to=pages.dev
+pages.dev##html:not([class]) > body.gradient-bg.min-h-screen.flex.items-center.justify-center > div.glass-card.max-w-md.w-full.text-center > form#loginForm.flex.flex-col
 /^https:\/\/blockchecker[0-9]\.pages\.dev\//$doc,to=pages.dev
 ||blockcheck.pages.dev^$all
 ||checkx.pages.dev^$all
@@ -6137,6 +6137,7 @@ pages.dev##html[lang="ja"] > body.flex.items-center.min-h-screen > div.w-full.ma
 ||blocchecker*.pages.dev^$all
 ||blocklook.pages.dev^$all
 ||lookblock.pages.dev^$all
+||xblocklist*.pages.dev^$all
 
 ! https://blog.lastpass.com/posts/possible-cryptochameleon-social-engineering-campaign-targeting-lastpass-customers-and-more
 *$doc,ipaddress=82.27.2.198
