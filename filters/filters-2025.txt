@@ -605,6 +605,25 @@ player.pl##div.adsbygoogle.prebid.adocean.ado.ad.ads.advert.banner.reklama.linkS
 player.pl##+js(json-prune-xhr-response, movie.advertising, , propsToMatch, /playlist?)
 player.pl##+js(trusted-json-edit-xhr-response, .mandatoryAdvertising=false, /player/configuration)
 
+! https://github.com/uBlockOrigin/uAssets/issues/870
+! https://www.reddit.com/r/uBlockOrigin/comments/hbxqip/sxyprnnet_video_ads/
+! https://www.reddit.com/r/uBlockOrigin/comments/1966h80/ublock_filters_blocking_website_element/
+sxyprn.*##+js(acs, decodeURI, decodeURIComponent)
+sxyprn.*##+js(set, vast_urls, {})
+sxyprn.*##+js(aopr, popns)
+sxyprn.*##+js(acs, document.createElement, l.parentNode.insertBefore(s)
+sxyprn.*##+js(aopw, __aaZoneid)
+sxyprn.*##.tbd
+sxyprn.*##.cbd
+! https://github.com/uBlockOrigin/uAssets/issues/30092
+*$frame,script,3p,denyallow=cloudflare.com|google.com|googleapis.com|gstatic.com|hcaptcha.com|recaptcha.net,domain=sxyprn.*
+! MV3 wildcard issue
+! https://github.com/uBlockOrigin/uBOL-issues/issues/10
+!#if ext_ubol
+*$frame,script,3p,denyallow=cloudflare.com|google.com|googleapis.com|gstatic.com|hcaptcha.com|recaptcha.net,domain=sxyprn.com|sxyprn.net
+!#endif
+||sxyprn.*/js/epo.js
+
 ! END: Rules from filters.txt
 
 ! START: Regional lists
