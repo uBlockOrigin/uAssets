@@ -20,3 +20,4 @@ This way this documents why a filter was added, and how to verify whether an old
 ##### Commit message
 
 Keep it simple, example: `this fixes #2`. The issue itself will contains all the details.
+https://github.com/uBlockOrigin/uAssets/issues/2
