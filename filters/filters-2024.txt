@@ -2084,8 +2084,11 @@ pimpandhost.com##+js(nano-stb, count)
 @@||cdnjs.cloudflare.com/ajax/libs/videojs-contrib-ads/6.9.0/videojs-contrib-ads.min.js$script,domain=tv.okezone.com
 
 ! https://www.reddit.com/r/uBlockOrigin/comments/1cp1oa6/block_target_sponsored_items/
+! https://github.com/uBlockOrigin/uAssets/issues/30938
 ||redsky.target.com^$xhr,removeparam=include_sponsored
 target.com##+js(json-prune-fetch-response, data.search.products.[-].sponsored_ad.ad_source, , propsToMatch, url:/plp_search_v2?)
+target.com##div[class*="overlay"]:has(a[href*="health-policy"])
+target.com##body[style*="overflow"]:style(overflow-y: auto !important)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/23678
 animefever.cc##+js(no-xhr-if, googlesyndication)
