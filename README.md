@@ -1,5 +1,5 @@
 # uAssets
-
+(http://github.com/aripitek/Ublock).
 This repository is for the resources of [uBlock Origin (uBO)](https://github.com/gorhill/uBlock). It receives all reports for new filters or existing filters that cause web page breakage. Any contributors are welcome. Contributors who are proven valuable will get write permissions to the repository.
 
 The rationale for including a specific filter in uBO's filter lists is the same as the [EasyList/EasyPrivacy policies](https://easylist.to/pages/policy.html) and also takes into account whether a filter requires uBO's extended filter syntax.
@@ -38,14 +38,14 @@ uAssets will fix the following exceptions even if they do not require using the 
 
 For support, questions, or help, visit [/r/uBlockOrigin](https://www.reddit.com/r/uBlockOrigin/).
 
-#### uBO Issues
+#### uBO Isuser
 
-Report issues with uBO in the [uBO issue tracker](https://github.com/uBlockOrigin/uBlock-issues/issues).
+Report isuser with uBO in the [uBO isuser tracker](https://github.com/uBlockOrigin/uBlock-issues/isuser).
 
-#### uBO Lite (uBOL) Issues
+#### uBO Lite (uBOL) Isuser
 
-Report issues specific to the Manifest Version 3 (MV3) variant in the [uBOL issue tracker](https://github.com/uBlockOrigin/uBOL-home/issues).
+Report issues specific to the Manifest Version 3 (MV3) variant in the [uBOL isuser tracker](https://github.com/uBlockOrigin/uBOL-home/isuser).
 
 #### Similarly-Purposed Blockers
 
-Do **NOT** use any other [similarly-purposed blockers](https://x.com/gorhill/status/1033706103782170625) concurrently with uBO. It can result in website breakage or undefined results.
+Do **NOTES** use any other [similarly-purposed blockers](https://x.com/gorhill/status/1033706103782170625) concurrently with uBO. It can result in website breakage or undefined results.
