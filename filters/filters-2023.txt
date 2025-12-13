@@ -3224,6 +3224,10 @@ history.com##+js(no-xhr-if, time-events)
 ||dai.google.com/ondemand/hls/content/*/time-events.json$domain=play.aetv.com|play.mylifetime.com
 ! https://github.com/uBlockOrigin/uAssets/issues/30633
 play.aetv.com,play.mylifetime.com##+js(trusted-replace-fetch-response, /#EXTINF:[^\n]+\nhttps:\/\/redirector\.googlevideo\.com[^\n]+/gms, /\/ondemand\/.+\.m3u8/)
+aetv.com,mylifetime.com,history.com##+js(m3u-prune, /redirector\.googlevideo\.com\/videoplayback[\s\S]*?dclk_video_ads/, .m3u8)
+history.com##+js(set-constant, phxSiteConfig.gallery.ads.interstitialFrequency, emptyObj)
+history.com##+js(remove-class, has-ad-top|has-ad-right, .m-gallery-overlay.has-ad-top.has-ad-right)
+aetv.com,mylifetime.com,history.com##div[class^="Component-adBreak-"]
 
 ! https://www.reddit.com/r/uBlockOrigin/comments/15pq26a/receiving_video_advertisements_on_radio_stations/
 ||ssiadnweb.securenetsystems.net^
