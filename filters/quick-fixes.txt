@@ -1,5 +1,5 @@
 ! Title: uBlock₀ filters – Quick fixes
-! Last modified: Sat, 20 Dec 2025 17:16:47 +0000
+! Last modified: Sat, 20 Dec 2025 17:21:03 +0000
 ! Expires: 8 hours
 ! Description: Immediate, temporary filters to fix websites
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -242,6 +242,12 @@ smsonline.cloud##html[data-theme][lang] [id^="img_"][style]:has(iframe[framebord
 /^https:\/\/[a-z]{3,4}\.[0-9a-z-]{6,}\.(?:com|xyz)\/script\/(?:[-.0-9A-Za-z]+\.)?[-0-9A-Za-z]{2,30}\.js$/$script,3p,match-case,header=x-length
 /:\/\/html-load\.com\/[a-z]{3,6}(?:\.min)?\.js$/$script,3p,match-case,domain=~dogdrip.net|~smsonline.cloud
 /:\/\/content-loader\.com\/[a-z]{3,6}(?:\.min)?\.js$/$script,3p,match-case,domain=~dogdrip.net|~smsonline.cloud
+!#if env_safari
+://html-load.com/loader.min.js$domain=~dogdrip.net|~smsonline.cloud
+://content-loader.com/loader.min.js$domain=~dogdrip.net|~smsonline.cloud
+/:\/\/html-load\.com\/[a-z][a-z][a-z][a-z]?[a-z]?[a-z]?\.js$/$script,3p,match-case,domain=~dogdrip.net|~smsonline.cloud
+/:\/\/content-loader\.com\/[a-z][a-z][a-z][a-z]?[a-z]?[a-z]?\.js$/$script,3p,match-case,domain=~dogdrip.net|~smsonline.cloud
+!#endif
 /^https:\/\/(?:as(?:loader)?|(?:shield)?load(?:er)?)\.([-0-9A-Za-z]+\.[-A-Za-z]{2,16})\/(?:loader\.min|script\/(?:www\.)?\1)\.js$/$script,1p,strict3p,match-case,domain=~edu|~gov
 /^https:\/\/[a-z]{3,4}\.[a-z]{8,16}\.com\/loader\.min\.js$/$script,3p,match-case,header=etag:/^W\/"[0-9a-f]{32}-\d{13}"$/
 /^https:\/\/d[0-9a-z]{12,13}\.cloudfront\.net\/loader\.min\.js$/$script,3p,match-case,header=etag:/^W\/"[0-9a-f]{32}"$/
