@@ -1,5 +1,5 @@
 ! Title: AdGuard/uBO – URL Tracking Protection
-! Last modified: Mon, 22 Dec 2025 14:42:59 +0000
+! Last modified: Mon, 22 Dec 2025 15:57:59 +0000
 ! Expires: 7 days
 ! Description: |
 !   Filter that enhances privacy by removing tracking parameters from URLs.
@@ -263,7 +263,7 @@ $removeparam=_sgm_action
 ! drip.com https://help.drip.com/hc/en-us/articles/4424695632269-Suppress-s-From-Rendered-Links
 ! It looks like that this parameter is used not only for tracking purpose - https://github.com/AdguardTeam/AdguardFilters/issues/128631
 ! so to make it less problematic, it will be blocked only if contains at least 6 characters - numbers and letters
-$removeparam=/^__s=[A-Za-z0-9]{6\,}/,domain=~univis.uni-erlangen.de|~univis.uni-bamberg.de|~univis.uni-luebeck.de|~univis.uni-kiel.de|~univis.th-koeln.de
+$removeparam=/^__s=[A-Za-z0-9]{6\,}/,to=~univis.uni-erlangen.de|~univis.uni-bamberg.de|~univis.uni-luebeck.de|~univis.uni-kiel.de|~univis.th-koeln.de
 ! MailChimp click tracking
 $removeparam=mc_cid
 $removeparam=mc_eid
@@ -569,7 +569,7 @@ $to=~tradedoubler.com,removeparam=tduid
 ! https://www.jiji.com/?ref=article
 ||jiji.com^$removeparam=ref
 ! https://vjav.com/videos/829217/240610-c1/?promo=34899
-$removeparam=promo,domain=vjav.com|vjav.tube
+$removeparam=promo,to=vjav.com|vjav.tube
 ! p-bandai.com
 ||p-bandai.com^$removeparam=eccid
 ||p-bandai.com^$removeparam=ecuid
@@ -631,7 +631,7 @@ $removeparam=promo,domain=vjav.com|vjav.tube
 ! https://github.com/AdguardTeam/AdguardFilters/issues/215365
 ||index.hr^$removeparam=index_ref
 ! https://github.com/AdguardTeam/AdguardFilters/issues/212975
-$removeparam=s-id,domain=item.rakuten.co.jp|www.rakuten.co.jp
+$removeparam=s-id,to=item.rakuten.co.jp|www.rakuten.co.jp
 ||item.rakuten.co.jp^$removeparam=iasid
 ! https://fanicon.net/tours/1038/4036?from=home
 ||fanicon.net^$removeparam=from
@@ -698,8 +698,8 @@ $removeparam=s-id,domain=item.rakuten.co.jp|www.rakuten.co.jp
 ||clubi.cc/*?t=$removeparam=s
 ||clubi.cc/*?t=$removeparam=c
 ! https://github.com/AdguardTeam/AdguardFilters/issues/210456
-*$removeparam=channable,domain=easynotebooks.de|notebook.de
-*$removeparam=sPartner,domain=easynotebooks.de|notebook.de
+*$removeparam=channable,to=easynotebooks.de|notebook.de
+*$removeparam=sPartner,to=easynotebooks.de|notebook.de
 ! https://github.com/AdguardTeam/AdguardFilters/issues/210439
 ||tingfm.com^$removeparam=from
 ! https://github.com/DandelionSprout/adfilt/discussions/163#discussioncomment-13903770
