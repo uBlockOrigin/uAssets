@@ -1,5 +1,5 @@
 ! Title: AdGuard/uBO – URL Tracking Protection
-! Last modified: Mon, 22 Dec 2025 15:57:59 +0000
+! Last modified: Tue, 23 Dec 2025 09:24:56 +0000
 ! Expires: 7 days
 ! Description: |
 !   Filter that enhances privacy by removing tracking parameters from URLs.
@@ -476,6 +476,9 @@ $to=~tradedoubler.com,removeparam=tduid
 ! Bad: ||example.org^$xmlhttprequest,redirect=noopvast-3.0 (for instance, should be in specific.txt)
 !
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/220817
+||reifen24.de^$removeparam=sv_campaign_id
+||reifen24.de^$removeparam=sv1
 ! urban-vpn.com
 ||urban-vpn.com^$removeparam=cid
 ! https://www.oricon.co.jp/kyujin/?ref_cd=kyujinbtnbottom-news
@@ -772,10 +775,10 @@ $removeparam=s-id,to=item.rakuten.co.jp|www.rakuten.co.jp
 ||nikke-jp.com^$removeparam=pid
 ||nikke.onelink.me^$removeparam=pid
 ! https://github.com/AdguardTeam/AdguardFilters/issues/206165
-*$removeparam=siteNo,domain=m-emart.ssg.com|emart.ssg.com
-*$removeparam=ckwhere,domain=m-emart.ssg.com|emart.ssg.com
-*$removeparam=appPopYn,domain=m-emart.ssg.com|emart.ssg.com
-*$removeparam=service_id,domain=m-emart.ssg.com|emart.ssg.com
+*$removeparam=siteNo,to=m-emart.ssg.com|emart.ssg.com
+*$removeparam=ckwhere,to=m-emart.ssg.com|emart.ssg.com
+*$removeparam=appPopYn,to=m-emart.ssg.com|emart.ssg.com
+*$removeparam=service_id,to=m-emart.ssg.com|emart.ssg.com
 ! https://github.com/AdguardTeam/AdguardFilters/issues/206718
 ||gettranny.com^$removeparam=campaign
 ! https://github.com/AdguardTeam/AdguardFilters/issues/206757
@@ -866,7 +869,7 @@ $removeparam=s-id,to=item.rakuten.co.jp|www.rakuten.co.jp
 ! https://github.com/AdguardTeam/AdguardFilters/issues/203046
 ||netflix.com^$removeparam=source
 ! https://github.com/AdguardTeam/AdguardFilters/issues/202484
-$removeparam=xmt,domain=threads.com|threads.net
+$removeparam=xmt,to=threads.com|threads.net
 ! https://github.com/AdguardTeam/AdguardFilters/issues/202252
 ||nintendo.com^$removeparam=nt_redirect_referrer
 ! https://github.com/DandelionSprout/adfilt/discussions/163#discussioncomment-12682755
