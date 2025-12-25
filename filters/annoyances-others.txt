@@ -104,6 +104,13 @@ world-novel.fr##+js(aeld, contextmenu, /preventDefault|pointerType/)
 ! https://github.com/uBlockOrigin/uAssets/issues/30995
 lemon8-app.com##*:style(-webkit-touch-callout: default !important; -webkit-user-select: auto !important; -khtml-user-select: auto !important; -moz-user-select: auto !important; -ms-user-select: auto !important; user-select: auto !important;)
 
+! https://www.reddit.com/r/uBlockOrigin/comments/1pmm4lv/cannot_right_click_on_foxaholiccom/
+!#if env_firefox
+foxaholic.com##body[onkeydown*="__cfRLUnblockHandlers"]:remove-attr(/onkeydown|onselectstart|oncontextmenu/)
+!#else
+foxaholic.com##+js(ra, onkeydown|onselectstart|oncontextmenu, body[onkeydown*="__cfRLUnblockHandlers"], complete)
+!#endif
+
 ! END: Anti copy, right-click etc.
 
 ! START: Anti-adblock
