@@ -3494,3 +3494,8 @@ isekaitube.com##+js(rmnt, script, /popunder|contextmenu/)
 ! https://github.com/uBlockOrigin/uAssets/issues/31296
 gamesfree.com##div#prerollad
 gamesfree.com##div#flashgame:remove-attr(style)
+
+! https://www.reddit.com/r/uBlockOrigin/comments/1pqye0r/yelp_sponsored_results_still_appear_on_the_map/
+yelp.com##+js(json-edit, ..searchResults.*[?.isAd==true])
+yelp.com##+js(json-edit, ..mainContentComponentsListProps.*[?.isAd==true])
+yelp.com##+js(json-edit-fetch-response, ..mainContentComponentsListProps.*[?.isAd==true], propsToMatch, /search/snippet?)
