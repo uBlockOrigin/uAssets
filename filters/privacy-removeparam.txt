@@ -465,8 +465,6 @@ $to=~lifehacker.ru|~forbes.ru|~kommersant.ru,removeparam=erid
 $to=~greenbuildingadvisor.com,removeparam=oly_enc_id
 $to=~login.aliexpress.com,removeparam=_ga
 $to=~tradedoubler.com,removeparam=tduid
-! https://github.com/uBlockOrigin/uAssets/issues/31342
-$to=~passport.jlcpcb.com|jlcpcb.com,removeparam=from
 !
 ! Move original rules to this directive if you can confirm the problem
 !
@@ -2215,7 +2213,9 @@ $removeparam=ici,domain=shein.co.uk|shein.com
 ||bbc.$removeparam=facebook_page
 ||bbc.$removeparam=at_bbc_team
 ! https://github.com/AdguardTeam/AdguardFilters/issues/138614
-||jlcpcb.com^$removeparam=from
+! https://github.com/AdguardTeam/AdguardFilters/issues/213210
+! https://github.com/uBlockOrigin/uAssets/issues/31342
+||jlcpcb.com^$removeparam=from,to=~passport.jlcpcb.com
 ! https://event.hoken-mammoth.jp/sp/lps/event_promotion12/?s_mf=0901mamana
 ||event.hoken-mammoth.jp^$removeparam=s_mf
 ! internal links ex. https://www.cinematoday.jp/page/A0008622?g_clk=top_specials
@@ -3362,8 +3362,6 @@ adguard.info,adguard.com,adguard.app##.hello_from_adguard_tracking_params
 @@||metabase.com^$removeparam=utm_term
 ! https://github.com/AdguardTeam/AdguardFilters/issues/214119
 @@||adj.st^$removeparam=adj_t
-! https://github.com/AdguardTeam/AdguardFilters/issues/213210
-@@||passport.jlcpcb.com^$removeparam=from
 ! https://github.com/AdguardTeam/AdguardFilters/issues/211078
 @@||yandex.go.link^$removeparam=adj_t
 ! https://github.com/DandelionSprout/adfilt/discussions/163#discussioncomment-13135670
