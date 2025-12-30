@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2025)
-! Last modified: Tue, 30 Dec 2025 16:36:30 +0000
+! Last modified: Tue, 30 Dec 2025 16:48:11 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -2918,6 +2918,14 @@ filmyzilla.*,moviespur.*###clickfakeplayer[href]:remove-attr(href)
 ||openwebmp.com^
 dailymotion.com##+js(set, __NATIVEADS_CANARY__, true)
 dailymotion.com##.WatchingDiscovery__adSection___eLtfR
+! https://github.com/uBlockOrigin/uAssets/commit/ddafd8d16d0c945ad7befcd2d6f35d846645c161
+! https://github.com/uBlockOrigin/uAssets/issues/31350
+!#if env_firefox
+!#if !env_mobile
+||dmxleo.dailymotion.com^
+geo.dailymotion.com##+js(set, DMP_ENABLE_ADS, false)
+!#endif
+!#endif
 
 ! https://github.com/uBlockOrigin/uAssets/issues/30056
 www.parkers.co.uk##.async-hide:style(opacity: 1.0 !important)
