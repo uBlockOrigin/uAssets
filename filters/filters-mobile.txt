@@ -172,6 +172,11 @@ outlook.live.com##main > div[style] .vPfg_:has(.wOYnU) ~ *:style(transform: tran
 ! https://github.com/uBlockOrigin/uAssets/issues/23691#issuecomment-3291721218
 dailymotion.com##+js(json-prune-fetch-response, advertising, , propsToMatch, /player/metadata)
 dailymotion.com##+js(json-prune-xhr-response, advertising, , propsToMatch, .json)
+! https://github.com/uBlockOrigin/uAssets/issues/31350
+!#if env_firefox
+geo.dailymotion.com##+js(xml-prune, [breakId], , _VMAP_)
+geo.dailymotion.com##+js(set, DMP_ENABLE_ADS, false)
+!#endif
 
 ! https://github.com/uBlockOrigin/uAssets/pull/30275
 hurriyet.com.tr##.mobileMasthead
