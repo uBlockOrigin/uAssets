@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Wed, 31 Dec 2025 01:59:21 +0000
+! Last modified: Wed, 31 Dec 2025 05:34:20 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -8079,7 +8079,7 @@ outlook.live.com##main > div[style] .vPfg_:has(.wOYnU) ~ *:style(transform: tran
 !#endif
 dailymotion.com##+js(json-prune-fetch-response, advertising, , propsToMatch, /player/metadata)
 dailymotion.com##+js(json-prune-xhr-response, advertising, , propsToMatch, .json)
-!#if env_firefox
+!#if !env_chromium
 geo.dailymotion.com##+js(xml-prune, [breakId], , _VMAP_)
 geo.dailymotion.com##+js(set, DMP_ENABLE_ADS, false)
 !#endif
@@ -24063,7 +24063,7 @@ filmyzilla.*,moviespur.*###clickfakeplayer[href]:remove-attr(href)
 ||openwebmp.com^
 dailymotion.com##+js(set, __NATIVEADS_CANARY__, true)
 dailymotion.com##.WatchingDiscovery__adSection___eLtfR
-!#if env_firefox
+!#if !env_chromium
 !#if !env_mobile
 ||dmxleo.dailymotion.com^
 geo.dailymotion.com##+js(set, DMP_ENABLE_ADS, false)
