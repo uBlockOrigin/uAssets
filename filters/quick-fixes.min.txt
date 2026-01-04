@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Quick fixes
 ! Expires: 12 hours
-! Last modified: Sun, 04 Jan 2026 05:08:25 +0000
+! Last modified: Sun, 04 Jan 2026 17:53:09 +0000
 ! Diff-Path: %diffpath%#ublock-quick-fixes
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -127,10 +127,11 @@ japscan.*##span ~ div[id]:not([class]):remove()
 japscan.*##+js(trusted-suppress-native-method, Document.prototype.querySelector, '"/^div\[/"')
 japscan.*##+js(trusted-suppress-native-method, Document.prototype.querySelector, '"/^\[data-/"')
 japscan.*##span ~ span[id][class]:remove()
-japscan.*###navHeader ~ [id][class]:not(#chapters, #reader):remove()
-japscan.*##.w-100 > [id][class]:not(#chapters, #reader):remove()
+japscan.*###navHeader ~ [id]:not(#chapters, #reader):remove()
+japscan.*##.w-100 > [id]:not(#chapters, #reader):remove()
 japscan.*##+js(set, aclib.runPop, 1)
 japscan.*##+js(trusted-suppress-native-method, Document.prototype.getElementsByTagName, '"i"')
+japscan.*##+js(rmnt, script, +aclib[)
 poophq.com,veev.to,doods.to##+js(nowoif)
 poophq.com,veev.to,doods.to##+js(no-xhr-if, /vast.php?)
 poophq.com,veev.to,doods.to##+js(no-xhr-if, /click\.com|preroll|native_render\.js|acscdn/, length:10001)
