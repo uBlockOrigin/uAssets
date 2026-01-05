@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Quick fixes
 ! Expires: 12 hours
-! Last modified: Sun, 04 Jan 2026 17:54:58 +0000
+! Last modified: Mon, 05 Jan 2026 13:31:39 +0000
 ! Diff-Path: %diffpath%#ublock-quick-fixes
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -107,15 +107,15 @@ crystaltreatmenteast.com##+js(acs, WebAssembly, atob)
 ||static.cloudflareinsights.com/beacon.min.js/$script,domain=japscan.*,important
 ||network-loop.com/campaigns/banners/$domain=japscan.*,important
 !#endif
-japscan.*##body > div.full-container > div.full-container.text-center > div.mt-2[style="margin: 0px auto; display: block;"] > a.Aikoi.donate[target="_blank"][rel][href^="https://www.longosto.shop/?utm_source="] > img.img-fluid:style(visibility: hidden !important;)
+!japscan.*##body > div.full-container > div.full-container.text-center > div.mt-2[style="margin: 0px auto; display: block;"] > a.Aikoi.donate[target="_blank"][rel][href^="https://www.longosto.shop/?utm_source="] > img.img-fluid:style(visibility: hidden !important;)
 japscan.*#@#.navbar-nav > li.nav-item > a.text-truncate.nav-link.font-weight-bold[href*="?"]
 japscan.*#@#body > div.full-container > div.full-container.text-center > div.mt-2[style="margin: 0px auto; display: block;"] > a.Aikoi.donate[target="_blank"][rel][href^="https://www.longosto.shop/?utm_source="] > img.img-fluid
-japscan.*##+js(spoof-css, body > div.full-container > div.full-container.text-center > div.mt-2[style="margin: 0px auto; display: block;"] > a.Aikoi.donate[target="_blank"][rel][href^="https://www.longosto.shop/?utm_source="] > img.img-fluid, visibility, visible)
+!japscan.*##+js(spoof-css, body > div.full-container > div.full-container.text-center > div.mt-2[style="margin: 0px auto; display: block;"] > a.Aikoi.donate[target="_blank"][rel][href^="https://www.longosto.shop/?utm_source="] > img.img-fluid, visibility, visible)
 japscan.*##+js(trusted-set, pubadxtag, 'json:{"divIds":[]}')
-japscan.*##+js(trusted-set, aclib, json:{"isShowingPop":false})
-japscan.*##+js(set, aclib.runInPagePush, noopFunc)
-japscan.*##+js(set, aclib.runBanner, {}, as, function)
-japscan.*##+js(set, aclib.runInterstitial, 1)
+!japscan.*##+js(trusted-set, aclib, json:{"isShowingPop":false})
+!japscan.*##+js(set, aclib.runInPagePush, noopFunc)
+!japscan.*##+js(set, aclib.runBanner, {}, as, function)
+!japscan.*##+js(set, aclib.runInterstitial, 1)
 japscan.*##+js(trusted-suppress-native-method, Document.prototype.getElementById, '"/^[A-Z][-0-9A-Z_a-z]{3,}$/"')
 japscan.*##+js(trusted-suppress-native-method, Document.prototype.querySelector, '"/^[#.][A-Z][-A-Z_a-z]+$/"')
 japscan.*##+js(trusted-suppress-native-method, Document.prototype.querySelector, '"/^\[data-/"')
@@ -129,9 +129,10 @@ japscan.*##+js(trusted-suppress-native-method, Document.prototype.querySelector,
 japscan.*##span ~ span[id][class]:remove()
 japscan.*###navHeader ~ [id]:not(#chapters, #reader):remove()
 japscan.*##.w-100 > [id]:not(#chapters, #reader):remove()
-japscan.*##+js(set, aclib.runPop, 1)
+japscan.*###navHeader ~ *:not([id]):remove()
+japscan.*##.w-100 > *:not([id]):remove()
+!japscan.*##+js(set, aclib.runPop, 1)
 japscan.*##+js(trusted-suppress-native-method, Document.prototype.getElementsByTagName, '"i"')
-japscan.*##+js(rmnt, script, +aclib[)
 poophq.com,veev.to,doods.to##+js(nowoif)
 poophq.com,veev.to,doods.to##+js(no-xhr-if, /vast.php?)
 poophq.com,veev.to,doods.to##+js(no-xhr-if, /click\.com|preroll|native_render\.js|acscdn/, length:10001)
