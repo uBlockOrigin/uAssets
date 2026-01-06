@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2022)
-! Last modified: Tue, 06 Jan 2026 07:14:00 +0000
+! Last modified: Tue, 06 Jan 2026 07:33:09 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -966,18 +966,8 @@ inwepo.co##+js(aopr, b2a)
 ! anti adb initBlocked
 ||ssl.geoplugin.net/javascript.gp$xhr,redirect-rule=noopjs
 
-! https://tnlink.in/ZJrz8W timer
-earnme.club,jrlinks.in##[id^="tp-wait"]
-earnme.club,jrlinks.in###tp-generate,[id^="tp-snp"]:style(display: block !important)
-
-! https://github.com/AdguardTeam/AdguardFilters/issues/113932
-xxvideoss.net##+js(aopr, BetterJsPop)
-
 ! https://github.com/AdguardTeam/AdguardFilters/issues/113959
 *#*/ad/$image,redirect-rule=1x1.gif
-
-! https://www.reddit.com/r/uBlockOrigin/comments/tq5g59/site_detects_adblock_zapped_for_temporary_fix/
-webforefront.com##+js(no-xhr-if, ads)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/12478
 xubster.com##+js(nano-stb, remaining, 1000, 0.001)
@@ -1001,19 +991,6 @@ firmwarex.net##+js(no-xhr-if, googlesyndication)
 firmwarex.net##+js(aost, setTimeout, adsBlocked)
 firmwarex.net##+js(no-fetch-if, googlesyndication, length:10, {"type":"cors"})
 
-! https://github.com/easylist/easylist/pull/11492
-loadx.ws##+js(nowoif)
-loadx.ws##+js(aost, document.getElementById, adsBlocked)
-
-! https://github.com/easylist/easylist/pull/11484
-*$script,3p,denyallow=cloudflare.com|cloudflare.net|hwcdn.net|jquery.com|jsdelivr.net,domain=wuxiarealm.com
-
-! https://github.com/easylist/easylist/issues/11483
-ricettafitness.com##+js(refresh-defuser)
-ricettafitness.com###colunas:style(display: block !important;)
-ricettafitness.com###saudacao
-ricettafitness.com##body > p > span:has-text(adblock)
-
 ! proxy torrent sites popups
 ! https://github.com/uBlockOrigin/uAssets/issues/10162
 piraproxy.app,theproxy.*##+js(nowoif)
@@ -1034,10 +1011,6 @@ unblocksite.pw##.all-linked
 /app/x12.js
 /hy.js?q22q2q2
 /zpp/zpp4.js
-
-! xxxvideotube. net popunder
-xxxvideotube.net##+js(aopr, decodeURI)
-xxxvideotube.net##+js(set, D4zz, noopFunc)
 
 ! whats-on-netflix.com anti adb
 whats-on-netflix.com##+js(acs, eval, replace)
@@ -1102,9 +1075,6 @@ note1s.com,paste1s.com##+js(ra, disabled, button)
 ! https://github.com/AdguardTeam/AdguardFilters/issues/115164
 rintor.*##+js(aopr, loadTool)
 
-! https://github.com/uBlockOrigin/uAssets/issues/12594
-alycia-debnam-carey.com,christinaricci.net,emmy-rossum.com,natalie-portman.org,rachel-brosnahan.org##+js(acs, setTimeout, .click())
-
 ! nsfw watchomovies. life ads
 ! https://github.com/uBlockOrigin/uAssets/issues/20589
 watchomovies.*##+js(rmnt, script, popunder)
@@ -1122,12 +1092,6 @@ pornwhite.com##.bottom-banners
 pornwhite.com##.player-spots
 ||pornwhite.com/js/customscript.js
 
-! https://www.thuthuatmoi.xyz/2021/07/bitdefender-total-security-2501458-64.html timer
-top1iq.com##+js(nano-stb, run)
-top1iq.com##+js(ra, disabled, a#redirect-btn)
-top1iq.com##+js(rc, disabled, a#redirect-btn)
-top1iq.com###post-body > p
-
 ! playtamil. tube ads
 !#if env_mobile
 ||playtamil.*^$csp=script-src 'self'
@@ -1140,9 +1104,6 @@ iptvjournal.com##div[id^="wpsafe-wait"]
 
 ! https://www.reddit.com/r/uBlockOrigin/comments/txnoqu/ads_breakthrough_on_coloredmangacom/
 coloredmanga.com##+js(aost, Math.random, inlineScript)
-
-! https://www.reddit.com/r/uBlockOrigin/comments/ty0glu/web_page_using_a_antiublock_script/
-softwaretotal.net##+js(no-xhr-if, googlesyndication)
 
 ! https://www.uploadcloud.pro/hzug6vgx4fsk/Awesome_Bundles_35_Best_Seller_Font_Collection-sanet.st.rar.html 3p frame and timer
 ||desirefx.com^$frame,redirect=noopframe,domain=uploadcloud.pro
