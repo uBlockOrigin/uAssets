@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Tue, 06 Jan 2026 07:02:02 +0000
+! Last modified: Tue, 06 Jan 2026 07:13:28 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -15370,18 +15370,13 @@ downloadr.in##+js(nano-stb, countdown)
 drawize.com##+js(acs, chAdblock)
 ! benzin-preis.ch
 @@||benzin-preis.ch^$ghide
-! cricfree. io / live popups
-cricfree.*,cricplay2.*,primetubsub.*##+js(nowoif)
-primetubsub.*##+js(aopr, AaDetector)
 !#if cap_html_filtering
 topembed.pw##^script:has-text(adserverDomain)
 !#else
 topembed.pw##+js(rmnt, script, adserverDomain)
 !#endif
-*.gif$image,domain=cricfree.*
 ||ublockpop.com^$all
 ||drectsearch.com^$all
-figurehunter.net##+js(no-fetch-if, google)
 ! hindimovies. to propeller ads
 hindimovies.to##+js(acs, Math, String.fromCharCode)
 hindimovies.to##+js(nowoif)
@@ -15401,11 +15396,6 @@ journaldemontreal.com##+js(no-xhr-if, doubleclick)
 @@||securepubads.g.doubleclick.net/pagead/managed/js/gpt/*/pubads_impl.js$script,3p,domain=journaldemontreal.com
 journaldemontreal.com###banner
 journaldemontreal.com##.bigbox-container
-! jardima.com timer
-jardima.com###wpsafe-generate:style(display: block !important;)
-jardima.com###wpsafe-link:style(display: block !important;)
-jardima.com##div[id^="wpsafe-wait"]
-jardima.com##.g1-slideup-wrap
 fox.com##+js(no-xhr-if, googlesyndication)
 fox.com,foxsports.com##+js(json-prune, ads)
 fox.com,foxsports.com##+js(m3u-prune, /\,ad\n.+?(?=#UPLYNK-SEGMENT)/gm, /uplynk\.com\/.*?\.m3u8/)
