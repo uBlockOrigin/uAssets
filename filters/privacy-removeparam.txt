@@ -1,5 +1,5 @@
 ! Title: AdGuard/uBO – URL Tracking Protection
-! Last modified: Thu, 01 Jan 2026 05:06:39 +0000
+! Last modified: Tue, 06 Jan 2026 08:05:12 +0000
 ! Expires: 7 days
 ! Description: |
 !   Filter that enhances privacy by removing tracking parameters from URLs.
@@ -482,6 +482,22 @@ $to=~tradedoubler.com,removeparam=tduid
 ! Bad: ||example.org^$xmlhttprequest,redirect=noopvast-3.0 (for instance, should be in specific.txt)
 !
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/221928
+||temu.com^$removeparam=_x_ads_account
+||temu.com^$removeparam=_x_ads_creative_id
+||temu.com^$removeparam=_x_ads_id
+||temu.com^$removeparam=_x_ads_set
+||temu.com^$removeparam=_x_ns_catalog_id
+||temu.com^$removeparam=_x_ns_gid
+||temu.com^$removeparam=_x_ns_placement
+||temu.com^$removeparam=_x_ns_product_id
+||temu.com^$removeparam=_x_ns_site_id
+||temu.com^$removeparam=_x_ns_source
+||temu.com^$removeparam=_x_ns_crt_id
+||temu.com^$removeparam=_x_bg_adid
+||temu.com^$removeparam=_x_from
+||temu.com^$removeparam=adg_ctx
+||temu.com^$removeparam=mrk_rec
 ! Browsec VPN
 ||browsec-uninstall.s3-website.eu-central-1.amazonaws.com^$removeparam
 ! https://github.com/AdguardTeam/AdguardFilters/issues/219082
@@ -1773,9 +1789,9 @@ $removeparam=wgexpiry,to=ibood.com|decathlon.pl
 ! https://github.com/AdguardTeam/AdguardFilters/issues/161441
 ||happymail.co.jp^$removeparam=Log
 ! Youtube
-$removeparam=embeds_referring_euri,domain=youtubekids.com|youtube-nocookie.com|youtube.com
-$removeparam=embeds_referring_origin,domain=youtubekids.com|youtube-nocookie.com|youtube.com
-$removeparam=source_ve_path,domain=youtubekids.com|youtube-nocookie.com|youtube.com
+$removeparam=embeds_referring_euri,to=youtubekids.com|youtube-nocookie.com|youtube.com
+$removeparam=embeds_referring_origin,to=youtubekids.com|youtube-nocookie.com|youtube.com
+$removeparam=source_ve_path,to=youtubekids.com|youtube-nocookie.com|youtube.com
 ||youtube.com^$removeparam=pp
 ! https://github.com/AdguardTeam/AdguardFilters/issues/161013
 ||gotanynudes.com^$removeparam=ref
@@ -1966,14 +1982,14 @@ mailchimp.com$removeparam=amp%3Bafl
 ||cnbc.com^$removeparam=__source
 ||cnbc.com^$removeparam=par
 ! Naver newsstand - https://newsstand.naver.com/
-$removeparam=plink,domain=sbs.co.kr
-$removeparam=cooper,domain=sbs.co.kr
-$removeparam=nv,domain=khan.co.kr
-$removeparam=naver,domain=dt.co.kr
-$removeparam=pg,domain=fnnews.com
-$removeparam=sc,domain=dailian.co.kr
-$removeparam=OutLink,domain=sedaily.com
-$removeparam=newsstand,domain=sportalkorea.com
+$removeparam=plink,to=sbs.co.kr
+$removeparam=cooper,to=sbs.co.kr
+$removeparam=nv,to=khan.co.kr
+$removeparam=naver,to=dt.co.kr
+$removeparam=pg,to=fnnews.com
+$removeparam=sc,to=dailian.co.kr
+$removeparam=OutLink,to=sedaily.com
+$removeparam=newsstand,to=sportalkorea.com
 ! https://github.com/DandelionSprout/adfilt/discussions/163#discussioncomment-6129946
 ||theathletic.com^$removeparam=source
 ! https://github.com/DandelionSprout/adfilt/discussions/163#discussioncomment-6097514
