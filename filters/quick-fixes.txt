@@ -153,12 +153,14 @@ japscan.*##span ~ span[id][class]:remove()
 !japscan.*##+js(set, aclib.runPop, 1)
 japscan.*##+js(trusted-suppress-native-method, Document.prototype.getElementsByTagName, '"i"')
 japscan.*##+js(trusted-suppress-native-method, Element.prototype.getAttribute, '"/^data-[a-z]{4}$/"')
-japscan.*##+js(trusted-suppress-native-method, Document.prototype.querySelectorAll, '"/^\[data-[a-z]{5}\]$/"')
+japscan.*##+js(trusted-suppress-native-method, Document.prototype.querySelectorAll, '"/^\[data-[a-z]{5,6}\]$/"')
 japscan.*##+js(trusted-suppress-native-method, Array.from, '"/NodeList/"', prevent, inlineScript)
 japscan.*##[id^="nav"] ~ div[id]:not(.tab-content):remove()
 japscan.*##[style="width:100%;"] > span[id]:remove()
 japscan.*##[id^="nav"] ~ span:remove()
 japscan.*##[style^="width:9"] > span:remove()
+japscan.*##[id^="nav"] ~ div:not([id]):remove()
+japscan.*##.fullWidth > span:remove()
 
 ! https://github.com/uBlockOrigin/uAssets/issues/21064
 ! https://github.com/uBlockOrigin/uAssets/issues/24220
