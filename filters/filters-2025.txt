@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2025)
-! Last modified: Wed, 07 Jan 2026 08:52:31 +0000
+! Last modified: Thu, 08 Jan 2026 06:07:56 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -2921,11 +2921,14 @@ dailymotion.com##+js(set, __NATIVEADS_CANARY__, true)
 dailymotion.com##.WatchingDiscovery__adSection___eLtfR
 ! https://github.com/uBlockOrigin/uAssets/commit/ddafd8d16d0c945ad7befcd2d6f35d846645c161
 ! https://github.com/uBlockOrigin/uAssets/issues/31350
+! https://github.com/uBlockOrigin/uAssets/issues/31433
 !#if !env_chromium
 !#if !env_mobile
 ||dmxleo.dailymotion.com^
 geo.dailymotion.com##+js(set, DMP_ENABLE_ADS, false)
 !#endif
+!#else
+www.dailymotion.com>>,~google.com##+js(xml-prune, [breakId], , _VMAP_)
 !#endif
 
 ! https://github.com/uBlockOrigin/uAssets/issues/30056
