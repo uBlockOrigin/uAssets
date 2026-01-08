@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Quick fixes
 ! Expires: 12 hours
-! Last modified: Thu, 08 Jan 2026 03:44:14 +0000
+! Last modified: Thu, 08 Jan 2026 05:32:14 +0000
 ! Diff-Path: %diffpath%#ublock-quick-fixes
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -207,15 +207,8 @@ smsonline.cloud##html[data-theme][lang] [id^="img_"][style]:has(iframe[framebord
 ~dogdrip.net,~smsonline.cloud##*:not(body) > a[href^="https://07c225f3.online/"]
 07c225f3.online,content-loader.com,css-load.com,html-load.com,img-load.com##html:not(:has(> head > style:only-child:has-text(width:399px;height:411px))):style(filter: opacity(0) !important; pointer-events: none !important;)
 /^https:\/\/[a-z]{3,4}\.[0-9a-z-]{6,}\.(?:com|xyz)\/script\/(?:[-.0-9A-Za-z]+\.)?[-0-9A-Za-z]{2,30}\.js$/$script,3p,match-case,header=x-length
-/:\/\/html-load\.com\/[a-z]{3,6}(?:\.min)?\.js$/$script,3p,match-case,domain=~dogdrip.net|~smsonline.cloud
-/:\/\/content-loader\.com\/[a-z]{3,6}(?:\.min)?\.js$/$script,3p,match-case,domain=~dogdrip.net|~smsonline.cloud
-://html-load.com/core.js$domain=~dogdrip.net|~smsonline.cloud
-!#if env_safari
-://html-load.com/loader.min.js$domain=~dogdrip.net|~smsonline.cloud
-://content-loader.com/loader.min.js$domain=~dogdrip.net|~smsonline.cloud
-/:\/\/html-load\.com\/[a-z][a-z][a-z][a-z]?[a-z]?[a-z]?\.js$/$script,3p,match-case,domain=~dogdrip.net|~smsonline.cloud
-/:\/\/content-loader\.com\/[a-z][a-z][a-z][a-z]?[a-z]?[a-z]?\.js$/$script,3p,match-case,domain=~dogdrip.net|~smsonline.cloud
-!#endif
+://html-load.com/*.js$script,3p,domain=~dogdrip.net|~smsonline.cloud
+://content-loader.com/*.js$script,3p,domain=~dogdrip.net|~smsonline.cloud
 /^https:\/\/(?:as(?:loader)?|(?:shield)?load(?:er)?)\.([-0-9A-Za-z]+\.[-A-Za-z]{2,16})\/(?:loader\.min|script\/(?:www\.)?\1)\.js$/$script,1p,strict3p,match-case,domain=~edu|~gov
 /^https:\/\/[a-z]{3,4}\.[a-z]{8,16}\.com\/loader\.min\.js$/$script,3p,match-case,header=etag:/^W\/"[0-9a-f]{32}-\d{13}"$/
 /^https:\/\/d[0-9a-z]{12,13}\.cloudfront\.net\/loader\.min\.js$/$script,3p,match-case,header=etag:/^W\/"[0-9a-f]{32}"$/
