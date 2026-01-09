@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Cookie Notices
-! Last modified: Thu, 08 Jan 2026 05:58:04 +0000
+! Last modified: Fri, 09 Jan 2026 06:21:31 +0000
 ! Expires: 7 days
 ! Description: Filters optimized for uBlock Origin, to be used with EasyList's and/or Adguard's "Cookie Notices" list(s)
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -1506,6 +1506,9 @@ dailystar.co.uk,mirror.co.uk##+js(trusted-click-element, button[class*="cipa-acc
 ! https://www.redbull.com/ - third party content
 redbull.com##+js(trusted-set-cookie, OptanonConsent, groups=C0001%3A1%2CC0002%3A0%2CC0003%3A1, , , domain, www.redbull.com)
 redbull.com##+js(trusted-set-cookie, OptanonAlertBoxClosed, $currentDate$, , , domain, www.redbull.com)
+! redbullracing.com consent
+redbullracing.com##+js(trusted-set-cookie, OptanonConsent, groups=C0001%3A1%2CC0002%3A0%2CC0003%3A1, , , domain, www.redbullracing.com)
+redbullracing.com##+js(trusted-set-cookie, OptanonAlertBoxClosed, $currentDate$, , , domain, www.redbullracing.com)
 
 ! Didomi consent popups
 ! https://github.com/uBlockOrigin/uAssets/issues/24725
@@ -2504,6 +2507,30 @@ malighting.com,lightpower.de##+js(trusted-set-cookie, cs-cookie-banner, |essenti
 
 ! necessary + extended delay
 abp.nl##+js(trusted-click-element, button[data-analytics-cms-event-name="cookies.button.alleen-noodzakelijk"], , 2600)
+
+! decline (EU IP)
+resy.com##+js(trusted-click-element, button[data-testid="granular-banner-button-decline-all"], , 1500)
+
+! accept
+viagogo.com##+js(trusted-click-element, button[data-testid="cookie-compliance-allow-all-button"], , 1500)
+
+! decline
+bw-bank.de##+js(trusted-click-element, a[data-form=".eprivacy_optin_decline"], , 1000)
+
+! reject, consentID=1
+ulm.de##+js(trusted-set-cookie, consent, '{"consentId":"1","categories":{"TechnicalRequired":true,"AnalyticsAndPerformance":false,"Marketing":false}}')
+
+! necessary
+netze-bw.de##+js(trusted-set-cookie, ndConsentedCookies, '[%22Functional%22]')
+
+! reject
+bricklink.com##+js(trusted-click-element, button.blp-cookie-notice__btn--reject, , 1000)
+
+! reject
+midasbuy.com##+js(trusted-click-element, div[data-id="refuse"], , 1000)
+
+! accept
+consent.nsd.se##+js(trusted-click-element, button[title="Jag godkänner"], , 1000)
 
 ! reject personalisation
 simplea.sk##+js(trusted-click-element, button[aria-label="Vypnúť personalizáciu"], , 1000)
