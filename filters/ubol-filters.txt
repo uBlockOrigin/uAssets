@@ -1,5 +1,5 @@
 ! Title: uBO Lite filters
-! Last modified: Mon, 12 Jan 2026 01:57:45 +0000
+! Last modified: Thu, 15 Jan 2026 09:36:30 +0000
 ! Expires: 4 days
 ! Description: Filters optimized for uBO Lite
 ! Homepage: https://github.com/uBlockOrigin/uAssets
@@ -202,3 +202,11 @@ turboplayers.xyz###pop.div_pop:remove()
 ! https://github.com/uBlockOrigin/uAssets/issues/31385
 ! StevenBlack/hosts issue
 ||static.klaviyo.com^$badfilter
+
+! https://github.com/uBlockOrigin/uAssets/issues/31350
+!#if !env_chromium
+||dmxleo.dailymotion.com^
+geo.dailymotion.com##+js(set, DMP_ENABLE_ADS, false)
+!#else
+www.dailymotion.com>>,~google.com##+js(xml-prune, [breakId], , _VMAP_)
+!#endif
