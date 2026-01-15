@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Thu, 15 Jan 2026 09:32:58 +0000
+! Last modified: Thu, 15 Jan 2026 09:34:05 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -8079,6 +8079,8 @@ dailymotion.com##+js(json-prune-xhr-response, advertising, , propsToMatch, .json
 !#if !env_chromium
 geo.dailymotion.com##+js(xml-prune, [breakId], , _VMAP_)
 geo.dailymotion.com##+js(set, DMP_ENABLE_ADS, false)
+!#else
+www.dailymotion.com>>,~google.com##+js(xml-prune, [breakId], , _VMAP_)
 !#endif
 hurriyet.com.tr##.mobileMasthead
 yts.mx##.home-content > div[class]:not([id]):has(> div > a[rel="noindex, nofollow"])

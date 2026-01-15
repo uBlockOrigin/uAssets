@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Mobile
-! Last modified: Wed, 31 Dec 2025 05:34:20 +0000
+! Last modified: Thu, 15 Jan 2026 09:34:05 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -176,6 +176,8 @@ dailymotion.com##+js(json-prune-xhr-response, advertising, , propsToMatch, .json
 !#if !env_chromium
 geo.dailymotion.com##+js(xml-prune, [breakId], , _VMAP_)
 geo.dailymotion.com##+js(set, DMP_ENABLE_ADS, false)
+!#else
+www.dailymotion.com>>,~google.com##+js(xml-prune, [breakId], , _VMAP_)
 !#endif
 
 ! https://github.com/uBlockOrigin/uAssets/pull/30275
