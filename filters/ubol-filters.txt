@@ -202,3 +202,11 @@ turboplayers.xyz###pop.div_pop:remove()
 ! https://github.com/uBlockOrigin/uAssets/issues/31385
 ! StevenBlack/hosts issue
 ||static.klaviyo.com^$badfilter
+
+! https://github.com/uBlockOrigin/uAssets/issues/31350
+!#if !env_chromium
+||dmxleo.dailymotion.com^
+geo.dailymotion.com##+js(set, DMP_ENABLE_ADS, false)
+!#else
+www.dailymotion.com>>,~google.com##+js(xml-prune, [breakId], , _VMAP_)
+!#endif
