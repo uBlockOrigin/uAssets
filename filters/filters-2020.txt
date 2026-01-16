@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2020)
-! Last modified: Wed, 14 Jan 2026 11:48:59 +0000
+! Last modified: Fri, 16 Jan 2026 17:58:30 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -127,10 +127,6 @@ flickr.com##.global-nav-view.desktop-nav-ad, .global-nav-view.desktop-nav-ad .gl
 ! https://github.com/uBlockOrigin/uAssets/issues/29476#issuecomment-3218168795
 flickr.com##.search-photos-unified-page-view .desktop-nav-ad:remove-class(desktop-nav-ad)
 flickr.com##.search-photos-unified-page-view .mobile-nav-ad:remove-class(mobile-nav-ad)
-
-! fastpeoplesearch.com popups
-fastpeoplesearch.com##+js(nowoif)
-fastpeoplesearch.com##.sponsored, .ad-widget-container
 
 ! https://github.com/NanoMeow/QuickReports/issues/3590
 *$media,3p,domain=hdd.moviefun24.com,redirect=noopmp3-0.1s
@@ -359,12 +355,6 @@ mp4mania1.net##[href^="https://ak.naiwoalooca.net/"]
 ||undefined^$script,redirect=noopjs
 ||d3g5ovfngjw9bw.cloudfront.net^$script,redirect=noopjs
 
-! https://github.com/AdguardTeam/AdguardFilters/issues/76465
-! https://mm9844.cc/e/c3e55sp79uz6.html popup
-! https://github.com/AdguardTeam/AdguardFilters/issues/131568 Streamsb => Download
-mm9842.com,mm9844.*##+js(nowoif)
-mm9842.com,mm9844.*,mm9846.com##+js(aopr, __Y)
-
 ! https://github.com/NanoMeow/QuickReports/issues/3738
 khatrimaza.*##+js(aeld, , 0x)
 khatrimaza.*##+js(acs, puShown, /doOpen|popundr/)
@@ -503,9 +493,6 @@ pornomoll.*##+js(nostif, innerText, 2000)
 pornomoll.*##+js(aeld, , _blank)
 /clc?aid=$all
 
-! https://github.com/NanoMeow/QuickReports/issues/3812 popups
-xxxonlinegames.com##+js(nowoif)
-
 ! https://github.com/NanoMeow/QuickReports/issues/3814
 supermarches.ca##+js(acs, $, css)
 
@@ -539,8 +526,6 @@ ohmybrush.com##+js(set, ads_blocked, false)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/7357
 thatav.net##+js(aopr, decodeURI)
-digjav.com##+js(aeld, , Pop)
-digjav.com##+js(nowoif)
 ||thatav.net/sw.js$script,1p
 
 ! https://github.com/uBlockOrigin/uAssets/issues/7375
@@ -743,17 +728,6 @@ wenxuecity.com##+js(no-fetch-if, googlesyndication)
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/56313
 casos-aislados.com##+js(nosiif, visibility, 1000)
-
-! https://github.com/NanoMeow/QuickReports/issues/633
-2conv.com,flvto.biz##.content-right-bar
-2conv.com,flvto.biz##.horizontal-area
-flvto.biz,flv2mp3.by##.push-offer
-||2conv.com^$csp=script-src *
-||flvto.biz^$csp=script-src *
-2conv.com,flvto.biz,flv2mp3.by##+js(nowoif)
-
-! docker.events.cube365.net
-cube365.net##+js(set, mixpanel.get_distinct_id, true)
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/56352
 zipi.com##.ad
@@ -2162,11 +2136,6 @@ standardmedia.co.ke##+js(aopr, canRunAds)
 *$script,redirect-rule=noopjs,domain=downloadrepack.com
 downloadrepack.com###footer-widgets > .container-inner > .group.hu-pad
 
-! https://github.com/uBlockOrigin/uAssets/issues/8001
-vpn-anbieter-vergleich-test.de##+js(nowoif)
-||vpn-anbieter-vergleich-test.de/link/$frame,1p
-vpn-anbieter-vergleich-test.de##+js(nostif, openPopup)
-
 ! https://github.com/NanoMeow/QuickReports/issues/4792
 @@||thedelimagazine.com^$ghide
 
@@ -2361,14 +2330,6 @@ universegunz.net##+js(nostif, adb)
 ! https://www.reddit.com/r/uBlockOrigin/comments/ji8yhy/citynewsca_anti_adblock/
 citynews.ca##body:style(padding-top:0px !important)
 
-! https://www.reddit.com/r/uBlockOrigin/comments/jidhpq/i_found_an_antiadblock/
-miuiku.com##+js(acs, eval, ignielAdBlock)
-miuiku.com##+js(nowoif)
-miuiku.com##+js(set, blurred, false)
-miuiku.com##[style="text-align: center;"] > a[href]
-miuiku.com##.content:has(#invisibleCaptchaShortlink) > p
-miuiku.com##a[href^="https://poptival.com/"]
-
 ! https://github.com/uBlockOrigin/uAssets/issues/8085
 forum.lolesporte.com##+js(aopr, onload)
 
@@ -2478,7 +2439,6 @@ hdss.*##.pplayer
 hdss.*##.btnsa
 hdss.*##.homi
 hdss.*##.widget_media_image
-opvid.net##+js(nowoif)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/8162
 @@||top.gg/js/$script,1p
@@ -2870,7 +2830,7 @@ cryptowin.io##.panel-body > p[style=" color:#818181; background-color: #fffdc4; 
 cryptowin.io##.hidden-xs
 
 ! https://github.com/uBlockOrigin/uAssets/issues/7702
-cdn1.fastvid.co,movi.pk,netu.ac,player.msmini.*,player.sbnmp.*,netuplayer.*,vapley.*##+js(nowoif)
+movi.pk,netu.ac,player.msmini.*,player.sbnmp.*,netuplayer.*,vapley.*##+js(nowoif)
 0gogle.com##+js(aopr, __Y)
 movi.pk##+js(aeld, , vads)
 movi.pk##+js(acs, eval, replace)
