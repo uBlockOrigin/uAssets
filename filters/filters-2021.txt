@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2021)
-! Last modified: Fri, 16 Jan 2026 17:10:14 +0000
+! Last modified: Fri, 16 Jan 2026 17:29:06 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -323,10 +323,8 @@ kisahdunia.com##.textwidget
 kisahdunia.com##[href^="https://www.samsung.com/"]
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/71919
-hentai-party.com,hentaicomics.pro##+js(set, adb, 0)
+hentaicomics.pro##+js(set, adb, 0)
 hentaicomics.pro##+js(nowoif)
-hentai-party.com##figure.mix > .tac
-||hentai-party.com/*?view=$doc,other,removeparam=view
 ||hentaicomics.pro/*?code=$doc,other,removeparam=code
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/71968
@@ -469,9 +467,6 @@ okteve.com##+js(acs, String.fromCharCode, marginheight)
 ! https://github.com/AdguardTeam/AdguardFilters/issues/72669
 arab4media.com##+js(acs, addEventListener, nextFunction)
 
-! myyouporn .com popups
-myyouporn.com##+js(nowoif)
-
 ! pinoyalbums. com anti adb
 *$script,redirect-rule=noopjs,domain=pinoyalbums.com
 pinoyalbums.com##+js(aeld, , adb)
@@ -570,20 +565,6 @@ simply-hentai.com##.reader > div.mb-3 > div.mt-3
 ! https://www.reddit.com/r/uBlockOrigin/comments/l821y4/adblock_detection/
 animesa.*##+js(set, adblock_use, false)
 *$frame,3p,denyallow=cbox.ws,domain=animesa.*
-
-! stem-cells-news. com popups
-stem-cells-news.com##+js(nowoif)
-
-! https://github.com/AdguardTeam/AdguardFilters/issues/73637
-ccurl.net##+js(aopr, app_vars.force_disable_adblock)
-ccurl.net##+js(set, blurred, false)
-ccurl.net##.banner
-ccurl.net##.box-main > .blog-item
-ccurl.net##[style*="width: 300px; height:250px"]
-ccurl.net##.col-md-2
-*$script,3p,denyallow=bootstrapcdn.com|google.com|gstatic.com|hwcdn.net|jquery.com|recaptcha.net,domain=ccurl.net
-||cryptocreed.com^$3p
-||powr.io^$3p,script
 
 ! https://www.reddit.com/r/uBlockOrigin/comments/l8uu90/adblock_detected/
 subtitleone.cc##+js(set, Object.prototype.adblockFound, false)
@@ -786,9 +767,6 @@ tyla.com##div[class$="-margin-Advert"]:style(height:1px !important;width:1px !im
 
 ! scnlog.me popups/ads
 *$script,3p,denyallow=cloudflare.com|google.com|gstatic.com|recaptcha.net|hcaptcha.com,from=scnlog.me
-
-! https://github.com/AdguardTeam/AdguardFilters/issues/74823
-youtubemp3.us##+js(nowoif)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/8573
 ancient-origins.*##+js(set, document.bridCanRunAds, true)
@@ -1933,7 +1911,6 @@ filmyhitlink.xyz###sidebar-primary > .widget_custom_html
 filmyhitlink.xyz###sidebar-secondary > .widget_custom_html
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/129120
-cloudrls.com##+js(nowoif)
 javtsunami.com##+js(aeld, getexoloader)
 ||javtsunami.com/crimson-unit-$script
 
@@ -3529,17 +3506,10 @@ edealinfo.com##+js(acs, $, offsetHeight)
 edealinfo.com##+js(no-xhr-if, googlesyndication)
 
 ! popups https://forums.lanik.us/viewtopic.php?t=46951
-! mlsbd.news,cinebaz.site ads antiadb
-mlsbd.*##+js(nowoif)
-mlsbd.*##+js(acs, eval, replace)
-bfclive.com,cinebaz.site,mlsbd.news##+js(nowoif)
+bfclive.com##+js(nowoif)
 bfclive.com##+js(rmnt, script, /adb/i)
-mlsbd.*##.link > a[href*="?key"]
 cinebaz.*##div.dlbtn > a[href*="?key"]
 *$script,3p,denyallow=bootstrapcdn.com|google.com|googleapis.com|gstatic.com,domain=fx2.ink
-
-! https://www.reddit.com/r/uBlockOrigin/comments/qu7gto/blockadblock_bypassing_ublockorigin/
-tinytranslation.xyz###HTML5
 
 ! https://github.com/uBlockOrigin/uAssets/issues/10488
 ! https://github.com/uBlockOrigin/uAssets/issues/22400
@@ -3685,13 +3655,6 @@ freewp.io##+js(no-xhr-if, /^/)
 studybullet.com##+js(set, adsBlocked, false)
 studybullet.com##+js(acs, b2a)
 
-! bigyshare .com popups
-bigyshare.com##+js(nowoif)
-
-! https://github.com/uBlockOrigin/uAssets/pull/10589
-@@||dlink.mobilejsr.com^$ghide
-dlink.mobilejsr.com##[src*="png"]
-
 ! https://github.com/uBlockOrigin/uAssets/issues/10597
 @@||driveup.in^$ghide
 driveup.in##+js(nowoif, /^/, 0)
@@ -3723,12 +3686,6 @@ ytube2dl.com##+js(aeld, , pop)
 xenvn.com##+js(rmnt, script, XV)
 xenvn.com##.ad_block:style(visibility: hidden !important;)
 
-! glotorrents.* ads, popups
-glotorrents.fr-proxy.com##+js(aopw, decodeURI)
-glotorrents.fr-proxy.com##+js(aopw, adcashMacros)
-glotorrents.fr-proxy.com,glotorrents.theproxy.ws##+js(nowoif)
-glotorrents.fr-proxy.com,glotorrents.theproxy.ws##+js(aopr, String.prototype.charCodeAt)
-
 ! https://github.com/uBlockOrigin/uAssets/issues/12971
 /script/ncsu.js$3p
 /script/nbsu.js$3p
@@ -3755,7 +3712,7 @@ coinpayz.xyz##.ads
 ||coinpayz.xyz/*.php$frame
 
 ! https://github.com/uBlockOrigin/uAssets/pull/10684
-apiyt.com,masstamilans.com,mymp3song.*,okmusi.com##+js(nowoif)
+masstamilans.com,mymp3song.*,okmusi.com##+js(nowoif)
 
 ! https://github.com/abpvn/abpvn/issues/306
 xnxx-sex-videos.com##+js(nostif, /out.php)
@@ -3777,18 +3734,6 @@ gifhq.com##+js(acs, document.dispatchEvent, myEl)
 gifhq.com##+js(aopr, exoNoExternalUI38djdkjDDJsio96)
 gifhq.com##+js(acs, $, open)
 ||gifhq.com/d2.js
-
-! https://github.com/uBlockOrigin/uAssets/pull/10721
-ibomma.*##[style="display:none"]:style(display: block !important;)
-ibomma.*###abEnabled-note
-rto.bappam.eu,one.ibomma.pw##+js(nowoif)
-rto.bappam.eu,one.ibomma.pw###u-verify
-
-! torpedogratis.org
-torpedogratis.org###ads
-
-! https://github.com/uBlockOrigin/uAssets/issues/10722
-teevee.asia##+js(nostif, innerHTML)
 
 ! https://forums.lanik.us/viewtopic.php?t=47015
 itdmusics.com##+js(aeld, load, onload)
