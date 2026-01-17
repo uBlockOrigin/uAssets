@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Cookie Notices
-! Last modified: Thu, 15 Jan 2026 09:32:20 +0000
+! Last modified: Sat, 17 Jan 2026 07:50:24 +0000
 ! Expires: 7 days
 ! Description: Filters optimized for uBlock Origin, to be used with EasyList's and/or Adguard's "Cookie Notices" list(s)
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -5105,3 +5105,10 @@ cdn.privacy-mgmt.com##+js(trusted-click-element, button[title="REJECT ALL"], , 1
 @@||consent.cookiebot.com/uc.js$script,domain=vcg.de
 @@||consent.cookiebot.com/*/cc.js
 vcg.de##+js(trusted-click-element, '#CybotCookiebotDialog input#CybotCookiebotDialogBodyLevelButtonPreferences, #CybotCookiebotDialog input#CybotCookiebotDialogBodyLevelButtonStatistics, #CybotCookiebotDialog input#CybotCookiebotDialogBodyLevelButtonMarketing, #CybotCookiebotDialog button#CybotCookiebotDialogBodyLevelButtonLevelOptinAllowallSelection')
+
+! https://github.com/uBlockOrigin/uAssets/issues/31528
+huk24.de##+js(trusted-click-element, [style] > [style] > s-button[data-testid="button--einstellungen-speichern"] > button.s-button__button)
+huk24.de##+js(set-cookie, consent_technical, ALLOW)
+huk24.de##+js(set-cookie, consent_marketing, DENY)
+huk24.de##+js(set-cookie, consent_functional, DENY)
+huk24.de##+js(trusted-set-cookie, consent_version, 2.8)
