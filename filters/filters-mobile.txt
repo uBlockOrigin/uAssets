@@ -170,12 +170,25 @@ outlook.live.com##main > div[style] .vPfg_:has(.wOYnU) ~ *:style(transform: tran
 !#endif
 
 ! https://github.com/uBlockOrigin/uAssets/issues/23691#issuecomment-3291721218
-dailymotion.com##+js(xml-prune, [breakId], , _VMAP_)
 dailymotion.com##+js(json-prune-fetch-response, advertising, , propsToMatch, /player/metadata)
 dailymotion.com##+js(json-prune-xhr-response, advertising, , propsToMatch, .json)
+! https://github.com/uBlockOrigin/uAssets/issues/31350
+!#if !env_chromium
+geo.dailymotion.com##+js(xml-prune, [breakId], , _VMAP_)
+geo.dailymotion.com##+js(set, DMP_ENABLE_ADS, false)
+!#else
+www.dailymotion.com>>,~google.com##+js(xml-prune, [breakId], , _VMAP_)
+!#endif
 
 ! https://github.com/uBlockOrigin/uAssets/pull/30275
 hurriyet.com.tr##.mobileMasthead
 
 ! https://github.com/uBlockOrigin/uAssets/issues/30806
 yts.mx##.home-content > div[class]:not([id]):has(> div > a[rel="noindex, nofollow"])
+
+! ads placeholder nsfw superporn.com
+superporn.com##.intensive-add
+
+! https://github.com/uBlockOrigin/uAssets/issues/31340
+@@||grab.onelink.me/*^af_dp=grab%3A%2F%2Fopen%3F$doc,urlskip
+@@||grab.onelink.me/*^af_dp=grab%3A%2F%2Fopen%3F$doc

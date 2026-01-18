@@ -449,6 +449,8 @@ deezer.com##+js(set, smartLoaded, true)
 @@||cdn.hubvisor.io/wrapper/common/player.js$script,domain=deezer.com
 @@||cdn.hubvisor.io/wrapper/*/hubvisor.js$script,domain=deezer.com
 @@||cdns-preview-*.dzcdn.net/stream/*.mp3$media,domain=deezer.com
+! https://github.com/uBlockOrigin/uAssets/issues/11457#issuecomment-3672446402
+deezer.com##+js(trusted-json-edit, ..ads_audio=false)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/16508
 ! https://github.com/uBlockOrigin/uAssets/issues/17383
@@ -1096,9 +1098,6 @@ rapid-cloud.co##+js(set, navigator.brave, undefined)
 ! https://github.com/easylist/easylistgermany/issues/261
 praxistipps.focus.de###G32:style(grid-template-rows: unset !important;)
 
-! https://github.com/uBlockOrigin/uAssets/issues/17204
-*$3p,domain=subdl.com,denyallow=challenges.cloudflare.com|crisp.chat|gstatic.com
-
 ! https://github.com/uBlockOrigin/uAssets/issues/22174
 vuinsider.com##+js(nostif, show)
 vuinsider.com##.overlay-container
@@ -1140,18 +1139,10 @@ bg-gledai.*##+js(acs, document.getElementById, adblock)
 bg-gledai.*###casing > center
 ! https://www.reddit.com/r/uBlockOrigin/comments/11vtqib/ads_blocker_detected/
 cdn.gledaitv.live##+js(noeval-if, String.fromCharCode)
-! https://www.reddit.com/r/uBlockOrigin/comments/1ig40t3/adblock_detected_two_websites_gledaitvlive_and/
-! https://www.reddit.com/r/uBlockOrigin/comments/1j9a51f/why_ubo_cant_block_modal_on_this_site/
-! bg-gledai.*,gledaitv.*##+js(no-fetch-if, imasdk.googleapis.com)
 ! https://www.reddit.com/r/uBlockOrigin/comments/1j3jbqd/adblock_detected/
-! gledaitv.*##+js(aopr, checkAdsBlocked)
-! gledaitv.*##+js(acs, fetch, adsBlocked)
 /js/detectorpro_*.js|$script
 *$script,redirect-rule=noopjs,domain=bg-gledai.*|gledaitv.*
 ||adapex.io^$script,redirect=noopjs,domain=bg-gledai.video|gledaitv.fan
-! https://github.com/uBlockOrigin/uAssets/issues/29059
-! https://www.reddit.com/r/uBlockOrigin/comments/1m9zkni/adblock_detected_site_gledaitvfan/
-! cdn.bg-gledai.*,cdn.gledaitv.*##+js(aeld, DOMContentLoaded, .textContent)
 ! https://forums.lanik.us/viewtopic.php?t=48760-www-seir-sanduk-com
 ||seir-sanduk.com/adblockaclib.js
 seir-sanduk.com##p:has-text(???????)
@@ -1406,15 +1397,16 @@ gadgets.es##+js(set, isAdBlockActive, false)
 rackusreads.com##+js(set, DHAntiAdBlocker, true)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/17522
-elamigos-games.com,elamigos-games.net,elamigosgames.org##+js(nostif, checkAdblockUser)
-elamigos-games.com,elamigos-games.net,elamigosgames.org##.content_store
-elamigos-games.com,elamigos-games.net,elamigosgames.org##h3.my-4:has-text(/^Advertising/)
-elamigos-games.com,elamigos-games.net,elamigosgames.org##.iframeDiv
+elamigos-games.com,elamigos-games.net,elamigosgames.org,elamigosgamez.net##+js(nostif, checkAdblockUser)
+elamigos-games.com,elamigos-games.net,elamigosgames.org,elamigosgamez.net##.content_store
+elamigos-games.com,elamigos-games.net,elamigosgames.org,elamigosgamez.net##h3.my-4:has-text(/^Advertising/)
+elamigos-games.com,elamigos-games.net,elamigosgames.org,elamigosgamez.net##.iframeDiv
 elamigosgames.org##.store_fondo
 elamigosgames.org##.store_text
 
 ! https://github.com/uBlockOrigin/uAssets/issues/12214
 *$script,domain=wp.pl|money.pl|o2.pl|parenting.pl|pudelek.pl|autokult.pl|gadzetomania.pl|fotoblogia.pl|komorkomania.pl|polygamia.pl|abczdrowie.pl|benchmark.pl|kafeteria.pl|pysznosci.pl|dobreprogramy.pl|genialne.pl|autocentrum.pl|jastrzabpost.pl|deliciousmagazine.pl,redirect-rule=noopjs
+||imasdk.googleapis.com/js/sdkloader/ima3_debug.js$script,domain=o2.pl,redirect=google-ima.js:10
 @@*$ghide,domain=wp.pl|money.pl|o2.pl|parenting.pl|pudelek.pl|autokult.pl|gadzetomania.pl|fotoblogia.pl|komorkomania.pl|polygamia.pl|abczdrowie.pl|benchmark.pl|kafeteria.pl|pysznosci.pl|dobreprogramy.pl|genialne.pl|autocentrum.pl|jastrzabpost.pl|deliciousmagazine.pl
 wp.pl,money.pl,o2.pl,parenting.pl,pudelek.pl,autokult.pl,gadzetomania.pl,fotoblogia.pl,komorkomania.pl,polygamia.pl,abczdrowie.pl,benchmark.pl,kafeteria.pl,pysznosci.pl,dobreprogramy.pl,genialne.pl,autocentrum.pl,jastrzabpost.pl,deliciousmagazine.pl#@#.ads
 wp.pl,money.pl,o2.pl,parenting.pl,pudelek.pl,autokult.pl,gadzetomania.pl,fotoblogia.pl,komorkomania.pl,polygamia.pl,abczdrowie.pl,benchmark.pl,kafeteria.pl,pysznosci.pl,dobreprogramy.pl,genialne.pl,autocentrum.pl,jastrzabpost.pl,deliciousmagazine.pl#@#.ad
@@ -1686,6 +1678,8 @@ diendancauduong.com##+js(aopw, rotator)
 diendancauduong.com##+js(rmnt, script, antiAdBlockerHandler)
 
 ! hanime.xxx ads and popup
+! https://www.reddit.com/r/uBlockOrigin/comments/1pdq9eh/hanimexxx_ad_blocker_detected_for_ublock_light/
+hanime.xxx##+js(json-prune, adblock popup vast)
 hanime.xxx##+js(aopw, Script_Manager)
 hanime.xxx##+js(nowoif)
 hanime.xxx###main-sidebar
@@ -3820,6 +3814,9 @@ rl6mans.com##+js(nostif, _0x)
 
 ! https://www.reddit.com/r/uBlockOrigin/comments/174obux/memedroid_nag/
 memedroid.com##+js(nostif, /adScriptPath|MMDConfig/)
+! https://github.com/uBlockOrigin/uAssets/issues/31347
+||creatopy.net^
+memedroid.com##body.top-banner-in:style(padding-top: 0 !important;)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/20034
 @@||imasdk.googleapis.com/js/sdkloader/ima3.js$script,domain=polsatboxgo.pl
@@ -4123,6 +4120,8 @@ yourlifeupdated.net##+js(noeval-if, ads)
 ! https://github.com/uBlockOrigin/uAssets/issues/25070
 app.studysmarter.de,app.vaia.com##+js(trusted-replace-xhr-response, "ads_disabled":false, "ads_disabled":true, payments)
 app.studysmarter.de,app.vaia.com##aside > .ng-star-inserted
+||prod.studysmarter.de/affiliate/
+||prod.studysmarter.de/joboffers/
 
 ! https://github.com/uBlockOrigin/uAssets/issues/20559
 111.90.141.252##+js(acs, $, noConflict)

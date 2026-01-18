@@ -308,11 +308,6 @@ hintergrundbild.org#@#.ads1
 ! https://forums.lanik.us/viewtopic.php?f=64&t=40264
 br.de##+js(set, akamaiDisableServerIpLookup, noopFunc)
 
-! To counter `o0bc.com` in Peter Lowe's
-! unbreaks boston.com
-||o0bc.com^$badfilter
-||o0bc.com^$3p,domain=~boston.com|~bostonglobe.com
-
 ! https://github.com/uBlockOrigin/uAssets/issues/1818
 @@||gatesnotes.com/*/jquery.iframetracker.js$script,1p
 
@@ -1297,9 +1292,9 @@ los40.com###adunit
 ! https://los40.com/los40/2020/11/20/videos/1605885399_459822.html - video broken when pausing
 @@||assets.adobedtm.com/extensions/*/AppMeasurement.min.js$script,domain=los40.com
 ! https://www.reddit.com/r/uBlockOrigin/comments/14anfyg/
-los40.com##+js(no-fetch-if, googlesyndication)
 ! https://github.com/uBlockOrigin/uAssets/issues/20199
 ! https://github.com/uBlockOrigin/uAssets/issues/29447
+as.com,caracol.com.co,los40.com##+js(no-fetch-if, googlesyndication)
 as.com,caracol.com.co,los40.com##+js(set, DTM.trackAsyncPV, noopFunc)
 
 ! https://forums.lanik.us/viewtopic.php?f=64&p=150848#p150848
@@ -2955,9 +2950,8 @@ pewresearch.org##+js(set, ga, noopFunc)
 ||natureetdecouvertes.com^$1p,image,redirect-rule=2x2.png
 
 ! https://github.com/uBlockOrigin/uAssets/issues/10629
-!#if env_mobile
-||cxense.com/cx.js$script,redirect=noop.js,domain=itmedia.co.jp
-!#endif
+! https://github.com/uBlockOrigin/uAssets/issues/31523
+@@||cdn.cxense.com/cx.js$domain=itmedia.co.jp
 
 ! https://github.com/uBlockOrigin/uAssets/issues/10643
 ilbianconero.com##.no-scroll:style(overflow:auto!important)
@@ -5561,9 +5555,6 @@ outletarredamento.it#@#.ad-link:not(.adsbox)
 ! https://github.com/uBlockOrigin/uAssets/issues/10160#issuecomment-2612860445
 @@||dlswbr.baidu.com/heicha/mw/abclite-$script,domain=map.baidu.com
 
-! https://github.com/uBlockOrigin/uAssets/issues/26974
-||imasdk.googleapis.com/js/sdkloader/ima3.js$script,redirect=google-ima.js,domain=legaseriea.it,important
-
 ! https://github.com/uBlockOrigin/uAssets/issues/26997
 !#if env_firefox
 ||the-independent.com/js/third-party/aps.js^$script,1p,redirect=amazon_apstag.js
@@ -5741,6 +5732,7 @@ kb.arlo.com##+js(set, _vwo_code.init, noopFunc)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/29103
 tires.costco.com##+js(set, adobePageView, noopFunc)
+tires.costco.com##+js(set, adobeSearchBox, noopFunc)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/29174
 @@||cmp.dmgmediaprivacy.co.uk/cmp/*/index.js$script,domain=metro.co.uk
@@ -5896,3 +5888,13 @@ nijie.info/ad_log.php#@#._banner_view
 
 ! https://github.com/uBlockOrigin/uAssets/issues/31181
 personality-database.com##+js(set, freestar.newAdSlots, trueFunc)
+
+! Counter PL
+||content-loader.com^$badfilter
+
+! https://github.com/uBlockOrigin/uAssets/issues/31425
+! Online Malicious URL Blocklist
+||cloudbuild.splashtop.com^$all,badfilter
+
+! https://github.com/uBlockOrigin/uAssets/issues/31522
+||dynatrace.com^$script,redirect=noopjs,domain=statefarm.com

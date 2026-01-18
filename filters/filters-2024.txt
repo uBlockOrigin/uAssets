@@ -1407,6 +1407,9 @@ govtech.com##.Enhancement:has(.GoogleDfpAd)
 ! https://github.com/uBlockOrigin/uAssets/issues/22543
 ||pubfuture-ad.com^$script,3p,redirect=noopjs,domain=faqwiki.us
 faqwiki.us##+js(aopr, antiAdBlockerHandler)
+! https://www.reddit.com/r/uBlockOrigin/comments/1q87vhg/is_there_any_way_to_replace_an_html_class_to/
+faqwiki.us##.rewarded-ad-card
+faqwiki.us###rewarded-content-locked.is-locked:remove-class(is-locked)
 
 ! https://fdownloader.net/ leftover modal ad
 fdownloader.net##+js(rmnt, script, showAd)
@@ -2022,6 +2025,8 @@ tokopedia.com##+js(rmnt, script, displayAdsV3)
 ||zee5.com/*/displayAds$xhr
 zee5.com##+js(json-prune-fetch-response, adDetails, , propsToMatch, /secure?)
 zee5.com##.vjs-control-bar:style(display: flex !important;)
+! https://github.com/uBlockOrigin/uAssets/issues/31338
+||imasdk.googleapis.com/js/sdkloader/ima3.js$xhr,redirect=google-ima.js,domain=zee5.com
 
 ! https://www.thejakartapost.com/business/2024/05/07/idx-composite-drops-0-17-following-daylong-fluctuations.html - ads placeholders
 thejakartapost.com##.tjp-single__content-ads:remove()
@@ -2048,11 +2053,12 @@ thejakartapost.com##.tjp-single__content-ads:remove()
 ! https://flickystream.com/player/movie/1045938
 ! https://github.com/uBlockOrigin/uAssets/issues/28221
 ! https://github.com/uBlockOrigin/uAssets/issues/25417#issuecomment-3017980757
+! https://www.reddit.com/r/uBlockOrigin/comments/1pk6pxj/disable_sandbox_message/
 !#if !ext_ubol
 !#if env_firefox
-$frame,csp=sandbox allow-downloads allow-forms allow-modals allow-same-origin allow-scripts,to=~buymeacoffee.com|~cbox.ws|~chatango.com|~cloudflare.com|~d21.team|~dailymotion.com|~discord.com|~disqus.com|~dood.*|~edgecastcdn.net|~facebook.com|~filemoon.*|~frembed.*|~google.*|~hcaptcha.com|~kamehaus.net|~ko-fi.com|~mixdrop.*|~moviesapi.*|~nontongo.win|~ok.ru|~primewire.*|~recaptcha.net|~sport-tv-guide.live|~strcdn.org|~streamingnow.*|~twitter.com|~vidbinge.*|~vidlink.*|~vidmoly.*|~vidsrc.nl|~vixcloud.co|~youtu.be|~youtube.com|~youtube-nocookie.com,from=1jour1film.*|456movie.com|animefever.cc|animeunity.to|anitaku.bz|antennasports.ru|bingemaster.netlify.app|bluphim.*|broflix.cc|cinemadeck.com|dailypudding.com|detodopeliculas.nu|euro2024direct.ru|flickystream.com|freek.to|freeshot.live|hydrahd.cc|javx.*|kaas.ro|kickassanime.*|kipflix.vercel.app|kissanime.*|moflix-stream.day|movie3k.net|netplayz.ru|novafork.com|osteusfilmestuga.online|phimmoifhd.com|popcornmovies.to|primeflix-web.vercel.app|putlockers.*|roselife.site|roshy.tv|seriescultes.store|smashystream.com|soccerinhd.com|uira.live|visualnewshub.com|watchf1full.com|xsportbox.com
+$frame,csp=sandbox allow-downloads allow-forms allow-modals allow-same-origin allow-scripts,to=~buymeacoffee.com|~cbox.ws|~chatango.com|~cloudflare.com|~d21.team|~dailymotion.com|~discord.com|~disqus.com|~dood.*|~edgecastcdn.net|~facebook.com|~filemoon.*|~frembed.*|~google.*|~hcaptcha.com|~kamehaus.net|~ko-fi.com|~mixdrop.*|~moviesapi.*|~nontongo.win|~ok.ru|~primewire.*|~recaptcha.net|~sport-tv-guide.live|~strcdn.org|~streamingnow.*|~twitter.com|~vidbinge.*|~vidfast.*|~vidlink.*|~vidmoly.*|~vidsrc.nl|~vixcloud.co|~youtu.be|~youtube.com|~youtube-nocookie.com,from=1jour1film.*|456movie.com|animefever.cc|animeunity.to|anitaku.bz|antennasports.ru|bingemaster.netlify.app|bluphim.*|broflix.cc|cinemadeck.com|dailypudding.com|detodopeliculas.nu|euro2024direct.ru|flickystream.com|freek.to|freeshot.live|hydrahd.cc|javx.*|kaas.ro|kickassanime.*|kipflix.vercel.app|kissanime.*|moflix-stream.day|movie3k.net|netplayz.ru|novafork.com|osteusfilmestuga.online|phimmoifhd.com|popcornmovies.to|primeflix-web.vercel.app|putlockers.*|roselife.site|roshy.tv|seriescultes.store|smashystream.com|soccerinhd.com|uira.live|visualnewshub.com|watchf1full.com|xsportbox.com
 !#else
-$frame,csp=sandbox allow-downloads allow-forms allow-modals allow-same-origin allow-scripts,to=~buymeacoffee.com|~cbox.ws|~chatango.com|~cloudflare.com|~d21.team|~dailymotion.com|~discord.com|~disqus.com|~dood.*|~edgecastcdn.net|~embed.su|~emturbovid.com|~facebook.com|~filemoon.*|~frembed.*|~google.*|~hcaptcha.com|~kamehaus.net|~ko-fi.com|~mixdrop.*|~moviesapi.*|~nontongo.win|~ok.ru|~ply4.com|~primewire.*|~recaptcha.net|~sport-tv-guide.live|~strcdn.org|~streamingnow.*|~topembed.pw|~twitter.com|~vidbinge.*|~vidlink.*|~vidmoly.*|~vidsrc.*|~vixcloud.co|~youtu.be|~youtube.com|~youtube-nocookie.com,from=456movie.com|animefever.cc|animeunity.to|bluphim.*|broflix.cc|cinemadeck.com|dailypudding.com|detodopeliculas.nu|flickystream.com|freeshot.live|hydrahd.cc|kaas.ro|kickassanime.*|kipflix.vercel.app|kissanime.*|netplayz.ru|novafork.com|phimmoifhd.com|primeflix-web.vercel.app|seriescultes.store|soccerinhd.com|visualnewshub.com|xsportbox.com
+$frame,csp=sandbox allow-downloads allow-forms allow-modals allow-same-origin allow-scripts,to=~buymeacoffee.com|~cbox.ws|~chatango.com|~cloudflare.com|~d21.team|~dailymotion.com|~discord.com|~disqus.com|~dood.*|~edgecastcdn.net|~embed.su|~emturbovid.com|~facebook.com|~filemoon.*|~frembed.*|~google.*|~hcaptcha.com|~kamehaus.net|~ko-fi.com|~mixdrop.*|~moviesapi.*|~nontongo.win|~ok.ru|~ply4.com|~primewire.*|~recaptcha.net|~sport-tv-guide.live|~strcdn.org|~streamingnow.*|~topembed.pw|~twitter.com|~vidbinge.*|~vidfast.*|~vidlink.*|~vidmoly.*|~vidsrc.*|~vixcloud.co|~youtu.be|~youtube.com|~youtube-nocookie.com,from=456movie.com|animefever.cc|animeunity.to|bluphim.*|broflix.cc|cinemadeck.com|dailypudding.com|detodopeliculas.nu|flickystream.com|freeshot.live|hydrahd.cc|kaas.ro|kickassanime.*|kipflix.vercel.app|kissanime.*|netplayz.ru|novafork.com|phimmoifhd.com|primeflix-web.vercel.app|seriescultes.store|soccerinhd.com|visualnewshub.com|xsportbox.com
 !#endif
 !#endif
 euro2024direct.ru##+js(acs, document.createElement, break;case)
@@ -2132,6 +2138,9 @@ duneawakening.th.gl##div[id^="dune-awakening:"]
 duneawakening.th.gl##div[id^="dune-awakening-wide-skyscraper-"]
 duneawakening.th.gl##div#dune-awakening-large-mobile-banner
 duneawakening.th.gl##div#dune-awakening-mobile-banner
+@@*$script,domain=th.gl,denyallow=amazon-adsystem.com|doubleclick.net|googlesyndication.com|avplayer.com|aniview.com|id5-sync.com
+*$script,3p,redirect-rule=noop.js,domain=th.gl,important
+@@||nitropay.com^$domain=th.gl
 
 ! https://young-machine.com/
 ||fewcents.co^$3p
@@ -2856,6 +2865,7 @@ wuxia.click##.mantine-Container-root + .mantine-Container-root + br + br + div[c
 ! moneycontrol. com interstitial ad
 moneycontrol.com##+js(rmnt, script, initializeInterstitial)
 moneycontrol.com##+js(set-session-storage-item, adViewed, true)
+moneycontrol.com##.sponsor_ad_bg_slider
 
 ! https://github.com/uBlockOrigin/uAssets/issues/24807
 @@||filespace.com^$ghide
@@ -2915,7 +2925,6 @@ hartico.tv##+js(nostif, getComputedStyle, 250)
 modescanlator.net##+js(no-fetch-if, googlesyndication)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/24929
-gameskinny.com##+js(rmnt, script, admbenefits)
 ||infinity-api.gameskinny.com/campaign/$xhr,1p
 
 ! https://www.reddit.com/r/uBlockOrigin/comments/1etud7d/add_shown_on_mercatinomusicalecom/
@@ -3287,9 +3296,6 @@ callofwar.com###inGameAdsContainer:remove()
 
 ! https://github.com/uBlockOrigin/uAssets/issues/25483
 picrew.me##.play-Imagemaker:style(height: 100% !important;)
-
-! https://github.com/uBlockOrigin/uAssets/issues/58
-deadline.com##+js(rmnt, script, admbenefits)
 
 ! https://webdexscans.com/ detection
 ||cdn.pubfuture-ad.com/v2/unit/pt.js$script,redirect=noopjs,domain=webdexscans.com
@@ -3768,6 +3774,7 @@ akirabox.com,akirabox.to##+js(aeld, DOMContentLoaded, open)
 akirabox.com,akirabox.to##+js(nowoif, _blank)
 *$popup,3p,domain=akirabox.com|akirabox.to
 ||doubletag.run/tags/$script,domain=akirabox.to
+||cfd/tags/$script,domain=akirabox.to
 ||shareease.link^$all
 ||fastfilehost.link^$all
 ||rapidsend.cfd^$all
@@ -3803,12 +3810,7 @@ neodrive.xyz##+js(rmnt, script, FingerprintJS)
 ||staletraffic.com^$popup,doc
 
 ! https://github.com/uBlockOrigin/uAssets/issues/26527
-!#if cap_html_filtering
-historicaerials.com##^script:has-text(window.googletag.pubads)
-!#else
-historicaerials.com##+js(rmnt, script, window.googletag.pubads)
-!#endif
-historicaerials.com##+js(rmnt, script, "'flex'")
+historicaerials.com##+js(aost, Promise, window.onload inlineScript)
 historicaerials.com##+js(nostif, /Executed|modal/)
 historicaerials.com##.border-bottom.container:has(#historicaerials_728x90_ATF)
 ||pagefair.net^
@@ -4221,6 +4223,8 @@ netflix.com##+js(json-prune, data.pinotPausedPlaybackPage)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/26594
 worldpopulationreview.com###top_ad_container + div:style(padding-top: 4rem !important;)
+worldpopulationreview.com#@##top_ad_container
+worldpopulationreview.com###top_ad_container:style(height: 0 !important)
 
 ! https://gofirmware.com/ - popup
 gofirmware.com##+js(aeld, click, window.open)

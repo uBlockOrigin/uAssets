@@ -32,4 +32,7 @@ node ./tools/make-easylist.mjs dir=$TMPDIR/easylist in=easylist-notifications.te
 echo "*** uAssets: Assembling easylist-chat.txt"
 node ./tools/make-easylist.mjs dir=$TMPDIR/easylist in=easylist-chat.template out=thirdparties/easylist/easylist-chat.txt
 
+echo "*** uAssets: Assembling easylist-ai.txt"
+node ./tools/make-easylist.mjs dir=$TMPDIR/easylist in=easylist-ai.template out=thirdparties/easylist/easylist-ai.txt
+
 rm -rf $TMPDIR

@@ -31,9 +31,6 @@ gay69.stream##+js(aopr, disableSelection)
 gay69.stream##+js(aopw, nocontext)
 gay69.stream##.unselectable:style(-webkit-touch-callout: default !important; -webkit-user-select: text !important; -moz-user-select: text !important; -ms-user-select: text !important; user-select: text !important;)
 
-! https://forums.lanik.us/viewtopic.php?p=136255#p136255
-m4ufree.com##+js(aopw, document.oncontextmenu)
-
 ! evz.ro right click - select
 evz.ro##body:style(-moz-user-select: text !important; -ms-user-select: text !important; user-select: text !important;)
 evz.ro##+js(acs, $, contextmenu)
@@ -45,22 +42,11 @@ mcocguideblog.com##+js(acs, disableselect, reEnable)
 resourcepack.net##+js(aopw, clickIE4)
 resourcepack.net##+js(aopw, disableSelection)
 
-! https://github.com/uBlockOrigin/uAssets/issues/2903
-programegratuitepc.com##+js(aopr, disableSelection)
-programegratuitepc.com##+js(aopr, document.oncontextmenu)
-programegratuitepc.com##.unselectable:style(-webkit-touch-callout: default !important; -webkit-user-select: text !important; -moz-user-select: text !important; -ms-user-select: text !important; user-select: text !important;)
-
-! ^^^ old rules
-! https://github.com/uBlockOrigin/uAssets/issues/27752
-xn-----0b4asja8cbew2b4b0gd0edbjm2jpa1b1e9zva7a0347s4da2797e7qri.xn--1ck2e1b##+js(set, ConsoleBan.init, noopFunc)
-xn-----0b4asja8cbew2b4b0gd0edbjm2jpa1b1e9zva7a0347s4da2797e7qri.xn--1ck2e1b##+js(aopr, document.onkeydown)
-/cdn.jsdelivr.net/npm/disable-devtool$script,domain=xn-----0b4asja8cbew2b4b0gd0edbjm2jpa1b1e9zva7a0347s4da2797e7qri.xn--1ck2e1b
-
 ! https://up4stream.com/ccr0jb82zmr1.html - anti devtools, right click, keys
 ||up4stream.com/js/devtools-detector.js
-up4stream.com,ups2up.fun##+js(rmnt, script, debugger)
-up4stream.com,ups2up.fun##+js(acs, document.onkeydown)
-up4stream.com,ups2up.fun##+js(set, devtoolsDetector, {})
+up4stream.com##+js(rmnt, script, debugger)
+up4stream.com##+js(acs, document.onkeydown)
+up4stream.com##+js(set, devtoolsDetector, {})
 
 ! https://github.com/uBlockOrigin/uAssets/issues/27772
 kursnacukrzyce.pl##+js(acs, document.addEventListener, contextmenu)
@@ -89,18 +75,27 @@ webnoveltranslations.com##+js(aeld, /contextmenu|copy|cut|key/, , elements, docu
 ! https://github.com/uBlockOrigin/uAssets/issues/21830
 ! https://github.com/uBlockOrigin/uAssets/issues/26963#issuecomment-2614193847
 ! https://www.reddit.com/r/uBlockOrigin/comments/1gk2o42/help_me_to_block_new_tab_popup/
-bitcine.app,cineby.app,tv.verizon.com##+js(aeld, keydown, 123)
-bitcine.app,cineby.app,moflix-stream.day,tv.verizon.com,world-novel.fr##+js(set, console.clear, trueFunc)
-bitcine.app,cineby.app,moflix-stream.day,tv.verizon.com,world-novel.fr##+js(set, console.table, trueFunc)
-bitcine.app,cineby.app,moflix-stream.day,tv.verizon.com,world-novel.fr##+js(set, console.log, trueFunc)
+! https://www.reddit.com/r/uBlockOrigin/comments/1prxxcf/need_help_with_blocking_the_inspect_element_block/
+bitcine.app##+js(aeld, keydown, 123)
+bflix.*##+js(aeld, keydown, [arguments];)
+bflix.*,bitcine.app,world-novel.fr##+js(set, console.clear, trueFunc)
+bflix.*,bitcine.app,world-novel.fr##+js(set, console.table, trueFunc)
+bflix.*,bitcine.app,world-novel.fr##+js(set, console.log, trueFunc)
 
 ! https://www.reddit.com/r/uBlockOrigin/comments/1oqhp7b/website_prevents_inspection_right_button_clicks/
 world-novel.fr##+js(aeld, keydown, key)
 world-novel.fr##+js(aeld, /copy|selectstart/, return)
 world-novel.fr##+js(aeld, contextmenu, /preventDefault|pointerType/)
 
-! https://github.com/uBlockOrigin/uAssets/issues/30995
-lemon8-app.com##*:style(-webkit-touch-callout: default !important; -webkit-user-select: auto !important; -khtml-user-select: auto !important; -moz-user-select: auto !important; -ms-user-select: auto !important; user-select: auto !important;)
+! https://www.reddit.com/r/uBlockOrigin/comments/1pmm4lv/cannot_right_click_on_foxaholiccom/
+!#if env_firefox
+foxaholic.com##body[onkeydown*="__cfRLUnblockHandlers"]:remove-attr(/onkeydown|onselectstart|oncontextmenu/)
+!#else
+foxaholic.com##+js(ra, onkeydown|onselectstart|oncontextmenu, body[onkeydown*="__cfRLUnblockHandlers"], complete)
+!#endif
+
+! https://github.com/uBlockOrigin/uAssets/issues/27684#issuecomment-3708579962
+isekaitube.com##+js(rpnt, script, "copyRProtection":true, "copyRProtection":false)
 
 ! END: Anti copy, right-click etc.
 
@@ -138,10 +133,8 @@ airnavradar.com##section > #content > div[class]:has(> #ads)
 airnavradar.com###ads
 
 ! https://github.com/uBlockOrigin/uAssets/issues/20190
-cyanlabs.net##+js(rmnt, script, ADBLOCK)
 cyanlabs.net#@#ins.adsbygoogle[data-ad-slot]
 cyanlabs.net#@#ins.adsbygoogle[data-ad-client]
-cyanlabs.net##ins.adsbygoogle:style(visibility: hidden !important;)
 
 ! https://tides.net/california/
 tides.net##+js(nostif, adsbygoogle)
@@ -204,6 +197,9 @@ th.gl#@#.hidden.border
 th.gl#@#.fixed.border
 th.gl#@#script[src^="https://s.nitropay.com/"] + div
 th.gl#@#next-route-announcer[style="position: absolute;"] + div
+
+! https://www.reddit.com/r/uBlockOrigin/comments/1q2k0fa/jailbreakchangelogsxyz_detected_using_ubo/
+jailbreakchangelogs.xyz##+js(set-session-storage-item, adblock_modal_dismissed, true)
 
 ! END: Anti-adblock
 
@@ -6294,7 +6290,9 @@ scitechdaily.com##+js(set-cookie, ezgwcc, 1)
 ophim.vip##+js(aost, navigator.userAgent, phimv)
 
 ! https://twitter.com/SeriousHoax/status/1686306737404641280
-hindustantimes.com###credential_picker_iframe
+! https://github.com/uBlockOrigin/uAssets/issues/31315
+zive.cz###credential_picker_container
+hindustantimes.com,zive.cz###credential_picker_iframe
 !#if env_mobile
 *###credential_picker_iframe
 !#endif
@@ -7597,8 +7595,8 @@ lemon8-app.com##+js(trusted-click-element, .seo-landing-modal-cancel-btn .design
 lemon8-app.com##*:style(-webkit-touch-callout: default !important; -webkit-user-select: text !important; -khtml-user-select: text !important; -moz-user-select: text !important; -ms-user-select: text !important; user-select: text !important; -webkit-tap-highlight-color: revert !important; cursor: revert !important;)
 
 ! animekai.me anti-devtools
-anikai.to,animekai.*,anigo.to,sflix.fi,yflix.to##+js(aeld, keydown, /^function\(.*\|\|.*}$/)
-anikai.to,animekai.*,anigo.to,megaup.cc,megaup.live,megaup.site,megaup22.online,rapidshare.cc,sflix.fi,yflix.to##+js(set, console.clear, throwFunc)
+anikai.to,animekai.*,anigo.to,sflix.fi,yflix.to,anikai.to>>,animekai.*>>,anigo.to>>,sflix.fi>>,yflix.to>>##+js(aeld, keydown, /^function\(.*\|\|.*}$/)
+anikai.to,animekai.*,anigo.to,sflix.fi,yflix.to,anikai.to>>,animekai.*>>,anigo.to>>,sflix.fi>>,yflix.to>>##+js(set, console.clear, throwFunc)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/27010
 loverslab.com##+js(nano-sib)
@@ -7826,3 +7824,24 @@ rivestream.org##+js(nosiif, devtool)
 rivestream.org##+js(aeld, contextmenu)
 rivestream.org##+js(aeld, keydown)
 rivestream.org##*:style(-webkit-touch-callout: default !important; -webkit-user-select: text !important; -khtml-user-select: text !important; -moz-user-select: text !important; -ms-user-select: text !important; user-select: text !important; -webkit-tap-highlight-color: revert !important; cursor: revert !important;)
+
+! https://github.com/uBlockOrigin/uAssets/issues/5281#issuecomment-3688539281
+theintercept.com##+js(rmnt, script, userData_)
+theintercept.com##.inline-wall
+theintercept.com##.ft-ab-test-case
+
+! https://github.com/uBlockOrigin/uAssets/issues/31345
+teamblind.com##+js(trusted-set-local-storage-item, mobile-app-recommend, '{"dismissed":true,"day":30}')
+
+! Anti select text
+spares2repair.co.uk##body:style(-webkit-user-select:text !important; -moz-user-select:text !important; user-select:text !important)
+
+! https://github.com/uBlockOrigin/uAssets/issues/31419
+||cdn.carbonads.com^$script,domain=teknixstuff.com,redirect=noopjs
+
+! https://github.com/uBlockOrigin/uAssets/issues/31476
+foodnavigator.com##+js(rpnt, script, CopyrightLayer, abc)
+
+! liddread.com anti right click, select
+liddread.com##+js(rmnt, script, /wpcp|contextmenu|unselectable/)
+liddread.com##*:style(-webkit-touch-callout: default !important; -webkit-user-select: text !important; -khtml-user-select: text !important; -moz-user-select: text !important; -ms-user-select: text !important; user-select: text !important; -webkit-tap-highlight-color: revert !important; cursor: revert !important;)

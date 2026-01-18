@@ -51,6 +51,8 @@ musee-moyenage.fr##body.tac-modal-open:style(overflow: auto !important;)
 !#if ext_ubol
 @@||usercentrics.eu^$script,xhr,domain=zalando.be|zalando.com|zalando.es|zalando.fr|zalando.it|zalando.nl|zalando.pl|zalando.se
 !#endif
+! https://github.com/uBlockOrigin/uAssets/issues/31175
+groupeapocom.com###website_cookies_bar
 
 !!! Trusted scriptlets------------------------------------------------------------
 
@@ -319,6 +321,11 @@ nature.com##+js(trusted-set-cookie, sncc, P%3D8%3AV%3D77.0.0%26C%3DC01%26D%3Dtru
 springernature.com##+js(trusted-set-cookie, sncc, P%3D49%3AV%3D60.0.0%26C%3DC01%26D%3Dtrue, , , domain, springernature.com)
 palgrave.com##+js(trusted-set-cookie, sncc, P%3D65%3AV%3D14.0.0%26C%3DC01%26D%3Dtrue, , , domain, palgrave.com)
 apress.com##+js(trusted-set-cookie, sncc, P%3D71%3AV%3D9.0.0%26C%3DC01%26D%3Dtrue, , , domain, apress.com)
+! reject
+gizmodo.com,kotaku.com##+js(trusted-set-local-storage-item, sddan:cmp, '{"tc":"CQdF08AQdF08ABcAKCENCLFgAAAAAEPgAAqIJNQAASagZgALgAcAB4AFQALgAcABAACQAFQAMoAaABqADwAJkAXABdADEAGgAN4AfAA_ACEgEQARIAw4BlAGWANEAc8A-wD9AIQARQAiwBGICOAI6ASYAq4BcwC8gGKANEAa8A2gB_wEegJiATSAocBTQC1AFzALzAYsAyQBpoDkwAA","lp":$now$}')
+gizmodo.com,kotaku.com##+js(trusted-set-cookie, euconsent-v2, 'CQdF08AQdF08ABcAKBENCLFgAAAAAEPgAAqIJNQAASagZgALgAcAB4AFQALgAcABAACQAFQAMoAaABqADwAJkAXABdADEAGgAN4AfAA_ACEgEQARIAw4BlAGWANEAc8A-wD9AIQARQAiwBGICOAI6ASYAq4BcwC8gGKANEAa8A2gB_wEegJiATSAocBTQC1AFzALzAYsAyQBpoDkwAA')
+! reject
+webwave.me##+js(trusted-set-cookie, ww-cookie-settings, '{"functional":true,"preferences":false,"statistics":false,"marketing":false}')
 ! https://www.bol.com/nl/nl/
 bol.com##+js(trusted-set-cookie, bolConsentChoices, source#OFC|version#6|int-tran#false|ext-tran#false|int-beh#false|ext-beh#false, , , domain, www.bol.com, reload, 1)
 ! https://github.com/AdguardTeam/AdguardFilters/issues/179998
@@ -529,7 +536,7 @@ everyeye.it###pubtech-cmp
 ! https://github.com/uBlockOrigin/uAssets/issues/29900
 godtlevert.no##+js(trusted-set-local-storage-item, reduxStore, '{"tracking":{"consents":{"All":false,"functional":false,"Segment.io":false},"dialog":{"open":false,"dirty":false},"isConfigured":true},"loyalty":{"hasSeenLoyaltyPage":false}}')
 ! https://github.com/uBlockOrigin/uAssets/pull/29946
-reisjaeger.at,mydealz.de,pepper.pl,dealabs.com,hotukdeals.com,chollometro.com##+js(trusted-click-element, button[data-t="rejectAll"], , 1000)
+preisjaeger.at,mydealz.de,pepper.pl,dealabs.com,hotukdeals.com,chollometro.com##+js(trusted-click-element, button[data-t="rejectAll"], , 1000)
 ! https://github.com/uBlockOrigin/uAssets/pull/29935
 ! Reject, kleinanzeigen.de does A/B testing with consent banner, should work with all 3 types
 kleinanzeigen.de##+js(trusted-click-element, #gdpr-banner-cmp-button,, 1000)
@@ -554,6 +561,8 @@ mediani.fi##+js(trusted-set-cookie, cookiebar, CookieDisallowed)
 ||cdn-cookieyes.com^$important,domain=planhub.ca
 ! vaasaevl.fi & vaasansuomalainenseurakunta.fi
 vaasaevl.fi,vaasansuomalainenseurakunta.fi##+js(trusted-click-element, #reject-cookies, , 500)
+! https://spares2repair.co.uk/
+spares2repair.co.uk##+js(trusted-set-cookie, cookie_consent, 1|0|0, 1year)
 
 !! Needs additional cookies
 
@@ -622,7 +631,7 @@ zdnet.com##+js(trusted-set-cookie, OptanonConsent, groups=C0001%3A1%2CC0002%3A0%
 
 ! https://news.sky.com/story/elon-musk-says-his-dog-is-now-twitters-ceo-as-companys-name-gets-quietly-changed-12855604
 ! Embed contents - Custom purposes cookies
-||privacy-mgmt.com^$domain=news.sky.com
+||privacy-mgmt.com^$domain=news.sky.com,important
 news.sky.com##+js(trusted-set-cookie, consents, :4:6:7:8:9:10:11:12:13:19:)
 
 ! Mandatory, statistical + functional
@@ -910,11 +919,17 @@ snowandrock.com##+js(trusted-set-cookie, consent_setting, analytics%3A0%7Cfuncti
 
 ! racingnews365.com
 ! All store information on device cookies
-dailybuzz.nl,bnn.de,dosenbach.ch,dw.com,kinepolis.*,mediaite.com,nzz.ch,winfuture.de,lippu.fi,racingnews365.com,reifendirekt.ch,vaillant.*##+js(trusted-click-element, #cmpwrapper >>> #cmpbntyestxt, , 1000)
+drimble.nl,beurs.nl,iex.nl,luchtvaartnieuws.nl,beursonline.nl,belegger.nl,beursgorilla.nl,dailybuzz.nl,bnn.de,dosenbach.ch,dw.com,kinepolis.*,mediaite.com,nzz.ch,winfuture.de,lippu.fi,racingnews365.com,reifendirekt.ch,vaillant.*##+js(trusted-click-element, #cmpwrapper >>> #cmpbntyestxt, , 1000)
 ! .cmptxt_btn_no (shadowroot)
-bauhaus.no,bauhaus.se,beko-group.de,billiger.de,burda.com,continental-tires.com,vanharen.nl,deichmann.com,meraluna.de,slashdot.org,hermann-saunierduval.it,protherm.cz,saunierduval.es,protherm.sk,protherm.ua,saunierduval.hu,saunierduval.ro,saunierduval.at,awb.nl##+js(trusted-click-element, #cmpwrapper >>> .cmptxt_btn_no, , 1000)
+webtoons.com,bauhaus.no,bauhaus.se,beko-group.de,billiger.de,burda.com,continental-tires.com,vanharen.nl,deichmann.com,meraluna.de,slashdot.org,hermann-saunierduval.it,protherm.cz,saunierduval.es,protherm.sk,protherm.ua,saunierduval.hu,saunierduval.ro,saunierduval.at,awb.nl##+js(trusted-click-element, #cmpwrapper >>> .cmptxt_btn_no, , 1000)
 ! .cmptxt_btn_save
 spar.hu,group.vattenfall.com##+js(trusted-click-element, #cmpwrapper >>> .cmptxt_btn_save, , 1000)
+
+! custom-functional
+curacao.nu,hpdetijd.nl,nd.nl##+js(trusted-set-cookie, cookie_consent, custom-functional)
+
+! minimal
+rd.nl##+js(trusted-click-element, button.minimal, , 1000)
 
 ! https://www.zdf.de/ - Functional + social
 zdf.de##+js(trusted-set-cookie, zdf_cmp_client, '{%22version%22:%22v1%22%2C%22iteration%22:1%2C%22consents%22:[{%22id%22:%22personalisierung%22%2C%22value%22:false}%2C{%22id%22:%22socialMedia%22%2C%22value%22:true}%2C{%22id%22:%22instagram%22%2C%22value%22:true}%2C{%22id%22:%22twitter%22%2C%22value%22:true}%2C{%22id%22:%22facebook%22%2C%22value%22:true}%2C{%22id%22:%22drittsysteme%22%2C%22value%22:true}%2C{%22id%22:%22erforderlich%22%2C%22value%22:true}%2C{%22id%22:%22erfolgsmessung%22%2C%22value%22:true}]}')
@@ -1357,8 +1372,8 @@ fastnedcharging.com##+js(trusted-set-cookie, CookieConsent, {necessary:true%2Cpr
 ! https://github.com/uBlockOrigin/uAssets/issues/23645
 mapillary.com##+js(trusted-click-element, [data-testid="cookie-policy-banner-accept"], , 500)
 
-! transfermarkt.com accept
-transfermarkt.com>>##+js(trusted-click-element, button.accept-all, 1000)
+! https://github.com/uBlockOrigin/uAssets/issues/31463
+transfermarkt.*>>##+js(trusted-click-element, .cmp-banner button.accept-all, 1000)
 
 ! https://www.reddit.com/r/uBlockOrigin/comments/1ctsl2n/store_locator_not_working_on/ - Personalized Advertisement
 costcobusinessdelivery.com##+js(trusted-set-cookie, OptanonConsent, groups=BG117%3A1%2CC0001%3A1%2CC0003%3A1%2CC0002%3A1%2CSPD_BG%3A1%2CC0004%3A1)
@@ -1497,6 +1512,9 @@ dailystar.co.uk,mirror.co.uk##+js(trusted-click-element, button[class*="cipa-acc
 ! https://www.redbull.com/ - third party content
 redbull.com##+js(trusted-set-cookie, OptanonConsent, groups=C0001%3A1%2CC0002%3A0%2CC0003%3A1, , , domain, www.redbull.com)
 redbull.com##+js(trusted-set-cookie, OptanonAlertBoxClosed, $currentDate$, , , domain, www.redbull.com)
+! redbullracing.com consent
+redbullracing.com##+js(trusted-set-cookie, OptanonConsent, groups=C0001%3A1%2CC0002%3A0%2CC0003%3A1, , , domain, www.redbullracing.com)
+redbullracing.com##+js(trusted-set-cookie, OptanonAlertBoxClosed, $currentDate$, , , domain, www.redbullracing.com)
 
 ! Didomi consent popups
 ! https://github.com/uBlockOrigin/uAssets/issues/24725
@@ -1507,9 +1525,9 @@ redbull.com##+js(trusted-set-cookie, OptanonAlertBoxClosed, $currentDate$, , , d
 ! https://www.informacion.es/deportes/2025/08/14/fallece-bernardo-ruiz-primer-espanol-120616150.html - video breakage
 ! https://www.laprovincia.es/sucesos/sucesos-en-canarias/2025/08/14/drama-charco-muerte-cuatro-banistas-morir-ahogados-120614340.html - video breakage
 idnes.cz##+js(trusted-click-element, a[href="javascript:Didomi.setUserAgreeToAll();"], , 1000)
-20minutes.fr,20minutos.es,24sata.hr,abc.es,actu.fr,antena3.com,antena3internacional.com,atresmedia.com,atresmediapublicidad.com,atresmediastudios.com,atresplayer.com,autopista.es,belfasttelegraph.co.uk,bemad.es,bonduelle.it,bonniernews.se,bt.se,cadenadial.com,caracol.com.co,cas.sk,challenges.fr,charentelibre.fr,ciclismoafondo.es,cnews.fr,cope.es,correryfitness.com,courrier-picard.fr,cuatro.com,decathlon.nl,decathlon.pl,di.se,diariocordoba.com,diariodenavarra.es,diariosur.es,diariovasco.com,diepresse.com,divinity.es,dn.se,dnevnik.hr,dumpert.nl,ebuyclub.com,edreams.de,edreams.net,elcomercio.es,elconfidencial.com,elcorreo.com,eldesmarque.com,eldiario.es,eldiariomontanes.es,elespanol.com,elle.fr,elpais.com,elperiodico.com,elperiodico.com,elperiodicodearagon.com,elplural.com,energytv.es,engadget.com,es.ara.cat,euronews.com,europafm.com,expressen.se,factoriadeficcion.com,filmstarts.de,flooxernow.com,folkbladet.nu,footmercato.net,france.tv,france24.com,fussballtransfers.com,ghacks.net,gva.be,hbvl.be,heraldo.es,hoy.es,ideal.es,idealista.pt,krone.at,kurier.at,lacoste.com,ladepeche.fr,lalibre.be,lanouvellerepublique.fr,larazon.es,lasexta.com,lasprovincias.es,latribune.fr,lavanguardia.com,laverdad.es,lavozdegalicia.es,leboncoin.fr,lecturas.com,ledauphine.com,lejdd.fr,lejsl.com,leparisien.fr,lesoir.be,letelegramme.fr,libremercado.com,localeyes.dk,los40.com,lotoquebec.com,lunion.fr,m6.fr,marianne.cz,marmiton.org,mediaset.es,melodia-fm.com,metronieuws.nl,moviepilot.de,mtmad.es,multilife.com.pl,mundodeportivo.com,naszemiasto.pl,nationalgeographic.com.es,nicematin.com,nieuwsblad.be,notretemps.com,numerama.com,okdiario.com,ondacero.es,podiumpodcast.com,portail.lotoquebec.com,profil.at,public.fr,publico.es,radiofrance.fr,rankia.com,rfi.fr,rossmann.pl,rtbf.be,rtl.lu,science-et-vie.com,sensacine.com,sfgame.net,shure.com,silicon.es,sncf-connect.com,sport.es,sydsvenskan.se,techcrunch.com,telegraaf.nl,telequebec.tv,tf1.fr,tradingsat.com,trailrun.es,video-streaming.orange.fr,xpress.fr##+js(trusted-click-element, #didomi-notice-agree-button, , 1000)
-20minutes.fr,20minutos.es,24sata.hr,abc.es,actu.fr,antena3.com,antena3internacional.com,atresmedia.com,atresmediapublicidad.com,atresmediastudios.com,atresplayer.com,autopista.es,belfasttelegraph.co.uk,bemad.es,bonduelle.it,bonniernews.se,bt.se,cadenadial.com,caracol.com.co,cas.sk,charentelibre.fr,ciclismoafondo.es,cnews.fr,cope.es,correryfitness.com,courrier-picard.fr,cuatro.com,decathlon.nl,decathlon.pl,diariocordoba.com,diariodenavarra.es,diariovasco.com,diepresse.com,divinity.es,dnevnik.hr,dumpert.nl,ebuyclub.com,edreams.de,edreams.net,elcomercio.es,elconfidencial.com,elcorreo.com,eldesmarque.com,eldiario.es,eldiariomontanes.es,elespanol.com,elle.fr,elperiodico.com,elpais.com,elperiodico.com,elperiodicodearagon.com,elplural.com,energytv.es,engadget.com,es.ara.cat,euronews.com,europafm.com,expressen.se,factoriadeficcion.com,filmstarts.de,flooxernow.com,folkbladet.nu,footmercato.net,france24.com,francetvinfo.fr,ghacks.net,gva.be,hbvl.be,heraldo.es,hoy.es,ideal.es,idealista.pt,krone.at,kurier.at,lacoste.com,ladepeche.fr,lalibre.be,lanouvellerepublique.fr,larazon.es,lasexta.com,lasprovincias.es,latribune.fr,lavanguardia.com,laverdad.es,lavoixdunord.fr,lavozdegalicia.es,leboncoin.fr,lecturas.com,ledauphine.com,lejdd.fr,lejsl.com,leparisien.fr,lesoir.be,letelegramme.fr,lexpress.fr,libremercado.com,localeyes.dk,los40.com,lotoquebec.com,lunion.fr,marianne.cz,marmiton.org,mediaset.es,melodia-fm.com,metronieuws.nl,moviepilot.de,mtmad.es,multilife.com.pl,mundodeportivo.com,nationalgeographic.com.es,nicematin.com,nieuwsblad.be,notretemps.com,numerama.com,ondacero.es,podiumpodcast.com,portail.lotoquebec.com,profil.at,public.fr,publico.es,radiofrance.fr,rankia.com,rfi.fr,rossmann.pl,rtbf.be,rtl.lu,science-et-vie.com,sensacine.com,sfgame.net,shure.com,silicon.es,sncf-connect.com,sport.es,techcrunch.com,telegraaf.nl,telequebec.tv,tradingsat.com,trailrun.es,video-streaming.orange.fr###didomi-host:style(visibility: hidden !important;)
-20minutes.fr,20minutos.es,24sata.hr,abc.es,actu.fr,antena3.com,antena3internacional.com,atresmedia.com,atresmediapublicidad.com,atresmediastudios.com,atresplayer.com,autopista.es,belfasttelegraph.co.uk,bemad.es,bonduelle.it,bonniernews.se,bt.se,cadenadial.com,caracol.com.co,cas.sk,charentelibre.fr,ciclismoafondo.es,cnews.fr,cope.es,correryfitness.com,courrier-picard.fr,cuatro.com,decathlon.nl,decathlon.pl,diariocordoba.com,diariodenavarra.es,diariosur.es,diariovasco.com,diepresse.com,divinity.es,dnevnik.hr,dumpert.nl,ebuyclub.com,edreams.de,edreams.net,elcomercio.es,elconfidencial.com,elcorreo.com,eldesmarque.com,eldiario.es,eldiariomontanes.es,elespanol.com,elle.fr,elpais.com,elperiodico.com,elperiodico.com,elperiodicodearagon.com,elplural.com,energytv.es,engadget.com,es.ara.cat,euronews.com,europafm.com,expressen.se,factoriadeficcion.com,filmstarts.de,flooxernow.com,folkbladet.nu,footmercato.net,france24.com,francetvinfo.fr,ghacks.net,gva.be,hbvl.be,heraldo.es,hoy.es,ideal.es,idealista.pt,krone.at,kurier.at,lacoste.com,ladepeche.fr,lalibre.be,lanouvellerepublique.fr,larazon.es,lasexta.com,lasprovincias.es,latribune.fr,lavanguardia.com,laverdad.es,lavoixdunord.fr,lavozdegalicia.es,leboncoin.fr,lecturas.com,ledauphine.com,lejdd.fr,lejsl.com,leparisien.fr,lesoir.be,letelegramme.fr,lexpress.fr,libremercado.com,localeyes.dk,los40.com,lotoquebec.com,lunion.fr,marianne.cz,marmiton.org,mediaset.es,melodia-fm.com,metronieuws.nl,moviepilot.de,mtmad.es,multilife.com.pl,mundodeportivo.com,nationalgeographic.com.es,nicematin.com,nieuwsblad.be,notretemps.com,numerama.com,ondacero.es,podiumpodcast.com,portail.lotoquebec.com,profil.at,public.fr,publico.es,radiofrance.fr,rankia.com,rfi.fr,rossmann.pl,rtbf.be,rtl.lu,science-et-vie.com,sensacine.com,sfgame.net,shure.com,silicon.es,sncf-connect.com,sport.es,techcrunch.com,telegraaf.nl,telequebec.tv,tradingsat.com,trailrun.es,video-streaming.orange.fr##body.didomi-popup-open:style(overflow: auto !important;)
+20minutes.fr,20minutos.es,24sata.hr,abc.es,actu.fr,androidplanet.nl,antena3.com,antena3internacional.com,atresmedia.com,atresmediapublicidad.com,atresmediastudios.com,atresplayer.com,autopista.es,beleggersbelangen.nl,belfasttelegraph.co.uk,bemad.es,bonduelle.it,bonniernews.se,bt.se,cadenadial.com,caracol.com.co,cas.sk,charentelibre.fr,ciclismoafondo.es,cnews.fr,cope.es,correryfitness.com,courrier-picard.fr,cuatro.com,decathlon.nl,decathlon.pl,diariocordoba.com,diariodenavarra.es,diariovasco.com,diepresse.com,distrifood.nl,divinity.es,dnevnik.hr,dumpert.nl,dvhn.nl,ebuyclub.com,edreams.de,edreams.net,elcomercio.es,elconfidencial.com,elcorreo.com,eldesmarque.com,eldiario.es,eldiariomontanes.es,elespanol.com,elle.fr,elpais.com,elperiodico.com,elperiodicodearagon.com,elplural.com,energytv.es,engadget.com,es.ara.cat,euronews.com,europafm.com,expressen.se,factoriadeficcion.com,filmstarts.de,flooxernow.com,folkbladet.nu,footmercato.net,france24.com,francetvinfo.fr,ghacks.net,gooieneemlander.nl,gva.be,haarlemsdagblad.nl,hbvl.be,heraldo.es,hoy.es,ideal.es,idealista.pt,krone.at,kurier.at,lacoste.com,ladepeche.fr,lalibre.be,lanouvellerepublique.fr,larazon.es,lasexta.com,lasprovincias.es,latribune.fr,lavanguardia.com,laverdad.es,lavoixdunord.fr,lavozdegalicia.es,lc.nl,leboncoin.fr,lecturas.com,ledauphine.com,leidschdagblad.nl,lejdd.fr,lejsl.com,leparisien.fr,lesoir.be,letelegramme.fr,lexpress.fr,libremercado.com,limburger.nl,localeyes.dk,los40.com,lotoquebec.com,lunion.fr,marianne.cz,marmiton.org,mediaset.es,melodia-fm.com,metronieuws.nl,moviepilot.de,mtmad.es,multilife.com.pl,mundodeportivo.com,nationalgeographic.com.es,nicematin.com,nieuwsblad.be,noordhollandsdagblad.nl,notretemps.com,numerama.com,ondacero.es,podiumpodcast.com,portail.lotoquebec.com,profil.at,public.fr,publico.es,radiofrance.fr,rankia.com,rfi.fr,rossmann.pl,rtbf.be,rtl.lu,science-et-vie.com,sensacine.com,sfgame.net,shure.com,silicon.es,sncf-connect.com,sport.es,standaard.be,techcrunch.com,telegraaf.nl,telequebec.tv,tijd.be,tradingsat.com,trailrun.es,video-streaming.orange.fr###didomi-host:style(visibility: hidden !important;)
+20minutes.fr,20minutos.es,24sata.hr,abc.es,actu.fr,androidplanet.nl,antena3.com,antena3internacional.com,atresmedia.com,atresmediapublicidad.com,atresmediastudios.com,atresplayer.com,autopista.es,beleggersbelangen.nl,belfasttelegraph.co.uk,bemad.es,bonduelle.it,bonniernews.se,bt.se,cadenadial.com,caracol.com.co,cas.sk,challenges.fr,charentelibre.fr,ciclismoafondo.es,cnews.fr,cope.es,correryfitness.com,courrier-picard.fr,cuatro.com,decathlon.nl,decathlon.pl,di.se,diariocordoba.com,diariodenavarra.es,diariosur.es,diariovasco.com,diepresse.com,distrifood.nl,divinity.es,dn.se,dnevnik.hr,dumpert.nl,dvhn.nl,ebuyclub.com,edreams.de,edreams.net,elcomercio.es,elconfidencial.com,elcorreo.com,eldesmarque.com,eldiario.es,eldiariomontanes.es,elespanol.com,elle.fr,elpais.com,elperiodico.com,elperiodicodearagon.com,elplural.com,energytv.es,engadget.com,es.ara.cat,euronews.com,europafm.com,expressen.se,factoriadeficcion.com,filmstarts.de,flooxernow.com,folkbladet.nu,footmercato.net,france.tv,france24.com,fussballtransfers.com,ghacks.net,gooieneemlander.nl,gva.be,haarlemsdagblad.nl,hbvl.be,heraldo.es,hoy.es,ideal.es,idealista.pt,krone.at,kurier.at,lacoste.com,ladepeche.fr,lalibre.be,lanouvellerepublique.fr,larazon.es,lasexta.com,lasprovincias.es,latribune.fr,lavanguardia.com,laverdad.es,lavozdegalicia.es,lc.nl,leboncoin.fr,lecturas.com,ledauphine.com,leidschdagblad.nl,lejdd.fr,lejsl.com,leparisien.fr,lesoir.be,letelegramme.fr,libremercado.com,limburger.nl,localeyes.dk,los40.com,lotoquebec.com,lunion.fr,m6.fr,marianne.cz,marmiton.org,mediaset.es,melodia-fm.com,metronieuws.nl,moviepilot.de,mtmad.es,multilife.com.pl,mundodeportivo.com,naszemiasto.pl,nationalgeographic.com.es,nicematin.com,nieuwsblad.be,noordhollandsdagblad.nl,notretemps.com,numerama.com,okdiario.com,ondacero.es,podiumpodcast.com,portail.lotoquebec.com,profil.at,public.fr,publico.es,radiofrance.fr,rankia.com,rfi.fr,rossmann.pl,rtbf.be,rtl.lu,science-et-vie.com,sensacine.com,sfgame.net,shure.com,silicon.es,sncf-connect.com,sport.es,standaard.be,sydsvenskan.se,techcrunch.com,telegraaf.nl,telequebec.tv,tf1.fr,tijd.be,tradingsat.com,trailrun.es,video-streaming.orange.fr,xpress.fr##+js(trusted-click-element, #didomi-notice-agree-button, , 1000)
+20minutes.fr,20minutos.es,24sata.hr,abc.es,actu.fr,androidplanet.nl,antena3.com,antena3internacional.com,atresmedia.com,atresmediapublicidad.com,atresmediastudios.com,atresplayer.com,autopista.es,beleggersbelangen.nl,belfasttelegraph.co.uk,bemad.es,bonduelle.it,bonniernews.se,bt.se,cadenadial.com,caracol.com.co,cas.sk,charentelibre.fr,ciclismoafondo.es,cnews.fr,cope.es,correryfitness.com,courrier-picard.fr,cuatro.com,decathlon.nl,decathlon.pl,diariocordoba.com,diariodenavarra.es,diariosur.es,diariovasco.com,diepresse.com,distrifood.nl,divinity.es,dnevnik.hr,dumpert.nl,dvhn.nl,ebuyclub.com,edreams.de,edreams.net,elcomercio.es,elconfidencial.com,elcorreo.com,eldesmarque.com,eldiario.es,eldiariomontanes.es,elespanol.com,elle.fr,elpais.com,elperiodico.com,elperiodicodearagon.com,elplural.com,energytv.es,engadget.com,es.ara.cat,euronews.com,europafm.com,expressen.se,factoriadeficcion.com,filmstarts.de,flooxernow.com,folkbladet.nu,footmercato.net,france24.com,francetvinfo.fr,ghacks.net,gooieneemlander.nl,gva.be,haarlemsdagblad.nl,hbvl.be,heraldo.es,hoy.es,ideal.es,idealista.pt,krone.at,kurier.at,lacoste.com,ladepeche.fr,lalibre.be,lanouvellerepublique.fr,larazon.es,lasexta.com,lasprovincias.es,latribune.fr,lavanguardia.com,laverdad.es,lavoixdunord.fr,lavozdegalicia.es,lc.nl,leboncoin.fr,lecturas.com,ledauphine.com,leidschdagblad.nl,lejdd.fr,lejsl.com,leparisien.fr,lesoir.be,letelegramme.fr,lexpress.fr,libremercado.com,limburger.nl,localeyes.dk,los40.com,lotoquebec.com,lunion.fr,marianne.cz,marmiton.org,mediaset.es,melodia-fm.com,metronieuws.nl,moviepilot.de,mtmad.es,multilife.com.pl,mundodeportivo.com,nationalgeographic.com.es,nicematin.com,nieuwsblad.be,noordhollandsdagblad.nl,notretemps.com,numerama.com,ondacero.es,podiumpodcast.com,portail.lotoquebec.com,profil.at,public.fr,publico.es,radiofrance.fr,rankia.com,rfi.fr,rossmann.pl,rtbf.be,rtl.lu,science-et-vie.com,sensacine.com,sfgame.net,shure.com,silicon.es,sncf-connect.com,sport.es,standaard.be,techcrunch.com,telegraaf.nl,telequebec.tv,tijd.be,tradingsat.com,trailrun.es,video-streaming.orange.fr##body.didomi-popup-open:style(overflow: auto !important;)
 @@||sdk.privacy-center.org^$script,domain=actu.fr|elpais.com|franceinfo.fr|informacion.es|laprovincia.es|ledauphine.com|diariosur.es
 laprovincia.es,informacion.es,tportal.hr,ivoox.com,as.com,slam.nl,rmcbfmplay.com,bienpublic.com,funradio.fr,gamepro.de,lemon.fr,elmundo.es,lexpress.fr,shadow.tech,letemps.ch,mein-mmo.de,heureka.sk,film.at,dhnet.be,lesechos.fr,programme-television.org,boursorama.com,marianne.net,ouest-france.fr,jeanmarcmorandini.com,publicsenat.fr,dna.fr,bfmtv.com,sudinfo.be,europe1.fr,rtl.be,reviewingthebrew.com,jaysjournal.com,reignoftroy.com##+js(trusted-click-element, #didomi-notice-agree-button)
 elpais.com##+js(trusted-click-element, #pmConsentWall .pmConsentWall-button:not([href]), '', 1000, reloadAfterClick:200)
@@ -2053,13 +2071,13 @@ redcare.it##+js(trusted-set-cookie, usercentrics_consent, '{"ad_storage":0,"anal
 austrian.com,lufthansa.com##+js(trusted-click-element, button[id="cm-acceptNone"], , 1000)
 
 ! Just Essential
-kampfkunst-herz.de,glow25.de,h-f.at,hornetsecurity.com,kayzen.io,wasserkunst-hamburg.de,zahnspange-oelde.de###BorlabsCookieBox
-kampfkunst-herz.de,glow25.de,h-f.at,hornetsecurity.com,ifun.de,kayzen.io,straschu-ev.de,wasserkunst-hamburg.de,zahnspange-oelde.de##+js(trusted-click-element, button.brlbs-btn-accept-only-essential, , 1000)
+oloid.de,kampfkunst-herz.de,glow25.de,h-f.at,hornetsecurity.com,kayzen.io,wasserkunst-hamburg.de,zahnspange-oelde.de###BorlabsCookieBox
+oloid.de,kampfkunst-herz.de,glow25.de,h-f.at,hoerbert.com,hornetsecurity.com,ifun.de,kayzen.io,straschu-ev.de,wasserkunst-hamburg.de,zahnspange-oelde.de##+js(trusted-click-element, button.brlbs-btn-accept-only-essential, , 1000)
 ! save
 xinedome.de##+js(trusted-click-element, button.brlbs-btn-save, , 1000)
 
 ! disagree
-bnc.ca,decathlon.fr,edreams.it,egora.fr,engelvoelkers.com,estrategiasdeinversion.com,festo.com,francebleu.fr,francemediasmonde.com,geny.com,giphy.com,idealista.com,infolibre.es,inpost.pl,information.tv5monde.com,ing.es,knipex.de,laprovence.com,lemondeinformatique.fr,libertaddigital.com,mappy.com,marianne.net,orf.at,philibertnet.com,researchgate.net,rtbf.be,rtl.be,standaard.be,stroilioro.com,taxfix.de,telecinco.es,vistaalegre.com,wsp.com,zimbra.free.fr##+js(trusted-click-element, button[id="didomi-notice-disagree-button"], , 1000)
+tijd.be,ewmagazine.nl,pathe.nl,bnc.ca,decathlon.fr,edreams.it,egora.fr,engelvoelkers.com,estrategiasdeinversion.com,festo.com,francebleu.fr,francemediasmonde.com,geny.com,giphy.com,idealista.com,infolibre.es,inpost.pl,information.tv5monde.com,ing.es,knipex.de,laprovence.com,lemondeinformatique.fr,libertaddigital.com,mappy.com,marianne.net,orf.at,philibertnet.com,researchgate.net,rtbf.be,rtl.be,standaard.be,stroilioro.com,taxfix.de,telecinco.es,vistaalegre.com,wsp.com,zimbra.free.fr##+js(trusted-click-element, button[id="didomi-notice-disagree-button"], , 1000)
 
 ! disagree (ahref)
 jeanmarcmorandini.com,europe1.fr##+js(trusted-click-element, a[href="javascript:Didomi.setUserDisagreeToAll()"], , 1000)
@@ -2495,6 +2513,30 @@ malighting.com,lightpower.de##+js(trusted-set-cookie, cs-cookie-banner, |essenti
 
 ! necessary + extended delay
 abp.nl##+js(trusted-click-element, button[data-analytics-cms-event-name="cookies.button.alleen-noodzakelijk"], , 2600)
+
+! decline (EU IP)
+resy.com##+js(trusted-click-element, button[data-testid="granular-banner-button-decline-all"], , 1500)
+
+! accept
+viagogo.*##+js(trusted-click-element, button[data-testid="cookie-compliance-allow-all-button"], , 1500)
+
+! decline
+bw-bank.de##+js(trusted-click-element, a[data-form=".eprivacy_optin_decline"], , 1000)
+
+! reject, consentID=1
+ulm.de##+js(trusted-set-cookie, consent, '{"consentId":"1","categories":{"TechnicalRequired":true,"AnalyticsAndPerformance":false,"Marketing":false}}')
+
+! necessary
+netze-bw.de##+js(trusted-set-cookie, ndConsentedCookies, '[%22Functional%22]')
+
+! reject
+bricklink.com##+js(trusted-click-element, button.blp-cookie-notice__btn--reject, , 1000)
+
+! reject
+midasbuy.com##+js(trusted-click-element, div[data-id="refuse"], , 1000)
+
+! accept
+consent.nsd.se##+js(trusted-click-element, button[title="Jag godkänner"], , 1000)
 
 ! reject personalisation
 simplea.sk##+js(trusted-click-element, button[aria-label="Vypnúť personalizáciu"], , 1000)
@@ -3781,6 +3823,12 @@ imu.nl,slankmetlinda.nl,choircompany.nl,capaciteitentestoefenen.com,thehuddle.nl
 ! necessary
 roborock.com##+js(trusted-click-element, button[aria-label="dismiss cookie message"], , 1000)
 
+! reject
+ing.nl##+js(trusted-set-cookie, COOKIE_PREF, 'ANL_0|PSN_0|PRTN_0')
+
+! necessary
+vejdirektoratet.dk##+js(trusted-click-element, mon-cb-main >>> mon-cb-home >>> mon-cb-button >>> button[aria-label="Tillad kun nødvendige cookies"], , 1000)
+
 ! continue without accepting
 strumentimusicali.net##+js(trusted-click-element, div#cookiescript_button_continue_text, , 1000)
 
@@ -4650,6 +4698,9 @@ wilfa.com##+js(trusted-set-cookie, _pandectes_gdpr, eyJjb3VudHJ5Ijp7ImNvZGUiOiJG
 sourcepoint.theguardian.com##+js(trusted-click-element, button[title="Accept all"], , 1000)
 ! US IP (CPPA California)
 sourcepoint.theguardian.com##+js(trusted-click-element, button[title="Do not sell or share my personal information"], , 1000)
+! NZ IP (Reject)
+www.theguardian.com##+js(trusted-set-cookie, consentDate, $currentISODate$)
+www.theguardian.com##+js(trusted-set-cookie, consentUUID, 37ab4eb6-4bfa-4619-8ee5-71b4a40871d7_52)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/27488
 max.com##+js(trusted-set-cookie, eupubconsent-v2, CQQt_NAQQt_NAAcABBENBnFgAAAAAAAAABpYJQMB3CJ8BSFDYSZ1IIskaIUXwRABxkQhAgLBAwABiBKAOIQAkCAgAABANCACAAIAMHBAAAFADIAAAAAAIAgAIAAMIAAQAABIIABAAAAAAAAQCAgAAABAAQAQgmAEAAcAgAAlgAIoAFAAAABCAACBAAAAEAAFAAEAAAAAAAAAAAAIICwABQAAjAAAAAAAABgQAAAAAAAEAAABoQAIAA4ATgD9wIVhIEQACwAKgAcAA8ACAAGQANAAeABMACkAFUAN4AegA_ACEAEcAJoAYYAygBzgDuAH6AP8AkoBfQEiAJ2AUOAtgBeYDLgGxgQYAheKgBABMAEcMgBABMAEcOADQAOAA8ANAAjgCEAP3AhWOgSAALAAqABwAEAAMgAaAA8ACYAFIAKoAYgA3gB6AD8AJoATgAwwBlADRAHOAO4AfoA_wCLAEdAJKAiwBF4CRAE7AKHAWwAvMBlgDLgIMEAAYADwA0AQrIQDgAFgBMACqAGIAN4AegBHADnAHcAP8AvoCFgEWAQYJAAwB3AMsAfuSgHgALAA4ADwAJgAUgAqgBiAEcAhYBFgCLwEiALYAXmBBgoAJAEcAJwAdwB_wFSAKyAfuBCsCF5SA-AAsACoAHAAQAAyABoADwAJgAUgAqgBiAD8AMoAaIA5wB-gEWAI6ASUAuoB7QELAIvASIAnYBQ4C2AF5gMsAZcBBgsAYAAeABkAFQAQgAkABsAEcAKQAdwBRQCmgF2AMIAZwA04B1QD2gIFAQsAtgBj4DYwICgQwA.YAAAAAAAAAAA, , , domain, .max.com, reload, 1)
@@ -4781,6 +4832,11 @@ ya.ru##+js(trusted-click-element, button.Distribution-Close)
 ! pl sites (delay needed for outside of EU)
 ipolska24.pl,17bankow.com,kazimierzdolny.pl,vpolshchi.pl,dobreprogramy.pl,essanews.com,money.pl,autokult.pl,komorkomania.pl,polygamia.pl,autocentrum.pl,homebook.pl,domodi.pl,jastrzabpost.pl,open.fm,gadzetomania.pl,fotoblogia.pl,abczdrowie.pl,parenting.pl,kafeteria.pl,vibez.pl,wakacje.pl,extradom.pl,totalmoney.pl,superauto.pl,nerwica.com,forum.echirurgia.pl,dailywrap.net,pysznosci.pl,genialne.pl,finansowysupermarket.pl,deliciousmagazine.pl,jastrzabpost.pl,audioteka.com,easygo.pl,so-magazyn.pl,o2.pl,pudelek.pl,benchmark.pl,wp.pl##+js(trusted-click-element, div[class]:has(a[href*="holding.wp.pl"]) div[class]:only-child > button[class*=" "] + button:not([class*=" "]), , 2300)
 dobreprogramy.pl##+js(trusted-click-element, body > div[class] > div[class] > div[class]:has(a[href*="holding.wp.pl"]) > div[class] > div[class]:only-child > button:first-child)
+wirtualnemedia.pl##+js(trusted-click-element, body > div[class] > div[class] > div[class]:has(a[href*="holding.wp.pl"]) > div[class] > div[class]:only-child > button:first-child)
+
+wpartner.pl,historiapoznania.pl,nowydostawczy.pl,nowyosobowy.pl,chinskiesamochody.pl,wirtualnemedia.pl,pcformat.pl,medikredyt.pl,money2money.com.pl,ipolska24.pl,17bankow.com,5mindlazdrowia.pl,kazimierzdolny.pl,vpolshchi.pl,dobreprogramy.pl,essanews.com,dailywrap.ca,dailywrap.uk,money.pl,autokult.pl,komorkomania.pl,polygamia.pl,autocentrum.pl,allani.pl,homebook.pl,domodi.pl,open.fm,gadzetomania.pl,fotoblogia.pl,abczdrowie.pl,parenting.pl,kafeteria.pl,vibez.pl,wakacje.pl,extradom.pl,totalmoney.pl,superauto.pl,nerwica.com,forum.echirurgia.pl,dailywrap.net,pysznosci.pl,genialne.pl,finansowysupermarket.pl,deliciousmagazine.pl,jastrzabpost.pl,audioteka.com,easygo.pl,so-magazyn.pl,o2.pl,pudelek.pl,benchmark.pl,wp.pl##+js(trusted-click-element, body > div[class] > div[class] > div[class] > div[class][aria-label="Treść informacji"][aria-live="polite"] + div[class] > div[class]> button:last-child)
+wpartner.pl,historiapoznania.pl,nowydostawczy.pl,nowyosobowy.pl,chinskiesamochody.pl,wirtualnemedia.pl,pcformat.pl,medikredyt.pl,money2money.com.pl,ipolska24.pl,17bankow.com,5mindlazdrowia.pl,kazimierzdolny.pl,vpolshchi.pl,dobreprogramy.pl,essanews.com,dailywrap.ca,dailywrap.uk,money.pl,autokult.pl,komorkomania.pl,polygamia.pl,autocentrum.pl,allani.pl,homebook.pl,domodi.pl,open.fm,gadzetomania.pl,fotoblogia.pl,abczdrowie.pl,parenting.pl,kafeteria.pl,vibez.pl,wakacje.pl,extradom.pl,totalmoney.pl,superauto.pl,nerwica.com,forum.echirurgia.pl,dailywrap.net,pysznosci.pl,genialne.pl,finansowysupermarket.pl,deliciousmagazine.pl,jastrzabpost.pl,audioteka.com,easygo.pl,so-magazyn.pl,o2.pl,pudelek.pl,benchmark.pl,wp.pl##+js(trusted-click-element, div[class]:has(a[href*="holding.wp.pl"]) div[class]:only-child > button[class*=" "]:not(#wp-article-save-button) + button:not([class*=" "]))
+wpartner.pl,historiapoznania.pl,nowydostawczy.pl,nowyosobowy.pl,chinskiesamochody.pl,wirtualnemedia.pl,pcformat.pl,medikredyt.pl,money2money.com.pl,ipolska24.pl,17bankow.com,5mindlazdrowia.pl,kazimierzdolny.pl,vpolshchi.pl,dobreprogramy.pl,essanews.com,dailywrap.ca,dailywrap.uk,money.pl,autokult.pl,komorkomania.pl,polygamia.pl,autocentrum.pl,allani.pl,homebook.pl,domodi.pl,open.fm,gadzetomania.pl,fotoblogia.pl,abczdrowie.pl,parenting.pl,kafeteria.pl,vibez.pl,wakacje.pl,extradom.pl,totalmoney.pl,superauto.pl,nerwica.com,forum.echirurgia.pl,dailywrap.net,pysznosci.pl,genialne.pl,finansowysupermarket.pl,deliciousmagazine.pl,jastrzabpost.pl,audioteka.com,easygo.pl,so-magazyn.pl,o2.pl,pudelek.pl,benchmark.pl,wp.pl##+js(trusted-click-element, body > div[class] > div[class] > div[class]:has(a[href*="holding.wp.pl"]) > div[class] > div[class]:only-child > button:first-child)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/27548 - Preference
 www.drk-hannover.de##+js(trusted-set-cookie, cc_cookie, '{"categories":["necessary","preference"],"level":["necessary","preference"],"revision":0,"data":null,"rfc_cookie":false,"consent_date":"$currentISODate$","consent_uuid":"00000000-0000-0000-0000-000000000000","last_consent_update":"$currentISODate$"}', , , domain, .www.drk-hannover.de)
@@ -4915,7 +4971,7 @@ imaios.com##+js(trusted-click-element, div#continueWithoutAccepting, , 1000)
 
 ! DPG Media owns lots of sites which redirect to one of these domains to ask for consent - embedded social media only
 ! Sample pages: hln.be, nu.nl, tweakers.net
-myprivacy.dpgmedia.nl,myprivacy.dpgmedia.be,www.dpgmediagroup.com##+js(trusted-click-element, '#pg-host-shadow-root >>> button#pg-configure-btn, #pg-host-shadow-root >>> #purpose-row-SOCIAL_MEDIA input[type="checkbox"], #pg-host-shadow-root >>> button#pg-save-preferences-btn')
+myprivacy.dpgmedia.nl,myprivacy.dpgmedia.be,www.dpgmediagroup.com,parool.nl##+js(trusted-click-element, '#pg-shadow-root-dom  >>> button#pg-configure-btn, #pg-shadow-root-dom >>> #purpose-row-SOCIAL_MEDIA input[type="checkbox"], #pg-shadow-root-dom >>> button#pg-save-preferences-btn', , 1000)
 ! Clicking doesn't work on myprivacy.dpgmediagroup.net, reloading the page once redirects to www.dpgmediagroup.com, where clicking works
 myprivacy.dpgmediagroup.net##+js(set-cookie, dummy, 1, , reload, 1)
 
@@ -4953,6 +5009,13 @@ southparkstudios.com##+js(trusted-click-element, button[id="ketch-banner-button-
 
 ! Necessary + social (Finnish IP)
 southparkstudios.nu##+js(trusted-set-cookie, _swb, ce58de8a-3d03-4cf7-a8ac-cc8f5573e48f, 1year)
+
+! functional
+app.trakt.tv##+js(trusted-click-element, button[aria-label="Accept functional cookies only"], , 1000)
+
+! Just allow video and maps, no tracking
+sport-kessler.com##+js(trusted-set-cookie, cst_consent_aspects, 'Vimeo,Youtube,GoogleMaps')
+sport-kessler.com##+js(trusted-set-cookie, cst_consent_version, c7aa0590f5ea2eeb3474ac21e9bc9e3f71cc3d51, , , reload, 1)
 
 ! Necessary + preferences
 infshop.fi##+js(trusted-click-element, .prelim-manage-cookies-button.btn-default)
@@ -5024,3 +5087,28 @@ akt.no##+js(trusted-set-cookie, cookie-consent-1, '{"1":true,"2":false,"3":false
 
 ! Necessary + Experience (=Functional)
 auctionet.com##+js(trusted-set-cookie, cookie_consent, %7B%22functionality_storage%22%3Atrue%2C%22statistics_storage%22%3Afalse%2C%22ad_storage%22%3Afalse%7D, 1year, , reload, 1)
+
+! dedeman.ro necessary cookies
+dedeman.ro##+js(trusted-set-cookie, DDM2_cookie_management, '{"statistics":0,"comfort":0,"version":3}')
+
+! https://github.com/uBlockOrigin/uAssets/issues/31389
+eplus.jp##+js(trusted-set-cookie, gdpr_settings, '{"allow":"I_ACCEPT"}')
+
+! https://github.com/uBlockOrigin/uAssets/issues/31432
+discovery.nus.edu.sg##+js(trusted-click-element, [data-qa="reject-non-essential-button"])
+
+! https://github.com/uBlockOrigin/uAssets/issues/28089#issuecomment-3748833650
+cdn.privacy-mgmt.com##+js(trusted-click-element, button[title="More Options"], , 1000)
+cdn.privacy-mgmt.com##+js(trusted-click-element, button[title="REJECT ALL"], , 1000)
+
+! https://github.com/uBlockOrigin/uAssets/issues/31501
+@@||consent.cookiebot.com/uc.js$script,domain=vcg.de
+@@||consent.cookiebot.com/*/cc.js
+vcg.de##+js(trusted-click-element, '#CybotCookiebotDialog input#CybotCookiebotDialogBodyLevelButtonPreferences, #CybotCookiebotDialog input#CybotCookiebotDialogBodyLevelButtonStatistics, #CybotCookiebotDialog input#CybotCookiebotDialogBodyLevelButtonMarketing, #CybotCookiebotDialog button#CybotCookiebotDialogBodyLevelButtonLevelOptinAllowallSelection')
+
+! https://github.com/uBlockOrigin/uAssets/issues/31528
+huk24.de##+js(trusted-click-element, [style] > [style] > s-button[data-testid="button--einstellungen-speichern"] > button.s-button__button)
+huk24.de##+js(set-cookie, consent_technical, ALLOW)
+huk24.de##+js(set-cookie, consent_marketing, DENY)
+huk24.de##+js(set-cookie, consent_functional, DENY)
+huk24.de##+js(trusted-set-cookie, consent_version, 2.8)
