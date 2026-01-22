@@ -97,6 +97,13 @@ foxaholic.com##+js(ra, onkeydown|onselectstart|oncontextmenu, body[onkeydown*="_
 ! https://github.com/uBlockOrigin/uAssets/issues/27684#issuecomment-3708579962
 isekaitube.com##+js(rpnt, script, "copyRProtection":true, "copyRProtection":false)
 
+! https://github.com/uBlockOrigin/uAssets/issues/31565
+!#if env_firefox
+kashinavi.com##body,div[oncopy],div.noprint:remove-attr(/oncontextmenu|onselectstart|style|oncopy|unselectable/)
+!#else
+kashinavi.com##+js(ra, oncopy|onSelectStart|oncontextmenu|style, '[oncopy],[oncontextmenu]')
+!#endif
+
 ! END: Anti copy, right-click etc.
 
 ! START: Anti-adblock
@@ -7848,9 +7855,6 @@ liddread.com##*:style(-webkit-touch-callout: default !important; -webkit-user-se
 
 ! https://github.com/uBlockOrigin/uAssets/issues/31563
 oricon.co.jp##div.all-lyrics:remove-attr(/oncontextmenu|onselectstart|onmousedown/)
-
-! https://github.com/uBlockOrigin/uAssets/issues/31565
-kashinavi.com##body,div[oncopy],div.noprint:remove-attr(/oncontextmenu|onselectstart|style|oncopy|unselectable/)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/31566
 togetogebox.org##+js(rmnt, style, -ms-user-select: none)
