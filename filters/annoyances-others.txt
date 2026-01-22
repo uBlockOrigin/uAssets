@@ -97,6 +97,15 @@ foxaholic.com##+js(ra, onkeydown|onselectstart|oncontextmenu, body[onkeydown*="_
 ! https://github.com/uBlockOrigin/uAssets/issues/27684#issuecomment-3708579962
 isekaitube.com##+js(rpnt, script, "copyRProtection":true, "copyRProtection":false)
 
+! https://github.com/uBlockOrigin/uAssets/issues/31563
+!#if env_firefox
+oricon.co.jp##div.all-lyrics:remove-attr(/oncontextmenu|onselectstart|onmousedown/)
+!#else
+oricon.co.jp##+js(ra, oncontextmenu|onselectstart|onmousedown, .all-lyrics[oncontextmenu], complete)
+!#endif
+oricon.co.jp##+js(aeld, dragstart, , elements, .all-lyrics)
+oricon.co.jp##.all-lyrics:style(-webkit-touch-callout: default !important; -webkit-user-select: text !important; -khtml-user-select: text !important; -moz-user-select: text !important; -ms-user-select: text !important; user-select: text !important; -webkit-tap-highlight-color: revert !important; cursor: revert !important;)
+
 ! https://github.com/uBlockOrigin/uAssets/issues/31565
 !#if env_firefox
 kashinavi.com##body,div[oncopy],div.noprint:remove-attr(/oncontextmenu|onselectstart|style|oncopy|unselectable/)
@@ -7852,9 +7861,6 @@ foodnavigator.com##+js(rpnt, script, CopyrightLayer, abc)
 ! liddread.com anti right click, select
 liddread.com##+js(rmnt, script, /wpcp|contextmenu|unselectable/)
 liddread.com##*:style(-webkit-touch-callout: default !important; -webkit-user-select: text !important; -khtml-user-select: text !important; -moz-user-select: text !important; -ms-user-select: text !important; user-select: text !important; -webkit-tap-highlight-color: revert !important; cursor: revert !important;)
-
-! https://github.com/uBlockOrigin/uAssets/issues/31563
-oricon.co.jp##div.all-lyrics:remove-attr(/oncontextmenu|onselectstart|onmousedown/)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/31566
 togetogebox.org##+js(rmnt, style, -ms-user-select: none)
