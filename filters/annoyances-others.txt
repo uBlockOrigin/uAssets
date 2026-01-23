@@ -97,24 +97,26 @@ foxaholic.com##+js(ra, onkeydown|onselectstart|oncontextmenu, body[onkeydown*="_
 ! https://github.com/uBlockOrigin/uAssets/issues/27684#issuecomment-3708579962
 isekaitube.com##+js(rpnt, script, "copyRProtection":true, "copyRProtection":false)
 
+! Lyrics sites
+! https://github.com/uBlockOrigin/uAssets/issues/7018
 ! https://github.com/uBlockOrigin/uAssets/issues/14193
 ! https://github.com/uBlockOrigin/uAssets/issues/31563
-!#if env_firefox
-oricon.co.jp##div.all-lyrics:remove-attr(/oncontextmenu|onselectstart|onmousedown/)
-!#else
-oricon.co.jp##+js(ra, oncontextmenu|onselectstart|onmousedown, .all-lyrics[oncontextmenu], complete)
-!#endif
-oricon.co.jp##+js(aeld, dragstart, , elements, .all-lyrics)
-oricon.co.jp##.all-lyrics:style(-webkit-touch-callout: default !important; -webkit-user-select: text !important; -khtml-user-select: text !important; -moz-user-select: text !important; -ms-user-select: text !important; user-select: text !important; -webkit-tap-highlight-color: revert !important; cursor: revert !important;)
-
-! https://github.com/uBlockOrigin/uAssets/issues/7018
+! https://github.com/uBlockOrigin/uAssets/issues/31568
+! https://github.com/uBlockOrigin/uAssets/issues/4408
 !#if env_firefox
 utaten.com##.lyricBody[oncontextmenu]:remove-attr(/oncontextmenu|onselectstart/)
+oricon.co.jp##div.all-lyrics:remove-attr(/oncontextmenu|onselectstart|onmousedown/)
+j-lyric.net##body[oncontextmenu]:remove-attr(/oncontextmenu|onselectstart/)
 !#else
 utaten.com##+js(ra, oncontextmenu|onselectstart, .lyricBody[oncontextmenu], complete)
+oricon.co.jp##+js(ra, oncontextmenu|onselectstart|onmousedown, .all-lyrics[oncontextmenu], complete)
+j-lyric.net##+js(ra, oncontextmenu|onselectstart, body[oncontextmenu], complete)
 !#endif
-utaten.com##.lyricBody:style(-webkit-touch-callout: default !important; -webkit-user-select: text !important; -khtml-user-select: text !important; -moz-user-select: text !important; -ms-user-select: text !important; user-select: text !important; -webkit-tap-highlight-color: revert !important; cursor: revert !important;)
 ||utaten.com/css/print.css
+utaten.com##.lyricBody:style(-webkit-touch-callout: default !important; -webkit-user-select: text !important; -khtml-user-select: text !important; -moz-user-select: text !important; -ms-user-select: text !important; user-select: text !important; -webkit-tap-highlight-color: revert !important; cursor: revert !important;)
+oricon.co.jp##+js(aeld, dragstart, , elements, .all-lyrics)
+oricon.co.jp##.all-lyrics:style(-webkit-touch-callout: default !important; -webkit-user-select: text !important; -khtml-user-select: text !important; -moz-user-select: text !important; -ms-user-select: text !important; user-select: text !important; -webkit-tap-highlight-color: revert !important; cursor: revert !important;)
+j-lyric.net##+js(rpnt, style, @media print {body { display: none !important; }})
 
 ! https://github.com/uBlockOrigin/uAssets/issues/31565
 !#if env_firefox
@@ -896,9 +898,6 @@ animeunity.it##+js(ra, oncontextmenu)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/4368#issuecomment-449866993
 theartofnakedwoman.*##+js(aopw, intializemarquee)
-
-! https://github.com/uBlockOrigin/uAssets/issues/4408
-j-lyric.net##+js(ra, oncontextmenu|onselectstart)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/4409
 cagesideseats.com##+js(nostif, (), 1500)
@@ -7870,10 +7869,6 @@ togetogebox.org##+js(rmnt, style, -ms-user-select: none)
 ! https://github.com/uBlockOrigin/uAssets/issues/31567
 lyrical-nonsense.com##+js(rmnt, style, moz-user-select:none)
 lyrical-nonsense.com##+js(rmnt, script, contextmenu)
-
-! https://github.com/uBlockOrigin/uAssets/issues/31568
-j-lyric.net##+js(set, document.body.oncontextmenu, null)
-j-lyric.net##+js(set, document.body.onselectstart, null)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/31569
 awa.fm##*:style(-webkit-touch-callout: default !important; -webkit-user-select: text !important; -moz-user-select: text !important; -ms-user-select: text !important; user-select: text !important;)
