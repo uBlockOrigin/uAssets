@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Other Annoyances
-! Last modified: Sat, 24 Jan 2026 03:59:46 +0000
+! Last modified: Sat, 24 Jan 2026 04:02:09 +0000
 ! Expires: 7 days
 ! Description: Filters optimized for uBlock Origin, to be used with EasyList's and/or Adguard's "Other Annoyances" list(s)
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -104,16 +104,17 @@ isekaitube.com##+js(rpnt, script, "copyRProtection":true, "copyRProtection":fals
 ! https://github.com/uBlockOrigin/uAssets/issues/31568
 ! https://github.com/uBlockOrigin/uAssets/issues/4408
 ! https://github.com/uBlockOrigin/uAssets/issues/31592
+! https://github.com/uBlockOrigin/uAssets/issues/31593
 !#if env_firefox
 utaten.com##.lyricBody[oncontextmenu]:remove-attr(/oncontextmenu|onselectstart/)
 oricon.co.jp##div.all-lyrics:remove-attr(/oncontextmenu|onselectstart|onmousedown/)
-j-lyric.net##body[oncontextmenu]:remove-attr(/oncontextmenu|onselectstart/)
+j-lyric.net,okuhanako.net##body[oncontextmenu]:remove-attr(/oncontextmenu|onselectstart/)
 rocklyric.jp###lyric_area[oncopy]:remove-attr(/oncopy|oncut|onmousemove|onmousedown|style/)
 rocklyric.jp###lyric_area > p[oncontextmenu]:remove-attr(oncontextmenu)
 !#else
 utaten.com##+js(ra, oncontextmenu|onselectstart, .lyricBody[oncontextmenu], complete)
 oricon.co.jp##+js(ra, oncontextmenu|onselectstart|onmousedown, .all-lyrics[oncontextmenu], complete)
-j-lyric.net##+js(ra, oncontextmenu|onselectstart, body[oncontextmenu], complete)
+j-lyric.net,okuhanako.net##+js(ra, oncontextmenu|onselectstart, body[oncontextmenu], complete)
 rocklyric.jp##+js(ra, oncopy|oncut|onmousemove|onmousedown|style, #lyric_area[oncopy], complete)
 rocklyric.jp##+js(ra, oncontextmenu, #lyric_area > p[oncontextmenu], complete)
 !#endif
@@ -7881,6 +7882,3 @@ liddread.com##*:style(-webkit-touch-callout: default !important; -webkit-user-se
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/223238
 canuckaudiomart.com##+js(rmnt, script, as_init)
-
-! https://github.com/uBlockOrigin/uAssets/issues/31593
-okuhanako.net##+js(ra, oncontextmenu|onSelectStart, , stay)
