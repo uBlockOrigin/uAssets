@@ -103,14 +103,20 @@ isekaitube.com##+js(rpnt, script, "copyRProtection":true, "copyRProtection":fals
 ! https://github.com/uBlockOrigin/uAssets/issues/31563
 ! https://github.com/uBlockOrigin/uAssets/issues/31568
 ! https://github.com/uBlockOrigin/uAssets/issues/4408
+! https://github.com/uBlockOrigin/uAssets/issues/31592
+! https://github.com/uBlockOrigin/uAssets/issues/31593
 !#if env_firefox
 utaten.com##.lyricBody[oncontextmenu]:remove-attr(/oncontextmenu|onselectstart/)
 oricon.co.jp##div.all-lyrics:remove-attr(/oncontextmenu|onselectstart|onmousedown/)
-j-lyric.net##body[oncontextmenu]:remove-attr(/oncontextmenu|onselectstart/)
+rocklyric.jp###lyric_area[oncopy]:remove-attr(/oncopy|oncut|onmousemove|onmousedown|style/)
+rocklyric.jp###lyric_area > p[oncontextmenu]:remove-attr(oncontextmenu)
+j-lyric.net,okuhanako.net##body[oncontextmenu]:remove-attr(/oncontextmenu|onselectstart/)
 !#else
 utaten.com##+js(ra, oncontextmenu|onselectstart, .lyricBody[oncontextmenu], complete)
 oricon.co.jp##+js(ra, oncontextmenu|onselectstart|onmousedown, .all-lyrics[oncontextmenu], complete)
-j-lyric.net##+js(ra, oncontextmenu|onselectstart, body[oncontextmenu], complete)
+rocklyric.jp##+js(ra, oncopy|oncut|onmousemove|onmousedown|style, #lyric_area[oncopy], complete)
+rocklyric.jp##+js(ra, oncontextmenu, #lyric_area > p[oncontextmenu], complete)
+j-lyric.net,okuhanako.net##+js(ra, oncontextmenu|onselectstart, body[oncontextmenu], complete)
 !#endif
 ||utaten.com/css/print.css
 utaten.com##.lyricBody:style(-webkit-touch-callout: default !important; -webkit-user-select: text !important; -khtml-user-select: text !important; -moz-user-select: text !important; -ms-user-select: text !important; user-select: text !important; -webkit-tap-highlight-color: revert !important; cursor: revert !important;)
@@ -126,6 +132,11 @@ togetogebox.org##+js(rmnt, style, -ms-user-select: none)
 ! https://github.com/uBlockOrigin/uAssets/issues/31569
 s.awa.fm##+js(aeld, contextmenu, [native code], elements, #__next)
 s.awa.fm##div[unselectable="on"] p[class]:style(-webkit-touch-callout: default !important; -webkit-user-select: text !important; -khtml-user-select: text !important; -moz-user-select: text !important; -ms-user-select: text !important; user-select: text !important; -webkit-tap-highlight-color: revert !important; cursor: revert !important;)
+! https://github.com/uBlockOrigin/uAssets/issues/31590
+kashiland.jp###lyric:style(-webkit-touch-callout: default !important; -webkit-user-select: text !important; -khtml-user-select: text !important; -moz-user-select: text !important; -ms-user-select: text !important; user-select: text !important; -webkit-tap-highlight-color: revert !important; cursor: revert !important;)
+kashiland.jp##+js(rmnt, script, onselectstart)
+! https://github.com/uBlockOrigin/uAssets/issues/31591
+music.j-total.net##.main > p:style(-webkit-touch-callout: default !important; -webkit-user-select: text !important; -khtml-user-select: text !important; -moz-user-select: text !important; -ms-user-select: text !important; user-select: text !important; -webkit-tap-highlight-color: revert !important; cursor: revert !important;)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/31565
 !#if env_firefox
@@ -7871,17 +7882,3 @@ liddread.com##*:style(-webkit-touch-callout: default !important; -webkit-user-se
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/223238
 canuckaudiomart.com##+js(rmnt, script, as_init)
-
-! https://github.com/uBlockOrigin/uAssets/issues/31590
-kashiland.jp##*:style(-webkit-touch-callout: default !important; -webkit-user-select: text !important; -moz-user-select: text !important; -ms-user-select: text !important; user-select: text !important;)
-kashiland.jp##+js(rmnt, script, onselectstart)
-
-! https://github.com/uBlockOrigin/uAssets/issues/31591
-music.j-total.net##*:style(-webkit-touch-callout: default !important; -webkit-user-select: text !important; -moz-user-select: text !important; -ms-user-select: text !important; user-select: text !important;)
-
-! https://github.com/uBlockOrigin/uAssets/issues/31592
-rocklyric.jp##+js(ra, oncontextmenu|onCopy|onCut|onMouseDown|onMouseMove, , stay)
-rocklyric.jp##*:style(-webkit-touch-callout: default !important; -webkit-user-select: text !important; -moz-user-select: text !important; -ms-user-select: text !important; user-select: text !important;)
-
-! https://github.com/uBlockOrigin/uAssets/issues/31593
-okuhanako.net##+js(ra, oncontextmenu|onSelectStart, , stay)
