@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Quick fixes
 ! Expires: 12 hours
-! Last modified: Sat, 24 Jan 2026 14:03:35 +0000
+! Last modified: Sat, 24 Jan 2026 17:34:02 +0000
 ! Diff-Path: %diffpath%#ublock-quick-fixes
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -128,7 +128,7 @@ japscan.*##+js(trusted-suppress-native-method, Document.prototype.querySelector,
 japscan.*##span ~ span[id][class]:remove()
 !japscan.*##+js(set, aclib.runPop, 1)
 japscan.*##+js(trusted-suppress-native-method, Document.prototype.getElementsByTagName, '"i"')
-japscan.*##+js(trusted-suppress-native-method, Document.prototype.querySelectorAll, '"/^\[data-[a-z]{5,7}\]$/"')
+japscan.*##+js(trusted-suppress-native-method, Document.prototype.querySelectorAll, '"/^\[data-[_a-z]{5,7}\]$/"')
 japscan.*##+js(trusted-suppress-native-method, Array.from, '"/NodeList/"', prevent, inlineScript)
 japscan.*##[id^="nav"] ~ div[id]:not(.tab-content):remove()
 japscan.*##[style="width:100%;"] > span[id]:remove()
@@ -152,6 +152,7 @@ japscan.*##[class*="Wo"] > span:remove()
 japscan.*##[id^="note"] > span:remove()
 japscan.*##.KolMe > span:remove()
 japscan.*##span#chapters:remove()
+japscan.*##.KolYou > div:not(#reader):remove()
 poophq.com,veev.to,doods.to##+js(nowoif)
 poophq.com,veev.to,doods.to##+js(no-xhr-if, /vast.php?)
 poophq.com,veev.to,doods.to##+js(no-xhr-if, /click\.com|preroll|native_render\.js|acscdn/, length:10001)
