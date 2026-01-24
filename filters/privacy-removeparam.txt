@@ -1,5 +1,5 @@
 ! Title: AdGuard/uBO – URL Tracking Protection
-! Last modified: Wed, 21 Jan 2026 14:29:35 +0000
+! Last modified: Sat, 24 Jan 2026 11:03:19 +0000
 ! Expires: 7 days
 ! Description: |
 !   Filter that enhances privacy by removing tracking parameters from URLs.
@@ -311,6 +311,8 @@ $removeparam=itm_campaign
 $removeparam=itm_content
 $removeparam=itm_term
 ! UTM
+$removeparam=utm_wave
+$removeparam=utm_lob
 $removeparam=utm_emailid
 $removeparam=utm_email
 $removeparam=utm_newsletterid
@@ -1173,7 +1175,6 @@ $removeparam=cid,to=nhk.jp|nhk.or.jp
 ! https://github.com/AdguardTeam/AdguardFilters/issues/193005
 ||newspicks.com^$removeparam=a
 ||newspicks.com^$removeparam=adid
-||newspicks.com^$removeparam=ref
 ||newspicks.com^$removeparam=block
 ! https://github.com/AdguardTeam/AdguardFilters/issues/192759
 ||wsj.com^$removeparam=mod
@@ -1704,7 +1705,6 @@ keepstreams.com^$removeparam=soft
 keepstreams.com^$removeparam=ad
 keepstreams.com^$removeparam=downloadmode
 ! https://github.com/AdguardTeam/AdguardFilters/issues/165022
-||newspicks.com^$removeparam=ref
 ||newspicks.com^$removeparam=ref_t
 ! https://github.com/AdguardTeam/AdguardFilters/issues/164620
 ||streamfab.jp^$removeparam=soft
@@ -2019,7 +2019,7 @@ $removeparam=newsstand,to=sportalkorea.com
 ||pravda.com.ua^$removeparam=pageviewCount
 ! https://github.com/AdguardTeam/AdguardFilters/pull/152161
 ||belta.co.jp^$removeparam=cid
-$removeparam=urrad,domain=u-s-s.jp|belta.co.jp
+$removeparam=urrad,to=u-s-s.jp|belta.co.jp
 ! https://github.com/AdguardTeam/AdguardFilters/issues/151413
 ||7net.omni7.jp^$removeparam=intpr
 ||7net.omni7.jp^$removeparam=intpr2
@@ -2037,7 +2037,7 @@ $removeparam=urrad,domain=u-s-s.jp|belta.co.jp
 ||chunichi.co.jp^$removeparam=rct
 ||chunichi.co.jp^$removeparam=ref
 ! https://github.com/AdguardTeam/AdguardFilters/issues/150965
-$removeparam=ref_type,domain=backit.me|epn.bz
+$removeparam=ref_type,to=backit.me|epn.bz
 ! https://github.com/DandelionSprout/adfilt/discussions/163#discussioncomment-5898232
 ||homedepot.com^$removeparam=fromReminder
 ! https://github.com/DandelionSprout/adfilt/discussions/163#discussioncomment-5886900
@@ -2069,13 +2069,13 @@ $removeparam=ref_type,domain=backit.me|epn.bz
 ! https://github.com/AdguardTeam/AdguardFilters/issues/148859
 ||kmkk78.com^$removeparam=agentId
 ! https://github.com/AdguardTeam/AdguardFilters/issues/148414
-$removeparam=ref,domain=shein.co.uk|shein.com
-$removeparam=from_country,domain=shein.co.uk|shein.com
-$removeparam=mallCode,domain=shein.co.uk|shein.com
-$removeparam=src_module,domain=shein.co.uk|shein.com
-$removeparam=src_tab_page_id,domain=shein.co.uk|shein.com
-$removeparam=phone_code,domain=shein.co.uk|shein.com
-$removeparam=ici,domain=shein.co.uk|shein.com
+$removeparam=ref,to=shein.co.uk|shein.com
+$removeparam=from_country,to=shein.co.uk|shein.com
+$removeparam=mallCode,to=shein.co.uk|shein.com
+$removeparam=src_module,to=shein.co.uk|shein.com
+$removeparam=src_tab_page_id,to=shein.co.uk|shein.com
+$removeparam=phone_code,to=shein.co.uk|shein.com
+$removeparam=ici,to=shein.co.uk|shein.com
 ! https://github.com/AdguardTeam/AdguardFilters/issues/148579
 ||nesine.com^$removeparam=adj_adgroup
 ||nesine.com^$removeparam=adjust_t
