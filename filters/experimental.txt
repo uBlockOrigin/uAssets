@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Experimental
-! Last modified: Sat, 24 Jan 2026 16:41:17 +0000
+! Last modified: Sun, 25 Jan 2026 01:24:28 +0000
 ! Expires: 1 day
 ! Description: Experimental filters
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -36,7 +36,8 @@ www.youtube.com##+js(trusted-rpnt, script, (function serverContract(), '(()=>{if
 www.youtube.com##+js(trusted-json-edit-xhr-request, [?..context.client.mainAppWebInfo.graftUrl^="https://www.youtube.com/watch"]..playbackContext[?.contentPlaybackContext]+={"adPlaybackContext":{"adType":"AD_TYPE_INSTREAM"}}, propsToMatch, /\/(player|get_watch)/)
 www.youtube.com##+js(trusted-json-edit-xhr-response, '..playerConfig.granularVariableSpeedConfig+={"minimumPlaybackRate":25,"maximumPlaybackRate":200}', propsToMatch, /\/(player|get_watch)/)
 ! "This content isn't available"
-www.youtube.com##+js(trusted-prune-inbound-object, JSON.stringify, 1, context.client.configInfo.appInstallData)
+! www.youtube.com##+js(trusted-prune-inbound-object, JSON.stringify, 1, context.client.configInfo.appInstallData)
+www.youtube.com##+js(trusted-json-edit-fetch-request, .context.client.configInfo.appInstallData, propsToMatch, /\/player|get_watch/)
 
 !#if cap_html_filtering
 ! www.twitch.tv/esl_dota2
