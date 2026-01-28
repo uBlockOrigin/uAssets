@@ -8,7 +8,7 @@ It is preferred to fix filter issues in EasyList. Any filters included in uBO's 
 
 The EasyList-compatible fixes for high-traffic websites are added to uBO filters until they become added to EasyList.
 
-uAssets will fix the following exceptions even if they do not require using the extended syntax:
+#### uAssets will fix the following exceptions even if they do not require using the extended syntax:
 
 - Ad-Reinsertion
 - Anti-Blocker
