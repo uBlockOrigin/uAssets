@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Thu, 29 Jan 2026 04:37:05 +0000
+! Last modified: Thu, 29 Jan 2026 08:37:13 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -7786,15 +7786,15 @@ djremixganna.com,keedabankingnews.com,rokni.xyz##^script:has-text(detectAdBlock)
 1xanimes.in##+js(nostif, adsbygoogle)
 1xanime.in##+js(acs, eval, replace)
 arolinks.com##.telegram-banner
-arolinks.com##+js(rpnt, script, /setTime.*[\s\S\n]*href.*/gm)
 arolinks.com##+js(rpnt, script, /#Intent.*?end/)
 arolinks.com##+js(rpnt, script, intent, https)
-arolinks.com##+js(nostif, location.href)
+arolinks.com##+js(rpnt, script, /"http.*?"/, "", condition, adUrl)
+arolinks.com##+js(rpnt, script, _blank, _self, condition, href)
 arolinks.com##+js(set, blurred, false)
 vplink.in##+js(rpnt, script, /#Intent.*?end/)
 vplink.in##+js(rpnt, script, intent, https)
-vplink.in##+js(rmnt, script, firstp)
-vplink.in##+js(rpnt, script, /window\.location\.href.*/)
+vplink.in##+js(nostif, location.href)
+vplink.in##+js(rpnt, script, _blank, _self, condition, href)
 vplink.in##.telegram-banner
 vplink.in##.banner-inner
 vplink.in##div#advertisement-block
