@@ -1,5 +1,5 @@
 ! Title: AdGuard/uBO – URL Tracking Protection
-! Last modified: Mon, 26 Jan 2026 12:17:09 +0000
+! Last modified: Sat, 31 Jan 2026 10:18:47 +0000
 ! Expires: 7 days
 ! Description: |
 !   Filter that enhances privacy by removing tracking parameters from URLs.
@@ -25,6 +25,8 @@
 !
 ! NOTE: Generic rules
 !
+! Bance
+$removeparam=bance_xuid
 ! Oracle Eloqua
 $removeparam=elqTrackId
 $removeparam=elq
@@ -484,6 +486,20 @@ $to=~tradedoubler.com,removeparam=tduid
 ! Bad: ||example.org^$xmlhttprequest,redirect=noopvast-3.0 (for instance, should be in specific.txt)
 !
 !
+! https://x.com/Kdroidwin1/status/2017425829844963380 cv-measurement ads
+||cv-measurement.com^$removeparam=adcopy
+||cv-measurement.com^$removeparam=adbnr
+||cv-measurement.com^$removeparam=creative
+||ad.games.dmm.co.jp^$removeparam=clid
+||rcv.ixd.dmm.com^$removeparam=ad
+||rcv.ixd.dmm.com^$removeparam=advertiser
+||rcv.ixd.dmm.com^$removeparam=clid
+||ratel-ad.com^$removeparam=advertiser
+||123chat.jp/promotion/$removeparam=cid
+||123chat.jp/promotion/$removeparam=p
+! https://github.com/AdguardTeam/AdguardFilters/issues/222986
+||tw.news.yahoo.com^$removeparam=link_source
+||tw.news.yahoo.com^$removeparam=taid
 ! https://github.com/AdguardTeam/AdguardFilters/issues/223033
 ||netmonet.co^$removeparam=id
 ||netmonet.co^$removeparam=wpid
