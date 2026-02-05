@@ -1,5 +1,5 @@
 ! Title: uBlock₀ filters – Quick fixes
-! Last modified: Thu, 05 Feb 2026 13:33:47 +0000
+! Last modified: Thu, 05 Feb 2026 14:01:09 +0000
 ! Expires: 8 hours
 ! Description: Immediate, temporary filters to fix websites
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -184,15 +184,17 @@ japscan.*##+js(trusted-suppress-native-method, HTMLElement.prototype.querySelect
 japscan.*##+js(trusted-suppress-native-method, Element.prototype.hasAttribute, '"/[\S\s]+/"', prevent, inlineScript)
 japscan.*###chapters:not(div,select):remove()
 japscan.*##+js(trusted-suppress-native-method, Document.prototype.getElementsByTagName, '"*"', prevent, inlineScript)
-japscan.*##body *:not(a,br,button,canvas,cn-vvv,code,div,footer,form,h1,h2,h3,h4,h5,h6,hr,i,iframe,img,input,label,li,meta,nav,noscript,ol,option,p,script,select,small,span,strong,style,ul):remove()
+japscan.*,~japscan.vip##body *:not(a,br,button,canvas,cn-vvv,code,div,footer,form,h1,h2,h3,h4,h5,h6,hr,i,iframe,img,input,label,li,meta,nav,noscript,ol,option,p,script,select,small,span,strong,style,ul):remove()
 japscan.*##+js(trusted-suppress-native-method, Document.prototype.evaluate, '"/.*/"', prevent, inlineScript)
 japscan.*##+js(trusted-suppress-native-method, Document.prototype.createTreeWalker, '"/.*/"', prevent, inlineScript)
-japscan.*##div[id]:not(#TogglerNav,#bds,#best-value,#blare-inter,#blir-nter,#block-left,#block-right,#bookmarks,#chapters,#challenge-success-text,#content,#footer-text,#full-reader,#gnt_xmst,#https\:\/\/www\.japscan\.vip,#list_chapters,#main,#mangas,#minimize,#move,#nav_Header,#notice-message,#quit,#reader,#report-modal,#report-success,#results,#searchForm,#sidebar,#tns-inner,#toolbar,#verifying-msg,#windowbar,.cb-container,.loading-verifying,.main-content > div, body > div,[id^="collapse-"],[id^="d-img"],[id^="tab"],[id^="tns1"],[id^="top"],[id^="single-reader"]):remove()
+japscan.*##div[id]:not(#TogglerNav,#bds,#best-value,#blare-inter,#blir-nter,#block-left,#block-right,#bookmarks,#chapters,#challenge-success-text,#content,#footer-text,#full-reader,#gnt_xmst,#https\:\/\/www\.japscan\.foo,#list_chapters,#main,#mangas,#minimize,#move,#nav_Header,#notice-message,#quit,#reader,#report-modal,#report-success,#results,#searchForm,#sidebar,#tns-inner,#toolbar,#verifying-msg,#windowbar,.cb-container,.loading-verifying,.main-content > div, body > div,[id^="collapse-"],[id^="d-img"],[id^="tab"],[id^="tns1"],[id^="top"],[id^="single-reader"]):remove()
 japscan.vip##.MohLop > div[id]:remove()
 japscan.*##.MohLop > div > div:not(#reader):remove()
 japscan.*##+js(aost, aclib, /stackDepth:3\s+get injectedScript.+inlineScript/)
 japscan.*##+js(aost, setTimeout, /stackDepth:3.+inlineScript:\d{4}:1/)
 japscan.*###notice-message[role] ~ div:not(#reader):remove()
+japscan.*##+js(norafif, Date)
+japscan.*##.KohTO > div > div:not(#reader):remove()
 
 ! https://github.com/uBlockOrigin/uAssets/issues/21064
 ! https://github.com/uBlockOrigin/uAssets/issues/24220
