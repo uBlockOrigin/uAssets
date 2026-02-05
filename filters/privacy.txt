@@ -1100,6 +1100,10 @@ arstechnica.com,dermnetnz.org##.gsc-webResult a[data-cturl]:remove-attr(/^data-c
 
 ! Test on uBO first
 !#if !ext_ubol
+! Block Attribution reporting
+www.youtube.com##+js(no-xhr-if, /\/api\/stats\/atr\?.+?&rt=\d+\.\d+.+?&volume=\d+&cbr=.+?&fexp=v1%[-%0-9C]{300\,}&.+?&muted=\d(&vis=3)?&docid=/ method:POST)
+!#endif
+
 ! https://github.com/AdguardTeam/AdguardFilters/issues/213240
 ||bdvmetricas.banvenez.com.ve^
 
@@ -1128,12 +1132,8 @@ intellischool.id##+js(no-xhr-if, fingerprintjs-pro-react)
 ! https://nypost.com/
 ||pbc.nypost.com^
 
-! Block Attribution reporting
-www.youtube.com##+js(no-xhr-if, /\/api\/stats\/atr\?.+?&rt=\d+\.\d+.+?&volume=\d+&cbr=.+?&fexp=v1%[-%0-9C]{300\,}&.+?&muted=\d(&vis=3)?&docid=/ method:POST)
-
 ! https://github.com/uBlockOrigin/uAssets/issues/30415
 ||browser.events.data.microsoft.com^$domain=apps.microsoft.com
-!#endif
 
 ! Tracking cookies
 ! fastly click-through
@@ -1323,12 +1323,9 @@ hopper.com##+js(set-local-storage-item, ld:$anonUserId, $remove$)
 ! https://www.mumuplayer.com/
 mumuplayer.com##+js(set-local-storage-item, /_user_id$/, $remove$)
 ! https://www.theverge.com/
-! test on uBO first
-!#if !ext_ubol
 ||cdn.concert.io/fins/segment
 ||cdn.concert.io/pins/segment
 ||theverge.com/SendEventData
-!#endif
 theverge.com##+js(remove-cookie, vmidv1)
 theverge.com##+js(set-local-storage-item, csg_uid, $remove$)
 ! https://goodcar.com/
@@ -1341,11 +1338,8 @@ soundcloud.com##+js(set-local-storage-item, /sc_tracking_anonymous_id|statsig/, 
 ! https://www.mykitsch.com/
 mykitsch.com##+js(remove-cookie, _shopify_y, when, scroll keydown)
 mykitsch.com##+js(set-local-storage-item, /lc_anon_user_id|_constructorio_search_client_id/, $remove$)
-! test on uBO first
-!#if !ext_ubol
 ||lumhdco.mykitsch.com/*/js|$script
 ||rakutenadvertising.io^$3p
-!#endif
 ! https://www.huntress.com/blog
 huntress.com##+js(remove-cookie, /^_sp_id/, when, scroll keydown)
 huntress.com##+js(set-local-storage-item, /builderVisitorId|snowplowOutQueue_cf/, $remove$)
@@ -2247,11 +2241,8 @@ grok.com##+js(no-fetch-if, url:/api/statsig/log_event method:POST)
 
 ! https://www.mercari.com/
 ||gateway.us.zip.co/analytics^
-! test on uBO first
-!#if !ext_ubol
 ||mercari.com/ko40/
 mercari.com##+js(json-edit-fetch-request, .*[?.operationName=="TrackEvent"], propsToMatch, /v1/api)
-!#endif
 
 ! https://www.reddit.com/r/uBlockOrigin/comments/1kkytyz/how_to_filter_javascript_url_by_id_attribute/
 /^https:\/\/www\.vogue\.com\/[-\w]{120,}$/$script,1p,strict1p,domain=vogue.com
@@ -2309,13 +2300,7 @@ mediamarkt.de##+js(aopw, ftr__startScriptLoad)
 ! https://massagechairs.com/
 ! ||ob.*.com/i/*.js|$script,3p,domain=apothekenaratgeber.com|apothekenaratgeber.de|massagechairs.com
 ! /^https:\/\/ob\.[a-z]{8,}\.com\/i\/[a-f0-9]{32}\.js$/$script,3p,match-case,to=com
-! test on uBO first
-!#if !ext_ubol
 ||ob.*.com/i/*.js|$script,3p
-!#endif
-!#if env_safari
-/^https:\/\/ob\.[a-z][a-z][a-z][a-z][a-z][a-z][a-z][a-z]+\.com\/i\/[a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9]\.js$/$script,3p,match-case,to=com
-!#endif
 
 ! https://github.com/uBlockOrigin/uAssets/issues/29029#issuecomment-3046461585
 ||paypal.com.first-party-js.datadome.co^$ping,important
@@ -2381,9 +2366,7 @@ linklog.tiagorangel.com##+js(set, data, true)
 /measurements/*.ts?rnd=$xhr,3p
 
 ! https://www.netflix.com/
-!#if !ext_ubol
 ||netflix.com/log/
-!#endif
 
 ! https://www.serienjunkies.de/
 ! https://www.servustv.com/
@@ -2393,10 +2376,7 @@ linklog.tiagorangel.com##+js(set, data, true)
 ||publictelemetry.tophat.com^
 
 ! https://www.wolverine.com/
-! test on uBO first
-!#if !ext_ubol
 ||wolverine.com/on/demandware.static/*/internal/jscript/dwac-*.js
-!#endif
 
 ! amazon prime video
 !#if env_safari
@@ -2409,10 +2389,7 @@ linklog.tiagorangel.com##+js(set, data, true)
 !#endif
 
 ! https://apothekenaratgeber.com/
-! test on uBO first
-!#if !ext_ubol
 /wp-content/plugins/pixelyoursite-pro/*
-!#endif
 
 ! https://github.com/uBlockOrigin/uAssets/issues/29764
 ||api-widget.soundcloud.com/me?client_id=
@@ -2421,41 +2398,26 @@ linklog.tiagorangel.com##+js(set, data, true)
 ||editor.labelbox.com/metrics
 
 ! https://www.abebooks.com/
-! test on uBO first
-!#if !ext_ubol
 ||assets.prod.abebookscdn.com/*/scripts/digitaldata/analytics-
 ||assets.prod.abebookscdn.com/*/scripts/utilities/PixelRenderer-
-!#endif
 
 ! https://lovo.ai/
-! test on uBO first
-!#if !ext_ubol
 ||tolt.io^$3p
-!#endif
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/212827
 ! https://github.com/AdguardTeam/AdguardFilters/issues/212830
-! test on uBO first
-!#if !ext_ubol
 /dfxaf3-*.js|$script
 ||terabox.app/wfm/jnqp
-!#endif
 
 ! Tealium
-! test on uBO first
-!#if !ext_ubol
 ||tags.tiqcdn.com/utag/*/prod/utag.js$domain=1und1.de|adidas.co.uk|adidas.nl|adidas.pl|anantara.com|brother-usa.com|calvinklein.ca|cnet.com|grubhub.com|help.dropbox.com|hulu.com|iflscience.com|krymr.com|lineadirecta.com|louisvuitton.com|mcafee.com|mitsubishi-motors.co.jp|modernatx.com|monroeandmain.com|mtv.co.uk|mtv.de|mtv.it|mtvema.com|nickjr.com|post.ch|qvc.jp|radissonhotels.com|sibreal.org|simplybusiness.co.uk|talksport.com|taylor.com|thesun.co.uk|totaljobs.com|truecar.com|uber.com|ubereats.com|usnews.com
 ||tags.tiqcdn.com/utag/*/utag.sync.js$domain=calvinklein.ca|hosteurope.de|sibreal.org|yousee.dk
 ! https://github.com/AdguardTeam/AdguardFilters/issues/213050
 ||ast.techbook.de^
-!#endif
 
 ! Shopify
-! test on uBO first
-!#if !ext_ubol
 /shopifycloud/shopify/assets/shop_events_listener-*.js
 /cdn/shopifycloud/consent-tracking-api/*
-!#endif
 
 ! https://tinxe.vn/
 ||log.tinxe.vn^
