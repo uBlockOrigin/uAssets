@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2023)
-! Last modified: Wed, 28 Jan 2026 18:00:57 +0000
+! Last modified: Thu, 05 Feb 2026 01:59:00 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -3998,6 +3998,7 @@ av-cdn.xyz##body > div ~ script + div[class]:last-child
 
 ! https://github.com/uBlockOrigin/uAssets/issues/9764#issuecomment-1779676540
 pluto.tv##+js(json-prune-fetch-response, adBreaks.[].startingOffset adBreaks.[].adBreakDuration adBreaks.[].ads adBreaks.[].startTime adBreak adBreakLocations, , propsToMatch, /session.json)
+pluto.tv##+js(xml-prune, 'xpath(//*[name()="Period"][not(contains(@id,"subclip"))] | //*[name()="MPD"]/@mediaPresentationDuration | //*[name()="Period"]/@start)', , /\/episode\/.+?\.mpd\?/)
 ! https://github.com/uBlockOrigin/uAssets/issues/9764#issuecomment-2398597866
 @@||a-fds.youborafds01.com/data?$xhr,domain=pluto.tv
 
