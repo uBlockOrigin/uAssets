@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Privacy
 ! Expires: 7 days
-! Last modified: Thu, 05 Feb 2026 10:21:22 +0000
+! Last modified: Thu, 05 Feb 2026 13:33:47 +0000
 ! Diff-Path: %diffpath%#ublock-privacy
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -553,6 +553,9 @@ arstechnica.com,dermnetnz.org##.gsc-webResult a[data-cturl]:remove-attr(/^data-c
 /shopifycloud/media-analytics/v*/analytics.js
 ! Test on uBO first
 !#if !ext_ubol
+! Block Attribution reporting
+www.youtube.com##+js(no-xhr-if, /\/api\/stats\/atr\?.+?&rt=\d+\.\d+.+?&volume=\d+&cbr=.+?&fexp=v1%[-%0-9C]{300\,}&.+?&muted=\d(&vis=3)?&docid=/ method:POST)
+!#endif
 ||bdvmetricas.banvenez.com.ve^
 ||bilet.com/gtmcf/
 ||razorpay.com/build/razor-analytics/
@@ -565,10 +568,7 @@ arstechnica.com,dermnetnz.org##.gsc-webResult a[data-cturl]:remove-attr(/^data-c
 &ii=fingerprintjs-pro-react
 intellischool.id##+js(no-xhr-if, fingerprintjs-pro-react)
 ||pbc.nypost.com^
-! Block Attribution reporting
-www.youtube.com##+js(no-xhr-if, /\/api\/stats\/atr\?.+?&rt=\d+\.\d+.+?&volume=\d+&cbr=.+?&fexp=v1%[-%0-9C]{300\,}&.+?&muted=\d(&vis=3)?&docid=/ method:POST)
 ||browser.events.data.microsoft.com^$domain=apps.microsoft.com
-!#endif
 ! Tracking cookies
 ! fastly click-through
 beaumontenterprise.com,chron.com,ctinsider.com,ctpost.com,expressnews.com,houstonchronicle.com,lmtonline.com,middletownpress.com,mrt.com,newstimes.com,nhregister.com,registercitizen.com,sfchronicle.com,stamfordadvocate.com,thehour.com,timesunion.com##+js(cookie-remover, realm.cookiesAndJavascript)
@@ -690,12 +690,9 @@ investing.com##+js(trusted-set-cookie, smd, , 0, , domain, .investing.com)
 form.typeform.com##+js(trusted-set-cookie, attribution_user_id, , 0, , domain, .typeform.com)
 hopper.com##+js(set-local-storage-item, ld:$anonUserId, $remove$)
 mumuplayer.com##+js(set-local-storage-item, /_user_id$/, $remove$)
-! test on uBO first
-!#if !ext_ubol
 ||cdn.concert.io/fins/segment
 ||cdn.concert.io/pins/segment
 ||theverge.com/SendEventData
-!#endif
 theverge.com##+js(remove-cookie, vmidv1)
 theverge.com##+js(set-local-storage-item, csg_uid, $remove$)
 goodcar.com##+js(set-local-storage-item, uw-uid, $remove$)
@@ -704,11 +701,8 @@ soundcloud.com##+js(remove-cookie, /sc_anonymous_id|sc_tracking_anonymous_id/, w
 soundcloud.com##+js(set-local-storage-item, /sc_tracking_anonymous_id|statsig/, $remove$)
 mykitsch.com##+js(remove-cookie, _shopify_y, when, scroll keydown)
 mykitsch.com##+js(set-local-storage-item, /lc_anon_user_id|_constructorio_search_client_id/, $remove$)
-! test on uBO first
-!#if !ext_ubol
 ||lumhdco.mykitsch.com/*/js|$script
 ||rakutenadvertising.io^$3p
-!#endif
 huntress.com##+js(remove-cookie, /^_sp_id/, when, scroll keydown)
 huntress.com##+js(set-local-storage-item, /builderVisitorId|snowplowOutQueue_cf/, $remove$)
 flo.com.tr##+js(remove-cookie, bunsar_visitor_id, when, scroll keydown)
@@ -1314,11 +1308,8 @@ grok.com##+js(no-fetch-if, url:/api/statsig/log_event method:POST)
 ||myanimelist.net/ma/s$redirect=nooptext
 ||script.wikia.nocookie.net/fandom-ae-assets/identity-service/$domain=fandom.com|tvguide.com
 ||gateway.us.zip.co/analytics^
-! test on uBO first
-!#if !ext_ubol
 ||mercari.com/ko40/
 mercari.com##+js(json-edit-fetch-request, .*[?.operationName=="TrackEvent"], propsToMatch, /v1/api)
-!#endif
 /^https:\/\/www\.vogue\.com\/[-\w]{120,}$/$script,1p,strict1p,domain=vogue.com
 vogue.com##+js(set-local-storage-item, /^avoinspector/, $remove$)
 vogue.com##^script#journey
@@ -1345,13 +1336,7 @@ mediamarkt.de##+js(aopw, ftr__startScriptLoad)
 ||swatalk.com/wp-admin/admin-ajax.php?action=bill_minozzi_js_error_catched
 ! ||ob.*.com/i/*.js|$script,3p,domain=apothekenaratgeber.com|apothekenaratgeber.de|massagechairs.com
 ! /^https:\/\/ob\.[a-z]{8,}\.com\/i\/[a-f0-9]{32}\.js$/$script,3p,match-case,to=com
-! test on uBO first
-!#if !ext_ubol
 ||ob.*.com/i/*.js|$script,3p
-!#endif
-!#if env_safari
-/^https:\/\/ob\.[a-z][a-z][a-z][a-z][a-z][a-z][a-z][a-z]+\.com\/i\/[a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9]\.js$/$script,3p,match-case,to=com
-!#endif
 ||paypal.com.first-party-js.datadome.co^$ping,important
 ||pornoenspanish.es^$ping,1p
 ||data.anisearch.
@@ -1380,15 +1365,10 @@ linklog.tiagorangel.com##+js(set, data, true)
 ||slc.cbssports.com^
 ||monitor.*/test?rnd=$xhr,3p
 /measurements/*.ts?rnd=$xhr,3p
-!#if !ext_ubol
 ||netflix.com/log/
-!#endif
 /iomm/latest/bootstrap/*
 ||publictelemetry.tophat.com^
-! test on uBO first
-!#if !ext_ubol
 ||wolverine.com/on/demandware.static/*/internal/jscript/dwac-*.js
-!#endif
 ! amazon prime video
 !#if env_safari
 /gp/video/acquisition/utilities/monitoring|
@@ -1398,39 +1378,21 @@ linklog.tiagorangel.com##+js(set, data, true)
 ||global.telemetry.insights.video.a2z.com^
 ||amazon.com/1/action-impressions/
 !#endif
-! test on uBO first
-!#if !ext_ubol
 /wp-content/plugins/pixelyoursite-pro/*
-!#endif
 ||api-widget.soundcloud.com/me?client_id=
 ||editor.labelbox.com/metrics
-! test on uBO first
-!#if !ext_ubol
 ||assets.prod.abebookscdn.com/*/scripts/digitaldata/analytics-
 ||assets.prod.abebookscdn.com/*/scripts/utilities/PixelRenderer-
-!#endif
-! test on uBO first
-!#if !ext_ubol
 ||tolt.io^$3p
-!#endif
-! test on uBO first
-!#if !ext_ubol
 /dfxaf3-*.js|$script
 ||terabox.app/wfm/jnqp
-!#endif
 ! Tealium
-! test on uBO first
-!#if !ext_ubol
 ||tags.tiqcdn.com/utag/*/prod/utag.js$domain=1und1.de|adidas.co.uk|adidas.nl|adidas.pl|anantara.com|brother-usa.com|calvinklein.ca|cnet.com|grubhub.com|help.dropbox.com|hulu.com|iflscience.com|krymr.com|lineadirecta.com|louisvuitton.com|mcafee.com|mitsubishi-motors.co.jp|modernatx.com|monroeandmain.com|mtv.co.uk|mtv.de|mtv.it|mtvema.com|nickjr.com|post.ch|qvc.jp|radissonhotels.com|sibreal.org|simplybusiness.co.uk|talksport.com|taylor.com|thesun.co.uk|totaljobs.com|truecar.com|uber.com|ubereats.com|usnews.com
 ||tags.tiqcdn.com/utag/*/utag.sync.js$domain=calvinklein.ca|hosteurope.de|sibreal.org|yousee.dk
 ||ast.techbook.de^
-!#endif
 ! Shopify
-! test on uBO first
-!#if !ext_ubol
 /shopifycloud/shopify/assets/shop_events_listener-*.js
 /cdn/shopifycloud/consent-tracking-api/*
-!#endif
 ||log.tinxe.vn^
 ||log.oto.com.vn^
 ||static.znews.vn/releases/*/js/analytic.min.js
