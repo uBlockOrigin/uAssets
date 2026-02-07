@@ -5041,12 +5041,6 @@ helsenorge.no##+js(trusted-set-cookie, HN-Cookie-Consent, base64:eyJWaWRlb0Nvb2t
 ! https://github.com/uBlockOrigin/uAssets/issues/29898
 imaios.com##+js(trusted-click-element, div#continueWithoutAccepting, , 1000)
 
-! DPG Media owns lots of sites which redirect to one of these domains to ask for consent - embedded social media only
-! Sample pages: hln.be, nu.nl, tweakers.net
-myprivacy.dpgmedia.nl,myprivacy.dpgmedia.be,www.dpgmediagroup.com,parool.nl##+js(trusted-click-element, '#pg-shadow-root-dom  >>> button#pg-configure-btn, #pg-shadow-root-dom >>> #purpose-row-SOCIAL_MEDIA input[type="checkbox"], #pg-shadow-root-dom >>> button#pg-save-preferences-btn', , 1000)
-! Clicking doesn't work on myprivacy.dpgmediagroup.net, reloading the page once redirects to www.dpgmediagroup.com, where clicking works
-myprivacy.dpgmediagroup.net##+js(set-cookie, dummy, 1, , reload, 1)
-
 ! Necessary + preferences
 viper.patriotmemory.com##+js(trusted-set-cookie, fs-cc, %257B%2522id%2522%253A%2522WsCwWq4mY23eR7nPDUKlP%2522%252C%2522consents%2522%253A%257B%2522analytics%2522%253Afalse%252C%2522essential%2522%253Atrue%252C%2522marketing%2522%253Afalse%252C%2522personalization%2522%253Atrue%252C%2522uncategorized%2522%253Afalse%257D%257D, 1year)
 
@@ -5248,3 +5242,9 @@ kuntarekry.fi##+js(trusted-set-cookie, consent, '{"necessary":true,"preferences"
 
 ! https://github.com/uBlockOrigin/uAssets/issues/31764
 dailygame.at##+js(trusted-click-element, [role="button"][class*="366"])
+
+! DPG Media owns lots of sites which redirect to one of these domains to ask for consent - embedded social media only
+! Sample pages: hln.be, nu.nl, tweakers.net
+myprivacy.dpgmedia.nl,myprivacy.dpgmedia.be,www.dpgmediagroup.com##+js(trusted-click-element, '#pg-shadow-host-dom >>> button#pg-configure-btn, #pg-shadow-host-dom >>> #purpose-row-SOCIAL_MEDIA input[type="checkbox"], #pg-shadow-host-dom >>> button#pg-save-preferences-btn')
+! Clicking doesn't work on myprivacy.dpgmediagroup.net, reloading the page once redirects to www.dpgmediagroup.com, where clicking works
+myprivacy.dpgmediagroup.net##+js(set-cookie, dummy, 1, , reload, 1)
