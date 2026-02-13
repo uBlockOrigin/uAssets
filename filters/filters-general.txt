@@ -2934,6 +2934,22 @@ steamverde.net##+js(acs, addEventListener, bait)
 novelaplay.com##+js(aeld, DOMContentLoaded, bait)
 novelaplay.com##+js(nowoif)
 
+! https://github.com/NanoMeow/QuickReports/issues/4510
+@@||vix.com^$ghide
+! https://www.reddit.com/r/uBlockOrigin/comments/16309vm/doesnt_work_for_vixcom/
+! https://github.com/uBlockOrigin/uAssets/issues/21920
+vix.com##+js(json-prune, breaks interstitials info, interstitials)
+vix.com##+js(xml-prune, 'xpath(//*[name()="Period"][.//*[name()="BaseURL" and contains(text(),".mp.lura.live/prod/")]] | //*[name()="MPD"]/@mediaPresentationDuration)', , .mpd)
+vix.com##+js(json-prune-xhr-response, ads, , propsToMatch, /play)
+||mp.lura.live/vod/vast.info/
+||imasdk.googleapis.com/js/sdkloader/ima3.js$script,3p,redirect=google-ima.js,domain=vix.com
+@@||imasdk.googleapis.com/js/sdkloader/ima3_dai.js$script,3p,domain=vix.com
+! https://www.reddit.com/r/uBlockOrigin/comments/1fr0qa5/ublock_nukes_all_subtitles_on_vixcom/
+vix.com##+js(json-prune, ad_slots)
+vix.com##+js(json-prune, plugins.dfp)
+vix.com##+js(m3u-prune, lura.live/prod/, /prog.m3u8)
+vix.com###video-player-track[style*="display: block"]:style(visibility: visible !important;)
+
 ! NOTE: Thai
 ! https://github.com/uBlockOrigin/uAssets/issues/29831
 steamseries88.com##+js(rpnt, script, let playerType, 'window.addEventListener("load",()=>{if(typeof playMovie==="function"){playMovie()}});let playerType')
