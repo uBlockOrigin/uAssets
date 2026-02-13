@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Thu, 12 Feb 2026 18:51:31 +0000
+! Last modified: Fri, 13 Feb 2026 01:20:18 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -10272,6 +10272,17 @@ steamverde.net##+js(acs, addEventListener, bait)
 ||imasdk.googleapis.com/js/sdkloader/ima3.js$redirect=noopjs,domain=envivo.tvazteca.com
 novelaplay.com##+js(aeld, DOMContentLoaded, bait)
 novelaplay.com##+js(nowoif)
+@@||vix.com^$ghide
+vix.com##+js(json-prune, breaks interstitials info, interstitials)
+vix.com##+js(xml-prune, 'xpath(//*[name()="Period"][.//*[name()="BaseURL" and contains(text(),".mp.lura.live/prod/")]] | //*[name()="MPD"]/@mediaPresentationDuration)', , .mpd)
+vix.com##+js(json-prune-xhr-response, ads, , propsToMatch, /play)
+||mp.lura.live/vod/vast.info/
+||imasdk.googleapis.com/js/sdkloader/ima3.js$script,3p,redirect=google-ima.js,domain=vix.com
+@@||imasdk.googleapis.com/js/sdkloader/ima3_dai.js$script,3p,domain=vix.com
+vix.com##+js(json-prune, ad_slots)
+vix.com##+js(json-prune, plugins.dfp)
+vix.com##+js(m3u-prune, lura.live/prod/, /prog.m3u8)
+vix.com###video-player-track[style*="display: block"]:style(visibility: visible !important;)
 ! NOTE: Thai
 steamseries88.com##+js(rpnt, script, let playerType, 'window.addEventListener("load",()=>{if(typeof playMovie==="function"){playMovie()}});let playerType')
 ! NOTE: Turkish
@@ -11279,15 +11290,6 @@ hentaifreak.org##+js(nostif, popState)
 pimylifeup.com##+js(aopr, adthrive.config)
 @@||chronicle.com/dg/default/rest/$xhr,1p
 chronicle.com##.GoogleDfpAd-container
-@@||vix.com^$ghide
-vix.com##+js(json-prune, breaks interstitials info, interstitials)
-vix.com##+js(xml-prune, xpath(//*[name()="Period"][.//*[name()="AdaptationSet"][@contentType="video"][not(@bitstreamSwitching="true")]]), , .mpd)
-||imasdk.googleapis.com/js/sdkloader/ima3.js$script,3p,redirect=google-ima.js,domain=vix.com
-@@||imasdk.googleapis.com/js/sdkloader/ima3_dai.js$script,3p,domain=vix.com
-vix.com##+js(json-prune, ad_slots)
-vix.com##+js(json-prune, plugins.dfp)
-vix.com##+js(m3u-prune, lura.live/prod/, /prog.m3u8)
-vix.com###video-player-track[style*="display: block"]:style(visibility: visible !important;)
 animepahe.*##+js(aopw, __C)
 ||uii.io^$3p
 tecnotutoshd.net##+js(acs, eval, replace)
