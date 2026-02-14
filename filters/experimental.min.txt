@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Experimental
 ! Expires: 1 day
-! Last modified: Fri, 13 Feb 2026 17:06:00 +0000
+! Last modified: Sat, 14 Feb 2026 01:02:31 +0000
 ! Diff-Path: %diffpath%#ublock-experimental
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -20,8 +20,8 @@ www.youtube.com#@#+js(trusted-edit-inbound-object, JSON.stringify, 0, [?!.videoI
 ! www.youtube.com##+js(trusted-prune-inbound-object, JSON.stringify, 1, context.client.configInfo.appInstallData, playbackContext)
 ! www.youtube.com##+js(trusted-prune-inbound-object, JSON.stringify, 1, context.client.configInfo.appInstallData, playerRequest)
 ! Experimental 2
-www.youtube.com##+js(trusted-edit-inbound-object, JSON.stringify, 0, '.playerRequest[?.params][?!.params^="yAEB"].params=repl({"regex":"^","replacement":"yAEB"})')
-www.youtube.com##+js(trusted-edit-inbound-object, JSON.stringify, 0, .playerRequest[?!.params]+={"params":"yAEB"})
+www.youtube.com##+js(trusted-edit-inbound-object, JSON.stringify, 0, '[?!.videoId].playerRequest[?.params][?!.params^="yAEB"].params=repl({"regex":"^","replacement":"yAEB"})')
+www.youtube.com##+js(trusted-edit-inbound-object, JSON.stringify, 0, [?!.videoId].playerRequest[?!.params]+={"params":"yAEB"})
 !#if cap_html_filtering
 ! www.twitch.tv/esl_dota2
 ||ttvnw.net/v1/playlist$xhr,3p,replace=/#EXT-X-DATERANGE:ID="(stitched-ad|maf-ad|source|trigger)"\S+\n|#EXT-X-DATERANGE:ID=\S+?CLASS="twitch-(?:stream-source|trigger|maf-ad)"\S+\n|#EXT-X-DATERANGE:\S+?CLASS="twitch-ad-quartile".+?(?=(#EXT-X-DATERANGE|$))|(\n#EXT-X-DISCONTINUITY\s|#EXT-X-TWITCH-PREFETCH\S+)//gs
