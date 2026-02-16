@@ -1,5 +1,5 @@
 ! Title: uBlock₀ filters – Quick fixes
-! Last modified: Mon, 16 Feb 2026 01:55:42 +0000
+! Last modified: Mon, 16 Feb 2026 05:39:29 +0000
 ! Expires: 8 hours
 ! Description: Immediate, temporary filters to fix websites
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -25,12 +25,12 @@ www.youtube.com##+js(trusted-rpnt, script, (function serverContract(), (()=>{if(
 www.youtube.com##+js(trusted-edit-inbound-object, JSON.stringify, 0, [?..playbackContext.contentPlaybackContext][?!.attestationRequest][?!.captionsRequested][?!.settingItemIds][?!..mainAppWebInfo.graftUrl*="&list="][?!..mainAppWebInfo.graftUrl*="/shorts/"]..client[?.clientName=="WEB"]+={"clientScreen":"CHANNEL"})
 www.youtube.com##+js(set, ytcfg.data_.EXPERIMENT_FLAGS.web_streaming_watch, false)
 !#if env_firefox
-www.youtube.com###page-manager:has(.ytp-menu-label-secondary) ytd-watch-flexy[player-unavailable]:remove-attr(player-unavailable)
+www.youtube.com###page-manager:has(#player-error-message-container) ytd-watch-flexy[player-unavailable]:remove-attr(player-unavailable)
 !#else
-www.youtube.com##+js(ra, player-unavailable, #page-manager:has(.ytp-menu-label-secondary) ytd-watch-flexy[player-unavailable], asap stay)
+www.youtube.com##+js(ra, player-unavailable, #page-manager:has(#player-error-message-container) ytd-watch-flexy[player-unavailable], asap stay)
 !#endif
-www.youtube.com###page-manager:has(.ytp-menu-label-secondary) ytd-watch-flexy[player-unavailable] :is(#player-container-outer, #cinematics-container, #ytd-player > #container):style(visibility: visible !important;)
-www.youtube.com###page-manager:has(.ytp-menu-label-secondary) yt-playability-error-supported-renderers#error-screen
+www.youtube.com###page-manager:has(#player-error-message-container) ytd-watch-flexy[player-unavailable] :is(#player-container-outer, #cinematics-container, #ytd-player > #container):style(visibility: visible !important;)
+www.youtube.com###page-manager:has(#player-error-message-container) yt-playability-error-supported-renderers#error-screen
 ! https://github.com/uBlockOrigin/uAssets/issues/30157#issuecomment-3905489913
 www.youtube.com##.ytdMiniplayerPlayerContainerHost .ytdMiniplayerPlayerContainerPlayabilityError
 ! https://github.com/uBlockOrigin/uAssets/issues/30157#issuecomment-3901136578
