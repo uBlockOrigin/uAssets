@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Unbreak
 ! Expires: 5 days
-! Last modified: Mon, 16 Feb 2026 06:05:27 +0000
+! Last modified: Thu, 19 Feb 2026 23:43:18 +0000
 ! Diff-Path: %diffpath%#ublock-unbreak
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -2244,8 +2244,10 @@ gry-online.pl##+js(set, jad, undefined)
 ozap.com##+js(rpnt, script, WB.defer, 'window.wbads={public:{getDailymotionAdsParamsForScript:function(a,b){b("")},setTargetingOnPosition:function(a,b){return}}};WB.defer', condition, wbads.public.setTargetingOnPosition)
 vidaextra.com##+js(set, hasAdblocker, true)
 vidaextra.com##.base-asset-video:remove-class(base-asset-video)
-www.reddit.com,new.reddit.com##.subredditvars-r-ublockorigin [role="dialog"]>div:style(width: auto !important)
 www.reddit.com,sh.reddit.com##community-highlight-card[subreddit-prefixed-name="r/uBlockOrigin"][src]:remove-attr(src)
+www.reddit.com,sh.reddit.com##in-feed-community-recommendations[subreddit-name="uBlockOrigin"]
+www.reddit.com,sh.reddit.com##shreddit-title[title$="r/uBlockOrigin"]~[id^="comment-tree-content-anchor-"]+div:has(>[id^="answers-suggested-queries"])
+www.reddit.com,sh.reddit.com###main-content:has(>shreddit-title[title$="r/uBlockOrigin"])+#right-sidebar-container [data-slug="pdp_right_rail_related"]
 lumens.com##+js(set, _satellite, {})
 lumens.com##+js(set, _satellite.track, noopFunc)
 ||analytics.skroutz.gr/analytics.min.js^$script,1p,redirect=noop.js
