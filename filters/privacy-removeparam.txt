@@ -1,5 +1,5 @@
 ! Title: AdGuard/uBO – URL Tracking Protection
-! Last modified: Mon, 02 Feb 2026 09:45:09 +0000
+! Last modified: Thu, 19 Feb 2026 15:42:16 +0000
 ! Expires: 7 days
 ! Description: |
 !   Filter that enhances privacy by removing tracking parameters from URLs.
@@ -486,6 +486,20 @@ $to=~tradedoubler.com,removeparam=tduid
 ! Bad: ||example.org^$xmlhttprequest,redirect=noopvast-3.0 (for instance, should be in specific.txt)
 !
 !
+! https://github.com/DandelionSprout/adfilt/discussions/163#discussioncomment-15852187
+||reddit.com^$removeparam=entry_point
+! https://github.com/AdguardTeam/AdguardFilters/issues/224934
+||bunjang.co.kr^$removeparam=ref_content
+||bunjang.co.kr^$removeparam=ref_code
+||bunjang.co.kr^$removeparam=imp_id
+! https://github.com/AdguardTeam/AdguardFilters/issues/224605
+||account.proton.me^$removeparam=ref
+! https://github.com/AdguardTeam/AdguardFilters/issues/224428
+||soundcore.com^$document,removeparam=ref
+! https://github.com/DandelionSprout/adfilt/discussions/163#discussioncomment-15687218
+||feeder.co^$removeparam=from
+! https://github.com/DandelionSprout/adfilt/discussions/163#discussioncomment-15686111
+ref=shadcn.com^$removeparam=ref
 ! https://github.com/AdguardTeam/AdguardFilters/issues/223803
 ||petbook.de^$removeparam=dicbo
 ||petbook.de^$removeparam=cid
