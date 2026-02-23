@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Mon, 23 Feb 2026 09:45:12 +0000
+! Last modified: Mon, 23 Feb 2026 11:20:55 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -4697,21 +4697,6 @@ pipocamoderna.com.br##+js(aopw, adBlockDetected)
 textograto.com##+js(nostif, ())
 rainanime.*##+js(aopr, loadRunative)
 rainanime.*##.fake_player
-shrink.*##+js(aopr, app_vars.force_disable_adblock)
-shrink.*##+js(aopr, adBlockDetected)
-shrink.*##+js(nowebrtc)
-shrink.*##+js(set, blurred, false)
-shrink.*##+js(aopr, open)
-shrink.*##+js(noeval-if, replace)
-shrink.*##center
-shrink.*##.banner
-@@||shrink.*^$ghide
-bigbtc.win##+js(rmnt, script, alert)
-bigbtc.win##div[style^="width:300px;height:250px"]
-bigbtc.win,cryptofun.space###block-adb-enabled, #block-add-enabled, #block-adeb-enabled
-bigbtc.win,cryptofun.space###main, #ielement, #mainnew:style(display: block !important;)
-bigbtc.win##div:has(> div[style] > div[id] > script[src^="//ads.themoneytizer.com"])
-cryptofun.space,shrink.icu##+js(rpnt, script, /if((.*))/, if(1==1))
 ||watson.de/js/tisoomi.js$script,1p
 watson.de##[data-ad]
 activistpost.com##+js(aopr, XMLHttpRequest)
@@ -7632,8 +7617,9 @@ technoinformations.com,worldmak.com###wpsafe-link:style(display: block !importan
 bollywoodchamp.in##+js(noeval-if, /chp_?ad/)
 texw.online##+js(noeval-if, /chp_?ad/)
 ikingfile.mooo.com##+js(nowoif)
-fuckingfast.net##+js(set, window.adLink, null)
-fuckingfast.co##+js(rpnt, script, !seen && ad, false)
+fuckingfast.*##+js(set, window.adLink, null)
+fuckingfast.*##+js(rpnt, script, !seen && ad, false)
+fuckingfast.*##+js(acis, JSON.parse, localStorage._d)
 ||fuckingfast.co/f/*/dl^$xhr,1p
 ||senditfast.cloud^$doc
 streamelements.com##+js(trusted-set, google_srt, json:0.61234)
@@ -7655,13 +7641,15 @@ driveup.space##center > iframe[id="adapred"]
 ||ppcnqq.com^
 ||snhjsbs.shop^
 ||w0of-woof.com^
+@@||com/js/*.js|$script,1p,domain=upfilesgo.com|upfion.com|upfiles.app|upfiles-urls.com
 upfilesgo.com,upfion.com,upfiles.app,upfiles-urls.com##fieldset, .faqs, footer
 upfilesgo.com,upfion.com,upfiles.app,upfiles-urls.com##+js(aeld, DOMContentLoaded, history.go)
 upfilesgo.com,upfion.com,upfiles.app,upfiles-urls.com##+js(aeld, click, shouldOpenPopUp)
-upfilesgo.com,upfion.com,upfiles.app,upfiles-urls.com##+js(set, blurred, false)
 upfilesgo.com,upfion.com,upfiles.app,upfiles-urls.com##+js(no-fetch-if, googlesyndication)
-upfilesgo.com,upfion.com,upfiles.app,upfiles-urls.com##+js(trusted-set, vhit, json:{"detectAdblock":false})
-@@||com/js/*.js|$script,1p,domain=upfilesgo.com|upfion.com|upfiles.app|upfiles-urls.com
+upfilesgo.com,upfion.com,upfiles.app,upfiles-urls.com##+js(set, vhit, {})
+upfilesgo.com,upfion.com,upfiles.app,upfiles-urls.com##+js(set, vhit.detectAdblock, falseFunc)
+upfilesgo.com,upfion.com,upfiles.app,upfiles-urls.com##+js(aopr, app_vars.force_disable_adblock)
+upfilesgo.com,upfion.com,upfiles.app,upfiles-urls.com##+js(set, blurred, false)
 rentry.co##article:has(#download-your-archive-file)
 ||sharecube.pro^$all
 ||flyshare.cfd^$all
@@ -7877,6 +7865,24 @@ bgmiconfig.ink##.ad-zone
 stackmint.ink,bgmiconfig.ink,inkvoyage.xyz##+js(rpnt, script, /10;|6;/, 1;, condition, progress)
 messycloud.com##div.ad-zone
 rempo.xyz##+js(rpnt, script, isAndroid), false))
+shrink.*##h3, p
+shrink.*##.blog-item
+shrink.*##center
+shrink.*##.banner
+@@||shrink.*^$ghide
+shrink.*##+js(aopr, app_vars.force_disable_adblock)
+shrink.*##+js(aopr, adBlockDetected)
+shrink.*##+js(nowebrtc)
+shrink.*##+js(set, blurred, false)
+shrink.*##+js(aopr, open)
+shrink.*##+js(noeval-if, replace)
+shrink.*##+js(trusted-replace-node-text, script, /if((.*))/, if(1==1), condition, #main)
+shrink.*##+js(rmnt, script, '{delete window[')
+bigbtc.win##+js(rmnt, script, alert)
+bigbtc.win##div[style^="width:300px;height:250px"]
+bigbtc.win,cryptofun.space###block-adb-enabled, #block-add-enabled, #block-adeb-enabled
+bigbtc.win,cryptofun.space###main, #ielement, #mainnew:style(display: block !important;)
+bigbtc.win##div:has(> div[style] > div[id] > script[src^="//ads.themoneytizer.com"])
 !#if env_mobile
 ! *** filters/filters-mobile.txt ***
 !----- 2020 -----
@@ -13410,8 +13416,6 @@ blog.40ch.net##+js(acs, document.addEventListener, nextFunction)
 pornissimo.org##+js(set, flashvars.protect_block, '')
 pornissimo.org##.table
 pornissimo.org##.fp-brand
-upfiles.*##+js(aopr, app_vars.force_disable_adblock)
-upfiles.*##+js(set, blurred, false)
 edn.com###custom_html-3
 edn.com###custom_html-5
 edn.com###footerAdWrap
@@ -24279,3 +24283,5 @@ loverugbyleague.com,planetrugby.com##+js(rmnt, script, .onerror)
 loverugbyleague.com##.ps-block-a-top
 loverugbyleague.com##.ps-block-a
 loverugbyleague.com,planetrugby.com##article.lg\:my-0.w-full.h-auto.my-5.mx-auto
+! Streamix popup
+streamix.so##+js(nowoif)

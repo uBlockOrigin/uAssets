@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Link shorteners
-! Last modified: Sun, 22 Feb 2026 12:50:24 +0000
+! Last modified: Mon, 23 Feb 2026 11:20:55 +0000
 ! Expires: 5 days
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
@@ -1320,8 +1320,9 @@ texw.online##+js(noeval-if, /chp_?ad/)
 ikingfile.mooo.com##+js(nowoif)
 
 ! https://github.com/uBlockOrigin/uAssets/discussions/17361#discussioncomment-10952637
-fuckingfast.net##+js(set, window.adLink, null)
-fuckingfast.co##+js(rpnt, script, !seen && ad, false)
+fuckingfast.*##+js(set, window.adLink, null)
+fuckingfast.*##+js(rpnt, script, !seen && ad, false)
+fuckingfast.*##+js(acis, JSON.parse, localStorage._d)
 ||fuckingfast.co/f/*/dl^$xhr,1p
 ||senditfast.cloud^$doc
 
@@ -1356,13 +1357,15 @@ driveup.space##center > iframe[id="adapred"]
 
 ! https://github.com/uBlockOrigin/uAssets/issues/26411
 ! https://github.com/uBlockOrigin/uAssets/issues/26750
+@@||com/js/*.js|$script,1p,domain=upfilesgo.com|upfion.com|upfiles.app|upfiles-urls.com
 upfilesgo.com,upfion.com,upfiles.app,upfiles-urls.com##fieldset, .faqs, footer
 upfilesgo.com,upfion.com,upfiles.app,upfiles-urls.com##+js(aeld, DOMContentLoaded, history.go)
 upfilesgo.com,upfion.com,upfiles.app,upfiles-urls.com##+js(aeld, click, shouldOpenPopUp)
-upfilesgo.com,upfion.com,upfiles.app,upfiles-urls.com##+js(set, blurred, false)
 upfilesgo.com,upfion.com,upfiles.app,upfiles-urls.com##+js(no-fetch-if, googlesyndication)
-upfilesgo.com,upfion.com,upfiles.app,upfiles-urls.com##+js(trusted-set, vhit, json:{"detectAdblock":false})
-@@||com/js/*.js|$script,1p,domain=upfilesgo.com|upfion.com|upfiles.app|upfiles-urls.com
+upfilesgo.com,upfion.com,upfiles.app,upfiles-urls.com##+js(set, vhit, {})
+upfilesgo.com,upfion.com,upfiles.app,upfiles-urls.com##+js(set, vhit.detectAdblock, falseFunc)
+upfilesgo.com,upfion.com,upfiles.app,upfiles-urls.com##+js(aopr, app_vars.force_disable_adblock)
+upfilesgo.com,upfion.com,upfiles.app,upfiles-urls.com##+js(set, blurred, false)
 rentry.co##article:has(#download-your-archive-file)
 ||sharecube.pro^$all
 ||flyshare.cfd^$all
@@ -1690,3 +1693,24 @@ messycloud.com##div.ad-zone
 
 ! https://rempo.xyz/7DhpjVzO
 rempo.xyz##+js(rpnt, script, isAndroid), false))
+
+! https://github.com/uBlockOrigin/uAssets/issues/6022
+! https://github.com/AdguardTeam/AdguardFilters/issues/117880
+shrink.*##h3, p
+shrink.*##.blog-item
+shrink.*##center
+shrink.*##.banner
+@@||shrink.*^$ghide
+shrink.*##+js(aopr, app_vars.force_disable_adblock)
+shrink.*##+js(aopr, adBlockDetected)
+shrink.*##+js(nowebrtc)
+shrink.*##+js(set, blurred, false)
+shrink.*##+js(aopr, open)
+shrink.*##+js(noeval-if, replace)
+shrink.*##+js(trusted-replace-node-text, script, /if((.*))/, if(1==1), condition, #main)
+shrink.*##+js(rmnt, script, '{delete window[')
+bigbtc.win##+js(rmnt, script, alert)
+bigbtc.win##div[style^="width:300px;height:250px"]
+bigbtc.win,cryptofun.space###block-adb-enabled, #block-add-enabled, #block-adeb-enabled
+bigbtc.win,cryptofun.space###main, #ielement, #mainnew:style(display: block !important;)
+bigbtc.win##div:has(> div[style] > div[id] > script[src^="//ads.themoneytizer.com"])
