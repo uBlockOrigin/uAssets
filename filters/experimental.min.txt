@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Experimental
 ! Expires: 1 day
-! Last modified: Sun, 22 Feb 2026 16:15:23 +0000
+! Last modified: Mon, 23 Feb 2026 09:50:15 +0000
 ! Diff-Path: %diffpath%#ublock-experimental
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -39,7 +39,7 @@ www.youtube.com##+js(trusted-rpnt, script, (function serverContract(), '(()=>{if
 www.youtube.com##+js(trusted-json-edit-xhr-request, [?..userAgent*="channel"]..client[?.clientName=="WEB"]+={"clientScreen":"CHANNEL"}, propsToMatch, /player?)
 www.youtube.com##+js(trusted-json-edit-xhr-request, [?..userAgent*="adunit"]..client[?.clientName=="WEB"]+={"clientScreen":"ADUNIT"}, propsToMatch, /player?)
 www.youtube.com##+js(trusted-json-edit-xhr-request, '[?..userAgent=/adunit|channel/]..referer=repl({"regex":"$","replacement":"#reloadxhr"})', propsToMatch, /player?)
-! www.youtube.com###toast:has(> #action-button a.yt-spec-button-shape-next[href^="https://support.google.com/youtube/answer/3037019"])
+www.youtube.com###toast:has(> #action-button a.yt-spec-button-shape-next[href^="https://support.google.com/youtube/answer/3037019"])
 !#if cap_html_filtering
 ! www.twitch.tv/esl_dota2
 ||ttvnw.net/v1/playlist$xhr,3p,replace=/#EXT-X-DATERANGE:ID="(stitched-ad|maf-ad|source|trigger)"\S+\n|#EXT-X-DATERANGE:ID=\S+?CLASS="twitch-(?:stream-source|trigger|maf-ad)"\S+\n|#EXT-X-DATERANGE:\S+?CLASS="twitch-ad-quartile".+?(?=(#EXT-X-DATERANGE|$))|(\n#EXT-X-DISCONTINUITY\s|#EXT-X-TWITCH-PREFETCH\S+)//gs
