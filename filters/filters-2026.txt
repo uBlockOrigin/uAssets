@@ -233,8 +233,10 @@ aznude.com##.single-video-ad
 xitongku.com##+js(trusted-set-session-storage-item, updateTime, $now$)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/31865
-oxxfile.info##+js(no-fetch-if, tracking)
-oxxfile.info##+js(no-xhr-if, tracking)
+oxxfile.*##+js(prevent-fetch, ads_)
+oxxfile.*##+js(prevent-xhr, ads_)
+oxxfile.*##^[rel="preload"][href*="tracking-codes"]
+||/api/tracking-codes?type=ads_$xhr,domain=oxxfile.*
 
 ! https://github.com/uBlockOrigin/uAssets/issues/31868
 gupload.xyz##+js(acs, EventTarget.prototype.addEventListener, open)
