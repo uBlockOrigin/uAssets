@@ -1,5 +1,5 @@
 ! Title: AdGuard/uBO – URL Tracking Protection
-! Last modified: Wed, 25 Feb 2026 07:24:45 +0000
+! Last modified: Wed, 25 Feb 2026 09:57:55 +0000
 ! Expires: 7 days
 ! Description: |
 !   Filter that enhances privacy by removing tracking parameters from URLs.
@@ -25,6 +25,10 @@
 !
 ! NOTE: Generic rules
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/224235
+! https://github.com/AdguardTeam/AdguardFilters/issues/217915
+$removeparam=analytics_context
+$removeparam=analytics_trace_id
 ! Bance
 $removeparam=bance_xuid
 ! Oracle Eloqua
@@ -629,10 +633,6 @@ ref=shadcn.com^$removeparam=ref
 ! https://github.com/AdguardTeam/AdguardFilters/issues/218625
 ||zurichlife.co.jp^$removeparam=waad
 ||zurichlife.co.jp^$removeparam=agentCode
-! https://github.com/AdguardTeam/AdguardFilters/issues/217915
-||chickencoopcompany.com/services/$removeparam=analytics_context
-||chickencoopcompany.com/services/$removeparam=analytics_trace_id
-||shop.app/accounts/$removeparam=analytics_trace_id
 ! byn.kr - any product page via product listing page
 ||byn.kr^$removeparam=rURL
 ! https://github.com/AdguardTeam/AdguardFilters/issues/218031
@@ -896,6 +896,8 @@ $removeparam=s-id,to=item.rakuten.co.jp|www.rakuten.co.jp
 ! https://github.com/AdguardTeam/AdguardFilters/issues/204894
 ||ebikes.ca^$removeparam=___store
 ||ebikes.ca^$removeparam=___from_store
+! https://github.com/AdguardTeam/AdguardFilters/issues/224442
+||tapatalk.com^$removeparam=sid
 ! https://github.com/AdguardTeam/AdguardFilters/issues/206358
 ! https://github.com/AdguardTeam/AdguardFilters/issues/205132
 /viewforum.php?$removeparam=sid
@@ -2223,6 +2225,8 @@ $removeparam=ici,to=shein.co.uk|shein.com
 ||click.speee-ad.jp^$removeparam=slot_index
 ||click.speee-ad.jp^$removeparam=v
 !! tiktok
+! https://github.com/AdguardTeam/AdguardFilters/issues/225183
+||tiktok.com^$removeparam=_t
 ! https://github.com/AdguardTeam/AdguardFilters/issues/192966
 ||tiktok.com$removeparam=referer_video_id
 ! https://github.com/DandelionSprout/adfilt/discussions/163#discussioncomment-4978150
