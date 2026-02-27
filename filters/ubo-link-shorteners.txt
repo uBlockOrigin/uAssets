@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Link shorteners
-! Last modified: Thu, 26 Feb 2026 05:14:12 +0000
+! Last modified: Fri, 27 Feb 2026 13:28:47 +0000
 ! Expires: 5 days
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
@@ -184,18 +184,20 @@ v2links.me###footer
 financenova.online##.aside-top-ads
 
 ! https://fc-lc.xyz/7us2gDPh
-/nt.js$domain=fc-lc.*|jobzhub.store|fitdynamos.com|labgame.io
-fc-lc.*###iframe_id, .text-left, .py-4.text-center.footer-copyright
-fc-lc.*##+js(rmnt, script, /DName|#iframe_id/)
-jobzhub.store,fitdynamos.com,labgame.io###surl:remove-class(disabled)
-jobzhub.store,fitdynamos.com,labgame.io##+js(rmnt, script, adblockDetector)
-jobzhub.store,fitdynamos.com,labgame.io##+js(rpnt, script, stopCountdown();, resumeCountdown();)
-jobzhub.store,fitdynamos.com,labgame.io##+js(rpnt, script, /initialTimeSeconds = \d+/, initialTimeSeconds = 7)
-jobzhub.store,fitdynamos.com,labgame.io##+js(rmnt, script, close-modal)
-jobzhub.store,fitdynamos.com,labgame.io##+js(nano-sib, tid, *, 0.02)
-jobzhub.store,fitdynamos.com,labgame.io##+js(noeval-if, ppuQnty)
+/nt.js$domain=fc-lc.*|jobzhub.store|fitdynamos.com|labgame.io|fc.lc
+fc.lc,fc-lc.*###iframe_id, .text-left, .py-4.text-center.footer-copyright
+fc.lc,fc-lc.*##+js(rmnt, script, /DName|#iframe_id|AdscoreSignatureLoaded/)
+||cdn.jsdelivr.net/npm/*/bulma.min.css$stylesheet,domain=jobzhub.store|fitdynamos.com|labgame.io|fc.lc
+jobzhub.store,fitdynamos.com,labgame.io##+js(rpnt, script, stopTimeout();, startTimeout();)
+jobzhub.store,fitdynamos.com,labgame.io##+js(aeld, /visibilitychange|blur/)
+! Backup
 jobzhub.store,fitdynamos.com,labgame.io##+js(aeld, blur, stopCountdown)
-jobzhub.store,fitdynamos.com,labgame.io###step, #next, #scroll, #glink, #countdown, #surl, #ctext, .btn-danger.btn:others()
+jobzhub.store,fitdynamos.com,labgame.io#@#+js(rpnt, script, /initialTimeSeconds = \d+/, initialTimeSeconds = 7)
+jobzhub.store,fitdynamos.com,labgame.io#@#+js(nano-sib, tid, *, 0.02)
+jobzhub.store,fitdynamos.com,labgame.io##+js(rpnt, script, stopCountdown();, resumeCountdown();)
+jobzhub.store,fitdynamos.com,labgame.io###step, #next, #scroll, #glink, #countdown, #surl, #ctext, .btn-danger.btn, #cf-section:others()
+jobzhub.store,fitdynamos.com,labgame.io##+js(rmnt, script, close-modal)
+jobzhub.store,fitdynamos.com,labgame.io##+js(noeval-if, ppuQnty)
 jobzhub.store,fitdynamos.com,labgame.io##+js(trusted-set-cookie, ad_expire=true;, $now$)
 ||cdn.jsdelivr.net/npm/*/bulma.min.css$stylesheet,domain=jobzhub.store|fitdynamos.com|labgame.io
 ||curryfielddistribution.com^$all
@@ -872,11 +874,12 @@ tpi.li,oii.la##+js(set, blurred, false)
 tpi.li,oii.la##+js(rpnt, script, offsetHeight, offsetHeight+100)
 tpi.li,oii.la##a[href][target="_blank"]
 tpi.li,oii.la##.td-post-template-default.td-container, .banner-inner
-comparepolicyy.com,healthylifez.com,hosttbuzz.com,policiesreview.com,vpshostplans.com##+js(nowoif)
-comparepolicyy.com,healthylifez.com,hosttbuzz.com,policiesreview.com,vpshostplans.com##+js(nano-sib, /countdown--|getElementById/, *, 0.001)
-comparepolicyy.com,healthylifez.com,hosttbuzz.com,policiesreview.com##+js(nano-stb, getElementById, *, 0.001)
-comparepolicyy.com,healthylifez.com,hosttbuzz.com,policiesreview.com,vpshostplans.com###getnewlink, .wp2continuelink, .getmylink:style(display: block !important;)
-comparepolicyy.com,healthylifez.com,hosttbuzz.com,policiesreview.com,vpshostplans.com###getnewlink, .wp2continuelink, .getmylink, #newtimer:others()
+! Mid Page
+carensureplan.com,comparepolicyy.com,healthylifez.com,hosttbuzz.com,policiesreview.com,vpshostplans.com##+js(nowoif)
+carensureplan.com,comparepolicyy.com,healthylifez.com,hosttbuzz.com,policiesreview.com,vpshostplans.com##+js(nano-sib, /countdown--|getElementById/, *, 0.001)
+carensureplan.com,comparepolicyy.com,healthylifez.com,hosttbuzz.com,policiesreview.com##+js(nano-stb, getElementById, *, 0.001)
+carensureplan.com,comparepolicyy.com,healthylifez.com,hosttbuzz.com,policiesreview.com,vpshostplans.com###getnewlink, .wp2continuelink, .getmylink:style(display: block !important;)
+carensureplan.com,comparepolicyy.com,healthylifez.com,hosttbuzz.com,policiesreview.com,vpshostplans.com###getnewlink, .wp2continuelink, .getmylink, #newtimer:others()
 
 ! http://go.megafly.in/znj2u7olam
 ! https://github.com/uBlockOrigin/uAssets/issues/18719
@@ -1361,8 +1364,7 @@ upfilesgo.com,upfion.com,upfiles.app,upfiles-urls.com##fieldset, .faqs, footer
 upfilesgo.com,upfion.com,upfiles.app,upfiles-urls.com##+js(aeld, DOMContentLoaded, history.go)
 upfilesgo.com,upfion.com,upfiles.app,upfiles-urls.com##+js(aeld, click, shouldOpenPopUp)
 upfilesgo.com,upfion.com,upfiles.app,upfiles-urls.com##+js(set, blurred, false)
-upfilesgo.com,upfion.com,upfiles.app,upfiles-urls.com##+js(set, vhit, {})
-upfilesgo.com,upfion.com,upfiles.app,upfiles-urls.com##+js(set, vhit.detectAdblock, false, as, function)
+upfilesgo.com,upfion.com,upfiles.app,upfiles-urls.com##+js(trusted-create-html, head, <img src='/n5dev.png' onerror='if (typeof window !== "undefined") { window.vhit = { detectAdblock: () => false }; }'>)
 rentry.co##article:has(#download-your-archive-file)
 ||sharecube.pro^$all
 ||flyshare.cfd^$all
@@ -1711,3 +1713,25 @@ bigbtc.win##div[style^="width:300px;height:250px"]
 bigbtc.win,cryptofun.space###block-adb-enabled, #block-add-enabled, #block-adeb-enabled
 bigbtc.win,cryptofun.space###main, #ielement, #mainnew:style(display: block !important;)
 bigbtc.win##div:has(> div[style] > div[id] > script[src^="//ads.themoneytizer.com"])
+
+! https://d.torupload.com/ueol1jxh5fzp
+*$image,redirect-rule=32x32.png,domain=torupload.com|nathanmichaelphoto.com
+@@||cdn4ads.com/*/xhumane.min.js$script,domain=torupload.com|nathanmichaelphoto.com
+nathanmichaelphoto.com,torupload.com##+js(rpnt, script, false, true, condition, opened)
+nathanmichaelphoto.com,torupload.com##+js(no-fetch-if, clickadu)
+nathanmichaelphoto.com,torupload.com##+js(set, document.hidden, true)
+||oundhertobeconsist.org^
+||vampyrejibmen.com^
+
+! https://lnbz.la/gbo1VL
+healthmyst.com##+js(rmnt, script, /detectAdBlock|checkFakeAd|adBlockNotDetected/)
+healthmyst.com###go_d2[action]:style(display: inline-block !important;)
+healthmyst.com##.fluidprimary, #go_d, .adb_detected > h2
+healthmyst.com##.steps
+healthmyst.com##.instructions
+healthmyst.com##.reopen-info
+healthmyst.com##h4
+healthmyst.com##+js(rpnt, script, /false;/gm, true;, condition, isSubscribed)
+healthmyst.com##+js(nano-sib, /.?/, *, 0.02)
+lnbz.la##+js(nowoif)
+lnbz.la##+js(set, blurred, false)
