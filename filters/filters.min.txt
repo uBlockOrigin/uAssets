@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Thu, 05 Mar 2026 12:19:47 +0000
+! Last modified: Thu, 05 Mar 2026 17:31:11 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -7653,6 +7653,7 @@ upfilesgo.com,upfion.com,upfiles.app,upfiles-urls.com##+js(aeld, click, shouldOp
 upfilesgo.com,upfion.com,upfiles.app,upfiles-urls.com##+js(set, blurred, false)
 @@||vhit.io/scripts/vhit.js$script,domain=upfilesgo.com|upfion.com|upfiles.app|upfiles-urls.com
 @@*$ghide,domain=upfilesgo.com|upfion.com|upfiles.app|upfiles-urls.com
+upfilesgo.com,upfion.com,upfiles.app,upfiles-urls.com##+js(no-fetch-if, method:HEAD)
 rentry.co##article:has(#download-your-archive-file)
 ||sharecube.pro^$all
 ||flyshare.cfd^$all
@@ -7703,6 +7704,9 @@ krakenfiles.com##+js(aeld, DOMContentLoaded, history.go)
 krakenfiles.com##+js(rmnt, script, onpopstate)
 krakenfiles.com##+js(rmnt, script, showBannerAdBlock)
 krakenfiles.com##+js(rpnt, script, state.shown >= redirectUrls.length, true)
+krakenfiles.com##+js(prevent-fetch, pagead2.googlesyndication.com/pagead/js/adsbygoogle.js)
+krakenfiles.com##+js(prevent-fetch, googletagservices)
+@@*$ghide,domain=krakenfiles.com
 krakenfiles.com##.native-banner
 krakenfiles.com##.myad-box
 ||palpatecricketmajesty.com^
@@ -24339,6 +24343,7 @@ twitchnosub.com##+js(nostif, , 3200-)
 twitchnosub.com##section:nth-of-type(2) > .container > div:has(a[href^="https://kicknosub.com"])
 ! cinefreak.net (Popup)
 cinefreak.*##+js(aeld, click, openPopunder)
+cinecloud.*##+js(nostif, /window\.location\.href/)
 ! aznude.com (Popup, empty ad)
 aznude.com##^meta[content*="magsrv.com"]
 aznude.com##+js(set, AdProvider, noopFunc)
