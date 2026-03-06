@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2026)
-! Last modified: Fri, 06 Mar 2026 10:04:52 +0000
+! Last modified: Fri, 06 Mar 2026 10:15:16 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -206,7 +206,12 @@ filecrate.store##+js(aeld, click, !adShown)
 ! https://github.com/AdguardTeam/AdguardFilters/issues/224406
 vidara.so,vidara.to##+js(nowoif)
 vidara.so,vidara.to##+js(acs, document.createElement, /blocker|detected/)
-||ssl.p.jwpcdn.com/player/*/googima.js$script,redirect=noopjs,domain=vidara.so
+||ssl.p.jwpcdn.com/player/*/googima.js$script,redirect=noopjs,domain=vidara.so|vidara.to
+vidara.to##+js(rmnt, script, document.getElementsByTagName)
+! https://github.com/uBlockOrigin/uAssets/issues/32090
+vidara.to##+js(set, HTMLScriptElement.prototype.onerror, undefined)
+myvidster.com##div.details_ads:nth-of-type(2)
+myvidster.com##td[height="90"]
 
 ! https://github.com/uBlockOrigin/uAssets/issues/31824
 twitchnosub.com##+js(nostif, , 3200-)
@@ -338,8 +343,3 @@ indopanas.cyou##+js(rpnt, script, startPreroll();)
 ! https://github.com/uBlockOrigin/uAssets/issues/32075
 ! @@||fastcompany.com^$script,1p
 fastcompany.com##+js(set, HTMLScriptElement.prototype.onerror, undefined)
-
-! https://github.com/uBlockOrigin/uAssets/issues/32090
-vidara.to##+js(set, HTMLScriptElement.prototype.onerror, undefined)
-myvidster.com##div.details_ads:nth-of-type(2)
-myvidster.com##td[height="90"]
