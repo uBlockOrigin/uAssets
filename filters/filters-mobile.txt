@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Mobile
-! Last modified: Thu, 26 Feb 2026 12:58:12 +0000
+! Last modified: Fri, 06 Mar 2026 12:02:59 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -62,7 +62,8 @@ nytimes.com###acm-wrapper
 ! https://github.com/uBlockOrigin/uAssets/issues/31926
 ! https://github.com/AdguardTeam/AdguardFilters/issues/219273#issuecomment-3614718388
 ! https://www.reddit.com/r/uBlockOrigin/comments/1qzj8o0/requesting_help_to_block_an_interstitial_ad_on/
-||nytimes.com/games-assets/v2/*.js$script,replace=/shouldRenderAd:\(\)=>d&&/shouldRenderAd:()=>false&&/,domain=www.nytimes.com
+! https://www.reddit.com/r/uBlockOrigin/comments/1rlsphn/help_with_previous_issue_on_nytimes_games/
+||nytimes.com/games-assets/v2/*.js$script,replace=/shouldRenderAd:\(\)=>[a-z]&&/shouldRenderAd:()=>false&&/,domain=www.nytimes.com
 ||nytimes.com/games-assets/v2/spelling-bee.*.js$script,domain=www.nytimes.com,replace=/\.includes\("cr"\)/.includes("")/
 ! www.nytimes.com##+js(trusted-replace-argument, String.prototype.includes, this, json:"subscribed", condition, /^anon$/)
 www.nytimes.com##+js(trusted-replace-argument, matchMedia.call, 1, json:"none", condition, max-width)
