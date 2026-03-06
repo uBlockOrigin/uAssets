@@ -1543,10 +1543,12 @@ djremixganna.com,keedabankingnews.com,rokni.xyz##^script:has-text(detectAdBlock)
 arolinks.com##.telegram-banner
 arolinks.com##+js(rpnt, script, /#Intent.*?end/)
 arolinks.com##+js(rpnt, script, intent, https)
-arolinks.com##+js(rpnt, script, /"http.*?"/, "", condition, adUrl)
+arolinks.com##+js(nostif, location.href)
+arolinks.com##+js(rpnt, script, /"http.*?"/, "", condition, /location\.href|adUrl/)
 arolinks.com##+js(rpnt, script, _blank, _self, condition, href)
 arolinks.com##+js(set, blurred, false)
 arolinks.com##+js(rpnt, script, /http.*?"/, , condition, open)
+! ##+js(rpnt, script, /window\.location\.href.*?;/)
 
 ! https://vplink.in/yObrd
 vplink.in##+js(rpnt, script, /#Intent.*?end/)
@@ -1558,7 +1560,7 @@ vplink.in##.telegram-banner
 vplink.in##.banner-inner
 vplink.in##div#advertisement-block
 vplink.in##a[href*=".me/+"]
-vplink.in##+js(rpnt, script, /http.*?"/, , condition, open)
+vplink.in##+js(rpnt, script, /http.*?"/, , condition, /location\.href|adUrl|open/)
 
 ! trzanime .com shorteners
 classicoder.com##+js(aost, document.getElementsByTagName, adsBlocked)
