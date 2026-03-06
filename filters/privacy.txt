@@ -1702,19 +1702,18 @@ airtel.in##+js(no-xhr-if, analytics/bulk-pixel)
 ! https://elevenlabs.io/dubbing - Stores the last dubbing result
 elevenlabs.io##+js(set-local-storage-item, IIElevenLabsDubbingResult, $remove$)
 
-! Pepper redirection - pepper.ru/deals/post-428233 | pepper.pl/promocje/post-750379 | dealabs.com/bons-plans/post-2674687
+! Pepper redirection: only in old sales (new ones lost their title) - pepper.pl/promocje/post-750379 
 chollometro.com##+js(href-sanitizer, a[href*="https://www.chollometro.com/visit/"][title^="https://"], [title])
 dealabs.com##+js(href-sanitizer, a[href*="https://www.dealabs.com/visit/"][title^="https://"], [title])
 hotukdeals.com##+js(href-sanitizer, a[href*="https://www.hotukdeals.com/visit/"][title^="https://"], [title])
 mydealz.de##+js(href-sanitizer, a[href*="https://www.mydealz.de/visit/"][title^="https://"], [title])
 nl.pepper.com##+js(href-sanitizer, a[href*="https://nl.pepper.com/visit/"][title^="https://"], [title])
-pepper.it##+js(href-sanitizer, a[href*="https://www.pepper.it/visit/"][title^="https://"], [title])
 pepper.pl##+js(href-sanitizer, a[href*="https://www.pepper.pl/visit/"][title^="https://"], [title])
 pepper.ru##+js(href-sanitizer, a[href*="https://www.pepper.ru/visit/"][title^="https://"], [title])
 preisjaeger.at##+js(href-sanitizer, a[href*="https://www.preisjaeger.at/visit/"][title^="https://"], [title])
 promodescuentos.com##+js(href-sanitizer, a[href*="https://www.promodescuentos.com/visit/"][title^="https://"], [title])
 pelando.com.br##+js(href-sanitizer, a[href*="https://www.pelando.com.br/api/redirect?url="], ?url)
-! desidime.com##+js(href-sanitizer, a[href*="https://www.desidime.com/links?ref=][href*="&url="], &url)
+! desidime.com##+js(href-sanitizer, a[href*="https://www.desidime.com/links?ref="][href*="&url="], &url)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/21342
 proboards.com,winclassic.net##+js(rmnt, script, vglnk)
@@ -2178,7 +2177,6 @@ newsletter.adnz.co%2F*$image
 *%2Fr.*%2Ftr%2Fop%2F*$image
 /email-interact-v2/view/*$image
 *%2Femail-interact-v2%2Fview%2F*$image
-/e/o/*$image
 *%2Fe%2Fo%2F*$image
 /track/open.php?$image
 *%2Ftrack%2Fopen.php%3F*$image
@@ -2230,7 +2228,6 @@ newsletter.adnz.co%2F*$image
 .rs6.net%2Fon.jsp%3F*$image
 /sptrack.mailer.*/q/*$image
 *%2Fsptrack.mailer.*%2Fq%2F$image
-/o/p/*$image
 *%2Fo%2Fp%2F$image
 /e.mailer.*/o/p/*$image
 /pixel.jpg?campaign_id=$image
@@ -2241,6 +2238,8 @@ newsletter.adnz.co%2F*$image
 ||googleusercontent.com/*/wf/open?upn=$image
 ! https://github.com/uBlockOrigin/uAssets/issues/29466
 .salesforce.com%2Fservlet%2Fservlet.ImageServer%3F$image
+!/e/o/*$image
+!/o/p/*$image
 
 ! beacons.ai analytics
 ||beacons.ai/api/rtanalytics/
@@ -2714,6 +2713,9 @@ itmedia.co.jp##+js(set-local-storage-item, /^_cX_/, $remove$)
 ||vercel.com/*/vitals
 ||vercel.com/*/view
 ||vercel.com/api/stream/internal$ping
+
+! https://github.com/uBlockOrigin/uAssets/issues/32090
+||vidara.to/api/heartbeat
 
 ! Merge in resource-abuse.txt
 !#include resource-abuse.txt
