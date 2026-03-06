@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Fri, 06 Mar 2026 10:15:16 +0000
+! Last modified: Fri, 06 Mar 2026 10:47:52 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -7766,10 +7766,12 @@ djremixganna.com,keedabankingnews.com,rokni.xyz##^script:has-text(detectAdBlock)
 arolinks.com##.telegram-banner
 arolinks.com##+js(rpnt, script, /#Intent.*?end/)
 arolinks.com##+js(rpnt, script, intent, https)
-arolinks.com##+js(rpnt, script, /"http.*?"/, "", condition, adUrl)
+arolinks.com##+js(nostif, location.href)
+arolinks.com##+js(rpnt, script, /"http.*?"/, "", condition, /location\.href|adUrl/)
 arolinks.com##+js(rpnt, script, _blank, _self, condition, href)
 arolinks.com##+js(set, blurred, false)
 arolinks.com##+js(rpnt, script, /http.*?"/, , condition, open)
+! ##+js(rpnt, script, /window\.location\.href.*?;/)
 vplink.in##+js(rpnt, script, /#Intent.*?end/)
 vplink.in##+js(rpnt, script, intent, https)
 vplink.in##+js(nostif, location.href)
@@ -7779,7 +7781,7 @@ vplink.in##.telegram-banner
 vplink.in##.banner-inner
 vplink.in##div#advertisement-block
 vplink.in##a[href*=".me/+"]
-vplink.in##+js(rpnt, script, /http.*?"/, , condition, open)
+vplink.in##+js(rpnt, script, /http.*?"/, ", condition, /location\.href|adUrl|open/)
 ! trzanime .com shorteners
 classicoder.com##+js(aost, document.getElementsByTagName, adsBlocked)
 classicoder.com###wpsafe-link:style(display: block !important;)
@@ -11015,12 +11017,12 @@ xxxmax.net##^script:has-text(\'shift\')
 xxxmax.net##+js(acs, String.fromCharCode, 'shift')
 uploadrar.*###commonId > a[target="_blank"]
 uploadrar.*##main > center > a.btn-primary
+uploadrar.*##form > center:has(.btn):has([href])
 uploadrar.*##.footer, span > .text-muted, .card, .m-2.submit-btn.btn-primary.btn
 uploadrar.*##.fs-5, p, ul, li, #how-to-open, .p-0.block, .download-controls, .ad-box + center
 uploadrar.*##+js(acs, document.documentElement, break;case $.)
 uploadrar.*##+js(nano-stb, /.?/, *)
 ||pixeltrey.com^
-rahim-soft.com##+js(nosiif, visibility, 1000)
 damndelicious.net,simplywhisked.com##+js(aopr, __eiPb)
 @@||weibomiaopai.com^$ghide
 linfoweb.com##+js(acs, Math.floor, document.write)
@@ -17642,6 +17644,7 @@ khsm.io##+js(nosiif, visibility, 1000)
 @@||jsdelivr.net/gh/niihen/niihen.github.io/niihen-com/safelink/$script,domain=link.idblog.eu.org|niihen.com
 multiup.eu,multiup.io,multiup.org##+js(multiup)
 ||multiup.io/download-fast/$doc,1p
+multiup.io##+js(acs, navigator, FingerprintJS)
 zubatecno.com###link1s-snp:style(display: block !important;)
 nammakalvi.com##+js(nostif, data?)
 hentaikai.com##+js(acs, document.createElement, script.src)
@@ -18137,6 +18140,8 @@ gamedrive.org##.code-block a[href][target="_blank"] > img[data-recalc-dims]
 gamedrive.org##a[href][target="_blank"][rel="noopener noreferrer"] > img
 gamedrive.org##.netflix-banner
 gamedrive.org##.hbo-banner
+!gamedrive.org##+js(rmnt, script, isOwner)
+gamedrive.org##+js(aeld, click, _shouldProcessLink)
 cybar.xyz,cybar.to##+js(aeld, click, open)
 cybar.xyz,cybar.to##+js(nowoif, cpmecs)
 cybar.xyz,cybar.to##+js(set-cookie, ads, off)
