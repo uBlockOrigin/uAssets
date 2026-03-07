@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Sat, 07 Mar 2026 00:07:59 +0000
+! Last modified: Sat, 07 Mar 2026 08:17:03 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -7767,10 +7767,9 @@ arolinks.com##.telegram-banner
 arolinks.com##+js(rpnt, script, /#Intent.*?end/)
 arolinks.com##+js(rpnt, script, intent, https)
 arolinks.com##+js(nostif, location.href)
-arolinks.com##+js(rpnt, script, /"http.*?"/, "", condition, /location\.href|adUrl/)
+arolinks.com##+js(rpnt, script, /(['"])https?:\/\/[^'"]+\1/, $1$1, condition, /addEventListener|adUrl|open/)
 arolinks.com##+js(rpnt, script, _blank, _self, condition, href)
 arolinks.com##+js(set, blurred, false)
-arolinks.com##+js(rpnt, script, /http.*?"/, , condition, open)
 ! ##+js(rpnt, script, /window\.location\.href.*?;/)
 vplink.in##+js(rpnt, script, /#Intent.*?end/)
 vplink.in##+js(rpnt, script, intent, https)
@@ -7781,7 +7780,7 @@ vplink.in##.telegram-banner
 vplink.in##.banner-inner
 vplink.in##div#advertisement-block
 vplink.in##a[href*=".me/+"]
-vplink.in##+js(rpnt, script, /http.*?"/, ", condition, /location\.href|adUrl|open/)
+vplink.invplink.in##+js(rpnt, script, /(['"])https?:\/\/[^'"]+\1/, $1$1, condition, /addEventListener|adUrl|open/)
 ! trzanime .com shorteners
 classicoder.com##+js(aost, document.getElementsByTagName, adsBlocked)
 classicoder.com###wpsafe-link:style(display: block !important;)
