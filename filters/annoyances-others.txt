@@ -105,17 +105,20 @@ isekaitube.com##+js(rpnt, script, "copyRProtection":true, "copyRProtection":fals
 ! https://github.com/uBlockOrigin/uAssets/issues/4408
 ! https://github.com/uBlockOrigin/uAssets/issues/31592
 ! https://github.com/uBlockOrigin/uAssets/issues/31593
+! https://github.com/uBlockOrigin/uAssets/issues/32100
 !#if env_firefox
 utaten.com##.lyricBody[oncontextmenu]:remove-attr(/oncontextmenu|onselectstart/)
 oricon.co.jp##div.all-lyrics:remove-attr(/oncontextmenu|onselectstart|onmousedown/)
 rocklyric.jp###lyric_area[oncopy]:remove-attr(/oncopy|oncut|onmousemove|onmousedown|style/)
 rocklyric.jp###lyric_area > p[oncontextmenu]:remove-attr(oncontextmenu)
+keytube.net###lyrics[oncontextmenu]:remove-attr(oncontextmenu)
 j-lyric.net,okuhanako.net##body[oncontextmenu]:remove-attr(/oncontextmenu|onselectstart/)
 !#else
 utaten.com##+js(ra, oncontextmenu|onselectstart, .lyricBody[oncontextmenu], complete)
 oricon.co.jp##+js(ra, oncontextmenu|onselectstart|onmousedown, .all-lyrics[oncontextmenu], complete)
 rocklyric.jp##+js(ra, oncopy|oncut|onmousemove|onmousedown|style, #lyric_area[oncopy], complete)
 rocklyric.jp##+js(ra, oncontextmenu, #lyric_area > p[oncontextmenu], complete)
+keytube.net##+js(ra, oncontextmenu, #lyrics[oncontextmenu], complete)
 j-lyric.net,okuhanako.net##+js(ra, oncontextmenu|onselectstart, body[oncontextmenu], complete)
 !#endif
 ||utaten.com/css/print.css
@@ -123,6 +126,7 @@ utaten.com##.lyricBody:style(-webkit-touch-callout: default !important; -webkit-
 oricon.co.jp##+js(aeld, dragstart, , elements, .all-lyrics)
 oricon.co.jp##.all-lyrics:style(-webkit-touch-callout: default !important; -webkit-user-select: text !important; -khtml-user-select: text !important; -moz-user-select: text !important; -ms-user-select: text !important; user-select: text !important; -webkit-tap-highlight-color: revert !important; cursor: revert !important;)
 j-lyric.net##+js(rpnt, style, @media print {body { display: none !important; }})
+keytube.net###lyrics:style(-webkit-touch-callout: default !important; -webkit-user-select: text !important; -khtml-user-select: text !important; -moz-user-select: text !important; -ms-user-select: text !important; user-select: text !important; -webkit-tap-highlight-color: revert !important; cursor: revert !important;)
 ! https://github.com/uBlockOrigin/uAssets/issues/8069
 ! https://github.com/uBlockOrigin/uAssets/issues/31567
 lyrical-nonsense.com##+js(rmnt, script, contextmenu)
