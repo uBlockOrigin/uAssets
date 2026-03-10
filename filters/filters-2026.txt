@@ -319,13 +319,12 @@ fitnesstipz.com##body > .adblock_subtitle > p
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/226186
 ||cfd/rfdtagarg/*.js
-||purge.fb-cdn.net^
 ! https://github.com/uBlockOrigin/uAssets/commit/545818b4fa1a8876dbf4cd4cfa7f5a6a8d78b58c#commitcomment-178640689
+/^https:\/\/get[0-9]+\.host[0-9]+[a-z]\.cfd\/\?tag=[A-Z0-9]+:C[0-9]$/$all,match-case,to=cfd
 /^https:\/\/\d+\.cfd\/[a-z]{3}tag[a-z]{3}\/v\d\/[a-zA-Z0-9]+:C\d\.js\b/$script,3p,match-case,to=cfd
 !#if env_safari
 /^https:\/\/[0-9]+\.cfd\/[a-z][a-z][a-z]tag[a-z][a-z][a-z]\/v[0-9]\/[a-zA-Z0-9]+:C[0-9]\.js\b/$script,3p,match-case,to=cfd
 !#endif
-/^https:\/\/get[0-9]+\.host[0-9]+k\.cfd\/\?tag=/$all,match-case,to=cfd
 
 ! https://github.com/uBlockOrigin/uAssets/issues/32069
 ||romhandbook.com/assets/lib/adblock-
@@ -375,3 +374,6 @@ simpmusic.org##+js(no-xhr-if, googlesyndication)
 
 ! https://www.reddit.com/r/uBlockOrigin/comments/1rphb84/adblock_detection_on_httpsmyaewcom/
 myaew.com##+js(no-fetch-if, imasdk)
+
+! https://github.com/uBlockOrigin/uAssets/issues/32143
+microsip.org##+js(rmnt, script, /google_esf|ins\.adsbygoogle/)
