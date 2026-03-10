@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Tue, 10 Mar 2026 09:38:04 +0000
+! Last modified: Tue, 10 Mar 2026 10:20:51 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -7967,6 +7967,7 @@ pxtech.site##+js(trusted-click-element, '1000, #nextBtn, 1000, #redirectBtn > .b
 nitro-link.com##+js(nowoif)
 file-me.top##+js(acs, JSON.parse, document.head.appendChild)
 file-me.top##+js(acs, String.fromCharCode, atob)
+file-me.top##+js(aeld, click, clicksCount)
 !#if env_mobile
 ! *** filters/filters-mobile.txt ***
 !----- 2020 -----
@@ -24447,12 +24448,11 @@ fitnesstipz.com##.adblock_title
 fitnesstipz.com##body > .adblock_subtitle > p
 ||cdn.ziffstatic.com/pg/$script,domain=maxroll.gg,redirect=noopjs
 ||cfd/rfdtagarg/*.js
-||purge.fb-cdn.net^
+/^https:\/\/get[0-9]+\.host[0-9]+[a-z]\.cfd\/\?tag=[A-Z0-9]+:C[0-9]$/$all,match-case,to=cfd
 /^https:\/\/\d+\.cfd\/[a-z]{3}tag[a-z]{3}\/v\d\/[a-zA-Z0-9]+:C\d\.js\b/$script,3p,match-case,to=cfd
 !#if env_safari
 /^https:\/\/[0-9]+\.cfd\/[a-z][a-z][a-z]tag[a-z][a-z][a-z]\/v[0-9]\/[a-zA-Z0-9]+:C[0-9]\.js\b/$script,3p,match-case,to=cfd
 !#endif
-/^https:\/\/get[0-9]+\.host[0-9]+k\.cfd\/\?tag=/$all,match-case,to=cfd
 ||romhandbook.com/assets/lib/adblock-
 fullvideosporn.com##+js(nostif, /initPops|popLite|popunder/)
 fullvideosporn.com###underplayer_direct
