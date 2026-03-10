@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Privacy
 ! Expires: 7 days
-! Last modified: Tue, 10 Mar 2026 04:00:57 +0000
+! Last modified: Tue, 10 Mar 2026 04:08:25 +0000
 ! Diff-Path: %diffpath%#ublock-privacy
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -496,6 +496,7 @@ lit.link##+js(href-sanitizer, a[href^="/redirects/link-ad?redirectUrl=aHR0c"], ?
 ! vialoops.com
 ||c.vialoops.com/CL0/http$doc,urlskip=/\/CL0\/(http[^\/?#]+)/ -uricomponent
 ||page.link/?link=http$doc,urlskip=?link
+||www.amazon.*/gp/r.html?*&U=http$doc,urlskip=?U
 ! Click Trackers
 html.duckduckgo.com,lite.duckduckgo.com##+js(href-sanitizer, a[href^="//duckduckgo.com/l/?uddg="], ?uddg)
 starstyle.com##+js(href-sanitizer, a[href^="https://go.skimresources.com/"][href*="&url=http"], ?url)
@@ -1605,8 +1606,6 @@ digitalspy.com##section.inline-content-module
 ||googletagmanager.com/gtm.js$important,domain=dmax.de
 dmax.de##.block-user:remove-class(block-user)
 ||umami.webtor.io^
-! amazon email links
-||www.amazon.in/gp/r.html$urlskip=?U
 ||netronline.dev^
 ! mail.zoho.in metrics
 ||murphy.zoho.in/murphy/*/clientmetricslog?logtype=clientmetrics
