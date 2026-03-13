@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Fri, 13 Mar 2026 07:30:25 +0000
+! Last modified: Fri, 13 Mar 2026 08:56:17 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -10214,6 +10214,12 @@ hraparak.am##.big_advert
 seirsanduk.net##p:has-text(???????)
 @@||glebul.com^$script,1p
 glebul.com##p:has-text(???????)
+/^https:\/\/filmizip\.com\/templates\/filmizip\/js\/[a-z0-9]{16}\.js\?v=/$script,1p,match-case,domain=filmizip.com
+/^https:\/\/filmizip\.com\/templates\/filmizip\/js\/[a-z0-9]{12}\.min\.js\?v=/$script,1p,match-case,domain=filmizip.com
+!#if env_safari
+/^https:\/\/filmizip\.com\/templates\/filmizip\/js\/[a-z0-9][a-z0-9][a-z0-9][a-z0-9][a-z0-9][a-z0-9][a-z0-9][a-z0-9][a-z0-9][a-z0-9][a-z0-9][a-z0-9][a-z0-9][a-z0-9][a-z0-9][a-z0-9]\.js\?v=/$script,1p,match-case,domain=filmizip.com
+/^https:\/\/filmizip\.com\/templates\/filmizip\/js\/[a-z0-9][a-z0-9][a-z0-9][a-z0-9][a-z0-9][a-z0-9][a-z0-9][a-z0-9][a-z0-9][a-z0-9][a-z0-9][a-z0-9]\.min\.js\?v=/$script,1p,match-case,domain=filmizip.com
+!#endif
 filmizip.com##+js(no-fetch-if, googlesyndication, length:40000-60000)
 filmizip.com##+js(nowoif)
 ! NOTE: Chinese
