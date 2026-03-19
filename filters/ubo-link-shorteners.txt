@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Link shorteners
-! Last modified: Thu, 19 Mar 2026 05:29:17 +0000
+! Last modified: Thu, 19 Mar 2026 13:29:02 +0000
 ! Expires: 5 days
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
@@ -1473,6 +1473,8 @@ tickhosting.com##+js(set, detectedAdblock, undefined)
 *$xhr,3p,redirect-rule=nooptext,domain=tickhosting.com
 
 ! https://github.com/uBlockOrigin/uAssets/issues/31038
+@@*$ghide,domain=krakenfiles.com
+||krakenfiles.com/assets/js/adpp.js$script,1p
 krakenfiles.com##+js(nowoif)
 krakenfiles.com##+js(aeld, DOMContentLoaded, open)
 krakenfiles.com##+js(aeld, DOMContentLoaded, history.go)
@@ -1482,7 +1484,7 @@ krakenfiles.com##+js(rpnt, script, state.shown >= redirectUrls.length, true)
 krakenfiles.com##+js(prevent-fetch, pagead2.googlesyndication.com/pagead/js/adsbygoogle.js)
 krakenfiles.com##+js(prevent-fetch, googletagservices)
 krakenfiles.com##+js(set, HTMLScriptElement.prototype.onerror, undefined)
-@@*$ghide,domain=krakenfiles.com
+krakenfiles.com##+js(trusted-replace-argument, document.getElementById, 0, json:"div", condition, myadbox)
 krakenfiles.com##.native-banner
 krakenfiles.com##.myad-box
 krakenfiles.com##a[href][target="_blank"]:upward(div)
