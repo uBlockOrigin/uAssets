@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2023)
-! Last modified: Sun, 22 Mar 2026 09:44:24 +0000
+! Last modified: Sun, 22 Mar 2026 09:53:51 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -1005,9 +1005,7 @@ telesrbija.com##+js(acs, Promise, Adb)
 ! https://github.com/uBlockOrigin/uAssets/issues/22835
 ! https://github.com/AdguardTeam/AdguardFilters/issues/184779
 javgg.co,javgg.net#@##AD_160
-*$script,3p,redirect-rule=noopjs,domain=javguard.xyz
 *$script,3p,denyallow=cloudflare.com|fluidplayer.com|googleapis.com|strpst.com,domain=javcode.net|javgg.co|javgg.net
-javguard.xyz##body > div[class]:empty
 
 ! https://github.com/uBlockOrigin/uAssets/issues/17192
 paketmu.com##+js(no-fetch-if, googlesyndication)
@@ -1075,12 +1073,6 @@ pervclips.com##+js(aopr, decodeURI)
 pervclips.com##.thumb_spots
 pervclips.com##.spot-after
 ||pervclips.com/tube/js/customscript.js
-
-! https://github.com/uBlockOrigin/uAssets/issues/17245
-||watchx.top^$csp=sandbox allow-forms allow-same-origin allow-scripts allow-modals allow-orientation-lock allow-pointer-lock allow-presentation allow-top-navigation
-watchx.top##div[style="position:fixed;inset:0px;z-index:100000;height:100%;width:100%"]
-! https://watchx.top/v/etyoPYM0tw3x/ anti-adb
-watchx.top##+js(no-fetch-if, googlesyndication)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/17249
 ||tinypass.com^$script,domain=independent.co.uk
@@ -1197,14 +1189,6 @@ zona-leros.com##.store_fondo
 ||swarmmanga.com/*/custom.js
 swarmmanga.com##.c-sidebar
 
-! https://github.com/uBlockOrigin/uAssets/issues/17344
-*$script,domain=terafly.me,redirect-rule=noopjs
-terafly.me##+js(aopr, adsBlocked)
-||terafly.me^$csp=style-src *
-terafly.me##.qc-cmp2-container
-! https://github.com/uBlockOrigin/uAssets/discussions/17361#discussioncomment-6710297
-terafly.me##+js(nostif, checkAdblockUser)
-
 ! BetterJsPop-sites
 ! https://www.reddit.com/r/uBlockOrigin/comments/174s805/
 zedporn.com##+js(aopw, BetterJsPop)
@@ -1306,12 +1290,10 @@ gadgets.es##+js(set, isAdBlockActive, false)
 rackusreads.com##+js(set, DHAntiAdBlocker, true)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/17522
-elamigos-games.com,elamigos-games.net,elamigosgames.org,elamigosgamez.net##+js(nostif, checkAdblockUser)
-elamigos-games.com,elamigos-games.net,elamigosgames.org,elamigosgamez.net##.content_store
-elamigos-games.com,elamigos-games.net,elamigosgames.org,elamigosgamez.net##h3.my-4:has-text(/^Advertising/)
-elamigos-games.com,elamigos-games.net,elamigosgames.org,elamigosgamez.net##.iframeDiv
-elamigosgames.org##.store_fondo
-elamigosgames.org##.store_text
+elamigosgamez.net##+js(nostif, checkAdblockUser)
+elamigosgamez.net##.content_store
+elamigosgamez.net##h3.my-4:has-text(/^Advertising/)
+elamigosgamez.net##.iframeDiv
 
 ! https://github.com/uBlockOrigin/uAssets/issues/12214
 *$script,domain=wp.pl|money.pl|o2.pl|parenting.pl|pudelek.pl|autokult.pl|gadzetomania.pl|fotoblogia.pl|komorkomania.pl|polygamia.pl|abczdrowie.pl|benchmark.pl|kafeteria.pl|pysznosci.pl|dobreprogramy.pl|genialne.pl|autocentrum.pl|jastrzabpost.pl|deliciousmagazine.pl,redirect-rule=noopjs
