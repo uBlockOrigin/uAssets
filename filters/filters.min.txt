@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Thu, 26 Mar 2026 05:02:36 +0000
+! Last modified: Thu, 26 Mar 2026 05:07:22 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -9190,7 +9190,7 @@ nekopoicare.*>>##+js(acs, EventTarget.prototype.addEventListener, delete window)
 embedtv.best##+js(rmnt, script, delete window)
 ! pp_blob
 ||filmovi.ws^$csp=script-src * 'unsafe-inline'
-! pp server
+! pp server/monetag
 !#if cap_ipaddress
 ||com/|$xhr,3p,method=head,ipaddress=/^139\.45\.19[5-7]\./
 ||net/|$xhr,3p,method=head,ipaddress=/^139\.45\.19[5-7]\./
@@ -9200,8 +9200,8 @@ embedtv.best##+js(rmnt, script, delete window)
 /^https?:\/\/[a-z]{8,15}\.net\/$/$xhr,3p,to=net,method=head,header=access-control-expose-headers:/X-DirectionPartner-Id/
 /^https?:\/\/[a-z]{8,15}\.xyz\/$/$xhr,3p,to=xyz,method=head,header=access-control-expose-headers:/X-DirectionPartner-Id/
 /^https?:\/\/[a-z0-9]{5,15}\.[a-z]{2,3}\/5\/\d{6,7}(?:\?_=\d+|\/\??)?$/$script,xhr,3p
-/^https?:\/\/[-a-z]{8,15}\.(?:com|net)\/400\/\d{7}(?:\?v=\d+)?$/$script,3p,to=com|net
-/^https?:\/\/[-a-z]{8,15}\.(?:com|net)\/401\/\d{7}(?:\?v=\d+)?$/$script,3p,to=com|net
+/^https?:\/\/[-0-9a-z]{5,15}\.(?:com|net)\/400\/\d{7,8}(?:\?v=\d+)?$/$script,3p,to=com|net
+/^https?:\/\/[-0-9a-z]{5,15}\.(?:com|net)\/401\/\d{7,8}(?:\?v=\d+)?$/$script,3p,to=com|net
 /^https?:\/\/[-a-z]{8,15}\.(?:com|net)\/500\/\d{7}\?/$xhr,3p,to=com|net
 /^https?:\/\/[a-z0-9]{5,15}\.(?:com|net)\/tag\.min\.js$/$script,3p,to=com|net,redirect=noopjs
 !#if env_safari
