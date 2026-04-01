@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Wed, 01 Apr 2026 03:13:41 +0000
+! Last modified: Wed, 01 Apr 2026 04:32:07 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -8764,6 +8764,7 @@ fsicomics.com,fsileaks.com##+js(aeld, click, popMagic)
 ://www.*.com/js/css/$script,xhr,3p
 ||cloudfront.net/*.min.js|$script,xhr,3p,header=popads-node
 ||cloudfront.net/*.min.js|$script,xhr,3p,header=x-77-pop
+||cloudfront.net/*.min.js|$script,xhr,3p,header=link:*adsco.re*
 =e3&*,0|$script,3p,to=com
 =e3&*,1|$script,3p,to=com
 =3&*,0|$script,3p,to=com
@@ -8774,9 +8775,10 @@ fsicomics.com,fsileaks.com##+js(aeld, click, popMagic)
 ://www.*.css|$script,xhr,3p,to=com,header=link:*/>;rel=preconnect
 !#endif
 !#if env_safari
-/^https?:\/\/www\.[a-z][a-z][a-z][a-z][a-z][a-z][a-z][a-z][a-z]?[a-z]?[a-z]?[a-z]?[a-z]?[a-z]?[a-z]?[a-z]?\.com\/([a-zA-Z][a-zA-Z]?[a-zA-Z]?[a-zA-Z]?[a-zA-Z]?[a-zA-Z]?\/)?([a-zA-Z][a-zA-Z]?[a-zA-Z]?[a-zA-Z]?[a-zA-Z]?[a-zA-Z]?\/)?([a-zA-Z][a-zA-Z]?[a-zA-Z]?[a-zA-Z]?[a-zA-Z]?[a-zA-Z]?\/)?[a-z][a-z][a-z][a-z][a-z][a-z][a-z]+(\.[a-z][a-z][a-z][a-z][a-z][a-z]+-[a-z][a-z][a-z][a-z][a-z][a-z]+)?\.min\.js$/$script,3p,match-case,from=dad|day|mom|top|you
-/\.cloudfront\.net\/([a-zA-Z][a-zA-Z]?[a-zA-Z]?[a-zA-Z]?[a-zA-Z]?[a-zA-Z]?\/)?([a-zA-Z][a-zA-Z]?[a-zA-Z]?[a-zA-Z]?[a-zA-Z]?[a-zA-Z]?\/)?([a-zA-Z][a-zA-Z]?[a-zA-Z]?[a-zA-Z]?[a-zA-Z]?[a-zA-Z]?\/)?[a-z][a-z][a-z][a-z][a-z][a-z][a-z]+(\.[a-z][a-z][a-z][a-z][a-z][a-z]+-[a-z][a-z][a-z][a-z][a-z][a-z]+)?\.min\.js$/$script,3p,match-case,from=dad|day|mom|top|you
-://www.*.com/*.css|$script,xhr,3p,from=dad|day|mom|top|you
+/^https?:\/\/www\.[a-z][a-z][a-z][a-z][a-z][a-z][a-z][a-z][a-z]?[a-z]?[a-z]?[a-z]?[a-z]?[a-z]?[a-z]?[a-z]?\.com\/([a-zA-Z][a-zA-Z]?[a-zA-Z]?[a-zA-Z]?[a-zA-Z]?[a-zA-Z]?\/)?([a-zA-Z][a-zA-Z]?[a-zA-Z]?[a-zA-Z]?[a-zA-Z]?[a-zA-Z]?\/)?([a-zA-Z][a-zA-Z]?[a-zA-Z]?[a-zA-Z]?[a-zA-Z]?[a-zA-Z]?\/)?[a-z][a-z][a-z][a-z][a-z][a-z][a-z]+(\.[a-z][a-z][a-z][a-z][a-z][a-z]+-[a-z][a-z][a-z][a-z][a-z][a-z]+)?\.min\.js$/$script,3p,match-case,from=dad|day|mom|top|vercel.app|you
+/\.cloudfront\.net\/([a-zA-Z][a-zA-Z]?[a-zA-Z]?[a-zA-Z]?[a-zA-Z]?[a-zA-Z]?\/)?([a-zA-Z][a-zA-Z]?[a-zA-Z]?[a-zA-Z]?[a-zA-Z]?[a-zA-Z]?\/)?([a-zA-Z][a-zA-Z]?[a-zA-Z]?[a-zA-Z]?[a-zA-Z]?[a-zA-Z]?\/)?[a-z][a-z][a-z][a-z][a-z][a-z]+(\.[a-z][a-z][a-z][a-z][a-z][a-z]+-[a-z][a-z][a-z][a-z][a-z][a-z]+)?\.min\.js/$script,3p,match-case,from=dad|day|mom|top|vercel.app|you
+://www.*.com/*.css|$script,3p,to=~principalcdn.com
+://www.*.com/*.css|$xhr,3p,from=dad|day|mom|top|vercel.app|you
 !#endif
 !#if cap_ipaddress
 /^https:\/\/www\.[a-z]{8,16}\.com\/(?:[A-Za-z]+\/)*(?:[_0-9A-Za-z]{1,20}[-.])*[_0-9A-Za-z]{1,20}\.js$/$script,3p,match-case,to=com,ipaddress=/^([78]9\.1[28]7\.[12]\d{2}\.\d{1,3}|84\.17\.57\.\d{1,2}|207\.211\.208\.184|2a02:6ea0:d[16]0[0c]::\d{1,2})$/
