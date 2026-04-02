@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2026)
-! Last modified: Wed, 01 Apr 2026 14:54:28 +0000
+! Last modified: Thu, 02 Apr 2026 04:57:53 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -49,6 +49,17 @@ ondemandkorea.com##.player_overlay.banner
 ondemandkorea.com##+js(no-fetch-if, /doubleclick|googlesyndication/)
 ||amazon-adsystem.com^$script,redirect=noopjs,domain=ondemandkorea.com
 ondemandkorea.com##.css-lvdiua
+
+! https://github.com/uBlockOrigin/uAssets/issues/5579
+glodls.*##+js(nowebrtc)
+! https://github.com/uBlockOrigin/uAssets/issues/32410
+glodls.*##+js(rmnt, script, popLink)
+||gurusmac.org^$all
+||macfilecloud.info^$all
+/\/?h=[a-f0-9]{32}&z=\d+$/$doc
+!#if env_safari
+/\/?h=[a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9]&z=[0-9]+$/$doc
+!#endif
 
 ! END: Rules from filters.txt
 
