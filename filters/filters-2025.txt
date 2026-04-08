@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2025)
-! Last modified: Tue, 07 Apr 2026 12:52:23 +0000
+! Last modified: Wed, 08 Apr 2026 16:34:21 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -3401,6 +3401,9 @@ v2movies.click,v2movies.me##[href^="https://refpa58144.com/"]
 goplay.su##+js(nowoif, !addons.mozilla.org)
 goplay.ml,goplay.su##+js(json-prune, *, rot_url)
 goplay.ml,goplay.su##+js(json-prune, *, pop_type)
+goplay.su##+js(noeval-if, innerHTML)
+goplay.su##+js(remove-cookie, /abd/)
+goplay.su##+js(trusted-replace-argument, String.prototype.replace, 1, repl:/=true;/=false;/, condition, if)
 *$popup,3p,domain=goplay.su
 @@||addons.mozilla.org^$popup,domain=goplay.su
 ||ssp.goplay.su^$xhr
