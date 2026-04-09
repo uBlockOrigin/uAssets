@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Cookie Notices
-! Last modified: Wed, 08 Apr 2026 08:47:02 +0000
+! Last modified: Thu, 09 Apr 2026 05:09:33 +0000
 ! Expires: 7 days
 ! Description: Filters optimized for uBlock Origin, to be used with EasyList's and/or Adguard's "Cookie Notices" list(s)
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -2990,6 +2990,18 @@ lta.org.uk##+js(trusted-set-cookie, cookieprefs, '{"func":false,"perf":false,"tr
 
 ! refuse
 app.lepermislibre.fr##+js(trusted-click-element, button[data-testid="cookie-modal-actions-decline"], , 1000)
+
+! Continue without accepting
+leboncoin.fr##+js(trusted-click-element, button[aria-label="Continuer sans accepter"], , 1000)
+
+! reject
+parkingbase.com##+js(trusted-set-local-storage-item, cookie-consent, '{"hasConsent":true,"preferences":{"necessary":true,"analytics":false,"marketing":false},"timestamp":"$currentISODate$"}')
+
+! reject tracking
+palaisgalliera.paris.fr##+js(trusted-set-cookie, orejime, '{"strictly_necessary":true,"tracking":false,"youtube":true,"dailymotion":true,"Facebook":true}')
+
+! consent wall, accept
+cmp.klart.se##+js(trusted-click-element, button[aria-label="Godkänn alla"], , 1000)
 
 ! decline
 cremadescalvosotelo.com##+js(trusted-set-cookie, cookies_consent, !gtag=false)
