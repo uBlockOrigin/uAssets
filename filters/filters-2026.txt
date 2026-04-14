@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2026)
-! Last modified: Mon, 13 Apr 2026 11:25:17 +0000
+! Last modified: Tue, 14 Apr 2026 01:17:30 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -624,3 +624,7 @@ embedplayer.xyz##meta[name^="ads-"]:remove()
 ! https://github.com/uBlockOrigin/uAssets/issues/32534
 @@||worder.cat/exitsplash.php$script,1p
 worder.cat##.ads
+
+! https://github.com/uBlockOrigin/uAssets/issues/32414
+mlb.com##+js(json-prune-xhr-response, data.initPlaybackSession.adScenarios data.initPlaybackSession.adExperience.adExperienceTypes, , propsToMatch, /graphql)
+mlb.com##+js(trusted-json-edit-xhr-response, .data.initPlaybackSession.adExperience.adsEnabled=false, propsToMatch, /graphql)
