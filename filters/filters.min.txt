@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Tue, 14 Apr 2026 10:56:27 +0000
+! Last modified: Tue, 14 Apr 2026 13:39:55 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -7876,19 +7876,29 @@ bigbtc.win,cryptofun.space###block-adb-enabled, #block-add-enabled, #block-adeb-
 bigbtc.win,cryptofun.space###main, #ielement, #mainnew:style(display: block !important;)
 bigbtc.win##div:has(> div[style] > div[id] > script[src^="//ads.themoneytizer.com"])
 @@*$ghide,domain=torupload.com|nathanmichaelphoto.com
-*$script,domain=torupload.com|nathanmichaelphoto.com,redirect-rule=noopjs
+*$script,redirect-rule=noop.js,domain=torupload.com|nathanmichaelphoto.com
+*$xhr,redirect-rule=nooptext,domain=torupload.com|nathanmichaelphoto.com
+*$frame,redirect-rule=noop.html,domain=torupload.com|nathanmichaelphoto.com
+*$object,redirect-rule=noopframe,domain=torupload.com|nathanmichaelphoto.com
 *$image,redirect-rule=32x32.png,domain=torupload.com|nathanmichaelphoto.com
-@@||pagead2.googlesyndication.com^$script,domain=nathanmichaelphoto.com|torupload.com
-@@||cdn4ads.com^$script,domain=nathanmichaelphoto.com|torupload.com
-torupload.com##+js(nano-sib, seconds--, *)
-nathanmichaelphoto.com,torupload.com##+js(rpnt, script, false, true, condition, opened)
-nathanmichaelphoto.com,torupload.com##+js(set, HTMLScriptElement.prototype.onerror, undefined)
-nathanmichaelphoto.com,torupload.com##+js(set, isAdblockActive, false)
-nathanmichaelphoto.com,torupload.com##+js(prevent-fetch, pub.clickadu)
-nathanmichaelphoto.com,torupload.com##+js(prevent-fetch, bing.com)
-@@||adsco.re^$script,domain=nathanmichaelphoto.com|torupload.com
-nathanmichaelphoto.com,torupload.com##+js(set, window._pao, {})
-nathanmichaelphoto.com,torupload.com##+js(set, window._pop, [])
+*$object,domain=torupload.com|nathanmichaelphoto.com
+torupload.com,nathanmichaelphoto.com##+js(nowoif, , 10, obj)
+@@||googleads.g.doubleclick.net/pagead/ads$subdocument,domain=nathanmichaelphoto.com
+@@||pagead2.googlesyndication.com^$script,domain=nathanmichaelphoto.com
+@@||cdn4ads.com^$script,domain=nathanmichaelphoto.com
+@@||adsco.re^$script,domain=nathanmichaelphoto.com
+torupload.com##+js(nano-sib, /seconds--|timeLeft--/, *)
+torupload.com##+js(trusted-replace-argument, document.addEventListener, 0, json:"click", condition, visibilitychange)
+torupload.com##+js(set, document.hidden, true)
+torupload.com,nathanmichaelphoto.com##+js(rpnt, script, false, true, condition, opened)
+torupload.com,nathanmichaelphoto.com##+js(set, HTMLScriptElement.prototype.onerror, undefined)
+torupload.com,nathanmichaelphoto.com##+js(set, window._pao, {})
+torupload.com,nathanmichaelphoto.com##+js(set, window._pop, [])
+torupload.com,nathanmichaelphoto.com##+js(set, isAdblockActive, false)
+torupload.com,nathanmichaelphoto.com##+js(trusted-replace-argument, document.querySelector, 0, json:"main", condition, /div-gpt-ad-dgking|\.GoogleActiveViewElement/)
+torupload.com,nathanmichaelphoto.com##+js(trusted-replace-argument, document.querySelectorAll, 0, json:"main", condition, /div-gpt-ad-|\.adsbygoogle/)
+torupload.com,nathanmichaelphoto.com##+js(trusted-replace-argument, document.getElementById, 0, json:"container", condition, adblock_detected)
+torupload.com,nathanmichaelphoto.com##+js(prevent-fetch, /pub\.clickadu|bing\.com)
 ||oundhertobeconsist.org^
 ||vampyrejibmen.com^
 healthmyst.com##+js(rmnt, script, /detectAdBlock|checkFakeAd|adBlockNotDetected/)
