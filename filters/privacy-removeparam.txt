@@ -1,5 +1,5 @@
 ! Title: AdGuard/uBO – URL Tracking Protection
-! Last modified: Fri, 10 Apr 2026 14:26:52 +0000
+! Last modified: Wed, 15 Apr 2026 01:48:00 +0000
 ! Expires: 7 days
 ! Description: |
 !   Filter that enhances privacy by removing tracking parameters from URLs.
@@ -25,6 +25,11 @@
 !
 ! NOTE: Generic rules
 !
+! True Anthem
+! https://github.com/AdguardTeam/AdguardFilters/issues/228929
+! https://github.com/AdguardTeam/AdguardFilters/issues/222986
+$removeparam=link_source
+$removeparam=taid
 ! Telergam Ads click tracking
 $removeparam=tgclid
 ! https://github.com/AdguardTeam/AdguardFilters/issues/224235
@@ -574,9 +579,6 @@ ref=shadcn.com^$removeparam=ref
 ||ratel-ad.com^$removeparam=advertiser
 ||123chat.jp/promotion/$removeparam=cid
 ||123chat.jp/promotion/$removeparam=p
-! https://github.com/AdguardTeam/AdguardFilters/issues/222986
-||tw.news.yahoo.com^$removeparam=link_source
-||tw.news.yahoo.com^$removeparam=taid
 ! https://github.com/AdguardTeam/AdguardFilters/issues/223033
 ||netmonet.co^$removeparam=id
 ||netmonet.co^$removeparam=wpid
