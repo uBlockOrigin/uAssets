@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Quick fixes
 ! Expires: 12 hours
-! Last modified: Wed, 15 Apr 2026 14:56:54 +0000
+! Last modified: Thu, 16 Apr 2026 10:49:58 +0000
 ! Diff-Path: %diffpath%#ublock-quick-fixes
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -258,6 +258,10 @@ bing.com##ol#b_results > li.b_algo:has(.b_lineclamp3:matches-css-before(content:
 @@||gledaitv.$ghide
 @@||pagead2.googlesyndication.com^$script,domain=gledaitv.fan
 gledaitv.*###ad-overlay:remove()
+gledaitv.live##+js(trusted-replace-argument, document.getElementById, 0, body, condition, ad-detection-bait)
+gledaitv.live##+js(trusted-replace-argument, document.querySelector, 0, body, condition, -id-)
+gledaitv.live##+js(set-constant, scriptBlocked, false)
+gledaitv.live##+js(set-constant, blocked, false)
 @@||ads.*.js|$script,3p,domain=seirsanduk.*|seir-sanduk.com|seirsanduk.com|seirsanduk.net|seirsanduk.online
 @@||ads.*.js?$script,3p,domain=seirsanduk.*|seir-sanduk.com|seirsanduk.com|seirsanduk.net|seirsanduk.online
 @@||seir-sanduk.com^$script,1p
