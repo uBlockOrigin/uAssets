@@ -304,13 +304,14 @@ bing.com##ol#b_results > li.b_algo:has(.b_lineclamp3:matches-css-before(content:
 ! https://github.com/uBlockOrigin/uAssets/issues/29059#issuecomment-3322889596
 ! https://github.com/uBlockOrigin/uAssets/issues/29059#issuecomment-3327077921
 @@*$image,xhr,domain=bg-gledai.*|gledaitv.*|bg-gledai.video|gledaitv.fan|gledaitv.live
-@@||gledaitv.$ghide
-@@||pagead2.googlesyndication.com^$script,domain=gledaitv.fan
+@@*$ghide,domain=bg-gledai.*|gledaitv.*|bg-gledai.video|gledaitv.fan|gledaitv.live
+@@||pagead2.googlesyndication.com^$script,domain=bg-gledai.*|gledaitv.*|bg-gledai.video|gledaitv.fan|gledaitv.live
 gledaitv.*###ad-overlay:remove()
-gledaitv.live##+js(trusted-replace-argument, document.getElementById, 0, body, condition, ad-detection-bait)
-gledaitv.live##+js(trusted-replace-argument, document.querySelector, 0, body, condition, -id-)
-gledaitv.live##+js(set-constant, scriptBlocked, false)
-gledaitv.live##+js(set-constant, blocked, false)
+gledaitv.*##+js(trusted-replace-argument, document.getElementById, 0, json:"body", condition, ad-detection-bait)
+gledaitv.*##+js(trusted-replace-argument, document.querySelector, 0, json:"body", condition, -id-)
+gledaitv.*##+js(set, scriptBlocked, false)
+gledaitv.*##+js(set, blocked, false)
+gledaitv.*##+js(set, testUrls, [])
 
 ! https://github.com/uBlockOrigin/uAssets/issues/1093
 @@||ads.*.js|$script,3p,domain=seirsanduk.*|seir-sanduk.com|seirsanduk.com|seirsanduk.net|seirsanduk.online
