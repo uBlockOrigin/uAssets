@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Fri, 17 Apr 2026 17:06:07 +0000
+! Last modified: Fri, 17 Apr 2026 19:18:42 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -24633,7 +24633,8 @@ worder.cat##+js(trusted-replace-argument, document.getElementById, 0, json:"head
 worder.cat##.ads
 mlb.com##+js(json-prune-xhr-response, data.initPlaybackSession.adScenarios data.initPlaybackSession.adExperience.adExperienceTypes, , propsToMatch, /graphql)
 mlb.com##+js(trusted-json-edit-xhr-response, .data.initPlaybackSession.adExperience.adsEnabled=false, propsToMatch, /graphql)
-newplayer.huaren.live,newplayer.huavod.net##+js(rpnt, script, '"ads"', '"ads":{},"noads"')
+huavod.top,huavod.net,huavod.com,huaren.live##+js(trusted-set-constant, ConFig.config.ads, 'json:{"pause":{"state":{}}}')
+huavod.top,huavod.net,huavod.com,huaren.live##+js(rpnt, script, let ConFig, var ConFig)
 @@||lamontagne.fr^$script,1p
 lamontagne.fr##.w-full.mb-7.relative
 lamontagne.fr###cf-digiteka-player
