@@ -1,5 +1,5 @@
 ! Title: uBlock₀ filters – Quick fixes
-! Last modified: Thu, 16 Apr 2026 12:16:09 +0000
+! Last modified: Fri, 17 Apr 2026 16:07:55 +0000
 ! Expires: 8 hours
 ! Description: Immediate, temporary filters to fix websites
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -98,10 +98,10 @@ www.youtube.com##+js(trusted-replace-fetch-response, '"adSlots"', '"no_ads"', /g
 ! web.facebook.com,www.facebook.com##+js(json-prune-xhr-response, data.viewer.sideFeed.nodes.0.{-}.nodes.0.rhc_ad, , propsToMatch, /api/graphql)
 web.facebook.com,www.facebook.com##+js(json-prune, require.0.3.0.__bbox.require.[].3.1.__bbox.result.data.viewer.sideFeedUnit.nodes.[].new_adverts.nodes.[-].sponsored_data)
 web.facebook.com,www.facebook.com##+js(json-prune-xhr-response, data.viewer.sideFeedUnit.nodes.[].new_adverts.nodes.[-].sponsored_data, , propsToMatch, /graphql)
-web.facebook.com,www.facebook.com##+js(json-edit, ..sideFeedUnit.nodes.*[?.__typename=="AdsSideFeedUnit"])
+web.facebook.com,www.facebook.com##+js(json-edit, ..data.viewer..nodes.*[?.__typename=="AdsSideFeedUnit"])
 web.facebook.com,www.facebook.com##+js(set, Env.nxghljssj, false)
 ! https://github.com/uBlockOrigin/uAssets/issues/3367#issuecomment-3060431385
-web.facebook.com,www.facebook.com##div[role="complementary"] a[aria-labelledby][attributionsrc^="/privacy_sandbox/comet/register/source/./?eid="][href^="http"][target="_blank"]
+web.facebook.com,www.facebook.com##div[role="complementary"] a[rel="nofollow noreferrer external"][attributionsrc^="/privacy_sandbox/comet/register/source/"][attributionsrc*="?eid="]
 web.facebook.com,www.facebook.com##div[role="complementary"] div[data-visualcompletion="ignore-dynamic"] a[aria-label][attributionsrc="_blank"][href*="utm_medium"][href*="utm_source"][href*="utm_id"][href*="utm_content"][href*="utm_term"][href*="utm_campaign"]
 web.facebook.com,www.facebook.com##div[role="complementary"] a[aria-labelledby][attributionsrc][href^="http"][target="_blank"][role="link"][rel$="noreferrer"]:has(img[src])
 web.facebook.com,www.facebook.com##+js(json-prune, require.0.3.0.__bbox.require.[].3.1.__bbox.result.data.serpResponse.results.edges.[-].rendering_strategy.view_model.story.sponsored_data.ad_id)
