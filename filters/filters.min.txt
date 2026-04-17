@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Fri, 17 Apr 2026 03:57:48 +0000
+! Last modified: Fri, 17 Apr 2026 05:16:56 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -24627,7 +24627,7 @@ embedplayer.xyz##+js(nowoif)
 embedplayer.xyz##meta[name^="ads-"]:remove()
 ||embedplayer.xyz/embed/guard.js$script,1p
 worder.cat##+js(set, ab.dt, false)
-worder.cat##+js(trusted-replace-argument, document.getElementById, 0, json:"header", condition, /[a-z][A-Z]/)
+worder.cat##+js(trusted-replace-argument, document.getElementById, 0, json:"header", condition, /^[a-zA-Z]{15}$/)
 worder.cat##.ads
 mlb.com##+js(json-prune-xhr-response, data.initPlaybackSession.adScenarios data.initPlaybackSession.adExperience.adExperienceTypes, , propsToMatch, /graphql)
 mlb.com##+js(trusted-json-edit-xhr-response, .data.initPlaybackSession.adExperience.adsEnabled=false, propsToMatch, /graphql)
