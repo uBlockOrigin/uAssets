@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Link shorteners
-! Last modified: Wed, 15 Apr 2026 17:02:35 +0000
+! Last modified: Sat, 18 Apr 2026 08:27:29 +0000
 ! Expires: 5 days
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
@@ -1722,7 +1722,8 @@ devicediary.online,gamesleech.com##+js(nowoif, _blank)
 rootz.so##+js(nowoif, _blank)
 rootz.so##+js(aeld, click, preventDefault)
 ! https://github.com/uBlockOrigin/uAssets/issues/32504
-rootz.so##+js(trusted-json-edit-fetch-response, .data.adsEnabled=false, propsToMatch, /api/files)
+rootz.so##+js(trusted-json-edit-fetch-response, .data.isAdsEnabled=false, propsToMatch, /api/files)
+rootz.so##+js(trusted-replace-argument, document.createTreeWalker, 2, json:{"acceptNode": "function() { return NodeFilter.FILTER_REJECT; }"})
 
 ! https://tinyurl.com/4hru37se
 app.link2unlock.com##+js(nowoif)
