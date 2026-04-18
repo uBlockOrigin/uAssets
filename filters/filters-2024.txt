@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2024)
-! Last modified: Thu, 16 Apr 2026 19:47:14 +0000
+! Last modified: Sat, 18 Apr 2026 05:11:28 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -2604,8 +2604,11 @@ freeshot.live##+js(no-fetch-if, /outbrain|adligature|quantserve|adligature|srvtr
 freeshot.live##+js(acs, document.querySelectorAll, popMagic)
 popcdn.day##+js(aopw, detectedAdblock)
 
-! https://github.com/uBlockOrigin/uAssets/issues/24297#event-13341237136
+! https://github.com/uBlockOrigin/uAssets/issues/24297
 watch.shout-tv.com##+js(json-prune-fetch-response, adsConfiguration, , propsToMatch, /vod)
+! https://www.reddit.com/r/uBlockOrigin/comments/1smrmv8/video_ads_on_shout_tv/
+watch.shout-tv.com##+js(trusted-json-edit-fetch-response, .streams.*.adUnits=[], propsToMatch, /manifest/video)
+watch.shout-tv.com##+js(trusted-replace-xhr-response, /#EXTINF[^\n]+\n[^\n]+?segment[^\n]+/gms, , .m3u8)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/24303
 @@||cdn.cxense.com/cx.js$script,domain=tvaplus.ca

@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Sat, 18 Apr 2026 03:24:08 +0000
+! Last modified: Sat, 18 Apr 2026 05:11:28 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -21225,6 +21225,8 @@ freeshot.live##+js(no-fetch-if, /outbrain|adligature|quantserve|adligature|srvtr
 freeshot.live##+js(acs, document.querySelectorAll, popMagic)
 popcdn.day##+js(aopw, detectedAdblock)
 watch.shout-tv.com##+js(json-prune-fetch-response, adsConfiguration, , propsToMatch, /vod)
+watch.shout-tv.com##+js(trusted-json-edit-fetch-response, .streams.*.adUnits=[], propsToMatch, /manifest/video)
+watch.shout-tv.com##+js(trusted-replace-xhr-response, /#EXTINF[^\n]+\n[^\n]+?segment[^\n]+/gms, , .m3u8)
 @@||cdn.cxense.com/cx.js$script,domain=tvaplus.ca
 @@||api.cxense.com^$script,domain=tvaplus.ca
 @@||ads.rubiconproject.com/prebid/$script,domain=tvaplus.ca
