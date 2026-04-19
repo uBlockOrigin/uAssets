@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Link shorteners
-! Last modified: Sun, 19 Apr 2026 05:35:06 +0000
+! Last modified: Sun, 19 Apr 2026 05:39:15 +0000
 ! Expires: 5 days
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
@@ -1056,19 +1056,6 @@ kbconlinegame.com,hamrojaagir.com,odijob.com###my-btn, #pro-continue, #pro-link:
 kbconlinegame.com,hamrojaagir.com,odijob.com###my-btn, #pro-continue, #pro-link:others()
 kbconlinegame.com,hamrojaagir.com,odijob.com##+js(rmnt, script, /fetch|popupshow/)
 
-! https://gitlab.com/eyeo/anti-cv/abp-filters-anti-cv/-/issues/170
-flashbang.sh##+js(nowoif, !/(flashbang\.sh|dl\.buzzheavier\.com)/)
-trashbytes.net##+js(nowoif, !dl.buzzheavier.com)
-buzzheavier.com,flashbang.sh,trashbytes.net##+js(aeld, DOMContentLoaded, location.href)
-! https://buzzheavier.com/ - first click ad
-buzzheavier.com##+js(set, window.adLink, null)
-! https://github.com/uBlockOrigin/uAssets/issues/24231
-buzzheavier.com##+js(acs, String.fromCharCode, atob)
-buzzheavier.com##+js(nowoif, !buzzheavier.com)
-buzzheavier.com##+js(aeld, click, removeChild)
-buzzheavier.com###unclear2
-buzzheavier.com##div.mx-auto.text-center > a[href][target="_blank"]
-
 ! https://github.com/uBlockOrigin/uAssets/discussions/17361#discussioncomment-9537906
 jeuxenligne.xyz##form > [id][style="display: none;"]:style(display:block !important;)
 ||earnbitmoon.xyz/multiads/multiads.php
@@ -1648,6 +1635,7 @@ up4load.com##+js(rmnt, script, /\);break;case|advert_|POPUNDER_URL|adblock/)
 ! https://github.com/uBlockOrigin/uAssets/issues/29254
 fileguard.cc##+js(nosiif, ?key=)
 
+! .cfd popups
 ! https://go.zovo.ink/0s4fQ fake download ad
 go.zovo.ink###continue-button:style(display: block !important;)
 go.zovo.ink###download-button, footer
@@ -1665,6 +1653,26 @@ zovo2.top##+js(aeld, click, open)
 file-me.top##+js(acs, JSON.parse, document.head.appendChild)
 file-me.top##+js(acs, String.fromCharCode, atob)
 file-me.top##+js(aeld, click, clicksCount)
+
+! https://github.com/uBlockOrigin/uAssets/issues/31403
+rootz.so##+js(nowoif, _blank)
+rootz.so##+js(aeld, click, preventDefault)
+! https://github.com/uBlockOrigin/uAssets/issues/32504
+rootz.so##+js(trusted-json-edit-fetch-response, .data.isAdsEnabled=false, propsToMatch, /api/files)
+rootz.so##+js(trusted-replace-argument, document.createTreeWalker, 2, json:{"acceptNode": "function() { return NodeFilter.FILTER_REJECT; }"})
+
+! https://gitlab.com/eyeo/anti-cv/abp-filters-anti-cv/-/issues/170
+flashbang.sh##+js(nowoif, !/(flashbang\.sh|dl\.buzzheavier\.com)/)
+trashbytes.net##+js(nowoif, !dl.buzzheavier.com)
+buzzheavier.com,flashbang.sh,trashbytes.net##+js(aeld, DOMContentLoaded, location.href)
+! https://buzzheavier.com/ - first click ad
+buzzheavier.com##+js(set, window.adLink, null)
+! https://github.com/uBlockOrigin/uAssets/issues/24231
+buzzheavier.com##+js(acs, String.fromCharCode, atob)
+buzzheavier.com##+js(nowoif, !buzzheavier.com)
+buzzheavier.com##+js(aeld, click, removeChild)
+buzzheavier.com###unclear2
+buzzheavier.com##div.mx-auto.text-center > a[href][target="_blank"]
 
 ! https://rslinks.net/E/me063o2yrgkABQdp
 rslinks.net##+js(rpnt, script, /#Intent.*?end/)
@@ -1718,13 +1726,6 @@ devicediary.online,gamesleech.com##+js(nowoif, _blank)
 ||90003cfd.cfd^
 ||securecloudtorrent.com^
 ||systemsecurenow.icu^
-
-! https://github.com/uBlockOrigin/uAssets/issues/31403
-rootz.so##+js(nowoif, _blank)
-rootz.so##+js(aeld, click, preventDefault)
-! https://github.com/uBlockOrigin/uAssets/issues/32504
-rootz.so##+js(trusted-json-edit-fetch-response, .data.isAdsEnabled=false, propsToMatch, /api/files)
-rootz.so##+js(trusted-replace-argument, document.createTreeWalker, 2, json:{"acceptNode": "function() { return NodeFilter.FILTER_REJECT; }"})
 
 ! https://tinyurl.com/4hru37se
 app.link2unlock.com##+js(nowoif)
