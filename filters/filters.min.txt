@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Sun, 26 Apr 2026 11:11:41 +0000
+! Last modified: Sun, 26 Apr 2026 13:22:49 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -24812,3 +24812,9 @@ damitv.live##+js(trusted-set-local-storage-item, _ad_last, $now$)
 ||9anime.vip/assets/js/jquery-*.min.js
 ||9anime.vip/js/dab.min.js
 ||9anime.vip/banner/
+!#if env_firefox
+tukoz.com##a[href][onclick^="window.open"]:remove-attr(onclick)
+!#else
+tukoz.com##+js(ra, onclick, a[href][onclick^="window.open"], complete)
+!#endif
+tukoz.com##.overlay
