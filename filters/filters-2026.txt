@@ -797,3 +797,11 @@ damitv.live##+js(trusted-set-local-storage-item, _ad_last, $now$)
 ||9anime.vip/assets/js/jquery-*.min.js
 ||9anime.vip/js/dab.min.js
 ||9anime.vip/banner/
+
+! https://github.com/uBlockOrigin/uAssets/issues/32709
+!#if env_firefox
+tukoz.com##a[href][onclick^="window.open"]:remove-attr(onclick)
+!#else
+tukoz.com##+js(ra, onclick, a[href][onclick^="window.open"], complete)
+!#endif
+tukoz.com##.overlay
