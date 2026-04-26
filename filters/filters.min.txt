@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Sun, 26 Apr 2026 13:22:49 +0000
+! Last modified: Sun, 26 Apr 2026 13:28:08 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -10275,6 +10275,10 @@ streamtape.*,watchadsontape.com##+js(aopr, Adcash)
 yabaisub.cloud###fakeplayer
 yabaisub.cloud##+js(trusted-click-element, #player-option-1, , 500)
 ! !SECTION: fakeplayer
+! SECTION: playerAds
+favoyeurtube.net>>,primewire.*>>,tokuzilla.net>>,tokuzl.net>>,tukoz.com>>,~cloudflare.com##+js(json-prune, ads playerAds)
+embedseek.xyz,nuovo.vidplayer.live,p2pplay.pro,primevid.click,streamcasthub.store##+js(json-prune, ads playerAds)
+! !SECTION: playerAds
 ! SECTION: .protection / detectAdblock
 3minx.com,555fap.com,ai18.pics,anime-jav.com,blackwidof.org,chinese-pics.com,cn-av.com,cnpics.org,cnxx.me,cosplay-xxx.com,cosplay18.pics,fc2ppv.stream,fikfok.net,gofile.download,hentai-sub.com,hentai4f.com,hentaicovid.com,hentaipig.com,hentaixnx.com,idol69.net,javball.com,javbee.*,javring.com,javsunday.com,javtele.net,kin8-av.com,kin8-jav.com,kr-av.com,ovabee.com,pig69.com,porn-pig.com,porn4f.org,sweetie-fox.com,xcamcovid.com,xxpics.org##+js(rmnt, script, /detectAdblock|WebAssembly|pop1stp|popMagic/i)
 !#if cap_html_filtering
@@ -21376,14 +21380,15 @@ freemodsapp.in,onlytech.com##^script:has-text(/eval\(.+?decodeURIComponent/)
 !#if env_firefox
 tokuzilla.net##[onclick*="_blank"]:remove-attr(onclick)
 tokuzl.net##[onclick="goToURL();"]:remove-attr(onclick)
+tukoz.com##a[href][onclick^="window.open"]:remove-attr(onclick)
 !#else
 tokuzilla.net##+js(ra, onclick, [onclick*="_blank"], complete)
 tokuzl.net##+js(ra, onclick, [onclick="goToURL();"], complete)
+tukoz.com##+js(ra, onclick, a[href][onclick^="window.open"], complete)
 !#endif
-tokuzilla.net,tokuzl.net##+js(nowoif, _blank)
-tokuzilla.net,tokuzl.net##+js(aeld, click, overlay)
-tokuzilla.net,tokuzl.net##.overlay
-p2pplay.pro##+js(json-prune, ads)
+tokuzilla.net,tokuzl.net,tukoz.com##+js(nowoif, _blank)
+tokuzilla.net,tokuzl.net,tukoz.com##+js(aeld, click, overlay)
+tokuzilla.net,tokuzl.net,tukoz.com##.overlay
 p2pplay.pro##div[style^="position:fixed;inset:0px;z-index:2147483647;background:black;opacity:0.01"]
 p2pplay.pro##div[style^="position: fixed; inset: 0px; z-index: 2147483647; background: black; opacity: 0.01"]
 javball.com##+js(no-fetch-if, adsbygoogle)
@@ -24473,8 +24478,6 @@ primewire.*##+js(nowoif, _blank)
 ||rtouchingthewaterw.com^$all
 primewire.*##a.splash[href]:remove-attr(href)
 primewire.*##+js(rpnt, script, window.csrf_token =, window.userID = 1;window.csrf_token =, excludes, window.userID)
-primewire.*>>,~cloudflare.com##+js(json-prune, ads playerAds)
-primevid.click,streamcasthub.store##+js(json-prune, ads playerAds)
 movix.blog##+js(nowoif)
 movix.blog##+js(trusted-click-element, button[aria-label^="Voir une"])
 movix.blog##+js(trusted-click-element, button[aria-label="Lancer la lecture"])
@@ -24600,7 +24603,6 @@ kaa.lt##+js(acs, EventTarget.prototype.addEventListener, window.open)
 kaa.lt##+js(nowoif, _blank)
 ||imasdk.googleapis.com/js/sdkloader/ima3.js$redirect=noopjs,domain=nuovo.vidplayer.live
 nuovo.vidplayer.live##+js(trusted-json-edit, ..allowAdblock=true)
-nuovo.vidplayer.live##+js(json-prune, ads playerAds)
 nuovo.vidplayer.live##+js(nowoif, _blank)
 loverugbyleague.com,planetrugby.com##+js(rmnt, script, .onerror)
 loverugbyleague.com##.ps-block-a-top
@@ -24790,7 +24792,6 @@ guessthemovie.name##.fallback-side-ad
 viduro.top##+js(nowoif)
 ||viduro.top/api/heartbeat
 embedseek.xyz##+js(nowoif, _blank)
-embedseek.xyz##+js(json-prune, ads playerAds)
 ||imasdk.googleapis.com/js/sdkloader/ima3.js$script,redirect=noopjs,domain=embedseek.xyz|favoyeurtube.net
 braflix.win##+js(aeld, click, fireAd)
 javsub.my##+js(aopr, juicy_tags)
@@ -24812,9 +24813,3 @@ damitv.live##+js(trusted-set-local-storage-item, _ad_last, $now$)
 ||9anime.vip/assets/js/jquery-*.min.js
 ||9anime.vip/js/dab.min.js
 ||9anime.vip/banner/
-!#if env_firefox
-tukoz.com##a[href][onclick^="window.open"]:remove-attr(onclick)
-!#else
-tukoz.com##+js(ra, onclick, a[href][onclick^="window.open"], complete)
-!#endif
-tukoz.com##.overlay

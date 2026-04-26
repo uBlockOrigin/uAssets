@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2026)
-! Last modified: Sun, 26 Apr 2026 13:22:49 +0000
+! Last modified: Sun, 26 Apr 2026 13:28:08 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -170,8 +170,6 @@ primewire.*##+js(nowoif, _blank)
 ! https://www.reddit.com/r/uBlockOrigin/comments/1s2q133/aggressive_adgate_behavior_on_primewireprimevid/
 primewire.*##a.splash[href]:remove-attr(href)
 primewire.*##+js(rpnt, script, window.csrf_token =, window.userID = 1;window.csrf_token =, excludes, window.userID)
-primewire.*>>,~cloudflare.com##+js(json-prune, ads playerAds)
-primevid.click,streamcasthub.store##+js(json-prune, ads playerAds)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/31541
 movix.blog##+js(nowoif)
@@ -393,7 +391,6 @@ kaa.lt##+js(nowoif, _blank)
 ! https://www.reddit.com/r/uBlockOrigin/comments/1rbebkx/adblock_detection_on_httpsfilmpornoitalianoorg/
 ||imasdk.googleapis.com/js/sdkloader/ima3.js$redirect=noopjs,domain=nuovo.vidplayer.live
 nuovo.vidplayer.live##+js(trusted-json-edit, ..allowAdblock=true)
-nuovo.vidplayer.live##+js(json-prune, ads playerAds)
 nuovo.vidplayer.live##+js(nowoif, _blank)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/31955
@@ -753,7 +750,6 @@ viduro.top##+js(nowoif)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/31713
 embedseek.xyz##+js(nowoif, _blank)
-embedseek.xyz##+js(json-prune, ads playerAds)
 ||imasdk.googleapis.com/js/sdkloader/ima3.js$script,redirect=noopjs,domain=embedseek.xyz|favoyeurtube.net
 
 ! https://braflix.win ad
@@ -797,11 +793,3 @@ damitv.live##+js(trusted-set-local-storage-item, _ad_last, $now$)
 ||9anime.vip/assets/js/jquery-*.min.js
 ||9anime.vip/js/dab.min.js
 ||9anime.vip/banner/
-
-! https://github.com/uBlockOrigin/uAssets/issues/32709
-!#if env_firefox
-tukoz.com##a[href][onclick^="window.open"]:remove-attr(onclick)
-!#else
-tukoz.com##+js(ra, onclick, a[href][onclick^="window.open"], complete)
-!#endif
-tukoz.com##.overlay
