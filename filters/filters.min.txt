@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Tue, 28 Apr 2026 06:58:17 +0000
+! Last modified: Tue, 28 Apr 2026 07:27:02 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -316,6 +316,11 @@ spiele.bild.de##div[id^="ad-gamepage-"]
 spiele.bild.de##.ad-vertical-box
 ||servedby.adbility-media.com^$3p
 bild.de##.main-nav .utilities > li:style(margin-left:-0.5px !important)
+||html-load.com^$script,xhr,domain=bild.de
+bild.de##+js(trusted-replace-argument, HTMLScriptElement.prototype.setAttribute, 1, , condition, /error-report|new Promise|;await new/)
+bild.de##+js(rmnt, script, ()=>eval)
+*/www.bild.de/$media,redirect=noopmp3-0.1s
+bild.de##+js(nostif, , 101-250)
 sueddeutsche.de##+js(aopr, _sp_._networkListenerData)
 sueddeutsche.de##+js(aopw, SZAdBlockDetection)
 sueddeutsche.de##+js(set, _sp_.config, undefined)
