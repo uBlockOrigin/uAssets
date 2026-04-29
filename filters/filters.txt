@@ -8988,7 +8988,11 @@ player.rtl2.de##+js(set, getHomadConfig, noopFunc)
 ! https://www.ligainsider.de/ welect.de iFrame inside cookie banner
 ||damoh.welect.de^
 ! https://github.com/uBlockOrigin/uAssets/issues/32740
-@@||aud.springserve.com^$xhr,domain=welt.de
+!#if ext_ubol
+welt.de##+js(trusted-prevent-fetch, aud.springserve.com, <VAST version="3.0"></VAST>)
+!#else
+welt.de##+js(no-fetch-if, aud.springserve.com, war:noop-vast3.xml)
+!#endif
 
 ! https://github.com/uBlockOrigin/uAssets/issues/7508#issuecomment-659267224
 ||damoh.gmx.*/*$media,redirect=noop-0.1s.mp3,1p
