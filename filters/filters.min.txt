@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Wed, 29 Apr 2026 03:30:04 +0000
+! Last modified: Wed, 29 Apr 2026 04:34:58 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -5409,7 +5409,11 @@ tvspielfilm.de,tvtoday.de,chip.de,focus.de,fitforfun.de##+js(set, window.__gv_or
 n-tv.de,rtl.de##+js(set, Object.prototype.adReinsertion, noopFunc)
 player.rtl2.de##+js(set, getHomadConfig, noopFunc)
 ||damoh.welect.de^
-@@||aud.springserve.com^$xhr,domain=welt.de
+!#if ext_ubol
+welt.de##+js(trusted-prevent-fetch, aud.springserve.com, <VAST version="3.0"></VAST>)
+!#else
+welt.de##+js(no-fetch-if, aud.springserve.com, war:noop-vast3.xml)
+!#endif
 ||damoh.gmx.*/*$media,redirect=noop-0.1s.mp3,1p
 ||united-infos.net^$domain=gmx.*|web.de
 focus.de,kicker.de##+js(json-prune, enabled, force_disabled)
