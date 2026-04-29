@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2023)
-! Last modified: Tue, 28 Apr 2026 06:58:17 +0000
+! Last modified: Wed, 29 Apr 2026 03:30:04 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -902,7 +902,7 @@ colearn.id##+js(json-prune, *.tanya_video_ads)
 ! https://github.com/AdguardTeam/AdguardFilters/issues/158583
 @@||imasdk.googleapis.com/js/sdkloader/ima3_dai.js$script,domain=gbnews.com
 @@||imasdk.googleapis.com/js/sdkloader/ima3.js$script,domain=gbnews.com
-||dailymail.co.uk/static/mol-adverts/$domain=gbnews.com
+||dailymail.*/static/mol-adverts/$domain=gbnews.com
 ||cmp.dmgprivacyint.co.uk/locationjson.html
 
 ! https://github.com/easylist/easylist/pull/15121
@@ -3263,18 +3263,19 @@ thestar.com###site-navbar-container, #site-top-nav-container:style(padding-top: 
 ! https://github.com/uBlockOrigin/uAssets/issues/17713
 ! https://github.com/uBlockOrigin/uAssets/issues/16632
 dailymail.co.uk,~games.dailymail.co.uk##+js(aopr, Notification)
-@@||cmp.dmgmediaprivacy.co.uk^$script,domain=dailymail.co.uk
+dailymail.com,~games.dailymail.m##+js(aopr, Notification)
+@@||cmp.dmgmediaprivacy.co.uk^$script,domain=dailymail.co.uk|dailymail.com
 ! dailymail.co.uk##+js(set, atob, trueFunc)
-||dailymail.co.uk/static/mol-adverts/demo/
+||dailymail.*/static/mol-adverts/demo/
 ! https://github.com/NanoMeow/QuickReports/issues/1616
-dailymail.co.uk##.pufftext > .sponsored:upward(3)
-dailymail.co.uk##.pufftext:has-text(/SPONSORED/):upward(2)
-dailymail.co.uk##.mol-ads-label-container
+dailymail.co.uk,dailymail.com##.pufftext > .sponsored:upward(3)
+dailymail.co.uk,dailymail.com##.pufftext:has-text(/SPONSORED/):upward(2)
+dailymail.co.uk,dailymail.com##.mol-ads-label-container
 ! https://www.reddit.com/r/uBlockOrigin/comments/135ix4x/
-||dailymail.co.uk/feeds/commercial/topVideos.json
-||dailymail.co.uk/*/client/sync/fpc?$image
+||dailymail.*/feeds/commercial/topVideos.json
+||dailymail.*/*/client/sync/fpc?$image
 ! https://github.com/uBlockOrigin/uAssets/issues/28129
-dailymail.co.uk##ad-slot
+dailymail.co.uk,dailymail.com##ad-slot
 
 ! https://m.baomoi.com/the-gioi.epi - sponsored posts
 m.baomoi.com###content-main a[title][href*="?staticParams="]:upward(span)
