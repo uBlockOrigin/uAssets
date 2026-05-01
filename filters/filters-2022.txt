@@ -2760,11 +2760,15 @@ upiapi.in##+js(set, detectAdBlock, noopFunc)
 ! https://github.com/uBlockOrigin/uAssets/issues/19433
 ! https://github.com/uBlockOrigin/uAssets/issues/22074
 ! https://github.com/uBlockOrigin/uAssets/issues/29130
+! https://github.com/uBlockOrigin/uAssets/issues/29364
 *&caid=$xhr,removeparam=caid,domain=max.com
-play.hbomax.com,play.max.com##+js(json-prune, ssaiInfo fallback.ssaiInfo)
 play.hbomax.com,play.max.com##+js(json-prune, adtech-brightline adtech-google-pal adtech-iab-om)
-play.hbomax.com,play.max.com##+js(json-prune-fetch-response, ssaiInfo fallback.ssaiInfo, , propsToMatch, /playbackInfo)
-play.hbomax.com,play.max.com##+js(xml-prune, xpath(//*[name()="MPD"]/@mediaPresentationDuration | //*[name()="Period"]/@start | //*[name()="Period"][not(.//*[name()="SegmentTimeline"])][not(.//*[name()="ContentProtection"])] | //*[name()="Period"][./*[name()="BaseURL"]][not(.//*[name()="ContentProtection"])]), , .mpd)
+! play.hbomax.com,play.max.com##+js(json-prune, ssaiInfo fallback.ssaiInfo)
+! play.hbomax.com,play.max.com##+js(json-prune-fetch-response, ssaiInfo fallback.ssaiInfo, , propsToMatch, /playbackInfo)
+! play.hbomax.com,play.max.com##+js(xml-prune, xpath(//*[name()="MPD"]/@mediaPresentationDuration | //*[name()="Period"]/@start | //*[name()="Period"][not(.//*[name()="SegmentTimeline"])][not(.//*[name()="ContentProtection"])] | //*[name()="Period"][./*[name()="BaseURL"]][not(.//*[name()="ContentProtection"])]), , .mpd)
+play.hbomax.com##+js(json-prune-fetch-response, ssaiInfo, , propsToMatch, /playbackInfo)
+play.hbomax.com##+js(json-prune-fetch-response, fallback.ssaiInfo manifest.url, fallback.ssaiInfo, propsToMatch, /playbackInfo)
+play.hbomax.com##+js(xml-prune, xpath(//*[name()="MPD"]/@mediaPresentationDuration | //*[name()="Period"]/@start | //*[name()="Period"][not(.//*[name()="SegmentTimeline"])][not(.//*[name()="ContentProtection"])] | //*[name()="Period"][./*[name()="BaseURL"]][not(.//*[name()="ContentProtection"])][not(.//*[name()="AdaptationSet"][@contentType="text"])]), , /dash.mpd)
 ! https://github.com/uBlockOrigin/uAssets/issues/21255#issuecomment-3609784708
 peacocktv.com##+js(xml-prune, xpath(//*[name()="MPD"]/@mediaPresentationDuration | //*[name()="Period"]/@start | //*[name()="Period"][not(.//*[name()="SegmentTimeline"])][not(.//*[name()="ContentProtection"])] | //*[name()="Period"][./*[name()="BaseURL"]][not(.//*[name()="ContentProtection"])]), , /-vod-.+\.mpd/)
 
