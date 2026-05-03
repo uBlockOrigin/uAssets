@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Sun, 03 May 2026 01:55:49 +0000
+! Last modified: Sun, 03 May 2026 01:59:17 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -12148,10 +12148,10 @@ discoveryplus.*##+js(json-prune, data.attributes.config.freewheel data.attribute
 !#if !env_firefox
 ||h264.io/a/x-goog-token=Expires$xhr,redirect=nooptext,domain=discoveryplus.*,important
 !#endif
-discoveryplus.*,go.discovery.com,investigationdiscovery.com,watch.foodnetwork.com##+js(json-prune, data.attributes.ssaiInfo.forecastTimeline data.attributes.ssaiInfo.vendorAttributes.nonLinearAds data.attributes.ssaiInfo.vendorAttributes.videoView data.attributes.ssaiInfo.vendorAttributes.breaks.[].ads.[].adMetadata data.attributes.ssaiInfo.vendorAttributes.breaks.[].ads.[].adParameters data.attributes.ssaiInfo.vendorAttributes.breaks.[].timeOffset)
+discoveryplus.*,go.discovery.com,watch.foodnetwork.com##+js(json-prune, data.attributes.ssaiInfo.forecastTimeline data.attributes.ssaiInfo.vendorAttributes.nonLinearAds data.attributes.ssaiInfo.vendorAttributes.videoView data.attributes.ssaiInfo.vendorAttributes.breaks.[].ads.[].adMetadata data.attributes.ssaiInfo.vendorAttributes.breaks.[].ads.[].adParameters data.attributes.ssaiInfo.vendorAttributes.breaks.[].timeOffset)
 discoveryplus.*,go.discovery.com,investigationdiscovery.com,go.tlc.com,sciencechannel.com,watch.foodnetwork.com##+js(xml-prune, xpath(//*[name()="MPD"][.//*[name()="BaseURL" and contains(text()\,'dash_clear_fmp4') and contains(text()\,'/a/')]]/@mediaPresentationDuration | //*[name()="Period"][./*[name()="BaseURL" and contains(text()\,'dash_clear_fmp4') and contains(text()\,'/a/')]]), , .mpd)
 play.discoveryplus.com##+js(json-prune, ssaiInfo)
-go.tlc.com##+js(json-prune-xhr-response, data.attributes.ssaiInfo, , propsToMatch, /videoPlaybackInfo)
+go.tlc.com,investigationdiscovery.com##+js(json-prune-xhr-response, data.attributes.ssaiInfo, , propsToMatch, /videoPlaybackInfo)
 venge.io##+js(nofab)
 venge.io##+js(set, adsProvider.init, noopFunc)
 venge.io##+js(set, SDKLoaded, true)
