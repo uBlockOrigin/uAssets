@@ -2176,8 +2176,10 @@ kio.ac##+js(nostif, mode:"no-cors")
 magnetdl.*##+js(rpnt, script, /window\.location\.replace\([^)]+\);?/g)
 magnetdl.*##+js(nowoif, !magnetdl., 1)
 
-! https://yt1s.com.co/ - popups
-yt1s.com.co>>##+js(nowoif)
+! https://github.com/uBlockOrigin/uAssets/issues/13128
+!yt1s.com.co>>##+js(nowoif)
+yt1s.com.co>>##+js(no-fetch-if, googlesyndication.com)
+yt1s.com.co>>##+js(trusted-replace-argument, window.open, 1, repl:/blank/self/)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/28817
 cerberusapp.com##+js(set, stoCazzo, true)
