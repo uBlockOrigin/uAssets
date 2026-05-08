@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2026)
-! Last modified: Thu, 07 May 2026 16:19:46 +0000
+! Last modified: Fri, 08 May 2026 05:23:55 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -370,9 +370,12 @@ prime4you.de##+js(nostif, ad_blocker_detector)
 japannews.yomiuri.co.jp##+js(rmnt, script, piano)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/31918
+! https://github.com/uBlockOrigin/uAssets/issues/32558
 comix.to##+js(aeld, click, _pop)
 comix.to##+js(nowoif)
 comix.to##+js(nosiif, window.open)
+comix.to##+js(nosiif, ._$)
+comix.to##+js(nostif, ._$)
 ||imacdn.com/apics/*.gif
 comix.to##[src*=".gif"]
 ! https://github.com/uBlockOrigin/uAssets/issues/31644
@@ -811,6 +814,8 @@ arakpop.net,koreaboo.net##a[href*="?key="][onclick^="window.open"]
 
 ! https://www.reddit.com/r/uBlockOrigin/comments/1swtkuj/entirely_blocking_filtered_websites_no_site_has/
 ###wrapper ~ a[target="_blank"][href="#"][style="position: fixed;top: 0;left: 0;width: 100%;height: 100%;display: block;z-index: 9999999;cursor: auto"]
+! https://github.com/uBlockOrigin/uAssets/issues/32558
+###app-root ~ a[target="_blank"][href="#"][style="position: fixed;top: 0;left: 0;width: 100%;height: 100%;display: block;z-index: 9999999;cursor: auto"]
 
 ! https://github.com/uBlockOrigin/uAssets/issues/32737
 kingjav.biz##+js(rpnt, script, if (!prerollPlayed), if(!prerollPlayed){prerollPlayed=true;prerollActive=true;startMainVideo();}if (false))
