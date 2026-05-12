@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Privacy
-! Last modified: Wed, 06 May 2026 04:47:26 +0000
+! Last modified: Tue, 12 May 2026 11:29:14 +0000
 ! Expires: 7 days
 ! Description: |
 !   Some of these filters make use of the `important` filter option,`
@@ -1129,6 +1129,9 @@ arstechnica.com,dermnetnz.org##.gsc-webResult a[data-cturl]:remove-attr(/^data-c
 !#if !ext_ubol
 ! Block Attribution reporting
 www.youtube.com##+js(no-xhr-if, /\/api\/stats\/atr\?.+?&rt=\d+\.\d+.+?&volume=\d+&cbr=.+?&fexp=v1%[-%0-9C]{300\,}&.+?&muted=\d(&vis=3)?&docid=/ method:POST)
+
+! 1st-party google tag manager script
+/^https:\/\/(www\.)?[a-z0-9]+\.[a-z]+(\.[a-z]+)?\/[a-z0-9]{4}\/$/$script,1p,match-case
 !#endif
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/213240
