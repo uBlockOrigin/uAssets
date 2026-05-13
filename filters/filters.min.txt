@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Wed, 13 May 2026 05:39:02 +0000
+! Last modified: Wed, 13 May 2026 05:51:20 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -10822,10 +10822,8 @@ vipifsa.com##+js(json-prune-fetch-response, ads, , propsToMatch, /api/video)
 animecix.tv##+js(set, Object.prototype.showInterstitialAd, false)
 ! NOTE: Vietnamese
 lxmanga.my##+js(set, skipAdblockCheck, true)
-qmh.sex##+js(nowoif, _blank)
-qmh.sex##.vip1-play-overlay
-||api.qmh.sex/api/banner/
-qmh.sex##+js(no-fetch-if, /srvtrck|adligature|quantserve|outbrain/)
+qmh.*##+js(json-prune-xhr-response, data.header_script data.footer_script data.direct_link_ads data.direct_link_ads_vip_1 data.direct_link_ads_vip_2 data.direct_link_ads_play_vip_2 data.direct_link_ads_zoom_vip_2, , propsToMatch, /config)
+||api.viphubss.shop/api/banner
 ||moneyoyo.com^$3p
 streamobs.net##+js(aost, document.createElement, createAgeModal)
 streamobs.net##+js(nowoif, _blank, 1, obj)
