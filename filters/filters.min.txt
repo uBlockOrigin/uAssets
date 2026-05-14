@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Thu, 14 May 2026 09:59:54 +0000
+! Last modified: Thu, 14 May 2026 10:04:03 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -17190,7 +17190,6 @@ sitefilme.com##+js(nowoif)
 smgplaza.com##+js(nostif, modal)
 smgplaza.com##+js(aeld, , modal)
 smgplaza.com##+js(acs, eval, replace)
-||imasdk.googleapis.com/js/sdkloader/ima3.js$script,domain=dobreprogramy.pl,redirect=noopjs
 uberhumor.com##+js(nowoif)
 ! artribune. com lcickable background
 artribune.com##+js(set, td_ad_background_click_link, undefined)
@@ -18217,10 +18216,12 @@ wirtualnemedia.pl##.wm-categoryteasersection-ad-large
 wirtualnemedia.pl##.wp-screening-placeholder-container
 wirtualnemedia.pl##body div[class]:not([id]):has(> img[src="/staticfiles/wm-placeholder.png"])
 wirtualnemedia.pl##.py-12:not([data-testid="screening-main"]):has(img[src="/staticfiles/wm-placeholder.png"])
+||imasdk.googleapis.com/js/sdkloader/ima3.js$script,domain=dobreprogramy.pl,redirect=noopjs
 dobreprogramy.pl##+js(trusted-edit-inbound-object, Object.keys, 0, [?.context.bidRequestId].*)
 !#if env_chromium
 dobreprogramy.pl##+js(trusted-replace-argument, RegExp.prototype.test, 0, json:"wirtualnemedia", condition, /^dobreprogramy$/)
 !#endif
+dobreprogramy.pl##div[class*=" "]:not([class*="-"], [id]):has(> img[src^="https://v.wpimg.pl/"])
 tralhasvarias.blogspot.com##+js(nano-stb, decodeURL, *)
 tralhasvarias.blogspot.com##+js(nano-sib, updateProgress, *)
 tralhasvarias.blogspot.com##.cellAd
