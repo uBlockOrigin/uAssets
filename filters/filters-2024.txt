@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2024)
-! Last modified: Mon, 11 May 2026 20:44:43 +0000
+! Last modified: Sun, 17 May 2026 08:18:36 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -2819,39 +2819,21 @@ chasingthedonkey.com##+js(nowoif)
 taste.com.au##.main-header:style(top: 0 !important)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/24714
+!||ethicalads.io^$script,domain=decompiler.com,important
+!||googletagmanager.com^$script,domain=decompiler.com,important
+!@@*$script,3p,domain=decompiler.com
 @@/prebid*$script,from=decompiler.com
 @@/dmcads*$script,from=decompiler.com
 @@/adsscript*$script,domain=decompiler.com
+@@||topcities.eu/tracking/pixel/conversion/$script,domain=decompiler.com
+@@/tracking/pixel/conversion/$script,domain=decompiler.com
 @@||topcountry.eu^$script,domain=decompiler.com
 @@||topsong.eu^$script,domain=decompiler.com
 @@||topsongs.eu^$script,domain=decompiler.com
 @@||topcountries.eu^$script,domain=decompiler.com
 @@||codicibancari.it^$script,domain=decompiler.com
 @@||scuolamaternamaffei.it^$script,domain=decompiler.com
-!||ethicalads.io^$script,domain=decompiler.com,important
-!||googletagmanager.com^$script,domain=decompiler.com,important
-!@@*$script,3p,domain=decompiler.com
-decompiler.com##+js(rmnt, script, var ibavml = document.currentScript;)
-decompiler.com##+js(rmnt, script, var cflkj = ibavml.ownerDocument.defaultView;)
-decompiler.com##+js(rmnt, script, var yidmtwt = ibavml.getAttribute('data-d');)
-decompiler.com##+js(rmnt, script, if (true === cflkj[yidmtwt]))
-decompiler.com##+js(rmnt, script, function becsr(tclyoh))
-decompiler.com##+js(rmnt, script, var hkjgab = becsr(['getEle', 'mentById']);)
-decompiler.com##+js(rmnt, script, var swfpj = becsr(['po', 'interEvents']);)
-decompiler.com##+js(rmnt, script, var fjbxh = becsr(['opac', 'it', 'y']);)
-decompiler.com##+js(rmnt, script, var szywvvoh = becsr(['cr', 'eate', 'E', 'lement']);)
-decompiler.com##+js(rmnt, script, var bhnyxg = becsr(['addEventL', 'istener']);)
-decompiler.com##+js(rmnt, script, var yjagtor = becsr(['a', 'l', 'e', 'rt']);)
-decompiler.com##+js(rmnt, script, function mvwflzd(tclyoh))
-decompiler.com##+js(rmnt, script, yrfjqrqf.style[swfpj] = 'none';)
-decompiler.com##+js(rmnt, script, yrfjqrqf.style[fjbxh] = '.65';)
-decompiler.com##+js(rmnt, script, yrfjqrqf.href = 'javascript:void 0';)
-decompiler.com##+js(rmnt, script, function olsskmkz(tclyoh, nwelsk))
-decompiler.com##+js(rmnt, script, var ocebooiw = documentszywvvoh;)
-decompiler.com##+js(rmnt, script, cflkj.setTimeout(function()))
-decompiler.com##+js(rmnt, script, olsskmkz(['download_z', 'ip', '_button']))
-decompiler.com##+js(rmnt, script, mvwflzd(['f', 'irst', 'DownloadFileLink']))
-decompiler.com##+js(rmnt, script, mvwflzd(['secon', 'dDownload', 'Fi', 'leLink']))
+decompiler.com##+js(trusted-replace-node-text, script, /^([^{])/, "(function(){'use strict';const originalReplaceChild=Node.prototype.replaceChild;Node.prototype.replaceChild=function(newChild,oldChild){if(oldChild&&(oldChild.id?.includes('download')||oldChild.id?.includes('zip'))){return oldChild;}return originalReplaceChild.apply(this,arguments);};const originalSetAttribute=Element.prototype.setAttribute;Element.prototype.setAttribute=function(name,value){if(name==='aria-disabled'&&value==='true'){if(this.id?.includes('Download')||this.id?.includes('Link')){return;}}return originalSetAttribute.apply(this,arguments);};const originalDescriptor=Object.getOwnPropertyDescriptor(HTMLElement.prototype,'style');if(originalDescriptor&&originalDescriptor.get){const originalStyleGet=originalDescriptor.get;Object.defineProperty(HTMLElement.prototype,'style',{get:function(){const styleObj=originalStyleGet.call(this);if(this.id?.includes('Download')||this.id?.includes('Link')||this.id?.includes('zip')){return new Proxy(styleObj,{set:function(target,prop,val){if(prop==='pointerEvents'&&val==='none')return true;if(prop==='opacity'&&val==='.65')return true;target[prop]=val;return true;}});}return styleObj;},configurable:true,enumerable:true});}})();$1", sedCount, 2)
 
 ! ytlarge detection
 @@||ytlarge.com^$ghide
