@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2026)
-! Last modified: Sat, 16 May 2026 18:27:40 +0000
+! Last modified: Sun, 17 May 2026 11:54:06 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -749,9 +749,10 @@ livetv.moviebite.cc##div[data-ad-container]
 livetv.moviebite.cc##div.w-full:has(> div[data-ad-container])
 
 ! https://github.com/uBlockOrigin/uAssets/issues/32613
-guessthemovie.name##+js(no-fetch-if, method:/head/i)
-guessthemovie.name##.fallback-side-ad
-||guessthemovie.name/ads/
+! https://github.com/uBlockOrigin/uAssets/issues/32945
+guessthemovie.name,guessthephrase.xyz##+js(no-fetch-if, method:/head/i)
+guessthemovie.name,guessthephrase.xyz##.fallback-side-ad
+/ads/*$domain=guessthemovie.name|guessthephrase.xyz
 
 ! https://github.com/uBlockOrigin/uAssets/issues/32630
 ||adultswim-vodlive.cdn.turner.com/csmp/live/$xhr,removeparam=caid,domain=adultswim.com
