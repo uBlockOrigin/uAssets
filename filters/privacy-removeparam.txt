@@ -1,5 +1,5 @@
 ! Title: AdGuard/uBO – URL Tracking Protection
-! Last modified: Mon, 18 May 2026 16:41:54 +0000
+! Last modified: Tue, 19 May 2026 14:08:20 +0000
 ! Expires: 7 days
 ! Description: |
 !   Filter that enhances privacy by removing tracking parameters from URLs.
@@ -25,6 +25,20 @@
 !
 ! NOTE: Generic rules
 !
+! Not identified. Used on avira.com, malwarebytes.com and some other sites
+! https://urlscan.io/search/#page.url%3A%22x-clickref%3D%22
+$removeparam=x-clickref
+$removeparam=x-source
+$removeparam=x-a-medium
+! Rakuten
+$removeparam=ranMID
+$removeparam=ranEAID
+$removeparam=ranSiteID
+! Not identified, popular in emails
+$removeparam=eml-name
+$removeparam=eml-mediaplan
+$removeparam=eml-publisher
+$removeparam=eurl
 ! True Anthem
 ! https://github.com/AdguardTeam/AdguardFilters/issues/228929
 ! https://github.com/AdguardTeam/AdguardFilters/issues/222986
@@ -498,6 +512,36 @@ $to=~tradedoubler.com,removeparam=tduid
 ! Bad: ||example.org^$xmlhttprequest,redirect=noopvast-3.0 (for instance, should be in specific.txt)
 !
 !
+! bestbuy.com
+||bestbuycreators.7tiv.net^$removeparam=sharedid
+||bestbuycreators.7tiv.net^$removeparam=adcampaignid
+||bestbuycreators.7tiv.net^$removeparam=svlink
+||bestbuycreators.7tiv.net^$removeparam=subId1
+||bestbuycreators.7tiv.net^$removeparam=subId2
+||bestbuycreators.7tiv.net^$removeparam=subId3
+||bestbuy.7tiv.net^$removeparam=subid1
+||bestbuy.7tiv.net^$removeparam=subid2
+||bestbuy.7tiv.net^$removeparam=subid3
+||www.bestbuy.com^$removeparam=id
+||www.bestbuy.com^$removeparam=mpid
+||www.bestbuy.com^$removeparam=acampid
+! artlist.io
+||artlist.io^$removeparam=artlist_aid
+! newegg.com
+||newegg.com^$removeparam=AFFID
+||newegg.com^$removeparam=AFFNAME
+||newegg.com^$removeparam=ACRID
+||newegg.com^$removeparam=ASUBID
+||newegg.com^$removeparam=ASID
+! taboolanews.com
+||taboolanews.com^$removeparam=dc_data
+! https://github.com/AdguardTeam/AdguardFilters/issues/231019
+||bubilet.com.tr^$removeparam=ref
+! https://github.com/AdguardTeam/AdguardFilters/issues/230335
+! nte.onelink.me
+||onelink.me^$removeparam=af_sub1
+||onelink.me^$removeparam=c
+||onelink.me^$removeparam=shortlink
 ! https://github.com/DandelionSprout/adfilt/discussions/163#discussioncomment-16774089
 ||t.info.telus.com^$removeparam=s
 ! ridibooks.com - book detail page reference tracker
@@ -1682,10 +1726,6 @@ $removeparam=from,to=doujinnomori.com|shinshi-manga.net|echiman.com|dojin-navi.c
 ||smartrecruiters.com^$removeparam=km_adgroup
 ||smartrecruiters.com^$removeparam=km_matchtype
 ||smartrecruiters.com^$removeparam=km_partner
-! https://github.com/AdguardTeam/AdguardFilters/issues/171822
-||nuuvem.com^$removeparam=ranMID
-||nuuvem.com^$removeparam=ranEAID
-||nuuvem.com^$removeparam=ranSiteID
 ! https://github.com/AdguardTeam/AdguardFilters/issues/171802
 ||gog.com^$removeparam=pp
 ! https://github.com/AdguardTeam/AdguardFilters/issues/171289
@@ -2086,9 +2126,6 @@ mailchimp.com$removeparam=amp%3Bafl
 ||productcatalog.channeladvisor.com^$document,removeparam=profileId
 ||go.skimresources.com^$document,removeparam=id
 ||go.skimresources.com^$document,removeparam=xcust
-||chemistwarehouse.com.au^$removeparam=ranMID
-||chemistwarehouse.com.au^$removeparam=ranEAID
-||chemistwarehouse.com.au^$removeparam=ranSiteID
 ! https://github.com/AdguardTeam/AdguardFilters/issues/153536
 ||playstation.com$removeparam=emcid
 ! epicgames.com
@@ -3225,6 +3262,11 @@ $removeparam=asc_campaign,domain=aboutamazon.com|amazon.*|amzn.to
 $removeparam=asc_refurl,domain=aboutamazon.com|amazon.*|amzn.to
 $removeparam=asc_source,domain=aboutamazon.com|amazon.*|amzn.to
 !
+||amazon.*&linkCode=*&tag=*&linkId=$removeparam=crid
+||amazon.*&linkCode=*&tag=*&linkId=$removeparam=sprefix
+||amazon.*&linkCode=*&tag=*&linkId=$removeparam=linkCode
+||amazon.*&linkCode=*&tag=*&linkId=$removeparam=tag
+||amazon.*&linkCode=*&tag=*&linkId=$removeparam=linkId
 ||amazon.*$removeparam=ascsubtag
 ||amazon.*$removeparam=isDramIntegrated
 ||amazon.*$removeparam=shoppingPortalEnabled
