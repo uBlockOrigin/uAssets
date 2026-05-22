@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Fri, 22 May 2026 04:16:30 +0000
+! Last modified: Fri, 22 May 2026 04:56:42 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -21631,7 +21631,6 @@ taste.com.au##.main-header:style(top: 0 !important)
 ||ethicalads.io^$script,domain=decompiler.com,important
 ||googletagmanager.com^$script,domain=decompiler.com,important
 @@*$script,3p,domain=decompiler.com
-decompiler.com##+js(set, ethicalads, true)
 decompiler.com##+js(rpnt, script, !==, ==)
 decompiler.com##+js(rpnt, script, ===, =|=)
 decompiler.com##+js(rpnt, script, .join, .faah)
@@ -21639,7 +21638,8 @@ decompiler.com##+js(rpnt, script, +', ==)
 decompiler.com##+js(rpnt, script, /\+\s*['"`]/, ==, excludes, progress)
 decompiler.com##+js(trusted-replace-argument, document.getElementById, 0, json:"bypassed", condition, /zip_button|zip|FileLink/)
 decompiler.com##+js(trusted-replace-argument, document.querySelector, 0, json:"#bypassed", condition, /(artifactFileContent|viewImage|firstDownloadFileLink|secondDownloadFileLink|download_zip_button)/)
-||decompiler.com^$script,1p
+decompiler.com##+js(set, ethicalads.wait.then, noopFunc)
+decompiler.com##+js(trusted-set, ethicalads, json:{"wait":{"then":true}})
 ! ytlarge detection
 @@||ytlarge.com^$ghide
 @@||googlesyndication.com^$script,xhr,domain=ytlarge.com
