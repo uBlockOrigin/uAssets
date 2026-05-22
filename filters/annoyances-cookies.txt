@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Cookie Notices
-! Last modified: Fri, 22 May 2026 03:30:26 +0000
+! Last modified: Fri, 22 May 2026 10:07:30 +0000
 ! Expires: 7 days
 ! Description: Filters optimized for uBlock Origin, to be used with EasyList's and/or Adguard's "Cookie Notices" list(s)
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -601,6 +601,11 @@ tietokonekauppa.fi##+js(trusted-set-cookie, cookieConsent, {"consentAnalytics":"
 etos.nl##+js(trusted-click-element, button#cookie-dismiss, !cookie:cookie-consent, 1000)
 ! https://github.com/uBlockOrigin/uAssets/issues/32998
 united-domains.de##+js(trusted-click-element, .cookie-layer-dialog button.confirm-selection)
+!#if cap_html_filtering
+united-domains.de##^script#real-cookie-banner-pro-vendor-real-cookie-banner-pro-banner-js
+!#else
+united-domains.de##div[consent-skip-blocker]:remove()
+!#endif
 ! https://github.com/uBlockOrigin/uAssets/pull/33006
 diamantrad.com,lpi.org##+js(trusted-click-element, button#CookieBoxSaveButton, , 1000)
 
