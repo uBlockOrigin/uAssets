@@ -1930,7 +1930,13 @@ l2crypt.com##+js(noeval-if, ads)
 1337x.fyi,1337x.pro##+js(trusted-rpnt, script, window.location.replace(urlRandom);, )
 
 ! https://github.com/uBlockOrigin/uAssets/issues/28317
-brawlify.com##+js(rmnt, script, /adb/i)
+!#if cap_html_filtering
+brawlify.com##^script:has-text(/adb|ta_session_id/i)
+!#else
+brawlify.com##+js(rmnt, script, /adb|ta_session_id/i)
+!#endif
+brawlify.com##+js(set, __venatusLoaderInit, true)
+brawlify.com##+js(set-session-storage-item, /^ta_/, $remove$)
 ||brawlify.com/js/core.js^$script,1p
 
 ! https://abcnews.go.com/ - top empty space
