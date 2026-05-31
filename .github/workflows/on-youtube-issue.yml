@@ -16,10 +16,10 @@ jobs:
     steps:
       - name: Add label
         run: |
-          gh issue edit ${{ github.event.issue.number }} --add-label "duplicate"
+          gh issue edit ${{ github.event.issue.number }} --repo ${{ github.repository }} --add-label "duplicate"
       - name: Close issue
         run: |
-          gh issue close ${{ github.event.issue.number }} --reason "not planned" --comment 'Please respect what is asked in the issue template to not unduly burden volunteers.
+          gh issue close ${{ github.event.issue.number }} --repo ${{ github.repository }} --reason "not planned" --comment 'Please respect what is asked in the issue template to not unduly burden volunteers.
           
           This is a `youtube.com` issue:
           - If you are using uBO Lite, read [uBO Lite only thread](https://www.github.com/uBlockOrigin/uAssets/issues/30158)
