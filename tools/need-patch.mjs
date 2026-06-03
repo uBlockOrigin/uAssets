@@ -75,7 +75,7 @@ async function main() {
     );
     date.setUTCHours(0, parseInt(match[4], 10), 0, 0);
 
-    // Add error margin to for when an action runs just a bit too early
+    // Add error margin for when an action runs just a bit too early
     // https://github.com/uBlockOrigin/uBlock-discussions/discussions/781#discussioncomment-17166232
     const errorMargin = targetDelayInHours / 10;
 
