@@ -74,7 +74,13 @@ async function main() {
         parseInt(match[3], 10)
     );
     date.setUTCHours(0, parseInt(match[4], 10), 0, 0);
-    const expiredTimeInHours = (Date.now() - date.getTime()) / MS_PER_HOUR;
+
+    // Add error margin to for when an action runs just a bit too early
+    // https://github.com/uBlockOrigin/uBlock-discussions/discussions/781#discussioncomment-17166232
+    const errorMargin = targetDelayInHours / 10;
+
+    const expiredTimeInHours = (Date.now() - date.getTime()) / MS_PER_HOUR + errorMargin;
+
     console.log(expiredTimeInHours >= targetDelayInHours ? 'yes' : 'no');
 }
 
