@@ -33,6 +33,10 @@ The EasyList-compatible fixes for high-traffic websites are added to uBO filters
   - On the problematic website, click the uBlock Origin icon
   - Click the chat icon
   - Click "Troubleshooting Information" to expand, and copy that information into the appropriate github issue.
+ 
+#### Filter List Requests
+
+New filter list requests in the issue tracker are not permitted and will be declined and closed.
 
 #### Support Forum
 
