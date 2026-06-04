@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Link shorteners
-! Last modified: Sat, 30 May 2026 15:46:16 +0000
+! Last modified: Thu, 04 Jun 2026 14:45:57 +0000
 ! Expires: 5 days
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
@@ -1924,12 +1924,13 @@ vipshort.in##+js(rpnt, script, intentUrl;, fallbackUrl;)
 vipshort.in##+js(set, blurred, false)
 
 ! https://cloudfam.io/1e13c807f8cb
+*$script,xhr,redirect-rule=noopjs,domain=cloudfam.io
+*$image,redirect-rule=32x32.png,domain=cloudfam.io
 @@*$ghide,domain=cloudfam.io
-cloudfam.io##+js(rmnt, script, /adblock|bait|hidden/i)
 cloudfam.io##+js(nostif, /blocked|null|return/)
-cloudfam.io##+js(rmnt, script, prevent)
 cloudfam.io##+js(nano-sib, /.?/, *)
 cloudfam.io##+js(nano-stb, /.?/, *)
+cloudfam.io##+js(nowoif, _blank)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/32651
 ||uptobhai.$document,csp=default-src 'self' 'unsafe-inline' *.favicon.cc *.google.com *.gstatic.com *.googleapis.com; img-src * data: blob:
