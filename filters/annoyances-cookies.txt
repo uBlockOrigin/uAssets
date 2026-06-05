@@ -67,6 +67,8 @@ businessinsider.com##.related-posts
 ! Do not use trusted-set-cookie for Google - it will cause captcha prompts for many users (maybe Google's antibot systems don't like the same cookie value being shared?) The issue doesn't appear in every region though
 ! https://old.reddit.com/r/uBlockOrigin/comments/1l8i7qu/unusual_traffic_warning_from_google_search_in/
 www.google.*##+js(trusted-click-element, button#W0wltc, , 500)
+! https://github.com/uBlockOrigin/uAssets/issues/31715#issuecomment-4555169088
+gemini.google.com##+js(trusted-click-element, button[data-test-id="reject-button"], , 500)
 ! When moving from Google search to other Google services or opening them directly. E.G. https://translate.google.com/ 
 consent.google.*##+js(trusted-click-element, form[action] button[jsname="tWT92d"])
 ! https://github.com/DandelionSprout/adfilt/discussions/932#discussioncomment-8260397
@@ -610,6 +612,23 @@ united-domains.de##div[consent-skip-blocker]:remove()
 diamantrad.com,lpi.org##+js(trusted-click-element, button#CookieBoxSaveButton, , 1000)
 ! https://github.com/uBlockOrigin/uAssets/pull/33012
 urlando.de##+js(trusted-set-cookie, urlando_consent, '{"analytics":false,"marketing":false,"timestamp":"$currentISODate$"}')
+! https://github.com/uBlockOrigin/uAssets/pull/33058
+admind-ai.com##+js(trusted-set-local-storage-item, admind_cookie_consent_v1, '{"necessary":true,"analytics":false,"preferences":false,"timestamp":"$currentISODate$","version":1}')
+! https://github.com/uBlockOrigin/uAssets/issues/33078
+tirerack.com##+js(trusted-click-element, #meru-cm button.meru-cc__bn[aria-label="Reject All"], , 2000)
+! https://github.com/uBlockOrigin/uAssets/issues/33101
+handyhuellen.de,smartphonehoesjes.nl,ploonk.fr##+js(trusted-set-local-storage-item, mage_consent, '{"timestamp":$now$,"data":{"functional":true,"marketing":false}}')
+! https://github.com/uBlockOrigin/uAssets/pull/33130
+ispazio.net##+js(trusted-set-cookie, isp_consent, '{"v":1,"ts":$now$,"f":0,"e":0,"m":0,"a":0}')
+! https://github.com/uBlockOrigin/uAssets/pull/33132
+clubic.com##+js(trusted-click-element, .didomi-continue-without-agreeing)
+! https://github.com/uBlockOrigin/uAssets/issues/33142
+garuda-indonesia.com##+js(trusted-set-cookie, consent:cookie, '{"essentialCookies":true,"marketingCookies":false,"analyticCookies":false,"consentStatus":"Rejected","id":""}', , , domain, .garuda-indonesia.com)
+garuda-indonesia.com##+js(set-local-storage-item, cookies, agree)
+! https://github.com/uBlockOrigin/uAssets/issues/33161
+voelkner.de##+js(trusted-click-element, .js_cookie_content button[data-cookie_consent="0"], , 1000)
+! https://github.com/uBlockOrigin/uAssets/issues/33183
+schroders.com##+js(trusted-click-element, div[aria-labelledby="modal-title-cookieDisclaimerModal"] button[class*="SecondaryButton"])
 
 !! Needs additional cookies
 
@@ -970,7 +989,7 @@ snowandrock.com##+js(trusted-set-cookie, consent_setting, analytics%3A0%7Cfuncti
 ! All store information on device cookies
 borncity.com,drimble.nl,beurs.nl,iex.nl,luchtvaartnieuws.nl,beursonline.nl,belegger.nl,beursgorilla.nl,dailybuzz.nl,bnn.de,dosenbach.ch,dw.com,kinepolis.*,mediaite.com,nzz.ch,winfuture.de,lippu.fi,racingnews365.com,reifendirekt.ch,vaillant.*##+js(trusted-click-element, #cmpwrapper >>> #cmpbntyestxt, , 1000)
 ! .cmptxt_btn_no (shadowroot)
-webtoons.com,bauhaus.no,bauhaus.se,beko-group.de,billiger.de,burda.com,continental-tires.com,vanharen.nl,deichmann.com,meraluna.de,slashdot.org,hermann-saunierduval.it,protherm.cz,saunierduval.es,protherm.sk,protherm.ua,saunierduval.hu,saunierduval.ro,saunierduval.at,awb.nl##+js(trusted-click-element, #cmpwrapper >>> .cmptxt_btn_no, , 1000)
+lrb.co.uk,webtoons.com,bauhaus.no,bauhaus.se,beko-group.de,billiger.de,burda.com,continental-tires.com,vanharen.nl,deichmann.com,meraluna.de,slashdot.org,hermann-saunierduval.it,protherm.cz,saunierduval.es,protherm.sk,protherm.ua,saunierduval.hu,saunierduval.ro,saunierduval.at,awb.nl##+js(trusted-click-element, #cmpwrapper >>> .cmptxt_btn_no, , 1000)
 ! .cmptxt_btn_save
 spar.hu,group.vattenfall.com##+js(trusted-click-element, #cmpwrapper >>> .cmptxt_btn_save, , 1000)
 
@@ -1106,9 +1125,10 @@ getdigitalradio.com##+js(trusted-set-cookie, dsm-cookie-preferences, {%221%22:tr
 
 ! e24.no,vg.no https://github.com/uBlockOrigin/uAssets/issues/22295
 cmpv2.finn.no##+js(trusted-click-element, button[title="Godta alle"], , 1000)
-tek.no,e24.no,minmote.no,vg.no##div[id^="sp_message_container_"]
-cmp.tek.no,cmp.e24.no,minmote.no,cmp.vg.no##+js(trusted-click-element, .btns-container > button[title="Tilpass cookies"])
-cmp.tek.no,cmp.e24.no,minmote.no,cmp.vg.no##+js(trusted-click-element, .message-row > button[title="Avvis alle"], , 2000)
+! tek.no,e24.no,minmote.no,vg.no##div[id^="sp_message_container_"]
+cmp.e24.no,cmp.minmote.no,cmp.tek.no,cmp.vg.no##+js(trusted-click-element, .btns-container > button[title="Tilpass cookies"])
+! cmp.tek.no,cmp.e24.no,minmote.no,cmp.vg.no##+js(trusted-click-element, .message-row > button[title="Avvis alle"], , 2000)
+cmp.e24.no,cmp.minmote.no,cmp.tek.no,cmp.vg.no##+js(trusted-click-element, '2000,.pm-main > .type-box:nth-of-type(1) .tcfv2-stack .pur-buttons-container > button:nth-of-type(2),100,.pm-main > .type-box:nth-of-type(2) .tcfv2-stack .pur-buttons-container > button:nth-of-type(2),100,.pm-main > .type-box:nth-of-type(3) .tcfv2-stack .pur-buttons-container > button:nth-of-type(2),100,.pm-main > .type-box:nth-of-type(4) .tcfv2-stack .pur-buttons-container > button:nth-of-type(2),100,button.sp_choice_type_SAVE_AND_EXIT')
 @@||cmp.*.no^$domain=e24.no|minmote.no|vg.no|tek.no
 @@||privacy-mgmt.com/mms^$domain=e24.no|minmote.no|vg.no|tek.no
 /wrappermessagingwithoutdetection.js$script,domain=finn.no
@@ -1528,11 +1548,13 @@ ilgazzettino.it,ilmessaggero.it,ilsecoloxix.it##+js(trusted-click-element, butto
 ! weather.com##+js(trusted-set-cookie, consentUUID, df843851-527a-4aec-8dab-5ba35e570618_32_33)
 weather.com##+js(trusted-set-local-storage-item, userConsents, {"functional-technology":true})
 ! weather.com (.pt IP)
-weather.com>>##+js(trusted-click-element, button[title="Aceitar todos"], , 1000)
+! weather.com>>##+js(trusted-click-element, button[title="Aceitar todos"], , 1000)
 ! https://github.com/AdguardTeam/AdguardFilters/issues/205068
-weather.com>>##+js(trusted-click-element, button.cta-button[title="Tümünü reddet"])
+! weather.com>>##+js(trusted-click-element, button.cta-button[title="Tümünü reddet"])
 ! weather.com UK IP
 cdn.privacy-mgmt.com##+js(trusted-click-element, button[title="Reject all"], , 1000)
+! https://github.com/uBlockOrigin/uAssets/issues/33140
+weather.com>>##+js(trusted-click-element, button.sp_choice_type_13)
 
 ! accept / impulse.de
 privacy.menshealth.de,privacy.motorradonline.de,impulse.de>>,consent.watson.de,consent.kino.de,consent.desired.de,cmpv2.fn.de##+js(trusted-click-element, button[title="Akzeptieren und weiter"], , 1000)
@@ -1926,9 +1948,13 @@ nytimes.com##+js(trusted-click-element, button[data-tpl-type="Button"], , 1000)
 uber.com,ubereats.com##+js(trusted-click-element, button[data-tracking-name="cookie-preferences-sloo-opt-out"], , 1000)
 
 ! Accept cookie-wall (UK IP)
-privacy.crash.net,cmpv2.likehifi.de##+js(trusted-click-element, button[title="ACCEPT"], , 1000)
+cmpv2.likehifi.de##+js(trusted-click-element, button[title="ACCEPT"], , 1000)
 ! Save and exit  (UK IP)
 the-independent.com##+js(trusted-click-element, button[title="SAVE AND EXIT"])
+! https://github.com/uBlockOrigin/uAssets/issues/28602#issuecomment-4623554163
+privacy.crash.net##+js(trusted-click-element, #notice button[title^="ACCEPT"i], , 1000)
+! https://github.com/uBlockOrigin/uAssets/issues/93#issuecomment-4631674339
+privacy.auto-motor-und-sport.de##+js(trusted-click-element, #notice button[title="Akzeptieren und weiter"], , 1000)
 
 ! reject
 prospre.io##+js(trusted-set-cookie, cookieConsent, '{"adConsentGranted":false,"adUserDataConsentGranted":false,"adPersonalizationConsentGranted":false,"analyticsConsentGranted":false,"personalizationConsentGranted":false}', , , reload, 1)
@@ -2902,9 +2928,6 @@ comune.palermo.it##+js(trusted-click-element, button.cmplz-deny, , 1000)
 
 ! essential
 abconcerts.be##+js(trusted-set-cookie, _cookie-consent, '{"version":"1","consent":"yes","categories":[]}')
-
-! functional
-smartphonehoesjes.nl,ploonk.fr,handyhuellen.de##+js(trusted-set-local-storage-item, mage_consent, '{"timestamp":1,"data":{"functional":true,"marketing":false}}')
 
 ! reject
 get-in-engineering.de##+js(trusted-click-element, button[aria-label="Reject all"], , 1000)
@@ -5578,3 +5601,12 @@ tlc.com##+js(trusted-click-element, .btn.btn-primary)
 
 ! https://www.eventim.ro/event/alifantis-mirica-gemini-2-0-casa-de-cultura-a-sindicatelor-21322560/ - maps breakage
 eventim.ro##+js(trusted-click-element, #cmpwrapper >>> .cmpboxbtnyes, , 1000)
+
+! https://github.com/uBlockOrigin/uAssets/pull/33067
+lequipe.fr##+js(trusted-click-element, .CmpUnsubscriber .Cmp__action--yes, , 1000)
+
+! https://github.com/uBlockOrigin/uAssets/issues/33124
+cmp.travelbook.de##+js(trusted-click-element, .cmp-banner button.accept-all)
+
+! https://www.antena3.ro/emisiuni/subiectiv/cum-s-a-razbunat-traian-basescu-pe-razvan-dumitrescu-pentru-un-interviu-ce-vrea-sorin-blejnar-de-la-188976.html - video breakage
+antena3.ro##+js(trusted-click-element, #onetrust-accept-btn-handler, , 1000)

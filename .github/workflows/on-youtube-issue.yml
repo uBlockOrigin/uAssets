@@ -9,26 +9,18 @@ jobs:
     name: Close as duplicate
     runs-on: ubuntu-slim
     if: contains(github.event.issue.title, 'youtube.com:')
+    env:
+      GH_TOKEN: ${{ github.token }}
     permissions:
       issues: write
     steps:
       - name: Add label
-        uses: actions-cool/issues-helper@v3
-        with:
-          actions: 'add-labels'
-          labels: 'duplicate'
-      - name: Add comment
-        uses: actions-cool/issues-helper@v3
-        with:
-          actions: 'create-comment'
-          body: |
-            Please respect what is asked in the issue template to not unduly burden volunteers.
-            
-            This is a `youtube.com` issue:
-            - If you are using uBO Lite, read [uBO Lite only thread](https://www.github.com/uBlockOrigin/uAssets/issues/30158),
-            - If you are using uBO (not Lite), read [uBO only thread](https://www.github.com/uBlockOrigin/uAssets/issues/30157).
+        run: |
+          gh issue edit ${{ github.event.issue.number }} --repo ${{ github.repository }} --add-label "duplicate"
       - name: Close issue
-        uses: actions-cool/issues-helper@v3
-        with:
-          actions: 'close-issue'
-          close-reason: not_planned
+        run: |
+          gh issue close ${{ github.event.issue.number }} --repo ${{ github.repository }} --reason "not planned" --comment 'Please respect what is asked in the issue template to not unduly burden volunteers.
+          
+          This is a `youtube.com` issue:
+          - If you are using uBO Lite, read [uBO Lite only thread](https://www.github.com/uBlockOrigin/uAssets/issues/30158)
+          - If you are using uBO (not Lite), read [uBO only thread](https://www.github.com/uBlockOrigin/uAssets/issues/30157)'

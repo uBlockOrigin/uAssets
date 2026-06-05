@@ -1130,8 +1130,20 @@ arstechnica.com,dermnetnz.org##.gsc-webResult a[data-cturl]:remove-attr(/^data-c
 ! Block Attribution reporting
 www.youtube.com##+js(no-xhr-if, /\/api\/stats\/atr\?.+?&rt=\d+\.\d+.+?&volume=\d+&cbr=.+?&fexp=v1%[-%0-9C]{300\,}&.+?&muted=\d(&vis=3)?&docid=/ method:POST)
 ! 1st-party google tag manager script
-/^https:\/\/(www\.)?[a-z0-9]+\.[a-z]+(\.[a-z]+)?\/[a-z0-9]{4}\/$/$script,1p,match-case
+/^https:\/\/(www\.)?[a-z0-9]+\.[a-z]+(\.[a-z]+)?\/[a-z0-9]{4,8}\/?$/$script,1p,match-case
+! https://github.com/uBlockOrigin/uAssets/issues/33144
+@@/jsi18n/|$script,1p
+! https://github.com/uBlockOrigin/uAssets/commit/58b2cf2dd92adf8eff2ad0a4d98a127cd650eca0
+@@/^https:\/\/(www\.)?[a-z0-9]+\.[a-z]+(\.[a-z]+)?\/config\/?$/$script,1p
+! https://github.com/uBlockOrigin/uAssets/issues/33157
+||zoom.us/*/app-telemetry.
+||zoom.us/*/fingerprintjs-
+||zoom.us/user/anonymous/telemetry
+! petametrics
+||petametrics.com^$~script
 !#endif
+||petametrics.com/*/__activity.
+||paytr.com/securemetric/
 ||youtube.com/youtubei/v1/log_event
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/213240
@@ -1417,6 +1429,7 @@ $removeparam=fbadid
 $removeparam=ymclid
 $removeparam=ysclid
 $removeparam=yclid
+$removeparam=ym_tracking_id
 ! https://help.ads.microsoft.com/apex/index/3/en/60000
 $removeparam=msclkid
 ! Wicked Reports click tracking
@@ -1816,9 +1829,6 @@ pitchfork.com##+js(href-sanitizer, a[href^="https://cna.st/"][data-offer-url^="h
 ||vpnmentor.com/jssdk/track/
 vpnmentor.com##+js(cookie-remover, /_alooma/)
 
-! torrentfreak.com
-||torrentfreak.com/js/script.js
-
 ! jiosaavn.com
 ||jiosaavn.com/stats.php^
 
@@ -2051,7 +2061,6 @@ r.mail.wowvegas.com%2Ftr%2Fop%2F*$image
 ! twitter
 /twitter.com/scribe/ibis?$image
 *%2Ftwitter.com%2Fscribe%2Fibis%3F*$image
-||api.x.com/1.1/graphql/error_log.json
 ! shopee
 /tracking.mail.shopee.$image
 *%2Ftracking.mail.shopee.$image
@@ -2960,6 +2969,8 @@ dmax.de##.block-user:remove-class(block-user)
 ||linksynergy.com^$doc,reason=tracker
 ||onelink.me/*&af_web_dp=$doc,reason=tracker
 ||onelink.me/*&af_web_dp=$urlskip=?af_web_dp
+||cxad.cxense.com^$doc,badfilter
+||cxad.cxense.com^$doc,reason=tracker
 
 ! https://github.com/uBlockOrigin/uAssets/pull/30819
 ||blog.skk.moe/_next/data/*/post/*.json$method=post,xhr,redirect=nooptext
@@ -3093,6 +3104,15 @@ pooembed.eu##+js(no-xhr-if, body:pageview method:POST)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/32896
 ||slate.com/analytics
+
+! https://github.com/uBlockOrigin/uAssets/issues/33065
+||stay22.com/googleanalytics/
+||stay22.com/thumbmark
+||scripts.stay22.com^
+
+! webex.com (login required)
+! Regularly blocking this endpoint causes the site to proxy all logging requests
+webex.com##+js(no-xhr-if, svc.webex.com/metrics)
 
 ! Merge in resource-abuse.txt
 !#include resource-abuse.txt
