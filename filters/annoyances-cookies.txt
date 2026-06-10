@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Cookie Notices
-! Last modified: Tue, 09 Jun 2026 05:45:03 +0000
+! Last modified: Wed, 10 Jun 2026 06:10:29 +0000
 ! Expires: 7 days
 ! Description: Filters optimized for uBlock Origin, to be used with EasyList's and/or Adguard's "Cookie Notices" list(s)
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -1128,7 +1128,10 @@ getdigitalradio.com##+js(trusted-set-cookie, dsm-cookie-preferences, {%221%22:tr
 ! e24.no,vg.no https://github.com/uBlockOrigin/uAssets/issues/22295
 cmpv2.finn.no##+js(trusted-click-element, button[title="Godta alle"], , 1000)
 ! tek.no,e24.no,minmote.no,vg.no##div[id^="sp_message_container_"]
-cmp.e24.no,cmp.minmote.no,cmp.tek.no,cmp.vg.no##+js(trusted-click-element, .btns-container > button[title="Tilpass cookies"])
+e24.no,minmote.no,tek.no,vg.no##div[id^="sp_message_container_"]:style(z-index: -1 !important;)
+cmp.e24.no,cmp.minmote.no,cmp.tek.no,cmp.vg.no##.tcfv2-stack .pur-buttons-container > button:style(display: inline-block !important;)
+cmp.e24.no,cmp.minmote.no,cmp.tek.no,cmp.vg.no##button.sp_choice_type_SAVE_AND_EXIT:remove-attr(/^(aria-)?disabled$/)
+cmp.e24.no,cmp.minmote.no,cmp.tek.no,cmp.vg.no##+js(trusted-click-element, .btns-container > button[title="Tilpass cookies"], , 1000)
 ! cmp.tek.no,cmp.e24.no,minmote.no,cmp.vg.no##+js(trusted-click-element, .message-row > button[title="Avvis alle"], , 2000)
 cmp.e24.no,cmp.minmote.no,cmp.tek.no,cmp.vg.no##+js(trusted-click-element, '2000,.pm-main > .type-box:nth-of-type(1) .tcfv2-stack .pur-buttons-container > button:nth-of-type(2),100,.pm-main > .type-box:nth-of-type(2) .tcfv2-stack .pur-buttons-container > button:nth-of-type(2),100,.pm-main > .type-box:nth-of-type(3) .tcfv2-stack .pur-buttons-container > button:nth-of-type(2),100,.pm-main > .type-box:nth-of-type(4) .tcfv2-stack .pur-buttons-container > button:nth-of-type(2),100,button.sp_choice_type_SAVE_AND_EXIT')
 @@||cmp.*.no^$domain=e24.no|minmote.no|vg.no|tek.no
