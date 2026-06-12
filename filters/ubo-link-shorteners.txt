@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Link shorteners
-! Last modified: Fri, 12 Jun 2026 06:36:36 +0000
+! Last modified: Fri, 12 Jun 2026 06:57:00 +0000
 ! Expires: 5 days
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
@@ -851,9 +851,14 @@ oii.io###overlay
 
 ! https://github.com/uBlockOrigin/uAssets/issues/8198
 ! https://hblinks.pro/archives/80613
+*$script,3p,denyallow=ajax.googleapis.com|cloudflare.net|fastly.net|fontawesome.com|jsdelivr.net|unpkg.com,domain=hubdrive.*|~hubdrive.com|~hubdrive.de
 hubdrive.*,~hubdrive.com,~hubdrive.de##+js(nowoif)
 hblinks.pro,hubcdn.vip,hubdrive.*,~hubdrive.com,~hubdrive.de##+js(aeld, , history.go)
-*$script,3p,denyallow=ajax.googleapis.com|cloudflare.net|fastly.net|fontawesome.com|jsdelivr.net|unpkg.com,domain=hubdrive.*|~hubdrive.com|~hubdrive.de
+! popup redirects (HubDrive)
+katdrive.link,kmhd.net##+js(aeld, , history.go)
+! https://github.com/AdguardTeam/AdguardFilters/issues/199002
+kmhd.net##.entry-content > div[class^="code-block"] > h4[class][style^="text-align: center;"]
+hubdrive.*##[src="/snvhost.jpg"]
 
 ! https://github.com/uBlockOrigin/uAssets/issues/14790
 blog.workedbd.com,maxxfour.com,profitshort.com,courselinkfree.us,technorozen.com,hubdrive.me###top_nav, .rd_btn, .soractrl:style(display: block !important;)
@@ -1159,11 +1164,6 @@ rentry.co##article:has(#download-your-archive-file)
 
 ! shortencash. click antiadb
 shortencash.click##+js(nostif, displayAdBlockerMessage)
-
-! popup redirects (HubDrive)
-katdrive.link,kmhd.net##+js(aeld, , history.go)
-! https://github.com/AdguardTeam/AdguardFilters/issues/199002
-kmhd.net##.entry-content > div[class^="code-block"] > h4[class][style^="text-align: center;"]
 
 ! mobilejsr. com antiadb
 @@||mobilejsr.com^$ghide
