@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2026)
-! Last modified: Sun, 14 Jun 2026 12:32:22 +0000
+! Last modified: Sun, 14 Jun 2026 13:36:21 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -1061,12 +1061,14 @@ ondebola.com##.adslot_horizontal_big_desktop_extra
 ondebola.com##.solverde-affiliate-banner
 
 ! https://github.com/uBlockOrigin/uAssets/issues/33280
-streamcash.to##+js(rmnt, script, /\.onerror|offsetHeight|Bait/)
+streamcash.to##+js(rmnt, script, /\.onerror|offsetHeight|Bait|getComputedStyle/)
 streamcash.to##+js(nowoif)
+streamcash.to##+js(trusted-replace-argument, document.createElement, 0, json:"div", condition, /^a$/)
+streamcash.to##+js(rpnt, script, player.pause();)
 streamcash.to###player-ui-layer[style="position:absolute;inset:0;z-index:99;cursor:pointer;"]
 streamcash.to##div.banner-zone
 streamcash.to##.media-slot-bottom
-streamcash.to###main-video ~ div[style]
+streamcash.to###main-video ~ [style="position: absolute; inset: 0px; z-index: 99; cursor: pointer;"]
 @@||streamcash.to^$ghide
 
 ! https://github.com/uBlockOrigin/uAssets/issues/33085
