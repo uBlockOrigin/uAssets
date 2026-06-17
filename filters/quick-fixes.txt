@@ -289,8 +289,8 @@ smsonline.cloud##aside[class^="css-"]:has(> p:has-text(Advertisement) + ins.adsb
 ! https://github.com/uBlockOrigin/uAssets/issues/26393
 ! https://github.com/uBlockOrigin/uAssets/issues/26623
 bing.com##+js(no-xhr-if, /fd/ls/lsp.aspx)
-bing.com##+js(rpnt, script, function processEmbImg, `window.addEventListener("load",(()=>{window.setTimeout((()=>{for(const t of Object.keys(window).sort()){if(t.startsWith("b"))break;if(t.startsWith("ad_")&&!t.includes("top")&&/^ad_\d+$/.test(t)){const s=window[t]?.toString?.();if("string"==typeof s){const t=s.split('"Sponsored","')?.[1]?.split?.('","')?.[0];t&&document.getElementsByClassName(t)[0].setAttribute("ads","")}}}}),1e3)}));function processEmbImg`, sedCount, 1)
-bing.com##ol#b_results > li.b_algo:has(> .b_caption > p[ads])
+bing.com##+js(rpnt, script, function processEmbImg, `(()=>{if(!location.pathname.startsWith("/search"))return;if(document.querySelector("ol#b_results > li.b_algo > .b_title > h2 > a[id][ads]"))return;window.addEventListener("scroll",(()=>{for(const t of Object.keys(window).sort())if(t.endsWith("_lnk")){if(t.length<4)continue;document.querySelectorAll("ol#b_results > li.b_algo > .b_title > h2 > a#"+t.split("_lnk")[0]).forEach((t=>{t.setAttribute("ads","")}))}}))})();function processEmbImg`, sedCount, 1)
+bing.com##ol#b_results > li.b_algo:has(> .b_title > h2 > a[id][ads])
 bing.com##ol#b_results > li:has(> :is(.b_tpcn, .b_title, h2) a[href^="https://www.bing.com/aclk?"])
 bing.com##ol#b_results > li.b_algo:has(.b_lineclamp3:matches-css-before(content:/^url\(\Sdata:image\/png;base64,iVBORw0KGgoAAAANSUhEUgAAAD.AAAA/))
 
