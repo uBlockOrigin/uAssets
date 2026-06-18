@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Link shorteners
-! Last modified: Tue, 16 Jun 2026 12:27:20 +0000
+! Last modified: Thu, 18 Jun 2026 12:25:35 +0000
 ! Expires: 5 days
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
@@ -1351,7 +1351,7 @@ earnbee.xyz###overlay
 datavaults.co###dummy
 datavaults.co###original:style(display: block !important;)
 datavaults.co##+js(set, clicked, 2)
-datavaults.co##+js(rmnt, script, /"\\|\\x|dummy/)
+datavaults.co##+js(rmnt, script, dummy)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/27729
 ! https://github.com/uBlockOrigin/uAssets/issues/28039
@@ -1454,7 +1454,6 @@ vikingf1le.us.to##+js(aopr, atob)
 ||cloudfront.net^$script,domain=vik1ngfile.site
 vik1ngfile.site##a[href="/fast-download"]
 vik1ngfile.site##+js(acs, String.fromCharCode, atob)
-vik1ngfile.site##+js(rmnt, script, /"\\|\\x/)
 vik1ngfile.site##+js(aeld, click, appendChild)
 vik1ngfile.site##+js(acs, String.prototype.indexOf, (function()
 
@@ -1724,3 +1723,23 @@ linkshortx.in##+js(set, blurred, false)
 ! https://github.com/uBlockOrigin/uAssets/issues/33265
 ||acscdn.com/script/aclib.js$script,redirect-rule=noopjs
 coinclix.co##+js(trusted-replace-argument, document.getElementById, 0, json:"header", condition, /ad-chk|aads-frame/)
+
+! file host popunders
+! https://github.com/uBlockOrigin/uAssets/issues/27968
+! https://github.com/uBlockOrigin/uAssets/issues/33270
+! https://github.com/uBlockOrigin/uAssets/issues/32616
+akirabox.to,datavaults.co,usersdrive.com,vik1ngfile.site,zpaste.net##+js(rmnt, script, /"\\|\\x/)
+/^https:\/\/[a-z]+[0-9]+\.host[0-9]+[a-z]\.cfd\/\?[a-z]+=[a-zA-Z0-9:_=-]+/$all,match-case
+! https://github.com/AdguardTeam/AdguardFilters/issues/226186
+! https://github.com/uBlockOrigin/uAssets/issues/32480
+||cfd/rfdtagarg/*.js
+||zeilink.net/api/public/ads
+||cdn-n.net^
+||cdn-x.net^
+||cdn-z.net^
+/^https:\/\/[a-z-]+\.cdn-[a-z]\.net\/$/$xhr,3p,to=net
+! https://github.com/uBlockOrigin/uAssets/commit/545818b4fa1a8876dbf4cd4cfa7f5a6a8d78b58c#commitcomment-178640689
+/^https:\/\/\d+\.cfd\/[a-z]{3}tag[a-z]{3}\/v\d\/[a-zA-Z0-9]+:C\d\.js\b/$script,3p,match-case,to=cfd
+!#if env_safari
+/^https:\/\/[0-9]+\.cfd\/[a-z][a-z][a-z]tag[a-z][a-z][a-z]\/v[0-9]\/[a-zA-Z0-9]+:C[0-9]\.js\b/$script,3p,match-case
+!#endif

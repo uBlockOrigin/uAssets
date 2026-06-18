@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Thu, 18 Jun 2026 09:32:16 +0000
+! Last modified: Thu, 18 Jun 2026 12:25:35 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -7509,7 +7509,7 @@ earnbee.xyz###overlay
 datavaults.co###dummy
 datavaults.co###original:style(display: block !important;)
 datavaults.co##+js(set, clicked, 2)
-datavaults.co##+js(rmnt, script, /"\\|\\x|dummy/)
+datavaults.co##+js(rmnt, script, dummy)
 fastt.gg###startDownload
 fastt.gg##+js(nowoif, _blank)
 fastt.gg##+js(nano-sib, countdown, 1000)
@@ -7578,7 +7578,6 @@ vikingf1le.us.to##+js(aopr, atob)
 ||cloudfront.net^$script,domain=vik1ngfile.site
 vik1ngfile.site##a[href="/fast-download"]
 vik1ngfile.site##+js(acs, String.fromCharCode, atob)
-vik1ngfile.site##+js(rmnt, script, /"\\|\\x/)
 vik1ngfile.site##+js(aeld, click, appendChild)
 vik1ngfile.site##+js(acs, String.prototype.indexOf, (function()
 file-upload.*##+js(nowoif)
@@ -7783,6 +7782,19 @@ linkshortx.in##.bg_cover.footer-area
 linkshortx.in##+js(set, blurred, false)
 ||acscdn.com/script/aclib.js$script,redirect-rule=noopjs
 coinclix.co##+js(trusted-replace-argument, document.getElementById, 0, json:"header", condition, /ad-chk|aads-frame/)
+! file host popunders
+akirabox.to,datavaults.co,usersdrive.com,vik1ngfile.site,zpaste.net##+js(rmnt, script, /"\\|\\x/)
+/^https:\/\/[a-z]+[0-9]+\.host[0-9]+[a-z]\.cfd\/\?[a-z]+=[a-zA-Z0-9:_=-]+/$all,match-case
+||cfd/rfdtagarg/*.js
+||zeilink.net/api/public/ads
+||cdn-n.net^
+||cdn-x.net^
+||cdn-z.net^
+/^https:\/\/[a-z-]+\.cdn-[a-z]\.net\/$/$xhr,3p,to=net
+/^https:\/\/\d+\.cfd\/[a-z]{3}tag[a-z]{3}\/v\d\/[a-zA-Z0-9]+:C\d\.js\b/$script,3p,match-case,to=cfd
+!#if env_safari
+/^https:\/\/[0-9]+\.cfd\/[a-z][a-z][a-z]tag[a-z][a-z][a-z]\/v[0-9]\/[a-zA-Z0-9]+:C[0-9]\.js\b/$script,3p,match-case
+!#endif
 !#if env_mobile
 ! *** filters/filters-mobile.txt ***
 !----- 2020 -----
@@ -21517,7 +21529,6 @@ smithsonianmag.com##+js(acs, document.addEventListener, #leaderboardAd)
 usersdrive.com##+js(aopr, popurl)
 usersdrive.com##+js(nowoif, _blank)
 usersdrive.com##+js(aeld, click, _blank)
-usersdrive.com##+js(rmnt, script, /"\\|\\x/)
 ||holputy.shop^$popup,doc
 ||pol.azureedge.net^$domain=usersdrive.com
 usersdrive.com##center > a[href][target="_blank"] > img
@@ -24528,7 +24539,6 @@ zpaste.net,pixeldrain.com###sponsors
 ||zshorte.net/*.html$frame,3p
 *$script,3p,denyallow=cloudflare.com|cloudflare.net|fastly.net|fastlylb.net|google.com|googleapis.com|gstatic.com|hwcdn.net|jquery.com|jsdelivr.net|jwplatform.com|jwpcdn.com|recaptcha.net|arc.io,domain=zpaste.net
 ||anime-jl.net^$3p,script
-zpaste.net##+js(rmnt, script, /"\\|\\x/)
 zpaste.net##a[onclick*="window.open"]
 ||amcnreil.pro^$all
 steamplay.*##+js(aopr, btoa)
@@ -24725,17 +24735,6 @@ fitnesstipz.com##body > .adblock_subtitle > p
 ||assets.maxroll.gg/wp-content/assets/img/adblock/$image
 maxroll.gg##.adsmanager-ad-container
 ||cdn.ziffstatic.com/pg/$script,domain=maxroll.gg,redirect=noopjs
-||cfd/rfdtagarg/*.js
-||zeilink.net/api/public/ads
-||cdn-n.net^
-||cdn-x.net^
-||cdn-z.net^
-/^https:\/\/[a-z-]+\.cdn-[a-z]\.net\/$/$xhr,3p,to=net
-/^https:\/\/get[0-9]+\.host[0-9]+[a-z]\.cfd\/\?[a-z]+=[a-zA-Z0-9:_=-]+/$all,match-case
-/^https:\/\/\d+\.cfd\/[a-z]{3}tag[a-z]{3}\/v\d\/[a-zA-Z0-9]+:C\d\.js\b/$script,3p,match-case,to=cfd
-!#if env_safari
-/^https:\/\/[0-9]+\.cfd\/[a-z][a-z][a-z]tag[a-z][a-z][a-z]\/v[0-9]\/[a-zA-Z0-9]+:C[0-9]\.js\b/$script,3p,match-case
-!#endif
 ||romhandbook.com/assets/lib/adblock-
 fullvideosporn.com##+js(nostif, /initPops|popLite|popunder/)
 fullvideosporn.com###underplayer_direct
