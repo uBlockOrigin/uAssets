@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Experimental
 ! Expires: 1 day
-! Last modified: Wed, 27 May 2026 17:43:42 +0000
+! Last modified: Sat, 20 Jun 2026 14:01:47 +0000
 ! Diff-Path: %diffpath%#ublock-experimental
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -24,6 +24,10 @@ www.youtube.com##+js(trusted-json-edit-xhr-request, [?..userAgent*="instream"]..
 www.youtube.com##+js(trusted-json-edit-xhr-request, [?..userAgent*="eafg"]+={"params":"eAFgAQ"}, propsToMatch, /player?)
 www.youtube.com##+js(trusted-json-edit-xhr-response, '[?..minimumPlaybackRate==100]..playerConfig.granularVariableSpeedConfig+={"minimumPlaybackRate":25,"maximumPlaybackRate":200,"defaultPlaybackRateOptions":[{"label":"1.0","value":100,"isPremiumUpsell":false,"priority":5},{"label":"1.25","value":125,"isPremiumUpsell":false,"priority":2},{"label":"1.5","value":150,"isPremiumUpsell":false,"priority":3},{"label":"1.75","value":175,"isPremiumUpsell":false,"priority":0},{"label":"2.0","value":200,"isPremiumUpsell":false,"priority":4},{"label":"3.0","value":300,"isPremiumUpsell":true,"priority":1}]}', propsToMatch, /player?)
 www.youtube.com###toast:has(> #action-button a.yt-spec-button-shape-next[href^="https://support.google.com/youtube/answer/3037019"])
+!#if ext_devbuild
+www.youtube.com##+js(json-prune, contents.twoColumnBrowseResultsRenderer.tabs.[].tabRenderer.content.richGridRenderer.contents.[-].richItemRenderer.content.adSlotRenderer)
+www.youtube.com##+js(edit-object-on-getter, ytInitialData, $..richItemRenderer[?@..adSlotRenderer])
+!#endif
 !#if cap_html_filtering
 ! www.twitch.tv/esl_dota2
 ||ttvnw.net/v1/playlist$xhr,3p,replace=/#EXT-X-DATERANGE:ID="(stitched-ad|maf-ad|source|trigger)"\S+\n|#EXT-X-DATERANGE:ID=\S+?CLASS="twitch-(?:stream-source|trigger|maf-ad)"\S+\n|#EXT-X-DATERANGE:\S+?CLASS="twitch-ad-quartile".+?(?=(#EXT-X-DATERANGE|$))|(\n#EXT-X-DISCONTINUITY\s|#EXT-X-TWITCH-PREFETCH\S+)//gs
