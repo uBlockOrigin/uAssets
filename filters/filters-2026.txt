@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2026)
-! Last modified: Tue, 30 Jun 2026 04:18:53 +0000
+! Last modified: Tue, 30 Jun 2026 04:23:09 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -368,11 +368,19 @@ xitongku.com##+js(trusted-set-session-storage-item, updateTime, $now$)
 oxxfile.*##+js(prevent-fetch, ads_)
 oxxfile.*##+js(prevent-xhr, ads_)
 oxxfile.*##^[rel="preload"][href*="tracking-codes"]
-||/api/tracking-codes?type=ads_$xhr,domain=oxxfile.*
+/api/tracking-codes?type=ads_$xhr,domain=oxxfile.*
 
 ! https://github.com/uBlockOrigin/uAssets/issues/31868
+! https://github.com/uBlockOrigin/uAssets/issues/33508
+###modern-player-root ~ div[id^="custom-invisible-overlay-"][class^="custom-popup-overlay-"]
+gupload.xyz##+js(aeld, click, adClickThrough)
+gupload.xyz##+js(trusted-json-edit, ..showAds=false)
+gupload.xyz##+js(rmnt, script, /document\.write|MouseEvent|z-index:9999/)
 gupload.xyz##+js(acs, EventTarget.prototype.addEventListener, open)
-||gupload.xyz/data/avasat/*.php$xhr,redirect=noop-vast3.xml
+gupload.xyz##div[class^="custom-popup-overlay-"]
+||gupload.xyz/data/*.php$xhr,redirect=noop-vast3.xml
+||gupload.xyz/data/player/adblock-detector
+||gzupload.com/api/direct/
 ||blinksbobblepadding.com^
 ||caseousalba.cyou^
 
