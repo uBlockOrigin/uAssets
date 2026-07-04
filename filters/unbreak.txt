@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Unbreak
-! Last modified: Sat, 27 Jun 2026 13:25:28 +0000
+! Last modified: Sat, 04 Jul 2026 10:50:44 +0000
 ! Expires: 5 days
 ! Description: Filters optimized for uBlock Origin, to unbreak sites broken as a result of 3rd-party filter lists enabled by default.
 ! Homepage: https://github.com/uBlockOrigin/uAssets
@@ -5985,3 +5985,9 @@ proxyorb.com##+js(aeld, load, dataset.ready, elements, script[src^="https://www.
 
 ! https://www.reddit.com/r/uBlockOrigin/comments/1ugk6yu/gocomics_site_update_comments_no_longer_visible/
 gocomics.com##+js(rpnt, script, document.querySelectorAll, `window.addEventListener("load",()=>{if(!document.querySelector("section[class^='ShowComicViewer-module-scss-module']")){return;}const script=document.createElement("script");script.src="https://cdn.viafoura.net/entry/index.js";document.head.appendChild(script)});document.querySelectorAll`)
+
+! https://github.com/uBlockOrigin/uAssets/issues/33565
+account.bhvr.com##+js(set, Osano, {})
+account.bhvr.com##+js(set, Osano.cm, {})
+account.bhvr.com##+js(set, Osano.cm.addEventListener, noopFunc)
+account.bhvr.com##+js(set, Osano.cm.removeEventListener, noopFunc)
