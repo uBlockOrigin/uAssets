@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Badware risks
 ! Expires: 5 days
-! Last modified: Tue, 07 Jul 2026 05:11:07 +0000
+! Last modified: Tue, 07 Jul 2026 11:38:50 +0000
 ! Diff-Path: %diffpath%#ublock-badware
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -2344,12 +2344,16 @@ z13.web.core.windows.net##+js(aeld, DOMContentLoaded, fullscreenEnabled)
 /antivirus/main/cleaner-default/*$doc
 ! Copycat and fake sites
 ! FitGirl Repacks - Official site: fitgirl-repacks.site
-||fitgirl-repacks.*^$all,domain=~fitgirl-repacks.site,to=~fitgirl-repacks.site
 ||fitgirl-repack.*^$all,domain=~fitgirl-repacks.site
 ||fitgirlrepacks.*^$all,domain=~fitgirl-repacks.site
 ||fitgirlrepack.*^$all,domain=~fitgirl-repacks.site
 ||fitgirls-repack.*^$all,domain=~fitgirl-repacks.site
 ||fitgirl-repacks-site.org^$doc,domain=~fitgirl-repacks.site
+!#if ext_ubol
+||fitgirl-repacks.$doc,frame,xhr,script,css,to=~fitgirl-repacks.site
+!#else
+||fitgirl-repacks.$all,from=~fitgirl-repacks.site,to=~fitgirl-repacks.site
+!#endif
 ||fitgirl.cc^$all,domain=~fitgirl-repacks.site
 ||fitgirlrepackz.*^$all,domain=~fitgirl-repacks.site
 ||fitgirltorrent.*^$all,domain=~fitgirl-repacks.site
