@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Unbreak
 ! Expires: 5 days
-! Last modified: Thu, 09 Jul 2026 02:06:42 +0000
+! Last modified: Thu, 09 Jul 2026 02:14:07 +0000
 ! Diff-Path: %diffpath%#ublock-unbreak
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -586,6 +586,9 @@ as.com,caracol.com.co,los40.com##+js(set, DTM.trackAsyncPV, noopFunc)
 @@||metacritic.com/js/omniture/uuid.js$script,1p
 metacritic.com##+js(rpnt, script, appName:"metacritic", appName:"etacritic")
 /etacritic/*$xhr,uritransform=/\/etacritic\//\/metacritic\//,domain=metacritic.com
+!#if ext_ubol
+/(.*)\/etacritic\/(.*)/$xhr,uritransform=//$1\/metacritic\/$2/,domain=metacritic.com
+!#endif
 @@||pinpng.com^$css,1p
 @@||pngfind.com^$css,1p
 @@||automate-prod.s3.amazonaws.com/minified_logic.js$xhr,domain=kotaku.com.au
