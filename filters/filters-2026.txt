@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2026)
-! Last modified: Thu, 09 Jul 2026 15:46:28 +0000
+! Last modified: Thu, 09 Jul 2026 16:10:56 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -160,6 +160,17 @@ fandom.com##.ad-slot-wrapper
 fandom.com##li.top-results__item span:has-text(Sponsored):upward(li)
 ! https://github.com/uBlockOrigin/uAssets/issues/33587
 ##.fandom-ad-sticky-container
+
+! https://github.com/uBlockOrigin/uAssets/issues/5441
+sendvid.com##+js(nowoif, !/^https:\/\/sendvid\.com\/[0-9a-z]+$/)
+sendvid.com##[href*=".php"]
+sendvid.com###video-js-video > [href^="javascript:"]
+sendvid.com###vjs-logo-top-bar
+sendvid.com###ftr
+sendvid.com##a[href^="https://go.gsrv.dev/"]
+sendvid.com##a[href][target="_blank"][style^="display: block;position: fixed;"][style*="z-index:"]
+! https://github.com/uBlockOrigin/uAssets/issues/32411
+sendvid.com##+js(rmnt, script, shouldPop)
 
 ! END: Rules from filters.txt
 
