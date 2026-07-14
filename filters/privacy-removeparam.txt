@@ -516,6 +516,13 @@ $to=~tradedoubler.com,removeparam=tduid
 ! Bad: ||example.org^$xmlhttprequest,redirect=noopvast-3.0 (for instance, should be in specific.txt)
 !
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/235681
+||steuer.check24.de^$removeparam=wpset
+||steuer.check24.de^$removeparam=tc
+! https://github.com/AdguardTeam/AdguardFilters/issues/235654
+||movieboxonline.net^$removeparam=page_from
+||movieboxonline.net^$removeparam=type
+||movieboxonline.net^$removeparam=id
 ! https://github.com/AdguardTeam/AdguardFilters/issues/234688
 ||number.bunshun.jp^$removeparam=rf
 ! https://github.com/AdguardTeam/AdguardFilters/issues/234595
@@ -1700,8 +1707,6 @@ $removeparam=from,to=doujinnomori.com|shinshi-manga.net|echiman.com|dojin-navi.c
 ||avira.com^$removeparam=track
 ! https://github.com/DandelionSprout/adfilt/discussions/163#discussioncomment-9118227
 ||foodpanda.$removeparam=src
-! https://github.com/AdguardTeam/AdguardFilters/issues/176856
-||plusgaming.yandex.ru^$removeparam=clckid
 ! https://github.com/AdguardTeam/AdguardFilters/issues/176307
 ||iotransfer.itopvpn.com^$removeparam=ref
 ! https://github.com/AdguardTeam/AdguardFilters/issues/175941
@@ -2380,6 +2385,16 @@ $removeparam=ici,to=shein.co.uk|shein.com
 ||click.speee-ad.jp^$removeparam=slot_index
 ||click.speee-ad.jp^$removeparam=v
 !! tiktok
+! https://github.com/AdguardTeam/AdguardFilters/issues/234858
+||tiktok.com^$removeparam=ug_btm
+||tiktok.com^$removeparam=user_id
+||tiktok.com^$removeparam=sec_user_id
+||tiktok.com^$removeparam=trackParams
+||tiktok.com^$removeparam=share_region
+||tiktok.com^$removeparam=social_share_type
+! When "share_app_id" parameter is removed and there is "referrer" in request header,
+! TikTok will show a "502 Bad Gateway" message. So we need to remove "referrer" in request header as well.
+||tiktok.com/view/product/$removeheader=request:referer
 ! https://github.com/AdguardTeam/AdguardFilters/issues/225183
 ||tiktok.com^$removeparam=_t
 ! https://github.com/AdguardTeam/AdguardFilters/issues/192966
@@ -3208,6 +3223,8 @@ $removeparam=search_domain,domain=ya.ru|yandex.*
 ||www.yandex.$removeparam=clid
 ://yandex.$removeparam=clid
 ://yandex.$removeparam=source
+! Alice
+||alice.yandex.ru^$removeparam=utm_to
 ! Yandex.Browser
 ||browser.yandex.ru^$removeparam=from
 ! Yandex.Docs
@@ -3313,6 +3330,8 @@ $removeparam=asc_campaign,domain=aboutamazon.com|amazon.*|amzn.to
 $removeparam=asc_refurl,domain=aboutamazon.com|amazon.*|amzn.to
 $removeparam=asc_source,domain=aboutamazon.com|amazon.*|amzn.to
 !
+||amazon.*/stores/$removeparam=lp_asin
+||amazon.*/stores/$removeparam=store_ref
 ||amazon.*&linkCode=*&tag=*&linkId=$removeparam=crid
 ||amazon.*&linkCode=*&tag=*&linkId=$removeparam=sprefix
 ||amazon.*&linkCode=*&tag=*&linkId=$removeparam=linkCode
@@ -3528,7 +3547,7 @@ $removeparam=s,domain=twitter.com|x.com
 ||bilibili.com^$removeparam=from_spmid
 ||bilibili.com^$removeparam=msource
 ||bilibili.com^$removeparam=csource
-||bilibili.com^$removeparam=source
+||www.bilibili.com^$removeparam=source
 ||bilibili.com^$removeparam=share_from
 ||bilibili.com^$removeparam=spmid
 ||bilibili.com^$removeparam=plat_id
