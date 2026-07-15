@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2023)
-! Last modified: Tue, 14 Jul 2026 04:58:51 +0000
+! Last modified: Wed, 15 Jul 2026 20:34:44 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -1312,6 +1312,8 @@ wp.pl,money.pl,o2.pl,parenting.pl,pudelek.pl,autokult.pl,gadzetomania.pl,fotoblo
 wp.pl,money.pl,o2.pl,parenting.pl,pudelek.pl,autokult.pl,gadzetomania.pl,fotoblogia.pl,komorkomania.pl,polygamia.pl,abczdrowie.pl,benchmark.pl,kafeteria.pl,pysznosci.pl,dobreprogramy.pl,genialne.pl,autocentrum.pl,jastrzabpost.pl,deliciousmagazine.pl##body > [id]:style(filter: none !important;)
 wp.pl,money.pl,o2.pl,parenting.pl,pudelek.pl,autokult.pl,gadzetomania.pl,fotoblogia.pl,komorkomania.pl,polygamia.pl,abczdrowie.pl,benchmark.pl,kafeteria.pl,pysznosci.pl,dobreprogramy.pl,genialne.pl,autocentrum.pl,jastrzabpost.pl,deliciousmagazine.pl##body:style(overflow: auto !important;)
 ||v.wpimg.pl/*.html$frame
+@@||kobieta.wp.pl^$ehide,badfilter
+pudelek.pl#@#style + div[class]
 wp.pl#@#[class^="css-"]
 wp.pl,money.pl,komorkomania.pl,autokult.pl,o2.pl,parenting.pl,abczdrowie.pl,pudelek.pl#@#body [class]:style(filter: none !important)
 money.pl#@##app > div[class^="sc-"] > div[class]:not([class*=" "]):has(:scope > div[class*=" "]:only-child > img[src^="https://v.wpimg.pl/"][src$="=="][alt])
@@ -1383,6 +1385,10 @@ abczdrowie.pl,domodi.pl,forum.kardiolo.pl##*:has(> div:first-child:has(> div:fir
 ~www.wp.pl,wp.pl,komorkomania.pl,fotoblogia.pl,gadzetomania.pl##div:has(> div:not([class], [id]) > div > a[href*="utm_"])
 sportowefakty.wp.pl##.article > .article__top + div:has(> div:last-child > div > div > div[id^="div-gpt-ad-"])
 sportowefakty.wp.pl##.article-footer + div:has(> div:last-child > div > div > div > div[id^="div-gpt-ad-"])
+sportowefakty.wp.pl###app > div[class*=" "]:has(> div:last-child:has-text(/^REKLAMA$/))
+sportowefakty.wp.pl###app > div[class*=" "]:has(> div:only-child > a[href^="https://sportowefakty.wp.pl/"]:only-child > img[src^="https://v.wpimg.pl/"]:only-child)
+sportowefakty.wp.pl##div[class*=" "]:has(> div:only-child > a[href^="https://sportowefakty.wp.pl/"]:first-child + div:empty + span:has-text(ROZWIŃ) + div:last-child)
+sportowefakty.wp.pl###sticky-panel-content:style(min-height: 0px !important;)
 abczdrowie.pl##div[data-element="s3-placeholder"]
 abczdrowie.pl##body > div > div:only-child > div:only-child > a:first-child > div:only-child:empty
 turystyka.wp.pl##div:has(> div:only-child > * > div > .border > .container > .labelCopy:has-text(REKLAMA))
@@ -1394,6 +1400,7 @@ wp.pl##a[href="https://www.wp.pl"][data-st-area="goToSG"] + div:has(> div > div 
 forum.parenting.pl##aside > div:has(> div:first-child + div:empty + script:last-child)
 wiadomosci.wp.pl,sportowefakty.wp.pl,pudelek.pl,abczdrowie.pl,kafeteria.pl##div[class]:has(> div:only-child > div:only-child > a:first-child:has(> div:only-child:empty) + div:empty)
 jastrzabpost.pl##div:only-child:has(> div:first-child > div:first-child > a:only-child > img):has(> div:first-child > div:first-child + div:last-child:empty)
+wp.pl,pudelek.pl##div[class]:has(> div:first-child > a[class]:only-child > img[src^="https://v.wpimg.pl/"]:only-child):has(> div:first-child + div:last-child:empty)
 ! against blinking ads
 wp.pl#@#div:matches-css-after(content:/R.*E.*K.*L.*A.*M.*A/):upward(1)
 wp.pl,money.pl##div:has(> a:first-child:has(> div:empty:only-child) + div:empty:last-child):remove()
