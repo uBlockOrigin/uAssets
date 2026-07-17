@@ -1,5 +1,5 @@
 ! Title: uBlock₀ filters – Quick fixes
-! Last modified: Fri, 17 Jul 2026 10:10:26 +0000
+! Last modified: Fri, 17 Jul 2026 15:49:40 +0000
 ! Expires: 8 hours
 ! Description: Immediate, temporary filters to fix websites
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -521,3 +521,8 @@ x.com#@#+js(no-xhr-if, /i/api/1.1/flow/viewer.json)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/17018#issuecomment-4964078451
 myanimelist.net#@#.js-scrollfix-bottom-rel.rightside > div[style]:has(.ad-sas)
+
+! https://github.com/uBlockOrigin/uBlock-discussions/discussions/986
+!#if env_firefox
+javmix.*#@#+js(acs, addEventListener, style.display)
+!#endif

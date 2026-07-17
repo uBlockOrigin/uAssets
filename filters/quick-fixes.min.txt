@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Quick fixes
 ! Expires: 12 hours
-! Last modified: Fri, 17 Jul 2026 10:10:26 +0000
+! Last modified: Fri, 17 Jul 2026 15:49:40 +0000
 ! Diff-Path: %diffpath%#ublock-quick-fixes
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -395,3 +395,6 @@ x.com#@#+js(no-xhr-if, /i/api/1.1/flow/viewer.json)
 ||ads-twitter.com^$badfilter
 ||static.ads-twitter.com^
 myanimelist.net#@#.js-scrollfix-bottom-rel.rightside > div[style]:has(.ad-sas)
+!#if env_firefox
+javmix.*#@#+js(acs, addEventListener, style.display)
+!#endif
