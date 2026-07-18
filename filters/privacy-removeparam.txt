@@ -1,5 +1,5 @@
 ! Title: AdGuard/uBO – URL Tracking Protection
-! Last modified: Fri, 17 Jul 2026 22:31:04 +0000
+! Last modified: Sat, 18 Jul 2026 12:24:19 +0000
 ! Expires: 7 days
 ! Description: |
 !   Filter that enhances privacy by removing tracking parameters from URLs.
@@ -3332,6 +3332,12 @@ $removeparam=asc_campaign,domain=aboutamazon.com|amazon.*|amzn.to
 $removeparam=asc_refurl,domain=aboutamazon.com|amazon.*|amzn.to
 $removeparam=asc_source,domain=aboutamazon.com|amazon.*|amzn.to
 !
+!#if !ext_ubol
+||amazon.*/dp/$removeparam=sr
+||amazon.*/dp/$removeparam=crid
+||amazon.*/dp/$removeparam=sprefix
+||amazon.*/dp/$removeparam=/^__mk_[a-z]{2}_[A-Z]{2}=/
+!#endif
 ||amazon.*/stores/$removeparam=lp_asin
 ||amazon.*/stores/$removeparam=store_ref
 ||amazon.*&linkCode=*&tag=*&linkId=$removeparam=crid
