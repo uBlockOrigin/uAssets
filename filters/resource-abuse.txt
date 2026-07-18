@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Resource abuse
-! Last modified: Sat, 18 Jul 2026 15:17:31 +0000
+! Last modified: Sat, 18 Jul 2026 15:22:00 +0000
 ! Expires: 7 days
 ! Description: To foil sites potentially abusing CPU/bandwidth resources without informed consent. 
 ! Any such resource-abuse scripts MUST be opt-in, with complete informed consent from the visitor.
@@ -207,10 +207,3 @@ climaaovivo.com.br##+js(nosiif, location.reload)
 ! https://github.com/uBlockOrigin/uAssets/issues/33646
 ||static.tblcontent.com/*/loader.privacy.js$redirect=noop.js,domain=israelnationalnews.com
 israelnationalnews.com##+js(rmnt, script, loadTaboola)
-
-! Clickfix mitigations
-! https://github.com/uBlockOrigin/uBlock-discussions/discussions/984
-!#if !ext_ubol
-*,~amazon.*,~apple.com,~bing.com,~chatgpt.com,~claude.ai,~cloudflare.com,~dailymotion.com,~facebook.com,~github.com,~google.com,~hcaptcha.com,~instagram.com,~linkedin.com,~live.com,~microsoft.com,~mozilla.org,~netflix.com,~pinterest.com,~reddit.com,~tiktok.com,~twitch.tv,~vscode.dev,~whatsapp.com,~wikipedia.org,~x.com,~yahoo.com,~yandex.*,~youtube.com##+js(prevent-clipboard-write, /^(bash <<<|curl -kfsSL) \$\(echo.+? base64 -d|^cmd \/c curl .+? http:\/\/(\d+\.){3}\d+.+?cmd\.exe|^powershell -w hidden .+?iwr http:\/\/(\d+\.){3}\d+.+?run\.exe|powershell .+?iex\(irm .+?(\d+\.){3}\d+|\\PowerShell\.exe.+? -ep bypass .+ ?\$env:TEMP.+?::new\(\)|^powershell .+? -ep bypass .+?irm\(|^powershell .+?-ep bypass .+?\$env:TEMP.+?\.exe.+?Invoke-WebRequest|(cmd|powershell).+?#          |(cmd|powershell).+?          #/gms, domAlert, html|Copy paste blocked - 📋❗🛇 ${text})
-! add #@# exception for breakages
-!#endif
