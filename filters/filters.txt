@@ -322,10 +322,12 @@ web.facebook.com,www.facebook.com##+js(json-prune, require.0.3.0.__bbox.require.
 ||facebook.com/api/graphql/$xhr,replace=/\{"node":\{"role":"SEARCH_ADS"[^\n]+?cursor":[^}]+\}/{}/g,domain=web.facebook.com|www.facebook.com
 ||facebook.com/api/graphql/$xhr,replace=/\{"node":\{"__typename":"MarketplaceFeedAdStory"[^\n]+?"cursor":(?:null|"\{[^\n]+?\}"|[^\n]+?MarketplaceSearchFeedStoriesEdge")\}/{}/g,domain=web.facebook.com|www.facebook.com
 ||facebook.com/api/graphql/$xhr,replace=/\{"node":\{"__typename":"VideoHomeFeedUnitSectionComponent"[^\n]+?"sponsored_data":\{"ad_id"[^\n]+?"cursor":null\}/{}/,domain=web.facebook.com|www.facebook.com
+||static.xx.fbcdn.net/rsrc.php/*.js$script,replace=/"__typename":"SponsoredData"/"__typename":"SponsorData"/g
 !#else
 web.facebook.com,www.facebook.com##+js(trusted-replace-xhr-response, /\{"node":\{"role":"SEARCH_ADS"[^\n]+?cursor":[^}]+\}/g, {}, /api/graphql)
 web.facebook.com,www.facebook.com##+js(trusted-replace-xhr-response, /\{"node":\{"__typename":"MarketplaceFeedAdStory"[^\n]+?"cursor":(?:null|"\{[^\n]+?\}"|[^\n]+?MarketplaceSearchFeedStoriesEdge")\}/g, {}, /api/graphql)
 web.facebook.com,www.facebook.com##+js(trusted-replace-xhr-response, /\{"node":\{"__typename":"VideoHomeFeedUnitSectionComponent"[^\n]+?"sponsored_data":\{"ad_id"[^\n]+?"cursor":null\}/, {}, /api/graphql)
+web.facebook.com,www.facebook.com##+js(rpnt, script, '/"[a-z0-9]{8}":true,/g', , condition, compat_iframe_token)
 !#endif
 web.facebook.com,www.facebook.com##+js(json-prune, require.0.3.0.__bbox.require.[].3.1.__bbox.result.data.node, require.0.3.0.__bbox.require.[].3.1.__bbox.result.data.node.story.sponsored_data.ad_id)
 ! https://www.facebook.com/marketplace/category/home/
@@ -10874,11 +10876,6 @@ supervideo.*##+js(aopr, AaDetector)
 
 ! nsfw thisav .com popups
 ||intellipopup.com^$script,redirect=noopjs
-
-! https://github.com/AdguardTeam/AdguardFilters/issues/53153
-@@||enterinit.com^$ghide
-enterinit.com##.bs-wrap-gdpr-law
-enterinit.com##*::selection:style(background-color:#338FFF!important)
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/78143
 ||cdn.jsdelivr.net/*/dist/js/wgd-core.min.js$script
