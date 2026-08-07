@@ -20,9 +20,9 @@ www.youtube.com##+js(trusted-json-edit-xhr-request, [?..userAgent*="adunit"]..cl
 www.youtube.com##+js(trusted-json-edit-xhr-request, [?..userAgent*="instream"]..playbackContext[?.contentPlaybackContext]+={"adPlaybackContext":{"adType":"AD_TYPE_INSTREAM"}}, propsToMatch, /player?)
 www.youtube.com##+js(trusted-json-edit-xhr-request, [?..userAgent*="eafg"]+={"params":"eAFgAQ"}, propsToMatch, /player?)
 !
-www.youtube.com##+js(trusted-json-edit-fetch-request, [?..userAgent*="adunit"]..client[?.clientName=="WEB"]+={"clientScreen":"ADUNIT"}, propsToMatch, /player?)
-www.youtube.com##+js(trusted-json-edit-fetch-request, [?..userAgent*="instream"]..playbackContext[?.contentPlaybackContext]+={"adPlaybackContext":{"adType":"AD_TYPE_INSTREAM"}}, propsToMatch, /player?)
-www.youtube.com##+js(trusted-json-edit-fetch-request, [?..userAgent*="eafg"]+={"params":"eAFgAQ"}, propsToMatch, /player?)
+! https://github.com/uBlockOrigin/uAssets/issues/30157#issuecomment-5206026055
+www.youtube.com##+js(set, ytcfg.data_.EXPERIMENT_FLAGS.all_web_enable_network_machine, true)
+www.youtube.com##+js(set, ytcfg.data_.EXPERIMENT_FLAGS.all_web_network_machine_raw_request, true)
 !
 www.youtube.com##+js(trusted-json-edit-xhr-response, '[?..minimumPlaybackRate==100]..playerConfig.granularVariableSpeedConfig+={"minimumPlaybackRate":25,"maximumPlaybackRate":200,"defaultPlaybackRateOptions":[{"label":"1.0","value":100,"isPremiumUpsell":false,"priority":5},{"label":"1.25","value":125,"isPremiumUpsell":false,"priority":2},{"label":"1.5","value":150,"isPremiumUpsell":false,"priority":3},{"label":"1.75","value":175,"isPremiumUpsell":false,"priority":0},{"label":"2.0","value":200,"isPremiumUpsell":false,"priority":4},{"label":"3.0","value":300,"isPremiumUpsell":true,"priority":1}]}', propsToMatch, /player?)
 www.youtube.com###toast:has(> #text-container > yt-formatted-string#text.yt-notification-action-renderer)
