@@ -231,6 +231,13 @@ posturi.gov.ro##:root:style(user-select: unset !important)
 ! https://github.com/uBlockOrigin/uAssets/issues/33845
 canale-tv.net,cool-tv.net##+js(rmnt, script, .preventDefault(), includes, contextmenu)
 
+! https://github.com/uBlockOrigin/uAssets/issues/33999
+!#if env_firefox
+bandwagon.asia##.article[oncontextmenu]:remove-attr(/onmousedown|onselectstart|oncontextmenu/)
+!#else
+bandwagon.asia##+js(ra, onmousedown|onselectstart|oncontextmenu, .article, complete)
+!#endif
+
 ! END: Anti copy, right-click etc.
 
 ! START: Anti-adblock
