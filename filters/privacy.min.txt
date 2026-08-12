@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Privacy
 ! Expires: 7 days
-! Last modified: Wed, 12 Aug 2026 16:08:29 +0000
+! Last modified: Wed, 12 Aug 2026 17:06:56 +0000
 ! Diff-Path: %diffpath%#ublock-privacy
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -429,12 +429,11 @@ threads.com,threads.net##+js(json-prune, require.0.3.0.__bbox.define.[].2.is_lin
 ||l.threads.*/?u=http$doc,to=threads.com|threads.net,urlskip=?u
 ||search.app^*link=http$doc,urlskip=?link
 bing.com##+js(href-sanitizer, body a[href^="/rebates/welcome?url=http"], ?url)
-||bing.com/ck/a*^u=a1aHR0c$doc,urlskip=/[?&]u=a1(aHR0c[^&#]+)/ -safebase64
 ||bing.com/rebates/welcome?url=http$doc,urlskip=?url
 ||bing.com/alink/link?url=http$doc,urlskip=?url
 ||bing.com/web/xlsc.aspx
 bing.com##+js(href-sanitizer, a[href*="bing.com/ck/a"], ?u /^a1(.*)$/ -base64)
-||bing.com/ck/a*u=a1$doc,urlskip=?u /^a1(.*)$/ -base64
+||bing.com/ck/a*u=a1$urlskip=?u /^a1(.*)$/ -safebase64
 ||ds1.nl/redirect/*^dai_url=http$doc,urlskip=?dai_url
 ||c.next2.io/*^link=http$doc,urlskip=?link
 /^https?:\/\/(?:www\.anrdoezrs\.net|cj\.dotomi\.com)\/links(?:-t)?\/\d+\/sid\/[^\/]+\/http/$doc,to=cj.dotomi.com|www.anrdoezrs.net,urlskip=/\/sid\/[^\/]+\/(http[^?]+)/
