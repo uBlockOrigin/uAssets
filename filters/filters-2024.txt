@@ -1424,6 +1424,12 @@ dragontea.ink##.dta
 dragontea.ink##body > div[style]:not([id]):style(position: static !important; background-color: rgba(0, 0, 0, 0) !important)
 dragontea.ink##html, body:style(overflow: visible !important;)
 ||dragontea.ink/dtpu.js$script
+!#if cap_html_filtering
+||dragontea.ink^$document,replace=/(var tea='\{"ct":"(?:[A-Za-z0-9+\/]|\\\/)+={0,2}","iv":"[0-9a-f]{32}","s":"[0-9a-f]{16}"\}';)/$1document.write('<link rel="stylesheet" href="'+CryptoJSAesJson.decrypt(tea\,'yourmumandjerome').split('autoptimize').join('%61utoptimize')+'">');/
+!#else
+dragontea.ink##+js(trusted-create-html, html, <img src="x:" style="display:none" onerror="(()=>{const u=x=>CryptoJSAesJson.decrypt(x\,'yourmumandjerome').split('autoptimize').join('%61utoptimize');if(typeof window.tea==='string'){let l=document.createElement('link');l.rel='stylesheet';l.setAttribute('href'\,u(window.tea));document.head.prepend(l);return}let v;Object.defineProperty(window\,'tea'\,{configurable:true\,get(){return v}\,set(x){v=x;document.write('<link rel=stylesheet href='+u(x)+'>')}})})();this.remove()">)
+dragontea.ink##+js(adjust-setInterval, /attachonce == false/, 800, 0.001)
+!#endif
 
 ! https://time.artjoey.com PH
 time.artjoey.com##.adsense:style(padding: 0 !important;)
