@@ -6,7 +6,17 @@
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! Forums: https://github.com/uBlockOrigin/uAssets/issues
 
-! START: Anti copy, right-click etc.
+! START: Anti copy, right-click, devtools, text select etc.
+
+! allow selecting text
+vitsienvitsit.fi##.vitsiUnselectable:style(user-select: text !important)
+
+! anti devtools
+popcornmovies.io##+js(set, console.clear, trueFunc)
+popcornmovies.io##+js(set, console.log, trueFunc)
+popcornmovies.io##+js(set, console.table, trueFunc)
+popcornmovies.io##+js(aeld, keydown, 123===i)
+
 mimaletadepeliculas.blogspot.com##+js(aopr, document.oncontextmenu)
 mimaletadepeliculas.blogspot.com##+js(acs, document.onselectstart)
 
@@ -174,6 +184,9 @@ www.delta.com##.card-chart:style(user-select: text !important; touch-action: aut
 ! https://github.com/uBlockOrigin/uAssets/issues/32726
 straitstimes.com##.select-none:style(-webkit-touch-callout: default !important; -webkit-user-select: text !important; -khtml-user-select: text !important; -moz-user-select: text !important; -ms-user-select: text !important; user-select: text !important; -webkit-tap-highlight-color: revert !important; cursor: revert !important;)
 
+! https://github.com/uBlockOrigin/uAssets/issues/32767
+aha-music.com##+js(adjust-setInterval, j.value--, 1000, 0.001)
+
 ! https://github.com/uBlockOrigin/uAssets/issues/33136
 bookto09.com##+js(rmnt, script, ctrlKey)
 bookto09.com##body:style(-webkit-touch-callout: default !important; -webkit-user-select: text !important; -khtml-user-select: text !important; -moz-user-select: text !important; -ms-user-select: text !important; user-select: text !important; -webkit-tap-highlight-color: revert !important; cursor: revert !important; -webkit-user-drag: auto !important; user-drag: auto !important;)
@@ -196,6 +209,10 @@ prpm.dbp.gov.my##+js(set, document.onmousedown, trueFunc)
 ! https://github.com/uBlockOrigin/uAssets/issues/33664
 stifler.ro##+js(rmnt, script, contextmenu)
 stifler.ro##style:has-text(user-select: none):remove()
+
+! https://github.com/uBlockOrigin/uAssets/issues/33337
+homegymreview.co.uk##+js(rmnt, script, nocontextmenu)
+homegymreview.co.uk##body * :not(input):not(textarea):style(user-select: text !important; -webkit-touch-callout: text !important; -webkit-user-select: text !important; -moz-user-select: text !important; -khtml-user-select: text !important; -ms-user-select: text !important)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/33730
 apps.apple.com##.body-container > .app-container main.page-container > .default-page-container a, blockquote, body, code, dd, div, dl, dt, embed, fieldset, footer, form, h1, h2, h3, h4, h5, h6, header, html, img, legend, li, ol, p, pre, section, table, td, th, ul:style(-webkit-touch-callout: default !important; -webkit-user-select: text !important; -khtml-user-select: text !important; -moz-user-select: text !important; -ms-user-select: text !important; user-select: text !important; -webkit-user-drag: auto !important; user-drag: auto !important; cursor: revert !important;)
@@ -239,6 +256,13 @@ bandwagon.asia##.article[oncontextmenu]:remove-attr(/onmousedown|onselectstart|o
 bandwagon.asia##+js(ra, onmousedown|onselectstart|oncontextmenu, .article, complete)
 !#endif
 
+! https://github.com/uBlockOrigin/uAssets/issues/11256
+!#if env_safari
+simplywall.st###root ~ #action-menu ~ #modal-container
+simplywall.st###root:style(filter: none !important;)
+simplywall.st##+js(spoof-css, #root, filter, blur(6px))
+!#endif
+
 ! https://github.com/uBlockOrigin/uAssets/issues/14233
 zgbk.com##+js(acs, document.oncontextmenu)
 zgbk.com##+js(aeld, , blockEvent)
@@ -261,7 +285,8 @@ dlstreams.st,dollardescent.net,hamis.romponalis.st##+js(rmnt, script, "'contextm
 ! https://github.com/uBlockOrigin/uAssets/issues/34181
 trucoon.com.br##*:style(-webkit-touch-callout: auto !important; -moz-touch-callout: auto !important; -ms-touch-callout: auto !important; -o-touch-callout: auto !important; touch-callout: auto !important; -webkit-user-select: auto !important; -moz-user-select: auto !important; -ms-user-select: auto !important; -o-user-select: auto !important; user-select: auto !important; -ms-touch-action: auto)
 
-! END: Anti copy, right-click etc.
+
+! END: Anti copy, right-click, devtools, text select etc.
 
 ! START: Anti-adblock
 ! https://github.com/uBlockOrigin/uAssets/issues/2185
@@ -8142,9 +8167,6 @@ dozaanimata.net##+js(trusted-create-html, html, <details open style='display:non
 ! https://github.com/uBlockOrigin/uAssets/issues/32731
 fontsquirrel.com###bottom_banner_ad_container
 
-! https://github.com/uBlockOrigin/uAssets/issues/32767
-aha-music.com##+js(adjust-setInterval, j.value--, 1000, 0.001)
-
 ! https://github.com/uBlockOrigin/uAssets/issues/32827
 docs.paloaltonetworks.com##+js(nostif, ad-block)
 
@@ -8172,17 +8194,6 @@ freemagazines.top##+js(trusted-rpnt, script, timeLeft > 0, timeLeft = 0, include
 
 ! https://github.com/uBlockOrigin/uAssets/issues/33214
 zocbo.com###festivalPop
-
-! https://github.com/uBlockOrigin/uAssets/issues/11256
-!#if env_safari
-simplywall.st###root ~ #action-menu ~ #modal-container
-simplywall.st###root:style(filter: none !important;)
-simplywall.st##+js(spoof-css, #root, filter, blur(6px))
-!#endif
-
-! https://github.com/uBlockOrigin/uAssets/issues/33337
-homegymreview.co.uk##+js(rmnt, script, nocontextmenu)
-homegymreview.co.uk##body * :not(input):not(textarea):style(user-select: text !important; -webkit-touch-callout: text !important; -webkit-user-select: text !important; -moz-user-select: text !important; -khtml-user-select: text !important; -ms-user-select: text !important)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/33479
 alphacoders.com##+js(trusted-rpnt, script, countdown <= 0, countdown => 0)
@@ -8212,16 +8223,6 @@ mail.yahoo.com##+js(trusted-click-element, #landshark .skip-link)
 
 ! t3.chat anti adblock annoyance
 t3.chat##+js(nostif, .abort();, 1000)
-
-! allow selecting text
-vitsienvitsit.fi##.vitsiUnselectable:style(user-select: text !important)
-
-! anti devtools
-popcornmovies.io##+js(set, console.clear, trueFunc)
-popcornmovies.io##+js(set, console.log, trueFunc)
-popcornmovies.io##+js(set, console.table, trueFunc)
-popcornmovies.io##+js(aeld, keydown, 123===i)
-
 
 ! https://github.com/uBlockOrigin/uAssets/issues/34096
 parsatv.com##+js(rmnt, script, .offsetHeight)
