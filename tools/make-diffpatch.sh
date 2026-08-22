@@ -29,6 +29,7 @@ NEXT_PATCH_FILE="$PATCHES_DIR/$VERSION.patch"
 
 # Temporary file to receive the RCS patch data
 DIFF=$(mktemp)
+trap 'rm -f "$DIFF"' EXIT
 
 FILES=( $(git diff --name-only) )
 for FILE in "${FILES[@]}"; do
@@ -96,5 +97,3 @@ fi
 
 echo -n "$VERSION" > version
 git add version
-
-rm -f "$DIFF"
