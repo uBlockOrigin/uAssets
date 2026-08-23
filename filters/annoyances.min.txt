@@ -1,12 +1,19 @@
 ! Title: uBlock filters – Annoyances
 ! Expires: 7 days
-! Last modified: Sun, 23 Aug 2026 04:59:25 +0000
+! Last modified: Sun, 23 Aug 2026 05:01:36 +0000
 ! Diff-Path: %diffpath%#ublock-annoyances
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 ! *** uAssets:filters/annoyances.txt ***
 ! *** filters/annoyances-others.txt ***
-! START: Anti copy, right-click etc.
+! START: Anti copy, right-click, devtools, text select etc.
+! allow selecting text
+vitsienvitsit.fi##.vitsiUnselectable:style(user-select: text !important)
+! anti devtools
+popcornmovies.io##+js(set, console.clear, trueFunc)
+popcornmovies.io##+js(set, console.log, trueFunc)
+popcornmovies.io##+js(set, console.table, trueFunc)
+popcornmovies.io##+js(aeld, keydown, 123===i)
 mimaletadepeliculas.blogspot.com##+js(aopr, document.oncontextmenu)
 mimaletadepeliculas.blogspot.com##+js(acs, document.onselectstart)
 pelispedia.*##+js(aopw, document.oncontextmenu)
@@ -98,6 +105,7 @@ discord.com##ul[class^="cards__"]:style(-webkit-touch-callout: default !importan
 massan.jp##.entry-content:style(-webkit-touch-callout: default !important; -webkit-user-select: text !important; -khtml-user-select: text !important; -moz-user-select: text !important; -ms-user-select: text !important; user-select: text !important; -webkit-tap-highlight-color: revert !important; cursor: revert !important;)
 www.delta.com##.card-chart:style(user-select: text !important; touch-action: auto !important;)
 straitstimes.com##.select-none:style(-webkit-touch-callout: default !important; -webkit-user-select: text !important; -khtml-user-select: text !important; -moz-user-select: text !important; -ms-user-select: text !important; user-select: text !important; -webkit-tap-highlight-color: revert !important; cursor: revert !important;)
+aha-music.com##+js(adjust-setInterval, j.value--, 1000, 0.001)
 bookto09.com##+js(rmnt, script, ctrlKey)
 bookto09.com##body:style(-webkit-touch-callout: default !important; -webkit-user-select: text !important; -khtml-user-select: text !important; -moz-user-select: text !important; -ms-user-select: text !important; user-select: text !important; -webkit-tap-highlight-color: revert !important; cursor: revert !important; -webkit-user-drag: auto !important; user-drag: auto !important;)
 canale-tv.net##+js(rmnt, script, preventDefault)
@@ -109,6 +117,8 @@ ntv.cx>>,ntvs.cx>>##+js(aeld, contextmenu, preventDefault)
 prpm.dbp.gov.my##+js(set, document.onmousedown, trueFunc)
 stifler.ro##+js(rmnt, script, contextmenu)
 stifler.ro##style:has-text(user-select: none):remove()
+homegymreview.co.uk##+js(rmnt, script, nocontextmenu)
+homegymreview.co.uk##body * :not(input):not(textarea):style(user-select: text !important; -webkit-touch-callout: text !important; -webkit-user-select: text !important; -moz-user-select: text !important; -khtml-user-select: text !important; -ms-user-select: text !important)
 apps.apple.com##.body-container > .app-container main.page-container > .default-page-container a, blockquote, body, code, dd, div, dl, dt, embed, fieldset, footer, form, h1, h2, h3, h4, h5, h6, header, html, img, legend, li, ol, p, pre, section, table, td, th, ul:style(-webkit-touch-callout: default !important; -webkit-user-select: text !important; -khtml-user-select: text !important; -moz-user-select: text !important; -ms-user-select: text !important; user-select: text !important; -webkit-user-drag: auto !important; user-drag: auto !important; cursor: revert !important;)
 universalproductionmusic.com##.works-results__item div[draggable="true"]:remove-attr(draggable)
 universalproductionmusic.com##.works-results__item .simple-work--disable-action:remove-class(simple-work--disable-action)
@@ -127,6 +137,11 @@ bandwagon.asia##.article[oncontextmenu]:remove-attr(/onmousedown|onselectstart|o
 !#else
 bandwagon.asia##+js(ra, onmousedown|onselectstart|oncontextmenu, .article, complete)
 !#endif
+!#if env_safari
+simplywall.st###root ~ #action-menu ~ #modal-container
+simplywall.st###root:style(filter: none !important;)
+simplywall.st##+js(spoof-css, #root, filter, blur(6px))
+!#endif
 zgbk.com##+js(acs, document.oncontextmenu)
 zgbk.com##+js(aeld, , blockEvent)
 zgbk.com##+js(rpnt, script, /\be(vent)?\.preventDefault\(\);?/g)
@@ -138,7 +153,7 @@ camere-live.ro##+js(rmnt, script, "'contextmenu'")
 dlstreams.st,dollardescent.net,hamis.romponalis.st##+js(rmnt, script, "'contextmenu'")
 trucoon.com.br##*:style(-webkit-touch-callout: auto !important; -moz-touch-callout: auto !important; -ms-touch-callout: auto !important; -o-touch-callout: auto !important; touch-callout: auto !important; -webkit-user-select: auto !important; -moz-user-select: auto !important; -ms-user-select: auto !important; -o-user-select: auto !important; user-select: auto !important; -ms-touch-action: auto)
 orange.ro##+js(aeld, /^(?:pointerdown|mousedown)$/, , elements, .js-pachete-online-internet2)
-! END: Anti copy, right-click etc.
+! END: Anti copy, right-click, devtools, text select etc.
 ! START: Anti-adblock
 @@||socialblade.com^$ghide
 socialblade.com##.cas-container
@@ -4230,7 +4245,6 @@ nebula.tv##+js(trusted-click-element, main div[data-theater-mode] button[type="s
 camereliveromania.ro##+js(rmnt, script, /wpcp|contextmenu/)
 dozaanimata.net##+js(trusted-create-html, html, <details open style='display:none' ontoggle='(function(){     window.addEventListener("contextmenu"\, (e) => { e.stopImmediatePropagation(); return true; }\, true);     const allow = (e) => { e.stopImmediatePropagation(); return true; };     document.addEventListener("selectstart"\, allow\, true);     document.addEventListener("copy"\, allow\, true);     window.addEventListener("keydown"\, (e) => {         if ((e.ctrlKey || e.metaKey) && (e.key === "c" || e.key === "a")) {             e.stopImmediatePropagation();         }     }\, true);     document.querySelectorAll("*").forEach(el => {         el.oncontextmenu = null;         el.onselectstart = null;         el.oncopy = null;         el.onkeydown = null;         el.style.userSelect = "auto";     }); })();'></details>)
 fontsquirrel.com###bottom_banner_ad_container
-aha-music.com##+js(adjust-setInterval, j.value--, 1000, 0.001)
 docs.paloaltonetworks.com##+js(nostif, ad-block)
 anikaitv.to,anikototv.to##+js(set, console.log, trueFunc)
 anikaitv.to,anikototv.to##+js(set, console.clear, trueFunc)
@@ -4243,13 +4257,6 @@ estadao.com.br##+js(trusted-set-local-storage-item, TUTORIAL_CLOSED_SNACKS_HOME,
 estadao.com.br##+js(set-local-storage-item, TUTORIAL_VIEWED_SNACKS_HOME, true)
 freemagazines.top##+js(trusted-rpnt, script, timeLeft > 0, timeLeft = 0, includes, clearInterval)
 zocbo.com###festivalPop
-!#if env_safari
-simplywall.st###root ~ #action-menu ~ #modal-container
-simplywall.st###root:style(filter: none !important;)
-simplywall.st##+js(spoof-css, #root, filter, blur(6px))
-!#endif
-homegymreview.co.uk##+js(rmnt, script, nocontextmenu)
-homegymreview.co.uk##body * :not(input):not(textarea):style(user-select: text !important; -webkit-touch-callout: text !important; -webkit-user-select: text !important; -moz-user-select: text !important; -khtml-user-select: text !important; -ms-user-select: text !important)
 alphacoders.com##+js(trusted-rpnt, script, countdown <= 0, countdown => 0)
 zhuanlan.zhihu.com##.Modal-wrapper
 zhuanlan.zhihu.com##.Modal-backdrop
@@ -4267,11 +4274,4 @@ mail.yahoo.com##+js(trusted-click-element, #landshark .skip-link)
 !#endif
 ! t3.chat anti adblock annoyance
 t3.chat##+js(nostif, .abort();, 1000)
-! allow selecting text
-vitsienvitsit.fi##.vitsiUnselectable:style(user-select: text !important)
-! anti devtools
-popcornmovies.io##+js(set, console.clear, trueFunc)
-popcornmovies.io##+js(set, console.log, trueFunc)
-popcornmovies.io##+js(set, console.table, trueFunc)
-popcornmovies.io##+js(aeld, keydown, 123===i)
 parsatv.com##+js(rmnt, script, .offsetHeight)
