@@ -30,10 +30,23 @@ The EasyList-compatible fixes for high-traffic websites are added to uBO filters
 
 - How to provide troubleshooting information:
 
-  If the problem persists, then please:
-  - On the problematic website, click the uBlock Origin icon
-  - Click the chat icon
-  - Click "Troubleshooting Information" to expand, and copy that information into the appropriate github issue.
+  * Steps for uBO:  
+  
+    1. Open a new browser tab
+    2. Go to the specific page where the issue occurs
+    3. Click the 🛡️ uBO icon
+    4. Click the 💬 chat icon
+    5. Click `Troubleshooting Information`
+    6. Click `Select all` and copy the contents
+
+  * Steps for uBO Lite:  
+
+    1. Open a new browser tab
+    2. Go to the specific page where the issue occurs
+    3. Click the 🛡️ uBO Lite icon
+    4. Click the menu item for `💬 Report an issue`
+    5. Click `Troubleshooting Information`
+    6. Copy the contents
  
 #### Filter List Requests
 
