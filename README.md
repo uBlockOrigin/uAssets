@@ -24,11 +24,11 @@ The EasyList-compatible fixes for high-traffic websites are added to uBO filters
 - Porn Farms
 - Annoyances (widgets, social media buttons, newsletter subscriptions, donation requests, etc)
 
-#### How to correctly report an issue
+#### How to correctly report an issue:
 
-- Disable all other browser extensions and see if the problem still persists
+- Disable all other browser extensions and see if the issue still occurs
 
-- How to provide troubleshooting information:
+- If the issue still occurs when all other browser extensions are disabled, then provide the troubleshooting information:
 
   * Steps for uBO:  
   
@@ -38,6 +38,7 @@ The EasyList-compatible fixes for high-traffic websites are added to uBO filters
     4. Click the 💬 chat icon
     5. Click `Troubleshooting Information`
     6. Click `Select all` and copy the contents
+    7. Paste the contents into the appropriate GitHub thread
 
   * Steps for uBO Lite:  
 
@@ -47,6 +48,7 @@ The EasyList-compatible fixes for high-traffic websites are added to uBO filters
     4. Click the menu item for `💬 Report an issue`
     5. Click `Troubleshooting Information`
     6. Copy the contents
+    7. Paste the contents into the appropriate GitHub thread
  
 #### Filter List Requests
 
