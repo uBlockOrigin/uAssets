@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2021)
-! Last modified: Fri, 07 Aug 2026 15:57:02 +0000
+! Last modified: Sun, 30 Aug 2026 12:32:01 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -1102,6 +1102,10 @@ xnxx.*,xvideos.*##+js(set, xv.conf.dyn.ads, undefined)
 xnxx.*,xvideos.*##+js(set, xv.conf.dyn.excld, undefined)
 xnxx.*,xvideos.*##+js(rmnt, script, html5player.enableVideoPreRollAds)
 xnxx.*,xvideos.*##+js(rpnt, script, if (typeof html5player.setupVideo === 'function'), if (false))
+! https://github.com/uBlockOrigin/uAssets/pull/34293
+xnxx.*###mobile-menu > ul > li:not([class]):has(> a[href^="http"]:not([href*="xnxx"]))
+xvideos.*##ul.head__menu-line__main-menu > li:not([class]):has(> a:is(.live-cams, .ignore-popunder, .nutaku-games))
+##.home a[href^="https://s.zline0.com/"]
 
 ! https://forums.lanik.us/viewtopic.php?p=159178#p159178
 @@||cache.marieclaire.fr/media/videojs/videojs.ads.min.js$script,domain=marieclaire.fr
