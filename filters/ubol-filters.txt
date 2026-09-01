@@ -1,5 +1,5 @@
 ! Title: uBO Lite filters
-! Last modified: Mon, 31 Aug 2026 16:08:04 +0000
+! Last modified: Tue, 01 Sep 2026 14:20:07 +0000
 ! Expires: 4 days
 ! Description: Filters optimized for uBO Lite
 ! Homepage: https://github.com/uBlockOrigin/uAssets
@@ -303,3 +303,7 @@ www.dailymotion.com>>,~google.com##+js(xml-prune, [breakId], , _VMAP_)
 @@/conditions.$1p,script,from=digitalagencynetwork.com
 @@/advanced.$1p,script,from=digitalagencynetwork.com
 !#endif
+
+! https://github.com/uBlockOrigin/uAssets/issues/34277
+play.mercadolivre.com.br##+js(trusted-json-edit-fetch-response, $..durationInSeconds=0, propsToMatch, -ssai-vod-)
+play.mercadolivre.com.br##+js(mpegdash-prune, Period:has(> EventStream[schemeIdUri="urn:sva:advertising-wg:ad-id-signaling"]), /dash)
