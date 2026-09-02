@@ -1,5 +1,5 @@
 ! Title: AdGuard/uBO – URL Tracking Protection
-! Last modified: Mon, 31 Aug 2026 13:58:25 +0000
+! Last modified: Wed, 02 Sep 2026 04:18:39 +0000
 ! Expires: 7 days
 ! Description: |
 !   Filter that enhances privacy by removing tracking parameters from URLs.
@@ -517,6 +517,9 @@ $to=~tradedoubler.com,removeparam=tduid
 ! Bad: ||example.org^$xmlhttprequest,redirect=noopvast-3.0 (for instance, should be in specific.txt)
 !
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/239916
+||smartnews.com^$removeparam=placement
+||smartnews.com^$removeparam=share_id
 ! https://github.com/DandelionSprout/adfilt/discussions/163#discussioncomment-18215392
 ||resourify.com^$removeparam=ref
 ! https://github.com/AdguardTeam/AdguardFilters/issues/239853
@@ -1291,6 +1294,8 @@ $removeparam=phfp,to=protonvpn.com|proton.me
 ! ExpressVPN
 ||expressvpn.com^$removeparam=xvcid
 ||expressvpn.com^$removeparam=shareid
+! https://github.com/AdguardTeam/AdguardFilters/issues/239435
+||news.golfdigest.co.jp^$removeparam=ctid
 ! links on www.golfdigest.co.jp
 ||golfdigest.co.jp^$removeparam=car
 ! https://github.com/DandelionSprout/adfilt/discussions/163#discussioncomment-12099447
@@ -1839,6 +1844,9 @@ $removeparam=from,to=doujinnomori.com|shinshi-manga.net|echiman.com|dojin-navi.c
 ||smartrecruiters.com^$removeparam=km_partner
 ! https://github.com/AdguardTeam/AdguardFilters/issues/171802
 ||gog.com^$removeparam=pp
+! https://github.com/AdguardTeam/AdguardFilters/pull/237969
+! Removes tracking parameter from the links included in their e-mail newsletters
+||gog.com^$removeparam=smclient
 ! https://github.com/AdguardTeam/AdguardFilters/issues/171289
 ||chitai-gorod.ru^$removeparam=partnerId
 ! https://mall.kinarino.jp/sale?sort=popular&available=on&cid=group_knrn_presses-show&kcat=2&kkw=107_1046_8394_11659&klay=presses-show&karea=feature-banner
@@ -2500,8 +2508,6 @@ $removeparam=ici,to=shein.co.uk|shein.com
 ||brazzers.com^$removeparam=ats
 ! https://github.com/AdguardTeam/AdguardFilters/pull/140612
 ||whale.naver.com^$removeparam=wpid
-! https://github.com/AdguardTeam/AdguardFilters/issues/140300
-||wemakeprice.com^$removeparam=refer
 ! https://joshi-spa.jp/1213445?cx_clicks_art_mdl=2_title
 ||joshi-spa.jp^$removeparam=cx_clicks_art_mdl
 ||joshi-spa.jp^$removeparam=cx_clicks_sldbox
@@ -2843,6 +2849,8 @@ $removeparam=ref,domain=jin115.com|bipblog.com|animember.net|sbbit.jp|blog.lived
 ||humblebundle.com^$removeparam=hmb_source
 ||humblebundle.com^$removeparam=mcID
 ||humblebundle.com^$removeparam=linkID
+! https://github.com/AdguardTeam/AdguardFilters/issues/238857
+||netkeiba.com^$removeparam=ref
 ! https://github.com/AdguardTeam/AdguardFilters/issues/113137
 ||netkeiba.com^$removeparam=rf
 ! Firefox extensions intall/update tracking
@@ -2954,6 +2962,9 @@ $removeparam=scid,domain=rakuten.co.jp|rakuten-wallet.co.jp
 ||azby.fmworld.net^$removeparam=mc_pc
 ! https://toku.yahoo.co.jp/ytop202111/entry?fr=weather_right_column
 ||toku.yahoo.co.jp^$removeparam=fr
+! https://github.com/AdguardTeam/AdguardFilters/issues/239841
+||nikkei.com^$removeparam=ref
+||nikkei.com^$removeparam=extpf
 ! https://github.com/AdguardTeam/AdguardFilters/issues/228387
 ||nikkei.com^$removeparam=n_tw
 ! https://github.com/AdguardTeam/AdguardFilters/issues/106436
