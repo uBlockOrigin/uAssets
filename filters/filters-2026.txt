@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2026)
-! Last modified: Fri, 04 Sep 2026 21:17:54 +0000
+! Last modified: Sat, 05 Sep 2026 11:52:37 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -1746,8 +1746,10 @@ puzzleship.com##+js(no-fetch-if, adsbygoogle.js)
 puzzleship.com##.ad_banner.adsbox970x90:style(display: block !important)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/34344
-wykop.pl##.pub-slot-wrapper:remove()
-wykop.pl##.stream-home:has(.recommend-label a[href^="/reklama"])
+wykop.pl##.pub-slot-wrapper:style(position: absolute !important; left: -4000px !important; visibility: hidden !important; pointer-events: none !important;)
+wykop.pl##+js(spoof-css, .pub-slot-wrapper, left, 0px, visibility, visible)
+! wykop.pl##.pub-slot-wrapper:remove()
+! wykop.pl##.stream-home:has(.recommend-label a[href^="/reklama"])
 
 ! https://github.com/uBlockOrigin/uAssets/issues/34277
 !#if ext_devbuild
