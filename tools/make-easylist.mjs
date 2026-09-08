@@ -73,7 +73,7 @@ function expandTemplate(wd, parts) {
             if ( expandedParts.has(fpath) === false ) {
                 console.info(`  Inserting ${fpath}`);
                 out.push(
-                    out.push({ file: `${fpath}` }),
+                    { file: fpath },
                     `! *** ${repo}:${fpath} ***`,
                     fs.readFile(`${wd}/${fpath}`, { encoding: 'utf8' })
                         .then(text => fpath.includes('header') ? text : trim(text)),
