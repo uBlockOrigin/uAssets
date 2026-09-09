@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Other Annoyances
-! Last modified: Tue, 08 Sep 2026 16:00:32 +0000
+! Last modified: Wed, 09 Sep 2026 14:48:49 +0000
 ! Expires: 7 days
 ! Description: Filters optimized for uBlock Origin, to be used with EasyList's and/or Adguard's "Other Annoyances" list(s)
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -2211,6 +2211,14 @@ trucoon.com.br##*:style(-webkit-touch-callout: auto !important; -moz-touch-callo
 
 ! https://github.com/uBlockOrigin/uAssets/pull/34205
 orange.ro##+js(aeld, /^(?:pointerdown|mousedown)$/, , elements, .js-pachete-online-internet2)
+
+! https://github.com/uBlockOrigin/uAssets/issues/34432
+one.oregon.gov##+js(aeld, contextmenu, event.dispatch)
+!#if env_firefox
+one.oregon.gov##input[onpaste="return false"]:remove-attr(onpaste)
+!#else
+one.oregon.gov##+js(ra, onpaste, input[onpaste="return false"], complete)
+!#endif
 
 ! ================================================ END: Anti copy, right-click, devtools, text select etc. ==========================================================================
 

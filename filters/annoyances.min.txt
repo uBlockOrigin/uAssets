@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Annoyances
 ! Expires: 7 days
-! Last modified: Tue, 08 Sep 2026 16:00:32 +0000
+! Last modified: Wed, 09 Sep 2026 14:48:49 +0000
 ! Diff-Path: %diffpath%#ublock-annoyances
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -1393,6 +1393,12 @@ camere-live.ro##+js(rmnt, script, "'contextmenu'")
 dlstreams.st,dollardescent.net,hamis.romponalis.st##+js(rmnt, script, "'contextmenu'")
 trucoon.com.br##*:style(-webkit-touch-callout: auto !important; -moz-touch-callout: auto !important; -ms-touch-callout: auto !important; -o-touch-callout: auto !important; touch-callout: auto !important; -webkit-user-select: auto !important; -moz-user-select: auto !important; -ms-user-select: auto !important; -o-user-select: auto !important; user-select: auto !important; -ms-touch-action: auto)
 orange.ro##+js(aeld, /^(?:pointerdown|mousedown)$/, , elements, .js-pachete-online-internet2)
+one.oregon.gov##+js(aeld, contextmenu, event.dispatch)
+!#if env_firefox
+one.oregon.gov##input[onpaste="return false"]:remove-attr(onpaste)
+!#else
+one.oregon.gov##+js(ra, onpaste, input[onpaste="return false"], complete)
+!#endif
 ! ================================================ END: Anti copy, right-click, devtools, text select etc. ==========================================================================
 ! ================================================================START: Anti-adblock ===============================================================================================
 @@||socialblade.com^$ghide
