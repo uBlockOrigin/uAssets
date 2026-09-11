@@ -1,5 +1,5 @@
 ! Title: uBlock₀ filters – Quick fixes
-! Last modified: Thu, 10 Sep 2026 05:10:10 +0000
+! Last modified: Fri, 11 Sep 2026 13:55:32 +0000
 ! Expires: 8 hours
 ! Description: Immediate, temporary filters to fix websites
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -514,6 +514,8 @@ pdftoshokan.com##^script:has-text(/ad.?Config|prepare.?Pop|\/popunder|ads_host/)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/34187
 igorslab.de##^script[id][data-cfasync]:not([src]):has-text(/^[\S\s]{1000,}$/)
+igorslab.de##^script[id^="advanced-ads"]
+igorslab.de##^script[id^="advads"]
 igorslab.de##.herald-main-content > .row > .herald-module:not([data-col]):has(> .herald-txt-module div[id*="-"][class] > div[id*="-"][class*="target"] a[href][rel="noopener"] img)
 igorslab.de##div.widget[class*="-widget"][id*="-widget-"]
 igorslab.de##a[aria-label*="Banner"]
@@ -531,7 +533,9 @@ igorslab.de##span[aria-label][role="img"][style*="data:image"]
 igorslab.de##span[style]:has(svg path)
 igorslab.de##span[aria-label][role="img"][style*="data:image"] + a
 igorslab.de##svg image[href^="data:image/"]
+igorslab.de##span[class][style]:has-text(/^\s*(Advertisement|Werbung|广告)\s*$/)
 igorslab.de##img:remove-attr(/data-.+/)
+igorslab.de/community/#@#img:remove-attr(/data-.+/)
 ||igorslab.de/wp-content/plugins/igorslab-ads-suite/
 
 ! https://github.com/AdguardTeam/AdguardFilters/commit/5c28205f2e1baccf177db23ee0df2fd15090238d
