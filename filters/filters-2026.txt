@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2026)
-! Last modified: Wed, 16 Sep 2026 05:44:16 +0000
+! Last modified: Thu, 17 Sep 2026 09:31:04 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -1834,8 +1834,11 @@ aniwixi.xyz###wixi-single-ad-overlay
 ||xml.pops.gg^$popup,doc
 
 ! https://github.com/uBlockOrigin/uAssets/issues/34475
-svetserialu.to##+js(rmnt, script, /detect/i)
-svetserialu.to##body > .loader ~ div[class][style]:not([id])
+! https://github.com/uBlockOrigin/uAssets/issues/34521
+svetserialu.*##+js(rmnt, script, /detect/i)
+svetserialu.*##body > .loader ~ div[class][style*="z-index"]:not([id])
+||svetserialu.*/assets/js/popads.js
+||svetserialu.*/assets/js/ads.js
 
 ! https://github.com/uBlockOrigin/uAssets/issues/34485
 ||traingon.top/static/content-access.js
