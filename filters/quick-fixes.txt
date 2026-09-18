@@ -1,5 +1,5 @@
 ! Title: uBlock₀ filters – Quick fixes
-! Last modified: Fri, 18 Sep 2026 06:14:56 +0000
+! Last modified: Fri, 18 Sep 2026 12:39:20 +0000
 ! Expires: 8 hours
 ! Description: Immediate, temporary filters to fix websites
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -528,9 +528,9 @@ igorslab.de##.entry-content > #skio-article-bar ~ div[id][class]:not([class*="ig
 igorslab.de##img[src^="blob:http"]
 igorslab.de##.herald-above-footer
 /^https:\/\/www\.igorslab\.de\/[0-9a-z]{7,}\/A[\/0-9A-Z_a-z-]{100,}$/$image,1p,match-case,redirect=2x2.png
-/^https:\/\/www\.igorslab\.de\/wp-content\/uploads\/202\d\/\d{2}\/(?=[a-z]*\d)(?=\d*[a-z])[0-9a-z]{7,15}\.(?:pn|jp)g(?:\?[0-9a-z-]{7,16}=[0-9a-z-]{7,16})?$/$image,1p,match-case,redirect=2x2.png
-igorslab.de##a[href^="https://www.igorslab.de/"][style][rel]:matches-attr(href="/^https:\/\/www\.igorslab\.de\/(?:[0-9a-z-]{7,32}\/)+$/")
+/^https:\/\/www\.igorslab\.de\/wp-content\/uploads\/202\d\/\d{2}\/(?=[a-z]*\d)(?=\d*[a-z])[0-9a-z]{7,15}\.(?:pn|jp)g(?:\?[0-9_a-z-]{7,}=[0-9_a-z-]{7,})?$/$image,1p,match-case,redirect=2x2.png
 igorslab.de##a[href^="/"][href$="/"][style][rel][target]
+igorslab.de##a[href^="/"][href*="#"][style][rel][target]
 igorslab.de##span[aria-label][role="img"][style*="data:image"]
 igorslab.de##span[style]:has(svg path)
 igorslab.de##span[aria-label][role="img"][style*="data:image"] + a
@@ -549,7 +549,7 @@ igorslab.de##+js(no-fetch-if, %22vt%22)
 ||igorslab.de/wp-content/plugins/igorslab-ads-suite/
 igorslab.de##.ilgha-scale-frame:has-text(/Similar products|Ähnliche Artikel|相似产品/)
 igorslab.de##div[style*="width:100%;max-width:980px"]
-igorslab.de##div[class]:matches-attr("/^data-[0-9a-z]{3,}-[0-9a-z]{3,}/"="/[0-9A-Za-z]{27}\.[0-9A-Za-z]{32}$/")
+igorslab.de##div[class]:matches-attr("/^[a-z]-[0-9a-z]+-[0-9a-z]+$/")
 
 ! https://github.com/uBlockOrigin/uAssets/issues/27044#issuecomment-5723020527
 wolt.com#@#div:has(> div > div > div > div > div > div > p:has-text(Sponsored))
