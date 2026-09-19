@@ -1,5 +1,5 @@
 ! Title: AdGuard/uBO – URL Tracking Protection
-! Last modified: Sat, 19 Sep 2026 05:33:32 +0000
+! Last modified: Sat, 19 Sep 2026 06:02:13 +0000
 ! Expires: 7 days
 ! Description: |
 !   Filter that enhances privacy by removing tracking parameters from URLs.
@@ -517,6 +517,12 @@ $to=~tradedoubler.com,removeparam=tduid
 ! Bad: ||example.org^$xmlhttprequest,redirect=noopvast-3.0 (for instance, should be in specific.txt)
 !
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/241783
+||maps.app.goo.gl^$removeparam=g_st
+! https://github.com/AdguardTeam/AdguardFilters/issues/241757
+||oita-press.co.jp^$removeparam=yh
+! https://github.com/AdguardTeam/AdguardFilters/issues/241759
+||eiga.com^$removeparam=cid
 ! https://github.com/DandelionSprout/adfilt/discussions/163#discussioncomment-18457419
 ||instagram.com^$removeparam=click_source
 ! https://github.com/DandelionSprout/adfilt/discussions/163#discussioncomment-18440787
@@ -552,8 +558,8 @@ $to=~tradedoubler.com,removeparam=tduid
 ||newspicks.com^$removeparam=invoker
 ! https://github.com/AdguardTeam/AdguardFilters/issues/240828
 ! https://github.com/AdguardTeam/AdguardFilters/issues/241277
-$removeparam=ro,domain=khb-tv.co.jp|kab.co.jp|kfb.co.jp|maidonanews.jp|ncctv.co.jp|yorozoonews.jp|news.ksb.co.jp
-$removeparam=ri,domain=khb-tv.co.jp|kab.co.jp|kfb.co.jp|maidonanews.jp|ncctv.co.jp|yorozoonews.jp|news.ksb.co.jp
+$removeparam=ro,to=khb-tv.co.jp|kab.co.jp|kfb.co.jp|maidonanews.jp|ncctv.co.jp|yorozoonews.jp|news.ksb.co.jp
+$removeparam=ri,to=khb-tv.co.jp|kab.co.jp|kfb.co.jp|maidonanews.jp|ncctv.co.jp|yorozoonews.jp|news.ksb.co.jp
 ! https://github.com/DandelionSprout/adfilt/discussions/163#discussioncomment-18417614
 ||spotfund.com^$removeparam=source
 ||spotfund.com^$removeparam=share_location
