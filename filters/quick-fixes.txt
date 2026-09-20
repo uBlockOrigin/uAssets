@@ -508,7 +508,9 @@ flipkart.com#@#div[data-id][style]:has([width][height][fill])
 
 ! https://github.com/uBlockOrigin/uAssets/issues/34009
 pdftoshokan.com##+js(aeld, /click|load/, /document\.location|pop\.|exo|cookie|\.php/)
-pdftoshokan.com##+js(nowoif, ok_)
+pdftoshokan.com##+js(nowoif, /ok_|pemsrv\.com/)
+pdftoshokan.com##+js(trusted-rpnt, script, if(now-last>c*1e3), if(0))
+pdftoshokan.com##+js(trusted-replace-outbound-text, atob, /^https:\/\/s\.pemsrv\.com.+/, 'window.location.href')
 !#if cap_html_filtering
 pdftoshokan.com##^script:has-text(/ad.?Config|prepare.?Pop|\/popunder|ads_host/)
 !#endif
