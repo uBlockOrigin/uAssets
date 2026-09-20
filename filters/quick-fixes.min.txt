@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Quick fixes
 ! Expires: 12 hours
-! Last modified: Sun, 20 Sep 2026 09:15:41 +0000
+! Last modified: Sun, 20 Sep 2026 09:20:37 +0000
 ! Diff-Path: %diffpath%#ublock-quick-fixes
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -390,7 +390,9 @@ twitch.tv##.chat-shell > div[class^="Layout-sc-"]  > div[style^="transition:"]:h
 fo76db.com##+js(trusted-rpnt, script, / ads\.map[\S\s\n]+?join\(''\)/)
 flipkart.com#@#div[data-id][style]:has([width][height][fill])
 pdftoshokan.com##+js(aeld, /click|load/, /document\.location|pop\.|exo|cookie|\.php/)
-pdftoshokan.com##+js(nowoif, ok_)
+pdftoshokan.com##+js(nowoif, /ok_|pemsrv\.com/)
+pdftoshokan.com##+js(trusted-rpnt, script, if(now-last>c*1e3), if(0))
+pdftoshokan.com##+js(trusted-replace-outbound-text, atob, /^https:\/\/s\.pemsrv\.com.+/, 'window.location.href')
 !#if cap_html_filtering
 pdftoshokan.com##^script:has-text(/ad.?Config|prepare.?Pop|\/popunder|ads_host/)
 !#endif
