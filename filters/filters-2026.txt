@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2026)
-! Last modified: Mon, 21 Sep 2026 12:03:55 +0000
+! Last modified: Mon, 21 Sep 2026 23:01:52 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -658,9 +658,7 @@ chatgpt.com##+js(trusted-json-edit, [?.type=="ads"].visibility.status="hidden")
 chatgpt.com##+js(trusted-json-edit, ..suppress_ads=true)
 chatgpt.com##+js(json-prune, messages.*.ads messages.*.renderedAdsHtml)
 chatgpt.com##+js(trusted-replace-outbound-text, TextDecoder.prototype.decode, /<template data-assistant-ads-html=""><aside aria-label.+?<\/aside><\/template>/)
-!#if env_mobile
-chatgpt.com##+js(trusted-replace-outbound-text, TextDecoder.prototype.decode, /<template for="conversation-partial-control" data-web-mobile-dpu-apply="append"><span data-conversation-control="assistant-ads".+?<\/aside><\/template><\/span><\/template>/)
-!#endif
+chatgpt.com##+js(trusted-replace-outbound-text, TextDecoder.prototype.decode, /<template for="conversation-partial-control" data-web-mobile-dpu-apply="append"><span( hidden)? data-conversation-control="assistant-ads".+?<\/(aside|div)><\/template><\/span><\/template>/)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/32235
 ourcoincash.xyz,softdevelopp.com##+js(noeval-if, Adblock)
