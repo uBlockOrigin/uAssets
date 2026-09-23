@@ -576,10 +576,14 @@ op.gg##.max-w-none:has(> .mb-2 > div[style^="width:"] > div[data-opgg-beer-id])
 op.gg##[id^="div-gpt-ad"]:not([class]):upward(div[class])
 
 ! https://github.com/uBlockOrigin/uAssets/issues/6306
+! https://www.reddit.com/r/uBlockOrigin/comments/1wnhota/filter_breaking_video_playback_on_nsfw_site/
+/^https:\/\/cdn77\.pornoxo\.com\/pxo\/www\/js-v[.0-9]+\/[a-z0-9][a-z0-9][a-z0-9][a-z0-9][a-z0-9][a-z0-9][a-z0-9][a-z0-9]\.min\.js/$script,1p,match-case,domain=pornoxo.com
 pornoxo.com##+js(popads-dummy)
 *$popunder,3p,domain=m.pornoxo.com
 ||pushpad.xyz^$3p
-pornoxo.com##+js(rmnt, script, /Popunder|Banner/)
+||pxointr.com^
+||cdn77.*/vast.min.js
+pornoxo.com##+js(set, __videoPlayerData.popunder, undefined)
 pornoxo.com##a.blinker
 pornoxo.com##a[rel="sponsored"]
 pornoxo.com##li.media-item.no-popup
