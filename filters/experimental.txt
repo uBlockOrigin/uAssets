@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Experimental
-! Last modified: Fri, 18 Sep 2026 16:05:49 +0000
+! Last modified: Sun, 27 Sep 2026 12:58:20 +0000
 ! Expires: 1 day
 ! Description: Experimental filters
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -27,6 +27,8 @@ www.youtube.com##+js(json-prune, contents.twoColumnBrowseResultsRenderer.tabs.[]
 !#if ext_devbuild
 www.youtube.com##+js(edit-object-on-setter, ytInitialData, $..richItemRenderer[?@..adSlotRenderer])
 !#endif
+! https://github.com/uBlockOrigin/uAssets/issues/30157#issuecomment-5855737307
+www.youtube.com##+js(json-prune-xhr-response, contents.tvBrowseRenderer.content.tvSurfaceContentRenderer.content.sectionListRenderer.contents.[-].adSlotRenderer contents.tvBrowseRenderer.content.tvSurfaceContentRenderer.content.sectionListRenderer.contents.[].shelfRenderer.content.horizontalListRenderer.items.[-].adSlotRenderer, , propsToMatch, url:/browse)
 
 !#if cap_html_filtering
 ! www.twitch.tv/esl_dota2
