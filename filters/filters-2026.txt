@@ -1921,3 +1921,11 @@ naijavault.com##+js(rmnt, script, .offsetHeight)
 todaytvseries1.com##+js(rmnt, script, protectedDomains)
 todaytvseries1.com##a[href*="archive.org"],a[href*="renewyep.com"],a[href*="renewgap.com"],a[href*="renewback.site"]:style(pointer-events:auto !important;cursor:pointer !important)
 ||todaytvseries1.com/ads/
+
+! https://github.com/uBlockOrigin/uAssets/issues/34375
+||kick.com/datazoom/*/datazoom.js
+!#if cap_html_filtering
+||cloudfront.net/v1/manifest/*/production-kick-vod/*.m3u8$xhr,domain=kick.com,replace=/#EXTINF[^\n]+\n[^\n]+?\/segment\/[^\n]+//gm
+!#else
+||cloudfront.net/tm/*/asset_*.ts$media,xmlhttprequest,redirect=noopmp4-1s,domain=kick.com
+!#endif
