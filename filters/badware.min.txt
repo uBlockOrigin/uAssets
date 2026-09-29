@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Badware risks
 ! Expires: 5 days
-! Last modified: Tue, 29 Sep 2026 12:15:40 +0000
+! Last modified: Tue, 29 Sep 2026 12:20:00 +0000
 ! Diff-Path: %diffpath%#ublock-badware
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -2334,7 +2334,8 @@ monster###bw-rc-host[style="position: fixed !important; inset: 0px !important; z
 ||sites.google.com/view/codex-desktop-app$doc
 ||whirlpoploaderfast.com^
 ##body > .main-wrapper > .main-content > .intro > #checkbox-window
-/\/t\.js\?site=[0-9-a-f]{32}$/$script,3p,match-case
+/\/t\.js\?site=[a-f0-9]{32}\b/$script,3p,match-case
+##body.wp-singular > div[id$="-overlay"] > div[id$="-container"] > div[class*="-container"] > div[id$="-checkbox-window"]
 !#if ext_ubol
 /\/t\.js\?site=[0-9-a-f]{19,}$/$script,3p,match-case
 !#endif
@@ -2423,8 +2424,6 @@ pentest.blog##+js(acs, atob, new )
 ||guildkit.org^$doc,reason=malicious
 darumasushiantofagasta.cl##+js(aost, Function, /bxslider|wow/)
 ||cloudflare-check.net^$all
-/\/t\.js\?site=[a-f0-9]{32}\b/$script,3p,match-case
-##body.wp-singular > div[id$="-overlay"] > div[id$="-container"] > div[class*="-container"] > div[id$="-checkbox-window"]
 ||lichsuvanhoa.net^$all
 ||diabetescareth.com^$all
 ||clickzona.net^$all

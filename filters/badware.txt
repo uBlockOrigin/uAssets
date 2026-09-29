@@ -1,5 +1,5 @@
 ! Title: uBlock₀ filters – Badware risks
-! Last modified: Tue, 29 Sep 2026 12:15:40 +0000
+! Last modified: Tue, 29 Sep 2026 12:20:00 +0000
 ! Expires: 5 days
 ! Description: For sites documented to put users at risk of installing adware/crapware/malware, having login credentials stolen, etc.
 ! The purpose is to at least ensure a user is warned of the risks ahead.
@@ -2638,7 +2638,10 @@ monster###bw-rc-host[style="position: fixed !important; inset: 0px !important; z
 ||sites.google.com/view/codex-desktop-app$doc
 ||whirlpoploaderfast.com^
 ##body > .main-wrapper > .main-content > .intro > #checkbox-window
-/\/t\.js\?site=[0-9-a-f]{32}$/$script,3p,match-case
+
+! https://x.com/fr0gger_/status/2101505589964874104
+/\/t\.js\?site=[a-f0-9]{32}\b/$script,3p,match-case
+##body.wp-singular > div[id$="-overlay"] > div[id$="-container"] > div[class*="-container"] > div[id$="-checkbox-window"]
 !#if ext_ubol
 /\/t\.js\?site=[0-9-a-f]{19,}$/$script,3p,match-case
 !#endif
@@ -2796,10 +2799,6 @@ pentest.blog##+js(acs, atob, new )
 ! https://x.com/masaomi346/status/2101331170030215192
 darumasushiantofagasta.cl##+js(aost, Function, /bxslider|wow/)
 ||cloudflare-check.net^$all
-
-! https://x.com/fr0gger_/status/2101505589964874104
-/\/t\.js\?site=[a-f0-9]{32}\b/$script,3p,match-case
-##body.wp-singular > div[id$="-overlay"] > div[id$="-container"] > div[class*="-container"] > div[id$="-checkbox-window"]
 
 ! https://x.com/tweetozof/status/2103601121793372164
 ||lichsuvanhoa.net^$all
