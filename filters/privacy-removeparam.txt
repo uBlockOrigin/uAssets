@@ -1,5 +1,5 @@
 ! Title: AdGuard/uBO – URL Tracking Protection
-! Last modified: Sun, 27 Sep 2026 15:13:53 +0000
+! Last modified: Tue, 29 Sep 2026 15:16:37 +0000
 ! Expires: 7 days
 ! Description: |
 !   Filter that enhances privacy by removing tracking parameters from URLs.
@@ -517,6 +517,15 @@ $to=~tradedoubler.com,removeparam=tduid
 ! Bad: ||example.org^$xmlhttprequest,redirect=noopvast-3.0 (for instance, should be in specific.txt)
 !
 !
+! https://github.com/DandelionSprout/adfilt/discussions/163#discussioncomment-18627692
+||instacart.com^$removeparam=ic_source
+||instacart^$removeparam=ic_campaignid
+! https://github.com/AdguardTeam/AdguardFilters/issues/242888
+||afpbb.com^$removeparam=cx_position
+||afpbb.com^$removeparam=cx_part
+||afpbb.com^$removeparam=cx_from
+||afpbb.com^$removeparam=cx_rss
+||afpbb.com^$removeparam=cx_id
 ! https://github.com/DandelionSprout/adfilt/discussions/163#discussioncomment-18613939
 ||cybernews.com^$removeparam=source
 ||cybernews.com^$removeparam=medium
