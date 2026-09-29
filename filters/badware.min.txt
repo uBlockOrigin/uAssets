@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Badware risks
 ! Expires: 5 days
-! Last modified: Tue, 29 Sep 2026 12:11:45 +0000
+! Last modified: Tue, 29 Sep 2026 12:15:40 +0000
 ! Diff-Path: %diffpath%#ublock-badware
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -2335,6 +2335,12 @@ monster###bw-rc-host[style="position: fixed !important; inset: 0px !important; z
 ||whirlpoploaderfast.com^
 ##body > .main-wrapper > .main-content > .intro > #checkbox-window
 /\/t\.js\?site=[0-9-a-f]{32}$/$script,3p,match-case
+!#if ext_ubol
+/\/t\.js\?site=[0-9-a-f]{19,}$/$script,3p,match-case
+!#endif
+!#if env_safari
+/\/t\.js\?site=[0-9-a-f][0-9-a-f][0-9-a-f][0-9-a-f][0-9-a-f][0-9-a-f][0-9-a-f][0-9-a-f][0-9-a-f][0-9-a-f][0-9-a-f][0-9-a-f][0-9-a-f][0-9-a-f][0-9-a-f][0-9-a-f][0-9-a-f][0-9-a-f][0-9-a-f][0-9-a-f][0-9-a-f][0-9-a-f][0-9-a-f][0-9-a-f][0-9-a-f][0-9-a-f][0-9-a-f][0-9-a-f][0-9-a-f][0-9-a-f][0-9-a-f][0-9-a-f]$/$script,3p,match-case
+!#endif
 ##div.card > div#cbRow.checkbox-row[onclick="startVerify()"]
 gemfellowship.org##+js(rmnt, script, TextDecoder)
 ##html > #bw-cf-root
