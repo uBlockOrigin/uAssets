@@ -1,5 +1,5 @@
 ! Title: AdGuard/uBO – URL Tracking Protection
-! Last modified: Tue, 29 Sep 2026 15:16:37 +0000
+! Last modified: Wed, 30 Sep 2026 13:49:51 +0000
 ! Expires: 7 days
 ! Description: |
 !   Filter that enhances privacy by removing tracking parameters from URLs.
@@ -517,9 +517,13 @@ $to=~tradedoubler.com,removeparam=tduid
 ! Bad: ||example.org^$xmlhttprequest,redirect=noopvast-3.0 (for instance, should be in specific.txt)
 !
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/243021
+||dailymail.com^$removeparam=ns_mchannel
+||dailymail.com^$removeparam=ns_campaign
+||dailymail.com^$removeparam=ito
 ! https://github.com/DandelionSprout/adfilt/discussions/163#discussioncomment-18627692
 ||instacart.com^$removeparam=ic_source
-||instacart^$removeparam=ic_campaignid
+||instacart.com^$removeparam=ic_campaignid
 ! https://github.com/AdguardTeam/AdguardFilters/issues/242888
 ||afpbb.com^$removeparam=cx_position
 ||afpbb.com^$removeparam=cx_part
@@ -665,8 +669,9 @@ $removeparam=ri,to=khb-tv.co.jp|kab.co.jp|kfb.co.jp|maidonanews.jp|ncctv.co.jp|y
 ||datafa.st^$removeparam=via
 ! https://github.com/AdguardTeam/AdguardFilters/issues/238848
 ||j-cast.com^$removeparam=in
+! https://github.com/AdguardTeam/AdguardFilters/issues/243012
 ! https://github.com/AdguardTeam/AdguardFilters/issues/238679
-||hanasone.mainichi.jp^$removeparam=inb
+||mainichi.jp^$removeparam=inb
 ! https://github.com/AdguardTeam/AdguardFilters/issues/238585
 ||adesampa.com.br^$removeparam=cp_smn_source
 ||adesampa.com.br^$removeparam=cp_smn_content
@@ -745,6 +750,8 @@ $removeparam=ri,to=khb-tv.co.jp|kab.co.jp|kfb.co.jp|maidonanews.jp|ncctv.co.jp|y
 ! vhttps://github.com/DandelionSprout/adfilt/discussions/163#discussioncomment-17271132
 ||theepochtimes.com^$removeparam=ea_med
 ||theepochtimes.com^$removeparam=ea_src
+! https://github.com/AdguardTeam/AdguardFilters/issues/243010
+||oricon.co.jp^$removeparam=anc
 ! oricon.co.jp/special/75147/?ref_cd=oriconrecommend4
 ||oricon.co.jp^$removeparam=ref_cd
 ! https://github.com/DandelionSprout/adfilt/discussions/163#discussioncomment-17218658
@@ -914,8 +921,6 @@ ref=shadcn.com^$removeparam=ref
 ||reifen24.de^$removeparam=sv1
 ! urban-vpn.com
 ||urban-vpn.com^$removeparam=cid
-! https://www.oricon.co.jp/kyujin/?ref_cd=kyujinbtnbottom-news
-||oricon.co.jp^$removeparam=ref
 ! https://carviewform.yahoo.co.jp/kaitori/?src=kuruma_news__kaitorisatei_button
 ||carviewform.yahoo.co.jp^$removeparam=src
 ! https://github.com/AdguardTeam/AdguardFilters/issues/219694
