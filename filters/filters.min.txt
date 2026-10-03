@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Sat, 03 Oct 2026 12:56:16 +0000
+! Last modified: Sat, 03 Oct 2026 13:46:28 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -25124,10 +25124,16 @@ twitchnosub.com##section:nth-of-type(2) > .container > div:has(a[href^="https://
 *$script,redirect-rule=noopjs,domain=twitchnosub.com
 *$image,redirect-rule=32x32.png,domain=twitchnosub.com
 @@*$ghide,domain=twitchnosub.com
-! cinefreak.net (Popup)
 cinefreak.*##+js(aeld, click, openPopunder)
 cinecloud.*##+js(nostif, location.href, 5000)
 cinecloud.*##+js(aost, Promise, imageProbe)
+cinefreak.net##+js(aost, Promise.all, imageProbe)
+cinefreak.net#@#.sponsored-ad
+cinefreak.net##+js(nowoif, _blank)
+||googleads.g.doubleclick.net/favicon.ico$image,redirect=2x2.png,domain=cinefreak.net|cinecloud.site
+||amazon-adsystem.com/favicon.ico$image,redirect=2x2.png,domain=cinefreak.net|cinecloud.site
+||static.criteo.net/favicon.ico$image,redirect=2x2.png,domain=cinefreak.net|cinecloud.site
+||ads.linkedin.com/favicon.ico$image,redirect=2x2.png,domain=cinefreak.net|cinecloud.site
 ! aznude.com (Popup, empty ad)
 aznude.com##^meta[content*="magsrv.com"]
 aznude.com##+js(set, AdProvider, noopFunc)
