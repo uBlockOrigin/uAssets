@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Mon, 05 Oct 2026 05:25:34 +0000
+! Last modified: Mon, 05 Oct 2026 10:20:29 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -11,8 +11,8 @@ tv.youtube.com##+js(trusted-replace-xhr-response, '"adPlacements"', '"no_ads"', 
 !#if !cap_html_filtering
 www.youtube.com##+js(trusted-replace-xhr-response, /"adPlacements.*?([A-Z]"\}|"\}{2\,4})\}\]\,/, , /playlist\?list=|\/player(?:\?.+)?$|watch\?[tv]=/)
 www.youtube.com##+js(trusted-replace-xhr-response, /"adPlacements.*?("adSlots"|"adBreakHeartbeatParams")/gms, $1, /\/player(?:\?.+)?$/)
-www.youtube.com##+js(trusted-replace-fetch-response, '"adPlacements"', '"no_ads"', player?)
-www.youtube.com##+js(trusted-replace-fetch-response, '"adSlots"', '"no_ads"', player?)
+www.youtube.com##+js(trusted-rpfr, '"adPlacements"', '"no_ads"', player?)
+www.youtube.com##+js(trusted-rpfr, '"adSlots"', '"no_ads"', player?)
 !#else
 ||www.youtube.com/playlist?list=$xhr,1p,replace=/"adPlacements"/"no_ads"/
 ||www.youtube.com/playlist?list=$xhr,1p,replace=/"adSlots"/"no_ads"/
@@ -8106,7 +8106,7 @@ braflix.uk##+js(rmnt, script, random)
 /^https?:\/\/(?:[a-z]{2}\.)?[0-9a-z]{7,16}\.website\/[a-z](?=[a-z]{0,25}[0-9A-Z])[0-9a-zA-Z]{3,26}\/\d{3,6}(?:[?&][_a-z0-9]+=[-0-9a-zA-Z]+)*$/$frame,xhr,popup,3p,match-case,to=website
 /\.goplay\.su\/[a-z][0-9A-Za-z]{10,}\/\d{3,6}$/$xhr,match-case,to=goplay.su
 !#if ext_ubol
-/^https?:\/\/(?:[a-z]{2}|[a-z]{6,7})?\.?[a-z]{6,14}\.[a-z]{3,7}\/[a-z][0-9A-Za-z]{10,}\/\d{3,6}(?:\?|$)/$script,3p,match-case,header=Access-Control-Allow-Headers,from=~edu|~gov,to=~edu|~gov
+/^https?:\/\/([a-z]{2}|[a-z]{6,7})?\.?[a-z]{6,14}\.[a-z]{3,7}\/[a-z][0-9A-Za-z]{10,}\/\d{3,6}(?:\?|$)/$script,3p,match-case,header=Access-Control-Allow-Headers,from=~edu|~gov,to=~edu|~gov
 !#endif
 !#if env_safari
 /^https?:\/\/[a-z][a-z][a-z][a-z][a-z][a-z][a-z]?\.[a-z][a-z][a-z][a-z][a-z][a-z]?[a-z]?[a-z]?[a-z]?[a-z]?[a-z]?[a-z]?[a-z]?[a-z]?[a-z]?[a-z]?\.[a-z][a-z][a-z][a-z]?[a-z]?[a-z]?[a-z]?\/[fgprst][0-9A-Za-z][0-9A-Za-z][0-9A-Za-z][0-9A-Za-z][0-9A-Za-z][0-9A-Za-z][0-9A-Za-z][0-9A-Za-z][0-9A-Za-z][0-9A-Za-z]+\/[0-9][0-9][0-9][0-9]?[0-9]?[0-9]?$/$script,3p,match-case,important
@@ -15309,7 +15309,7 @@ pinterest.*##a[href*="&epik="]:upward([data-grid-item])
 !#else
 pinterest.*##[data-grid-item]:has([data-test-pin-id] a[href^="http"][rel] [data-test-id="pincard-oneTap-with-link"])
 pinterest.*##div[role="listitem"]:has(div[data-test-id="related-pins-name"] > div[role="button"] > div + div > div[style="-webkit-line-clamp: 1;"]):not(:has(a[href*="/pin/"]))
-pinterest.*##+js(trusted-replace-fetch-response, '/\{"node":\{"__typename":"Pin"[^}]+"board":\{[^}]+"owner":\{[^}]+\}[^}]+\}[^}]+"isPromoted":true.+?"cursor":null\},/g', '', /stream)
+pinterest.*##+js(trusted-rpfr, '/\{"node":\{"__typename":"Pin"[^}]+"board":\{[^}]+"owner":\{[^}]+\}[^}]+\}[^}]+"isPromoted":true.+?"cursor":null\},/g', '', /stream)
 !#endif
 pinterest.*##+js(json-prune, resource_response.data.[-].pin_promotion_id resource_response.data.results.[-].pin_promotion_id)
 pinterest.*##+js(json-prune, initialReduxState.pins.{-}.pin_promotion_id initialReduxState.resources.UserHomefeedResource.*.data.[-].pin_promotion_id)
@@ -17859,7 +17859,7 @@ harshfaucet.com##.ads
 compromath.com##+js(no-fetch-if, ads)
 /ads/autopromo/*$media,xhr,redirect=noopmp3-0.1s,domain=deezer.com
 ||live.streamtheworld.com/media/*.mp3$media,domain=deezer.com|~widget.deezer.com,redirect=noopmp3-0.1s
-deezer.com##+js(trusted-replace-fetch-response, /<VAST version.+VAST>/, <VAST version=\"4.0\"></VAST>, deezer.getAudiobreak)
+deezer.com##+js(trusted-rpfr, /<VAST version.+VAST>/, <VAST version=\"4.0\"></VAST>, deezer.getAudiobreak)
 ||cdn-files.dzcdn.net/cache/js/route-naboo-ads.$script,domain=deezer.com,replace=/this\.audioPlayer\.play/false/
 deezer.com##+js(nostif, Ads)
 deezer.com##+js(set, smartLoaded, true)
@@ -19431,7 +19431,7 @@ history.com##+js(no-xhr-if, time-events)
 @@||pubads.g.doubleclick.net/ondemand/hls/content/$domain=play.aetv.com
 ||play.*.com/vendor/$domain=play.aetv.com|play.mylifetime.com
 ||dai.google.com/ondemand/hls/content/*/time-events.json$domain=play.aetv.com|play.mylifetime.com
-play.aetv.com,play.mylifetime.com##+js(trusted-replace-fetch-response, /#EXTINF:[^\n]+\nhttps:\/\/redirector\.googlevideo\.com[^\n]+/gms, /\/ondemand\/.+\.m3u8/)
+play.aetv.com,play.mylifetime.com##+js(trusted-rpfr, /#EXTINF:[^\n]+\nhttps:\/\/redirector\.googlevideo\.com[^\n]+/gms, /\/ondemand\/.+\.m3u8/)
 aetv.com,mylifetime.com,history.com##+js(m3u-prune, /redirector\.googlevideo\.com\/videoplayback[\s\S]*?dclk_video_ads/, .m3u8)
 history.com##+js(set-constant, phxSiteConfig.gallery.ads.interstitialFrequency, emptyObj)
 history.com##+js(remove-class, has-ad-top|has-ad-right, .m-gallery-overlay.has-ad-top.has-ad-right)
@@ -21448,14 +21448,14 @@ tokopedia.com##+js(json-prune, [].data.topads.data.[-].__typename)
 ||tokopedia.com/graphql/ProductRecommendationQuery$xhr,replace=/\{"appUrl"(?:(?!"isTopads":false).)+?"isTopads":true.+?"__typename":"recommendationItem"\},?//g
 !#else
 ! Promoted products on search page (/search) carousels
-tokopedia.com##+js(trusted-replace-fetch-response, '/\{"id":\d{9,11}(?:(?!"ads":\{"id":"").)+?"ads":\{"id":"\d+".+?"__typename":"ProductCarouselV2"\},?/g', , /graphql/InspirationCarousel)
-tokopedia.com##+js(trusted-replace-fetch-response, '/\{"category_id"(?:(?!"ads":\{"id":"").)+?"ads":\{"id":"\d+".+?"__typename":"ProductCarouselV2"\},?/g', , /graphql/InspirationalCarousel)
+tokopedia.com##+js(trusted-rpfr, '/\{"id":\d{9,11}(?:(?!"ads":\{"id":"").)+?"ads":\{"id":"\d+".+?"__typename":"ProductCarouselV2"\},?/g', , /graphql/InspirationCarousel)
+tokopedia.com##+js(trusted-rpfr, '/\{"category_id"(?:(?!"ads":\{"id":"").)+?"ads":\{"id":"\d+".+?"__typename":"ProductCarouselV2"\},?/g', , /graphql/InspirationalCarousel)
 ! Promoted products on mobile carousels of product page (/p) and cart page (/cart)
-tokopedia.com##+js(trusted-replace-fetch-response, '/\{"id":\d{9,11}(?:(?!"isTopads":false).)+?"isTopads":true.+?"__typename":"recommendationItem"\},/g', , /\/graphql\/productRecommendation/i)
-tokopedia.com##+js(trusted-replace-fetch-response, '/,\{"id":\d{9,11}(?:(?!"isTopads":false).)+?"isTopads":true(?:(?!"__typename":"recommendationItem").)+?"__typename":"recommendationItem"\}(?=\])/', , /\/graphql\/productRecommendation/i)
+tokopedia.com##+js(trusted-rpfr, '/\{"id":\d{9,11}(?:(?!"isTopads":false).)+?"isTopads":true.+?"__typename":"recommendationItem"\},/g', , /\/graphql\/productRecommendation/i)
+tokopedia.com##+js(trusted-rpfr, '/,\{"id":\d{9,11}(?:(?!"isTopads":false).)+?"isTopads":true(?:(?!"__typename":"recommendationItem").)+?"__typename":"recommendationItem"\}(?=\])/', , /\/graphql\/productRecommendation/i)
 ! Promoted products on cart page (/cart)
-tokopedia.com##+js(trusted-replace-fetch-response, '/\{"(?:productS|s)lashedPrice"(?:(?!"isTopads":false).)+?"isTopads":true.+?"__typename":"recommendationItem"\},?/g', , /graphql/RecomWidget)
-tokopedia.com##+js(trusted-replace-fetch-response, '/\{"appUrl"(?:(?!"isTopads":false).)+?"isTopads":true.+?"__typename":"recommendationItem"\},?/g', , /graphql/ProductRecommendationQuery)
+tokopedia.com##+js(trusted-rpfr, '/\{"(?:productS|s)lashedPrice"(?:(?!"isTopads":false).)+?"isTopads":true.+?"__typename":"recommendationItem"\},?/g', , /graphql/RecomWidget)
+tokopedia.com##+js(trusted-rpfr, '/\{"appUrl"(?:(?!"isTopads":false).)+?"isTopads":true.+?"__typename":"recommendationItem"\},?/g', , /graphql/ProductRecommendationQuery)
 !#endif
 ! Promoted products cache on search page (/search), find page (/find), and product page (/p)
 !#if cap_html_filtering
@@ -22439,7 +22439,7 @@ neodrive.xyz##+js(rmnt, script, FingerprintJS)
 historicaerials.com##+js(nostif, /Executed|modal/)
 ||pagefair.net^
 canela.tv##+js(xml-prune, [breakId*="Roll"], , /content.vmap)
-canela.tv##+js(trusted-replace-fetch-response, /#EXT-X-KEY:METHOD=NONE\n#EXT(?:INF:[^\n]+|-X-DISCONTINUITY)\n.+?(?=#EXT-X-KEY)/gms, , /media.m3u8)
+canela.tv##+js(trusted-rpfr, /#EXT-X-KEY:METHOD=NONE\n#EXT(?:INF:[^\n]+|-X-DISCONTINUITY)\n.+?(?=#EXT-X-KEY)/gms, , /media.m3u8)
 ! viprow.nu => reliabletv.me frame => allow brave browser
 reliabletv.me##+js(set, window.navigator.brave, undefined)
 viralxxxporn.com##+js(set, flashvars.adv_pre_src, '')
@@ -23248,8 +23248,8 @@ androidadult.com##+js(rmnt, script, ads-blocked)
 ! thotchicks .com (NSFW) - popups
 thotchicks.com##+js(nowoif)
 rooter.gg##+js(trusted-set, __NEXT_DATA__.props.pageProps.broadcastData.remainingWatchDuration, json:9999999999)
-rooter.gg##+js(trusted-replace-fetch-response, /"remainingWatchDuration":\d+/, "remainingWatchDuration":9999999999, /stream)
-rooter.gg##+js(trusted-replace-fetch-response, '/"midTierRemainingAdWatchCount":\d+,"showAds":(false|true)/', '"midTierRemainingAdWatchCount":0,"showAds":false', /stream)
+rooter.gg##+js(trusted-rpfr, /"remainingWatchDuration":\d+/, "remainingWatchDuration":9999999999, /stream)
+rooter.gg##+js(trusted-rpfr, '/"midTierRemainingAdWatchCount":\d+,"showAds":(false|true)/', '"midTierRemainingAdWatchCount":0,"showAds":false', /stream)
 ! animeflix.ltd popups
 animeflix.ltd##+js(nowoif)
 loader.fo##+js(ra, onclick, button[onclick^="window.open"], stay)

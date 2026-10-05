@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2024)
-! Last modified: Sat, 03 Oct 2026 13:55:02 +0000
+! Last modified: Mon, 05 Oct 2026 10:20:29 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -1996,14 +1996,14 @@ tokopedia.com##+js(json-prune, [].data.topads.data.[-].__typename)
 ||tokopedia.com/graphql/ProductRecommendationQuery$xhr,replace=/\{"appUrl"(?:(?!"isTopads":false).)+?"isTopads":true.+?"__typename":"recommendationItem"\},?//g
 !#else
 ! Promoted products on search page (/search) carousels
-tokopedia.com##+js(trusted-replace-fetch-response, '/\{"id":\d{9,11}(?:(?!"ads":\{"id":"").)+?"ads":\{"id":"\d+".+?"__typename":"ProductCarouselV2"\},?/g', , /graphql/InspirationCarousel)
-tokopedia.com##+js(trusted-replace-fetch-response, '/\{"category_id"(?:(?!"ads":\{"id":"").)+?"ads":\{"id":"\d+".+?"__typename":"ProductCarouselV2"\},?/g', , /graphql/InspirationalCarousel)
+tokopedia.com##+js(trusted-rpfr, '/\{"id":\d{9,11}(?:(?!"ads":\{"id":"").)+?"ads":\{"id":"\d+".+?"__typename":"ProductCarouselV2"\},?/g', , /graphql/InspirationCarousel)
+tokopedia.com##+js(trusted-rpfr, '/\{"category_id"(?:(?!"ads":\{"id":"").)+?"ads":\{"id":"\d+".+?"__typename":"ProductCarouselV2"\},?/g', , /graphql/InspirationalCarousel)
 ! Promoted products on mobile carousels of product page (/p) and cart page (/cart)
-tokopedia.com##+js(trusted-replace-fetch-response, '/\{"id":\d{9,11}(?:(?!"isTopads":false).)+?"isTopads":true.+?"__typename":"recommendationItem"\},/g', , /\/graphql\/productRecommendation/i)
-tokopedia.com##+js(trusted-replace-fetch-response, '/,\{"id":\d{9,11}(?:(?!"isTopads":false).)+?"isTopads":true(?:(?!"__typename":"recommendationItem").)+?"__typename":"recommendationItem"\}(?=\])/', , /\/graphql\/productRecommendation/i)
+tokopedia.com##+js(trusted-rpfr, '/\{"id":\d{9,11}(?:(?!"isTopads":false).)+?"isTopads":true.+?"__typename":"recommendationItem"\},/g', , /\/graphql\/productRecommendation/i)
+tokopedia.com##+js(trusted-rpfr, '/,\{"id":\d{9,11}(?:(?!"isTopads":false).)+?"isTopads":true(?:(?!"__typename":"recommendationItem").)+?"__typename":"recommendationItem"\}(?=\])/', , /\/graphql\/productRecommendation/i)
 ! Promoted products on cart page (/cart)
-tokopedia.com##+js(trusted-replace-fetch-response, '/\{"(?:productS|s)lashedPrice"(?:(?!"isTopads":false).)+?"isTopads":true.+?"__typename":"recommendationItem"\},?/g', , /graphql/RecomWidget)
-tokopedia.com##+js(trusted-replace-fetch-response, '/\{"appUrl"(?:(?!"isTopads":false).)+?"isTopads":true.+?"__typename":"recommendationItem"\},?/g', , /graphql/ProductRecommendationQuery)
+tokopedia.com##+js(trusted-rpfr, '/\{"(?:productS|s)lashedPrice"(?:(?!"isTopads":false).)+?"isTopads":true.+?"__typename":"recommendationItem"\},?/g', , /graphql/RecomWidget)
+tokopedia.com##+js(trusted-rpfr, '/\{"appUrl"(?:(?!"isTopads":false).)+?"isTopads":true.+?"__typename":"recommendationItem"\},?/g', , /graphql/ProductRecommendationQuery)
 !#endif
 ! Promoted products cache on search page (/search), find page (/find), and product page (/p)
 !#if cap_html_filtering
@@ -3779,7 +3779,7 @@ historicaerials.com##+js(nostif, /Executed|modal/)
 
 ! https://www.reddit.com/r/uBlockOrigin/comments/1guanqw/need_help_please/
 canela.tv##+js(xml-prune, [breakId*="Roll"], , /content.vmap)
-canela.tv##+js(trusted-replace-fetch-response, /#EXT-X-KEY:METHOD=NONE\n#EXT(?:INF:[^\n]+|-X-DISCONTINUITY)\n.+?(?=#EXT-X-KEY)/gms, , /media.m3u8)
+canela.tv##+js(trusted-rpfr, /#EXT-X-KEY:METHOD=NONE\n#EXT(?:INF:[^\n]+|-X-DISCONTINUITY)\n.+?(?=#EXT-X-KEY)/gms, , /media.m3u8)
 
 ! viprow.nu => reliabletv.me frame => allow brave browser
 reliabletv.me##+js(set, window.navigator.brave, undefined)
