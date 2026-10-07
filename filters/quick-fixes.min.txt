@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Quick fixes
 ! Expires: 12 hours
-! Last modified: Wed, 07 Oct 2026 10:36:25 +0000
+! Last modified: Wed, 07 Oct 2026 12:32:32 +0000
 ! Diff-Path: %diffpath%#ublock-quick-fixes
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -384,12 +384,15 @@ twitch.tv##.chat-shell > div[class^="Layout-sc-"]  > div[style^="transition:"]:h
 fo76db.com##+js(trusted-rpnt, script, / ads\.map[\S\s\n]+?join\(''\)/)
 pdftoshokan.com##+js(aeld, /click|load/, /document\.location|pop\.|exo|cookie|\.php/)
 pdftoshokan.com##+js(nowoif, /ok_|pemsrv\.com/)
-pdftoshokan.com##+js(trusted-replace-argument, parseInt, 0, json:"1800000000000", condition, /^(179\d{10}|null)$/)
+pdftoshokan.com##+js(trusted-replace-argument, Math.abs, 0, json:"120000", condition, /^179\d{10}$/)
 pdftoshokan.com##+js(trusted-replace-outbound-text, atob, /^https:\/\/s\.pemsrv\.com.+/, 'window.location.href')
+pdftoshokan.com##+js(set, doAdRedirect, noopFunc)
 !#if cap_html_filtering
 pdftoshokan.com##^script:has-text(/ad.?Config|prepare.?Pop|\/popunder|ads_host/)
-||pdftoshokan.com/single.js$replace=/if \(n(ow)? - l(ast)? > c \* 1e3\)/if(0)/
+||pdftoshokan.com^$script,replace=/if\s*\(\s*Math\.abs\s*\([\$-0-9A-Z_a-z]+-[\$-0-9A-Z_a-z]+\)\s*>\s*[\$-0-9A-Z_a-z]+\s*\*\s*\d+(e\d)?\)/if(0)/
 !#endif
+||pdftoshokan.com/window.location.href$doc,uritransform=/window\.location\.href//
+||pdftoshokan.com/manga/window.location.href$doc,uritransform=/manga\/window\.location\.href//
 igorslab.de##^script#igorslab-tracking
 igorslab.de##a[aria-label*="Banner"]
 igorslab.de##.herald-sticky
