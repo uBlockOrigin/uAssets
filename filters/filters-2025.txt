@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2025)
-! Last modified: Wed, 07 Oct 2026 11:31:11 +0000
+! Last modified: Thu, 08 Oct 2026 11:43:45 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -991,6 +991,7 @@ mrbobd.com###clickfakeplayer[href]:remove-attr(href)
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/183252
 exploader.net##+js(trusted-rpnt, script, /^var \w+=\[.+/, (()=>{let e=[];document.addEventListener("DOMContentLoaded"\,(()=>{const t=document.querySelector("body script").textContent.match(/"] = '(.*?)'/g);if(!t)return;t.forEach((t=>{const r=t.replace(/.*'(.*?)'/\,"$1");e.push(r)}));const r=document.querySelector('.dl_button[href*="preview"]').href.split("?")[1];e.includes(r)&&(e=e.filter((e=>e!==r)));document.querySelectorAll(".dl_button[href]").forEach((t=>{t.target="_blank";let r=t.cloneNode(!0);r.href=t.href.replace(/\?.*/\,`?${e[0]}`)\,t.after(r);let o=t.cloneNode(!0);o.href=t.href.replace(/\?.*/\,`?${e[1]}`)\,t.after(o)}))}))})();, sedCount, 1)
+exploader.net##+js(trusted-set-attr, #firstpop, style, 'top: -3000px;')
 
 ! https://github.com/uBlockOrigin/uAssets/issues/27050
 blog-dnz.com##+js(set, isAdBlocked, noopFunc)
