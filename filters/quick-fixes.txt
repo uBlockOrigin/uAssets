@@ -1,5 +1,5 @@
 ! Title: uBlock₀ filters – Quick fixes
-! Last modified: Fri, 09 Oct 2026 15:54:57 +0000
+! Last modified: Fri, 09 Oct 2026 19:04:57 +0000
 ! Expires: 8 hours
 ! Description: Immediate, temporary filters to fix websites
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -476,7 +476,9 @@ openchat-review.me##+js(aost, document.querySelectorAll, security.js)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/33280
 streamcash.to##+js(rmnt, script, /\${''}|body:JSON\.stringify/)
-streamcash.to##div[id]:has(button[onclick*="location.reload()"])
+streamcash.to##+js(trusted-replace-argument, document.getElementById, 0, '', condition, pv-notice)
+streamcash.to##span[id][style*="z-index: 2147483647;"]
+streamcash.to##div[id][style*="40px"]
 
 ! https://github.com/uBlockOrigin/uAssets/issues/24714
 decompiler.com##+js(set, OffscreenCanvas.prototype.getContext, undefined)
