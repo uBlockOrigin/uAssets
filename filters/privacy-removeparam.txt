@@ -1,5 +1,5 @@
 ! Title: AdGuard/uBO – URL Tracking Protection
-! Last modified: Sat, 10 Oct 2026 17:03:16 +0000
+! Last modified: Sun, 11 Oct 2026 04:23:35 +0000
 ! Expires: 7 days
 ! Description: |
 !   Filter that enhances privacy by removing tracking parameters from URLs.
@@ -25,6 +25,9 @@
 !
 ! NOTE: Generic rules
 !
+! Prisjakt
+! https://developer.prisjakt.nu/docs/sections/for-shops/analytics/pj-pixel/
+$removeparam=pjclid
 ! https://github.com/DandelionSprout/adfilt/discussions/163#discussioncomment-17285759
 $removeparam=/^weekend-reading-link-\d{6}$/
 ! Not identified. Used on avira.com, malwarebytes.com and some other sites
@@ -517,6 +520,36 @@ $to=~tradedoubler.com,removeparam=tduid
 ! Bad: ||example.org^$xmlhttprequest,redirect=noopvast-3.0 (for instance, should be in specific.txt)
 !
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/243658
+||sp.mbga.jp^$removeparam=_from
+||sp.mbga.jp^$removeparam=_fr
+! https://github.com/AdguardTeam/AdguardFilters/issues/243661
+! https://github.com/AdguardTeam/AdguardFilters/issues/243539
+||search.yahoo.co.jp^$removeparam=frtype
+||bangumi.org^$removeparam=and_yjweb
+||yahoo-mbga.jp^$removeparam=_ref
+||retty.me^$removeparam=utm_y_smt_top
+! https://github.com/AdguardTeam/AdguardFilters/issues/243243
+||boots.com^$removeparam=affwin
+||boots.com^$removeparam=sv1
+||boots.com^$removeparam=sv_campaign_id
+! https://github.com/AdguardTeam/AdguardFilters/issues/243180
+||my-best.com^$removeparam=utm_y_top
+||retty.me^$removeparam=utm_y_pc_top
+||bangumi.org^$removeparam=pc_yjweb
+||store.line.me^$removeparam=ref
+||paypay-bank.co.jp^$removeparam=ys
+||my.softbank.jp^$removeparam=adid
+||ikyu.com^$removeparam=ikCo
+||ikyu.com^$removeparam=sc_e
+||lohaco.yahoo.co.jp^$removeparam=bk
+||ymobile-store.yahoo.co.jp^$removeparam=entry_channel
+||smartphone.yahoo.co.jp^$removeparam=argument
+||smartphone.yahoo.co.jp^$removeparam=from
+||smartphone.yahoo.co.jp^$removeparam=dmai
+! https://github.com/AdguardTeam/AdguardFilters/issues/243143
+||askul.co.jp^$removeparam=sc_i
+||askul.co.jp^$removeparam=int_id
 ! https://github.com/AdguardTeam/AdguardFilters/issues/243021
 ||dailymail.com^$removeparam=ns_mchannel
 ||dailymail.com^$removeparam=ns_campaign
@@ -1779,7 +1812,6 @@ ref=producthunt^$removeparam=ref
 ! https://github.com/AdguardTeam/AdguardFilters/issues/184837
 ||game.hiroba.dpoint.docomo.ne.jp^$removeparam=mks_referer_event
 ! https://news.yahoo.co.jp/articles/ca5b45b1e27e871071e6fd94be02f630884371c8?source=sns&dv=pc&mid=other&date=20240728&ctg=it&bt=tw_up
-||news.yahoo.co.jp^$removeparam=source
 ||news.yahoo.co.jp^$removeparam=dv
 ||news.yahoo.co.jp^$removeparam=mid
 ||news.yahoo.co.jp^$removeparam=date
@@ -3700,6 +3732,8 @@ $removeparam=s,domain=twitter.com|x.com
 ||websearch.rakuten.co.jp/Web?$removeparam=ref
 ||rakuten.co.jp^*&trflg=$removeparam=trflg
 ! yahoo.co.jp
+! https://github.com/AdguardTeam/AdguardFilters/issues/243539
+||yahoo.co.jp^$removeparam=source
 ! https://github.com/AdguardTeam/AdguardFilters/issues/219181
 ! https://github.com/AdguardTeam/AdguardFilters/issues/239550
 ! https://github.com/AdguardTeam/AdguardFilters/issues/179934
