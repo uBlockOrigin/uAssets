@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Thu, 15 Oct 2026 16:56:13 +0000
+! Last modified: Thu, 15 Oct 2026 17:36:19 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -9192,6 +9192,10 @@ twihub.net##+js(trusted-suppress-native-method, Document.prototype.createElement
 /aas/r45d/vki/*$script,redirect=noop.js
 /^https:\/\/[a-z]{8,12}\.com\/en\/(?:[a-z]{2,10}\/){0,2}[a-z]{2,}\?(?:[a-z]+=[^&=?\s]*?&)*?id=[12]\d{6}\b/$script,3p,match-case,to=com
 /^https:\/\/www\.gayxnow\.com\/[a-z][a-z][a-z][a-z][a-z][a-z]?\.js$/$script
+/^https:\/\/[a-z]{7}\.com\/\d{7}\.js$/$script,3p,to=com
+!#if env_safari
+/^https:\/\/[a-z][a-z][a-z][a-z][a-z][a-z][a-z]\.com\/[0-9][0-9][0-9][0-9][0-9][0-9][0-9]\.js$/$script,3p
+!#endif
 /^https:\/\/[0-9a-z]{6,12}\.(?:com|in)(?:\/[a-z]{2,10}){1,3}(?:\?id=\d+)?$/$script,3p,match-case,header=etag:/^W\/"[0-9a-z]+-[0-9a-zA-Z]+(?:\/[0-9a-zA-Z]+)?"$/,from=~edu|~gov,to=com|in
 !#if cap_ipaddress
 /^https:\/\/[0-9a-z]{6,12}\.(?:com|in)(?:\/[a-z]{2,10}){1,3}(?:\?id=\d+)?$/$script,xhr,3p,match-case,from=~edu|~gov,to=com|in,ipaddress=/64\.120\.116\.15[34]$/
@@ -9212,6 +9216,7 @@ twihub.net##+js(trusted-suppress-native-method, Document.prototype.createElement
 ||rule34vault.com/ngsw-worker.js
 ! Ads servers
 ||briarcostshadow.com^
+||iugsbae.com^
 ||oversizedsixtieswiry.com^
 novelcrow.com##.widget_custom_html
 novelcrow.com##[href^="https://landing.candynetwork.ai/"]
@@ -25188,6 +25193,10 @@ vidara.so,vidara.to,vidavra.com##+js(set, HTMLScriptElement.prototype.onerror, u
 vidara.so,vidara.to,vidavra.com##div.max-w-3xl.mx-auto > div.relative.mb-5.rounded-xl.p-7.text-center
 myvidster.com##div.details_ads:nth-of-type(2)
 myvidster.com##td[height="90"]
+gjsabgs.com,gosbagotui.com##+js(rmnt, script, /h=decodeURIComponent|popundersPerIP|popup|\.onerror|WebAssembly/i)
+/assets/js/wynq.js|$script,3p
+/assets/js/fsorient.js?v=$script,1p
+/assets/js/new100.js?v=$script,1p
 twitchnosub.com##+js(nostif, , 3200-)
 twitchnosub.com##+js(rmnt, script, /bait/i)
 @@||twitchnosub.com/*.js|$1p
@@ -26063,7 +26072,6 @@ kinob.net##+js(trusted-json-edit, .vast=0)
 kinob.net##+js(trusted-json-edit, .prerolls=0)
 nonograms-katana.com###embed-da
 nonograms-katana.com###embed-app:style(width: 100% !important;)
-gosbagotui.com##+js(rmnt, script, /popup|\.onerror/i)
 ||websecx.site^
 ||otakusexart.com/wp-content/uploads/*.gif$image,1p
 otakusexart.com##a[href^="https://hentai-onahole.moe"]
