@@ -2231,6 +2231,14 @@ tvtun.com##+js(aeld, contextmenu)
 ! https://github.com/uBlockOrigin/uAssets/pull/34647
 agerpres.ro##+js(aeld, contextmenu, preventDefault)
 
+! https://github.com/uBlockOrigin/uAssets/issues/34915
+radnuk.com.ua##+js(set, document.oncopy, undefined)
+!#if env_firefox
+radnuk.com.ua##.articles-content[oncopy]:remove-attr(oncopy)
+!#else
+radnuk.com.ua##+js(ra, oncopy, .articles-content[oncopy], complete)
+!#endif
+
 ! ================================================ END: Anti copy, right-click, devtools, text select etc. ==========================================================================
 
 ! ================================================================START: Anti-adblock ===============================================================================================
