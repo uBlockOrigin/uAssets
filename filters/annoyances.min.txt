@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Annoyances
 ! Expires: 7 days
-! Last modified: Sun, 18 Oct 2026 02:22:06 +0000
+! Last modified: Sun, 18 Oct 2026 12:12:38 +0000
 ! Diff-Path: %diffpath%#ublock-annoyances
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -1404,6 +1404,12 @@ voedingswaardetabel.nl##+js(set, document.onselectstart, null)
 voedingswaardetabel.nl##*:style(-webkit-touch-callout: auto !important; -moz-touch-callout: auto !important; -ms-touch-callout: auto !important; -o-touch-callout: auto !important; touch-callout: auto !important; -webkit-user-select: auto !important; -moz-user-select: auto !important; -ms-user-select: auto !important; -o-user-select: auto !important; user-select: auto !important; -ms-touch-action: auto)
 tvtun.com##+js(aeld, contextmenu)
 agerpres.ro##+js(aeld, contextmenu, preventDefault)
+radnuk.com.ua##+js(set, document.oncopy, undefined)
+!#if env_firefox
+radnuk.com.ua##.articles-content[oncopy]:remove-attr(oncopy)
+!#else
+radnuk.com.ua##+js(ra, oncopy, .articles-content[oncopy], complete)
+!#endif
 ! ================================================ END: Anti copy, right-click, devtools, text select etc. ==========================================================================
 ! ================================================================START: Anti-adblock ===============================================================================================
 @@||socialblade.com^$ghide
