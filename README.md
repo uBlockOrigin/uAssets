@@ -26,29 +26,31 @@ The EasyList-compatible fixes for high-traffic websites are added to uBO filters
 
 #### How to correctly report an issue:
 
-- Disable all other browser extensions and see if the issue still occurs
+1. Disable all other browser extensions and see if the issue still occurs
 
-- If the issue still occurs when all other browser extensions are disabled, then provide the troubleshooting information:
+2. If the issue still occurs when all other browser extensions are disabled, then provide the troubleshooting information:
 
   * Steps for uBO:  
   
-    1. Open a new browser tab
-    2. Go to the specific page where the issue occurs
-    3. Click the 🛡️ uBO icon
-    4. Click the 💬 chat icon
-    5. Click `Troubleshooting Information`
-    6. Click `Select all` and copy the contents
-    7. Paste the contents into the appropriate GitHub thread
+    - Open a new browser tab
+    - Go to the specific page where the issue occurs
+    - Click the 🛡️ uBO icon
+    - Click the 💬 chat icon
+    - Click `Troubleshooting Information`
+    - Click `Select all` and copy the contents
+    - Paste the contents into the appropriate GitHub thread
 
   * Steps for uBO Lite:  
 
-    1. Open a new browser tab
-    2. Go to the specific page where the issue occurs
-    3. Click the 🛡️ uBO Lite icon
-    4. Click the menu item for `💬 Report an issue`
-    5. Click `Troubleshooting Information`
-    6. Copy the contents
-    7. Paste the contents into the appropriate GitHub thread
+    - Open a new browser tab
+    - Go to the specific page where the issue occurs
+    - Click the 🛡️ uBO Lite icon
+    - Click the menu item for `💬 Report an issue`
+    - Click `Troubleshooting Information`
+    - Copy the contents
+    - Paste the contents into the appropriate GitHub thread
+   
+3. Always provide a clear description of the issue and the steps necessary to reproduce it (including if an account/login is required)
  
 #### Filter List Requests
 
