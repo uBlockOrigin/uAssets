@@ -1450,7 +1450,17 @@ autoembed.app##section[aria-label="Sponsored content"]
 ||empirenovel.com/po.js
 
 ! https://github.com/uBlockOrigin/uAssets/issues/33394
-leakgallery.com##+js(aost, String.prototype.replace, decideForPlacement)
+@@||leakgallery.com^$ghide
+##.page-layout a[href^="https://hashcounts.com/"]
+leakgallery.com##app-top-strip:remove()
+leakgallery.com##a[rel~="sponsored"]
+leakgallery.com##+js(no-fetch-if, method:HEAD)
+leakgallery.com##+js(set-cookie, adblock, 0)
+*$script,3p,redirect-rule=noopjs,to=~googletagmanager.com,from=leakgallery.com
+*$script,3p,redirect=noopjs,to=pemsrv.com|tsyndicate.com,from=leakgallery.com
+||api.leakgallery.com/r/z?
+||cdn.*.com/sdk/v*/dd.*.js|$script,3p
+/\/r\/z\?z=[0-9]+&sub=[0-9]+/$xhr,1p,match-case
 
 ! https://github.com/uBlockOrigin/uAssets/issues/33420
 scmp.com##+js(no-xhr-if, googlesyndication)
