@@ -23,6 +23,8 @@ The EasyList-compatible fixes for high-traffic websites are added to uBO filters
 - Paywalls
 - Porn Farms
 - Annoyances (widgets, social media buttons, newsletter subscriptions, donation requests, etc)
+- Self-promotion elements
+- Requests for custom filters to modify or restyle site content
 
 #### How to correctly report an issue:
 
