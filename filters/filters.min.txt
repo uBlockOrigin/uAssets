@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Wed, 21 Oct 2026 13:42:34 +0000
+! Last modified: Wed, 21 Oct 2026 14:26:06 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -25750,7 +25750,17 @@ autoembed.app##section[aria-label="Sponsored content"]
 *$script,3p,denyallow=cloudflare.com,domain=empirenovel.com
 *$xhr,3p,denyallow=cloudflare.com|googleapis.com,domain=empirenovel.com
 ||empirenovel.com/po.js
-leakgallery.com##+js(aost, String.prototype.replace, decideForPlacement)
+@@||leakgallery.com^$ghide
+##.page-layout a[href^="https://hashcounts.com/"]
+leakgallery.com##app-top-strip:remove()
+leakgallery.com##a[rel~="sponsored"]
+leakgallery.com##+js(no-fetch-if, method:HEAD)
+leakgallery.com##+js(set-cookie, adblock, 0)
+*$script,3p,redirect-rule=noopjs,to=~googletagmanager.com,from=leakgallery.com
+*$script,3p,redirect=noopjs,to=pemsrv.com|tsyndicate.com,from=leakgallery.com
+||api.leakgallery.com/r/z?
+||cdn.*.com/sdk/v*/dd.*.js|$script,3p
+/\/r\/z\?z=[0-9]+&sub=[0-9]+/$xhr,1p,match-case
 scmp.com##+js(no-xhr-if, googlesyndication)
 scmp.com##+js(remove-cookie, __adblocker)
 opatil.com##+js(rmnt, script, offsetParent)
