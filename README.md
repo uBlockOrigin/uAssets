@@ -24,7 +24,7 @@ The EasyList-compatible fixes for high-traffic websites are added to uBO filters
 - Porn Farms
 - Annoyances (widgets, social media buttons, newsletter subscriptions, donation requests, etc)
 - Self-promotion elements
-- Requests for custom filters to modify or restyle site content
+- Requests for custom filters to modify or restyle site content (for help with these, visit [/r/uBlockOrigin](https://www.reddit.com/r/uBlockOrigin/)).
 
 #### How to correctly report an issue:
 
