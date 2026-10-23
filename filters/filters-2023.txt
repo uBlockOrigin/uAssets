@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2023)
-! Last modified: Sat, 17 Oct 2026 16:59:38 +0000
+! Last modified: Fri, 23 Oct 2026 08:12:57 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -1661,9 +1661,11 @@ pepperlive.info##^script:has-text(decodeURIComponent(escape(r)))
 pepperlivestream.online##+js(aopr, Adcash)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/17636#issuecomment-1529158656
+! https://www.reddit.com/r/uBlockOrigin/comments/1xc15sw/bunker_sites_showing_ads_having_popups/
 bunkr.la##+js(acs, document.createElement, click)
 *$script,3p,denyallow=cdn.plyr.io|b-cdn.net,domain=bunkr.la
-||bunkr.la/build/lv.js$script,1p
+||bunkr.*/lv.js$script,1p
+/^https:\/\/[0-9]+\.b-cdn\.net\/w\.js$/$script,3p,match-case
 
 ! https://github.com/uBlockOrigin/uAssets/issues/17893
 androidadult.com##+js(set, chp_adblock_browser, noopFunc)
