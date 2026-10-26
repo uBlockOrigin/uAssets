@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Privacy
-! Last modified: Sun, 25 Oct 2026 16:58:36 +0000
+! Last modified: Mon, 26 Oct 2026 09:38:59 +0000
 ! Expires: 7 days
 ! Description: |
 !   Some of these filters make use of the `important` filter option,`
@@ -3381,6 +3381,10 @@ oklivetv.com##+js(no-fetch-if, method:POST body:tracker)
 ! https://github.com/uBlockOrigin/uAssets/issues/35002
 ||go.portail-assurance.ca^
 ||proxyhog.com^
+
+! https://github.com/uBlockOrigin/uAssets/issues/35020
+||bol.com/rs/v*/batch|
+bol.com##+js(json-edit-fetch-request, $[?.operationName=="sendExperimentMeasurementReferences"].*, propsToMatch, /graphql)
 
 ! Merge in resource-abuse.txt
 !#include resource-abuse.txt
