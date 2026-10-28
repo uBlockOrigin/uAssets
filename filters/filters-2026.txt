@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2026)
-! Last modified: Wed, 28 Oct 2026 06:11:11 +0000
+! Last modified: Wed, 28 Oct 2026 11:55:36 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -706,10 +706,13 @@ y8.com###request-play-game-ad:remove()
 ! https://github.com/uBlockOrigin/uAssets/issues/32133
 @@||simpmusic.org^$ghide
 simpmusic.org##.ezoic-ad-slot
-simpmusic.org##+js(no-fetch-if, mode:no-cors, length:10, {"type": "opaque"})
-simpmusic.org##+js(trusted-replace-argument, Object.getOwnPropertyDescriptor, 1, json:"none", condition, onerror)
+! simpmusic.org##+js(no-fetch-if, mode:no-cors, length:10, {"type": "opaque"})
+! simpmusic.org##+js(trusted-replace-argument, Object.getOwnPropertyDescriptor, 1, json:"none", condition, onerror)
 simpmusic.org##+js(no-xhr-if, googlesyndication)
-simpmusic.org##+js(set, HTMLImageElement.prototype.onerror, undefined)
+! simpmusic.org##+js(set, HTMLImageElement.prototype.onerror, undefined)
+!#if env_chromium
+@@*$xhr,method=head,domain=simpmusic.org
+!#endif
 
 ! https://www.reddit.com/r/uBlockOrigin/comments/1rphb84/adblock_detection_on_httpsmyaewcom/
 myaew.com##+js(no-fetch-if, imasdk)
