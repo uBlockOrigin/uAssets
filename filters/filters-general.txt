@@ -3217,12 +3217,26 @@ f4scdn.com##+js(no-fetch-if, adsbygoogle)
 
 ! SECTION: VIDARA
 
-gaqghe.com,gasobni.com##+js(nowoif)
-gaqghe.com,gasobni.com##+js(acs, WebAssembly, atob)
-!#if cap_html_filtering
-gaqghe.com,gasobni.com##^script[data-cfasync]:has-text(/h=decodeURIComponent|popundersPerIP/)
-!#else
-gaqghe.com,gasobni.com##+js(rmnt, script, /h=decodeURIComponent|popundersPerIP/)
+! https://github.com/AdguardTeam/AdguardFilters/issues/224406
+*$script,redirect-rule=noopjs,domain=vidara.to|vidavra.com|vidara.so
+||ssl.p.jwpcdn.com/player/*/googima.js$script,redirect=noopjs,domain=vidara.so|vidara.to|vidavra.com
+vidara.so,vidara.to,vidavra.com##+js(nowoif)
+vidara.so,vidara.to,vidavra.com##+js(acs, document.createElement, /blocker|detected/)
+! https://github.com/uBlockOrigin/uAssets/issues/32090
+vidara.so,vidara.to,vidavra.com##+js(rmnt, script, document.getElementsByTagName)
+vidara.so,vidara.to,vidavra.com##+js(set, HTMLScriptElement.prototype.onerror, undefined)
+vidara.so,vidara.to,vidavra.com##div.max-w-3xl.mx-auto > div.relative.mb-5.rounded-xl.p-7.text-center
+myvidster.com##div.details_ads:nth-of-type(2)
+myvidster.com##td[height="90"]
+! https://github.com/uBlockOrigin/uAssets/issues/34839
+! https://github.com/uBlockOrigin/uAssets/issues/34524
+! https://github.com/uBlockOrigin/uAssets/issues/35011
+avtub.net>>,funcrot.net>>,vidara.*>>##+js(rmnt, script, /h=decodeURIComponent|popundersPerIP|popup|\.onerror|WebAssembly/i)
+dstyladsg.com,gaqghe.com,gasobni.com,gjsabgs.com,gosbagotui.com##+js(rmnt, script, /h=decodeURIComponent|popundersPerIP|popup|\.onerror|WebAssembly/i)
+/assets/js/wynq.js|$script,3p
+/^https:\/\/[a-z]{8}\.com\/assets\/js\/[a-z]{4,5}\.js$/$script,3p,match-case,top=avtub.net|funcrot.net|vidara.*|vidara.so|vidara.to
+!#if env_safari
+/^https:\/\/[a-z][a-z][a-z][a-z][a-z][a-z][a-z][a-z]\.com\/assets\/js\/[a-z][a-z][a-z][a-z][a-z]?\.js$/$script,3p,match-case,top=avtub.net|funcrot.net|vidara.*|vidara.so|vidara.to
 !#endif
 
 ! !SECTION: VIDARA
