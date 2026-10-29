@@ -80,11 +80,8 @@ const jsonSetMapReplacer = (k, v) => {
 const writeFile = async (fname, data) => {
     const dir = path.dirname(fname);
     await fs.mkdir(dir, { recursive: true });
-    const promise = fs.writeFile(fname, data);
-    writeOps.push(promise);
-    return promise;
+    await fs.writeFile(fname, data);
 };
-const writeOps = [];
 
 /******************************************************************************/
 
@@ -281,7 +278,7 @@ async function processList(parser, text, lineto, fpath) {
             badHostnames.forEach(v => {
                 log(`${lineno}  ${v}`);
             });
-            writeFile(fpath, stdOutput.join('\n'));
+            await writeFile(fpath, stdOutput.join('\n'));
         }
     }
     toProgressString(0);
@@ -308,12 +305,12 @@ async function main() {
     const text = await fs.readFile(infile, { encoding: 'utf8' });
     await processList(parser, text, lineto, partialResultPath);
 
-    writeFile(`${outdir}/${infileParts.name}.results.txt`, stdOutput.join('\n'));
-    writeFile(`${outdir}/${infileParts.name}.dns.results.txt`, JSON.stringify(validatedHostnames, jsonSetMapReplacer, 1));
+    await Promise.all([
+        writeFile(`${outdir}/${infileParts.name}.results.txt`, stdOutput.join('\n')),
+        writeFile(`${outdir}/${infileParts.name}.dns.results.txt`, JSON.stringify(validatedHostnames, jsonSetMapReplacer, 1)),
+    ]);
 
-    fs.rm(partialResultPath);
-
-    await Promise.all(writeOps);
+    await fs.rm(partialResultPath, { force: true });
 }
 
 main();
