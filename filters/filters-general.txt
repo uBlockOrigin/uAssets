@@ -2124,8 +2124,6 @@ huskermax.com,iphoneincanada.ca,premierguitar.com,techcrunch.com##+js(rmnt, scri
 7daystodie-servers.com,apnews.com,cwtv.com,gameslantern.com,hytale-servers.net,minecraft-schematics.com,rust-servers.net##+js(rmnt, script, /admiral|-engaged/, excludes, \,\")
 cwtv.com,marketwatch.com,thegatewaypundit.com##+js(rmnt, script, []).push(arguments), excludes, '/,\\"|self\.__next|pageProps/')
 portail-assurance.ca,sporcle.com##+js(rmnt, script, /\.cmd\.unshift|adblockerDisabled/, excludes, \,\")
-foxnews.com##+js(rmnt, script, document.referrer.indexOf)
-foxnews.com##+js(rmnt, script, __apNoHold)
 sporcle.com##div.row-unit-container.row:has(.new-temp-unit)
 sporcle.com##.unit-container.box:has(.new-temp-unit)
 ! PMC sites
@@ -2235,6 +2233,14 @@ whatismyip.com##+js(set, __disableAds, true)
 komonews.com###deeper-dive-container-0
 komonews.com##.TaboolaHomepageFeed_taboolaWrapper__dtrdt
 komonews.com##[data-slot-label^="DisplayAd"]
+! https://www.reddit.com/r/uBlockOrigin/comments/1xiil84/ubo_lite_you_are_seeing_this_message_because_ad/
+!#if cap_html_filtering
+foxnews.com##^script:has-text(document.referrer.indexOf)
+foxnews.com##^script:has-text(__apNoHold)
+!#else
+foxnews.com##+js(rmnt, script, document.referrer.indexOf)
+foxnews.com##+js(rmnt, script, __apNoHold)
+!#endif
 ! https://thearenagroup.net/our-brands/
 athlonsports.com,autoblog.com,bikemag.com,dengarden.com,mensfitness.com,mensjournal.com,parade.com,paradehomeandgarden.com,paradepets.com,pethelpful.com,powder.com,shophq.com,surfer.com,thespun.com,thestreet.com,travelhost.com##+js(json-edit, ..props.children.*[?.key=="admiral-script"])
 athlonsports.com,autoblog.com,bikemag.com,dengarden.com,mensfitness.com,mensjournal.com,parade.com,paradehomeandgarden.com,paradepets.com,pethelpful.com,powder.com,shophq.com,surfer.com,thespun.com,thestreet.com,travelhost.com##+js(trusted-json-edit, ..props.config.ad.enabled=false)
