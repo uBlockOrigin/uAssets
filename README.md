@@ -14,6 +14,8 @@ The EasyList-compatible fixes for high-traffic websites are added to uBO filters
 - Anti-Blocker
 - Context Menu Blockage
 - Cut/Copy/Paste Blockage
+- DevTools Blockage
+- Copy Manipulation
 - Popups/Popunders
 - Website Breakage
 - Video Ads
@@ -22,7 +24,7 @@ The EasyList-compatible fixes for high-traffic websites are added to uBO filters
 
 - Paywalls
 - Porn Farms
-- Annoyances (widgets, social media buttons, newsletter subscriptions, donation requests, etc)
+- Annoyances (such as: chat widgets or any other type of widget, social media buttons, newsletter subscriptions, donation requests, etc)
 - Self-promotion elements
 - Requests for custom filters to modify or restyle site content (for help with these, visit [/r/uBlockOrigin](https://www.reddit.com/r/uBlockOrigin/)).
 
