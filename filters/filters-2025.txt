@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2025)
-! Last modified: Sun, 01 Nov 2026 03:58:35 +0000
+! Last modified: Tue, 03 Nov 2026 04:33:12 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -328,6 +328,12 @@ hulu.com##+js(xml-prune, 'xpath(//*[name()="MPD"]/@mediaPresentationDuration | /
 hentai2read.com##+js(nowoif)
 hentai2read.com##[target="_blank"]:has([src^="//"])
 hentai2read.com##[src^="data: ;base64,"]
+hentai2read.com##+js(aeld, consent:loaded, ads)
+hentai2read.com##+js(rmnt, script, '"clickadu"')
+hentai2read.com##+js(json-prune, props.ads props.sideAd props.infoAd)
+/tag?c=cmp_*&placement=$frame,3p
+||hentai2read.com/x/
+||royalbluefireplace.com^$3p
 ||hentai2read.com/ark/*.js^$script,1p
 ||hentaicdn.com^*/NATORI.$script,3p
 /\.com\/\d+/[0-9a-z]+\.js$/$script,1p,domain=hentai2w.com
