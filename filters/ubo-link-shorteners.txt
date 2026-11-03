@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Link shorteners
-! Last modified: Tue, 03 Nov 2026 03:05:32 +0000
+! Last modified: Tue, 03 Nov 2026 07:33:00 +0000
 ! Expires: 5 days
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
@@ -1912,3 +1912,12 @@ link.snipcash.com##+js(set, blurred, false)
 @@||fileroy.com/assets/$script,1p
 fileroy.com##+js(rmnt, script, ?key=)
 fileroy.com##div.fr-gate-ad
+
+! https://github.com/uBlockOrigin/uAssets/issues/35169
+||auth.av1core.de5.net/health$xhr
+||uplcm.com^$popup
+av1core.*##+js(no-fetch-if, /outbrain\.com|adligature\.com|quantserve\.com|srvtrck\.com/)
+av1core.*##+js(set, HTMLElement.prototype.offsetHeight, 1)
+av1core.*##+js(nowoif, uplcm.com)
+av1core.*##+js(set, document.hidden, false)
+av1core.*##+js(trusted-set, document.visibilityState, visible)
