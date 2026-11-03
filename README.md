@@ -24,8 +24,8 @@ The EasyList-compatible fixes for high-traffic websites are added to uBO filters
 - Paywalls
 - Porn Farms
 - Annoyances (widgets, social media buttons, newsletter subscriptions, donation requests, etc)
-- Self-promotion (advertising which promotes goods or services that are owned/operated by the site/domain)
-- Requests for custom filters to modify or restyle site content (for help with these, visit [/r/uBlockOrigin](https://www.reddit.com/r/uBlockOrigin/)).
+- Self-promotion (advertising for products/services that are owned or operated by the site/domain)
+- Requests for custom filters to modify or restyle site content (for help with these, visit [/r/uBlockOrigin](https://www.reddit.com/r/uBlockOrigin/))
 
 #### How to correctly report an issue:
 
