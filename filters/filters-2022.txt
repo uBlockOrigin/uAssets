@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2022)
-! Last modified: Fri, 30 Oct 2026 01:53:41 +0000
+! Last modified: Tue, 03 Nov 2026 23:12:54 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -3439,20 +3439,19 @@ chip.de###banner_top_table
 chip.de##.Ad
 chip.de##.ad
 chip.de###contentad-top-adsense-1
-chip.de##.Ad-Slot
-chip.de##div[class*="ad-slot"]
-chip.de##.ad-listing
+chip.de##div[class*="ad-slot" i]
 chip.de##div[id*="AdSlot"]
-chip.de##.ae-banner
-chip.de##.ae-skyscraper
+chip.de##.ad-listing
 chip.de##.product__top-aside
 chip.de##.RUC-DownloadButton-Wrap:has(> span:has-text(/^ANZEIGE$/))
+chip.de##div:not([id], [class]):has(> section:only-child > div:only-child > a[href^="https://www.chip.de/deals/schnaeppchen/"]:only-child > img[src^="https://quadro.burda-forward.de/"]:only-child)
+chip.de##div:not([id], [class]):has(> section:only-child > a[href^="https://www.chip.de/deals/schnaeppchen/"]:only-child > img[src^="https://quadro.burda-forward.de/"]:only-child)
 ! restore speed (the anti adblock script causing lag spikes)
 !#if cap_html_filtering
-www.chip.de##^script:has-text(/\'\, [0-9]{3}\)\]\; \}  \}/)
+www.chip.de##^script:has-text(/\, [0-9]{3}\)\]\; var /)
 www.chip.de##^script:has-text(/\"\,\"clickp\"\:\"[0-9]{1,2}\"/)
 !#else
-www.chip.de##+js(rmnt, script, /\'\, [0-9]{3}\)\]\; \}  \}/)
+www.chip.de##+js(rmnt, script, /\, [0-9]{3}\)\]\; var /)
 www.chip.de##+js(rmnt, script, /\"\,\"clickp\"\:\"[0-9]{1\,2}\"/)
 !#endif
 ||nah-versorger.de^$3p
