@@ -12,19 +12,20 @@ The EasyList-compatible fixes for high-traffic websites are added to uBO filters
 
 - Ad-Reinsertion
 - Anti-Blocker
-- Context Menu Blockage
-- Cut/Copy/Paste Blockage
+- Context Menu blockage
+- Cut/Copy/Paste blockage or manipulation
+- DevTools blockage
 - Popups/Popunders
-- Website Breakage
-- Video Ads
+- Video ads
+- Website breakage
 
 #### uAssets will not address the following:
 
 - Paywalls
 - Porn Farms
 - Annoyances (widgets, social media buttons, newsletter subscriptions, donation requests, etc)
-- Self-promotion elements
-- Requests for custom filters to modify or restyle site content (for help with these, visit [/r/uBlockOrigin](https://www.reddit.com/r/uBlockOrigin/)).
+- Self-promotion (advertising for products/services that are owned or operated by the site/domain)
+- Requests for custom filters to modify or restyle site content (for help with these, visit [/r/uBlockOrigin](https://www.reddit.com/r/uBlockOrigin/))
 
 #### How to correctly report an issue:
 
