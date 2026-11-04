@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Wed, 04 Nov 2026 06:18:14 +0000
+! Last modified: Wed, 04 Nov 2026 06:30:16 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -218,13 +218,10 @@ facebook.com,facebookwkhpilnemxj7asaniu7vnjjbiltxjqhye3mhbshg7kx5tfyd.onion###ri
 !#endif
 web.facebook.com,www.facebook.com##+js(json-prune, require.0.3.0.__bbox.require.[].3.1.__bbox.result.data.serpResponse.results.edges.[-].relay_rendering_strategy.view_model.story.sponsored_data.ad_id)
 !#if cap_html_filtering
-||facebook.com/api/graphql/$xhr,replace=/\{"node":\{"role":"SEARCH_ADS"[^\n]+?cursor":[^}]+\}/{}/g,domain=web.facebook.com|www.facebook.com
-||facebook.com/api/graphql/$xhr,replace=/\{"node":\{"__typename":"MarketplaceFeedAdStory"[^\n]+?"cursor":(?:null|"\{[^\n]+?\}"|[^\n]+?MarketplaceSearchFeedStoriesEdge")\}/{}/g,domain=web.facebook.com|www.facebook.com
-||facebook.com/api/graphql/$xhr,replace=/\{"node":\{"__typename":"VideoHomeFeedUnitSectionComponent"[^\n]+?"sponsored_data":\{"ad_id"[^\n]+?"cursor":null\}/{}/,domain=web.facebook.com|www.facebook.com
-||static.xx.fbcdn.net/rsrc.php/v*.js$script,replace=/"__typename":"SponsoredData"/"__typename":"SponsorData"/g
-||static.xx.fbcdn.net/rsrc.php/v*.js$script,replace=/return [a-zA-Z]\(JSON\.parse\([a-z]\)\)/return false/
+||static.xx.fbcdn.net/rsrc.php/v*.js$script,replace=/return [a-zA-Z]\(JSON\.parse\([a-z]\(?\)?\)\)/return false/
 ||static.xx.fbcdn.net/rsrc.php/v*.js$script,replace=/var n=s\(t\.call\(JSON\.parse\)\),/return false;var n=s(t.call(JSON.parse)),/
 ||static.xx.fbcdn.net/rsrc.php/v*.js$script,replace=/=document\.body\|\|document\.documentElement;/=document.body||document.documentElement;return false;/
+web.facebook.com,www.facebook.com##+js(json-edit, ..node[?.*.__typename=="SponsoredData"], matches, '/^.{1000,}/')
 !#else
 web.facebook.com,www.facebook.com##+js(trusted-replace-xhr-response, /\{"node":\{"role":"SEARCH_ADS"[^\n]+?cursor":[^}]+\}/g, {}, /api/graphql)
 web.facebook.com,www.facebook.com##+js(trusted-replace-xhr-response, /\{"node":\{"__typename":"MarketplaceFeedAdStory"[^\n]+?"cursor":(?:null|"\{[^\n]+?\}"|[^\n]+?MarketplaceSearchFeedStoriesEdge")\}/g, {}, /api/graphql)
@@ -18434,8 +18431,8 @@ alternativeto.net##section#alternative-list > div:not([class]):has(> div[data-te
 alternativeto.net##+js(json-prune, props.sponsoredAlternative)
 alternativeto.net##main > div.flex.justify-center > div.w-full.box-border.flex > div.w-full.container.wide-container
 alternativeto.net##.container > h2[class^="Heading-module-scss-module__"][class^="Heading-module-scss"]:has-text(supported by)
-alternativeto.net##main > section.container.wide-container > div.container > div.mt-10
 alternativeto.net##[href*="aff_c?"]
+alternativeto.net##.border-official-partner
 ! helmiau. com anti adb
 @@||helmiau.com^$script,1p
 explorecams.com##+js(no-fetch-if, ad-delivery)
