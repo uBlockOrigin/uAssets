@@ -1,6 +1,6 @@
 ! Title: uBlock filters
 ! Expires: 5 days
-! Last modified: Wed, 04 Nov 2026 17:36:51 +0000
+! Last modified: Thu, 05 Nov 2026 00:33:15 +0000
 ! Diff-Path: %diffpath%#ublock-filters
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -5273,11 +5273,7 @@ tvspielfilm.de,tvtoday.de,chip.de,focus.de,fitforfun.de##+js(set, window.__gv_or
 n-tv.de,rtl.de##+js(set-constant, Object.prototype.adReinsertion.homad.enabled, false)
 player.rtl2.de##+js(set, getHomadConfig, noopFunc)
 ||damoh.welect.de^
-!#if ext_ubol
 welt.de##+js(trusted-prevent-fetch, aud.springserve.com, <VAST version="3.0"></VAST>)
-!#else
-welt.de##+js(no-fetch-if, aud.springserve.com, war:noop-vast3.xml)
-!#endif
 ||damoh.gmx.*/*$media,redirect=noop-0.1s.mp3,1p
 ||united-infos.net^$domain=gmx.*|web.de
 focus.de,kicker.de##+js(json-prune, enabled, force_disabled)
@@ -11061,7 +11057,7 @@ almelo1.nl##.almelo-ad
 shahied4u.me##+js(rmnt, script, /googlesyndication|adblock|keydown|popundersPerIP/i)
 ! NOTE: Polish
 @@||imasdk.googleapis.com/js/sdkloader/ima3.js$script,domain=player.pl
-player.pl##+js(no-fetch-if, /gaid=, war:noop-vast2.xml)
+player.pl##+js(trusted-prevent-fetch, /gaid=, <VAST version="2.0"></VAST>)
 @@||jelonka.com^$ghide
 jelonka.com##.adsbygoogle
 jelonka.com##.kontener-reklam
@@ -14007,7 +14003,7 @@ files.fm##+js(aopr, canRunAds)
 ||cdn.flashtalking.com^$media,redirect=noopmp3-0.1s,domain=app.plex.tv
 app.plex.tv##+js(json-prune, MediaContainer.Metadata.[].Ad)
 !#if env_firefox
-imasdk.googleapis.com##+js(no-xhr-if, vod.provider.plex.tv/ad?, war:noop-vast3.xml)
+imasdk.googleapis.com##+js(trusted-prevent-xhr, vod.provider.plex.tv/ad?, <VAST version="3.0"></VAST>)
 !#else
 ||vod.provider.plex.tv/ad?$xhr,redirect=noopvast-3.0
 !#endif
@@ -18960,7 +18956,7 @@ phineypet.com###content > form[id]:has(> center > button):style(display: block !
 ||phineypet.com/2x.png
 ||phineypet.com/300x600.png
 fapdrop.com##+js(aost, atob, eval)
-fapdrop.com##+js(no-fetch-if, doubleclick.net/instream/ad_status.js, war:doubleclick_instream_ad_status.js)
+! fapdrop.com##+js(no-fetch-if, doubleclick.net/instream/ad_status.js, war:doubleclick_instream_ad_status.js)
 fapdrop.com##+js(nostif, redURL)
 fapdrop.com##[href^="https://t.crdefault1.com/"]
 fapdrop.com##.king-ads
@@ -20833,7 +20829,7 @@ erogen.su##+js(aopr, document.dispatchEvent)
 @@||api.production.k8s.y3o.tv/*/video-ads$xhr,domain=yallo.tv
 @@||imasdk.googleapis.com/js/sdkloader/ima3.js$script,domain=yallo.tv
 ||adservice.google.com^$script,redirect=noopjs,domain=yallo.tv
-imasdk.googleapis.com##+js(no-fetch-if, secure.adnxs.com/ptv, war:noop-vast4.xml)
+imasdk.googleapis.com##+js(trusted-prevent-fetch, secure.adnxs.com/ptv, <VAST version="4.0"></VAST>)
 @@*$image,domain=a2zupload.com
 @@||a2zupload.com^$ghide
 @@||googlesyndication.com/pagead/$script,domain=a2zupload.com
@@ -21358,7 +21354,7 @@ mrbenne.com##+js(rmnt, script, /fairAdblock|popMagic/)
 ebaticalfel.com,fansmega.com,iedprivatedqu.com,stownrusis.com##+js(nowoif)
 @@||cloudfront.net^$script,domain=ebaticalfel.com|fansmega.com|iedprivatedqu.com|stownrusis.com
 ||buyvisblog.com^$all
-botrix.live##+js(no-fetch-if, googlesyndication, war:google-ima.js)
+! botrix.live##+js(no-fetch-if, googlesyndication, war:google-ima.js)
 *$script,redirect-rule=noopjs,3p,domain=expressnews.com
 daotranslate.*##+js(acs, document.getElementById, deblocker, /^data:text\/javascript/)
 *$script,redirect-rule=noopjs,3p,domain=sfchronicle.com
@@ -22462,7 +22458,7 @@ filmy4wap.co.in,filmy4waps.org##+js(rmnt, script, /h=decodeURIComponent|popunder
 leakshaven.com##+js(no-fetch-if, googlesyndication)
 flaticon.com##.soul-p-nsba
 flaticon.com##+js(json-prune-fetch-response, data.[].affiliate_url, , propsToMatch, cdnpk.net/v2/images/search?)
-flaticon.com##+js(no-fetch-if, cdnpk.net/Rest/Media/, war:noop.json)
+! flaticon.com##+js(no-fetch-if, cdnpk.net/Rest/Media/, war:noop.json)
 ||cdnpk.net/sponsor/
 ||api.gettyimages.com/v3/search/images/creative?*referral_destinations$xhr,domain=flaticon.com
 ! hubcloud.foo ads
