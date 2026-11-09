@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Privacy
-! Last modified: Fri, 06 Nov 2026 10:11:52 +0000
+! Last modified: Mon, 09 Nov 2026 03:13:24 +0000
 ! Expires: 7 days
 ! Description: |
 !   Some of these filters make use of the `important` filter option,`
@@ -3403,6 +3403,16 @@ bol.com##+js(json-edit-fetch-request, $[?.operationName=="sendExperimentMeasurem
 ! https://github.com/uBlockOrigin/uAssets/issues/28050
 ||pla.uqload.vc^
 /api/videos/*/view$xhr,method=post,1p,domain=chaturflix.cam|striphub.cam
+
+! https://github.com/uBlockOrigin/uAssets/issues/26079
+tiktok.com##+js(set, AppLogBridge.hasStarted, trueFunc)
+tiktok.com##+js(set, AppLogBridge.onEventV3, noopFunc)
+tiktok.com##+js(set, AppLogBridge.profileSet, noopFunc)
+tiktok.com##+js(set, AppLogBridge.profileSetOnce, noopFunc)
+tiktok.com##+js(set, AppLogBridge.profileIncrement, noopFunc)
+tiktok.com##+js(set, AppLogBridge.profileUnset, noopFunc)
+tiktok.com##+js(set, AppLogBridge.profileAppend, noopFunc)
+tiktok.com##+js(set-local-storage-item, /__tea_cache_events_.*/, $remove$)
 
 ! Merge in resource-abuse.txt
 !#include resource-abuse.txt
