@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2025)
-! Last modified: Thu, 12 Nov 2026 04:39:11 +0000
+! Last modified: Thu, 12 Nov 2026 10:53:59 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -2424,6 +2424,7 @@ sextb.*>>##+js(nowoif)
 sextb.*>>##+js(trusted-override-element-method, HTMLAnchorElement.prototype.click, a[href][target="_blank"])
 sextb.net##.right:has(script)
 ||sextb.net/js/brs.js$script
+||sextb.*/js/popup.js
 /assets/jquery/*.js?type=adult^$script,1p
 /assets/jquery/static.js?type=mainstream^$script,1p
 /assets/jquery/hg-function.js?$script
@@ -2436,6 +2437,7 @@ f4scdn.com##+js(nowoif, _blank)
 ||affectionatestorage.com^
 ! https://www.reddit.com/r/uBlockOrigin/comments/1ogmw3q/sextbnet_nsfw_forces_you_to_disable_ubo/
 sextb.*#@#.ad-placeholder:not(#detect, #detect_ad_empire, #filter_ads_by_classname, .adsbox)
+sextb.*##+js(trusted-replace-argument, HTMLHtmlElement.prototype.hasAttribute, 0, json:"lang", condition, data-adfree)
 ! https://github.com/uBlockOrigin/uAssets/issues/33542
 audinifer.com,vibuxer.com##+js(rmnt, script, window.open)
 audinifer.com,vibuxer.com##body > div[style*="2147483647"]
