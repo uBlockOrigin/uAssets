@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Unbreak
-! Last modified: Fri, 06 Nov 2026 02:39:15 +0000
+! Last modified: Sat, 14 Nov 2026 04:57:45 +0000
 ! Expires: 5 days
 ! Description: Filters optimized for uBlock Origin, to unbreak sites broken as a result of 3rd-party filter lists enabled by default.
 ! Homepage: https://github.com/uBlockOrigin/uAssets
@@ -6103,3 +6103,13 @@ funradio.fr##+js(trusted-set, getUserConsentStatus, json:{"dailymotion":true}, a
 
 ! https://github.com/uBlockOrigin/uAssets/issues/35181
 @@||h-visa2.online-metrix.net^$frame,domain=src.visa.com
+
+! https://github.com/uBlockOrigin/uAssets/issues/35338
+!#if cap_html_filtering
+||masstransitmag.com/_nuxt/useEvent-*.mjs^$script,1p,replace=/e\.indexOf\(`GTM-`\)===0/typeof n==`function`&&await n();false/
+!#else
+@@||googletagmanager.com/gtm.js$domain=masstransitmag.com
+@@||googletagmanager.com/gtag/js$domain=masstransitmag.com
+@@||google-analytics.com/analytics.js$domain=masstransitmag.com
+@@||google-analytics.com/plugins/ua/linkid.js$domain=masstransitmag.com
+!#endif

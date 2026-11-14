@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Unbreak
 ! Expires: 5 days
-! Last modified: Fri, 06 Nov 2026 02:39:15 +0000
+! Last modified: Sat, 14 Nov 2026 04:57:45 +0000
 ! Diff-Path: %diffpath%#ublock-unbreak
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -2882,3 +2882,11 @@ funradio.fr##+js(trusted-set, getUserConsentStatus, json:{"dailymotion":true}, a
 ||log.nordot.jp/pageview
 @@||securepubads.g.doubleclick.net/tag/js/gpt.js$script,redirect-rule=googletagservices_gpt.js:5,domain=theglobeandmail.com
 @@||h-visa2.online-metrix.net^$frame,domain=src.visa.com
+!#if cap_html_filtering
+||masstransitmag.com/_nuxt/useEvent-*.mjs^$script,1p,replace=/e\.indexOf\(`GTM-`\)===0/typeof n==`function`&&await n();false/
+!#else
+@@||googletagmanager.com/gtm.js$domain=masstransitmag.com
+@@||googletagmanager.com/gtag/js$domain=masstransitmag.com
+@@||google-analytics.com/analytics.js$domain=masstransitmag.com
+@@||google-analytics.com/plugins/ua/linkid.js$domain=masstransitmag.com
+!#endif
