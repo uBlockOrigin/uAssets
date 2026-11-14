@@ -37,8 +37,18 @@ done
 
 PATCH_FILES=( $(ls -1v "$PATCHES_DIR"/*.patch | head -n -1) )
 
+CLEANUP_FILES=( )
+CLEANUP_DIRS=( )
+cleanup() {
+    rm -f "${CLEANUP_FILES[@]}"
+    rm -rf "${CLEANUP_DIRS[@]}"
+}
+trap cleanup EXIT
+
 NEW_PATCH_FILE=$(mktemp)
+CLEANUP_FILES+=( "$NEW_PATCH_FILE" )
 DIFF_FILE=$(mktemp)
+CLEANUP_FILES+=( "$DIFF_FILE" )
 
 for PATCH_FILE in "${PATCH_FILES[@]}"; do
 
@@ -49,6 +59,7 @@ for PATCH_FILE in "${PATCH_FILES[@]}"; do
     # This will receive a clone of an old version of the current repo
     echo "Fetching repo at $PREVIOUS_VERSION version"
     OLD_REPO=$(mktemp -d)
+    CLEANUP_DIRS+=( "$OLD_REPO" )
     git clone -q --single-branch --branch "$PREVIOUS_VERSION" --depth=1 "https://github.com/$REPO_DIR.git" "$OLD_REPO" 2>/dev/null || true
 
     # Skip if version doesn't exist
@@ -110,6 +121,3 @@ for PATCH_FILE in "${PATCH_FILES[@]}"; do
     git add -u "$PATCH_FILE"
 
 done
-
-rm -f "$DIFF_FILE"
-rm -f "$NEW_PATCH_FILE"
