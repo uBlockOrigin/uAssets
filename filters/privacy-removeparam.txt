@@ -520,6 +520,29 @@ $to=~tradedoubler.com,removeparam=tduid
 ! Bad: ||example.org^$xmlhttprequest,redirect=noopvast-3.0 (for instance, should be in specific.txt)
 !
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/246953
+||speedtest.ru^$removeparam=from
+! zhihu.com
+||zhihu.com^$removeparam=share_code
+||zhihu.com^$removeparam=utm_psn
+! check24.de searching for article
+||check24.de/suche/?q$removeparam=source
+! https://github.com/AdguardTeam/AdguardFilters/issues/246385
+||euronews.com^$removeparam=webPushId
+! https://github.com/AdguardTeam/AdguardFilters/issues/246067
+||trck.norisbank.de/click.php$removeparam=s_id
+||trck.norisbank.de/click.php$removeparam=kidc
+||trck.norisbank.de/click.php$removeparam=kid
+||dkb.de^$removeparam=referer
+||aktionen.consorsbank.de^$removeparam=partnerId
+||aktionen.consorsbank.de^$removeparam=aid
+||aktionen.consorsbank.de^$removeparam=cid
+||aktionen.consorsbank.de^$removeparam=trid
+! https://github.com/AdguardTeam/AdguardFilters/issues/246011
+||1xlite-12669.pro^$removeparam=tag
+||1xlite-12669.pro^$removeparam=pb
+||1xlite-12669.pro^$removeparam=click_id
+||1xlite-12669.pro^$removeparam=r
 ! https://github.com/AdguardTeam/AdguardFilters/issues/245728
 ||auto.de^$removeparam=source
 ||auto.de^$removeparam=medium
@@ -2095,8 +2118,12 @@ $removeparam=from,to=doujinnomori.com|shinshi-manga.net|echiman.com|dojin-navi.c
 ||slickdeals.net/*&sdtrk=$removeparam=sdtrk
 ! https://github.com/AdguardTeam/AdguardFilters/issues/167158
 ||beacon-recommend.tower.jp^$removeparam=tracking_id
+!
+! https://github.com/AdguardTeam/AdguardFilters/issues/246147
+||kinopoisk.ru^$removeparam=socialAlias
 ! https://github.com/AdguardTeam/AdguardFilters/issues/166502
 ||kinopoisk.ru^$removeparam=from_block
+!
 ! https://github.com/AdguardTeam/AdguardFilters/issues/166917
 ||bizhint.jp^$removeparam=trcd
 ! https://github.com/AdguardTeam/AdguardFilters/issues/166582
@@ -3345,10 +3372,25 @@ $removeparam=a_aid,domain=expressvpn.com|vpnarea.com|wook.pt|affiliate.privatevp
 ! kohls.com - counter
 ||kohls.com^$removeparam=CID
 ! instagram.com - share tracking
+||instagram.com^$removeparam=igsi
+||instagram.com^$removeparam=ndid
+||instagram.com^$removeparam=dlrf
+||instagram.com^$removeparam=psln
+||instagram.com^$removeparam=cplk
+||instagram.com^$removeparam=rpxt
+||instagram.com^$removeparam=srtk
+||instagram.com^$removeparam=obrf
+||instagram.com^$removeparam=xtok
+||instagram.com^$removeparam=mdxt
+||instagram.com^$removeparam=exln
+||instagram.com^$removeparam=vrfl
 ||instagram.com^$removeparam=stkn
 ||instagram.com^$removeparam=ig_rid
 ||instagram.com^$removeparam=igsh
-$removeparam=igshid,domain=instagram.com|threads.com|threads.net
+$removeparam=igshid,to=instagram.com|threads.com|threads.net
+! https://github.com/DandelionSprout/adfilt/discussions/163#discussioncomment-18457419
+||instagram.com^$removeparam=click_source
+!
 ! https://github.com/AdguardTeam/AdguardFilters/issues/89768
 ||mediamarkt.com.tr^$removeparam=rbtc
 ! https://github.com/AdguardTeam/AdguardFilters/issues/90055
