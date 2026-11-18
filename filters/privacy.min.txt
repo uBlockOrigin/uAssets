@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Privacy
 ! Expires: 7 days
-! Last modified: Wed, 18 Nov 2026 09:45:57 +0000
+! Last modified: Wed, 18 Nov 2026 18:29:51 +0000
 ! Diff-Path: %diffpath%#ublock-privacy
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -2137,6 +2137,9 @@ tiktok.com##+js(set-local-storage-item, /__tea_cache_events_.*/, $remove$)
 fcportables.com,filecatchers.com##+js(no-fetch-if, method:POST body:/detect|trigger/)
 ||suikora.com/api/views
 ! Merge in resource-abuse.txt
+!#if ext_devbuild
+||optimizely.com/js/$script,redirect=optimizely.js
+!#endif
 ! *** uAssets:filters/resource-abuse.txt ***
 /edgemesh.*.js$script,domain=~edgemesh.com|~edgeno.de
 ||safelinkconverter.com^$script,3p
