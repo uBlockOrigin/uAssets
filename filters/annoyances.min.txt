@@ -1,6 +1,6 @@
 ! Title: uBlock filters – Annoyances
 ! Expires: 7 days
-! Last modified: Thu, 19 Nov 2026 00:42:51 +0000
+! Last modified: Thu, 19 Nov 2026 00:54:40 +0000
 ! Diff-Path: %diffpath%#ublock-annoyances
 ! Diff-Expires: 317 minutes
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -396,9 +396,6 @@ free-barcode-generator.net##[id^="reklamy"]
 ! gomovies .click anti right click, keys, select
 gomovies.*##+js(acs, document.oncontextmenu)
 gomovies.*##*:style(-webkit-touch-callout: default !important; -webkit-user-select: text !important; -moz-user-select: text !important; -ms-user-select: text !important; user-select: text !important;)
-! newsforbolly .org anti right click, anti ctrl u, f12
-newsforbolly.org##+js(acs, document.oncontextmenu)
-newsforbolly.org##+js(ra, onkeydown)
 thefreethoughtproject.com##.pum
 thefreethoughtproject.com##html:style(overflow:auto !important)
 nytimes.com###modal-portal-regiwall
@@ -410,9 +407,6 @@ clubulbebelusilor.ro##*:style(-webkit-touch-callout: default !important; -webkit
 clubulbebelusilor.ro##+js(aeld, contextmenu)
 seotechman.com##*:style(-webkit-touch-callout: default !important; -webkit-user-select: text !important; -moz-user-select: text !important; -ms-user-select: text !important; user-select: text !important;)
 seotechman.com##*::selection:style(background-color:#338FFF!important)
-! katosatoshi.jp right-click, text-selection
-katosatoshi.jp##+js(ra, oncontextmenu, body)
-katosatoshi.jp##body:style(-webkit-user-select:text!important;-moz-user-select:text!important;-ms-user-select:text!important;user-select:text!important)
 ! zeeebatch.blogspot .com select, ctrl-u etc
 zeeebatch.blogspot.com##+js(acs, document.onmousedown)
 zeeebatch.blogspot.com##*:style(-webkit-touch-callout: default !important; -webkit-user-select: text !important; -moz-user-select: text !important; -ms-user-select: text !important; user-select: text !important;)
@@ -431,8 +425,6 @@ digital.lasegunda.com##*:style(-webkit-touch-callout: default !important; -webki
 ! mhwg.org anti right click, anti select
 mhwg.org##+js(ra, oncontextmenu|onselectstart|style, #body_game)
 /wp-content/plugins/secure-copy-content-protection/*$script
-! mesquitaonline .com anti right click, select
-mesquitaonline.com##+js(aeld, , mdp)
 poeapp.com##.sponsor, div.wrapper
 ! blasianluvforever .com right click, select
 blasianluvforever.com##+js(acs, document.oncontextmenu)
@@ -1111,8 +1103,6 @@ tuborstb.co##+js(nostif, debugger)
 vembed.*##+js(rmnt, script, devtools)
 ! netu.tv sites, anti devtools
 netu.*,netuplayer.top,stbnetu.xyz##+js(set, devtoolsDetector.launch, noopFunc)
-! stblion.xyz anti devtools
-stblion.xyz##+js(rmnt, script, while(!![]){try{var)
 ! firescans. xyz anti drag and drop, f-keys
 firescans.xyz##+js(acs, jQuery, hmwp_is_devtool)
 ||unic.com.vn/js/disable-copy.js$script
@@ -1157,7 +1147,6 @@ einthusan.tv##+js(set, login_completed, true)
 radartest.com##+js(acs, document.onmousedown, disableclick)
 ! skuola.net anti copy & right click
 skuola.net##+js(aeld, /contextmenu|copy/)
-4kwebplay.xyz,qqwebplay.xyz,lewblivehdplay.ru,claplivehdplay.ru,tutlehd4.com##+js(ra, oncontextmenu)
 ! cabinetexpert. ro anti right click, select, drag, print
 cabinetexpert.ro##+js(aopw, disableEnterKey)
 cabinetexpert.ro##+js(aopw, document.ondragstart)
@@ -1182,8 +1171,6 @@ indahonline.com##+js(aost, $, /mainseto.js:286:1)
 videocardz.com##*:style(user-select: text !important; -ms-user-select: text !important; -moz-user-select: text !important; -khtml-user-select: text !important; -webkit-user-select: text !important; -webkit-touch-callout: default !important;)
 ! tinyhouse-baluchon.fr anti right click
 tinyhouse-baluchon.fr##+js(acs, document.oncontextmenu)
-! anicrush.to anti-devtools
-southcloud.tv##+js(set, console.clear, undefined)
 japonhentai.com##+js(acs, addEventListener, ays_tooltip)
 !#if cap_html_filtering
 japonhentai.com##^style:has-text(::selection)
@@ -1192,10 +1179,6 @@ japonhentai.com##+js(rmnt, style, ::selection)
 !#endif
 ! duracell.de anti contextmenu
 duracell.de##+js(aeld, contextmenu)
-broflix.cc##+js(aeld, /contextmenu|keydown/, preventDefault)
-! rds. live anti (right click, select)
-rds.live##+js(rmnt, script, contextmenu)
-rds.live##*:style(user-select: text !important; -ms-user-select: text !important; -moz-user-select: text !important; -khtml-user-select: text !important; -webkit-user-select: text !important; -webkit-touch-callout: default !important;)
 !#if cap_html_filtering
 nihongoaz.com##^script:has-text(contentprotector)
 !#else
@@ -1225,9 +1208,9 @@ infotrucker.ro##*:style(-webkit-touch-callout: default !important; -webkit-user-
 adevarurisecrete.com##+js(rmnt, script, /oncontextmenu|wccp/)
 adevarurisecrete.com##*:style(-webkit-touch-callout: default !important; -webkit-user-select: text !important; -khtml-user-select: text !important; -moz-user-select: text !important; -ms-user-select: text !important; user-select: text !important; -webkit-tap-highlight-color: revert !important; cursor: revert !important;)
 ! bintv anti right click, ctrl-u, dev tools
-bintv.fun,bintvs.fun##+js(rpnt, script, keydown, ooo)
-bintv.fun,bintvs.fun##+js(rpnt, script, onkeydown, ooo)
-bintv.fun,bintvs.fun##+js(rpnt, script, contextmenu, ccc)
+bintvs.fun##+js(rpnt, script, keydown, ooo)
+bintvs.fun##+js(rpnt, script, onkeydown, ooo)
+bintvs.fun##+js(rpnt, script, contextmenu, ccc)
 ||cdn.jsdelivr.net/npm/disable-devtool@latest$script,domain=bintvs.fun
 ! allow selecting text
 vitsienvitsit.fi##.vitsiUnselectable:style(user-select: text !important)
