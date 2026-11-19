@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2026)
-! Last modified: Thu, 19 Nov 2026 00:36:52 +0000
+! Last modified: Thu, 19 Nov 2026 10:18:54 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -2505,3 +2505,13 @@ suikora.com##+js(nowoif, _blank)
 ! liddread.com anti adblock and placeholder
 liddread.com##+js(rmnt, script, AdBlock)
 liddread.com##div[data-type="_mgwidget"]
+
+! https://github.com/uBlockOrigin/uAssets/issues/35413
+camsmut.com##iframe[_]:remove()
+camsmut.com##+js(rmnt, script, /setRequestHeader|decodeURIComponent/)
+camsmut.com##.main-video div.noselect.no-drag[draggable]:not([style])
+camsmut.com##a[href^="/g/"]
+||camsmut.com/o|$xhr
+||camsmut.com/vidzqi/
+||althz.com^
+||creative.*.com/widgets/Player/?modelName=$frame,3p
