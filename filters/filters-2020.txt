@@ -1,5 +1,5 @@
 ! Title: uBlock filters (2020)
-! Last modified: Mon, 09 Nov 2026 12:07:06 +0000
+! Last modified: Sun, 22 Nov 2026 09:43:30 +0000
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -2518,6 +2518,7 @@ go.discovery.com,investigationdiscovery.com,go.tlc.com,sciencechannel.com,watch.
 discoveryplus.*##+js(xml-prune, 'xpath(//*[name()="MPD"][.//*[name()="BaseURL" and contains(text(),"emea-free")]]/@mediaPresentationDuration | //*[name()="MPD"][.//*[name()="BaseURL" and contains(text(),"emea-free")]]//*[name()="Period"]/@start | //*[name()="Period"][./*[name()="BaseURL" and contains(text(),"emea-free")]])', , .mpd)
 ! https://github.com/uBlockOrigin/uAssets/issues/27520
 play.discoveryplus.com##+js(json-prune, ssaiInfo)
+||media.h264.io/*/dash.mpd$xhr,3p,domain=play.discovery.com
 ! https://github.com/uBlockOrigin/uAssets/issues/20172
 ! https://github.com/uBlockOrigin/uAssets/issues/25997
 go.tlc.com,investigationdiscovery.com##+js(json-prune-xhr-response, data.attributes.ssaiInfo, , propsToMatch, /videoPlaybackInfo)
