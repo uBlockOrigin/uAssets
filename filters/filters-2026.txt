@@ -2516,3 +2516,19 @@ imgtag.co.kr##.itgp-ad
 ! https://github.com/uBlockOrigin/uAssets/issues/35491
 dropdrive.rip##+js(trusted-set-attr, script, data-download-probe, 'ready')
 dropdrive.rip##+js(nostif, offsetHeight)
+
+! https://github.com/uBlockOrigin/uAssets/issues/20792
+! https://github.com/uBlockOrigin/uAssets/issues/20792#issuecomment-7086626363
+! https://github.com/easylist/easylist/blob/master/easylist/easylist_specific_hide.txt
+! x.com promoted posts: the data-ad-disclosure marker is absent from the current
+! build, so the EasyList rule does not fire. Use the outbound twclid ad link.
+! The timeline is virtualized (items are position:absolute + translateY), so
+! hiding an item leaves a blank gap unless the list is made to flow normally.
+x.com##div[id^="urt"] > ul > li[data-index]:style(position: static !important; transform: none !important; top: auto !important; left: auto !important;)
+x.com##div[id^="urt"] > ul > li[data-index]:upward(1):style(height: auto !important;)
+x.com##div[id^="urt"] > ul > li[data-index]:has(a[target="_blank"][href*="twclid="]):style(display: none !important;)
+x.com##div[id^="urt"] > ul > li[data-index]:has([class*="data-ad-disclosure"]):style(display: none !important;)
+x.com##[data-testid="cellInnerDiv"]:style(position: static !important; transform: none !important; top: auto !important; left: auto !important;)
+x.com##[data-testid="cellInnerDiv"]:upward(1):style(min-height: 0 !important; height: auto !important;)
+x.com##[data-testid="cellInnerDiv"]:has(a[target="_blank"][href*="twclid="]):style(display: none !important;)
+x.com##[data-testid="cellInnerDiv"]:has([class*="data-ad-disclosure"]):style(display: none !important;)
