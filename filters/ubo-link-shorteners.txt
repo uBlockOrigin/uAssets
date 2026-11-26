@@ -1,5 +1,5 @@
 ! Title: uBlock filters – Link shorteners
-! Last modified: Sun, 22 Nov 2026 18:10:03 +0000
+! Last modified: Thu, 26 Nov 2026 03:48:37 +0000
 ! Expires: 5 days
 ! Description: Filters optimized for uBlock, to be used along EasyList
 ! Homepage: https://github.com/uBlockOrigin/uAssets
@@ -641,6 +641,9 @@ pahe.ink##+js(trusted-replace-outbound-text, decodeURIComponent, /^__x[0-9a-f]{7
 pahe.ink##+js(trusted-replace-outbound-text, decodeURIComponent, /^[0-9a-f]__$/)
 pahe.ink,intercelestial.com##+js(aeld, click, /(?=[\s\S]*(?:isTrusted|defaultPrevented|button))(?=[\s\S]*(?:ctrlKey|metaKey|shiftKey|altKey))(?=[\s\S]*(?:getAttribute|tagName))(?=[\s\S]*Date\s*\.\s*now)/, elements, document)
 /^https:\/\/pahe\.ink\/[-a-z0-9\/]+$/$script,1p,match-case
+!#if cap_html_filtering
+pahe.ink##^script:min-text-length(50000)
+!#endif
 
 ! Tpi group
 aii.sh,lnbzi.com,clksz.com,tpi.li,oii.la,srnky.com##+js(trusted-replace-outbound-text, decodeURIComponent, /^__x[0-9a-f]{7}$/, document)
