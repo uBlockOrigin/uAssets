@@ -3,6 +3,7 @@
 # This script assumes a linux environment
 
 TEMPFILE=$(mktemp)
+trap 'rm -f "$TEMPFILE"' EXIT
 
 echo "*** uAssets: updating remote assets..."
 
